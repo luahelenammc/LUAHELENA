@@ -11,7 +11,7 @@
   <link href="/commom.css" rel="stylesheet" type="text/css" />
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       background-color: #1c1c1c;
       color: white;
       margin: 0;
@@ -19,6 +19,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
     header {
       background-color: #1c1c1c;
@@ -27,29 +30,32 @@
       width: 100%;
     }
     header h1 {
-      font-size: 48px;
+      font-size: 64px;
       margin: 0;
       color: #19fa98;
     }
     nav {
-      background-color: #2d2d2d;
-      padding: 10px;
-      border-radius: 8px;
       margin: 20px 0;
       text-align: center;
     }
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: white;
+      color: #7afa19;
       font-size: 18px;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.3s;
+    }
+    nav a:hover {
+      border-bottom: 2px solid #19fa98;
     }
     .content {
-      background-color: #2d2d2d;
       max-width: 800px;
       padding: 20px;
+      background-color: #282828;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       margin: 20px;
-      border-radius: 8px;
     }
     .content h2 {
       font-size: 36px;
@@ -60,12 +66,7 @@
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 20px;
-    }
-    .card {
-      background-color: #383838;
-      padding: 20px;
-      margin: 10px 0;
-      border-radius: 8px;
+      color: #d4d4d4;
     }
     footer {
       background-color: #1c1c1c;
@@ -73,6 +74,8 @@
       text-align: center;
       padding: 20px 0;
       width: 100%;
+      position: absolute;
+      bottom: 0;
     }
   </style>
 </head>
