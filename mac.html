@@ -15,7 +15,7 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      color:white;
+      color: white;
     }
     .dock {
       display: flex;
@@ -30,14 +30,11 @@
       transition: transform 0.2s;
       margin: 0 10px;
     }
-    .dock img:hover {
+    .dock img.active {
       transform: scale(1.5);
     }
-    .dock img:hover ~ img {
+    .dock img.adjacent {
       transform: scale(1.2);
-    }
-    .dock img:active {
-      animation: bounce 0.3s;
     }
     @keyframes bounce {
       0%, 100% {
@@ -46,6 +43,9 @@
       50% {
         transform: translateY(-15px);
       }
+    }
+    .dock img.bouncing {
+      animation: bounce 0.3s;
     }
   </style>
 </head>
@@ -60,27 +60,32 @@
   <script>
     const dockImages = document.querySelectorAll('.dock img');
 
-    dockImages.forEach((img) => {
+    dockImages.forEach((img, index) => {
       img.addEventListener('mouseenter', () => {
-        const index = Array.from(dockImages).indexOf(img);
         dockImages.forEach((img, i) => {
-          if (i !== index) {
-            const distance = Math.abs(i - index);
-            img.style.transform = `scale(${1 + 0.3 / distance})`;
-          }
+          img.classList.remove('active', 'adjacent');
         });
+
+        img.classList.add('active');
+        
+        if (dockImages[index - 1]) {
+          dockImages[index - 1].classList.add('adjacent');
+        }
+        if (dockImages[index + 1]) {
+          dockImages[index + 1].classList.add('adjacent');
+        }
       });
 
       img.addEventListener('mouseleave', () => {
         dockImages.forEach((img) => {
-          img.style.transform = 'scale(1)';
+          img.classList.remove('active', 'adjacent');
         });
       });
 
       img.addEventListener('click', () => {
-        img.style.animation = 'bounce 0.3s';
+        img.classList.add('bouncing');
         setTimeout(() => {
-          img.style.animation = '';
+          img.classList.remove('bouncing');
         }, 300);
       });
     });
