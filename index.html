@@ -19,7 +19,7 @@
       color: white;
     }
     .logo {
-      width: 100px;
+      width: 350px;
       height: auto;
       margin-bottom: 20px;
       animation: fade 10s infinite;
@@ -40,8 +40,8 @@
       border-radius: 20px;
     }
     .dock img {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       transition: transform 0.2s;
       margin: 0 10px;
     }
@@ -55,22 +55,19 @@
       0%, 100% {
         transform: translateY(0);
       }
-      25% {
+      25%, 75% {
         transform: translateY(-15px);
       }
       50% {
         transform: translateY(0);
       }
-      75% {
-        transform: translateY(-7px);
-      }
     }
     .dock img.bouncing {
-      animation: bounce 0.6s;
+      animation: bounce 1s;
     }
     .fade-images {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       margin: 0 10px;
       position: relative;
     }
@@ -87,7 +84,7 @@
   </style>
 </head>
 <body>
-  <img src="/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
+  <img src="/images/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
   <div class="dock">
     <a href="https://www.linkedin.com/in/luahelena/" target="_blank"><img src="/images/work folder.png" alt="Currículo Profissional (LinkedIn)"></a>
     <img src="/images/books.png" alt="Recomendações de Livros, Séries e Jogos">
@@ -136,10 +133,10 @@
       });
 
       img.addEventListener('click', () => {
-        img.classList.add('bouncing');
+        img.style.animation = 'bounce 1s';
         setTimeout(() => {
-          img.classList.remove('bouncing');
-        }, 600);
+          img.style.animation = '';
+        }, 1000);
       });
     });
   </script>
