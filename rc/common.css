@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Mobile Adaptation */
+ @viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+  } 
+  @-ms-viewport {
+  width: device-width ;
+  }
+ 
+ 
+ 
+/* Custom Font */
+
+    @font-face {
+    font-family: 'Sentient';
+    src: url('/fonts/Sentient.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('/fonts/HelveticaNeue.ttf') format('truetype');
+}   
+
+@font-face {
+    font-family: 'LibreBaskerville';
+    src: url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+}   

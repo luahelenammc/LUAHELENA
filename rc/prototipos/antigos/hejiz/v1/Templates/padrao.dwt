@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" language="javascript" src="js/lytebox.js"></script>
+<link rel="stylesheet" href="js/lytebox.css" type="text/css" media="screen" />
+<!-- TemplateBeginEditable name="utf" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateEndEditable -->
+<link rel="icon" href="imagens/icon.gif" type="image/gif">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Hejiz</title>
+<!-- TemplateEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+<body>
+<div align="center">
+<div id="tudo">
+  <div id="topo"><img src="../imagens/topo.png" width="820" height="154" border="0" usemap="#Map" />
+    <map name="Map" id="Map">
+      <area shape="rect" coords="16,3,806,150" href="index.php" target="_self" />
+    </map>
+  </div>
+  <div id="menu">
+    <div class="botoes">
+      <a href="index.php" target="_self"><div id="botao">Principal</div></a>
+      <a href="sobre.html" target="_self">
+      <div id="botao">Sobre</div></a>
+      <a href="portfolio.html" target="_self">
+      <div id="botao">Portfólio</div></a>
+	  <a href="downloads.html" target="_self"><div id="botao">Downloads</div></a>
+    </div>
+  </div>
+  <div id="conteudo">
+    <div class="titulo"><!-- TemplateBeginEditable name="titulo" -->Lorem Ipsum<!-- TemplateEndEditable --></div>
+    <!-- TemplateBeginEditable name="conteudo" --><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<!-- TemplateEndEditable --></div>
+  <div id="rodape">Hejiz | Site interamente de nossa autoria | Todos os direitos reservados &copy; 2010</div>
+</div>
+</div>
+</body>
+</html>

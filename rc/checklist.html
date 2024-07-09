@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.task-item.checked {
+    opacity: 0.4;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.checkbox.checked {
+    background-color: #a3cf72;
+    opacity: 0.4;
+}
+
+.task-text {
+    flex: 1;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+li.checked .task-text {
+    text-decoration: line-through;
+    color: #555555;
+    opacity: 0.4;
+}
+
+  </style>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="images/browser.png">
+<title>Checklist</title>
+
+</head>
+<body>
+  
+   <h1 id="currentDate"></h1>
+
+    <input type="text" id="taskInput" placeholder="Digite uma nova task">
+    <button onclick="addTask()">Inserir</button>
+
+    <ul id="taskList"></ul>
+  
+<script>
+  var currentDateElement = document.getElementById("currentDate");
+var currentDate = new Date();
+var formattedDate = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear();
+currentDateElement.innerText = formattedDate;
+
+
+function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskList = document.getElementById("taskList");
+
+    var taskText = taskInput.value;
+
+    if (taskText.trim() === "") {
+        alert("Por favor, insira uma task.");
+        return;
+    }
+
+    var taskItem = document.createElement("li");
+    taskItem.classList.add("task-item");
+
+    var checkbox = document.createElement("span");
+    checkbox.classList.add("checkbox");
+    checkbox.onclick = function() {
+        taskItem.classList.toggle("checked");
+    };
+
+    var taskTextSpan = document.createElement("span");
+    taskTextSpan.classList.add("task-text");
+    taskTextSpan.innerText = taskText;
+    taskTextSpan.onclick = function() {
+        taskItem.classList.toggle("checked");
+    };
+
+    taskItem.appendChild(checkbox);
+    taskItem.appendChild(taskTextSpan);
+
+    taskList.appendChild(taskItem);
+    taskInput.value = "";
+}
+
+var taskInput = document.getElementById("taskInput");
+taskInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+  
+});
+
+  </script>
+  
+</body>
+</html>

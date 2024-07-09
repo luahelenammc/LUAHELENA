@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XTDS6RGCZ');
+</script>
+  <title>📺 Séries Recomendadas</title>
+  <link rel="icon" type="image/x-icon" href="images/series.png">
+  <meta name="viewport" content="width=device-width, initial- scale=1">
+  <style>
+    
+    /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00ff99; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc99; 
+}
+    
+        
+  body {
+  font-family: 'General Sans', sans-serif;
+  font-size: 12px;
+  background:url(images/trianglebg.jpeg) repeat;
+  color: white;
+    text-shadow: 0 0 30px black, 0 0 5px black;
+    background-size: 35%;
+  }
+  #wrapper {
+  text-align: center;
+  width: 100%;
+  }
+  #top {
+  text-align: center;
+  margin:10px 0 10px 0;
+  }
+  #middle {
+  text-align: center;
+  width: 100%;
+  margin-top:20px;
+  }
+  #bottom {
+  text-align: center;
+  Margin-bottom: 20px;
+  }
+  #title {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Sentient', sans-serif;
+    margin-bottom:10px;
+  }
+  #title2 {
+  font-size: 30px;
+  font-family: 'Sentient', sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+  }
+  #subtitle {
+  font-size: 20px;
+  font-family: 'Sentient', sans-serif;
+  text-align:center;
+  font-style: italic;
+margin-bottom: 15px;
+  }
+
+  a:link, a:visited {
+  text-decoration: decoration;
+  color: #2fff93;
+  }
+
+  a:hover, a:active {
+  text-decoration: none;
+  color:#ff0317;
+    text-shadow: 0 0 50px black, 0 0 5px black;
+  }
+    
+       .yellow a:hover, .yellow a:active {
+      color:#ffd307;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .red a:hover, .red a:active {
+      color:#f62c2c;
+      text-shadow: 0px 0px 6px black;
+    }
+
+    
+     .green a:hover, .green a:active {
+      color:#67f62c;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .blue a:hover, .blue a:active {
+      color:#2cc9f6;
+      text-shadow: 0px 0px 6px black;
+    }
+
+  #element {
+  display: inline-grid;
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 5px;
+     font-size:20px;
+  font-family:'Sentient', sans-serif;
+    font-weight:bold;
+    max-width:350px;
+  }
+    
+#name {
+  font-size: 30px;
+  font-style: italic;
+    }
+
+  #description {
+  font-weight:bold;
+    color: black;
+    text-shadow:none;
+    margin-bottom:5px;
+  }
+
+  #element:hover, #element:active {
+  box-shadow: 0px 0px 15px 2px #e6e6e6;
+  }
+
+  .icon {
+  max-height: 100px;
+  }
+   
+
+  #pic {
+  max-height:300px;
+    max-width: 340px;
+    border-radius: 20px;
+  }
+
+  #category {
+  margin-top:30px;
+  margin-bottom:5px;
+  font-size:40px;
+  font-family:'Sentient', sans-serif;
+  font-style: italic;
+  }
+
+  #platform {
+  max-width:200px;
+
+  }
+    
+   
+      #description a:link, #description a:visited {
+        color:black;
+        text-decoration:underline;
+      }
+      
+      #description a:hover, #description a:active {
+        color:black;
+        text-decoration:none;
+        text-shadow: 0 0 10px #2fff93, 0 0 5px #2fff93;
+      }
+    
+    #tag {
+     display: inline-grid;
+  padding: 5px;
+  margin: 2px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-family: 'General Sans', sans-serif;
+      background:#262626;
+      color:white;
+      opacity: 0.8;
+    }
+    
+    #tag:hover {
+      opacity: 1;
+      -webkit-box-shadow: 2px 2px 3px 0px #37c246, -2px -2px 3px 0px #bc2529; 
+box-shadow: 2px 2px 3px 0px #37c246, -2px -2px 3px 0px #bc2529;
+    }
+    
+    #fav {
+       max-height: 100px;
+    position: absolute;
+    margin-left: 105px;
+    margin-top: 40px;
+    }
+    
+       #music_icon {
+     max-width: 45px;
+  margin: 3px 1px -13px 1px;
+         display:inline-grid;
+    }
+    
+     #music_icon:hover {
+    filter: contrast(1.5);
+    }
+    
+      #cat {
+    padding: 5px;
+    display: inline-block;
+    margin: 3px;
+    background: #2fff9361;
+    border-radius: 10px;
+        color:white;
+    }
+    
+     #cat:hover {
+      background:#ffffff7a;
+       color:#2fff93;
+    }
+    
+    #catlist {
+     font-weight: bold; font-style: italic;
+      font-family: 'Sentient', sans-serif;
+      font-size: 15px; 
+    }
+    
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+    <div id="top">
+<img src="images/series.png" id="pic">
+      <div id="title">
+        Séries
+        <br>Recomendadas
+      </div>
+      <div id="title2">
+        <a href="/index.html">Régis Cardoso</a>
+      </div>
+      <div id="subtitle">
+        [Muni Maggi]
+      </div>
+    </div>
+    <div id="middle">
+      <div id="catlist">
+<div style="font-size:20px">Categorias</div>
+<a href="#series"><div id="cat">Séries de TV</div></a>
+<a href="#desenhos"><div id="cat">Desenhos</div></a>
+        <a href="#nostalgia"><div id="cat">Nostálgicos</div></a>
+</div>
+      
+      <div id="category"><a id="series"></a>
+        Séries de TV 
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/dark.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Dark</div>
+        (2017 — 2020)
+        </div>
+        <div><div id="tag">Ficção Científica</div><div id="tag">Viagem no Tempo</div><div id="tag">Mistério</div><div id="tag">Suspense</div><div id="tag">Tragédia</div></div>
+       <div><a href="https://youtu.be/fUiifh_aCLU" target="_blank"><img src="images/music_icon_fav.png" id="music_icon" style="display:inline-grid"></a><a href="https://youtu.be/oMHLkcc9I9c" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon" style="display:inline-grid;"></a></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/wandavision.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name"><a href="/personalidade.html" target="_blank">Wanda</a>Vision</div>
+        (2021)
+        </div>
+              <div><div id="tag">Marvel</div><div id="tag">Sitcom de Época</div><div id="tag">Romance</div><div id="tag">Mistério</div><div id="tag">Super-Heróis</div></div>
+      </div>
+      
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/umbrella.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">The Umbrella Academy</div>
+        (2019 — 2023)
+        </div>
+              <div><div id="tag">Fantasia Científica</div><div id="tag">Super-Heróis</div><div id="tag">Ação</div></div>
+      </div>
+      
+      
+      <br> 
+     
+        <div id="element">
+        <div><img id="pic" src="images/series/fleabag.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Fleabag</div>
+        (2016 — 2019)
+        </div>
+              <div><div id="tag">Comédia Cringe</div><div id="tag">Humor Ácido</div><div id="tag">Quebra da 4ª parede</div><div id="tag" style="text-shadow: 0px 0px 8px #FF0000; background:#7c0101;">Impróprio para Menores de Idade</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/office.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">The Office <span style="opacity:0.5; font-size:20px;">[US]</span></div>
+        (2005 — 2013)
+        </div>
+              <div><div id="tag">Comédia Cringe</div><div id="tag">Sitcom Anos 2000</div><div id="tag">Pseudo documentário</div></div>
+      </div>
+      
+      <br>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/blackmirror.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Black Mirror</div>
+        (2011 —)
+        </div>
+             <div><div id="tag">Distopia Realista</div><div id="tag">Futurista</div><div id="tag">Ficção Científica</div><div id="tag">Terror Psicológico</div>
+</div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/westworld.png"></div>
+        <div id="description">
+          <div id="name">WestWorld</div>
+        (2016 —)
+        </div>
+              <div><div id="tag">Ficção Científica</div><div id="tag">Utopia Distópica</div><div id="tag">Faroeste Futurista</div></div>
+              <div><a href="https://www.youtube.com/watch?v=rYelEUVQ50g" target="_blank"><img src="images/music_icon_fav.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+      <br>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/sandman.jpg"></div>
+        <div id="description">
+          <div id="name">The Sandman</div>
+        (2022 —)
+        </div>
+              <div><div id="tag">Mitologia</div><div id="tag">Fantasia</div><div id="tag">Super-Heróis</div><div id="tag">Pinceladas de Terror</div></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/loki.png"></div>
+        <div id="description">
+          <div id="name">Loki</div>
+        (2021 —)
+        </div>
+              <div><div id="tag">Multiverso</div><div id="tag">Marvel</div><div id="tag">Super-Heróis</div><div id="tag">Aventura Fantástica</div></div>
+      </div>
+      
+      <br>
+      
+         <div id="element">
+        <div><img id="pic" src="images/series/touch.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Touch</div>
+        (2012 — 2013)
+        </div>
+              <div><div id="tag">Drama</div><div id="tag">Sci-Fi</div><div id="tag">Suspense Misterioso</div></div>
+      </div>
+      
+     
+            <div id="element">
+        <div><img id="pic" src="images/series/goodplace.png"></div>
+        <div id="description">
+          <div id="name">The Good Place</div>
+        (2016 — 2020)
+        </div>
+           <div><div id="tag">Sitcom</div><div id="tag">Utopia Distópica</div><div id="tag">Romance Filosófico</div></div>   
+      </div>
+      
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/got.png"></div>
+        <div id="description">
+          <div id="name">Game of Thrones</div>
+        (2011 — 2019)
+        </div>
+              <div><div id="tag">Aventura Medieval</div><div id="tag">Realismo Fantástico</div><div id="tag">Drama Político-Militar</div></div>
+              <div><a href="https://www.youtube.com/watch?v=TZE9gVF1QbA" target="_blank"><img src="images/music_icon.png" id="music_icon" style="display:inline-grid"></a><a href="https://www.youtube.com/watch?v=QJHPlKPOc78" target="_blank"><img src="images/music_icon_fav.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/hotd.png"></div>
+        <div id="description">
+          <div id="name">House of the Dragon</div>
+        (2022 —)
+        </div>
+              <div><div id="tag">Spin-Off</div><div id="tag">Drama Político-Militar</div><div id="tag">Aventura Medieval</div></div>
+      </div>
+
+            <br>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/ratched.png"></div>
+        <div id="description">
+          <div id="name">Ratched</div>
+        (2020  —)
+        </div>
+              <div><div id="tag">Suspense</div><div id="tag">Terror Psicológico</div><div id="tag">Série de Época</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/sherlock.png"></div>
+        <div id="description">
+          <div id="name">Sherlock</div>
+        (2010 — 2017)
+        </div>
+              <div><div id="tag">Mistério Criminal</div><div id="tag">Detetive</div><div id="tag">Releitura de Clássico</div><div id="tag">Comédia Dramática</div></div>
+      </div>
+      
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/narcos.png"></div>
+        <div id="description">
+          <div id="name">Narcos</div>
+        (2015 — 2017)
+        </div>
+              <div><div id="tag">Drama Criminal</div><div id="tag">Biografia Histórica</div><div id="tag">Documentário Ficcional</div></div>
+              <div><a href="https://www.youtube.com/watch?v=PtJ6yAGjsIs" target="_blank"><img src="images/music_icon_fav.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/chernobyl.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Chernobyl <span style="opacity:0.5; font-size:20px;">(HBO)</span></div>
+        (2019)
+        </div>
+              <div><div id="tag">Documentário Ficcional</div><div id="tag">Minissérie</div><div id="tag">Drama Histórico</div></div>
+      </div>
+      
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/howimet.png"></div>
+        <div id="description">
+          <div id="name">How I Met Your Mother</div>
+        (2005 — 2014)
+        </div>
+              <div><div id="tag">Comédia Romântica</div><div id="tag">Sitcom</div><div id="tag">Comédia Dramática</div></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/housewives.png"></div>
+        <div id="description">
+          <div id="name">The Real Housewives <br>
+            of Beverly Hills</div>
+          <div style="opacity:0.6">[Temporadas 7 —]</div>
+        (2016 —)
+        </div>
+              <div><div id="tag">Sitcom Americano</div><div id="tag" style="font-style:italic">"Guilty Pleasure"</div><div id="tag">Drama</div></div>
+      </div>
+      
+      
+        <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/orange.png"></div>
+        <div id="description">
+          <div id="name">Orange is the New Black</div>
+        (2013 — 2019)
+        </div>
+              <div><div id="tag">Comédia Dramática</div><div id="tag">Sistema Prisional</div><div id="tag">Tragédia Realista</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/grace.png"></div>
+        <div id="description">
+          <div id="name">Grace and Frankie</div>
+        (2015 — 2022)
+        </div>
+              <div><div id="tag">Comédia</div><div id="tag">LGBT</div><div id="tag">Drama Realista</div><div id="tag">Sitcom</div></div>
+      </div>
+      
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/atypical.png"></div>
+        <div id="description">
+          <div id="name">Atypical</div>
+        (2017 — 2021)
+        </div>
+              <div><div id="tag">Comédia Dramática</div><div id="tag">Conscientização sobre Espectro Autista</div><div id="tag">Amadurecimento</div></div>
+      </div>
+      
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/sense8.png"></div>
+        <div id="description">
+          <div id="name">Sense8</div>
+        (2015 — 2018)
+        </div>
+              <div><div id="tag">LGBT</div><div id="tag">Ficção Científica</div><div id="tag">Drama</div><div id="tag">Multiculturalismo</div></div>
+      </div>
+      
+      
+         <div id="element">
+        <div><img id="pic" src="images/series/mrrobot.png"></div>
+        <div id="description">
+          <div id="name">Mr. Robot</div>
+        (2015 — 2019)
+        </div>
+              <div><div id="tag">Drama</div><div id="tag">Suspense Psicológico</div><div id="tag">Tecnologia & Capitalismo</div></div>
+      </div>
+      
+          <div id="element">
+        <div><img id="pic" src="images/series/years.png"></div>
+        <div id="description">
+          <div id="name">Years and Years</div>
+        (2019)
+        </div>
+              <div><div id="tag">Distopia Realista</div><div id="tag">Terror Político</div><div id="tag">Ficção Científica Realista</div></div>
+      </div>
+      
+      
+      <br>
+      
+         <div id="element">
+        <div><img id="pic" src="images/series/goodwife.png"></div>
+        <div id="description">
+          <div id="name">The Good Wife</div>
+       (2009 — 2016)
+        </div>
+              <div><div id="tag">Drama Jurídico</div><div id="tag">Feminismo</div></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/suits.png"></div>
+        <div id="description">
+          <div id="name">Suits</div>
+          <div style="opacity:0.6">[Temporadas 1 — 5]</div>
+       (2011 — 2016)
+        </div>
+              <div><div id="tag">Drama Jurídico</div><div id="tag">Drama Empresarial</div></div>
+      </div>
+      
+         <div id="element">
+        <div><img id="pic" src="images/series/scandal.png"></div>
+        <div id="description">
+          <div id="name">Scandal</div>
+        (2012 — 2018)
+        </div>
+              <div><div id="tag">Drama Político</div><div id="tag">Suspense Político</div><div id="tag">Política Estadunidense</div></div>
+      </div>
+      
+    <br>
+   
+         <div id="element">
+        <div><img id="pic" src="images/series/hill.png"></div>
+        <div id="description">
+          <div id="name">A Maldição da Residência Hill</div>
+        (2018)
+        </div>
+              <div><div id="tag">Terror</div><div id="tag">Ficção Sobrenatural</div><div id="tag">Drama</div></div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/revenge.png"></div>
+        <div id="description">
+          <div id="name">Revenge</div>
+        (2011 — 2015)
+        </div>
+              <div><div id="tag">Suspense Psicológico</div><div id="tag">Drama</div><div id="tag">Vingança</div></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/counterpart.png"></div>
+        <div id="description">
+          <div id="name">Counterpart</div>
+        (2017 — 2019)
+        </div>
+              <div><div id="tag">Ficção Científica</div><div id="tag">Suspense</div><div id="tag">Universos Paralelos</div></div>
+      </div>
+      
+      <div id="category"><a id="desenhos"></a>
+        Desenhos /
+         <br>Animes
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/aang.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Avatar: The Last Airbender</div>
+        (2005 — 2008)
+        </div>
+              <div><div id="tag">Magia Elemental</div><div id="tag">Ação</div><div id="tag">Sabedoria</div><div id="tag">Aventura Pós-medieval</div><div id="tag">Conflitos Político-Militares</div></div>
+              <div><a href="http://antigo.regiscardoso.com.br/2013/04/avatar-lenda-de-aangkorra.html" target="_blank"><img src="/images/blogger.png" id="music_icon" style="display:inline-grid"></a><a href="https://www.youtube.com/watch?v=JUoH8CzIkDo" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon" style="display:inline-grid"></a><a href="https://youtu.be/YHNJEZs_oEM" target="_blank"><img src="images/youtube.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/korra.png"></div>
+        <div id="description">
+          <div id="name">Avatar: The Legend of Korra</div>
+        (2012 — 2014)
+        </div>
+              <div><div id="tag">Magia Elemental</div><div id="tag">Ação</div><div id="tag">Sabedoria</div><div id="tag">SteamPunk</div><div id="tag">Conflitos Político-Militares</div></div>
+              <div><a href="http://antigo.regiscardoso.com.br/2013/04/avatar-lenda-de-aangkorra.html#korra" target="_blank"><img id="music_icon" src="/images/blogger.png" style="display:inline-grid"></a><a href="https://www.youtube.com/watch?v=_nmwZZPKvyA" target="_blank"><img src="images/music_icon.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/rick.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Rick and Morty</div>
+        (2013 —)
+        </div>
+              <div><div id="tag">Ficção Científica</div><div id="tag">Humor Ácido e Absurdo</div><div id="tag">Filosofia do Absurdo</div><div id="tag">Multiverso</div><div id="tag">Animação para Adultos</div></div>
+              <div><a href="https://www.youtube.com/watch?v=rxxBfr9AZhU" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/midnight.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">The Midnight Gospel</div>
+       (2020)
+        </div>
+              <div><div id="tag">Fantasia Científica</div><div id="tag">Aventura Filosófica</div><div id="tag">Surrealismo</div><div id="tag">Podcast Animado</div><div id="tag">Sabedoria de Vida</div><div id="tag">Realidades Simuladas</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/bojack.png"></div>
+        <div id="description">
+          <div id="name">BoJack Horseman</div>
+        (2014 — 2020)
+        </div>
+              <div><div id="tag">Comédia Dramática</div><div id="tag">Tragicomédia</div><div id="tag">Humor Ácido e Absurdo</div><div id="tag">Animação para Adultos</div></div>
+              <div><a href="https://www.youtube.com/watch?v=rQvIR1oL1vE" target="_blank"><img src="images/music_icon.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+       
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/magi.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Magi: the Labyrinth of Magic</div>
+        (2012 — 2014)
+        </div>
+              <div><div id="tag">Fantasia Medieval</div><div id="tag">Aventura Mágica</div><div id="tag">Sabedoria & Amadurecimento</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/sinbad.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Magi: Adventure of Sinbad</div>
+        (2016)
+        </div>
+              <div><div id="tag">Fantasia Medieval</div><div id="tag">Aventura Mágica</div><div id="tag">Ação</div><div id="tag">Diplomacia & Guerra</div></div>
+      </div>
+       
+      <br>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/full.png"></div>
+        <div id="description">
+          <div id="name">Fullmetal Alchemist: Brotherhood</div>
+        (2009 — 2010)
+        </div>
+              <div><div id="tag">Fantasia SteamPunk</div><div id="tag">Fantasia Sombria</div><div id="tag">Ação Mágico-Militar</div><div id="tag">Drama</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/jujutsu.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Jujutsu Kaisen</div>
+        (2020 —)
+        </div>
+              <div><div id="tag">Fantasia Urbana</div><div id="tag">Fantasia Sombria</div><div id="tag">Ação</div></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/deadly.png"></div>
+        <div id="description">
+          <div id="name">Seven Deadly Sins</div>
+        (2014 — 2021)
+        </div>
+             <div><div id="tag">Ação Mágico-Militar</div><div id="tag">Aventura Fantástica</div><div id="tag">Guerra Mágica</div><div id="tag">Comédia</div></div>
+      </div>
+      
+      <br>
+      
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/over.png"></div>
+        <div id="description">
+          <div id="name"><a href="/personalidade.html" target="_blank">O Segredo Além do Jardim</a></div>
+        (2014)
+        </div>
+              <div><div id="tag">Mistério</div><div id="tag">Fantasia Fofa & Sombria</div><div id="tag">Aventura</div><div id="tag">Comédia Dramática</div><div id="tag">Amadurecimento</div></div>
+      </div>
+      
+            <div id="element">
+        <div><img id="pic" src="images/series/hilda.png"></div>
+        <div id="description">
+          <div id="name">Hilda</div>
+        (2018 —)
+        </div>
+              <div><div id="tag">Aventura</div><div id="tag">Sobrenatural</div><div id="tag">Comédia Dramática</div><div id="tag">Fantasia Fofa & Misteriosa</div></div>
+      </div>
+       
+      <br>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/desencanto.png"></div>
+        <div id="description">
+          <div id="name">Desencanto</div>
+        (2018 —)
+        </div>
+             <div><div id="tag">Aventura Medieval</div><div id="tag">Comédia Satírica</div><div id="tag">Fantasia</div><div id="tag">Política Medieval</div></div>
+      </div>
+     
+       <div id="element">
+        <div><img id="pic" src="images/series/dragonprince.png"></div>
+        <div id="description">
+          <div id="name">O Príncipe Dragão</div>
+        (2018 —)
+        </div>
+             <div><div id="tag">Fantasia Medieval</div><div id="tag">Comédia Dramática</div><div id="tag">Ação Mágico-Militar</div><div id="tag">Política Medieval</div></div>
+      </div>
+       
+      <br>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/deathnote.png"></div>
+        <div id="description">
+          <div id="name">Death Note</div>
+        (2006 — 2007)
+        </div>
+             <div><div id="tag">Estratégia</div><div id="tag">Mistério</div><div id="tag">Suspense Psicológico</div><div id="tag">Pinceladas de Terror Psicológico</div></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/codegeass.png"></div>
+        <div id="description">
+          <div id="name">Code Geass</div>
+        (2006 — 2008)
+        </div>
+             <div><div id="tag">Estratégia</div><div id="tag">Mistério</div><div id="tag">Suspense Psicológico</div><div id="tag">Ficção Militar</div></div>
+      </div>
+      
+      
+      <div id="category"><a id="nostalgia"></a>
+        Nostálgicos
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/castelo.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Castelo <br>Rá-Tim-Bum</div>
+        (1994 — 1997)
+        </div>
+              <div><div id="tag">Infantojuvenil</div><div id="tag">Educativa</div></div>
+        <div><a href="https://www.youtube.com/watch?v=KmrwUy4EedE" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://youtu.be/XOA5z6BKHM0?t=52" target="_blank"><img src="images/series.png" id="music_icon"></a></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/ratimbum.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Rá-Tim-Bum</div>
+        (1990 — 1994)
+        </div>
+              <div><div id="tag">Infantojuvenil</div><div id="tag">Educativa</div></div>
+        <div><a href="https://www.youtube.com/watch?v=TpcbIxLbDGk" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://youtu.be/Vnr-ps84zdA?t=75" target="_blank"><img src="images/series.png" id="music_icon"></a></div>
+      </div>
+     
+    
+      <div id="element">
+        <div><img id="pic" src="images/series/ilha.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Ilha <br>Rá-Tim-Bum</div>
+        (1994 — 1997)
+        </div>
+              <div><div id="tag">Infantojuvenil</div><div id="tag">Mistério</div><div id="tag">Drama</div></div>
+        <div><a href="https://www.youtube.com/watch?v=yflyejDF5Ao" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://youtu.be/1ossz1gYimw?t=61" target="_blank"><img src="images/series.png" id="music_icon"></a></div>
+      </div>
+      
+      
+      <br>
+      
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/vampiro.jpg"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">O Beijo do Vampiro</div>
+        (2002 — 2003)
+        </div>
+              <div><div id="tag">Telenovela Brasileira</div><div id="tag">Fantasia Dramática</div><div id="tag">Terror Sobrenatural</div></div>
+        <div><a href="https://www.youtube.com/watch?v=Rks30o2HVQQ&list=PLC-AWj6DE3jmBdbCHf8yE47r7vdN_Kfg8&index=1" target="_blank"><img src="images/music_icon_fav.png" id="music_icon" style="display:inline-grid"></a><a href="https://www.youtube.com/watch?v=JA3vMBxLeMY&list=PLC-AWj6DE3jmBdbCHf8yE47r7vdN_Kfg8&index=10" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon" style="display:inline-grid"></a></div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/sabrina.png"></div>
+        <div id="description">
+          <div id="name">Sabrina, a Aprendiz de Feiticeira</div>
+        (1996 — 2003)
+        </div>
+              <div><div id="tag">Fantasia Televisiva</div><div id="tag">Sitcom</div><div id="tag">Comédia</div><div id="tag">Infantojuvenil</div></div>
+        <div><a href="https://www.youtube.com/watch?v=bKq3MmLIzkA" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/beakman.png"></div>
+        <div id="description">
+          <div id="name">O Mundo de Beakman</div>
+        (1992 — 1997)
+        </div>
+              <div><div id="tag">Comédia Educativa</div><div id="tag">Educação Científica</div><div id="tag">Infantojuvenil</div></div>
+        <div><a href="https://www.youtube.com/watch?v=4nFGW6gsvFU" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+      
+      <br>
+          
+
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/sitio.png"></div>
+        <div id="description">
+          <div id="name">Sítio do Picapau Amarelo</div>
+        (2001 — 2007)
+        </div>
+              <div><div id="tag">Telenovela Brasileira</div><div id="tag">Comédia Fantástica</div></div>
+        <div><a href="https://www.youtube.com/watch?v=GO94XCuXEqs&t=14" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/mundodalua.jpg"></div>
+        <div id="description">
+          <div id="name">Mundo da Lua</div>
+        (1991 — 1992)
+        </div>
+              <div><div id="tag">Seriado Brasileiro</div><div id="tag">Infantojuvenil</div><div id="tag">Educativo</div></div>
+        <div><a href="https://www.youtube.com/watch?v=c-WqcIUP5Gg" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=8vwlsxsNy5Y&list=PL_EW24vLrmS1EWp2_5JtO7JjwCFhv6uAU" target="_blank"><img src="images/series.png" id="music_icon"></a></div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/series/cocorico.png"></div>
+        <div id="description">
+          <div id="name">Cocoricó</div>
+          <div style="font-size:18px;">[Temporada 1]</div>
+        (1996 — 2003)
+        </div>
+              <div><div id="tag">Seriado Brasileiro</div><div id="tag">Infantil</div></div>
+        <div><a href="https://www.youtube.com/watch?v=UjUsAQc0T60" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+
+          <br>
+      
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/almagemea.png"></div>
+        <div id="description">
+          <div id="name">Alma Gêmea</div>
+        (2005 — 2006)
+        </div>
+              <div><div id="tag">Telenovela Brasileira</div><div id="tag">Romance de Época</div><div id="tag">Comédia Romântica</div></div>
+        <div><a href="https://www.youtube.com/watch?v=VhzO6Tr4OPE" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/afavorita.png"></div>
+        <div id="description">
+          <div id="name">A Favorita</div>
+        (2008 — 2009)
+        </div>
+              <div><div id="tag">Telenovela Brasileira</div><div id="tag">Drama</div><div id="tag">Suspense</div></div>
+        <div><a href="https://www.youtube.com/watch?v=n1WBbkI2Ymg" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/series/belissima.png"></div>
+        <div id="description">
+          <div id="name">Belíssima</div>
+        (2005 — 2006)
+        </div>
+              <div><div id="tag">Telenovela Brasileira</div><div id="tag">Drama</div><div id="tag">Suspense</div></div>
+        <div><a href="https://www.youtube.com/watch?v=bVHqPsDmsVU" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+      
+      
+      <br>
+      
+           
+          <div id="element">
+        <div><img id="pic" src="images/series/ned.png"></div>
+        <div id="description">
+          <div id="name">Manual de Sobrevivência Escolar do Ned</div>
+        (2004 — 2007)
+        </div>
+              <div><div id="tag">Comédia</div><div id="tag">Drama</div><div id="tag">Sitcom Adolescente</div></div>
+        <div><a href="https://youtu.be/Zqr9RhjDBSk" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/series/drake.png"></div>
+        <div id="description">
+          <div id="name">Drake & Josh</div>
+        (2004 — 2007)
+        </div>
+              <div><div id="tag">Comédia</div><div id="tag">Sitcom Adolescente</div></div>
+        <div><a href="https://youtu.be/HUYjqGXFek4" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/kenan.png"></div>
+        <div id="description">
+          <div id="name">Kenan & Kel</div>
+        (1996 — 2000)
+        </div>
+              <div><div id="tag">Comédia Pastelão</div><div id="tag">Sitcom Adolescente</div></div>
+        <div><a href="https://youtu.be/jgC18L6UOKQ" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+      
+     <br>
+          
+           <div id="element">
+        <div><img id="pic" src="images/series/raven.gif"></div>
+        <div id="description">
+          <div id="name">As Visões da Raven</div>
+        (2003 — 2007)
+        </div>
+              <div><div id="tag">Comédia Sobrenatural</div><div id="tag">Sitcom Adolescente</div></div>
+        <div><a href="https://www.youtube.com/watch?v=YpEyAVaWs_M" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+          
+           <div id="element">
+        <div><img id="pic" src="images/series/cody.png"></div>
+        <div id="description">
+          <div id="name">Zack & Cody:<br>Gêmeos em Ação</div>
+        (2005 — 2008)
+        </div>
+              <div><div id="tag">Comédia</div><div id="tag">Sitcom Adolescente</div></div>
+        <div><a href="https://www.youtube.com/watch?v=4PZJ5MQgcJY" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/travessa.png"></div>
+        <div id="description">
+          <div id="name">Ciência Travessa</div>
+        (2004 — 2006)
+        </div>
+              <div><div id="tag">Ficção Científica</div><div id="tag">Comédia Dramática</div><div id="tag">Drama Adolescente</div></div>
+        <div><a href="https://www.youtube.com/watch?v=xOWN8RqhVJ4&t=2" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+          
+    <br>
+          
+     <div id="element">
+        <div><img id="pic" src="images/series/pantera.jpg"></div>
+        <div id="description">
+          <div id="name">A Pantera<br>Cor-de-Rosa</div>
+        (1969 — 2011)
+        </div>
+              <div><div id="tag">Comédia Pastelão</div><div id="tag">Antologia</div></div>
+        <div><a href="https://www.youtube.com/watch?v=4KVhfEKllx4" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+  
+   <div id="element">
+        <div><img id="pic" src="images/series/arnold.jpg"></div>
+        <div id="description">
+          <div id="name">Hey Arnold!</div>
+        (1996 — 2004)
+        </div>
+              <div><div id="tag">Comédia Dramática</div><div id="tag">Sitcom Animado</div><div id="tag">Infantojuvenil</div></div>
+                 <div><a href="https://www.youtube.com/watch?v=Z2EotmVUdDE" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+    
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/zim.png"></div>
+        <div id="description">
+          <div id="name">Invasor Zim</div>
+        (2001 — 2006)
+        </div>
+               <div><div id="tag">Comédia Satírica</div><div id="tag">Terror</div><div id="tag">Ficção Científica</div></div>
+          <div><a href="https://www.youtube.com/watch?v=WgX2cu9N6_8" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+    <br>
+  
+   <div id="element">
+        <div><img id="pic" src="images/series/catdog.png"></div>
+        <div id="description">
+          <div id="name">CatDog</div>
+        (1998 — 2005)
+        </div>
+              <div><div id="tag">Comédia Pastelão</div><div id="tag">Infantil</div></div>
+          <div><a href="https://www.youtube.com/watch?v=zwRkCEAbnj8" target="_blank"><img src="images/music_icon.png" id="music_icon"></a><a href="https://youtu.be/r8YfqmU-fcg" target="_blank"><img src="images/youtube.png" id="music_icon"></a></div>
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/rocco.png"></div>
+        <div id="description">
+          <div id="name">A Vida Moderna de Rocco</div>
+        (1993 — 1996)
+        </div>
+              <div><div id="tag">Comédia Satírica</div><div id="tag">Humor Ácido</div></div>
+          <div><a href="https://www.youtube.com/watch?v=OFxJDFodce4" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/castores.png"></div>
+        <div id="description">
+          <div id="name">Os Castores Pirados</div>
+        (1997 — 2001)
+        </div>
+               <div><div id="tag">Comédia Pastelão</div><div id="tag">Infantojuvenil</div><div id="tag">Humor Absurdo</div></div>
+          <div><a href="https://youtu.be/CW_B4KB0wYs" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+    
+    <br>
+   
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/blue.png"></div>
+        <div id="description">
+          <div id="name">As Pistas de Blue</div>
+          <div style="font-size:18px; opacity:0.6">[Temporadas 1 — 4<span style="opacity:0.4">x24</span>]</div>
+        (1996 — 2002)
+        </div>
+               <div><div id="tag">Infantil</div><div id="tag">Educativo</div></div>
+          
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/cubinhos.jpg"></div>
+        <div id="description">
+          <div id="name">Os Cubos Mágicos</div>
+        (1999 — 2001)
+        </div>
+               <div><div id="tag">Infantil</div><div id="tag">Educativo</div></div>
+          <div><a href="https://www.youtube.com/watch?v=s3XZ3rTh11U" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/series/bobesponja.jpg"></div>
+        <div id="description">
+          <div id="name">Bob Esponja</div>
+          <div style="font-size:18px; opacity: 0.65;">[Temporadas 1 — 4]</div>
+        (1999 — 2006)
+        </div>
+              <div><div id="tag">Comédia Pastelão</div><div id="tag">Sitcom Animado</div></div>
+   <div><a href="https://www.youtube.com/watch?v=aHvFnTg1ecs" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+    <br>
+    
+     <div id="element">
+        <div><img id="pic" src="images/series/dbz.png"></div>
+        <div id="description">
+          <div id="name">Dragon Ball
+            <div style="font-size:18px">[Kai, Z & GT]</div></div>
+        (1986 — 1997)
+        </div>
+              <div><div id="tag">Artes Marciais</div><div id="tag">Ação e Aventura Cósmicas</div><div id="tag">Comédia Dramática</div></div>
+         <div><a href="https://youtu.be/PKJ72RbrtUo" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a></div>
+      </div>
+    
+         <div id="element">
+        <div><img id="pic" src="images/series/cavaleiros.jpg"></div>
+        <div id="description">
+          <div id="name">Os Cavaleiros do Zodíaco
+            <div style="font-size:16px; opacity:0.7;">(Arco d'Os Cavaleiros de Ouro)</div>
+            <div style="font-size:18px; opacity:0.6;">[Episódios 36 — 73]</div>
+          </div>
+        (1994 — 1995)
+        </div>
+              <div><div id="tag">Artes Marciais</div><div id="tag">Ação e Aventura Cósmicas</div><div id="tag">Drama Mitológico</div></div>
+         <div><a href="https://www.youtube.com/watch?v=uLl15h0H0wk" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a></div>
+      </div>
+    
+              
+    <br>
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/pokemon.jpg"></div>
+        <div id="description">
+          <div id="name">Pokémon
+<div style="font-size:18px; opacity:0.65">[Temporadas 1 — 8]</div></div>
+        (1999 — 2005)
+        </div>
+              <div><div id="tag">Comédia Fantástica</div><div id="tag">Aventura & Ação</div><div id="tag">Marcou gerações</div></div>
+   <div><a href="https://youtu.be/-PlAg8R9TG4" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a><a href="https://youtu.be/owY-KtGOch8?t=170" target="_blank"><img src="images/youtube.png" id="music_icon"></a></div>
+      </div>
+          
+           <div id="element">
+        <div><img id="pic" src="images/series/angelmon.jpg"></div>
+        <div id="description">
+          <div id="name">Os Digimon
+          <div style="font-size:18px; opacity: 0.65;">[Temporada 1]</div></div>
+        (1999 — 2000)
+        </div>
+              <div><div id="tag">Ação & Aventura Fantásticas</div><div id="tag">Infantojuvenil</div></div>
+   <div><a href="https://www.youtube.com/watch?v=hYCUUfV3WEU&t=12" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+          
+    <br>
+    
+          <div id="element">
+        <div><img id="pic" src="images/series/yugi.jpg"></div>
+        <div id="description">
+          <div id="name">Yu-Gi-Oh!</div>
+        (2000 — 2006)
+        </div>
+              <div><div id="tag">Ficção de Aventura</div><div id="tag">Fantasia Científica</div></div>
+   <div><a href="https://www.youtube.com/watch?v=Akzba3ubOmI" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a></div>
+      </div>
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/xmen.png"></div>
+        <div id="description">
+          <div id="name">X-Men: Evolution</div>
+        (2000 — 2003)
+        </div>
+              <div><div id="tag">Super Heróis</div><div id="tag">Ficção Científica</div><div id="tag">Fantasia Televisiva</div><div id="tag">Drama & Romance</div></div>
+        <div><a href="https://www.youtube.com/watch?v=LduhVZTnKe8" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+    <br>
+          
+           <div id="element">
+        <div><img id="pic" src="images/series/meninas.jpg"></div>
+        <div id="description">
+          <div id="name">Meninas Super Poderosas</div>
+        (1998 — 2007)
+        </div>
+              <div><div id="tag">Ação Fantástica</div><div id="tag">Super Heróis</div><div id="tag">Comédia Dramática</div></div>
+        <div><a href="https://www.youtube.com/watch?v=bFGsuoa0CyA&t=13" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+     <div id="element">
+        <div><img id="pic" src="images/series/espias.png"></div>
+        <div id="description">
+          <div id="name">Três Espiãs Demais!</div>
+        (2001 — 2014)
+        </div>
+              <div><div id="tag">Ação & Aventura de Espionagem</div><div id="tag">Infantojuvenil</div><div id="tag">Drama Adolescente</div></div>
+        <div><a href="https://youtu.be/7-h8CEZPvBM?t=4" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+       <div id="element">
+        <div><img id="pic" src="images/series/jackie.jpg"></div>
+        <div id="description">
+          <div id="name">As Aventuras de Jackie Chan</div>
+        (2000 — 2005)
+        </div>
+               <div><div id="tag">Comédia</div><div id="tag">Ação e Aventura Fantásticas</div><div id="tag">Artfatos Mágicos</div></div>
+          <div><a href="https://www.youtube.com/watch?v=Ncs9UUmQmSQ" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+          
+          <br>
+    
+     <div id="element">
+        <div><img id="pic" src="images/series/roboboy.png"></div>
+        <div id="description">
+          <div id="name">Roboboy</div>
+        (2005 — 2008)
+        </div>
+              <div><div id="tag">Ficção Científica Cômica</div><div id="tag">Ação & Aventura</div></div>
+   <div><a href="https://www.youtube.com/watch?v=QYUvPXTxrMs" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+     <div id="element">
+        <div><img id="pic" src="images/series/zatchbell.png"></div>
+        <div id="description">
+          <div id="name">Zatch Bell!</div>
+        (2003 — 2006)
+        </div>
+              <div><div id="tag">Comédia Fantástica</div><div id="tag">Ação & Aventura Mágicas</div><div id="tag">Altamente Emotivo</div></div>
+   <div><a href="https://www.youtube.com/watch?v=9R4NWf5pPf8" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+          
+          <div id="element">
+        <div><img id="pic" src="images/series/titans.png"></div>
+        <div id="description">
+          <div id="name">Os Jovens Titãs</div>
+        (2003 — 2006)
+        </div>
+              <div><div id="tag">Ação & Aventura Fantásticas</div><div id="tag">Super Heróis</div><div id="tag">Comédia Dramática</div></div>
+        <div><a href="https://youtu.be/hMMK2NSPing" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a></div>
+      </div>
+
+          
+          
+    <br>
+    
+ <div id="element">
+        <div><img id="pic" src="images/series/padrinhos.jpg"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Os Padrinhos Mágicos</div>
+        (2001 — 2017)
+        </div>
+              <div><div id="tag">Fantasia Televisiva</div><div id="tag">Comédia Satírica</div><div id="tag">Infantojuvenil</div></div>
+   <div><a href="https://www.youtube.com/watch?v=lex9j6_zeAE" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a></div>
+      </div>
+    
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/jimmy.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Jimmy Neutron:<br>O Menino Gênio</div>
+        (2000 — 2001)
+        </div>
+              <div><div id="tag">Ficção Científica Cômica</div><div id="tag">Infantojuvenil</div></div>
+   <div><a href="https://www.youtube.com/watch?v=4HwVHx7QgEo" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a></div>
+      </div>
+    
+    <br>
+
+    
+    <div id="element">
+        <div><img id="pic" src="images/series/danny.png"></div>
+        <div id="description">
+          <div id="name">Danny Phantom</div>
+        (2003 — 2007)
+        </div>
+              <div><div id="tag">Ficção Científica</div><div id="tag">Ação & Mistério</div><div id="tag">Comédia & Romance</div></div>
+   <div><a href="https://www.youtube.com/watch?v=D0QGtIjM1-Y" target="_blank"><img src="images/music_icon.png" id="music_icon"></a></div>
+      </div>
+    
+     <div id="element">
+        <div><img id="pic" src="images/series/shaolin.png"></div>
+        <div id="description"><img src="images/trophy.png" id="fav">
+          <div id="name">Duelo Shaolin</div>
+        (2003 — 2006)
+        </div>
+              <div><div id="tag">Comédia</div><div id="tag">Ação & Aventura Mágicas</div><div id="tag">Super Poderes</div><div id="tag">Artefatos Mágicos</div><div id="tag">Guerra do Bem contra o Mal</div><div id="tag">Magia Elemental</div><div id="tag">Viagem no Tempo</div></div>
+   <div><a href="https://www.youtube.com/watch?v=G94xP6WaMPM" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://youtu.be/1RE2A0zsDmQ" target="_blank"><img src="images/youtube.png" id="music_icon"></a></div>
+      </div>
+      
+      
+      
+  <div id="bottom">
+    <br>
+    <br>
+    <div style="font-size: 14px; font-weight:bold;">
+      <span class="green"><a href="#top">↑ Retornar ao topo da página</a></span>
+      <br>
+      <span class="yellow"><a href="/livros.html">📚 Recomendações de Livros</a></span>
+      <br>
+      <span class="red"><a href="/jogos.html">🕹️ Recomendações de Jogos</a></span>
+      <br>
+      <span class="blue"><a href="/websites.html">💻 Recomendações de Websites</a></span>
+      <br>
+      <span class="green"><a href="/index.html">« Retornar à Página Inicial</a></span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <script>
+  
+  document.addEventListener("DOMContentLoaded", function() {
+
+var buttons = ['Tenha misericórdia', 'Acho que não', 'Pode ser', 'Sim, por favor'];
+for (var i = 0; i < buttons.length; i++) {
+  var button = document.createElement('button');
+  button.innerHTML = buttons[i];
+  document.body.appendChild(button);
+}
+
+var counters = [];
+var percentageCounters = [];
+for (var i = 0; i < buttons.length; i++) {
+  var label = document.createElement('div');
+  label.innerHTML = buttons[i];
+  document.body.appendChild(label);
+
+  var counter = document.createElement('div');
+  counter.innerHTML = '0';
+  counter.setAttribute("class", "counter");
+  counters.push(counter);
+  document.body.appendChild(counter);
+
+  var percentageCounter = document.createElement('div');
+  percentageCounter.innerHTML = '(0%)';
+percentageCounter.setAttribute("class", "percentage-counter");
+percentageCounters.push(percentageCounter);
+document.body.appendChild(percentageCounter);
+}
+
+var totalCounter = document.createElement('div');
+totalCounter.innerHTML = 'Total: 0';
+document.body.appendChild(totalCounter);
+
+var buttons = document.getElementsByTagName('button');
+for (var i = 0; i < buttons.length; i++) {
+buttons[i].addEventListener('click', function(event) {
+var button = event.target;
+var index = Array.prototype.indexOf.call(buttons, button);
+var counter = counters[index];
+counter.innerHTML = parseInt(counter.innerHTML) + 1;
+  
+  // Atualizar contador de porcentagem
+var total = 0;
+for (var j = 0; j < counters.length; j++) {
+  total += parseInt(counters[j].innerHTML);
+}
+for (var j = 0; j < counters.length; j++) {
+  var percentage = parseInt(counters[j].innerHTML) / total * 100;
+  percentage = Math.round(percentage * 100) / 100; // arredondar para 2 casas decimais
+  percentage = Math.min(percentage, 100); // não permitir que a porcentagem ultrapasse 100%
+  percentageCounters[j].innerHTML = '(' + percentage + '%)';
+}
+totalCounter.innerHTML = 'Total: ' + total;
+});
+}
+
+var resetButton = document.createElement('button');
+resetButton.innerHTML = 'Reset';
+document.body.appendChild(resetButton);
+resetButton.addEventListener('click', function(event) {
+for (var i = 0; i < counters.length; i++) {
+counters[i].innerHTML = '0';
+percentageCounters[i].innerHTML = '(0%)';
+}
+totalCounter.innerHTML = 'Total: 0';
+});
+
+});
+
+// adicionando estilos CSS
+var style = document.createElement('style');
+style.innerHTML = '.counter { display: inline-block; } .percentage-counter { display: inline-block; }';
+document.head.appendChild(style);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

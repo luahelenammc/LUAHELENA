@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>MoonyMagi</title>
+  <link rel="icon" type="image/x-icon" href="images/mew.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <script type="text/javascript" language="javascript" src="js/lytebox.js"></script>
+<link rel="stylesheet" href="js/lytebox.css" type="text/css" media="screen" />
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/commom.css" rel="stylesheet" type="text/css" />
+  <style>
+  <!DOCTYPE html>
+<head>
+
+/* Custom ScrollBar */
+/* width */
+ ::-webkit-scrollbar {
+     width: 8px;
+}
+/* Track */
+ ::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 5px grey;
+     border-radius: 10px;
+}
+/* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #00ff99;
+     border-radius: 10px;
+}
+/* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+     background: #00cc99;
+}
+ body {
+  font-family: 'General Sans', sans-serif;
+     font-size: 12px;
+     background: rgb(8,255,211);
+     background:radial-gradient(circle, rgb(63 209 183) 0%, rgba(189,255,186,1) 66%, rgba(65,255,221,1) 100%);
+     color: white;
+}
+ #wrapper {
+     text-align: center;
+     width: 100%;
+}
+ #top {
+     text-align: center;
+     margin:30px 0 10px 0;
+}
+ #middle {
+     text-align: center;
+     width: 100%;
+     margin-top:20px;
+}
+ #bottom {
+     text-align: center;
+     Margin-bottom: 20px;
+     margin-top:20px;
+}
+ .bgtext {
+     background-color: rgb(255 255 255 / 85%);
+     color:black;
+     border-radius: 25px;
+     padding: 15px 20px;
+     margin:5px 10px;
+     display:inline-block;
+     box-decoration-break: clone;
+     -webkit-box-decoration-break: clone;
+    /* most browsers need -webkit */
+}
+ @keyframes blink{
+     0% {
+        border: #ca5ef8 solid 3px;
+    }
+     25% {
+        border: black solid 3px;
+    }
+     75% {
+        border: white solid 3px;
+    }
+     100% {
+        border: #84f416 solid 3px;
+    }
+}
+ #picture {
+     border-radius:25px;
+}
+ #title {
+     font-size: 60px;
+     font-family: 'LibreBaskerville', sans-serif;
+}
+ #title2 {
+     font-size: 25px;
+     font-family: 'LibreBaskerville', sans-serif;
+     margin-bottom: 10px;
+     margin-top: 2px;
+     font-style: italic;
+}
+ #subtitle {
+     font-size: 15px;
+     font-family: 'LibreBaskerville', sans-serif;
+     text-align:center;
+   max-width: 400px;
+}
+ #subtitle:hover {
+     box-shadow: 0px 0px 20px 5px white;
+        transition: box-shadow 0.6s;
+}
+ #element {
+     display: inline-grid;
+     border-radius: 20px;
+     padding: 15px;
+     margin: 5px;
+     text-shadow: 0 0 10px white, 0 0 5px white;
+     color: black;
+}
+ #element a {
+     text-decoration:none;
+}
+ #description {
+     font-weight:bold;
+     font-size: 14px;
+}
+ a:link, a:visited {
+     text-decoration: underline;
+     color:#046654;
+}
+ a:hover, a:active {
+     text-decoration: none;
+     color:black;
+     background: rgb(0 255 104);
+     box-shadow: 0 0 0 3px rgba(0, 255, 104, 1);
+    /* Altere o valor '5px' conforme desejado */
+     transition: background 0.6s, box-shadow 0.6s;
+     border-radius:6px;
+}
+ #icon {
+}
+ .icon {
+     max-height: 100px;
+}
+ .mini_icon {
+     max-width: 50px;
+}
+ #translation {
+     text-align: center;
+     font-family: 'General Sans', sans-serif;
+     color: white;
+     font-size: 12px;
+     margin-top:30px;
+     vertical-align:middle;
+     margin-bottom:20px;
+     margin-left:20px;
+     margin-right:20px;
+   background: black;
+   border-radius:20px;
+   padding:6px;
+   max-width: 140px;
+}
+    
+ #translation a:link, #translation a:visited {
+     text-decoration:underline;
+   color:white;
+   text-shadow: 0 0 10px #ff9191, 0 0 5px #ff9191;
+}
+ #translation a:hover, #translation a:active {
+     color: black;
+     font-weight:bold;
+     text-decoration:none;
+}
+
+    #translation:hover {
+box-shadow: 0 0 0 3px #ff9191;
+    }
+    
+ #namebutton {
+     font-size:30px;
+   font-weight:bold;
+}
+ .boxblog {
+     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(255 254 0) 100%);
+}
+ .boxtwitch {
+     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(176 87 255) 100%);
+}
+ .boxinsta {
+     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(255 132 34) 100%);
+}
+ a .boxblog:hover, a .boxinsta:active {
+     box-shadow: 0px 0px 20px 8px #fffa1f;
+}
+ a .boxtwitch:hover, a .boxinsta:active {
+     box-shadow: 0px 0px 20px 8px #9e34eb;
+}
+ a .boxinsta:hover, a .boxinsta:active {
+     box-shadow: 0px 0px 20px 8px #ff8100;
+}
+
+    .boxia {
+     background:radial-gradient(circle, rgba(255,255,255,1) 0%, #00ff14 100%);
+}
+
+    a .boxia:hover, a .boxia:active {
+     box-shadow: 0px 0px 20px 8px #00ff14;
+}
+
+    
+
+
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="top">
+      <div id="picture"><img src="images/selfie.png" style="max-width: 300px;"></div>
+
+      <div class="logotype">
+        <img src="images/logotype.png" style="max-width: 450px;     margin: -67px 0px -31px -55px;">
+      </div>
+    
+
+      <br>
+      
+      <div id="subtitle" class="bgtext">
+        Brasileiro, nascido em 1996, com o <b>coração ancorado na era dourada dos videogames</b> (Super Nintendo, PlayStation 1-2 e PC), universo do qual elaboro <a target="_blank" href="https://blog.moonymagi.com.br"><b>análises carinhosas</b></a> (game reviews). Quando o chamado da modernidade soa, faço <a style="text-decoration:underline" target="_blank" href="https://twitch.tv/moonymagi"><b>streams de ARAM (League of Legends)</b></a> na Twitch.
+      </div>
+    </div>
+    
+        
+      
+        <div id="middle">
+      <a href="https://blog.moonymagi.com.br/" target="_blank">
+      <div id="element" class="boxblog">
+        <div id="icon"><img src="images/snes.png" class="icon"></div>
+        <div id="namebutton">
+          BLOG
+        </div>
+        <div id="description">
+          Análises de
+          <br><big><big>Jogos</big></big>
+          <br><big><big>Retrô</big></big>
+        </div>
+      </div></a>
+          
+      <a href="https://twitch.tv/moonymagi" target="_blank">
+      <div id="element" class="boxtwitch">
+        <div id="icon"><img src="images/twitch.png" class="icon"></div>
+        <div id="namebutton">
+          TWITCH
+        </div>
+        <div id="description">
+          Lives de
+          <br><big><big>ARAM</big></big>
+          <br>(League of Legends)
+          <br><span style="opacity:0.3"><small>Principalmente</small></span>
+        </div>
+      </div></a>
+
+          <br>
+
+            <a href="https://instagram.com/moony.aiart" target="_blank" title="@Moony.AIart (Insta)">
+      <div id="element" class="boxia">
+        <div id="icon"><img src="images/arte.png" class="icon"></div>
+      <div id="namebutton">
+      ARTE ARTIFICIAL
+        </div>
+        <div id="description">
+      Arte com
+          <br>Inteligência Artificial
+        </div>
+      </div></a> 
+          
+                    <a href="https://instagram.com/moonymagi" target="_blank">
+      <div id="element" class="boxinsta">
+        <div id="icon"><img src="images/insta.png" class="icon"></div>
+        <div id="namebutton">
+          INSTAGRAM
+        </div>
+        <div id="description">
+          Acompanhe
+          <br>posts & stories!
+        </div>
+      </div></a>
+      
+     
+   
+    </div>
+  
+    <div id="bottom">
+      
+    
+
+   
+      <div align="center" style="max-width:100%; margin-top: -15px;">
+    <div id="translation">
+      <a title="Provided by Google Translator (therefore, not 100% accurate)" href="https://www-moonymagi-com-br.translate.goog/?_x_tr_sch=http&_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=pt-BR&_x_tr_pto=wapp"><div style="display: inline-grid; vertical-align:middle; margin-right:5px;"><img src="images/english.png" style="max-width:30px;"></div><div style="display: inline-grid; vertical-align:middle; opacity: 0.6">English Translation</div></a>
+    </div>
+      </div>
+      
+  </div>
+  
+  </div>
+</body>
+</body>
+</html>

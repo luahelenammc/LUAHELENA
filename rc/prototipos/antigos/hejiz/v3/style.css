@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-attachment: fixed;
+	background-color: #D6D6D6;
+	background-image: url(imagens/fundo.png);
+	background-repeat: repeat-x;
+	background-position: center top;
+	margin: 0px;
+}
+#topofundo {
+	background-image: url(imagens/topofundo.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+	height: 200px;
+	width: 100%;
+}
+#topo {
+	background-image: url(imagens/topo.png);
+	height: 200px;
+	width: 820px;
+}
+#tudo {
+	width: 820px;
+}
+#menu {
+	background-image: url(imagens/menu.png);
+	height: 22px;
+	width: 780px;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #FFF;
+	text-align: left;
+	padding-top: 8px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+#menu a {
+	text-decoration: underline;
+	color: #FFF;
+}
+#menu a:link, hover, active, visited {
+	text-decoration: underline;
+	color: #FFF;
+}
+#conteudo {
+	background-image: url(imagens/conteudo.png);
+	width: 780px;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #666;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	text-align: left;
+	min-height: 400px;
+}
+#conteudo a {
+	color: #333;
+	text-decoration: underline;
+}
+#conteudo a:link, active, hover, visited {
+	color: #333;
+	text-decoration: underline;
+}
+#rodape {
+	background-image: url(imagens/rodape.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+	height: 30px;
+	width: 100%;
+}
+#texto_rodape {
+	text-align: center;
+	height: 22px;
+	width: 800px;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #FFF;
+	padding-top: 8px;
+}
+.titulo {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	letter-spacing: 0em;
+}
+.subtitulo {
+	font-size: 15px;
+	font-weight: bold;
+	color: #666;
+}
+.direita {
+	float: right;
+	margin: 10px;
+}
+.esquerda {
+	float: left;
+	margin: 10px;
+}
+.portfolio {
+	border: 5px solid #FFF;
+}
+.campo {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #FFF;
+	background-color: #C4C4C4;
+	border: 5px solid #C4C4C4;
+	margin: 1px;
+}

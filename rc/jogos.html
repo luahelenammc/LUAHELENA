@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XTDS6RGCZ');
+</script>
+  <title>🕹️ Jogos Favoritos</title>
+  <link rel="icon" type="image/x-icon" href="images/ZSNES.png">
+  <meta name="viewport" content="width=device-width, initial- scale=1">
+  <style>
+ 
+    
+    /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00ff99; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc99; 
+}
+    
+      
+  body {
+  font-family: 'General Sans', sans-serif;
+  font-size: 12px;
+  background:#262626;
+  color: white;
+  }
+  #wrapper {
+  text-align: center;
+  width: 100%;
+  }
+  #top {
+  text-align: center;
+  margin:10px 0 10px 0;
+  }
+  #middle {
+  text-align: center;
+  width: 100%;
+  margin-top:20px;
+  }
+  #bottom {
+  text-align: center;
+  Margin-bottom: 20px;
+  }
+  #title {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Sentient', sans-serif;
+  }
+  #title2 {
+  font-size: 20px;
+  font-family: 'Sentient', sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+  }
+  #subtitle {
+  font-size: 50px;
+  font-family:'Sentient', sans-serif;
+  text-align:center;
+  font-style: italic;
+margin-bottom: 15px;
+  }
+
+  a:link, a:visited {
+  text-decoration: decoration;
+  color: white;
+  }
+
+  a:hover, a:active {
+  text-decoration: none;
+  color:#66ff33;
+    text-shadow: 0 0 10px #66ff33, 0 0 5px #66ff33;
+  }
+
+     .yellow a:hover, .yellow a:active {
+      color:#ffd307;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .red a:hover, .red a:active {
+      color:#f62c2c;
+      text-shadow: 0px 0px 6px black;
+    }
+
+    
+     .green a:hover, .green a:active {
+      color:#67f62c;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .blue a:hover, .blue a:active {
+      color:#2cc9f6;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+  #element {
+  display: inline-grid;
+  background: #e6e6e6;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 5px;
+    max-width: 400px;
+  }
+
+  #description {
+  font-weight:bold;
+font-size: 15px;
+    font-family: 'General Sans', sans-serif;
+    color: #717171;
+  }
+
+    #name {
+     font-family: 'Sentient', sans-serif; 
+      font-size:25px;
+      font-weight:bold;
+      font-style:italic;
+      color: black;
+    margin-bottom: 3px;
+    }
+    
+  #element:hover, #element:active {
+  box-shadow: 0px 0px 15px 2px #e6e6e6;
+   text-shadow: 0 0 10px white, 0 0 5px white;
+  }
+
+  .icon {
+  max-height: 100px;
+  }
+   
+
+  #pic {
+  max-height:200px;
+    max-width:390px;
+    border-radius: 20px;
+  }
+
+  #category {
+  margin-top:50px;
+  margin-bottom:5px;
+  font-size:36px;
+  font-family:'Sentient', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  }
+
+  #platform {
+  max-width:200px;
+
+  }
+    
+    #music_icon {
+     max-width: 45px;
+  margin: 3px 1px -13px 1px;
+      display:inline-grid;
+    }
+    
+     #music_icon:hover {
+    filter: contrast(1.5);
+    }
+    
+      #description a:link, #description a:visited {
+        color:black;
+        text-decoration:underline;
+      }
+      
+      #description a:hover, #description a:active {
+        color:#66ff33;
+        text-decoration:none;
+        text-shadow: 0 0 10px black, 0 0 5px black;
+      }
+    
+       #cat {
+    padding: 5px;
+    display: inline-block;
+    margin: 3px;
+    background: #0000007a;
+    border-radius: 10px;
+    }
+    
+     #cat:hover {
+      background:black;
+    }
+    
+    #catlist {
+     font-weight: bold; font-style: italic; font-family: 'Sentient', sans-serif; font-size: 15px; 
+    }
+    
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+    <div id="top">
+<img src="images/gaming_emoji.png" style="margin-top:20px; max-width: 100px;">
+      <div id="title">
+        Jogos Favoritos
+      </div>
+      <div id="title2">
+        <a href="/index.html">Régis Cardoso</a>
+      </div>
+      <div id="subtitle">
+        <a href="https://Instagram.com/moonymagi" target="_blank">[Muni Maggi]</a>
+      </div>
+    </div>
+    <div id="middle">
+      <div id="catlist">
+<div style="font-size:20px">Categorias</div>
+<a href="#snes"><div id="cat">Super Nintendo</div></a>
+<a href="#ps1"><div id="cat">PlayStation [1]</div></a>
+<a href="#ps2"><div id="cat">PlayStation 2</div></a>
+<a href="#xbox"><div id="cat">Xbox 360</div></a>
+<a href="#navegador"><div id="cat">Navegador (Browser)</div></a>
+<a href="#pc"><div id="cat">Windows (PC)</div></a>
+<a href="#quest2"><div id="cat">Quest 2</div></a>
+</div>
+      
+      <div id="category"><a id="snes"></a>
+        <img id="platform" src="images/supern.png" style="display:inline-grid; max-width:120px;"><img id="platform" src="images/ZSNES.png" style="display:inline-grid"><br>
+        Super Nintendo
+      </div>
+      <div id="element">
+        <div><img id="pic" src="images/games/smw.png"></div>
+        <div id="description">
+          <div id="name">Super Mario World</div>
+          (1990)<br>
+          <a href="https://youtu.be/GiinQew9j_c" target="_blank"><img src="images/music_icon.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=R0aoqbDNKaA" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+        </div>
+      </div>
+      
+        <div id="element">
+          <div><img id="pic" src="images/games/bomberman.png"></div>
+          <div id="description">
+            <div id="name">Super Bomberman 1—4</div>
+            (1993 — 1996)<br>
+            <a href="https://www.youtube.com/watch?v=ZKfp-KyF3s4&list=PLC3BC541D61C37D62&index=11" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+          </div>
+        </div>
+      
+      <div id="element">
+          <div><img id="pic" src="images/games/earthbound.png"></div>
+          <div id="description">
+            <div id="name">EarthBound</div>
+            (1994)<br>
+            <a href="https://youtu.be/viP2-Mz4aaQ?t=60" target="_blank"><img src="images/music_icon.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=cNaaLW0bb0c&t=34" target="_blank"><img src="images/youtube.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=gFoS1NJo5K0&t=108" target="_blank"><img style="filter: hue-rotate(272deg);" src="images/youtube.png" id="music_icon"></a>
+          </div>
+        </div>
+      
+      <br>
+      
+      <div id="element">
+        <div><img id="pic" src="images/games/dkc1.jpg"></div>
+        <div id="description">
+          <div id="name">Donkey Kong Country <span style="opacity: 0.6;">[1]</span></div>
+          (1994)<br>
+          <a href="https://www.youtube.com/watch?v=1XM8ReW9NvA&amp;list=PL3qKGTUJcGDoHJGloGV4OdsqY-NNlxfvi&amp;index=7" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+          <a href="https://blog.moonymagi.com.br/2023/10/donkey-kong-country-snes.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+        </div>
+      </div>
+      <div id="element">
+        <div><img id="pic" src="images/games/dkc2.png"></div>
+        <div id="description">
+         <div id="name">Donkey Kong Country 2</div>
+          (1995)<br>
+          <a href="https://www.youtube.com/watch?v=mdPlcKg-qFs&amp;list=PLFADADFD88F5B0565&amp;index=9" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a><a href="https://youtu.be/tZO6Qz2nEgc" target="_blank"><img src="images/youtube.png" id="music_icon"></a>
+          <a href="https://blog.moonymagi.com.br/2023/10/donkey-kong-country-snes.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+        </div>
+      </div>
+        
+      <div id="element">
+        <div><img id="pic" src="images/games/dkc3.png"></div>
+        <div id="description">
+          <div id="name">Donkey Kong Country 3</div>
+          (1996)<br>
+          <a href="https://www.youtube.com/watch?v=fGT0Z63By4s&amp;list=PLC_erJDYEnYugaLvTINKAHZy6PwRYtVwq&amp;index=11" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+          <a href="https://blog.moonymagi.com.br/2023/10/donkey-kong-country-snes.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+        </div>
+      </div>
+      
+      <br>
+      
+        <div id="element">
+          <div><img id="pic" src="images/games/mk2.png"></div>
+          <div id="description">
+            <div id="name">Mortal Kombat II</div>
+            (1993)<br>
+            <a href="https://www.youtube.com/watch?v=2Z5ELSxH9ko&amp;list=PLGv0PbP9RSMZhLRiceHxSFwlMFlrH2pKT&amp;index=34" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+      
+       
+      
+      <div id="element">
+          <div><img id="pic" src="images/games/mk3.png"></div>
+          <div id="description">
+            <div id="name">Ultimate Mortal Kombat 3</div>
+            (1995)<br>
+            <a href="https://youtu.be/nn58KiNKxhg?t=508" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+      
+      </div>
+      <div id="category"><a id="ps1"></a>
+        <img id="platform" src="images/ps1.png" style="max-width:144px"><br>
+        PlayStation [1]
+<br><a title="Abertura Nostálgica do PS1" href="https://youtu.be/oAhvQoLpvsM" target="_blank"><img id="platform" src="images/ps1_logo.png" style="max-width:100px"></a>
+      </div>
+      <div id="element">
+        <div><img id="pic" src="images/hugo.jpg"></div>
+        <div id="description">
+          <div id="name">Hugo</div>
+          (1997)<br>
+          <a href="https://www.youtube.com/watch?v=whYPYPdQuS0" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=aIIw9bn0mik" target="_blank"><img src="images/youtube.png" id="music_icon" style="display:inline-grid"></a>
+          <a href="https://blog.moonymagi.com.br/2023/09/hugo.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+        </div>
+      </div>
+      <div id="element">
+        <div><img id="pic" src="images/games/bugslife.jpg"></div>
+        <div id="description">
+          <div id="name">A Bug's Life</div>
+          (1998)<br>
+          <a href="https://www.youtube.com/watch?v=k1hBtUxo0io&amp;list=PLO4jlmGoc6uA-h7rIVIT6QRwC0kgeGotC&amp;index=3" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+     <div id="element">
+          <div><img id="pic" src="images/games/croc.png" style="max-width:300px"></div>
+          <div id="description">
+            <div id="name">Croc: Legend
+              <br>of the Gobbos</div>
+            (1997)<br>
+            <a href="https://www.youtube.com/watch?v=InV9iMcd4ok" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+    <div id="element">
+          <div><img id="pic" src="images/games/harvestmoon.png" style="max-width:300px"></div>
+          <div id="description">
+            <div id="name">Harvest Moon:
+              <br>Back to Nature</div>
+            (1999)<br>
+            <a href="https://www.youtube.com/watch?v=ztC7CDQMLnM&amp;list=PLY9e1OD4yZioNZXiDCLo4_E8tfgNs48hs" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+    <br>
+      <div id="element">
+        <div><img id="pic" src="images/games/cb1.jpg"></div>
+        <div id="description">
+          <div id="name">Crash Bandicoot <span style="opacity: 0.6;">[1]</span></div>
+          (1996)<br>
+          <a href="https://www.youtube.com/watch?v=9LYNLbbVA0I&amp;list=PL75F88CFDC09037C2" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+      </div>
+      <div id="element">
+        <div><img id="pic" src="images/games/cbw.png"></div>
+        <div id="description">
+          <div id="name">Crash Bandicoot: Warped <span style="opacity: 0.6;">[3]</span></div>
+          (1998)<br>
+          <a href="https://www.youtube.com/watch?v=3ik4WBVBN-o&amp;list=PLL-sMa2lHYj1bMY21NPKsOaqIMiqjfiua&amp;index=2" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/cnk1.png"></div>
+        <div id="description">
+          <div id="name">Crash Team Racing</div>
+          (1999)<br>
+          <a href="https://www.youtube.com/watch?v=RMvM6Q0VrXg&amp;list=PL2FFEAF81AFD890B3&amp;index=5" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+    </div>
+        
+    
+      <div id="category"><a id="ps2"></a>
+        <img id="platform" src="images/ps2.png"><br>
+        PlayStation 2
+      </div>
+  
+      <div id="element">
+        <div><img id="pic" src="images/games/cnk2.jpg"></div>
+        <div id="description">
+          <div id="name">Crash Nitro Kart</div>
+          (2003)<br>
+          <a href="https://www.youtube.com/watch?v=X9Wea1hZJ58&amp;list=PL1C2080787DBD30EC" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/twin.jpg"></div>
+        <div id="description">
+          <div id="name">Crash Twin Sanity</div>
+          (2004)<br>
+          <a href="https://youtu.be/oCvhJ17jgLY" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+  </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/cttr.jpg"></div>
+        <div id="description">
+          <div id="name">Crash Tag Team Racing</div>
+          (2005)<br>
+          <a href="https://www.youtube.com/watch?v=bVS4yd6VhHo&amp;list=PLx4_xRpvM8wWSX90vX73X-p9Q_Z_c9t2R&amp;index=6" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a><a href="https://youtu.be/HvSJEvQXHO0?t=133" target="_blank"><img src="images/youtube.png" id="music_icon" style="display:inline-grid"></a>
+        </div>
+  </div>
+    
+  
+    
+    <br>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/gtas.jpg"></div>
+        <div id="description">
+          <div id="name">GTA San Andreas</div>
+          (2004)<br>
+          <a href="https://www.youtube.com/watch?v=AvOm1_hoy6Y&amp;list=PLffQpMcmLcI-dDgILsuQsRimgiGI_0xhN&amp;index=7" target="_blank"><img src="images/music_icon.png" id="music_icon"></a><a href="https://www.tiktok.com/@ynrlouise" target="_blank"><img src="images/tiktok.png" id="music_icon" style="display:inline-grid"></a>
+        </div>
+    </div>
+    
+      <div id="element">
+          <div><img id="pic" src="images/games/simpsons.png"></div>
+          <div id="description">
+            <div id="name">Simpsons Hit & Run</div>
+            (2003)<br>
+            <a href="https://www.youtube.com/watch?v=z9EC0T6CpcU&amp;list=PLiOOL913700cVlwhYFeJA0wqnti-2era1" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+    <br>
+        
+        <div id="element">
+          <div><img id="pic" src="images/games/mksm.png"></div>
+          <div id="description">
+            <div id="name">Mortal Kombat:
+              <br>Shaolin Monks</div>
+            (2005)<br>
+            <a href="https://www.youtube.com/watch?v=agd9uHM3AOY&list=PLE10D477763CFB8B8&index=4" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+        <div id="element">
+          <div><img id="pic" src="images/games/mkdc.png" style="max-width:300px;"></div>
+          <div id="description">
+            <div id="name">Mortal Kombat:
+              <br>Deception</div>
+            (2004)<br>
+            <a href="https://youtu.be/r-D_lMUfA9s?t=50" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+            <a href="https://blog.moonymagi.com.br/2023/09/mk-deception.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+      
+      
+    <div id="category"><a id="xbox"></a>
+        <img id="platform" src="images/xbox.png" style="max-width:150px;"><br>
+        Xbox 360
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/games/gtav.png"></div>
+        <div id="description">
+          <div id="name">GTA V</div>
+          (2013)<br>
+          <a href="https://www.youtube.com/watch?v=EZniy7MbQlA&amp;list=PLniAE5ZVzgJ72qmrW0BGgNzr2RspMx3Sg&amp;index=3" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/vivapinata.png"></div>
+        <div id="description">
+          <div id="name">Viva Piñata</div>
+          (2006)<br>
+          <a href="https://www.youtube.com/watch?v=3Dh0EeilKSw&amp;list=PLF1A5D17CD35BBCF3&amp;index=2" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+    <br>
+    
+     <div id="element">
+        <div><img id="pic" src="images/games/legosw.png"></div>
+        <div id="description">
+         <div id="name">Lego Star Wars:
+           <br>The Complete Saga</div>
+          (2007)
+        </div>
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/games/swuii.png"></div>
+        <div id="description">
+         <div id="name">Star Wars:
+           <br>The Force Unleashed II</div>
+          (2010)
+        </div>
+      </div>
+    
+    <div id="category"><a id="navegador"></a>
+      <img id="platform" src="images/browser.png"><br>
+      Navegador
+      <br><small style="font-weight:normal;">(Browser)</small>
+    </div>
+    
+   <div id="element">
+          <div><img id="pic" src="images/games/habbo.png"></div>
+          <div id="description">
+            <div id="name">Habbo Hotel</div>
+            (2006 — 2020)<br>
+            <a href="https://www.youtube.com/watch?v=USoBBXXiUS0&amp;list=PLrmCK-mReySG8wViaOOpDzG6f7-_Ph4qh&amp;index=2" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://youtu.be/hIaHlV3LQuY?t=28" target="_blank"><img src="images/youtube.png" id="music_icon" style="display:inline-grid"></a>
+          </div>
+        </div>
+    
+    <div id="element">
+          <div><img id="pic" src="images/games/vortex.png"></div>
+          <div id="description">
+            <div id="name">Pokémon Vortex</div>
+            (2009 —)<br>
+          <a href="/pokemon.html" title="Minha estante de Pokémons!" target="_blank"><img src="images/pokeshelf.png" id="music_icon"><a href="https://pokemon-vortex.com" target="_blank"><img src="images/gaming_emoji.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+    
+      <div id="category"><a id="pc"></a>
+        <img id="platform" src="images/win2.png"><br>
+        Windows (PC)
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/games/rct2.jpg" style="max-height: 200px;"></div>
+        <div id="description">
+          <div id="name">RollerCoaster
+            <br>Tycoon 2</div>
+          (2002)<br>
+          <a href="https://www.youtube.com/watch?v=oENUA2B1_uM" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/games/worms.png"></div>
+        <div id="description">
+          <div id="name">Worms Armageddon</div>
+         (1999)<br>
+          <a href="https://www.youtube.com/watch?v=tSQFEW1gvyM" target="_blank"><img src="images/youtube.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+    <br>
+    
+      <div id="element">
+        <div><img id="pic" src="images/sims1.png"></div>
+        <div id="description">
+          <div id="name">The Sims <span style="opacity: 0.6;">[1]</span></div>
+          (2000)<br>
+          <a href="https://www.youtube.com/watch?v=SP4_Oz1U-NI&list=PL538B8AD43F078BFA&index=9" target="_blank"><img src="images/music_icon_trophy.png" id="music_icon" style="display:inline-grid"></a><a href="https://www.tiktok.com/@ryanplaysthesims" target="_blank"><img src="images/tiktok.png" id="music_icon" style="display:inline-grid"></a> 
+          <a href="https://blog.moonymagi.com.br/2023/10/thesims1.html" target="_blank"><img src="images/blogger.png" id="music_icon"></a>
+        </div>
+      </div>
+    
+    <div id="element">
+        <div><img id="pic" src="images/games/sims2.png"></div>
+        <div id="description">
+          <div id="name">The Sims 2</div>
+          (2004)<br>
+          <a href="https://www.youtube.com/watch?v=lF90l7zWHMg&list=PL2B7B73ED10E4FEA8" target="_blank"><img src="images/music_icon.png" id="music_icon" style="display:inline-grid"></a><a href="https://tiktok.com/@pinokokoshka" target="_blank"><img src="images/tiktok.png" id="music_icon" style="display:inline-grid"></a> 
+        </div>
+      </div>
+    
+      <div id="element">
+        <div><img id="pic" src="images/sims3.png"></div>
+        <div id="description">
+          <div id="name">The Sims 3</div>
+          (2009)<br>
+          <a href="https://www.youtube.com/watch?v=vZ3SmVpFSLQ&amp;list=PL1801CE72D5F901AD&amp;index=17" target="_blank"><img src="images/music_icon.png" id="music_icon"></a><a href="https://www.instagram.com/p/Cjb316kO07D/" target="_blank"><img src="images/igold.png" id="music_icon" style="display:inline-grid"></a>
+        </div>
+      </div>
+       
+    <br>
+    
+       <div id="element">
+          <div><img id="pic" src="images/games/coelhosabido.png"></div>
+          <div id="description">
+            <div id="name">Coelho Sabido: Jardim</div>
+            (1999)<br>
+            <a href="https://www.youtube.com/watch?v=V-oQ3liji48" target="_blank"><img src="images/youtube.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+     <div id="element">
+          <div><img id="pic" src="images/games/spore.png"></div>
+          <div id="description">
+            <div id="name">Spore</div>
+            (2008)<br>
+            <a href="https://www.youtube.com/watch?v=3QTajhzGTS8&list=PLTZms4dI17R6iv9dY-uuF6VvZ1jlYAX7D&index=4" target="_blank"><img src="images/youtube.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+     <div id="element">
+          <div><img id="pic" src="images/games/minecraft.png"></div>
+          <div id="description">
+            <div id="name">Minecraft</div>
+            (2011 —)<br>
+            <a href="https://www.youtube.com/watch?v=qq-RGFyaq0U&amp;list=PLefKpFQ8Pvy5aCLAGHD8Zmzsdljos-t2l" target="_blank"><img src="images/music_icon.png" id="music_icon"></a>
+          </div>
+        </div>
+       
+    <br>
+  
+        <div id="element">
+          <div><img id="pic" src="images/games/bioshock.png"></div>
+          <div id="description">
+            <div id="name">BioShock <span style="opacity: 0.6;">(1, 2 &
+              <br>Infinity: Burial at Sea)</span></div>
+            (2007, 2010 & 2013)<br>
+            <a href="https://www.youtube.com/watch?v=qhsDR7SwSxo&amp;list=PLXIU9mpT9-01Z6ZbtwmowTughQEX1X-SA" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a><a href="https://www.youtube.com/watch?v=mndU5U12qoA?t=45" target="_blank"><img src="images/youtube.png" id="music_icon" style="display:inline-grid"></a>
+          </div>
+        </div>
+    
+     <div id="element">
+          <div><img id="pic" src="images/games/hylics.gif"></div>
+          <div id="description">
+            <div id="name">Hylics <span style="opacity: 0.6;">[1]</span> & Hylics 2</div>
+            (2015 & 2020)<br>
+            <a href="https://youtu.be/xn08f0LTQT4" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+          </div>
+        </div>
+    
+     <div id="element">
+          <div><img id="pic" src="images/games/ori.png"></div>
+          <div id="description">
+            <div id="name">Ori and the Blind Forest <span style="opacity: 0.6;">[1]</span>
+              <br>& the Will of the Wisps <span style="opacity: 0.6;">[2]</span></div>
+(2015 & 2020)<br>
+            <a href="https://youtu.be/DvWp2h1R2ck?t=21" target="_blank"><img src="images/music_icon_fav.png" id="music_icon"></a>
+          </div>
+        </div>
+  
+    <br>
+     <div id="element">
+        <div><img id="pic" src="images/league.png"></div>
+        <div id="description">
+          <div id="name">League of Legends</div>
+          (2009 —)
+        </div>
+       <a href="https://lolprofile.net/summoner/br/Crystalist#update" target="_blank"><img src="images/lol.png" id="music_icon"></a>
+  </div>
+  
+  
+    <div id="category"><a id="quest2"></a>
+      <img id="platform" src="images/quest2.png"><br>
+      Oculus Quest 2
+    </div>
+    <div id="element">
+      <div><img id="pic" src="images/vrc.png" style="max-width:300px;"></div>
+      <div id="description">
+        <div id="name">VRChat</div>
+        (2014 —)
+      </div>
+    </div>
+  </div>
+  <div id="bottom">
+    <br>
+    <br>
+    <div style="font-size: 14px; font-weight:bold;">
+      <span class="green"><a href="#top">↑ Retornar ao topo da página</a></span>
+      <br>
+      <span class="yellow"><a href="/livros.html">📚 Recomendações de Livros</a></span>
+      <br>
+      <span class="red"><a href="/series.html">📺 Recomendações de Séries</a></span>
+      <br>
+      <span class="blue"><a href="/websites.html">💻 Recomendações de Websites</a></span>
+      <br>
+      <span class="green"><a href="/index.html">« Retornar à Página Inicial</a></span> 
+    </div>
+  </div>
+</body>
+</html>

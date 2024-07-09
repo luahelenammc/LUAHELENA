@@ -1,0 +1,135 @@
+@charset "utf-8";
+body {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #FFF;
+	background-attachment: fixed;
+	background-image: url(images/back.jpg);
+	background-position: center bottom;
+}
+#all {
+	width: 800px;
+	text-align: left;
+}
+#top {
+	background-image: url(images/top.png);
+	height: 8px;
+	width: 800px;
+}
+#middle {
+	background-image: url(images/middle.png);
+	background-repeat: repeat;
+	width: 800px;
+	overflow: hidden;
+}
+#logo {
+	height: 96px;
+	width: 800px;
+	padding: 20px;
+}
+#down {
+	background-image: url(images/down.png);
+	height: 8px;
+	width: 800px;
+}
+#tag {
+	float: left;
+	height: 50px;
+	width: 50px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+#def {
+	height: auto;
+	width: 800px;
+	overflow: hidden;
+}
+td {
+	text-align: left;
+	padding: 5px;
+	background:url(images/box.png) repeat;
+}
+#nav {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	height: auto;
+	width: 800px;
+}
+#bt_1 {
+	background-image: url(images/1.png);
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 80px;
+	width: 80px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+#bt_1:hover {
+	background-image: url(images/1h.png);
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 80px;
+	width: 80px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+#bt_2 {
+	background-image: url(images/2.png);
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 80px;
+	width: 80px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+#bt_2:hover {
+	background-image: url(images/2h.png);
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 80px;
+	width: 80px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+.glt-elm{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 150px;
+	color: #fff;
+	opacity: 0.9;
+	visibility: hidden;
+}
+
+.glt-elm p{
+	background: #666;
+	margin: 0;
+	padding-left: 10px;
+	padding-right:10px;
+}
+
+.glt-elm img{
+	display: block;
+}
+td a {
+	color: #FFF;
+	text-decoration: underline;
+}
+td a:hover {
+	color: #FFF;
+	text-decoration:none;
+}

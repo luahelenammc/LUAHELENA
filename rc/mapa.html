@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XTDS6RGCZ');
+</script>
+  <title>Mapa - Cidades já visitadas</title>
+ <link rel="icon" type="image/x-icon" href="images/map.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <style>
+   
+    
+    /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00ff99; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc99; 
+}
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+} 
+@-ms-viewport {
+  width: device-width ;
+}
+    body {
+  font-family: "Arial";
+  font-size: 12px;
+  background:#004d4d;
+  color: white;
+}
+#wrapper {
+  text-align: center;
+  width: 100%;
+}
+#top {
+  text-align: center;
+  margin:10px 0 10px 0;
+}
+#middle {
+  text-align: center;
+  width: 100%;
+  margin-top:20px;
+}
+#bottom {
+  text-align: center;
+  Margin-bottom: 20px;
+}
+#title {
+  font-size: 35px;
+  font-family: Garamond, Times New Roman, Times, serif;
+}
+#title2 {
+  font-size: 25px;
+  font-family: Garamond, Times New Roman, Times, serif;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+#subtitle {
+ font-size: 20px;
+ font-family: Garamond, Times New Roman, Times, serif;
+ text-align:center;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color:#66ff66;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+  color: #00ffff;
+}
+
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="top">
+     <img src="/images/map.png" style="max-height:200px; margin-bottom: 20px;" />
+      <div id="title">
+       Cidades Já Visitadas
+      </div>
+      <div id="title2">
+        <a href="/index.html">Régis Cardoso</a>
+      </div>
+     
+    </div>
+    <div id="middle">
+     
+      <iframe style="allowfullscreen:true; border: none;" src="https://www.google.com/maps/d/embed?mid=1mrevKZU4o_G6dCctfT0yAMhqLlS3iFQ&ehbc=2E312F" width="90%" height="500px"></iframe>
+
+    </div>
+
+    <div id="bottom">
+    <br>
+      <a href="https://earth.google.com/web/data=MigKJgokCiAxbXJldktaVTRvX0c2ZENjdGZUMHlBTWhxTGxTM2lGUSAC" target="_blank">🌏 Visualizar no Google Earth</a>
+      <br>
+      <a href="/outros.html">« Voltar a "Outros"</a>
+      <br>
+      <a href="/index.html">« Voltar à Página Inicial</a>
+    </div>
+  </div>
+</body>
+</html>

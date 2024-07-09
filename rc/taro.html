@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="images/taro.png">
+<title>Tarô</title>
+  <script>
+    const elementos = ['Ás de Ouros', 'Dois de Ouros', 'Três de Ouros', 'Quatro de Ouros', 'Cinco de Ouros', 'Seis de Ouros', 'Sete de Ouros', 'Oito de Ouros', 'Nove de Ouros', 'Dez de Ouros', 'Valete de Ouros', 'Rainha de Ouros', 'Rei de Ouros','Ás de Copas', 'Dois de Copas', 'Três de Copas', 'Quatro de Copas', 'Cinco de Copas', 'Seis de Copas', 'Sete de Copas', 'Oito de Copas', 'Nove de Copas', 'Dez de Copas', 'Valete de Copas', 'Rainha de Copas', 'Rei de Copas','Ás de Espadas', 'Dois de Espadas', 'Três de Espadas', 'Quatro de Espadas', 'Cinco de Espadas', 'Seis de Espadas', 'Sete de Espadas', 'Oito de Espadas', 'Nove de Espadas', 'Dez de Espadas', 'Valete de Espadas', 'Rainha de Espadas', 'Rei de Espadas','Ás de Paus', 'Dois de Paus', 'Três de Paus', 'Quatro de Paus', 'Cinco de Paus', 'Seis de Paus', 'Sete de Paus', 'Oito de Paus', 'Nove de Paus', 'Dez de Paus', 'Valete de Paus', 'Rainha de Paus', 'Rei de Paus','0 - O Louco', 'I - O Mago', 'II - A Sacerdotiza', 'III - A Imperatriz', 'IV - O Imperador', 'V - O Hierofante', 'VI - Os Enamorados', 'VII - O Carro', 'VIII - A Força', 'XI - A Justiça', 'IX - O Eremita', 'X - A Roda da Fortuna', 'XIII - A Morte (O Inominável)', 'XIV - A Temperança', 'XV - O Diabo', 'XV - A Torre', 'XVII - A Estrela', 'XVIII - A Lua', 'XIX - O Sol', 'XX - O Julgamento', 'XXI - O Mundo'];
+
+function escolherElemento() {
+  let randomNumber1 = Math.floor(Math.random() * elementos.length);
+  let randomNumber2 = Math.floor(Math.random() * elementos.length);
+
+  // Verifica se os índices são iguais e gera um novo índice para o segundo elemento, se necessário
+  while (randomNumber1 === randomNumber2) {
+    randomNumber2 = Math.floor(Math.random() * elementos.length);
+  }
+
+  const elementoEscolhido1 = elementos[randomNumber1];
+  const elementoEscolhido2 = elementos[randomNumber2];
+
+  // Exibe os elementos escolhidos na página
+  const elementoResultado = document.getElementById('resultado');
+  elementoResultado.textContent = `As cartas tiradas foram: ${elementoEscolhido1} e ${elementoEscolhido2}`;
+}
+  </script>
+</head>
+<body><button onclick="escolherElemento()">Tirar Cartas</button>
+<div id="resultado"></div>
+</body>
+</html>

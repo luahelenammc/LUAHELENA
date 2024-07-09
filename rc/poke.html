@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2XTDS6RGCZ');
+  </script>
+  
+  <title>Meus Pokémons</title>
+  <link rel="icon" type="image/x-icon" href="images/pokeball.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #00ff99; 
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00cc99; 
+    }
+
+    body {
+      font-family: 'General Sans', sans-serif;
+      font-size: 12px;
+      background: #f7f7f7;
+      background-image: url("/images/pokebg.png");
+      background-repeat: repeat;
+      color: black;
+    }
+
+    #wrapper {
+      text-align: center;
+      width: 100%;
+    }
+
+    #top {
+      text-align: center;
+      margin: 10px 0 10px 0;
+      font-size: 20px;
+    }
+
+    #topblock {
+      background: black;
+      color: white;
+      padding: 10px;
+      width: max-content;
+      display: inline-block;
+      border-radius: 15px;
+    }
+
+    #middle {
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    #element {
+      display: inline-grid;
+      background: #f7f7f7;
+      border-radius: 20px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 20px;
+      max-width: 300px;
+    }
+
+    #name {
+      font-size: 16px;
+    }
+
+    #description {
+      font-weight: bold;
+      color: black;
+      text-shadow: none;
+    }
+
+    #element:hover, #element:active {
+      box-shadow: 0px 0px 25px 2px white;
+      text-shadow: 0 0 10px black, 0 0 5px black;
+    }
+
+    #description a:link, #description a:visited {
+      color: #f50808;
+      text-decoration: underline;
+    }
+
+    #description a:hover, #description a:active {
+      text-decoration: none;
+      text-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="top">
+      <img src="/images/pokeshelf.png" style="max-width: 100%;" />
+      <br />
+      <div id="topblock">Meus Pokémons no:</div>
+      <br />
+      <a href="https://pokemon-vortex.com/" target="_blank">
+        <img src="/images/vortex.png" style="max-width: 300px;" title="Pokémon Vortex (jogo de navegador)" />
+      </a>
+    </div>
+    <div id="middle">
+      <!-- Pokémon Psíquicos e Místicos -->
+      <h2>Pokémon Psíquicos e Místicos</h2>
+      <div id="description">
+        Estes Pokémon refletem a sua busca por conhecimento profundo, inteligência e a capacidade de transcender os limites da mente humana. Eles também simbolizam misticismo e espiritualidade, elementos centrais para a personalidade INFP, que busca significado e propósito em tudo. A estética etérea e misteriosa desses Pokémon ressoa com sua sensibilidade e busca pela beleza.
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Mew.png" alt="Shiny Mew"></div>
+        <div id="name">Shiny Mew</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Mew.png" alt="Mew"></div>
+        <div id="name">Mew</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Mewtwo.png" alt="Shiny Mewtwo"></div>
+        <div id="name">Shiny Mewtwo</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Azelf.png" alt="Shiny Azelf"></div>
+        <div id="name">Shiny Azelf</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Alakazam (Mega).png" alt="Shiny Alakazam (Mega)"></div>
+        <div id="name">Shiny Alakazam (Mega)</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Espeon.png" alt="Espeon"></div>
+        <div id="name">Espeon</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Musharna.png" alt="Musharna"></div>
+        <div id="name">Musharna</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Jirachi.png" alt="Jirachi"></div>
+        <div id="name">Jirachi</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Lunala.png" alt="Lunala"></div>
+        <div id="name">Lunala</div>
+      </div>
+
+      <!-- Pokémon Naturais e Elementais -->
+      <h2>Pokémon Naturais e Elementais</h2>
+      <div id="description">
+        Esses Pokémon simbolizam uma profunda conexão com a natureza, vida e crescimento, refletindo seu apreço por ambientes naturais e equilíbrio ecológico. Eles também representam fluidez, adaptabilidade, resiliência e renovação. A estética desses Pokémon, com suas formas elegantes e cores naturais, celebra a beleza e a serenidade do mundo natural.
+      </div>
+      <div id="element">
+        <div><img src="/images/Celebi.png" alt="Celebi"></div>
+        <div id="name">Celebi</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Arceus (Grass).png" alt="Arceus (Grass)"></div>
+        <div id="name">Arceus (Grass)</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Dragonair.png" alt="Shiny Dragonair"></div>
+        <div id="name">Shiny Dragonair</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Tropius.png" alt="Shiny Tropius"></div>
+        <div id="name">Shiny Tropius</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Leafeon.png" alt="Leafeon"></div>
+        <div id="name">Leafeon</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Vaporeon.png" alt="Vaporeon"></div>
+        <div id="name">Vaporeon</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Pumpkaboo (Large).png" alt="Pumpkaboo"></div>
+        <div id="name">Pumpkaboo</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Meganium.png" alt="Meganium"></div>
+        <div id="name">Meganium</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Lombre.png" alt="Lombre"></div>
+        <div id="name">Lombre</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Crawdaunt.png" alt="Crawdaunt"></div>
+        <div id="name">Crawdaunt</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Lapras.png" alt="Lapras"></div>
+        <div id="name">Lapras</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Regice.png" alt="Regice"></div>
+        <div id="name">Regice</div>
+      </div>
+
+      <!-- Pokémon das Sombras e Mistério -->
+      <h2>Pokémon das Sombras e Mistério</h2>
+      <div id="description">
+        Esses Pokémon simbolizam a fascinação pelo mistério, o oculto e as sombras. Eles refletem sua tendência a proteger e defender, assim como a aceitação das dualidades e complexidades da vida. A estética sombria e enigmática destes Pokémon reflete uma beleza oculta e intrigante, ressoando com sua apreciação pela complexidade e profundidade.
+      </div>
+      <div id="element">
+        <div><img src="/images/Darkrai.png" alt="Darkrai"></div>
+        <div id="name">Darkrai</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Dusknoir.png" alt="Shiny Dusknoir"></div>
+        <div id="name">Shiny Dusknoir</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Sableye (Mega).png" alt="Shiny Sableye (Mega)"></div>
+        <div id="name">Shiny Sableye (Mega)</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Umbreon.png" alt="Umbreon"></div>
+        <div id="name">Umbreon</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Giratina.png" alt="Giratina"></div>
+        <div id="name">Giratina</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Lunatone.png" alt="Shiny Lunatone"></div>
+        <div id="name">Shiny Lunatone</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Solrock.png" alt="Shiny Solrock"></div>
+        <div id="name">Shiny Solrock</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Cascoon.png" alt="Shiny Cascoon"></div>
+        <div id="name">Shiny Cascoon</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Butterfree.png" alt="Shiny Butterfree"></div>
+        <div id="name">Shiny Butterfree</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Venomoth.png" alt="Shiny Venomoth"></div>
+        <div id="name">Shiny Venomoth</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Sharpedo.png" alt="Shiny Sharpedo"></div>
+        <div id="name">Shiny Sharpedo</div>
+      </div>
+
+      <!-- Pokémon de Luz e Energia -->
+      <h2>Pokémon de Luz e Energia</h2>
+      <div id="description">
+        Esses Pokémon refletem vitalidade, energia e dinamismo. Eles também simbolizam versatilidade e capacidade de mudança, além de uma busca pela beleza e graça em suas formas e movimentos. A estética vibrante e energética desses Pokémon celebra a vivacidade e a diversidade.
+      </div>
+      <div id="element">
+        <div><img src="/images/Infernape.png" alt="Infernape"></div>
+        <div id="name">Infernape</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Kingler.png" alt="Kingler"></div>
+        <div id="name">Kingler</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Kingler.png" alt="Shiny Kingler"></div>
+        <div id="name">Shiny Kingler</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Kingdra.png" alt="Shiny Kingdra"></div>
+        <div id="name">Shiny Kingdra</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Ditto.png" alt="Shiny Ditto"></div>
+        <div id="name">Shiny Ditto</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Starmie.png" alt="Starmie"></div>
+        <div id="name">Starmie</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Venosaur.png" alt="Venosaur"></div>
+        <div id="name">Venosaur</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Persian.png" alt="Shiny Persian"></div>
+        <div id="name">Shiny Persian</div>
+      </div>
+      <div id="element">
+        <div><img src="/images/Shiny Staryu.png" alt="Shiny Staryu"></div>
+        <div id="name">Shiny Staryu</div>
+      </div>
+
+      <!-- Outros Pokémon -->
+      <h2>Outros Pokémon</h2>
+      <div id="description">
+        Estes são os Pokémon que não se encaixam diretamente nas categorias principais, mas que ainda têm um lugar especial em seu time e refletem diferentes aspectos da sua personalidade e preferências estéticas.
+      </div>
+      <div id="element">
+        <div><img src="/images/Outros.png" alt="Outros"></div>
+        <div id="name">Outros Pokémon</div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div id="bottomblock"><a href="#top">↑ Retornar ao topo da página</a></div>
+      <br />
+      <div id="bottomblock"><a href="/outros.html">« Retornar ao site principal</a></div>
+    </div>
+  </div>
+
+  <script>
+    function extractPokemonName(filename) {
+      var decodedName = decodeURIComponent(filename);
+      var startIndex = decodedName.lastIndexOf("/") + 1;
+      var endIndex = decodedName.lastIndexOf(".");
+      var pokemonName = decodedName.substring(startIndex, endIndex);
+      return pokemonName;
+    }
+
+    function createPokemonElement(imgSrc) {
+      var pokemonName = extractPokemonName(imgSrc);
+      var elementDiv = document.createElement("div");
+      elementDiv.className = "element";
+
+      var imgDiv = document.createElement("div");
+      var imgElement = document.createElement("img");
+      imgElement.src = imgSrc;
+      imgElement.alt = "Imagem do Pokémon";
+      imgDiv.appendChild(imgElement);
+      elementDiv.appendChild(imgDiv);
+
+      var descriptionDiv = document.createElement("div");
+      descriptionDiv.className = "description";
+      var nameDiv = document.createElement("div");
+      nameDiv.className = "name";
+      nameDiv.textContent = pokemonName;
+      descriptionDiv.appendChild(nameDiv);
+      elementDiv.appendChild(descriptionDiv);
+
+      return elementDiv;
+    }
+
+    function loadPokemonElements() {
+      var middleDiv = document.getElementById("middle");
+
+      var imagesPath = "/images/pokemon/";
+      var images = [
+        "Shiny Mew.png",
+        "Mew.png",
+        "Shiny Mewtwo.png",
+        "Mewtwo.png",
+        "Shiny Celebi.png",
+        "Celebi.png",
+        "Jirachi.png",
+        "Arceus.png",
+        "Arceus (Grass).png",
+        "Arceus (Water).png",
+        "Arceus (Fire).png",
+        "Arceus (Dark).png",
+        "Shiny Dialga.png",
+        "Palkia.png",
+        "Giratina.png",
+        "Deoxys (Defense).png",
+        "Deoxys.png",
+        "Rayquaza (Mega).png",
+        "Articuno.png",
+        "Moltres.png",
+        "Zapdos.png",
+        "Shiny Lugia.png",
+        "Ho-oh.png",
+        "Shiny Azelf.png",
+        "Azelf.png",
+        "Uxie.png",
+        "Mesprit.png",
+        "Regigigas.png",
+        "Regice.png",
+        "Regirock.png",
+        "Registeel.png",
+        "Entei.png",
+        "Raikou.png",
+        "Suicune.png",
+        "Groudon.png",
+        "Kyogre.png",
+        "Darkrai.png",
+        "Cresselia.png",
+        "Diancie (Mega).png",
+        "Shiny Ditto.png",
+        "Ditto.png",
+        "Shiny Sableye (Mega).png",
+        "Porygon.png",
+        "Vaporeon.png",
+        "Flareon.png",
+        "Shiny Jolteon.png",
+        "Jolteon.png",
+        "Espeon.png",
+        "Shiny Leafeon.png",
+        "Leafeon.png",
+        "Glaceon.png",
+        "Eevee.png",
+        "Shiny Lunatone.png",
+        "Lunatone.png",
+        "Shiny Solrock.png",
+        "Solrock.png",
+        "Dragonite.png",
+        "Shiny Dragonair.png",
+        "Dragonair.png",
+        "Dratini.png",
+        "Riolu.png",
+        "Shiny Lapras.png",
+        "Lapras.png",
+        "Shiny Staryu.png",
+        "Staryu.png",
+        "Shiny Starmie.png",
+        "Starmie.png",
+        "Shiny Psyduck.png",
+        "Psyduck.png",
+        "Shiny Tentacruel.png",
+        "Tentacruel.png",
+        "Shiny Tentacool.png",
+        "Shiny Lombre.png",
+        "Lombre.png",
+        "Shiny Milotic.png",
+        "Milotic.png",
+        "Shiny Persian.png",
+        "Meowth.png",
+        "Shiny Magikarp.png",
+        "Magikarp.png",
+        "Shiny Gyarados.png",
+        "Gyarados.png",
+        "Shiny Victreebel.png",
+        "Victreebel.png",
+        "Seviper.png",
+        "Shiny Koffing.png",
+        "Shiny Alakazam (Mega).png",
+        "Kadabra.png",
+        "Abra.png",
+        "Kingler.png",
+        "Shiny Kingler.png",
+        "Shiny Krabby.png",
+        "Shiny Golduck.png",
+        "Golduck.png",
+        "Shiny Kingdra.png",
+        "Kingdra.png",
+        "Shiny Horsea.png",
+        "Horsea.png",
+        "Crawdaunt.png",
+        "Empoleon.png",
+        "Prinplup.png",
+        "Shiny Relicanth.png",
+        "Venusaur.png",
+        "Ivysaur.png",
+        "Bulbasaur.png",
+        "Blastoise.png",
+        "Wartortle.png",
+        "Squirtle.png",
+        "Charizard (Mega X).png",
+        "Charmeleon.png",
+        "Charmander.png",
+        "Swampert.png",
+        "Mudkip.png",
+        "Pichu.png",
+        "Infernape.png",
+        "Monferno.png",
+        "Blaziken.png",
+        "Magmortar.png",
+        "Magmar.png",
+        "Magby.png",
+        "Typhlosion.png",
+        "Rhyperior.png",
+        "Donphan.png",
+        "Phanpy.png",
+        "Shiny Butterfree.png",
+        "Butterfree.png",
+        "Beedrill.png",
+        "Togepi.png",
+        "Shiny Ponyta.png",
+        "Rapidash.png",
+        "Shiny Sandshrew.png",
+        "Meganium.png",
+        "Bayleef.png",
+        "Chikorita.png",
+        "Sceptile.png",
+        "Treecko.png",
+        "Shiny Dusknoir.png",
+        "Dusknoir.png",
+        "Dusclops.png",
+        "Shiny Duskull.png",
+        "Duskull.png",
+        "Gengar.png",
+        "Haunter.png",
+        "Gastly.png",
+        "Shiny Spiritomb.png",
+        "Mismagius.png",
+        "Shiny Misdreavus.png",
+        "Misdreavus.png",
+        "Sableye.png",
+        "Larvitar.png",
+        "Shiny Poochyena.png",
+        "Poochyena.png",
+        "Shiny Sharpedo.png",
+        "Hitmonchan.png",
+        "Shiny Machamp.png",
+        "Machamp.png",
+        "Shiny Makuhita.png",
+        "Medicham.png",
+        "Mienfoo.png",
+        "Shiny Venomoth.png",
+        "Venomoth.png",
+        "Shiny Vileplume.png",
+        "Electivire.png",
+        "Shiny Magnezone.png",
+        "Exeggutor.png",
+        "Hypno.png",
+        "Drowzee.png",
+        "Poliwrath.png",
+        "Shiny Grimer.png",
+        "Muk.png",
+        "Golem.png",
+        "Pidgeotto.png",
+        "Lickitung.png",
+        "Ninetales.png",
+        "Growlithe.png",
+        "Kakuna.png",
+        "Loudred.png",
+        "Cubone.png",
+        "Flygon.png",
+        "Forretress.png",
+        "Scizor.png",
+        "Scyther.png",
+        "Shiny Corsola.png",
+        "Shiny Croagunk.png",
+        "Shiny Metagross.png",
+        "Shiny Ninjask.png",
+        "Shiny Parasect.png",
+        "Shiny Paras.png",
+        "Shiny Shiftry.png",
+        "Shiftry.png",
+        "Shiny Seedot.png",
+        "Shiny Shroomish.png",
+        "Shiny Taillow.png",
+        "Shiny Tangrowth.png",
+        "Tangela.png",
+        "Shiny Tauros.png",
+        "Tauros.png",
+        "Shiny Torkoal.png",
+        "Torkoal.png",
+        "Shiny Torterra.png",
+        "Turtwig.png",
+        "Shiny Tropius.png",
+        "Shiny Ursaring.png",
+        "Shiny Weavile.png",
+        "Shiny Whismur.png",
+        "Shiny Wingull.png",
+        "Shiny Yanma.png",
+        "Shiny Zangoose.png",
+        "Zangoose.png",
+        "Shiny Zigzagoon.png",
+        "Slowpoke.png",
+        "Sudowoodo.png",
+        "Musharna.png",
+        "Shiny Jynx.png",
+        "Jynx.png",
+        "Shiny Smoochum.png",
+        "Mimikyu.png",
+        "Shiny Mime Jr..png",
+        "Shiny Spoink.png",
+        "Spoink.png",
+        "Shiny Igglybuff.png",
+        "Shiny Alomomola.png",
+        "Shiny Luvdisc.png",
+        "Kirlia.png",
+        "Shiny Ralts.png",
+        "Shiny Cascoon.png",
+        "Cascoon.png",
+        "Shiny Luxio.png",
+        "Luxio.png",
+        "Shinx.png",
+        "Shiny Absol.png",
+        "Absol.png",
+        "Shiny Ambipom.png",
+        "Shiny Azurill.png",
+        "Shiny Bonsly.png",
+        "Shiny Castform (Water).png",
+        "Shiny Delcatty.png",
+        "Shiny Diglett.png",
+        "Shiny Dodrio.png",
+        "Shiny Goldeen.png",
+        "Shiny Electrike.png",
+        "Shiny Electrode.png",
+        "Shiny Farfetch_d.png",
+        "Shiny Glameow.png",
+        "Shiny Lilligant.png",
+        "Shiny Mantine.png",
+        "Shiny Metapod.png",
+        "Shiny Shuckle.png",
+        "Shiny Shuppet.png",
+        "Shiny Sigilyph.png",
+        "Shiny Skarmory.png",
+        "Shiny Spinarak.png",
+        "Shiny Spinda.png",
+        "Shiny Pumpkaboo (Large).png",
+        "Pumpkaboo (Large).png",
+        "Shiny Gourgeist (Large).png",
+        "Shiny Swablu.png",
+        "Shiny Minun.png",
+        "Shiny Panpour.png",
+        "Shiny Pansear.png",
+        "Morgrem.png",
+      ];
+
+      images.forEach(function (image) {
+        var imgSrc = imagesPath + image;
+        var elementDiv = createPokemonElement(imgSrc);
+        middleDiv.appendChild(elementDiv);
+      });
+
+      // Atualiza o nome do Pokémon para cada elemento
+      var elements = document.querySelectorAll(".element");
+      for (var i = 0; i < elements.length; i++) {
+        var imgElement = elements[i].querySelector("img");
+        var imgSrc = imgElement.getAttribute("src");
+        var pokemonName = extractPokemonName(imgSrc);
+        var nameElement = elements[i].querySelector(".name");
+        nameElement.textContent = pokemonName;
+      }
+    }
+
+    loadPokemonElements();
+  </script>
+</body>
+</html>

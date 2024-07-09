@@ -1,0 +1,12 @@
+@charset "utf-8";
+body {
+	background-image: url(imagens/fundo.png);
+	background-repeat: repeat;
+	background-position: center center;
+}
+#animacao {
+	height: 510px;
+	width: 510px;
+	background-image: url(imagens/sombra.png);
+	text-align: left;
+}

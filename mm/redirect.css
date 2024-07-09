@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+  } 
+  @-ms-viewport {
+  width: device-width ;
+  }
+@font-face {
+    font-family: 'Sentient';
+    src: url('/fonts/Sentient.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans.ttf') format('truetype');
+}
+html, body {
+      cursor:url('/images/mouse.png'), auto !important;
+    }
+    a:hover {
+            cursor:url('/images/select.png'), auto !important;
+    }
+       a:active {
+                cursor:url('/images/wheel.png'), auto !important;
+
+    }
+body {
+  background: url(images/retrogamingbg.jpg);
+  background-repeat: repeat;
+  color: white;
+  font-size: 25px;
+  font-family:'Sentient', sans-serif;
+  text-align:center;
+}
+
+a:link, a:visited {
+ color: white;
+  text-decoration:underline;
+}
+
+a:hover, a:active {
+ color:white;
+  text-decoration: none;
+}
+
+#box {
+ background: #000000a1;
+    border-radius: 25px;
+    padding: 10px;
+    max-width: 400px; 
+}
