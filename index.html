@@ -97,53 +97,54 @@
     <img src="/images/sync.png" alt="Outros Conteúdos">
   </div>
 
-  <script>
-    const dockImages = document.querySelectorAll('.dock img:not(.fade-images img)');
-    const fadeImages = document.querySelectorAll('.fade-images img');
-    let currentFadeIndex = 0;
+ <script>
+  const dockImages = document.querySelectorAll('.dock img:not(.fade-images img)');
+  const fadeImages = document.querySelectorAll('.fade-images img');
+  let currentFadeIndex = 0;
 
-    function fadeTransition() {
-      fadeImages[currentFadeIndex].classList.remove('active');
-      currentFadeIndex = (currentFadeIndex + 1) % fadeImages.length;
-      fadeImages[currentFadeIndex].classList.add('active');
-    }
+  function fadeTransition() {
+    fadeImages[currentFadeIndex].classList.remove('active');
+    currentFadeIndex = (currentFadeIndex + 1) % fadeImages.length;
+    fadeImages[currentFadeIndex].classList.add('active');
+  }
 
-    setInterval(fadeTransition, 3000);
+  setInterval(fadeTransition, 3000);
 
-    const allDockImages = document.querySelectorAll('.dock img');
-    allDockImages.forEach((img, index) => {
-      img.addEventListener('mouseenter', () => {
-        allDockImages.forEach((img) => {
-          img.classList.remove('active', 'adjacent');
-        });
-
-        img.classList.add('active');
-        
-        if (allDockImages[index - 1]) {
-          allDockImages[index - 1].classList.add('adjacent');
-        }
-        if (allDockImages[index + 1]) {
-          allDockImages[index + 1].classList.add('adjacent');
-        });
+  const allDockImages = document.querySelectorAll('.dock img');
+  allDockImages.forEach((img, index) => {
+    img.addEventListener('mouseenter', () => {
+      allDockImages.forEach((img) => {
+        img.classList.remove('active', 'adjacent');
       });
 
-      img.addEventListener('mouseleave', () => {
-        allDockImages.forEach((img) => {
-          img.classList.remove('active', 'adjacent');
-        });
-      });
+      img.classList.add('active');
+      
+      if (allDockImages[index - 1]) {
+        allDockImages[index - 1].classList.add('adjacent');
+      }
+      if (allDockImages[index + 1]) {
+        allDockImages[index + 1].classList.add('adjacent');
+      }
+    });
 
-      img.addEventListener('click', () => {
-        const hoverScale = getComputedStyle(img).transform;
-        const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[3]) : 1.5;
-        img.style.animation = `bounce 1s`;
-        img.style.transform = `scale(${scaleFactor}) translateY(0)`;
-        setTimeout(() => {
-          img.style.animation = '';
-          img.style.transform = '';
-        }, 1000);
+    img.addEventListener('mouseleave', () => {
+      allDockImages.forEach((img) => {
+        img.classList.remove('active', 'adjacent');
       });
     });
-  </script>
+
+    img.addEventListener('click', () => {
+      const hoverScale = getComputedStyle(img).transform;
+      const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[0].match(/matrix\(([^,]+)/)[1]) : 1.5;
+      img.style.animation = `bounce 1s`;
+      img.style.transform = `scale(${scaleFactor}) translateY(0)`;
+      setTimeout(() => {
+        img.style.animation = '';
+        img.style.transform = '';
+      }, 1000);
+    });
+  });
+</script>
+
 </body>
 </html>
