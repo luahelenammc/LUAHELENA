@@ -22,14 +22,14 @@
       width: 100px;
       height: auto;
       margin-bottom: 20px;
-      animation: rotate 20s linear infinite;
+      animation: fade 10s infinite;
     }
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
+    @keyframes fade {
+      0%, 100% {
+        opacity: 1;
       }
-      100% {
-        transform: rotate(360deg);
+      50% {
+        opacity: 0;
       }
     }
     .dock {
@@ -40,8 +40,8 @@
       border-radius: 20px;
     }
     .dock img {
-      width: 50px;
-      height: 50px;
+      width: 150px;
+      height: 150px;
       transition: transform 0.2s;
       margin: 0 10px;
     }
@@ -55,26 +55,63 @@
       0%, 100% {
         transform: translateY(0);
       }
-      50% {
+      25% {
         transform: translateY(-15px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      75% {
+        transform: translateY(-7px);
       }
     }
     .dock img.bouncing {
-      animation: bounce 0.3s;
+      animation: bounce 0.6s;
+    }
+    .fade-images {
+      width: 150px;
+      height: 150px;
+      margin: 0 10px;
+      position: relative;
+    }
+    .fade-images img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    .fade-images img.active {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <img src="/images/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
+  <img src="/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
   <div class="dock">
     <img src="/images/work folder.png" alt="Currículo">
-    <img src="/images/shelf ios6.fw.png" alt="Recomendações de Livros, Séries e Jogos">
-    <img src="/images/ps1 icon.fw.png" alt="Blog de Jogos Nostálgicos">
+    <img src="/images/books.png" alt="Recomendações de Livros, Séries e Jogos">
+    <div class="fade-images">
+      <img src="/images/ps1_logo.png" alt="Blog de Jogos Nostálgicos" class="active">
+      <img src="/images/ps1.png" alt="Blog de Jogos Nostálgicos">
+      <img src="/images/ps2.png" alt="Blog de Jogos Nostálgicos">
+      <img src="/images/ZSNES.png" alt="Blog de Jogos Nostálgicos">
+    </div>
     <img src="/images/sync.png" alt="Outros Conteúdos">
   </div>
 
   <script>
     const dockImages = document.querySelectorAll('.dock img');
+    const fadeImages = document.querySelectorAll('.fade-images img');
+    let currentFadeIndex = 0;
+
+    function fadeTransition() {
+      fadeImages[currentFadeIndex].classList.remove('active');
+      currentFadeIndex = (currentFadeIndex + 1) % fadeImages.length;
+      fadeImages[currentFadeIndex].classList.add('active');
+    }
+
+    setInterval(fadeTransition, 3000);
 
     dockImages.forEach((img, index) => {
       img.addEventListener('mouseenter', () => {
@@ -102,7 +139,7 @@
         img.classList.add('bouncing');
         setTimeout(() => {
           img.classList.remove('bouncing');
-        }, 300);
+        }, 600);
       });
     });
   </script>
