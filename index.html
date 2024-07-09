@@ -36,7 +36,7 @@
       display: flex;
       align-items: flex-end;
       padding: 20px;
-      background-color: rgb(255 255 255 / 8%);
+      background-color: rgba(255, 255, 255, 0.08);
       border-radius: 20px;
     }
     .dock img {
@@ -110,24 +110,25 @@
 
     setInterval(fadeTransition, 3000);
 
-    document.querySelectorAll('.dock img').forEach((img, index) => {
+    const allDockImages = document.querySelectorAll('.dock img');
+    allDockImages.forEach((img, index) => {
       img.addEventListener('mouseenter', () => {
-        document.querySelectorAll('.dock img').forEach((img) => {
+        allDockImages.forEach((img) => {
           img.classList.remove('active', 'adjacent');
         });
 
         img.classList.add('active');
         
-        if (document.querySelectorAll('.dock img')[index - 1]) {
-          document.querySelectorAll('.dock img')[index - 1].classList.add('adjacent');
+        if (allDockImages[index - 1]) {
+          allDockImages[index - 1].classList.add('adjacent');
         }
-        if (document.querySelectorAll('.dock img')[index + 1]) {
-          document.querySelectorAll('.dock img')[index + 1].classList.add('adjacent');
+        if (allDockImages[index + 1]) {
+          allDockImages[index + 1].classList.add('adjacent');
         }
       });
 
       img.addEventListener('mouseleave', () => {
-        document.querySelectorAll('.dock img').forEach((img) => {
+        allDockImages.forEach((img) => {
           img.classList.remove('active', 'adjacent');
         });
       });
