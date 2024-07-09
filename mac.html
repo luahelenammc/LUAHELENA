@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lua Helena Moon M. C. - Versão 0.2</title>
+  <link rel="icon" type="image/x-icon" href="images/ICON.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      background-color: #121212;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .dock {
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+    }
+    .dock img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s;
+      margin: 0 10px;
+    }
+    .dock img:hover {
+      transform: scale(1.5);
+    }
+    .dock img:hover ~ img {
+      transform: scale(1.2);
+    }
+    .dock img:active {
+      animation: bounce 0.3s;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dock">
+    <img src="/images/curriculo.png" alt="Currículo">
+    <img src="/images/livros.png" alt="Referências de Livros, Filmes, Séries e Jogos">
+    <img src="/images/jogos.png" alt="Blog de Jogos Nostálgicos">
+    <img src="/images/conteudos.png" alt="Outros Conteúdos">
+  </div>
+
+  <script>
+    const dockImages = document.querySelectorAll('.dock img');
+
+    dockImages.forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const index = Array.from(dockImages).indexOf(img);
+        dockImages.forEach((img, i) => {
+          if (i !== index) {
+            const distance = Math.abs(i - index);
+            img.style.transform = `scale(${1 + 0.3 / distance})`;
+          }
+        });
+      });
+
+      img.addEventListener('mouseleave', () => {
+        dockImages.forEach((img) => {
+          img.style.transform = 'scale(1)';
+        });
+      });
+
+      img.addEventListener('click', () => {
+        img.style.animation = 'bounce 0.3s';
+        setTimeout(() => {
+          img.style.animation = '';
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
