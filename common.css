@@ -1,27 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-
-
-/* Aplicação das Fontes */
-body {
-  font-family: 'Aptos', sans-serif;
-  font-weight: 100;
-      font-size: 16px;
-  background-color: #010101;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
-}
-
-
-
 /* Mobile Adaptation */
 @viewport {
   width: device-width;
@@ -52,7 +31,6 @@ body {
   src: url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
 }
 
-/* Font Aptos */
 @font-face {
   font-family: 'Aptos';
   src: url('/fonts/fonnts.com-aptos-bold.ttf') format('truetype'),
@@ -72,76 +50,245 @@ body {
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'A little sunshine';
+  src: url('/fonts/A little sunshine.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-extrabold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Allura';
+  src: url('/fonts/Allura-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-extrabold-italic.ttf') format('truetype'),
-       url('/fonts/fonnts.com-aptos-extrabold-italic-2.ttf') format('truetype');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Always In My Heart';
+  src: url('/fonts/Always In My Heart.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Amethyst';
+  src: url('/fonts/Amethyst.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Angelface';
+  src: url('/fonts/Angelface.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-light-italic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Arapey';
+  src: url('/fonts/Arapey-Italic.ttf') format('truetype'),
+       url('/fonts/Arapey-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Calendas Plus';
+  src: url('/fonts/Calendas_Plus.otf') format('opentype'),
+       url('/fonts/Calendas_Plus_Bold.otf') format('opentype'),
+       url('/fonts/Calendas_Plus_Italic.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Calligraffitti';
+  src: url('/fonts/Calligraffitti-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Aptos';
-  src: url('/fonts/fonnts.com-aptos-black-italic.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Cardo';
+  src: url('/fonts/Cardo-Bold.ttf') format('truetype'),
+       url('/fonts/Cardo-Italic.ttf') format('truetype'),
+       url('/fonts/Cardo-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'CrimsonText';
+  src: url('/fonts/CrimsonText-Bold.ttf') format('truetype'),
+       url('/fonts/CrimsonText-BoldItalic.ttf') format('truetype'),
+       url('/fonts/CrimsonText-Italic.ttf') format('truetype'),
+       url('/fonts/CrimsonText-Roman.ttf') format('truetype'),
+       url('/fonts/CrimsonText-Semibold.ttf') format('truetype'),
+       url('/fonts/CrimsonText-SemiboldItalic.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'Dragon is coming';
+  src: url('/fonts/Dragon is coming.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Fanwood';
+  src: url('/fonts/Fanwood Italic.otf') format('opentype'),
+       url('/fonts/Fanwood Text Italic.otf') format('opentype'),
+       url('/fonts/Fanwood Text.otf') format('opentype'),
+       url('/fonts/Fanwood.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Fine Style';
+  src: url('/fonts/Fine Style.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FournierMTStd';
+  src: url('/fonts/FournierMTStd-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'HELN';
+  src: url('/fonts/HELN.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaBlkIt.ttf') format('truetype'),
+       url('/fonts/HelveticaNeue-BlackExt.otf') format('opentype'),
+       url('/fonts/HelveticaNeue-LightCondObl.otf') format('opentype'),
+       url('/fonts/HelveticaNeue-Medium.otf') format('opentype'),
+       url('/fonts/HelveticaNeue-Medium.ttf') format('truetype'),
+       url('/fonts/HelveticaNeue-Thin.otf') format('opentype'),
+       url('/fonts/HelveticaNeue-ThinItalic.otf') format('opentype'),
+       url('/fonts/HelveticaNeue.ttf') format('truetype'),
+       url('/fonts/HelveticaNeueBold.ttf') format('truetype'),
+       url('/fonts/HelveticaNeueCondensed.otf') format('opentype'),
+       url('/fonts/HelveticaNeueHeavyItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Hirondelles des Alpes';
+  src: url('/fonts/Hirondelles des Alpes.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LTYPE';
+  src: url('/fonts/LTYPE.TTF') format('truetype'),
+       url('/fonts/LTYPEB.TTF') format('truetype'),
+       url('/fonts/LTYPEBO.TTF') format('truetype'),
+       url('/fonts/LTYPEO.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('/fonts/LibreBaskerville-Bold.ttf') format('truetype'),
+       url('/fonts/LibreBaskerville-Italic.ttf') format('truetype'),
+       url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora-Bold.ttf') format('truetype'),
+       url('/fonts/Lora-BoldItalic.ttf') format('truetype'),
+       url('/fonts/Lora-Italic.ttf') format('truetype'),
+       url('/fonts/Lora-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lusitana';
+  src: url('/fonts/Lusitana-Bold.ttf') format('truetype'),
+       url('/fonts/Lusitana-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mademoiselle Camille';
+  src: url('/fonts/Mademoiselle Camille L.ttf') format('truetype'),
+       url('/fonts/Mademoiselle Camille.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MinionPro';
+  src: url('/fonts/MinionPro-Bold.otf') format('opentype'),
+       url('/fonts/MinionPro-BoldCn.otf') format('opentype'),
+       url('/fonts/MinionPro-BoldCnIt.otf') format('opentype'),
+       url('/fonts/MinionPro-BoldIt.otf') format('opentype'),
+       url('/fonts/MinionPro-It.otf') format('opentype'),
+       url('/fonts/MinionPro-Medium.otf') format('opentype'),
+       url('/fonts/MinionPro-MediumIt.otf') format('opentype'),
+       url('/fonts/MinionPro-Regular.otf') format('opentype'),
+       url('/fonts/MinionPro-Semibold.otf') format('opentype'),
+       url('/fonts/MinionPro-SemiboldIt.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Mother Batik';
+  src: url('/fonts/Mother Batik - Personal Use.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'New Century Schoolbook';
+  src: url('/fonts/New Century Schoolbook LT Std Roman.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'OLDS';
+  src: url('/fonts/OLDSH__.TTF') format('truetype'),
+       url('/fonts/OLDSIH_.TTF') format('truetype'),
+       url('/fonts/OLDSSCH.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('/fonts/Panton-LightCaps.otf') format('opentype'),
+       url('/fonts/Panton-LightitalicCaps.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'RetrographDemo';
+  src: url('/fonts/RetrographDemo.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Silent Asia';
+  src: url('/fonts/Silent Asia - Personal Use.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'The Brands';
+  src: url('/fonts/The Brands.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TravelingTypewriter';
+  src: url('/fonts/TravelingTypewriter.otf') format('opentype'),
+       url('/fonts/TravelingTypewriter.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'coolvetica';
+  src: url('/fonts/coolvetica rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'helvetica light';
+  src: url('/fonts/helvetica-46-light-italic-587ebdb0ea724.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'marguerite';
+  src: url('/fonts/marguerite.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'mark my words';
+  src: url('/fonts/mark_my_words.otf') format('opentype'),
+       url('/fonts/mark_my_words.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'organique';
+  src: url('/fonts/organique DEMO.otf') format('opentype');
+}
+
+/* Aplicação das Fontes */
+body {
+  font-family: 'Aptos', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  background-color: #010101;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
