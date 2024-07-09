@@ -11,11 +11,26 @@
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
       color: white;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
     .dock {
       display: flex;
@@ -50,6 +65,7 @@
   </style>
 </head>
 <body>
+  <img src="/images/logos/logo%20v1%20vertical.fw.png" alt="Logotipo Lua Helena Moon" class="logo">
   <div class="dock">
     <img src="/images/icons/work folder.png" alt="Currículo">
     <img src="/images/icons/shelf ios6.fw.png" alt="Referências de Livros, Filmes, Séries e Jogos">
