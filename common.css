@@ -1,6 +1,27 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+
+/* Aplicação das Fontes */
+body {
+  font-family: 'Aptos', sans-serif;
+  font-weight: 100;
+      font-size: 16px;
+  background-color: #010101;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+
+
 /* Mobile Adaptation */
 @viewport {
   width: device-width;
@@ -123,17 +144,4 @@
   font-display: swap;
 }
 
-/* Aplicação das Fontes */
-body {
-  font-family: 'Aptos', sans-serif;
-  background-color: #010101;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
-}
+
