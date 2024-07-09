@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lua Helena Moon M. C.</title>
+  <title>Lua Helena Moon M. C.</title>
   <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
     body {
-        margin: 0;
+      margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
@@ -17,6 +16,7 @@
       align-items: center;
       height: 100vh;
       color: white;
+      overflow-y: auto; /* Permitir scroll */
     }
     .logo {
       width: 350px;
@@ -32,40 +32,41 @@
         opacity: 0;
       }
     }
-   .dock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-}
-
-.dock-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-
+    .dock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .dock-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
+      border-radius: 30px; /* Cantos arredondados */
+      padding: 10px;
+      height: 70px;
+      width: 80%;
+    }
     .dock-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 0 10px;
+      margin: 10px;
       transition: transform 0.2s;
     }
     .dock-item img {
       width: 140px;
       height: 140px;
       transition: transform 0.2s;
+      border-radius: 10px;
     }
     .dock-item img.active {
       transform: scale(1.5);
     }
     .dock-item img.adjacent {
-      transform: scale(1);
+      transform: scale(1.1);
     }
     .dock-item img.bouncing {
       animation: bounce 1s;
@@ -88,113 +89,120 @@
       color: white;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
     }
-@media (max-width: 768px) {
-  .dock-row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .dock-item img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-      .dock-item {
-        margin: 10px 0;
+    .dock-item .reflection {
+      width: 100%;
+      height: 50px;
+      margin-top: 10px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+      opacity: 0.5;
+      transform: scaleY(-1);
+      border-radius: 10px;
+    }
+    @media (max-width: 768px) {
+      .dock-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .dock-item img {
+        width: 100px;
+        height: 100px;
+      }
+      .dock-item .reflection {
+        height: 30px;
       }
     }
   </style>
 </head>
 <body>
   <img src="/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
-
-
   <div class="dock">
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="https://www.linkedin.com/in/luahelena/" target="_blank">
-        <img src="/images/work folder.png" alt="Currículo Profissional (LinkedIn)">
-      </a>
-      <span>Currículo Profissional (LinkedIn)</span>
-    </div>
-    
-    <div class="dock-item">
-      <a href="https://blog.moonymagi.com.br" target="_blank">
-        <img src="/images/gaming.png" alt="Blog de Jogos Nostálgicos">
-      </a>
-      <span>Blog de Jogos Nostálgicos</span>
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="https://www.linkedin.com/in/luahelena/" target="_blank">
+          <img src="/images/work folder.png" alt="Currículo Profissional (LinkedIn)">
+        </a>
+        <span>Currículo Profissional (LinkedIn)</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="https://blog.moonymagi.com.br" target="_blank">
+          <img src="/images/gaming.png" alt="Blog de Jogos Nostálgicos">
+        </a>
+        <span>Blog de Jogos Nostálgicos</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="/rc/obras.html" target="_blank">
+          <img src="/images/obras.png" alt="Minhas Obras Literárias">
+        </a>
+        <span>Minhas Obras Literárias</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="https://instagram.com/luahelena.psi" target="_blank">
+          <img src="/images/psisymbol.png" alt="Psicologia Clínica & Esquizoanálise">
+        </a>
+        <span>Psicologia Clínica & Esquizoanálise</span>
+        <div class="reflection"></div>
+      </div>
     </div>
 
-    <div class="dock-item">
-      <a href="/rc/obras.html" target="_blank">
-        <img src="/images/obras.png" alt="Minhas Obras Literárias">
-      </a>
-      <span>Minhas Obras Literárias</span>
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/rc/series.html" target="_blank">
+          <img src="/images/series.png" alt="Recomendação de Séries">
+        </a>
+        <span>Recomendação de Séries</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="/rc/jogos.html" target="_blank">
+          <img src="/images/games.png" alt="Recomendação de Jogos">
+        </a>
+        <span>Recomendação de Jogos</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="/rc/livros.html" target="_blank">
+          <img src="/images/books.png" alt="Recomendações de Livros">
+        </a>
+        <span>Recomendações de Livros</span>
+        <div class="reflection"></div>
+      </div>
     </div>
 
-    <div class="dock-item">
-      <a href="https://instagram.com/luahelena.psi" target="_blank">
-        <img src="/images/psisymbol.png" alt="Psicologia Clínica & Esquizoanálise">
-      </a>
-      <span>Psicologia Clínica & Esquizoanálise</span>
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/rc/mapa.html" target="_blank">
+          <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
+        </a>
+        <span>Mapa (Cidades Já Visitadas)</span>
+        <div class="reflection"></div>
+      </div>
+      <div class="dock-item">
+        <a href="https://br.pinterest.com/luahelenammc" target="_blank">
+          <img src="/images/pinterest.png" alt="Pastas no Pinterest">
+        </a>
+        <span>Pastas no Pinterest</span>
+        <div class="reflection"></div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/rc/outros.html" target="_blank">
+          <img src="/images/sync.png" alt="Outros Conteúdos"></a>
+        <span>Outros Conteúdos</span>
+        <div class="reflection"></div>
+      </div>
     </div>
   </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/rc/series.html" target="_blank">
-        <img src="/images/series.png" alt="Recomendação de Séries">
-      </a>
-      <span>Recomendação de Séries</span>
-    </div>
-
-    <div class="dock-item">
-      <a href="/rc/jogos.html" target="_blank">
-        <img src="/images/games.png" alt="Recomendação de Jogos">
-      </a>
-      <span>Recomendação de Jogos</span>
-    </div>
-
-    <div class="dock-item">
-      <a href="/rc/livros.html" target="_blank">
-        <img src="/images/books.png" alt="Recomendações de Livros">
-      </a>
-      <span>Recomendações de Livros</span>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/rc/mapa.html" target="_blank">
-        <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
-      </a>
-      <span>Mapa (Cidades Já Visitadas)</span>
-    </div>
-
-    <div class="dock-item">
-      <a href="https://br.pinterest.com/luahelenammc" target="_blank">
-        <img src="/images/pinterest.png" alt="Pastas no Pinterest">
-      </a>
-      <span>Pastas no Pinterest</span>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/rc/outros.html" target="_blank">
-        <img src="/images/sync.png" alt="Outros Conteúdos"></a></a>
-      <span>Outros Conteúdos</span>
-    </div>
-  </div>
-</div>
-
-
 
   <script>
     const allDockItems = document.querySelectorAll('.dock-item img');
