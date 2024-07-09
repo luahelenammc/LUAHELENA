@@ -32,18 +32,17 @@
         opacity: 0;
       }
     }
-   .dock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+ 
+
+    .dock {
+  display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
 }
 
 .dock-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 40px; /* Aumentar o espaço entre as linhas */
+  flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
+  margin-bottom: 110px; /* Espaço suficiente para separar as linhas */
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   width: 80%;
@@ -54,14 +53,13 @@
 .dock-row::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 70%; /* Posiciona a base do dock na parte inferior */
   left: 0;
   right: 0;
-  bottom: 0;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  z-index: -1;
   height: 30%; /* Preenchido até 30% da altura */
+  z-index: -1;
 }
 
 .dock-item {
@@ -121,6 +119,8 @@
     width: 100px;
     height: 100px;
   }
+}
+
 }
 
     }
