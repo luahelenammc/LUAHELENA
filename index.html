@@ -98,7 +98,7 @@
   </div>
 
   <script>
-    const dockImages = document.querySelectorAll('.dock img');
+    const dockImages = document.querySelectorAll('.dock img:not(.fade-images img)');
     const fadeImages = document.querySelectorAll('.fade-images img');
     let currentFadeIndex = 0;
 
@@ -133,9 +133,12 @@
       });
 
       img.addEventListener('click', () => {
-        img.style.animation = 'bounce 1s';
+        const scaleFactor = img.classList.contains('active') ? 1.5 : 1;
+        img.style.animation = `bounce 1s`;
+        img.style.transform = `scale(${scaleFactor}) translateY(0)`;
         setTimeout(() => {
           img.style.animation = '';
+          img.style.transform = '';
         }, 1000);
       });
     });
