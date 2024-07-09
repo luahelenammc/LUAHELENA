@@ -7,35 +7,40 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: white;
-      overflow-y: auto; /* Permite scroll */
-    }
-    .logo {
-      width: 350px;
-      height: auto;
-      margin-bottom: 20px;
-      animation: logoFade 10s infinite;
-    }
-    @keyframes logoFade {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-    }
- 
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  overflow-y: auto; /* Permite scroll */
+}
 
-    .dock {
-  display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
+.logo {
+  width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: logoFade 10s infinite;
+  z-index: 1; /* Garante que a imagem de topo esteja acima do dock */
+  position: relative;
+}
+
+@keyframes logoFade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.dock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .dock-row {
@@ -45,7 +50,7 @@
   margin-bottom: 110px; /* Espaço suficiente para separar as linhas */
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  width: auto;
+  width: 80%;
   height: 60px;
   position: relative;
 }
@@ -81,7 +86,7 @@
 }
 
 .dock-item img.adjacent {
-  transform: scale(1.0);
+  transform: scale(1.1);
 }
 
 .dock-item img.bouncing {
@@ -121,7 +126,7 @@
   }
 }
 
-}
+
 
     }
   </style>
