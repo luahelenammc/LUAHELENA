@@ -32,14 +32,23 @@
         opacity: 0;
       }
     }
-    .dock {
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-      background-color:;
-      border-radius: 20px;
-      flex-wrap: wrap;
-    }
+   .dock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+}
+
+.dock-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
     .dock-item {
       display: flex;
       flex-direction: column;
@@ -79,18 +88,19 @@
       color: white;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
     }
-    @media (max-width: 768px) {
-      .dock {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-      }
+@media (max-width: 768px) {
+  .dock-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dock-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
       .dock-item {
         margin: 10px 0;
-      }
-      .dock-item img {
-        width: 100px;
-        height: 100px;
       }
     }
   </style>
@@ -169,9 +179,8 @@
 
     <div class="dock-item">
       <a href="/rc/outros.html" target="_blank">
-      <img src="/images/sync.png" alt="Outros Conteúdos">
+      <img src="/images/sync.png" alt="Outros Conteúdos"></a></a>
       <span>Outros Conteúdos</span>
-        </a>
     </div>
   </div>
 
