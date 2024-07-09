@@ -38,18 +38,28 @@
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.08);
       border-radius: 20px;
+      flex-wrap: wrap;
     }
-    .dock img {
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+      transition: transform 0.2s;
+    }
+    .dock-item img {
       width: 140px;
       height: 140px;
       transition: transform 0.2s;
-      margin: 0 10px;
     }
-    .dock img.active {
+    .dock-item img.active {
       transform: scale(1.5);
     }
-    .dock img.adjacent {
+    .dock-item img.adjacent {
       transform: scale(1.2);
+    }
+    .dock-item img.bouncing {
+      animation: bounce 1s;
     }
     @keyframes bounce {
       0%, 100% {
@@ -62,89 +72,84 @@
         transform: translateY(0);
       }
     }
-    .dock img.bouncing {
-      animation: bounce 1s;
+    .dock-item span {
+      margin-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
     }
-    .fade-images {
-      width: 140px;
-      height: 140px;
-      margin: 0 10px;
-      position: relative;
-    }
-    .fade-images img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s;
-    }
-    .fade-images img.active {
-      opacity: 1;
+    @media (max-width: 768px) {
+      .dock-item img {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
 <body>
   <img src="/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
   <div class="dock">
-    <a href="https://www.linkedin.com/in/luahelena/" target="_blank"><img src="/images/work folder.png" alt="Currículo Profissional (LinkedIn)"></a>
-    <img src="/images/books.png" alt="Recomendações de Livros, Séries e Jogos">
-    <div class="fade-images">
-      <img src="/images/ps1_logo.png" alt="Blog de Jogos Nostálgicos" class="active">
-      <img src="/images/ps1.png" alt="Blog de Jogos Nostálgicos">
-      <img src="/images/ps2.png" alt="Blog de Jogos Nostálgicos">
-      <img src="/images/ZSNES.png" alt="Blog de Jogos Nostálgicos">
+    <div class="dock-item">
+      <a href="https://www.linkedin.com/in/luahelena/" target="_blank">
+        <img src="/images/work folder.png" alt="Currículo Profissional (LinkedIn)">
+      </a>
+      <span>Currículo Profissional (LinkedIn)</span>
     </div>
-    <img src="/images/sync.png" alt="Outros Conteúdos">
+    <div class="dock-item">
+      <img src="/images/books.png" alt="Recomendações de Livros, Séries e Jogos">
+      <span>Recomendações de Livros, Séries e Jogos</span>
+    </div>
+    <div class="dock-item">
+      <img src="/images/ZSNES.png" alt="Blog de Jogos Nostálgicos">
+      <span>Blog de Jogos Nostálgicos</span>
+    </div>
+    <div class="dock-item">
+      <img src="/images/sync.png" alt="Outros Conteúdos">
+      <span>Outros Conteúdos</span>
+    </div>
+    <!-- Botão extra para ser copiado e colado -->
+    <div class="dock-item">
+      <img src="/images/placeholder.png" alt="Novo Botão">
+      <span>Novo Botão</span>
+    </div>
   </div>
 
- <script>
-  const dockImages = document.querySelectorAll('.dock img:not(.fade-images img)');
-  const fadeImages = document.querySelectorAll('.fade-images img');
-  let currentFadeIndex = 0;
+  <script>
+    const allDockItems = document.querySelectorAll('.dock-item img');
+    allDockItems.forEach((img, index) => {
+      img.addEventListener('mouseenter', () => {
+        allDockItems.forEach((img) => {
+          img.classList.remove('active', 'adjacent');
+        });
 
-  function fadeTransition() {
-    fadeImages[currentFadeIndex].classList.remove('active');
-    currentFadeIndex = (currentFadeIndex + 1) % fadeImages.length;
-    fadeImages[currentFadeIndex].classList.add('active');
-  }
+        img.classList.add('active');
 
-  setInterval(fadeTransition, 3000);
-
-  const allDockImages = document.querySelectorAll('.dock img');
-  allDockImages.forEach((img, index) => {
-    img.addEventListener('mouseenter', () => {
-      allDockImages.forEach((img) => {
-        img.classList.remove('active', 'adjacent');
+        if (allDockItems[index - 1]) {
+          allDockItems[index - 1].classList.add('adjacent');
+        }
+        if (allDockItems[index + 1]) {
+          allDockItems[index + 1].classList.add('adjacent');
+        }
       });
 
-      img.classList.add('active');
-      
-      if (allDockImages[index - 1]) {
-        allDockImages[index - 1].classList.add('adjacent');
-      }
-      if (allDockImages[index + 1]) {
-        allDockImages[index + 1].classList.add('adjacent');
-      }
-    });
+      img.addEventListener('mouseleave', () => {
+        allDockItems.forEach((img) => {
+          img.classList.remove('active', 'adjacent');
+        });
+      });
 
-    img.addEventListener('mouseleave', () => {
-      allDockImages.forEach((img) => {
-        img.classList.remove('active', 'adjacent');
+      img.addEventListener('click', () => {
+        const hoverScale = getComputedStyle(img).transform;
+        const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[0].match(/matrix\(([^,]+)/)[1]) : 1.5;
+        img.style.animation = `bounce 1s`;
+        img.style.transform = `scale(${scaleFactor}) translateY(0)`;
+        setTimeout(() => {
+          img.style.animation = '';
+          img.style.transform = '';
+        }, 1000);
       });
     });
-
-    img.addEventListener('click', () => {
-      const hoverScale = getComputedStyle(img).transform;
-      const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[0].match(/matrix\(([^,]+)/)[1]) : 1.5;
-      img.style.animation = `bounce 1s`;
-      img.style.transform = `scale(${scaleFactor}) translateY(0)`;
-      setTimeout(() => {
-        img.style.animation = '';
-        img.style.transform = '';
-      }, 1000);
-    });
-  });
-</script>
-
+  </script>
 </body>
 </html>
