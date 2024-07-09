@@ -374,6 +374,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
   color: white;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        overflow: auto; /* Permite scroll no mobile */
+        height: auto;   /* Ajusta a altura para permitir scroll */
+    }
 }
