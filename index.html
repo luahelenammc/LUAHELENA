@@ -110,24 +110,24 @@
 
     setInterval(fadeTransition, 3000);
 
-    dockImages.forEach((img, index) => {
+    document.querySelectorAll('.dock img').forEach((img, index) => {
       img.addEventListener('mouseenter', () => {
-        dockImages.forEach((img, i) => {
+        document.querySelectorAll('.dock img').forEach((img) => {
           img.classList.remove('active', 'adjacent');
         });
 
         img.classList.add('active');
         
-        if (dockImages[index - 1]) {
-          dockImages[index - 1].classList.add('adjacent');
+        if (document.querySelectorAll('.dock img')[index - 1]) {
+          document.querySelectorAll('.dock img')[index - 1].classList.add('adjacent');
         }
-        if (dockImages[index + 1]) {
-          dockImages[index + 1].classList.add('adjacent');
+        if (document.querySelectorAll('.dock img')[index + 1]) {
+          document.querySelectorAll('.dock img')[index + 1].classList.add('adjacent');
         }
       });
 
       img.addEventListener('mouseleave', () => {
-        dockImages.forEach((img) => {
+        document.querySelectorAll('.dock img').forEach((img) => {
           img.classList.remove('active', 'adjacent');
         });
       });
