@@ -22,9 +22,95 @@
       width: 350px;
       height: auto;
       margin-bottom: 20px;
-      animation: fade 10s infinite;
+      animation: logoFade 10s infinite;
     }
-    @keyframes fade {
+    @keyframes logoFade {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+    .dock {
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+    }
+    .dock img {
+      width: 140px;
+      height: 140px;
+      transition: transform 0.2s;
+      margin: 0 10px;
+    }
+    .dock img.active {
+      transform: scale(1.5);
+    }
+    .dock img.adjacent {
+      transform: scale(1.2);
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25%, 75% {
+        transform: translateY(-15px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+    }
+    .dock img.bouncing {
+      animation: bounce 1s;
+    }
+    .fade-images {
+      width: 140px;
+      height: 140px;
+      margin: 0 10px;
+      position: relative;
+    }
+    .fade-images img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    .fade-images img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <img src="/logos/logo%20v1%<!DOCTYPE html>
+<html>
+<head>
+  <title>Lua Helena Moon M. C. - Versão 0.2</title>
+  <link rel="icon" type="image/x-icon" href="images/icons/photoios6.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      background-color: #010101;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+    }
+    .logo {
+      width: 350px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: logoFade 10s infinite;
+    }
+    @keyframes logoFade {
       0%, 100% {
         opacity: 1;
       }
