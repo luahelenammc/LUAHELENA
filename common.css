@@ -29,7 +29,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 120vh; /* Isso pode causar problemas de layout em PCs */
+  height: 100vh; /* Isso pode causar problemas de layout em PCs */
   color: white;
 }
 
