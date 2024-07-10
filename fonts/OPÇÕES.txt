@@ -1,0 +1,42 @@
+Entendi, você gostaria de ver apenas os nomes das fontes sem nenhum texto adicional. Aqui estão os nomes das fontes:
+
+1. `Sentient`
+2. `General Sans`
+3. `HelveticaNeue`
+4. `LibreBaskerville`
+5. `Aptos`
+6. `A little sunshine`
+7. `Allura`
+8. `Always In My Heart`
+9. `Amethyst`
+10. `Angelface`
+11. `Arapey`
+12. `Calendas Plus`
+13. `Calligraffitti`
+14. `Cardo`
+15. `CrimsonText`
+16. `Dragon is coming`
+17. `Fanwood`
+18. `Fine Style`
+19. `FournierMTStd`
+20. `HELN`
+21. `Helvetica`
+22. `Hirondelles des Alpes`
+23. `LTYPE`
+24. `Lora`
+25. `Lusitana`
+26. `Mademoiselle Camille`
+27. `MinionPro`
+28. `Mother Batik`
+29. `New Century Schoolbook`
+30. `OLDS`
+31. `Panton`
+32. `RetrographDemo`
+33. `Silent Asia`
+34. `The Brands`
+35. `TravelingTypewriter`
+36. `coolvetica`
+37. `helvetica`
+38. `marguerite`
+39. `mark my words`
+40. `organique`
