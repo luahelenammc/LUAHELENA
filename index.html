@@ -195,14 +195,14 @@
 
   <script>
 
-     if (window.innerWidth <= 768) {
+if (window.innerWidth <= 768) {
       var viewport = document.querySelector("meta[name=viewport]");
       if (viewport) {
-        viewport.setAttribute("content", "width=1024, initial-scale=0.5");
+        viewport.setAttribute("content", "width=1024, initial-scale=0.3");
       } else {
         var newViewport = document.createElement("meta");
         newViewport.name = "viewport";
-        newViewport.content = "width=1024, initial-scale=0.5";
+        newViewport.content = "width=1024, initial-scale=0.3";
         document.head.appendChild(newViewport);
       }
     }
