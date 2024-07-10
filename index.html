@@ -195,17 +195,21 @@
 
   <script>
 
-if (window.innerWidth <= 768) {
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    if (window.innerWidth <= 768) {
       var viewport = document.querySelector("meta[name=viewport]");
       if (viewport) {
-        viewport.setAttribute("content", "width=1024, initial-scale=1.5");
+        viewport.setAttribute("content", "width=1024, initial-scale=0.5");
       } else {
         var newViewport = document.createElement("meta");
         newViewport.name = "viewport";
-        newViewport.content = "width=1024, initial-scale=1.5";
+        newViewport.content = "width=1024, initial-scale=0.5";
         document.head.appendChild(newViewport);
       }
+      console.log("Viewport adjusted for mobile devices.");
     }
+  });
 
     
     const allDockItems = document.querySelectorAll('.dock-item img');
