@@ -198,11 +198,11 @@
 if (window.innerWidth <= 768) {
       var viewport = document.querySelector("meta[name=viewport]");
       if (viewport) {
-        viewport.setAttribute("content", "width=1024, initial-scale=0.3");
+        viewport.setAttribute("content", "width=1024, initial-scale=1.5");
       } else {
         var newViewport = document.createElement("meta");
         newViewport.name = "viewport";
-        newViewport.content = "width=1024, initial-scale=0.3";
+        newViewport.content = "width=1024, initial-scale=1.5";
         document.head.appendChild(newViewport);
       }
     }
