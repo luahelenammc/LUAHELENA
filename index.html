@@ -21,15 +21,25 @@ body {
   padding-bottom: 50px; /* Ajuste conforme necessário */
 }
 
+    @media (min-width: 769px) {
+  body {
+    margin-top: 50px; /* Ajuste conforme necessário */
+    margin-bottom: 50px; /* Ajuste conforme necessário */
+  }
+
+  .logo {
+    margin-top: 50px; /* Ajuste conforme necessário */
+    margin-bottom: 241px; /* Mantém o margin-bottom existente */
+  }
+}
+
 
     .logo {
       width: 350px;
       height: auto;
-      margin-bottom: 241px;
       animation: logoFade 10s infinite;
       flex-shrink: 0;
       position: relative;
-      top: 134px; /* Restaurar este estilo */
     }
 
     @keyframes logoFade {
