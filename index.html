@@ -3,7 +3,6 @@
 <head>
   <title>Lua Helena Moon M. C.</title>
   <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
-  <meta name="viewport" content="width=1024, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
@@ -121,27 +120,44 @@
         </a>
         <span>Currículo Profissional (LinkedIn)</span>
       </div>
+      
       <div class="dock-item">
         <a href="https://blog.moonymagi.com.br" target="_blank">
           <img src="/images/gaming.png" alt="Blog de Jogos Nostálgicos">
         </a>
         <span>Blog de Jogos Nostálgicos</span>
       </div>
-      <div class="dock-item">
-        <a href="/rc/obras.html" target="_blank">
-          <img src="/images/obras.png" alt="Minhas Obras Literárias">
-        </a>
-        <span>Minhas Obras Literárias</span>
-      </div>
+
       <div class="dock-item">
         <a href="https://instagram.com/luahelena.psi" target="_blank">
           <img src="/images/psisymbol.png" alt="Psicologia Clínica & Esquizoanálise">
         </a>
         <span>Psicologia Clínica & Esquizoanálise</span>
       </div>
+    
     </div>
 
+    
     <br>
+<div class="dock-row">
+  
+    <div class="dock-item">
+        <a href="/rc/obras.html" target="_blank">
+          <img src="/images/obras.png" alt="Minhas Obras Literárias">
+        </a>
+        <span>Minhas Obras Literárias</span>
+      </div>
+    
+
+<div class="dock-item">
+        <a href="/wiki.html" target="_blank">
+          <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
+        </a>
+        <span>Enciclopédia Lunar</span>
+      </div>
+</div>
+  
+  <br>
 
     <div class="dock-row">
       <div class="dock-item">
@@ -164,6 +180,7 @@
       </div>
     </div>
 
+  
     <br>
 
     <div class="dock-row">
@@ -195,17 +212,21 @@
 
   <script>
 
-if (window.innerWidth <= 768) {
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    if (window.innerWidth <= 768) {
       var viewport = document.querySelector("meta[name=viewport]");
       if (viewport) {
-        viewport.setAttribute("content", "width=1024, initial-scale=1.5");
+        viewport.setAttribute("content", "width=1024, initial-scale=0.5");
       } else {
         var newViewport = document.createElement("meta");
         newViewport.name = "viewport";
-        newViewport.content = "width=1024, initial-scale=1.5";
+        newViewport.content = "width=1024, initial-scale=0.5";
         document.head.appendChild(newViewport);
       }
+      console.log("Viewport adjusted for mobile devices.");
     }
+  });
 
     
     const allDockItems = document.querySelectorAll('.dock-item img');
