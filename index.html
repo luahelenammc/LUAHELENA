@@ -17,15 +17,15 @@
       overflow-y: auto; /* Permite scroll */
     }
 
-    .logo {
-      width: 350px;
-      height: auto;
-      margin-bottom: 241px;
-      animation: logoFade 10s infinite;
-      flex-shrink: 0;
-      position: relative;
-      top: 134px;
-    }
+.logo {
+  width: 350px;
+  height: auto;
+  margin-bottom: 241px;
+  animation: logoFade 10s infinite;
+  flex-shrink: 0;
+  position: relative; /* Remova o top: 134px */
+}
+
 
     @keyframes logoFade {
       0%, 100% {
@@ -289,6 +289,27 @@
         }, 1000);
       });
     });
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+  if (window.innerWidth <= 768) {
+    var viewport = document.querySelector("meta[name=viewport]");
+    if (viewport) {
+      viewport.setAttribute("content", "width=1024, initial-scale=0.5");
+    } else {
+      var newViewport = document.createElement("meta");
+      newViewport.name = "viewport";
+      newViewport.content = "width=1024, initial-scale=0.5";
+      document.head.appendChild(newViewport);
+    }
+    console.log("Viewport adjusted for mobile devices.");
+  }
+
+  const logo = document.querySelector('.logo');
+  if (window.innerHeight < 800) {
+    logo.style.top = '0'; // Ajuste o top dinamicamente
+  }
+});
+
   </script>
 </body>
 </html>
