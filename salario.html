@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body {
+background: black;
+color: #66fc03;
+font-family: 'HelveticaNeue', sans-serif;
+text-align: center;
+}
+
+#salario {
+font-size: 50px;
+margin-top: 20px;
+}
+
+#porcentagem {
+font-size: 36px;
+margin-top: 20px;
+}
+
+#relogio {
+font-size: 24px;
+margin-top: 20px;
+}
+
+.container {
+margin-top: 50px;
+}
+
+.container p {
+font-size: 18px;
+margin-top: 10px;
+}
+
+.link {
+display: block;
+margin-top: 30px;
+font-size: 16px;
+text-decoration: none;
+color: #66fc03;
+}
+
+.link:hover {
+text-decoration: underline;
+}
+
+  </style>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
+<title>Salário diário</title>
+
+</head>
+<body>
+  
+ <div align="center">
+  
+   <br>
+  <div id="salario">R$ 0,00</div>
+
+   <br>
+  <div id="porcentagem">0%</div>
+  
+   <br><br>
+  <div id="relogio"></div>
+  
+   <br><br>
+<div>Considerando as 9 horas, sem horas de descanso</div>
+   
+   <br><br>
+   <a href="/relogio.html" target="_blank">Relógio</a></div>
+</div>
+  
+  
+
+    <script>
+      
+const salario = document.querySelector("#salario");
+const relogio = document.querySelector("#relogio");
+
+const valorPorHora = 22.197;
+const horaInicio = 7;
+const horaFim = 16;
+const valorMaximo = 199.77;
+
+setInterval(() => {
+  let data = new Date();
+  let horaAtual = data.getHours() + data.getMinutes() / 60;
+  let valor = 0;
+
+  relogio.textContent = data.toLocaleTimeString();
+
+  if (horaAtual >= horaInicio && horaAtual <= horaFim) {
+    valor = (horaAtual - horaInicio) * valorPorHora;
+  }
+
+  if (valor > valorMaximo) {
+    valor = valorMaximo;
+  }
+
+  salario.textContent = `R$ ${valor.toFixed(2)}`;
+}, 1000);
+
+const porcentagem = document.querySelector("#porcentagem");
+
+setInterval(() => {
+  let data = new Date();
+  let horaAtual = data.getHours() + data.getMinutes() / 60;
+  let valor = 0;
+
+  relogio.textContent = data.toLocaleTimeString();
+
+  if (horaAtual >= horaInicio && horaAtual <= horaFim) {
+    valor = (horaAtual - horaInicio) * valorPorHora;
+  }
+
+  if (valor > valorMaximo) {
+    valor = valorMaximo;
+  }
+
+  salario.textContent = `R$ ${valor.toFixed(2)}`;
+
+  let percentual = (valor / valorMaximo) * 100;
+  porcentagem.textContent = `${percentual.toFixed(2)}%`;
+}, 1000);
+
+  </script>
+  
+</body>
+</html>

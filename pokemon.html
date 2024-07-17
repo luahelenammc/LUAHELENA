@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XTDS6RGCZ');
+</script>
+  
+  <title>Meus Pokémons</title>
+  <link rel="icon" type="image/x-icon" href="images/pokeball.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  
+    
+    /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00ff99; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc99; 
+}
+
+     body {
+    font-family: 'General Sans', sans-serif;
+    font-size: 12px;
+    background: #f7f7f7;
+       background-image: url("/images/pokebg.png");
+  background-repeat: repeat;
+    color: black;
+  }
+
+  #wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  #top {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+  }
+
+    #topblock {
+background: black;
+    color: white;
+    padding: 10px;
+    width: max-content;
+    display: inline-block;
+    border-radius: 15px;
+    }
+
+  #middle {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #bottom {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+    #bottomblock {
+background: white;
+    color: black;
+    padding: 10px;
+    width: max-content;
+    display: inline-block;
+    border-radius: 15px;
+      margin-top:10px;
+      margin-bottom:10px;
+    }
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: #cf0000;
+  }
+
+  a:hover, a:active {
+    text-decoration: none;
+    color: #f50808;
+    text-shadow: 0 0 50px #f50808, 0 0 5px #f50808;
+  }
+
+  #element {
+    display: inline-grid;
+    background: #f7f7f7;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 20px;
+    max-width: 300px;
+  }
+
+  #name {
+    font-size: 16px;
+  }
+
+  #description {
+    font-weight: bold;
+    color: black;
+    text-shadow: none;
+  }
+
+  #element:hover, #element:active {
+    box-shadow: 0px 0px 25px 2px white;
+    text-shadow: 0 0 10px black, 0 0 5px black;
+  }
+
+  #description a:link, #description a:visited {
+    color: #f50808;
+    text-decoration: underline;
+  }
+
+  #description a:hover, #description a:active {
+    text-decoration: none;
+    text-shadow: none;
+  }
+
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+    <div id="top">
+
+<img src="/images/pokeshelf.png" style="max-width: 100%;" />
+      
+      <br />
+      <div id="topblock">Meus Pokémons no:</div>
+      <br />
+      
+      <a href="https://pokemon-vortex.com/" target="_blank"><img src="/images/vortex.png" style="max-width: 300px;" title="Pokémon Vortex (jogo de navegador)" /></a>
+      
+    </div>
+
+     <div id="middle">
+      <!-- A divs com id "element" serão adicionadas aqui dinamicamente -->
+    </div>
+
+    <div id="bottom">
+      <div id="bottomblock"><a href="#top">↑ Retornar ao topo da página</a></div>
+      <br />
+      <div id="bottomblock"><a href="/outros.html">« Retornar ao site principal</a></div>
+    </div>
+  </div>
+  
+ <script>
+    function extractPokemonName(filename) {
+      var decodedName = decodeURIComponent(filename);
+      var startIndex = decodedName.lastIndexOf("/") + 1;
+      var endIndex = decodedName.lastIndexOf(".");
+      var pokemonName = decodedName.substring(startIndex, endIndex);
+      return pokemonName;
+    }
+
+    function createPokemonElement(imgSrc) {
+      var pokemonName = extractPokemonName(imgSrc);
+      var elementDiv = document.createElement("div");
+      elementDiv.id = "element";
+
+      var imgDiv = document.createElement("div");
+      var imgElement = document.createElement("img");
+      imgElement.src = imgSrc;
+      imgElement.alt = "Imagem do Pokémon";
+      imgDiv.appendChild(imgElement);
+      elementDiv.appendChild(imgDiv);
+
+      var descriptionDiv = document.createElement("div");
+      descriptionDiv.id = "description";
+      var nameDiv = document.createElement("div");
+      nameDiv.id = "name";
+      nameDiv.textContent = pokemonName;
+      descriptionDiv.appendChild(nameDiv);
+      elementDiv.appendChild(descriptionDiv);
+
+      return elementDiv;
+    }
+
+    function loadPokemonElements() {
+      var middleDiv = document.getElementById("middle");
+
+      var imagesPath = "images/pokemon/";
+      var images = [
+"Shiny%20Mew.png",
+"Mew.png",
+"Shiny%20Mewtwo.png",
+"Mewtwo.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Celebi.png",
+"Celebi.png",
+"Jirachi.png",
+"<br>", // Marcador para quebra de linha
+"Arceus.png",
+"Arceus%20(Grass).png",
+"Arceus%20(Water).png",
+"Arceus%20(Fire).png",
+"Arceus%20(Dark).png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Dialga.png",
+"Palkia.png",
+"Giratina.png",
+"<br>", // Marcador para quebra de linha
+"Deoxys%20(Defense).png",
+"Deoxys.png",
+"Rayquaza%20(Mega).png",
+"<br>", // Marcador para quebra de linha
+"Articuno.png",
+"Moltres.png",
+"Zapdos.png",
+"Shiny%20Lugia.png",
+"Ho-oh.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Azelf.png",
+"Azelf.png",
+"Uxie.png",
+"Mesprit.png",
+"<br>", // Marcador para quebra de linha
+"Regigigas.png",
+"Regice.png",
+"Regirock.png",
+"Registeel.png",
+"<br>", // Marcador para quebra de linha
+"Entei.png",
+"Raikou.png",
+"Suicune.png",
+"<br>", // Marcador para quebra de linha
+"Groudon.png",
+"Kyogre.png",
+"<br>", // Marcador para quebra de linha
+"Darkrai.png",
+"Cresselia.png",
+"<br>", // Marcador para quebra de linha
+"Diancie%20(Mega).png",
+"Shiny%20Ditto.png",
+"Ditto.png",
+"Shiny%20Sableye%20(Mega).png",
+"Porygon.png",
+"<br>", // Marcador para quebra de linha
+"Vaporeon.png",
+"Flareon.png",
+"Shiny%20Jolteon.png",
+"Jolteon.png",
+"Espeon.png",
+"Shiny%20Leafeon.png",
+"Leafeon.png",
+"Glaceon.png",
+"Eevee.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Lunatone.png",
+"Lunatone.png",
+"Shiny%20Solrock.png",
+"Solrock.png",
+"<br>", // Marcador para quebra de linha
+"Dragonite.png",
+"Shiny%20Dragonair.png",
+"Dragonair.png",
+"Dratini.png",
+"Riolu.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Lapras.png",
+"Lapras.png",
+"Shiny%20Staryu.png",
+"Staryu.png",
+"Shiny%20Starmie.png",
+"Starmie.png",
+"Shiny%20Psyduck.png",
+"Psyduck.png",
+"Shiny%20Tentacruel.png",
+"Tentacruel.png",
+"Shiny%20Tentacool.png",
+"Shiny%20Lombre.png",
+"Lombre.png",
+"Shiny%20Milotic.png",
+"Milotic.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Persian.png",
+"Meowth.png",
+"Shiny%20Magikarp.png",
+"Magikarp.png",
+"Shiny%20Gyarados.png",
+"Gyarados.png",
+"Shiny%20Victreebel.png",
+"Victreebel.png",
+"Seviper.png",
+"Shiny%20Koffing.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Alakazam%20(Mega).png",
+"Kadabra.png",
+"Abra.png",
+"Kingler.png",
+"Shiny%20Kingler.png",
+"Shiny%20Krabby.png",
+"Shiny%20Golduck.png",
+"Golduck.png",
+"Shiny%20Kingdra.png",
+"Kingdra.png",
+"Shiny%20Horsea.png",
+"Horsea.png",
+"Crawdaunt.png",
+"Empoleon.png",
+"Prinplup.png",
+"Shiny%20Relicanth.png",
+"<br>", // Marcador para quebra de linha
+"Venusaur.png",
+"Ivysaur.png",
+"Bulbasaur.png",
+"<br>", // Marcador para quebra de linha
+"Blastoise.png",
+"Wartortle.png",
+"Squirtle.png",
+"<br>", // Marcador para quebra de linha
+"Charizard%20(Mega%20X).png",
+"Charmeleon.png",
+"Charmander.png",
+"<br>", // Marcador para quebra de linha
+"Swampert.png",
+"Mudkip.png",
+"<br>", // Marcador para quebra de linha
+"Pichu.png",
+"<br>", // Marcador para quebra de linha
+"Infernape.png",
+"Monferno.png",
+"Blaziken.png",
+"Magmortar.png",
+"Magmar.png",
+"Magby.png",
+"Typhlosion.png",
+"Rhyperior.png",
+"Donphan.png",
+"Phanpy.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Butterfree.png",
+"Butterfree.png",
+"Beedrill.png",
+"Togepi.png",
+"Shiny%20Ponyta.png",
+"Rapidash.png",
+"Shiny%20Sandshrew.png",
+"<br>", // Marcador para quebra de linha
+"Meganium.png",
+"Bayleef.png",
+"Chikorita.png",
+"Sceptile.png",
+"Treecko.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Dusknoir.png",
+"Dusknoir.png",
+"Dusclops.png",
+"Shiny%20Duskull.png",
+"Duskull.png",
+"Gengar.png",
+"Haunter.png",
+"Gastly.png",
+"Shiny%20Spiritomb.png",
+"Mismagius.png",
+"Shiny%20Misdreavus.png",
+"Misdreavus.png",
+"Sableye.png",
+"Larvitar.png",
+"Shiny%20Poochyena.png",
+"Poochyena.png",
+"Shiny%20Sharpedo.png",
+"<br>", // Marcador para quebra de linha
+"Hitmonchan.png",
+"Shiny%20Machamp.png",
+"Machamp.png",
+"Shiny%20Makuhita.png",
+"Medicham.png",
+"Mienfoo.png",
+"Shiny%20Venomoth.png",
+"Venomoth.png",
+"Shiny%20Vileplume.png",
+"Electivire.png",
+"Shiny%20Magnezone.png",
+"Exeggutor.png",
+"Hypno.png",
+"Drowzee.png",
+"Poliwrath.png",
+"Shiny%20Grimer.png",
+"Muk.png",
+"Golem.png",
+"Pidgeotto.png",
+"Lickitung.png",
+"Ninetales.png",
+"Growlithe.png",
+"Kakuna.png",
+"Loudred.png",
+"Cubone.png",
+"Flygon.png",
+"Forretress.png",
+"Scizor.png",
+"Scyther.png",
+"Shiny%20Corsola.png",
+"Shiny%20Croagunk.png",
+"Shiny%20Metagross.png",
+"Shiny%20Ninjask.png",
+"Shiny%20Parasect.png",
+"Shiny%20Paras.png",
+"Shiny%20Shiftry.png",
+"Shiftry.png",
+"Shiny%20Seedot.png",
+"Shiny%20Shroomish.png",
+"Shiny%20Taillow.png",
+"Shiny%20Tangrowth.png",
+"Tangela.png",
+"Shiny%20Tauros.png",
+"Tauros.png",
+"Shiny%20Torkoal.png",
+"Torkoal.png",
+"Shiny%20Torterra.png",
+"Turtwig.png",
+"Shiny%20Tropius.png",
+"Shiny%20Ursaring.png",
+"Shiny%20Weavile.png",
+"Shiny%20Whismur.png",
+"Shiny%20Wingull.png",
+"Shiny%20Yanma.png",
+"Shiny%20Zangoose.png",
+"Zangoose.png",
+"Shiny%20Zigzagoon.png",
+"Slowpoke.png",
+"Sudowoodo.png",
+"<br>", // Marcador para quebra de linha
+"Musharna.png",
+"Shiny%20Jynx.png",
+"Jynx.png",
+"Shiny%20Smoochum.png",
+"Mimikyu.png",
+"Shiny%20Mime%20Jr..png",
+"Shiny%20Spoink.png",
+"Spoink.png",
+"Shiny%20Igglybuff.png",
+"Shiny%20Alomomola.png",
+"Shiny%20Luvdisc.png",
+"Kirlia.png",
+"Shiny%20Ralts.png",
+"Shiny%20Cascoon.png",
+"Cascoon.png",
+"Shiny%20Luxio.png",
+"Luxio.png",
+"Shinx.png",
+"Shiny%20Absol.png",
+"Absol.png",
+"Shiny%20Ambipom.png",
+"Shiny%20Azurill.png",
+"Shiny%20Bonsly.png",
+"Shiny%20Castform%20(Water).png",
+"Shiny%20Delcatty.png",
+"Shiny%20Diglett.png",
+"Shiny%20Dodrio.png",
+"Shiny%20Goldeen.png",
+"Shiny%20Electrike.png",
+"Shiny%20Electrode.png",
+"Shiny%20Farfetch_d.png",
+"Shiny%20Glameow.png",
+"Shiny%20Lilligant.png",
+"Shiny%20Mantine.png",
+"Shiny%20Metapod.png",
+"Shiny%20Shuckle.png",
+"Shiny%20Shuppet.png",
+"Shiny%20Sigilyph.png",
+"Shiny%20Skarmory.png",
+"Shiny%20Spinarak.png",
+"Shiny%20Spinda.png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Pumpkaboo%20(Large).png",
+"Pumpkaboo%20(Large).png",
+"Shiny%20Gourgeist%20(Large).png",
+"<br>", // Marcador para quebra de linha
+"Shiny%20Swablu.png",
+"Shiny%20Minun.png",
+"Shiny%20Panpour.png",
+"Shiny%20Pansear.png",
+"Morgrem.png",
+      ];
+
+      images.forEach(function (image) {
+        if (image === "<br>") {
+          var brElement = document.createElement("br");
+          middleDiv.appendChild(brElement);
+        } else {
+          var imgSrc = imagesPath + image;
+          var elementDiv = createPokemonElement(imgSrc);
+          middleDiv.appendChild(elementDiv);
+        }
+      });
+
+      // Atualiza o nome do Pokémon para cada elemento
+      var elements = document.querySelectorAll("#element");
+      for (var i = 0; i < elements.length; i++) {
+        var imgElement = elements[i].querySelector("img");
+        var imgSrc = imgElement.getAttribute("src");
+        var pokemonName = extractPokemonName(imgSrc);
+        var nameElement = elements[i].querySelector("#name");
+        nameElement.textContent = pokemonName;
+      }
+    }
+
+    loadPokemonElements();
+  </script>
+</body>
+</html>

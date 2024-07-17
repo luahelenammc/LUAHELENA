@@ -1,0 +1,19 @@
+@charset "utf-8";
+body {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #5A441B;
+	background-image: url(imagens/fundo.png);
+	background-repeat: repeat;
+	background-position: center top;
+	margin: 0px;
+	padding: 0px;
+}
+#quadro {
+	background-image: url(imagens/fundo_transparente.png);
+	background-repeat: repeat;
+	width: 800px;
+	margin: 20px;
+	padding: 10px;
+	text-align: left;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Horas de Estágio</title>
+<style>
+    body {
+        font-family: 'Courier New', monospace;
+        background-color: black;
+        color: green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        border-bottom: 2px solid green;
+        text-align: center;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #startDate, #workdays, #hoursPerWeek {
+        font-weight: bold;
+    }
+
+    button {
+        background-color: green;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: lime;
+    }
+
+    .digital-display {
+        font-family: 'Digital-7', monospace; /* Esta é uma fonte que imita displays digitais */
+        background-color: #111;
+        color: #0F0;
+        padding: 10px;
+        border: 2px solid green;
+        border-radius: 5px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 14px;
+        }
+        button {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+        .digital-display {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+</style>
+</head>
+<body>
+<h1>Calculadora de Horas de Estágio</h1>
+<p>Data de Início: <span id="startDate" class="digital-display"></span></p>
+<p>Data de Término: <span class="digital-display">17 de novembro de 2024</span></p>
+<p>Dias úteis até a data de término: <span id="workdays" class="digital-display"></span></p>
+<p>Horas necessárias por semana: <span id="hoursPerWeek" class="digital-display"></span></p>
+<button onclick="calculateWork()">Calcular Horas</button>
+
+<script>
+function calculateWork() {
+    const startDate = new Date();
+    const endDate = new Date('November 17, 2024 23:59:59');
+
+    if (startDate > endDate) {
+        alert('A data de início é posterior à data de término. Por favor, ajuste as datas.');
+        return;
+    }
+
+    document.getElementById('startDate').textContent = startDate.toLocaleDateString();
+
+    const totalWorkDays = countWorkdays(startDate, endDate);
+    document.getElementById('workdays').textContent = totalWorkDays;
+
+    if (totalWorkDays === 0) {
+        document.getElementById('hoursPerWeek').textContent = 'N/A - Não há dias úteis no intervalo';
+        return;
+    }
+
+    const weeks = totalWorkDays / 5;
+    const hoursPerWeek = (150 / weeks).toFixed(2);
+    document.getElementById('hoursPerWeek').textContent = hoursPerWeek;
+}
+
+function countWorkdays(start, end) {
+    let count = 0;
+    const day = new Date(start);
+    while (day < end) {
+        const dayOfWeek = day.getDay();
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) count++;
+        day.setDate(day.getDate() + 1);
+    }
+    return count;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTDS6RGCZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XTDS6RGCZ');
+</script>
+  <title>📚 Livros Recomendados</title>
+  <link rel="icon" type="image/x-icon" href="images/books.png">
+  <meta name="viewport" content="width=device-width, initial- scale=1">
+  <style>
+      
+    /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00ff99; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc99; 
+}
+    
+      
+  body {
+  font-family: 'General Sans', sans-serif;
+  font-size: 12px;
+  background:linear-gradient(rgb(0 0 0 / 20%), rgb(0 0 0 / 35%)), url(images/bookshelf.jpeg) repeat;
+  color: white;
+    text-shadow: 0px 0px 6px black;
+  }
+  #wrapper {
+  text-align: center;
+  width: 100%;
+  }
+  #top {
+  text-align: center;
+  margin:10px 0 10px 0;
+  }
+  #middle {
+  text-align: center;
+  width: 100%;
+  margin-top:20px;
+  }
+  #bottom {
+  text-align: center;
+  Margin-bottom: 20px;
+  }
+  #title {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Sentient', sans-serif;
+  }
+  #title2 {
+  font-size: 40px;
+  font-family: 'Sentient', sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+  }
+  #subtitle {
+  font-size: 20px;
+  font-family: 'Sentient', sans-serif;
+  text-align:center;
+  font-style: italic;
+margin-bottom: 15px;
+  }
+
+  a:link, a:visited {
+  text-decoration: decoration;
+  color: white;
+  }
+
+  a:hover, a:active {
+  text-decoration: none;
+  color:black;
+    text-shadow: 0 0 50px white, 0 0 5px white;
+  }
+
+ .yellow a:hover, .yellow a:active {
+      color:#ffd307;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .red a:hover, .red a:active {
+      color:#f62c2c;
+      text-shadow: 0px 0px 6px white;
+    }
+
+    
+     .green a:hover, .green a:active {
+      color:#67f62c;
+      text-shadow: 0px 0px 6px black;
+    }
+    
+     .blue a:hover, .blue a:active {
+      color:#2cc9f6;
+      text-shadow: 0px 0px 6px black;
+    }
+
+
+    
+  #element {
+  display: inline-grid;
+  background: #e6e6e6;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 5px;
+     font-size:20px;
+  font-family:'Sentient', sans-serif;
+    font-weight:bold;
+    max-width:300px;
+  }
+    
+#name {
+  font-size: 35px;
+  font-style: italic;
+    }
+
+  #description {
+  font-weight:bold;
+    color: black;
+    text-shadow:none;
+  }
+
+  #element:hover, #element:active {
+  box-shadow: 0px 0px 15px 2px #e6e6e6;
+   text-shadow: 0 0 10px white, 0 0 5px white;
+  }
+
+  .icon {
+  max-height: 100px;
+  }
+   
+
+  #pic {
+  max-height:250px;
+  }
+
+  #category {
+  margin-top:30px;
+  margin-bottom:5px;
+  font-size:60px;
+  font-family:'Sentient', sans-serif;
+  font-style: italic;
+  }
+
+  #platform {
+  max-width:200px;
+
+  }
+    
+    #music_icon {
+     max-width: 35px;
+  margin-bottom:-15px;
+    }
+      #description a:link, #description a:visited {
+        color:black;
+        text-decoration:underline;
+      }
+      
+      #description a:hover, #description a:active {
+        text-decoration:none;
+        text-shadow: none;
+      }
+    
+    #cat {
+    padding: 5px;
+    display: inline-block;
+    margin: 3px;
+    background: #0000007a;
+    border-radius: 10px;
+    }
+    
+    #cat:hover {
+      background:#ffffff7a;
+    }
+    
+    #catlist {
+     font-weight: bold;
+      font-style: italic; font-family:'Sentient', sans-serif;
+      font-size: 18px; 
+    }
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+    <div id="top">
+<img src="images/books.png" id="pic">
+      <div id="title">
+        Livros Recomendados
+      </div>
+      <div id="title2">
+        <a href="/index.html">Régis Cardoso</a>
+      </div>
+      <div id="subtitle">
+        [Muni Maggi]
+      </div>
+    </div>
+    <div id="middle">
+      <div id="catlist">
+        <div style="font-size:23px">Categorias</div>
+        <a href="#literatura"><div id="cat">Literatura</div></a>
+        <a href="#historia"><div id="cat">História</div></a>
+        <a href="#esquizoanalise"><div id="cat">Esquizoanálise</div></a>
+        <a href="#psicanalise"><div id="cat">Psicanálise</div></a>
+        <a href="#psicologia"><div id="cat">Psicologia</div></a>
+        <a href="#filosofia"><div id="cat">Filosofia</div></a>
+        <a href="#sociologia"><div id="cat">Sociologia & Antropologia</div></a>
+        <a href="#escrita"><div id="cat">Escrita Literária</div></a>
+        <a href="#outros"><div id="cat">Outros</div></a>
+      </div>
+      
+      <div id="category"><a id="literatura"></a>
+        Literatura 
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/aspalavras.png"></div>
+        <div id="description">
+          <div id="name">As Palavras</div>
+        (<a href="/personalidade.html" target="_blank">Clarice Lispector</a>)
+          <br><small>1943 — 1978</small>
+        </div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/books/paixaosegundogh.jpg"></div>
+        <div id="description">
+          <div id="name">A Paixão
+             <br>Segundo G.H.</div>
+        (<a href="/personalidade.html" target="_blank">Clarice Lispector</a>)
+          <br><small>1964</small>
+        </div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/books/hp.jpg"></div>
+        <div id="description">
+          <div id="name"><div style="font-size:20px;">[Coleção]</div>
+            Harry Potter</div>
+        (J. K. Rowling)
+          <br><small>1997 — 2007</small>
+        </div>
+      </div>
+      
+      <div id="category"><a id="historia"></a>
+        História
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/casagrande.jpg"></div>
+        <div id="description">
+          <div id="name">Casa-grande & Senzala</div>
+        (Gilberto Freyre)
+          <br><small>1933</small>
+        </div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/darcy.jpg"></div>
+        <div id="description">
+          <div id="name">O Povo Brasileiro</div>
+        (Darcy Ribeiro)
+          <br><small>1995</small>
+        </div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/concisa.png"></div>
+        <div id="description">
+          <div id="name">História Concisa
+            <br>do Brasil</div>
+        (Boris Fausto)
+          <br><small>1999</small>
+        </div>
+      </div>
+      
+        <div id="category" style="font-size:45px;"><a id="esquizoanalise"></a>
+        Esquizoanálise
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/gregorio.jpg"></div>
+        <div id="description">
+          <div id="name">Introdução à
+             <br>Esquizoanálise</div>
+        (Gregório Baremblitt)
+          <br><small>2002</small>
+        </div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/domenico.jpg"></div>
+        <div id="description">
+          <div id="name">Psicologia, Política
+            <br>e Esquizoanálise</div>
+        (Domenico Uhng Hur)
+          <br><small>1998</small>
+        </div>
+      </div>
+      
+      <div id="category"><a id="psicanalise"></a>
+        Psicanálise
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/vocabulario.jpg"></div>
+        <div id="description">
+          <div id="name">Vocabulário de
+             <br>Psicanálise</div>
+        (J. Laplanche & J. B. Pontalis)
+          <br><small>1967</small>
+        </div>
+      </div>
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/paperemoji.png"></div>
+        <div id="description">
+          <div id="name" style="font-size:25px;">"Estarei com você em
+            sua noite de núpcias": Lacan e o Estranho</div>
+        (Mladen Dolar)
+          <br><small>1991</small>
+        </div>
+      </div>
+
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/loucura.jpg"></div>
+        <div id="description">
+          <div id="name">O que é Loucura</div>
+        (Darian Leader)
+          <br><small>2013</small>
+        </div>
+      </div>
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/nasio.png"></div>
+        <div id="description">
+          <div id="name">Como Trabalha um Psicanalista</div>
+        (Juan-David Nasio)
+          <br><small>1999</small>
+        </div>
+      </div>
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/paperemoji.png"></div>
+        <div id="description">
+          <div id="name" style="font-size:25px;">O Desejo do Psicanalista como
+            <br>Operador Ético da Psicanálise</div>
+          <div style="opacity:0.6">(Artigo)</div>
+        (Júlio Eduardo de Castro)
+          <br><small>2020</small>
+        </div>
+      </div>
+      
+        <div id="element">
+        <div><img id="pic" src="images/books/paperemoji.png"></div>
+        <div id="description">
+          <div id="name" style="font-size:25px;">Psicanálise Pura, Psicanálise Aplicada & Psicoterapia</div>
+        (Jacques-Alain Miller)
+          <br><small>2002</small>
+        </div>
+      </div>
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/elucidado.png"></div>
+        <div id="description">
+          <div id="name">Lacan Elucidado:
+            <br>Palestras no Brasil</div>
+         (Jacques-Alain Miller)
+          <br><small>2015</small>
+        </div>
+      </div>
+      
+           <div id="element">
+        <div><img id="pic" src="images/books/osso.png"></div>
+        <div id="description">
+          <div id="name">O Osso de uma Análise</div>
+        (Jacques-Alain Miller)
+          <br><small>2015</small>
+        </div>
+      </div>
+      
+       <div id="category"><a id="psicologia"></a>
+        Psicologia
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/canguilhem.png"></div>
+        <div id="description">
+          <div id="name">O Normal e o Patológico</div>
+        (Georges Canguilhem)
+          <br><small>1966</small>
+        </div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/12r.png"></div>
+        <div id="description">
+          <div id="name">12 Regras para a Vida</div>
+        (Jordan B. Peterson)
+          <br><small>2018</small>
+        </div>
+      </div>
+     
+      
+      <div id="category"><a id="filosofia"></a>
+        Filosofia
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/oqefilo.jpg"></div>
+        <div id="description">
+          <div id="name">O que é a Filosofia</div>
+        (Gilles Deleuze
+          <br>& Felix Guattari)
+          <br><small>1991</small>
+        </div>
+      </div>
+      
+       <div id="category"><a id="sociologia"></a>
+        Sociologia & Antropologia
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/microfisica.jpg"></div>
+        <div id="description">
+          <div id="name">Microfísica do Poder</div>
+        (Michel Foucault)
+          <br><small>1978</small>
+        </div>
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/constr.jpg"></div>
+        <div id="description">
+          <div id="name" style="font-size:22px;">Construção Social da Realidade: Tratado de Sociologia do Conhecimento</div>
+        (Peter L. Berger<br>
+          & Thomas Luckmann)
+          <br><small>1966</small>
+        </div>
+      </div>
+      
+      <div id="category"><a id="escrita"></a>
+       Escrita Literária
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/plot.jpg"></div>
+        <div id="description">
+          <div id="name">Plot: Elements of
+             <br>Fiction Writing</div>
+        (Ansen Dibell)
+          <br><small>1988</small>
+        </div>
+      </div>
+      
+          <div id="element">
+        <div><img id="pic" src="images/books/conflict.jpg"></div>
+        <div id="description">
+          <div id="name"  style="font-size:25px;">Elements of Fiction Writing:
+             <br>Conflict & Suspense</div>
+        (James Scott Bell)
+          <br><small>2011</small>
+        </div>
+      </div>
+      
+       <div id="category"><a id="outros"></a>
+      Outros
+      </div>
+      
+      <div id="element">
+        <div><img id="pic" src="images/books/hawk.png"></div>
+        <div id="description">
+          <div id="name" style="font-size:25px;">Breves Respostas para Grandes Questões</div>
+        (Stephen Hawking)
+          <br><small>2018</small>
+        </div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/light.jpg"></div>
+        <div id="description">
+          <div id="name">The Light in
+             <br>The Hearth</div>
+        (Roy T. Bennet)
+          <br><small>2020</small>
+        </div>
+      </div>
+      
+       <div id="element">
+        <div><img id="pic" src="images/books/paperemoji.png"></div>
+        <div id="description">
+          <div id="name"  style="font-size:20px;">O Ator/Xamã e o Corpo do Abismo:
+            <br>a Realidade do Corpo Liminar</div>
+          <div style="opacity:0.6">(TCC)</div>
+        (Maikon Kempinski)
+          <br><small>2008</small>
+        </div>
+      </div>
+      
+  <div id="bottom">
+    <br>
+    <br>
+    <div style="font-size: 14px; font-weight:bold;">
+      <span class="green"><a href="#top">↑ Retornar ao topo da página</a></span>
+      <br>
+      <span class="yellow"><a href="/series.html">📺 Recomendações de Séries</a></span>
+      <br>
+      <span class="red"><a href="/jogos.html">🕹️ Recomendações de Jogos</a></span>
+      <br>
+      <span class="blue"><a href="/websites.html">💻 Recomendações de Websites</a></span>
+      <br>
+      <span class="green"><a href="/index.html">« Retornar à Página Inicial</a></span>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div style="text-shadow: 0px 0px 6px black;">Procurando pelas obras escritas por Régis?</div>
+    <br>
+    <div><a href="obras.html"><img src="images/livros.png" style="max-width:80px;"></a></div>
+      <div style="font-weight:bold;"><a href="obras.html">Clique aqui!</a></div>
+  </div>
+</body>
+</html>
