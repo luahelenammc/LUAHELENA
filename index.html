@@ -6,16 +6,18 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      color: white;
-      overflow-y: auto; /* Permite scroll */
-    }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  overflow-y: auto; /* Permite scroll */
+  box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
+}
+
 
 .logo {
   width: 350px;
@@ -23,8 +25,9 @@
   margin-bottom: 241px;
   animation: logoFade 10s infinite;
   flex-shrink: 0;
-  position: relative; /* Remova o top: 134px */
+  /* Remova position: relative e top: 134px */
 }
+
 
 
     @keyframes logoFade {
@@ -246,20 +249,21 @@
   <script>
 
 
-  window.addEventListener('DOMContentLoaded', (event) => {
-    if (window.innerWidth <= 768) {
-      var viewport = document.querySelector("meta[name=viewport]");
-      if (viewport) {
-        viewport.setAttribute("content", "width=1024, initial-scale=0.5");
-      } else {
-        var newViewport = document.createElement("meta");
-        newViewport.name = "viewport";
-        newViewport.content = "width=1024, initial-scale=0.5";
-        document.head.appendChild(newViewport);
-      }
-      console.log("Viewport adjusted for mobile devices.");
+window.addEventListener('DOMContentLoaded', (event) => {
+  if (window.innerWidth <= 768) {
+    var viewport = document.querySelector("meta[name=viewport]");
+    if (viewport) {
+      viewport.setAttribute("content", "width=1024, initial-scale=0.5");
+    } else {
+      var newViewport = document.createElement("meta");
+      newViewport.name = "viewport";
+      newViewport.content = "width=1024, initial-scale=0.5";
+      document.head.appendChild(newViewport);
     }
-  });
+    console.log("Viewport adjusted for mobile devices.");
+  }
+});
+
 
     
     const allDockItems = document.querySelectorAll('.dock-item img');
