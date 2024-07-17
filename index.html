@@ -12,16 +12,102 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Adicionado para centralizar verticalmente */
   min-height: 100vh;
   color: white;
   overflow-y: auto; /* Permite scroll */
   box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
-  padding-top: 50px; /* Ajuste conforme necessário */
-  padding-bottom: 50px; /* Ajuste conforme necessário */
 }
 
-    @media (min-width: 769px) {
+.logo {
+  width: 350px;
+  height: auto;
+  margin: 50px 0; /* Ajustar a margem para cima e para baixo */
+  animation: logoFade 10s infinite;
+  flex-shrink: 0;
+  position: relative;
+  top: 0; /* Remover o top: 134px */
+}
+
+@keyframes logoFade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.dock {
+  display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
+}
+
+.dock-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
+  margin-bottom: 110px; /* Espaço suficiente para separar as linhas */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  width: auto;
+  height: 60px;
+  position: relative;
+}
+
+.dock-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  height: 30%; /* Preenchido até 30% da altura */
+  z-index: -1;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.dock-item img {
+  width: 140px;
+  height: 140px;
+  transition: transform 0.2s;
+}
+
+.dock-item img.active {
+  transform: scale(1.5);
+}
+
+.dock-item img.bouncing {
+  animation: bounce 1s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25%, 75% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+.dock-item span {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 769px) {
   body {
     margin-top: 50px; /* Ajuste conforme necessário */
     margin-bottom: 50px; /* Ajuste conforme necessário */
@@ -29,100 +115,10 @@ body {
 
   .logo {
     margin-top: 50px; /* Ajuste conforme necessário */
-    margin-bottom: 241px; /* Mantém o margin-bottom existente */
+    margin-bottom: 50px; /* Ajuste conforme necessário */
   }
 }
 
-
-    .logo {
-      width: 350px;
-      height: auto;
-      animation: logoFade 10s infinite;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    @keyframes logoFade {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-    }
-
-    .dock {
-      display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
-    }
-
-    .dock-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
-      margin-bottom: 140px; /* Espaço suficiente para separar as linhas */
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      width: auto;
-      height: 60px;
-      position: relative;
-    }
-
-    .dock-row::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      height: 30%; /* Preenchido até 30% da altura */
-      z-index: -1;
-    }
-
-    .dock-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 10px;
-      transition: transform 0.2s;
-    }
-
-    .dock-item img {
-      width: 140px;
-      height: 140px;
-      transition: transform 0.2s;
-    }
-
-    .dock-item img.active {
-      transform: scale(1.5);
-    }
-
-    .dock-item img.bouncing {
-      animation: bounce 1s;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      25%, 75% {
-        transform: translateY(-15px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-    }
-
-    .dock-item span {
-      margin-top: 10px;
-      font-size: 16px;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-    }
-
-   
-    }
   </style>
 </head>
 <body>
