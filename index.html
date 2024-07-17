@@ -6,29 +6,27 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  color: white;
-  overflow-y: auto; /* Permite scroll */
-  box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
-}
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+      overflow-y: auto; /* Permite scroll */
+      box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
+    }
 
-
-.logo {
-  width: 350px;
-  height: auto;
-  margin-bottom: 241px;
-  animation: logoFade 10s infinite;
-  flex-shrink: 0;
-  /* Remova position: relative e top: 134px */
-}
-
-
+    .logo {
+      width: 350px;
+      height: auto;
+      margin-bottom: 241px;
+      animation: logoFade 10s infinite;
+      flex-shrink: 0;
+      position: relative;
+      top: 134px; /* Restaurar este estilo */
+    }
 
     @keyframes logoFade {
       0%, 100% {
@@ -143,21 +141,6 @@ body {
 
   <br>
 
-      <div class="dock-item">
-      <a href="/wiki.html" target="_blank">
-        <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
-      </a>
-      <span>Enciclopédia Lunar</span>
-    </div>
-
-      <div class="dock-item">
-      <a href="https://instagram.com/aiartbymoon" target="_blank">
-        <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
-      </a>
-      <span>Arte com<br>Inteligência Artificial</span>
-    </div>
-  </div>
-
   <div class="dock-row">
     <div class="dock-item">
       <a href="/obras.html" target="_blank">
@@ -166,53 +149,23 @@ body {
       <span>Minhas Obras Literárias</span>
     </div>
 
-
-
-
-  <br>
-
-  <div class="dock-row">
     <div class="dock-item">
-      <a href="/mapa.html" target="_blank">
-        <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
+      <a href="/wiki.html" target="_blank">
+        <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
       </a>
-      <span>Mapa (Cidades Já Visitadas)</span>
+      <span>Enciclopédia Lunar</span>
     </div>
-
-    <div class="dock-item">
-  <a href="/personalidade.html" target="">
-    <img src="images/mind.png" alt="Personalidade INFP 4w5">
-  </a>
-  <span>Personalidade INFP 4w5</span>
-</div>
-
-    <br>
-
     
+    <!-- Novo item adicionado -->
     <div class="dock-item">
-      <a href="https://filmow.com/usuario/luahelena" target="_blank">
-        <img src="/images/filmow new skew.fw.png" alt="Filmes & Séries avaliados no Filmow">
+      <a href="https://instagram.com/aiartbymoon" target="_blank">
+        <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
       </a>
-      <span>Filmes & Séries<br>avaliados no Filmow</span>
-    </div>
-    <div class="dock-item">
-      <a href="https://youpic.com/regisness/?mode=latest" target="_blank">
-        <img src="/images/photoios6.png" alt="Fotografias Artísticas">
-      </a>
-      <span>Fotografias Artísticas</span>
+      <span>Arte com<br>Inteligência Artificial</span>
     </div>
   </div>
 
-        <div class="dock-item">
-      <a href="https://br.pinterest.com/luahelenammc" target="_blank">
-        <img src="/images/pinterest.png" alt="Pastas no Pinterest">
-      </a>
-      <span>Pastas no Pinterest</span>
-    </div>
-
   <br>
-
-      <br>
 
   <div class="dock-row">
     <div class="dock-item">
@@ -235,6 +188,39 @@ body {
     </div>
   </div>
 
+  <br>
+
+  <div class="dock-row">
+    <div class="dock-item">
+      <a href="/mapa.html" target="_blank">
+        <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
+      </a>
+      <span>Mapa (Cidades Já Visitadas)</span>
+    </div>
+    <div class="dock-item">
+      <a href="https://br.pinterest.com/luahelenammc" target="_blank">
+        <img src="/images/pinterest.png" alt="Pastas no Pinterest">
+      </a>
+      <span>Pastas no Pinterest</span>
+    </div>
+    
+    <!-- Novo item adicionado -->
+    <div class="dock-item">
+      <a href="https://filmow.com/usuario/luahelena" target="_blank">
+        <img src="/images/filmow new skew.fw.png" alt="Filmes & Séries avaliados no Filmow">
+      </a>
+      <span>Filmes & Séries<br>avaliados no Filmow</span>
+    </div>
+    <div class="dock-item">
+      <a href="https://youpic.com/regisness/?mode=latest" target="_blank">
+        <img src="/images/photoios6.png" alt="Fotografias Artísticas">
+      </a>
+      <span>Fotografias Artísticas</span>
+    </div>
+  </div>
+
+  <br>
+
   <div class="dock-row">
     <div class="dock-item">
       <a href="/outros.html" target="_blank">
@@ -243,28 +229,23 @@ body {
       <span>Outros Conteúdos</span>
     </div>
   </div>
-
-
+</div>
 
   <script>
-
-
-window.addEventListener('DOMContentLoaded', (event) => {
-  if (window.innerWidth <= 768) {
-    var viewport = document.querySelector("meta[name=viewport]");
-    if (viewport) {
-      viewport.setAttribute("content", "width=1024, initial-scale=0.5");
-    } else {
-      var newViewport = document.createElement("meta");
-      newViewport.name = "viewport";
-      newViewport.content = "width=1024, initial-scale=0.5";
-      document.head.appendChild(newViewport);
-    }
-    console.log("Viewport adjusted for mobile devices.");
-  }
-});
-
-
+    window.addEventListener('DOMContentLoaded', (event) => {
+      if (window.innerWidth <= 768) {
+        var viewport = document.querySelector("meta[name=viewport]");
+        if (viewport) {
+          viewport.setAttribute("content", "width=1024, initial-scale=0.5");
+        } else {
+          var newViewport = document.createElement("meta");
+          newViewport.name = "viewport";
+          newViewport.content = "width=1024, initial-scale=0.5";
+          document.head.appendChild(newViewport);
+        }
+        console.log("Viewport adjusted for mobile devices.");
+      }
+    });
     
     const allDockItems = document.querySelectorAll('.dock-item img');
     allDockItems.forEach((img) => {
@@ -293,27 +274,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }, 1000);
       });
     });
-
-    window.addEventListener('DOMContentLoaded', (event) => {
-  if (window.innerWidth <= 768) {
-    var viewport = document.querySelector("meta[name=viewport]");
-    if (viewport) {
-      viewport.setAttribute("content", "width=1024, initial-scale=0.5");
-    } else {
-      var newViewport = document.createElement("meta");
-      newViewport.name = "viewport";
-      newViewport.content = "width=1024, initial-scale=0.5";
-      document.head.appendChild(newViewport);
-    }
-    console.log("Viewport adjusted for mobile devices.");
-  }
-
-  const logo = document.querySelector('.logo');
-  if (window.innerHeight < 800) {
-    logo.style.top = '0'; // Ajuste o top dinamicamente
-  }
-});
-
   </script>
 </body>
 </html>
