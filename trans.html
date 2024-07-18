@@ -9,49 +9,30 @@
       text-align: center;
     }
 
-    .flip-clock {
+    #semanas, #meses {
       font-size: 50px;
+      margin-top: 20px;
+      background: black; /* Preto do flip */
+      color: white; /* Branco dos números */
       display: inline-block;
+      width: 200px;
+      height: 100px;
+      line-height: 100px;
       position: relative;
-      margin: 20px;
-    }
-
-    .flip-clock:before, .flip-clock:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 50%;
-      background: #000; /* Preto do flip */
-      color: #FFF; /* Branco dos números */
-      line-height: 1.2;
       text-align: center;
-      font-size: 0.8em;
-      transition: all 0.5s;
-    }
-
-    .flip-clock:before {
-      top: 0;
-      transform-origin: bottom;
-    }
-
-    .flip-clock:after {
-      bottom: 0;
-      transform-origin: top;
-    }
-
-    .flip-clock.flip .flip-clock:before {
-      transform: rotateX(180deg);
-    }
-
-    .flip-clock.flip .flip-clock:after {
-      transform: rotateX(0deg);
+      border-radius: 10px;
     }
 
     #relogio {
       font-size: 24px;
       margin-top: 20px;
       color: #F7A8B8;
+    }
+
+    .flip-clock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
   <meta charset="utf-8">
@@ -60,11 +41,13 @@
   <title>Contagem de Tempo</title>
 </head>
 <body>
-  <div align="center">
-    <div id="semanas" class="flip-clock">0 semanas</div>
-    <div id="meses" class="flip-clock">0 meses</div>
-    <div id="relogio"></div>
+  <div align="center" class="flip-clock">
+    <div id="semanas">0 semanas</div>
   </div>
+  <div align="center" class="flip-clock">
+    <div id="meses">0 meses</div>
+  </div>
+  <div id="relogio"></div>
 
   <script>
     function calcularTempo() {
@@ -80,11 +63,7 @@
     }
 
     function atualizarFlipClock(element, newValue) {
-      element.classList.add('flip');
-      setTimeout(() => {
-        element.textContent = newValue;
-        element.classList.remove('flip');
-      }, 500);
+      element.textContent = newValue;
     }
 
     function atualizarRelogio() {
