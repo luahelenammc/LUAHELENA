@@ -3,7 +3,7 @@
 <head>
   <style>
     body {
-      background: #55CDFC; /* Azul da bandeira trans */
+      background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
       color: #F7A8B8; /* Rosa da bandeira trans */
       font-family: 'HelveticaNeue', sans-serif;
       text-align: center;
@@ -29,17 +29,26 @@
       background: black; /* Preto do flip */
       color: white; /* Branco dos números */
       display: inline-block;
-      width: 200px;
+      width: 300px;
       height: 100px;
       line-height: 100px;
       text-align: center;
       border-radius: 10px;
+      position: relative;
     }
 
-    #relogio {
-      font-size: 24px;
-      margin-top: 20px;
-      color: #F7A8B8;
+    .contador span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .unidade {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      color: #F7A8B8; /* Rosa da bandeira trans */
     }
   </style>
   <meta charset="utf-8">
@@ -49,10 +58,9 @@
 </head>
 <body>
   <div class="flip-clock">
-    <div id="semanas" class="contador">0 semanas</div>
-    <div id="meses" class="contador">0 meses</div>
-    <div id="dias" class="contador">0 dias</div>
-    <div id="relogio"></div>
+    <div id="semanas" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div id="dias" class="contador"><span>0</span><span class="unidade">dias</span></div>
   </div>
 
   <script>
@@ -64,28 +72,21 @@
       const diffWeeks = diffDays / 7;
       const diffMonths = diffDays / 30.4375; // Média de dias por mês
 
-      atualizarFlipClock(document.querySelector("#semanas"), diffWeeks.toFixed(2) + ' semanas');
-      atualizarFlipClock(document.querySelector("#meses"), diffMonths.toFixed(2) + ' meses');
-      atualizarFlipClock(document.querySelector("#dias"), diffDays.toFixed(0) + ' dias');
+      atualizarFlipClock(document.querySelector("#semanas span:first-child"), diffWeeks.toFixed(2));
+      atualizarFlipClock(document.querySelector("#meses span:first-child"), diffMonths.toFixed(2));
+      atualizarFlipClock(document.querySelector("#dias span:first-child"), diffDays.toFixed(0));
     }
 
     function atualizarFlipClock(element, newValue) {
       element.textContent = newValue;
     }
 
-    function atualizarRelogio() {
-      const data = new Date();
-      document.querySelector("#relogio").textContent = data.toLocaleTimeString();
-    }
-
     setInterval(() => {
       calcularTempo();
-      atualizarRelogio();
     }, 1000);
 
     // Inicializa os valores ao carregar a página
     calcularTempo();
-    atualizarRelogio();
   </script>
 </body>
 </html>
