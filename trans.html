@@ -54,13 +54,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
-  <title>Contagem de Tempo</title>
+  <title>Transição Moon 🌜</title>
 </head>
 <body>
   <div class="flip-clock">
+    <div id="dias" class="contador"><span>0</span><span class="unidade">dias</span></div>
     <div id="semanas" class="contador"><span>0</span><span class="unidade">semanas</span></div>
     <div id="meses" class="contador"><span>0</span><span class="unidade">meses</span></div>
-    <div id="dias" class="contador"><span>0</span><span class="unidade">dias</span></div>
   </div>
 
   <script>
@@ -72,9 +72,9 @@
       const diffWeeks = diffDays / 7;
       const diffMonths = diffDays / 30.4375; // Média de dias por mês
 
-      atualizarFlipClock(document.querySelector("#semanas span:first-child"), diffWeeks.toFixed(2));
-      atualizarFlipClock(document.querySelector("#meses span:first-child"), diffMonths.toFixed(2));
       atualizarFlipClock(document.querySelector("#dias span:first-child"), diffDays.toFixed(0));
+      atualizarFlipClock(document.querySelector("#semanas span:first-child"), diffWeeks.toFixed(2).replace('.', ','));
+      atualizarFlipClock(document.querySelector("#meses span:first-child"), diffMonths.toFixed(2).replace('.', ','));
     }
 
     function atualizarFlipClock(element, newValue) {
