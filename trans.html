@@ -7,18 +7,31 @@
       color: #F7A8B8; /* Rosa da bandeira trans */
       font-family: 'HelveticaNeue', sans-serif;
       text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    #semanas, #meses {
-      font-size: 50px;
+    .flip-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       margin-top: 20px;
+    }
+
+    .contador {
+      font-size: 50px;
+      margin: 10px 0;
       background: black; /* Preto do flip */
       color: white; /* Branco dos números */
       display: inline-block;
       width: 200px;
       height: 100px;
       line-height: 100px;
-      position: relative;
       text-align: center;
       border-radius: 10px;
     }
@@ -28,12 +41,6 @@
       margin-top: 20px;
       color: #F7A8B8;
     }
-
-    .flip-clock {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,13 +48,12 @@
   <title>Contagem de Tempo</title>
 </head>
 <body>
-  <div align="center" class="flip-clock">
-    <div id="semanas">0 semanas</div>
+  <div class="flip-clock">
+    <div id="semanas" class="contador">0 semanas</div>
+    <div id="meses" class="contador">0 meses</div>
+    <div id="dias" class="contador">0 dias</div>
+    <div id="relogio"></div>
   </div>
-  <div align="center" class="flip-clock">
-    <div id="meses">0 meses</div>
-  </div>
-  <div id="relogio"></div>
 
   <script>
     function calcularTempo() {
@@ -60,6 +66,7 @@
 
       atualizarFlipClock(document.querySelector("#semanas"), diffWeeks.toFixed(2) + ' semanas');
       atualizarFlipClock(document.querySelector("#meses"), diffMonths.toFixed(2) + ' meses');
+      atualizarFlipClock(document.querySelector("#dias"), diffDays.toFixed(0) + ' dias');
     }
 
     function atualizarFlipClock(element, newValue) {
