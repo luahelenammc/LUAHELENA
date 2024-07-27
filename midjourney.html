@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+    body {
+      background: #000; /* Fundo padrão inicial, será sobrescrito pelo JS */
+      color: #F7A8B8; /* Rosa */
+      font-family: 'HelveticaNeue', sans-serif;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .flip-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .contador {
+      font-size: 50px;
+      margin: 10px 0;
+      background: black; /* Preto do flip */
+      color: white; /* Branco dos números */
+      display: inline-block;
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .contador span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .unidade {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      color: #F7A8B8; /* Rosa */
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
+  <title>Contagem para Expiração Midjourney</title>
+</head>
+<body>
+  <div class="flip-clock">
+    <div id="dias" class="contador"><span>0</span><span class="unidade">dias</span></div>
+  </div>
+
+  <script>
+    function calcularTempo() {
+      const dataAtual = new Date();
+      const dataAlvo = new Date('2024-08-10T20:00:00');
+      const diffTime = dataAlvo - dataAtual;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      atualizarFlipClock(document.querySelector("#dias span:first-child"), diffDays);
+    }
+
+    function atualizarFlipClock(element, newValue) {
+      element.textContent = newValue;
+    }
+
+    setInterval(() => {
+      calcularTempo();
+    }, 1000);
+
+    // Inicializa os valores ao carregar a página
+    calcularTempo();
+
+    function getRandomGradient() {
+      const colors = [
+        ['#FF5F6D', '#FFC371'], // Peach
+        ['#00C9FF', '#92FE9D'], // Light Blue to Green
+        ['#FFD700', '#FF8C00'], // Gold to Dark Orange
+        ['#76b852', '#8DC26F'], // Green
+        ['#F7971E', '#FFD200'], // Orange to Yellow
+        ['#4CA1AF', '#C4E0E5'], // Light Blue to Light Grey
+        ['#FF512F', '#DD2476']  // Red to Purple
+      ];
+
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      const color1 = colors[randomIndex][0];
+      const color2 = colors[randomIndex][1];
+
+      return `linear-gradient(180deg, ${color1}, ${color2})`;
+    }
+
+    document.body.style.background = getRandomGradient();
+  </script>
+</body>
+</html>
