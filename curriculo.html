@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lua Helena Moon M. C. - Currículo Profissional</title>
+  <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" type="text/css" href="/common.css">
+  <style>
+
+    /* styles.css */
+
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Cor de texto padrão */
+    background-color: #ffffff; /* Cor de fundo padrão */
+}
+
+header {
+    text-align: center;
+    background-color: #ff5964; /* Cor primária */
+    color: white;
+    padding: 2rem 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+section {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ff5964; /* Cor primária */
+    border-bottom: 2px solid #ff5964;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.box {
+    background: #ffffff; /* Cor de fundo das caixas */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: #333; /* Cor de texto */
+}
+
+.box h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #ff5964; /* Cor primária */
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #333; /* Cor de texto */
+}
+
+.local {
+    color: #666;
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.tempo {
+    color: #333; /* Cor de texto */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+/* Estilizando as tags */
+.tags {
+    margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #ff9671; /* Cor secundária */
+    color: #333; /* Cor de texto */
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #ff5964; /* Cor primária */
+    color: white;
+}
+
+footer {
+    text-align: center;
+    background-color: #ff5964; /* Cor primária */
+    color: white;
+    padding: 1rem 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.9rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilizando o botão de reset */
+#resetButton {
+    display: inline-block;
+    background-color: #ff5964; /* Cor primária */
+    color: white; /* Cor de texto */
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin: 20px auto;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+#resetButton:hover {
+    background-color: #ff9671; /* Cor secundária */
+}
+
+/* Posiciona o botão centralizado abaixo das tags e acima do footer */
+#resetButton {
+    display: block;
+    margin: 20px auto;
+}
+
+
+    </style>
+
+  <script>
+
+    // scripts.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const boxes = document.querySelectorAll('.box');
+    const tags = document.querySelectorAll('.tag');
+    const resetButton = document.createElement('button');
+    resetButton.textContent = 'Mostrar Todas';
+    resetButton.id = 'resetButton';
+    resetButton.style.display = 'none';
+    document.body.insertBefore(resetButton, document.querySelector('footer'));
+
+    const fadeIn = (element) => {
+        element.style.display = 'block';
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+        }, 10);
+    };
+
+    const fadeOut = (element) => {
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 500);
+    };
+
+    const filterByTag = (tag) => {
+        boxes.forEach(box => {
+            const tagsInBox = box.querySelectorAll('.tag');
+            let matchFound = false;
+
+            tagsInBox.forEach(tagElement => {
+                if (tagElement.textContent === tag) {
+                    matchFound = true;
+                }
+            });
+
+            if (matchFound) {
+                fadeIn(box);
+            } else {
+                fadeOut(box);
+            }
+        });
+        resetButton.style.display = 'block';
+    };
+
+    const resetFilter = () => {
+        boxes.forEach(box => {
+            fadeIn(box);
+        });
+        resetButton.style.display = 'none';
+    };
+
+    tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            filterByTag(tag.textContent);
+        });
+    });
+
+    resetButton.addEventListener('click', resetFilter);
+
+    // Função para o fade-in apenas na rolagem, sem interferir na filtragem
+    const scrollFadeIn = () => {
+        boxes.forEach(box => {
+            const rect = box.getBoundingClientRect();
+            if (rect.top < window.innerHeight && box.style.opacity === '0') {
+                box.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                box.style.opacity = 1;
+                box.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Configura a opacidade inicial para 0 apenas na rolagem
+    boxes.forEach(box => {
+        box.style.opacity = 0;
+        box.style.transform = 'translateY(20px)';
+    });
+
+    window.addEventListener('scroll', scrollFadeIn);
+    scrollFadeIn();  // Inicializa o fade-in na rolagem
+});
+
+
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeButtons = document.querySelectorAll('#theme-panel button');
+
+    themeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            document.body.className = `${theme}-theme`;
+        });
+    });
+});
+
+
+    
+  </script>
+</head>
+
+  <body>
+
+<header>
+        <h1>Meu Currículo</h1>
+        <p>Uma visão geral da minha experiência e formação.</p>
+    </header>
+  
+
+  
+
+    <section id="experiencia">
+        <h2>Experiência</h2>
+
+        <div class="box">
+            <h3>Psicóloga Hospitalar</h3>
+            <p class="subtitulo">Hapvida NotreDame Intermédica</p>
+            <p class="local">Limeira, São Paulo, Brasil</p>
+            <p class="tempo">out de 2023 - o momento · 11 meses</p>
+            <ul>
+                <li>Atendimentos em Psicologia Hospitalar, para todas as idades, em todo o complexo hospitalar: UTIs, Enfermarias, Pronto Atendimento, Oncologia, Hemodiálise, Recepção.</li>
+                <li>Foco na mediação entre pacientes, familiares e equipe hospitalar, promovendo uma comunicação empática e eficiente.</li>
+                <li>Gestão de casos complexos e manejo de crises, incluindo pacientes terminais e acolhimento a óbito.</li>
+                <li>Participação em equipes multidisciplinares.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Acolhimento</span>
+                <span class="tag">Gestão de crises</span>
+                <span class="tag">Intervenção em situações de crise</span>
+                <span class="tag">Mediação</span>
+                <span class="tag">Psicologia Hospitalar</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Escritora Literária</h3>
+            <p class="subtitulo">Clube de Autores</p>
+            <p class="local">Remoto</p>
+            <p class="tempo">jan de 2016 - o momento · 8 anos 8 meses</p>
+            <ul>
+                <li>Auto-publicação de diversas obras literárias, incluindo "Ilha de Raviera", "Cogumelo de Adão", e "Calma Tormenta".</li>
+                <li>Obras registradas na Biblioteca Nacional.</li>
+                <li>Escrevendo atualmente: "Solve et Coagula", "Psicosofia", "Ecos do Abismo", e "25 de Junho".</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Escrita criativa</span>
+                <span class="tag">Redação</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Psicóloga Clínica</h3>
+            <p class="subtitulo">Consultório Particular ONLINE - @LuaHelena.PSI</p>
+            <p class="local">Remota</p>
+            <p class="tempo">mai de 2023 - o momento · 1 ano 4 meses</p>
+            <ul>
+                <li>Atendimentos psicológicos sob a abordagem Esquizoanalítica, de Deleuze e Guattari.</li>
+                <li>Foco na autonomia do sujeito, ressignificação dos traumas e transformação das disfunções emocionais.</li>
+                <li>Agenda aberta para novos pacientes.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Psicoterapia</span>
+                <span class="tag">Psicologia clínica</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Controladora de Acesso</h3>
+            <p class="subtitulo">PrevSeg Segurança Privada</p>
+            <p class="local">Limeira, São Paulo, Brasil</p>
+            <p class="tempo">mai de 2022 - set de 2023 · 1 ano 5 meses</p>
+            <ul>
+                <li>Responsável pelo atendimento ao público e controle dos fluxos de entrada e saída.</li>
+                <li>Garantia da segurança através de protocolos estritos e trabalho coordenado em equipe.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Atendimento ao público</span>
+                <span class="tag">Comunicação</span>
+                <span class="tag">Protocolos de segurança</span>
+                <span class="tag">Gestão de crises</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Estagiária em Psicologia Clínica</h3>
+            <p class="subtitulo">Centro de Psicologia Aplicada (CPA-UFPR)</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">jun de 2021 - jun de 2022 · 1 ano 1 mês</p>
+            <p>Remota</p>
+            <ul>
+                <li>Atendimento a pacientes de baixa renda sob supervisão acadêmica, com abordagem psicanalítica.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Acolhimento</span>
+                <span class="tag">Psicoterapia</span>
+                <span class="tag">Intervenção em situações de crise</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Estagiária em Psicologia do Trabalho</h3>
+            <p class="subtitulo">Sindicato dos Petroleiros do Paraná e Santa Catarina (Sindipetro PR/SC)</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">jun de 2021 - jun de 2022 · 1 ano 1 mês</p>
+            <p>Remota</p>
+            <ul>
+                <li>Apoio à Secretaria da Saúde do Sindicato dos Petroleiros, com foco na saúde do trabalhador.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Relações públicas</span>
+                <span class="tag">Gestão de projetos</span>
+                <span class="tag">Psicologia organizacional</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Intercambista Cultural</h3>
+            <p class="subtitulo">Estados Unidos (EUA)</p>
+            <p class="local">Takoma Park, Maryland, EUA</p>
+            <p class="tempo">jul de 2011 - ago de 2011 · 2 meses</p>
+            <ul>
+                <li>Intercâmbio cultural para aperfeiçoar proficiência em inglês e conhecer a cultura americana.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Cultura</span>
+                <span class="tag">Comunicação</span>
+                <span class="tag">Diversidade cultural</span>
+                <span class="tag">Inglês</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Professora de Informática</h3>
+            <p class="subtitulo">People Computação e Idiomas</p>
+            <p class="local">Limeira, São Paulo, Brasil</p>
+            <p class="tempo">mai de 2009 - ago de 2009 · 4 meses</p>
+            <ul>
+                <li>Ministração de aulas básicas de web design e apoio aos alunos com dificuldades de informática.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Informática</span>
+                <span class="tag">Ensino</span>
+                <span class="tag">Web design</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Auxiliar de Informática</h3>
+            <p class="subtitulo">Jam Photos Aéreas</p>
+            <p class="local">Limeira, São Paulo, Brasil</p>
+            <p class="tempo">jan de 2008 - mai de 2008 · 5 meses</p>
+            <ul>
+                <li>Atualização de planilhas e organização de arquivos digitais.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Informática</span>
+                <span class="tag">Gestão de projetos</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação Acadêmica</h2>
+
+        <div class="box">
+            <h3>Psicologia</h3>
+            <p class="subtitulo">Universidade Federal do Paraná</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">mar de 2017 - mar de 2023</p>
+            <div class="tags">
+                <span class="tag">Psicologia</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Psicologia Organizacional, Pós-graduação Lato Sensu</h3>
+            <p class="subtitulo">Centro Universitário UniFatecie</p>
+            <p class="local">Remota</p>
+            <p class="tempo">nov de 2023 - ago de 2024</p>
+            <div class="tags">
+                <span class="tag">Psicologia Organizacional</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Psicopedagogia Clínica e Institucional, Pós-graduação Lato Sensu</h3>
+            <p class="subtitulo">Centro Universitário UniFatecie</p>
+            <p class="local">Remota</p>
+            <p class="tempo">nov de 2023 - ago de 2024</p>
+            <div class="tags">
+                <span class="tag">Psicopedagogia</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Sociologia (Docência para Ensino Médio), Formação Pedagógica (2ª Graduação)</h3>
+            <p class="subtitulo">UNINTER Centro Universitário Internacional</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">jun de 2023 - nov de 2024</p>
+            <div class="tags">
+                <span class="tag">Sociologia</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Direito [Interrompido – 3 semestres]</h3>
+            <p class="subtitulo">Universidade Federal do Paraná</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">mar de 2015 - jul de 2016</p>
+            <div class="tags">
+                <span class="tag">Direito constitucional</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="licencas-certificados">
+        <h2>Licenças e Certificados</h2>
+
+        <div class="box">
+            <h3>Recrutamento e Seleção Comportamental</h3>
+            <p class="subtitulo">Sólides</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em ago de 2023</p>
+            <div class="tags">
+                <span class="tag">Recrutamento</span>
+                <span class="tag">Psicologia organizacional</span>
+                <span class="tag">Gestão de pessoas</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Primeiros Passos na Gestão de Pessoas</h3>
+            <p class="subtitulo">Sólides</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em jul de 2023</p>
+            <div class="tags">
+                <span class="tag">Mediação</span>
+                <span class="tag">Psicologia organizacional</span>
+                <span class="tag">Gestão de pessoas</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Recrutamento e Seleção: Aspectos Essenciais</h3>
+            <p class="subtitulo">Sólides</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em jul de 2023</p>
+            <div class="tags">
+                <span class="tag">Recrutamento</span>
+                <span class="tag">Psicologia organizacional</span>
+                <span class="tag">Gestão de pessoas</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Treinamentos em Segurança Privada: Operações Contingenciais & Sistema Integrado</h3>
+            <p class="subtitulo">Academia Monte Castelo</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em fev de 2022</p>
+            <div class="tags">
+                <span class="tag">Protocolos de segurança</span>
+                <span class="tag">Trabalho em equipe</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Concurso Literário Roberto Leite [Vencedora em 2 anos seguidos]</h3>
+            <p class="subtitulo">Organização Einstein de Ensino</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em set de 2013</p>
+            <div class="tags">
+                <span class="tag">Redação</span>
+                <span class="tag">Escrita criativa</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Projeto "Escola de Líderes"</h3>
+            <p class="subtitulo">Prefeitura de Limeira</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em nov de 2011</p>
+            <div class="tags">
+                <span class="tag">Comunicação</span>
+                <span class="tag">Diversidade cultural</span>
+                <span class="tag">Relações públicas</span>
+                <span class="tag">Gestão de crises</span>
+                <span class="tag">Liderança</span>
+                <span class="tag">Trabalho em equipe</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Curso de Web Design</h3>
+            <p class="subtitulo">People Computação e Idiomas</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em nov de 2010</p>
+            <div class="tags">
+                <span class="tag">Informática</span>
+                <span class="tag">Web design</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Curso de Inglês [Básico & Intermediário]</h3>
+            <p class="subtitulo">CNA Idiomas</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em out de 2009</p>
+            <div class="tags">
+                <span class="tag">Inglês</span>
+                <span class="tag">Diversidade cultural</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Projeto "Jovem Empreendedor"</h3>
+            <p class="subtitulo">Arvin Meritor</p>
+            <p class="local">Remota</p>
+            <p class="tempo">Emitido em nov de 2007</p>
+            <div class="tags">
+                <span class="tag">Gestão de projetos</span>
+                <span class="tag">Trabalho em equipe</span>
+                <span class="tag">Empreendedorismo social</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="trabalho-voluntario">
+        <h2>Trabalho Voluntário</h2>
+
+        <div class="box">
+            <h3>Extensionista Voluntária [Vinculada à ONU]</h3>
+            <p class="subtitulo">Migração e Processos de Subjetivação (Psicologia UFPR)</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">jan de 2018 - jun de 2018 · 6 meses</p>
+            <ul>
+                <li>Prestei apoio social à comunidade migrante vulnerável de Curitiba (PR), como parte do Programa Política Migratória e Universidade Brasileira (PMUB), vinculado ao Alto Comissariado das Nações Unidas para Refugiados (ACNUR), da ONU.</li>
+                <li>Visita acadêmica à UFSC para estudo de Psicanálise e Migração.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Serviços sociais</span>
+                <span class="tag">Psicologia Hospitalar</span>
+                <span class="tag">Diversidade cultural</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Organizadora de Festas Universitárias</h3>
+            <p class="subtitulo">Curso de Psicologia da UFPR</p>
+            <p class="local">Curitiba, Paraná, Brasil</p>
+            <p class="tempo">mar de 2017 - dez de 2019 · 2 anos 10 meses</p>
+            <ul>
+                <li>Organização de três Festas Universitárias, participando do planejamento, preparação, execução e contabilidade.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Gestão de projetos</span>
+                <span class="tag">Liderança</span>
+                <span class="tag">Trabalho em equipe</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Meu Currículo - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
