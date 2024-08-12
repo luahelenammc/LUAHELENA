@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    border-top: 10px solid #007bff; /* Azul para o Mercado Pago */
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff; /* Azul para o Mercado Pago */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-mercado-pago {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.input-pagbank {
+    border-color: #28a745;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.input-credito-itau {
+    border-color: #fd7e14;
+    box-shadow: 0 0 10px rgba(253, 126, 20, 0.3);
+    background-color: rgba(253, 126, 20, 0.1);
+}
+
+.input-credito-mercado-pago {
+    border-color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #333;
+    box-shadow: 0 0 15px rgba(51, 51, 51, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.resultado {
+    margin-top: 30px;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.resultado p {
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#totalDinheiro, #resultadoDinheiroBruto {
+    color: #28a745; /* Verde para PagBank */
+}
+
+#totalDinheiroCredito, #resultadoDinheiroCredito {
+    color: #000; /* Preto para o crédito Mercado Pago */
+}
+
+#diasRestantes {
+    color: #fd7e14; /* Laranja para Itaú */
+}
+
+  </style>
+
+
+  
+  <script>
+    function calcular() {
+    const mercadoPagoCorrente = parseFloat(document.getElementById('mercadoPagoCorrente').value) || 0;
+    const mercadoPagoPoupanca = parseFloat(document.getElementById('mercadoPagoPoupanca').value) || 0;
+    const pagBank = parseFloat(document.getElementById('pagBank').value) || 0;
+    const creditoItau = parseFloat(document.getElementById('creditoItau').value) || 0;
+    const creditoMercadoPago = parseFloat(document.getElementById('creditoMercadoPago').value) || 0;
+
+    const dinheiroBruto = mercadoPagoCorrente + mercadoPagoPoupanca + pagBank;
+    const dinheiroCredito = dinheiroBruto + creditoItau + creditoMercadoPago;
+
+    const hoje = new Date();
+    const primeiroDiaProximoMes = new Date(hoje.getFullYear(), hoje.getMonth() + 1, 1);
+    
+    // Cálculo correto dos dias restantes
+    let diasRestantes = 0;
+    let dataAtual = new Date(hoje);
+
+    while (dataAtual < primeiroDiaProximoMes) {
+        diasRestantes++;
+        dataAtual.setDate(dataAtual.getDate() + 1);
+    }
+
+    const gastoDiarioBruto = (dinheiroBruto / diasRestantes).toFixed(2);
+    const gastoDiarioCredito = (dinheiroCredito / diasRestantes).toFixed(2);
+
+    document.getElementById('totalDinheiro').innerText = `R$ ${dinheiroBruto.toFixed(2)}`;
+    document.getElementById('totalDinheiroCredito').innerText = `R$ ${dinheiroCredito.toFixed(2)}`;
+    document.getElementById('diasRestantes').innerText = diasRestantes;
+    document.getElementById('resultadoDinheiroBruto').innerText = `Dinheiro Bruto: R$ ${gastoDiarioBruto}`;
+    document.getElementById('resultadoDinheiroCredito').innerText = `Dinheiro + Crédito: R$ ${gastoDiarioCredito}`;
+}
+
+  </script>
+</head>
+  
+  <body>
+
+<div class="container">
+    <h2>Calculadora de Gastos Diários</h2>
+    
+    <div class="input-group">
+        <label for="mercadoPagoCorrente">Dinheiro na conta corrente Mercado Pago:</label>
+        <input type="number" id="mercadoPagoCorrente" placeholder="R$ 0,00" class="input-mercado-pago">
+    </div>
+
+    <div class="input-group">
+        <label for="mercadoPagoPoupanca">Dinheiro na poupança Mercado Pago:</label>
+        <input type="number" id="mercadoPagoPoupanca" placeholder="R$ 0,00" class="input-mercado-pago">
+    </div>
+    
+    <div class="input-group">
+        <label for="pagBank">Dinheiro na conta PagBank:</label>
+        <input type="number" id="pagBank" placeholder="R$ 0,00" class="input-pagbank">
+    </div>
+    
+    <div class="input-group">
+        <label for="creditoItau">Crédito no cartão Itaú:</label>
+        <input type="number" id="creditoItau" placeholder="R$ 0,00" class="input-credito-itau">
+    </div>
+    
+    <div class="input-group">
+        <label for="creditoMercadoPago">Crédito no cartão Mercado Pago:</label>
+        <input type="number" id="creditoMercadoPago" placeholder="R$ 0,00" class="input-credito-mercado-pago">
+    </div>
+    
+    <button onclick="calcular()">Calcular</button>
+    
+    <div class="resultado">
+        <p>Dinheiro Total: <span id="totalDinheiro">R$ 0,00</span></p>
+        <p>Dinheiro + Crédito Total: <span id="totalDinheiroCredito">R$ 0,00</span></p>
+        <p>Dias restantes até 01 do próximo mês: <span id="diasRestantes">0</span> dias</p>
+        
+        <p>Você pode gastar por dia:</p>
+        <p id="resultadoDinheiroBruto">Dinheiro Bruto: R$ 0,00</p>
+        <p id="resultadoDinheiroCredito">Dinheiro + Crédito: R$ 0,00</p>
+    </div>
+</div>
+
+
+
+    
+  </body>
+</html>
