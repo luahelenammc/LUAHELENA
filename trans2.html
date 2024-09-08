@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+    body {
+      background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
+      color: #F7A8B8; /* Rosa da bandeira trans */
+      font-family: 'HelveticaNeue', sans-serif;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .flip-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .titulo {
+      font-size: 30px;
+      margin: 20px 0;
+    }
+
+    .contador {
+      font-size: 50px;
+      margin: 10px 0;
+      background: black; /* Preto do flip */
+      color: white; /* Branco dos números */
+      display: inline-block;
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .contador span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .unidade {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      color: #F7A8B8; /* Rosa da bandeira trans */
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
+  <title>Transição Moon 🌜</title>
+</head>
+<body>
+  <!-- Seção da Transição Social -->
+  <div class="titulo">Transição Social</div>
+  <div class="flip-clock">
+    <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
+  </div>
+
+  <!-- Seção da Transição Hormonal -->
+  <div class="titulo">Transição Hormonal</div>
+  <div class="flip-clock">
+    <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+  </div>
+
+  <script>
+    function calcularTempo(dataInicial, idDia, idSemana, idMes) {
+      const dataAtual = new Date();
+      const diffTime = Math.abs(dataAtual - dataInicial);
+      const diffDays = diffTime / (1000 * 60 * 60 * 24);
+      const diffWeeks = diffDays / 7;
+      const diffMonths = diffDays / 30.4375; // Média de dias por mês
+
+      atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays.toFixed(0));
+      atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks.toFixed(2).replace('.', ','));
+      atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths.toFixed(2).replace('.', ','));
+    }
+
+    function atualizarFlipClock(element, newValue) {
+      element.textContent = newValue;
+    }
+
+    setInterval(() => {
+      // Cálculo para a Transição Social (a partir de 01/06/2024)
+      calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
+
+      // Cálculo para a Transição Hormonal (a partir de 06/09/2024)
+      calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+    }, 1000);
+
+    // Inicializa os valores ao carregar a página
+    calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
+    calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+  </script>
+</body>
+</html>
