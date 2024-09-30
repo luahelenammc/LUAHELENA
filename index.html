@@ -16,11 +16,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* Adicione esta linha */
   min-height: 100vh;
   color: white;
   overflow-y: auto; /* Permite scroll */
   box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
 }
+
 
 .logo {
   width: 350px;
@@ -141,9 +143,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
-    margin: 0; /* Remove margens no mobile */
+  .logo {
+    margin-top: 20px; /* Adicione uma margem superior */
   }
+}
 
 }
 
