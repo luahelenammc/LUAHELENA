@@ -11,29 +11,27 @@
   <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
 body {
-  
   margin: 0;
   padding: 0;
- display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Altera 'center' para 'flex-start' */
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   color: white;
-  overflow-y: auto; /* Permite scroll */
-  box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
+  overflow-y: auto;
+  box-sizing: border-box;
 }
-
 
 .logo {
   width: 350px;
   height: auto;
-margin-bottom: 120px;
-  margin-top:10px;
+  margin-bottom: 120px;
+  margin-top: 10px;
   animation: logoFade 10s infinite;
   flex-shrink: 0;
-  position: relative; /* Remover o top: 134px */
-  margin-top: 0; /* Ajuste inicial */
+  position: relative;
+  margin-top: 0;
 }
 
 @keyframes logoFade {
@@ -46,18 +44,18 @@ margin-bottom: 120px;
 }
 
 .dock {
-  display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
+  display: contents;
 }
 
 .dock-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
-  margin-bottom: 140px; /* Espaço suficiente para separar as linhas */
+  flex-wrap: wrap-reverse;
+  margin-bottom: 140px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   width: auto;
-  height: 60px;
+  height: auto;
   position: relative;
 }
 
@@ -67,9 +65,9 @@ margin-bottom: 120px;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0; /* Cobre toda a altura */
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  height: 30%; /* Preenchido até 30% da altura */
   z-index: -1;
 }
 
@@ -82,22 +80,18 @@ margin-bottom: 120px;
   max-width: 150px;
 }
 
-
-    .dock-item a {
+.dock-item a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white; /* Definir a cor do texto como branco */
-  text-decoration: none; /* Remover a sublinha do texto */
+  color: white;
+  text-decoration: none;
 }
 
 .dock-item a:hover {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75); /* Adicionar o efeito de glow branco suave */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
 }
 
-
-    
-    
 .dock-item img {
   width: 140px;
   height: 140px;
@@ -134,19 +128,29 @@ margin-bottom: 120px;
 
 @media (min-width: 769px) {
   body {
-    margin-top: 20px; /* Ajuste conforme necessário */
-    margin-bottom: 20px; /* Ajuste conforme necessário */
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
-
 }
 
 @media (max-width: 768px) {
-
+  .dock-item {
+    max-width: 80px; /* Diminuído para caber no mobile */
+  }
+  
+  .dock-item img {
+    width: 60px; /* Diminuído para caber no mobile */
+    height: 60px;
+  }
+  
+  .dock-item span {
+    font-size: 12px; /* Ajuste do tamanho da fonte */
+  }
+  
+  .dock-row {
+    margin-bottom: 80px; /* Ajuste do espaçamento entre as linhas */
+  }
 }
-
-}
-
-
   </style>
 </head>
 <body>
@@ -158,27 +162,22 @@ margin-bottom: 120px;
     <div class="dock-item">
       <a href="https://www.linkedin.com/in/luahelena/" target="_blank">
         <img src="/images/LinkedIn.png" alt="Currículo Profissional (LinkedIn)">
-     
-      <span>Currículo Profissional</span>
-         </a>
+        <span>Currículo Profissional</span>
+      </a>
     </div>
 
     <div class="dock-item">
       <a href="https://nostalgia.mooon.com.br" target="_blank">
         <img src="/images/gaming.png" alt="Blog de Jogos Nostálgicos">
-
-      <span>Blog de Jogos Nostálgicos</span>
-         </a>
-      
+        <span>Blog de Jogos Nostálgicos</span>
+      </a>
     </div>
 
     <div class="dock-item">
       <a href="https://instagram.com/luahelena.psi" target="_blank">
         <img src="/images/psisymbol.png" alt="Psicologia Clínica & Esquizoanálise">
-   
-      <span>Psicologia Clínica & Esquizoanálise</span>
-         </a>
-      
+        <span>Psicologia Clínica & Esquizoanálise</span>
+      </a>
     </div>
   </div>
 
@@ -188,143 +187,112 @@ margin-bottom: 120px;
     <div class="dock-item">
       <a href="/obras.html" target="_blank">
         <img src="/images/obras.png" alt="Minhas Obras Literárias">
-
-      <span>Minhas Obras Literárias</span>
-         </a>
+        <span>Minhas Obras Literárias</span>
+      </a>
     </div>
 
     <div class="dock-item">
       <a href="/wiki.html" target="_blank">
         <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
-      
-      <span>Enciclopédia Lunar</span>
-         </a>
+        <span>Enciclopédia Lunar</span>
+      </a>
     </div>
 
-    <!-- Novo item adicionado -->
-      <div class="dock-item">
-        <a href="https://instagram.com/aiartbymoon" target="_blank">
-          <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
-        
+    <div class="dock-item">
+      <a href="https://instagram.com/aiartbymoon" target="_blank">
+        <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
         <span>Arte com<br>Inteligência Artificial</span>
-           </a>
-      </div>
+      </a>
     </div>
-
- 
+  </div>
 
   <br> 
 
   <div class="dock-row">
+    <div class="dock-item">
+      <a href="https://open.spotify.com/user/regisness" target="_blank">
+        <img src="images/spotify.png" alt="Playlists no Spotify">
+        <span>Playlists no<br>Spotify</span>
+      </a>
+    </div>
 
-      <div class="dock-item">
-  <a href="https://open.spotify.com/user/regisness" target="_blank">
-    <img src="images/spotify.png" alt="Playlists no Spotify">
-
-  <span>Playlists no<br>Spotify</span>
-     </a>
-</div>
-
-
-    
     <div class="dock-item">
       <a href="https://youpic.com/luahelena/?mode=latest" target="_blank">
         <img src="/images/photoios6.png" alt="Fotografias Artísticas">
-     
-      <span>Fotografias Artísticas</span>
-         </a>
-      
+        <span>Fotografias Artísticas</span>
+      </a>
     </div>
   </div>
 
-
-  </div>
   <br>
 
   <div class="dock-row">
     <div class="dock-item">
       <a href="/mapa.html" target="_blank">
         <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
-      
-      <span>Mapa (Cidades Já Visitadas)</span>
-         </a>
-      
+        <span>Mapa (Cidades Já Visitadas)</span>
+      </a>
     </div>
     
     <div class="dock-item">
       <a href="https://br.pinterest.com/luahelenammc" target="_blank">
         <img src="/images/pinterest.png" alt="Pastas no Pinterest">
-    
-      <span>Pastas no Pinterest</span>
-         </a>
+        <span>Pastas no Pinterest</span>
+      </a>
     </div>
-
 
     <div class="dock-item">
       <a href="https://filmow.com/usuario/luahelena" target="_blank">
         <img src="/images/filmow new skew.fw.png" alt="Filmes & Séries avaliados no Filmow">
-      
-      <span>Filmes & Séries<br>avaliados no Filmow</span>
-         </a>
+        <span>Filmes & Séries<br>avaliados no Filmow</span>
+      </a>
     </div>
-
   </div>
 
   <br>
-
-
 
   <div class="dock-row">
     <div class="dock-item">
       <a href="/series.html" target="_blank">
         <img src="/images/series.png" alt="Recomendação de Séries">
-      
-      <span>Recomendação de Séries</span>
-       </a>
+        <span>Recomendação de Séries</span>
+      </a>
     </div>
 
-    
     <div class="dock-item">
       <a href="/jogos.html" target="_blank">
         <img src="/images/games.png" alt="Recomendação de Jogos">
-
-      <span>Recomendação de Jogos</span>
-         </a>
+        <span>Recomendação de Jogos</span>
+      </a>
     </div>
 
-    
     <div class="dock-item">
       <a href="/livros.html" target="_blank">
         <img src="/images/books.png" alt="Recomendações de Livros">
-            <span>Recomendações de Livros</span>
-         </a>
+        <span>Recomendações de Livros</span>
+      </a>
     </div>
   </div>
 
-         <br>
+  <br>
 
   <div class="dock-row">
     <div class="dock-item">
       <a href="/outros.html" target="_blank">
         <img src="/images/sync.png" alt="Outros Conteúdos">
-      
-      <span>Outros Conteúdos</span>
-
-         </a>
+        <span>Outros Conteúdos</span>
+      </a>
     </div>
   </div>
 </div>
 
   <script>
-
-
     const allDockItems = document.querySelectorAll('.dock-item img');
     allDockItems.forEach((img) => {
       img.addEventListener('mouseenter', () => {
         allDockItems.forEach((img) => {
           img.classList.remove('active');
         });
-
         img.classList.add('active');
       });
 
