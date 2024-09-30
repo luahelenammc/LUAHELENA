@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
   <style>
-/* Substitua esta parte no seu CSS */
 body {
   background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
   color: #F7A8B8; /* Rosa da bandeira trans */
@@ -35,11 +34,11 @@ body {
 
 .contador {
   font-size: 50px;
-  margin: 10px 0;
+  margin: 10px;
   background: black; /* Preto do flip */
   color: white; /* Branco dos números */
   display: inline-block;
-  width: 300px;
+  width: 250px; /* Reduzido de 300px para 250px */
   height: 100px;
   line-height: 100px;
   text-align: center;
@@ -60,6 +59,16 @@ body {
   transform: translateY(-50%);
   color: #F7A8B8; /* Rosa da bandeira trans */
 }
+
+/* Novo Estilo para Agrupar Contadores Hormonais */
+.flip-clock-hormonal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espaçamento entre os contadores */
+  margin-top: 20px;
+}
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,18 +86,19 @@ body {
 
   <!-- Seção da Transição Hormonal (total) -->
   <div class="titulo">Transição Hormonal (total)</div>
-  <div class="flip-clock">
-    <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
-    <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-    <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
-  </div>
+  <div class="flip-clock-hormonal">
+    <div class="flip-clock">
+      <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
+      <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+      <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    </div>
 
-  <!-- Seção da Transição Hormonal (2ª fase) -->
-  <div class="titulo">Transição Hormonal (2ª fase)</div>
-  <div class="flip-clock">
-    <div id="dias-hormonal2" class="contador"><span>0</span><span class="unidade">dias</span></div>
-    <div id="semanas-hormonal2" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-    <div id="meses-hormonal2" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <!-- Seção da Transição Hormonal (2ª fase) -->
+    <div class="flip-clock">
+      <div id="dias-hormonal2" class="contador"><span>0</span><span class="unidade">dias</span></div>
+      <div id="semanas-hormonal2" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+      <div id="meses-hormonal2" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    </div>
   </div>
 
   <script>
