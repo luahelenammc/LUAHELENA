@@ -24,7 +24,7 @@
       width: 350px;
       height: auto;
       margin-bottom: 120px;
-      margin-top: 10px; /* Mantenha uma única definição */
+      margin-top: 10px;
       animation: logoFade 10s infinite;
       flex-shrink: 0;
       position: relative;
@@ -41,6 +41,7 @@
 
     .dock {
       display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
+      width: 100%; /* Garantir que .dock ocupe toda a largura disponível */
     }
 
     .dock-row {
@@ -145,6 +146,10 @@
         flex-wrap: wrap; /* Garantir wrap normal */
       }
 
+      .dock-row::before {
+        height: 20%; /* Reduzir a altura para evitar sobreposição */
+      }
+
       .dock-item {
         margin: 5px; /* Reduzir margem para melhor encaixe */
       }
@@ -153,8 +158,11 @@
         margin-bottom: 40px; /* Reduzir margem inferior para evitar sobreposição */
         margin-top: 10px; /* Garantir margem superior adequada */
       }
+
+      .dock {
+        width: 100%; /* Garantir que .dock ocupe toda a largura disponível */
+      }
     }
-    /* Remova esta chave extra */
   </style>
 </head>
 <body>
