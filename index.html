@@ -14,17 +14,18 @@
       flex-direction: column;
       justify-content: flex-start; /* Altera 'center' para 'flex-start' */
       align-items: center;
-      /* height: 100vh; */ /* Removido */
+      min-height: 100vh; /* Substituído height por min-height */
       color: white;
       overflow-y: auto; /* Permite scroll */
-      box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
+      box-sizing: border-box; /* Garantir que o padding seja incluído nas dimensões totais */
     }
 
     .logo {
       width: 350px;
       height: auto;
       margin-bottom: 120px;
-      margin-top: 10px;
+      /* margin-top: 10px; */ /* Removido */
+      margin-top: 0; /* Mantém apenas uma definição */
       animation: logoFade 10s infinite;
       flex-shrink: 0;
       position: relative;
@@ -46,12 +47,12 @@
     .dock-row {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
+      flex-wrap: wrap; /* Alterado de wrap-reverse para wrap */
       margin-bottom: 140px; /* Espaço suficiente para separar as linhas */
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       width: auto;
-      height: 60px;
+      /* height: 60px; */ /* Removido */
       position: relative;
     }
 
@@ -141,7 +142,17 @@
       }
 
       .dock-row {
-        margin-bottom: 60px;
+        margin-bottom: 60px; /* Reduzido para evitar excesso de espaço */
+        flex-wrap: wrap; /* Garantir wrap normal */
+      }
+
+      .dock-item {
+        margin: 5px; /* Reduzir margem para melhor encaixe */
+      }
+
+      .logo {
+        margin-bottom: 40px; /* Reduzir margem inferior para evitar sobreposição */
+        margin-top: 10px; /* Garantir margem superior adequada */
       }
     }
   </style>
@@ -190,6 +201,7 @@
         </a>
       </div>
 
+      <!-- Novo item adicionado -->
       <div class="dock-item">
         <a href="https://instagram.com/aiartbymoon" target="_blank">
           <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
