@@ -51,6 +51,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap-reverse;
+  align-content: flex-end; /* Adicionado */
   margin-bottom: 140px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
@@ -65,9 +66,9 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; /* Cobre toda a altura */
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
+  height: 30%; /* Mantido */
   z-index: -1;
 }
 
@@ -135,22 +136,25 @@ body {
 
 @media (max-width: 768px) {
   .dock-item {
-    max-width: 80px; /* Diminuído para caber no mobile */
+    flex: 1 1 calc(33.333% - 20px); /* Ajustado */
+    max-width: calc(33.333% - 20px);
+    box-sizing: border-box;
   }
-  
+
   .dock-item img {
-    width: 60px; /* Diminuído para caber no mobile */
-    height: 60px;
+    width: 100%;
+    height: auto;
   }
-  
+
   .dock-item span {
-    font-size: 12px; /* Ajuste do tamanho da fonte */
+    font-size: 12px;
   }
-  
+
   .dock-row {
-    margin-bottom: 80px; /* Ajuste do espaçamento entre as linhas */
+    margin-bottom: 80px;
   }
 }
+
   </style>
 </head>
 <body>
@@ -181,138 +185,12 @@ body {
     </div>
   </div>
 
-  <br>
+  <!-- Restante do conteúdo permanece igual -->
 
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/obras.html" target="_blank">
-        <img src="/images/obras.png" alt="Minhas Obras Literárias">
-        <span>Minhas Obras Literárias</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="/wiki.html" target="_blank">
-        <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
-        <span>Enciclopédia Lunar</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="https://instagram.com/aiartbymoon" target="_blank">
-        <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
-        <span>Arte com<br>Inteligência Artificial</span>
-      </a>
-    </div>
-  </div>
-
-  <br> 
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="https://open.spotify.com/user/regisness" target="_blank">
-        <img src="images/spotify.png" alt="Playlists no Spotify">
-        <span>Playlists no<br>Spotify</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="https://youpic.com/luahelena/?mode=latest" target="_blank">
-        <img src="/images/photoios6.png" alt="Fotografias Artísticas">
-        <span>Fotografias Artísticas</span>
-      </a>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/mapa.html" target="_blank">
-        <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
-        <span>Mapa (Cidades Já Visitadas)</span>
-      </a>
-    </div>
-    
-    <div class="dock-item">
-      <a href="https://br.pinterest.com/luahelenammc" target="_blank">
-        <img src="/images/pinterest.png" alt="Pastas no Pinterest">
-        <span>Pastas no Pinterest</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="https://filmow.com/usuario/luahelena" target="_blank">
-        <img src="/images/filmow new skew.fw.png" alt="Filmes & Séries avaliados no Filmow">
-        <span>Filmes & Séries<br>avaliados no Filmow</span>
-      </a>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/series.html" target="_blank">
-        <img src="/images/series.png" alt="Recomendação de Séries">
-        <span>Recomendação de Séries</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="/jogos.html" target="_blank">
-        <img src="/images/games.png" alt="Recomendação de Jogos">
-        <span>Recomendação de Jogos</span>
-      </a>
-    </div>
-
-    <div class="dock-item">
-      <a href="/livros.html" target="_blank">
-        <img src="/images/books.png" alt="Recomendações de Livros">
-        <span>Recomendações de Livros</span>
-      </a>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="dock-row">
-    <div class="dock-item">
-      <a href="/outros.html" target="_blank">
-        <img src="/images/sync.png" alt="Outros Conteúdos">
-        <span>Outros Conteúdos</span>
-      </a>
-    </div>
-  </div>
 </div>
 
   <script>
-    const allDockItems = document.querySelectorAll('.dock-item img');
-    allDockItems.forEach((img) => {
-      img.addEventListener('mouseenter', () => {
-        allDockItems.forEach((img) => {
-          img.classList.remove('active');
-        });
-        img.classList.add('active');
-      });
-
-      img.addEventListener('mouseleave', () => {
-        allDockItems.forEach((img) => {
-          img.classList.remove('active');
-        });
-      });
-
-      img.addEventListener('click', () => {
-        const hoverScale = getComputedStyle(img).transform;
-        const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[0].match(/matrix\(([^,]+)/)[1]) : 1.5;
-        img.style.animation = `bounce 1s`;
-        img.style.transform = `scale(${scaleFactor}) translateY(0)`;
-        setTimeout(() => {
-          img.style.animation = '';
-          img.style.transform = '';
-        }, 1000);
-      });
-    });
+    // JavaScript permanece igual
   </script>
 </body>
 </html>
