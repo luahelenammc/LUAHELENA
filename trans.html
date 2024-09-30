@@ -305,6 +305,25 @@
         }, 1000);
       });
     });
+
+    
   </script>
+  
+<script>
+
+function calcularTempo(dataInicial, idDia, idSemana, idMes) {
+  const dataAtual = new Date();
+  const diffTime = dataAtual - dataInicial;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ','); // Corrigido para uma casa decimal
+  const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ','); // Corrigido para uma casa decimal
+
+  atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
+  atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
+  atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
+}
+
+  
+</script>
 </body>
 </html>
