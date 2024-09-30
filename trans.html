@@ -1,135 +1,115 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Minha Página com Contadores de Transição Hormonal</title>
-    <style>
-        /* Estilos Gerais da Página */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
+      color: #F7A8B8; /* Rosa da bandeira trans */
+      font-family: 'HelveticaNeue', sans-serif;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        header, footer {
-            background-color: #f8f8f8;
-            padding: 20px;
-            text-align: center;
-        }
+    .flip-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
 
-        main {
-            padding: 20px;
-        }
+    .titulo {
+      font-size: 30px;
+      color: white; /* Texto branco */
+      background-color: black; /* Fundo preto */
+      padding: 10px; /* Padding de 10px */
+      border-radius: 10px; /* Bordas arredondadas */
+      margin: 20px 0;
+    }
 
-        /* Estilos para os Contadores */
-        .contador {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            max-width: 400px;
-            background-color: #f0f0f0;
-        }
+    .contador {
+      font-size: 50px;
+      margin: 10px 0;
+      background: black; /* Preto do flip */
+      color: white; /* Branco dos números */
+      display: inline-block;
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
 
-        .contador h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+    .contador span {
+      display: inline-block;
+      vertical-align: middle;
+    }
 
-        .contador .tempo {
-            font-size: 20px;
-            color: #333;
-        }
-
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .contador {
-                width: 90%;
-            }
-        }
-    </style>
+    .unidade {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      color: #F7A8B8; /* Rosa da bandeira trans */
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
+  <title>Transição Moon 🌜</title>
 </head>
 <body>
+  <!-- Seção da Transição Social -->
+  <div class="titulo">Transição Social</div>
+  <div class="flip-clock">
+    <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
+  </div>
 
-    <header>
-        <h1>Bem-vindo à Minha Página</h1>
-        <!-- Outros elementos do cabeçalho -->
-    </header>
+  <!-- Seção da Transição Hormonal -->
+  <div class="titulo">Transição Hormonal</div>
+  <div class="flip-clock">
+    <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+  </div>
 
-    <main>
-        <section>
-            <h2>Sobre a Transição Hormonal</h2>
-            <p>
-                Aqui você pode incluir informações sobre o processo de transição hormonal, seus benefícios, fases, etc.
-            </p>
-            <!-- Outros conteúdos da sua página -->
-        </section>
+  <script>
+    function calcularTempo(dataInicial, idDia, idSemana, idMes) {
+      const dataAtual = new Date();
+      const diffTime = Math.abs(dataAtual - dataInicial);
+      const diffDays = diffTime / (1000 * 60 * 60 * 24);
+      const diffWeeks = diffDays / 7;
+      const diffMonths = diffDays / 30.4375; // Média de dias por mês
 
-        <!-- Contador Atualizado: Transição Hormonal (total) -->
-        <div class="contador" id="contador-total">
-            <h2>Transição Hormonal (total)</h2>
-            <div class="tempo" id="tempo-total">Carregando...</div>
-        </div>
+      atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays.toFixed(0));
+      atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks.toFixed(2).replace('.', ','));
+      atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths.toFixed(2).replace('.', ','));
+    }
 
-        <!-- Novo Contador: Transição Hormonal (2ª fase) -->
-        <div class="contador" id="contador-fase2">
-            <h2>Transição Hormonal (2ª fase)</h2>
-            <div class="tempo" id="tempo-fase2">Carregando...</div>
-        </div>
+    function atualizarFlipClock(element, newValue) {
+      element.textContent = newValue;
+    }
 
-        <section>
-            <h2>Outros Conteúdos</h2>
-            <p>
-                Mais informações, artigos, links ou qualquer outro conteúdo que você deseja incluir na sua página.
-            </p>
-            <!-- Outros conteúdos da sua página -->
-        </section>
-    </main>
+    setInterval(() => {
+      // Cálculo para a Transição Social (a partir de 01/06/2024)
+      calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
 
-    <footer>
-        <p>&copy; 2024 Minha Página. Todos os direitos reservados.</p>
-        <!-- Outros elementos do rodapé -->
-    </footer>
+      // Cálculo para a Transição Hormonal (a partir de 06/09/2024)
+      calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+    }, 1000);
 
-    <!-- Script JavaScript para os Contadores -->
-    <script>
-        // Função para atualizar o contador
-        function atualizarContador(id, dataAlvo) {
-            const elemento = document.getElementById(id);
-            const agora = new Date().getTime();
-            const alvo = new Date(dataAlvo).getTime();
-            const distancia = alvo - agora;
-
-            if (distancia < 0) {
-                elemento.innerHTML = "Já começou!";
-                return;
-            }
-
-            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-            elemento.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-
-            // Atualizar novamente após 1 segundo
-            setTimeout(() => atualizarContador(id, dataAlvo), 1000);
-        }
-
-        // Iniciar os contadores quando o documento for carregado
-        document.addEventListener('DOMContentLoaded', () => {
-            // Data alvo para "Transição Hormonal (total)" - Defina a data desejada
-            const dataTotal = "2024-12-31T23:59:59"; // Exemplo: 31 de dezembro de 2024
-
-            // Data alvo para "Transição Hormonal (2ª fase)" - 25 de setembro de 2024
-            const dataFase2 = "2024-09-25T00:00:00";
-
-            atualizarContador("tempo-total", dataTotal);
-            atualizarContador("tempo-fase2", dataFase2);
-        });
-    </script>
-
+    // Inicializa os valores ao carregar a página
+    calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
+    calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+  </script>
 </body>
 </html>
