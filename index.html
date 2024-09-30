@@ -126,17 +126,10 @@ body {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
-@media (min-width: 769px) {
-  body {
-    margin-top: 20px; /* Ajuste conforme necessário */
-    margin-bottom: 20px; /* Ajuste conforme necessário */
-  }
-}
-
 @media (max-width: 768px) {
   .dock-item {
     max-width: 80px; /* Reduz o tamanho máximo para caber na tela */
-    margin: 5px; /* Ajusta as margens */
+    margin: 5px; /* Ajusta as margens para economizar espaço */
   }
 
   .dock-item img {
@@ -148,9 +141,17 @@ body {
     font-size: 12px; /* Reduz o tamanho da fonte */
   }
 
-  /* Mantém a altura original da dock-row e da base do dock */
-  /* Não altera flex-wrap, height ou outras propriedades */
+  .dock-row {
+    margin-bottom: 20px; /* Reduz significativamente o espaçamento entre as linhas */
+  }
+
+  /* Oculta os <br> tags no mobile para eliminar espaço adicional */
+  br {
+    display: none;
+  }
 }
+
+
   </style>
 </head>
 <body>
