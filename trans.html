@@ -1,139 +1,310 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lua Helena Moon M. C.</title>
+  <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" type="text/css" href="/common.css">
   <style>
-/* Substitua esta parte no seu CSS */
-body {
-  background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
-  color: #F7A8B8; /* Rosa da bandeira trans */
-  font-family: 'HelveticaNeue', sans-serif;
-  text-align: center;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Altera 'center' para 'flex-start' */
-  align-items: center;
-  height: 100vh;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* Altera 'center' para 'flex-start' */
+      align-items: center;
+      /* height: 100vh; */ /* Removido */
+      color: white;
+      overflow-y: auto; /* Permite scroll */
+      box-sizing: border-box; /* Adicionado para garantir que o padding seja incluído nas dimensões totais */
+    }
 
-.flip-clock {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
+    .logo {
+      width: 350px;
+      height: auto;
+      margin-bottom: 120px;
+      margin-top: 10px;
+      animation: logoFade 10s infinite;
+      flex-shrink: 0;
+      position: relative;
+    }
 
-.titulo {
-  font-size: 30px;
-  color: white; /* Texto branco */
-  background-color: black; /* Fundo preto */
-  padding: 10px; /* Padding de 10px */
-  border-radius: 10px; /* Bordas arredondadas */
-  margin: 20px 0;
-}
+    @keyframes logoFade {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
 
-.contador {
-  font-size: 50px;
-  margin: 10px;
-  background: black; /* Preto do flip */
-  color: white; /* Branco dos números */
-  display: inline-block;
-  padding: 0px 20px;
-  height: 100px;
-  line-height: 100px;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-}
+    .dock {
+      display: contents; /* Permite que os itens filhos sejam tratados como conteúdo direto do pai */
+    }
 
-.contador span {
-  display: inline-block;
-  vertical-align: middle;
-}
+    .dock-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap-reverse; /* Inverte a direção do wrap para colocar as imagens acima da base */
+      margin-bottom: 140px; /* Espaço suficiente para separar as linhas */
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      width: auto;
+      height: 60px;
+      position: relative;
+    }
 
-.unidade {
-  font-size: 18px; /* Reduzido para melhorar o encaixe */
-  position: absolute;
-  top: 80%; /* Ajustado para ficar mais baixo, fora dos dígitos */
-  right: 10px; /* Posição ajustada para que não sobreponha os dígitos */
-  transform: translateY(-50%);
-  color: #F7A8B8; /* Rosa da bandeira trans */
-}
+    .dock-row::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      height: 30%; /* Preenchido até 30% da altura */
+      z-index: -1;
+    }
 
-/* Novo Estilo para Agrupar Contadores Hormonais */
-.flip-clock-hormonal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px; /* Espaçamento entre os contadores */
-  margin-top: 20px;
-}
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      transition: transform 0.2s;
+      max-width: 150px;
+    }
+
+    .dock-item a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white; /* Definir a cor do texto como branco */
+      text-decoration: none; /* Remover a sublinha do texto */
+    }
+
+    .dock-item a:hover {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.75); /* Adicionar o efeito de glow branco suave */
+    }
+
+    .dock-item img {
+      width: 140px;
+      height: 140px;
+      transition: transform 0.2s;
+    }
+
+    .dock-item img.active {
+      transform: scale(1.5);
+    }
+
+    .dock-item img.bouncing {
+      animation: bounce 1s;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25%, 75% {
+        transform: translateY(-15px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+    }
+
+    .dock-item span {
+      margin-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+
+    @media (min-width: 769px) {
+      body {
+        margin-top: 20px; /* Ajuste conforme necessário */
+        margin-bottom: 20px; /* Ajuste conforme necessário */
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Ajustes para dispositivos móveis */
+      .dock-item img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .dock-item span {
+        font-size: 12px;
+      }
+
+      .dock-row {
+        margin-bottom: 60px;
+      }
+    }
   </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
-  <title>Transição Moon 🌜</title>
 </head>
 <body>
-  <!-- Seção da Transição Social -->
-  <div class="titulo">Transição Social</div>
-  <div class="flip-clock">
-    <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
-    <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-    <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
-  </div>
+  <img src="/logos/logo%20v1%20vertical.fw.png" alt="Lua Helena Moon" class="logo">
 
-  <!-- Seção da Transição Hormonal (total) -->
-  <div class="titulo">Transição Hormonal (total)</div>
-  <div class="flip-clock-hormonal">
-    <div class="flip-clock">
-      <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
-      <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-      <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+  <div class="dock">
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="https://www.linkedin.com/in/luahelena/" target="_blank">
+          <img src="/images/LinkedIn.png" alt="Currículo Profissional (LinkedIn)">
+          <span>Currículo Profissional</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://nostalgia.mooon.com.br" target="_blank">
+          <img src="/images/gaming.png" alt="Blog de Jogos Nostálgicos">
+          <span>Blog de Jogos Nostálgicos</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://instagram.com/luahelena.psi" target="_blank">
+          <img src="/images/psisymbol.png" alt="Psicologia Clínica & Esquizoanálise">
+          <span>Psicologia Clínica & Esquizoanálise</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Seção da Transição Hormonal (2ª fase) -->
-    <div class="flip-clock">
-      <div id="dias-hormonal2" class="contador"><span>0</span><span class="unidade">dias</span></div>
-      <div id="semanas-hormonal2" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-      <div id="meses-hormonal2" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/obras.html" target="_blank">
+          <img src="/images/obras.png" alt="Minhas Obras Literárias">
+          <span>Minhas Obras Literárias</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="/wiki.html" target="_blank">
+          <img src="/images/wikilogo.png" alt="Enciclopédia Lunar">
+          <span>Enciclopédia Lunar</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://instagram.com/aiartbymoon" target="_blank">
+          <img src="/images/arte.png" alt="Arte com Inteligência Artificial">
+          <span>Arte com<br>Inteligência Artificial</span>
+        </a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="https://open.spotify.com/user/regisness" target="_blank">
+          <img src="images/spotify.png" alt="Playlists no Spotify">
+          <span>Playlists no<br>Spotify</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://youpic.com/luahelena/?mode=latest" target="_blank">
+          <img src="/images/photoios6.png" alt="Fotografias Artísticas">
+          <span>Fotografias Artísticas</span>
+        </a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/mapa.html" target="_blank">
+          <img src="/images/map.png" alt="Mapa (Cidades Já Visitadas)">
+          <span>Mapa (Cidades Já Visitadas)</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://br.pinterest.com/luahelenammc" target="_blank">
+          <img src="/images/pinterest.png" alt="Pastas no Pinterest">
+          <span>Pastas no Pinterest</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="https://filmow.com/usuario/luahelena" target="_blank">
+          <img src="/images/filmow new skew.fw.png" alt="Filmes & Séries avaliados no Filmow">
+          <span>Filmes & Séries<br>avaliados no Filmow</span>
+        </a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/series.html" target="_blank">
+          <img src="/images/series.png" alt="Recomendação de Séries">
+          <span>Recomendação de Séries</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="/jogos.html" target="_blank">
+          <img src="/images/games.png" alt="Recomendação de Jogos">
+          <span>Recomendação de Jogos</span>
+        </a>
+      </div>
+
+      <div class="dock-item">
+        <a href="/livros.html" target="_blank">
+          <img src="/images/books.png" alt="Recomendações de Livros">
+          <span>Recomendações de Livros</span>
+        </a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="dock-row">
+      <div class="dock-item">
+        <a href="/outros.html" target="_blank">
+          <img src="/images/sync.png" alt="Outros Conteúdos">
+          <span>Outros Conteúdos</span>
+        </a>
+      </div>
     </div>
   </div>
 
   <script>
-    function calcularTempo(dataInicial, idDia, idSemana, idMes) {
-      const dataAtual = new Date();
-      const diffTime = dataAtual - dataInicial;
-      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      const diffWeeks = (diffDays / 7).toFixed(2).replace('.', ',');
-      const diffMonths = (diffDays / 30.4375).toFixed(2).replace('.', ',');
+    const allDockItems = document.querySelectorAll('.dock-item img');
+    allDockItems.forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        allDockItems.forEach((img) => {
+          img.classList.remove('active');
+        });
+        img.classList.add('active');
+      });
 
-      atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
-      atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
-      atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
-    }
+      img.addEventListener('mouseleave', () => {
+        allDockItems.forEach((img) => {
+          img.classList.remove('active');
+        });
+      });
 
-    function atualizarFlipClock(element, newValue) {
-      element.textContent = newValue;
-    }
-
-    setInterval(() => {
-      // Cálculo para a Transição Social (a partir de 01/06/2024)
-      calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
-
-      // Cálculo para a Transição Hormonal (total) (a partir de 06/09/2024)
-      calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
-
-      // Cálculo para a Transição Hormonal (2ª fase) (a partir de 25/09/2024)
-      calcularTempo(new Date('2024-09-25'), 'dias-hormonal2', 'semanas-hormonal2', 'meses-hormonal2');
-    }, 1000);
-
-    // Inicializa os valores ao carregar a página
-    calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
-    calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
-    calcularTempo(new Date('2024-09-25'), 'dias-hormonal2', 'semanas-hormonal2', 'meses-hormonal2');
+      img.addEventListener('click', () => {
+        const hoverScale = getComputedStyle(img).transform;
+        const scaleFactor = hoverScale !== 'none' ? parseFloat(hoverScale.split(',')[0].match(/matrix\(([^,]+)/)[1]) : 1.5;
+        img.style.animation = `bounce 1s`;
+        img.style.transform = `scale(${scaleFactor}) translateY(0)`;
+        setTimeout(() => {
+          img.style.animation = '';
+          img.style.transform = '';
+        }, 1000);
+      });
+    });
   </script>
 </body>
 </html>
