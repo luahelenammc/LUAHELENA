@@ -24,26 +24,34 @@
     <canvas id="myChart" width="400" height="400"></canvas>
     <br><br> 
     <button onclick="location.reload()">Refresh</button>
-    <br>    <p id="progress">0%</p>
+    <br>    
+    <p id="progress">0%</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
-    // Definir as labels
-    var labels = [
-      '02/10/2023', '03/10/2023', '04/10/2023', '05/10/2023', '06/10/2023', '07/10/2023', '08/10/2023', '09/10/2023',
-      '10/10/2023', '11/10/2023', '12/10/2023', '13/10/2023', '14/10/2023', '15/10/2023', '16/10/2023', '17/10/2023',
-      '18/10/2023', '19/10/2023', '20/10/2023', '21/10/2023', '22/10/2023', '23/10/2023', '24/10/2023', '25/10/2023',
-      '26/10/2023', '27/10/2023', '28/10/2023', '29/10/2023', '30/10/2023', '31/10/2023', '01/11/2023', '02/11/2023',
-      '03/11/2023', '04/11/2023', '05/11/2023', '06/11/2023', '07/11/2023', '08/11/2023', '09/11/2023', '10/11/2023',
-      '11/11/2023', '12/11/2023', '13/11/2023', '14/11/2023', '15/11/2023', '16/11/2023', '17/11/2024', '18/11/2024', // Adicionados
-      // Continue adicionando os demais dias até '18/11/2024'
-      // Por exemplo:
-      '19/11/2024', '20/11/2024', /* ... */ '16/11/2024', // Certifique-se de que todos os dias até 18/11/2024 estejam incluídos
-    ];
+    // Função para gerar as datas no formato 'dd/mm/yyyy'
+    function generateDateLabels(start, end) {
+      var labels = [];
+      var current = new Date(start);
+      
+      while (current <= end) {
+        var day = current.getDate().toString().padStart(2, '0');
+        var month = (current.getMonth() + 1).toString().padStart(2, '0');
+        var year = current.getFullYear();
+        labels.push(`${day}/${month}/${year}`);
+        current.setDate(current.getDate() + 1);
+      }
+      
+      return labels;
+    }
 
-    // Atualizar o array de labels para incluir '17/11/2024' e '18/11/2024'
-    // (Assegure-se de que todos os dias estejam presentes no array acima)
+    // Definir a data inicial e a data final
+    var startDate = new Date('2023-10-02');
+    var endDate = new Date('2024-11-18');
+
+    // Gerar os labels dinamicamente
+    var labels = generateDateLabels(startDate, endDate);
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var totalDays = labels.length; // Total de dias baseado no array de labels
@@ -67,8 +75,8 @@
     });
 
     var currentTime = new Date(); // Data atual
-    var lastDay = new Date('2024-11-18'); // Atualizado para a nova data final
-    var currentDate = new Date('2023-10-02'); // Data inicial
+    var lastDay = endDate; // Último dia
+    var currentDate = new Date(startDate); // Data inicial
     var intervalsElapsed = 0;
 
     while (currentDate <= lastDay) {
