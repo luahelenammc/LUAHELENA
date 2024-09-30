@@ -135,27 +135,21 @@ body {
 
 @media (max-width: 768px) {
   .dock-item {
-    max-width: 80px; /* Diminui o tamanho máximo para caber na tela */
+    max-width: 80px; /* Reduz o tamanho máximo para caber na tela */
     margin: 5px; /* Ajusta as margens */
   }
 
   .dock-item img {
-    width: 60px; /* Reduz o tamanho da imagem */
-    height: 60px;
+    width: 70px; /* Reduz o tamanho da imagem */
+    height: 70px;
   }
 
   .dock-item span {
     font-size: 12px; /* Reduz o tamanho da fonte */
   }
 
-  .dock-row {
-    height: auto; /* Permite que a altura se ajuste ao conteúdo */
-    margin-bottom: 70px; /* Ajusta o espaçamento entre as linhas */
-  }
-
-  .dock-row::before {
-    height: 18px; /* Ajusta a altura da base do dock */
-  }
+  /* Mantém a altura original da dock-row e da base do dock */
+  /* Não altera flex-wrap, height ou outras propriedades */
 }
   </style>
 </head>
