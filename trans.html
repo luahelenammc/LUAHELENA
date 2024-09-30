@@ -2,35 +2,98 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Contadores de Transição Hormonal</title>
+    <title>Minha Página com Contadores de Transição Hormonal</title>
     <style>
+        /* Estilos Gerais da Página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Estilos para os Contadores */
         .contador {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            max-width: 400px;
+            background-color: #f0f0f0;
         }
+
         .contador h2 {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .contador .tempo {
             font-size: 20px;
             color: #333;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .contador {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="contador" id="contador-total">
-        <h2>Transição Hormonal (total)</h2>
-        <div class="tempo" id="tempo-total">Carregando...</div>
-    </div>
+    <header>
+        <h1>Bem-vindo à Minha Página</h1>
+        <!-- Outros elementos do cabeçalho -->
+    </header>
 
-    <div class="contador" id="contador-fase2">
-        <h2>Transição Hormonal (2ª fase)</h2>
-        <div class="tempo" id="tempo-fase2">Carregando...</div>
-    </div>
+    <main>
+        <section>
+            <h2>Sobre a Transição Hormonal</h2>
+            <p>
+                Aqui você pode incluir informações sobre o processo de transição hormonal, seus benefícios, fases, etc.
+            </p>
+            <!-- Outros conteúdos da sua página -->
+        </section>
 
+        <!-- Contador Atualizado: Transição Hormonal (total) -->
+        <div class="contador" id="contador-total">
+            <h2>Transição Hormonal (total)</h2>
+            <div class="tempo" id="tempo-total">Carregando...</div>
+        </div>
+
+        <!-- Novo Contador: Transição Hormonal (2ª fase) -->
+        <div class="contador" id="contador-fase2">
+            <h2>Transição Hormonal (2ª fase)</h2>
+            <div class="tempo" id="tempo-fase2">Carregando...</div>
+        </div>
+
+        <section>
+            <h2>Outros Conteúdos</h2>
+            <p>
+                Mais informações, artigos, links ou qualquer outro conteúdo que você deseja incluir na sua página.
+            </p>
+            <!-- Outros conteúdos da sua página -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Minha Página. Todos os direitos reservados.</p>
+        <!-- Outros elementos do rodapé -->
+    </footer>
+
+    <!-- Script JavaScript para os Contadores -->
     <script>
         // Função para atualizar o contador
         function atualizarContador(id, dataAlvo) {
@@ -55,7 +118,7 @@
             setTimeout(() => atualizarContador(id, dataAlvo), 1000);
         }
 
-        // Iniciar os contadores
+        // Iniciar os contadores quando o documento for carregado
         document.addEventListener('DOMContentLoaded', () => {
             // Data alvo para "Transição Hormonal (total)" - Defina a data desejada
             const dataTotal = "2024-12-31T23:59:59"; // Exemplo: 31 de dezembro de 2024
@@ -67,5 +130,6 @@
             atualizarContador("tempo-fase2", dataFase2);
         });
     </script>
+
 </body>
 </html>
