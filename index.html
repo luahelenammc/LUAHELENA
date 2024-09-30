@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Lua Helena Moon M. C.</title>
   <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
   <meta name="robots" content="noindex">
@@ -148,11 +150,22 @@
 
       .dock-item {
         margin: 5px; /* Reduzir margem para melhor encaixe */
+        flex: 1 1 45%; /* Permitir dois itens por linha */
       }
 
       .logo {
         margin-bottom: 40px; /* Reduzir margem inferior para evitar sobreposição */
         margin-top: 10px; /* Garantir margem superior adequada */
+      }
+
+      /* Ocultar elementos <br> em dispositivos móveis */
+      br {
+        display: none;
+      }
+
+      /* Ajustar o pseudo-elemento ::before para não interferir */
+      .dock-row::before {
+        height: 10%; /* Reduzir altura do pseudo-elemento */
       }
     }
   </style>
@@ -184,7 +197,7 @@
       </div>
     </div>
 
-    <br>
+    <!-- <br> Removido para evitar espaçamento desnecessário -->
 
     <div class="dock-row">
       <div class="dock-item">
@@ -210,7 +223,7 @@
       </div>
     </div>
 
-    <br>
+    <!-- <br> Removido para evitar espaçamento desnecessário -->
 
     <div class="dock-row">
       <div class="dock-item">
@@ -228,7 +241,7 @@
       </div>
     </div>
 
-    <br>
+    <!-- <br> Removido para evitar espaçamento desnecessário -->
 
     <div class="dock-row">
       <div class="dock-item">
@@ -253,7 +266,7 @@
       </div>
     </div>
 
-    <br>
+    <!-- <br> Removido para evitar espaçamento desnecessário -->
 
     <div class="dock-row">
       <div class="dock-item">
@@ -278,7 +291,7 @@
       </div>
     </div>
 
-    <br>
+    <!-- <br> Removido para evitar espaçamento desnecessário -->
 
     <div class="dock-row">
       <div class="dock-item">
