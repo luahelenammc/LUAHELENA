@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obras - Lua Helena Moon M.C.</title>
+  <link rel="icon" type="image/x-icon" href="images/livros.png">
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Flexbox container for header */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    /* Grid container for the books section */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Card styling for each book */
+    .book-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.02);
+    }
+
+    /* Image container for book cover */
+    .book-card img {
+      max-height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Book info section */
+    .book-info {
+      padding: 15px;
+    }
+
+    .book-info h2 {
+      font-size: 1.5rem;
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .book-info p {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
+    /* Keywords section */
+    .keywords {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .keyword {
+      background-color: #262626;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .keyword:hover {
+      background-color: #ff9900;
+    }
+
+    /* Links to read */
+    .book-links {
+      margin-top: 15px;
+    }
+
+    .book-links a {
+      display: block;
+      color: #0066cc;
+      text-decoration: none;
+      margin: 5px 0;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .book-links a:hover {
+      color: #004499;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+
+    footer a {
+      color: #ff9900;
+      text-decoration: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .book-info h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Obras de Lua Helena Moon M.C.</h1>
+  </header>
+
+  <main>
+    <!-- Card for book 1 -->
+    <div class="book-card">
+      <img src="images/raviera.png" alt="Ilha de Raviera">
+      <div class="book-info">
+        <h2>Ilha de Raviera (2016)</h2>
+        <p>Rafa, um jovem de 15 anos, encontra um novo lar em Raviera, uma ilha utópica criada pela comunidade LGBT. Ao chegar, ele descobre segredos sombrios que mudam sua vida.</p>
+        <div class="keywords">
+          <span class="keyword">LGBT</span>
+          <span class="keyword">Homofobia</span>
+          <span class="keyword">Autoaceitação</span>
+        </div>
+        <div class="book-links">
+          <a href="https://drive.google.com/file/d/1UeV7QslbLbs3arzpPgGoqf3UxG3O8ZwT/view?usp=sharing" target="_blank">Ler PDF</a>
+          <a href="https://drive.google.com/file/d/1SGlKhlnJMRISYbW5g4Lm7hN3EfZao3tS/view?usp=sharing" target="_blank">Ler EPUB</a>
+          <a href="https://clubedeautores.com.br/livro/ilha-de-raviera" target="_blank">Comprar Impresso</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for book 2 -->
+    <div class="book-card">
+      <img src="images/adao.png" alt="Cogumelo de Adão">
+      <div class="book-info">
+        <h2>Cogumelo de Adão (2017)</h2>
+        <p>Adão começa a questionar sua existência quando, após ingerir cogumelos alucinógenos, descobre que é parte de uma história escrita por outro ser. Quem é real?</p>
+        <div class="keywords">
+          <span class="keyword">Metaescrita</span>
+          <span class="keyword">Filosofia</span>
+          <span class="keyword">Indivíduo vs Sociedade</span>
+        </div>
+        <div class="book-links">
+          <a href="https://drive.google.com/file/d/1Ukw5h0jwW6ohHKvQQ-gB3czlL6tG1sK-/view?usp=sharing" target="_blank">Ler PDF</a>
+          <a href="https://drive.google.com/file/d/1Unjayd4GqP1q2d6hrYKIOSpGgL0IKu-T/view?usp=sharing" target="_blank">Ler EPUB</a>
+          <a href="https://clubedeautores.com.br/livro/cogumelo-de-adao" target="_blank">Comprar Impresso</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for book 3 -->
+    <div class="book-card">
+      <img src="images/tormenta.png" alt="Calma Tormenta">
+      <div class="book-info">
+        <h2>Calma Tormenta (2018)</h2>
+        <p>Um diário de reflexões filosóficas e prosa poética que convida o leitor à intimidade psíquica do autor, mostrando seu amadurecimento pessoal.</p>
+        <div class="keywords">
+          <span class="keyword">Prosa poética</span>
+          <span class="keyword">Desabafos filosóficos</span>
+          <span class="keyword">Autodescoberta</span>
+        </div>
+        <div class="book-links">
+          <a href="https://drive.google.com/file/d/1UqllNfllhs_LSmyFVmT5z5-UPG5sUQyM/view?usp=sharing" target="_blank">Ler PDF</a>
+          <a href="https://drive.google.com/file/d/1UrfAJi4GjoH-izBR-pEZSnE4cGG-N2ON/view?usp=sharing" target="_blank">Ler EPUB</a>
+          <a href="https://clubedeautores.com.br/livro/calma-tormenta" target="_blank">Comprar Impresso</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>* Os Exemplares Impressos são fornecidos pela plataforma <a href="https://clubedeautores.com.br" target="_blank">Clube de Autores</a>.</p>
+    <p>O autor abdicou de participação nos lucros para reduzir o preço dos livros.</p>
+  </footer>
+
+</body>
+</html>
