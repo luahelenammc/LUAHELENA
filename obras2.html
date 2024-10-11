@@ -103,22 +103,28 @@
       background-color: #ff9900;
     }
 
-    /* Links to read */
+    /* Book links displayed as buttons */
     .book-links {
       margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .book-links a {
-      display: block;
-      color: #0066cc;
-      text-decoration: none;
-      margin: 5px 0;
+      text-align: center;
+      color: white;
+      background-color: #333;
+      padding: 10px 15px;
+      border-radius: 25px;
       font-weight: bold;
-      transition: color 0.3s ease;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .book-links a:hover {
-      color: #004499;
+      background-color: #555;
+      transform: scale(1.05);
     }
 
     /* Footer styling */
@@ -210,7 +216,7 @@
       <img src="images/tormenta.png" alt="Calma Tormenta">
       <div class="book-info">
         <h2>Calma Tormenta (2018)</h2>
-        <p>Um diário de reflexões filosóficas e prosa poética que convida o leitor à intimidade psíquica do autor, mostrando seu amadurecimento pessoal.</p>
+        <p>Um diário de reflexões filosóficas e prosa poética que convida o leitor à intimidade psíquica da autora, mostrando seu amadurecimento pessoal.</p>
         <div class="keywords">
           <span class="keyword">Prosa poética</span>
           <span class="keyword">Desabafos filosóficos</span>
@@ -228,7 +234,7 @@
 
   <footer>
     <p>* Os Exemplares Impressos são fornecidos pela plataforma <a href="https://clubedeautores.com.br" target="_blank">Clube de Autores</a>.</p>
-    <p>O autor abdicou de participação nos lucros para reduzir o preço dos livros.</p>
+    <p>A autora abdicou de participação nos lucros para reduzir o preço dos livros.</p>
   </footer>
 
 </body>
