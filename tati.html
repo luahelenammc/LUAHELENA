@@ -95,6 +95,7 @@ body {
     <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
     <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
     <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div id="anos-hormonal" class="contador"><span>0</span><span class="unidade">anos</span></div>
   </div>
 
   <!-- Seção da Transição Social -->
@@ -103,19 +104,23 @@ body {
     <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
     <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
     <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div id="anos-social" class="contador"><span>0</span><span class="unidade">anos</span></div>
   </div>
 
   <script>
-    function calcularTempo(dataInicial, idDia, idSemana, idMes) {
+    function calcularTempo(dataInicial, idDia, idSemana, idMes, idAno) {
       const dataAtual = new Date();
       const diffTime = dataAtual - dataInicial;
+
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ','); // Uma casa decimal
       const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ','); // Uma casa decimal
+      const diffYears = (diffDays / 365.25).toFixed(1).replace('.', ','); // Uma casa decimal
 
       atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
       atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
       atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
+      atualizarFlipClock(document.querySelector(`#${idAno} span:first-child`), diffYears);
     }
 
     function atualizarFlipClock(element, newValue) {
@@ -124,15 +129,15 @@ body {
 
     setInterval(() => {
       // Cálculo para a Transição Hormonal (a partir de 12/05/2023)
-      calcularTempo(new Date('2023-05-12'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+      calcularTempo(new Date('2023-05-12'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal', 'anos-hormonal');
 
       // Cálculo para a Transição Social (a partir de 30/06/2023)
-      calcularTempo(new Date('2023-06-30'), 'dias-social', 'semanas-social', 'meses-social');
+      calcularTempo(new Date('2023-06-30'), 'dias-social', 'semanas-social', 'meses-social', 'anos-social');
     }, 1000);
 
     // Inicializa os valores ao carregar a página
-    calcularTempo(new Date('2023-05-12'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
-    calcularTempo(new Date('2023-06-30'), 'dias-social', 'semanas-social', 'meses-social');
+    calcularTempo(new Date('2023-05-12'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal', 'anos-hormonal');
+    calcularTempo(new Date('2023-06-30'), 'dias-social', 'semanas-social', 'meses-social', 'anos-social');
   </script>
 </body>
 </html>
