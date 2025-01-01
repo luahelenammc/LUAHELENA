@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Flip Clock - Contador Horizontal com URL Sync</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f2f2f2;
+      gap: 2rem;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    /* Contêiner principal do contador (horizontal) */
+    .flip-clock {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap; /* Caso queira quebrar linha se ficar grande */
+    }
+
+    /* Cada grupo (anos, meses, dias, etc.) */
+    .digit-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .group-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    /* Cada “digit” agora representa o número inteiro 
+       (ex.: "28" para anos). */
+    .digit {
+      width: 80px;
+      height: 100px;
+      perspective: 600px; /* Efeito 3D */
+      position: relative;
+    }
+
+    .flip-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease-in;
+    }
+
+    .flip-front, 
+    .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border: 2px solid #000;
+      font-size: 2.2rem; 
+      font-weight: bold;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    .digit.flipped .flip-container {
+      transform: rotateY(180deg);
+    }
+
+    /* Iniciamos anos/meses/dias ocultos, pois só aparecem quando forem > 0 */
+    #yearGroup,
+    #monthGroup,
+    #dayGroup {
+      display: none;
+    }
+
+    /* 
+      Media Query para telas menores 
+      -> Ajusta o "zoom" para 50%.
+    */
+    @media (max-width: 768px) {
+      .flip-clock {
+        transform: scale(0.5);
+        transform-origin: top left; 
+        /* Você pode mudar para "center center" se preferir o
+           zoom centralizado na tela. */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Input de data e botão para iniciar -->
+  <div class="input-container">
+    <input type="datetime-local" id="targetDatetime">
+    <button onclick="startCountdown()">Iniciar Contador</button>
+  </div>
+
+  <!-- Flip Clock Horizontal -->
+  <div class="flip-clock">
+    <!-- ANOS (só aparece se > 0) -->
+    <div class="digit-group" id="yearGroup">
+      <div class="group-label">Anos</div>
+      <div class="digit" id="yearValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MESES (só aparece se > 0) -->
+    <div class="digit-group" id="monthGroup">
+      <div class="group-label">Meses</div>
+      <div class="digit" id="monthValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIAS (só aparece se > 0) -->
+    <div class="digit-group" id="dayGroup">
+      <div class="group-label">Dias</div>
+      <div class="digit" id="dayValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HORAS -->
+    <div class="digit-group">
+      <div class="group-label">Horas</div>
+      <div class="digit" id="hourValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MINUTOS -->
+    <div class="digit-group">
+      <div class="group-label">Minutos</div>
+      <div class="digit" id="minuteValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEGUNDOS -->
+    <div class="digit-group">
+      <div class="group-label">Segundos</div>
+      <div class="digit" id="secondValue" data-value="0">
+        <div class="flip-container">
+          <div class="flip-front">0</div>
+          <div class="flip-back">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      Função flipDigit: flipa o conteúdo inteiro do “digit”,
+      seja "28", "7", "365", etc.
+    */
+    function flipDigit(digitElem, newVal) {
+      // newVal será a string do número inteiro (ex.: "28")
+      const oldVal = digitElem.getAttribute("data-value");
+
+      // Se for igual, não faz nada
+      if (String(newVal) === oldVal) return;
+
+      const flipContainer = digitElem.querySelector(".flip-container");
+      const frontElem = digitElem.querySelector(".flip-front");
+      const backElem  = digitElem.querySelector(".flip-back");
+
+      backElem.textContent  = newVal;
+      frontElem.textContent = oldVal;
+
+      digitElem.classList.add("flipped");
+
+      setTimeout(() => {
+        digitElem.classList.remove("flipped");
+        frontElem.textContent = newVal; 
+        digitElem.setAttribute("data-value", newVal);
+      }, 400);
+    }
+
+    let targetDate = null;
+    let countdownInterval = null;
+
+    // Função para extrair parâmetros da URL
+    function getURLParameter(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    // Função para atualizar a URL com o parâmetro datetime
+    function updateURL(datetime) {
+      const url = new URL(window.location);
+      url.searchParams.set('datetime', datetime);
+      window.history.replaceState({}, '', url);
+    }
+
+    function startCountdown() {
+      const inputElem = document.getElementById("targetDatetime");
+      const inputVal = inputElem.value;
+      if (!inputVal) {
+        alert("Selecione uma data e hora!");
+        return;
+      }
+      targetDate = new Date(inputVal);
+      clearInterval(countdownInterval);
+
+      // Atualiza a URL com a data/hora selecionada
+      updateURL(inputVal);
+
+      updateCounter();
+      countdownInterval = setInterval(updateCounter, 1000);
+    }
+
+    function updateCounter() {
+      if (!targetDate) return;
+
+      const now = new Date();
+      let diffMs = targetDate - now; 
+      let isPast = diffMs < 0;
+
+      diffMs = Math.abs(diffMs);
+      let totalSeconds = Math.floor(diffMs / 1000);
+
+      // Cálculo aproximado: 1 ano = 365 dias, 1 mês = 30 dias
+      let daysTotal = Math.floor(totalSeconds / (3600 * 24));
+      let remainder = totalSeconds % (3600 * 24);
+
+      const hours = Math.floor(remainder / 3600);
+      remainder %= 3600;
+      const minutes = Math.floor(remainder / 60);
+      const seconds = remainder % 60;
+
+      // Quebrar daysTotal em anos, meses e dias:
+      let years  = Math.floor(daysTotal / 365);
+      let restDaysAfterYears = daysTotal % 365;
+      let months = Math.floor(restDaysAfterYears / 30);
+      let days   = restDaysAfterYears % 30;
+
+      // Exibir ou ocultar cada grupo
+      const yearGroup = document.getElementById("yearGroup");
+      const monthGroup = document.getElementById("monthGroup");
+      const dayGroup = document.getElementById("dayGroup");
+
+      // Anos
+      if (years > 0) {
+        yearGroup.style.display = "flex";
+      } else {
+        yearGroup.style.display = "none";
+      }
+      // Meses
+      if (months > 0) {
+        monthGroup.style.display = "flex";
+      } else {
+        monthGroup.style.display = "none";
+      }
+      // Dias
+      if (days > 0) {
+        dayGroup.style.display = "flex";
+      } else {
+        dayGroup.style.display = "none";
+      }
+
+      // Flip dos valores (passamos a string inteira)
+      flipDigit(document.getElementById("yearValue"),   String(years));
+      flipDigit(document.getElementById("monthValue"),  String(months));
+      flipDigit(document.getElementById("dayValue"),    String(days));
+      flipDigit(document.getElementById("hourValue"),   String(hours));
+      flipDigit(document.getElementById("minuteValue"), String(minutes));
+      flipDigit(document.getElementById("secondValue"), String(seconds));
+
+      // Atualizar título da página só para visual (opcional)
+      if (isPast) {
+        document.title = `Já passou: -${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        document.title = `Falta: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }
+
+    // Função para inicializar o contador a partir da URL
+    function initializeFromURL() {
+      const datetimeParam = getURLParameter('datetime');
+      if (datetimeParam) {
+        // Verifica se o formato está correto
+        const validDate = new Date(datetimeParam);
+        if (!isNaN(validDate)) {
+          const inputElem = document.getElementById("targetDatetime");
+          inputElem.value = datetimeParam;
+          targetDate = validDate;
+          updateCounter();
+          countdownInterval = setInterval(updateCounter, 1000);
+        }
+      }
+    }
+
+    // Executa a inicialização quando a página carrega
+    window.onload = initializeFromURL;
+  </script>
+</body>
+</html>
