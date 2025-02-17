@@ -1,110 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="/images/briefcase.png">
-  <title>Contador de Dias de Trabalho</title>
+  <meta charset="UTF-8">
+  <title>Contagem para as férias - 28/FEV/25</title>
   <style>
     body {
-      background: black;
-      color: #66fc03;
-      font-family: 'HelveticaNeue';
-    }
-    
-    #clock {
-      font-size: 36px;
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
       text-align: center;
+      padding: 20px;
+    }
+    .chart-container {
+      display: inline-block;
+      background-color: #ccc;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+    /* Gráfico do tipo donut */
+    .donut-chart {
+      width: 200px;
+      height: 200px;
+    }
+    /* Círculo de fundo (total) */
+    .background {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 20;
+    }
+    /* Círculo que indica o progresso com animação de cor */
+    .progress {
+      fill: none;
+      stroke-width: 20;
+      stroke-linecap: round;
+      animation: colorPulse 2s infinite;
+    }
+    @keyframes colorPulse {
+      0%   { stroke: #32CD32; } /* verde-lima */
+      50%  { stroke: #00FFFF; } /* azul-piscina */
+      100% { stroke: #32CD32; }
+    }
+    /* Gráfico de barra */
+    .bar-chart {
+      width: 300px;
+      height: 50px;
+    }
+    .bar-bg {
+      fill: #eee;
+    }
+    .bar-progress {
+      animation: colorPulse 2s infinite;
+    }
+    /* Estilo para o timer regressivo */
+    #countdown {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <h1>Contagem para as férias - 28/FEV/25</h1>
   
-  <div align="center">
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <br><br> 
-    <button onclick="location.reload()">Refresh</button>
-    <br>    
-    <p id="progress">0%</p>
+  <!-- Gráfico Donut -->
+  <div class="chart-container">
+    <h2>Gráfico de Pizza Oca</h2>
+    <svg class="donut-chart" viewBox="0 0 200 200">
+      <!-- Círculo de fundo -->
+      <circle class="background" cx="100" cy="100" r="70"></circle>
+      <!-- Círculo de progresso -->
+      <circle class="progress" cx="100" cy="100" r="70"
+              stroke-dasharray="0 440"
+              stroke-dashoffset="0"
+              transform="rotate(-90 100 100)"></circle>
+      <!-- Texto central -->
+      <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
+    </svg>
+  </div>
+  
+  <!-- Gráfico de Barra Horizontal -->
+  <div class="chart-container">
+    <h2>Gráfico de Barra Horizontal</h2>
+    <svg class="bar-chart">
+      <!-- Fundo da barra -->
+      <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+      <!-- Barra de progresso -->
+      <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+      <!-- Texto centralizado -->
+      <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
+    </svg>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <!-- Timer regressivo -->
+  <div id="countdown">Carregando timer...</div>
+
   <script>
-    // Função para gerar as datas no formato 'dd/mm/yyyy'
-    function generateDateLabels(start, end) {
-      var labels = [];
-      var current = new Date(start);
-      
-      while (current <= end) {
-        var day = current.getDate().toString().padStart(2, '0');
-        var month = (current.getMonth() + 1).toString().padStart(2, '0');
-        var year = current.getFullYear();
-        labels.push(`${day}/${month}/${year}`);
-        current.setDate(current.getDate() + 1);
+    (function(){
+      // Define as datas de início e fim:
+      // Início: 10/02/2025 às 08:00
+      // Fim: 28/02/2025 às 17:00
+      const startDate = new Date("2025-02-10T08:00:00");
+      const endDate   = new Date("2025-02-28T17:00:00");
+      const totalDuration = endDate - startDate;
+
+      // Seleção dos elementos SVG e textos
+      const donutCircle = document.querySelector('.donut-chart .progress');
+      const donutText   = document.getElementById('donut-text');
+      const barProgress = document.getElementById('bar-progress');
+      const barText     = document.getElementById('bar-text');
+      const countdownEl = document.getElementById('countdown');
+
+      // Propriedades do círculo do gráfico donut
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius; // Aproximadamente 440
+
+      function updateCharts(){
+        const now = new Date();
+        let elapsed = now - startDate;
+        if(elapsed < 0) elapsed = 0;
+        if(elapsed > totalDuration) elapsed = totalDuration;
+        const percent = elapsed / totalDuration;
+        const percentText = (percent * 100).toFixed(2) + '%';
+
+        // Atualiza o gráfico donut: calcula o comprimento do arco a ser mostrado
+        const progressLength = percent * circumference;
+        const remainderLength = circumference - progressLength;
+        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
+        donutText.textContent = percentText;
+
+        // Atualiza o gráfico de barra: largura proporcional a 300px
+        const barTotalWidth = 300;
+        const barWidth = percent * barTotalWidth;
+        barProgress.setAttribute('width', barWidth);
+        barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent'); // Corrige a cor da barra
+        barText.textContent = percentText;
       }
-      
-      return labels;
-    }
 
-    // Definir a data inicial e a data final
-    var startDate = new Date('2023-10-02');
-    var endDate = new Date('2024-11-20');
+      function updateCountdown(){
+        const now = new Date();
+        let remaining = endDate - now;
+        if(remaining < 0) remaining = 0;
 
-    // Gerar os labels dinamicamente
-    var labels = generateDateLabels(startDate, endDate);
+        // Calcula dias, horas, minutos e segundos
+        const seconds = Math.floor((remaining / 1000) % 60);
+        const minutes = Math.floor((remaining / 1000 / 60) % 60);
+        const hours   = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+        const days    = Math.floor(remaining / (1000 * 60 * 60 * 24));
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var totalDays = labels.length; // Total de dias baseado no array de labels
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: labels,
-        datasets: [{
-          data: new Array(totalDays).fill(0), // Ajustado para o total de dias
-          backgroundColor: [], // Array vazio, preenchido dinamicamente
-          borderColor: 'transparent', // Remover bordas brancas
-          borderWidth: 0 // Definir a largura da borda como 0
-        }]
-      },
-      options: {
-        responsive: false,
-        legend: {
-          display: false
-        }
+        // Formata o timer regressivo
+        countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
       }
-    });
 
-    var currentTime = new Date(); // Data atual
-    var lastDay = endDate; // Último dia
-    var currentDate = new Date(startDate); // Data inicial
-    var intervalsElapsed = 0;
+      updateCharts();
+      updateCountdown();
 
-    while (currentDate <= lastDay) {
-      var day = currentDate.getDate().toString().padStart(2, '0');
-      var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-      var year = currentDate.getFullYear().toString();
-      var dateString = day + '/' + month + '/' + year;
-      var index = myChart.data.labels.indexOf(dateString);
-      if (index !== -1) {
-        myChart.data.datasets[0].data[index] = 1;
-        if (currentDate < currentTime) {
-          myChart.data.datasets[0].backgroundColor[index] = '#00ff00'; // Dias passados em verde
-          intervalsElapsed++;
-        } else if (currentDate.toDateString() === currentTime.toDateString()) {
-          myChart.data.datasets[0].backgroundColor[index] = '#12dbff'; // Dia atual em azul
-        } else {
-          myChart.data.datasets[0].backgroundColor[index] = '#1c1c1c'; // Dias futuros em cinza
-        }
-      }
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    myChart.update();
-
-    // Calcula a porcentagem de dias passados
-    var percentComplete = (intervalsElapsed / totalDays) * 100;
-    document.getElementById('progress').textContent = percentComplete.toFixed(2) + '%';
-
+      // Atualiza os gráficos a cada 1 minuto (60000 ms)
+      setInterval(updateCharts, 60000);
+      // Atualiza o timer regressivo a cada 1 segundo (1000 ms)
+      setInterval(updateCountdown, 1000);
+    })();
   </script>
 </body>
 </html>
