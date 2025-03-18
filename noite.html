@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relógio Especial</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .chart-container {
+      display: inline-block;
+      background-color: #ccc;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+    /* Gráfico Donut */
+    .donut-chart {
+      width: 200px;
+      height: 200px;
+    }
+    .background {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 20;
+    }
+    .progress {
+      fill: none;
+      stroke-width: 20;
+      stroke-linecap: round;
+      animation: colorPulse 2s infinite;
+    }
+    @keyframes colorPulse {
+      0%   { stroke: #32CD32; }
+      50%  { stroke: #00FFFF; }
+      100% { stroke: #32CD32; }
+    }
+    /* Gráfico de Barra Horizontal */
+    .bar-chart {
+      width: 300px;
+      height: 50px;
+    }
+    .bar-bg {
+      fill: #eee;
+    }
+    .bar-progress {
+      animation: colorPulse 2s infinite;
+    }
+    /* Timer regressivo */
+    #countdown {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Noite de SEG-SEX</h1>
+  
+  <!-- Gráfico Donut -->
+  <div class="chart-container">
+    <h2>%</h2>
+    <svg class="donut-chart" viewBox="0 0 200 200">
+      <circle class="background" cx="100" cy="100" r="70"></circle>
+      <circle class="progress" cx="100" cy="100" r="70"
+              stroke-dasharray="0 440"
+              stroke-dashoffset="0"
+              transform="rotate(-90 100 100)"></circle>
+      <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
+    </svg>
+  </div>
+  
+  <!-- Gráfico de Barra Horizontal -->
+  <div class="chart-container">
+    <h2>%</h2>
+    <svg class="bar-chart">
+      <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+      <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+      <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
+    </svg>
+  </div>
+  
+  <!-- Timer regressivo -->
+  <div id="countdown">Carregando timer...</div>
+  
+  <script>
+    (function(){
+      // Função auxiliar para criar uma data com o horário de hoje
+      function getTodayAt(hours, minutes, seconds = 0) {
+        const now = new Date();
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, seconds);
+      }
+      
+      // Define o início fixo às 17h
+      const startTime = getTodayAt(17, 0, 0);
+      // Define o fim normal às 22h e o fim estendido às 00h (meia-noite de hoje é o mesmo que 24:00)
+      const normalEndTime = getTodayAt(22, 0, 0);
+      const extendedEndTime = getTodayAt(24, 0, 0);
+      
+      // Seleção dos elementos SVG e textos
+      const donutCircle = document.querySelector('.donut-chart .progress');
+      const donutText   = document.getElementById('donut-text');
+      const barProgress = document.getElementById('bar-progress');
+      const barText     = document.getElementById('bar-text');
+      const countdownEl = document.getElementById('countdown');
+      
+      // Propriedades do gráfico donut
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius;
+      
+      function updateCharts(){
+        const now = new Date();
+        let totalDuration;
+        let effectiveEndTime;
+        
+        // Antes das 17h: timer parado
+        if(now < startTime){
+          donutText.textContent = "00%";
+          barText.textContent = "00%";
+          donutCircle.setAttribute('stroke-dasharray', "0 " + circumference);
+          barProgress.setAttribute('width', 0);
+          countdownEl.textContent = "Timer parado (aguardando 17h)";
+          return;
+        }
+        
+        // Determina o fim efetivo dependendo do horário atual
+        if(now <= normalEndTime){
+          effectiveEndTime = normalEndTime;
+          totalDuration = normalEndTime - startTime;
+        } else if(now <= extendedEndTime){
+          effectiveEndTime = extendedEndTime;
+          totalDuration = extendedEndTime - startTime;
+        } else {
+          // Se ultrapassou o tempo estendido, consideramos 100% concluído.
+          donutText.textContent = "100%";
+          barText.textContent = "100%";
+          donutCircle.setAttribute('stroke-dasharray', circumference + " 0");
+          barProgress.setAttribute('width', 300);
+          countdownEl.textContent = "Timer concluído";
+          return;
+        }
+        
+        const elapsed = now - startTime;
+        let percent = elapsed / totalDuration;
+        if(percent > 1) percent = 1;
+        const percentText = (percent * 100).toFixed(0) + '%';
+        
+        // Atualiza o gráfico donut
+        const progressLength = percent * circumference;
+        const remainderLength = circumference - progressLength;
+        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
+        donutText.textContent = percentText;
+        
+        // Atualiza o gráfico de barra
+        const barTotalWidth = 300;
+        const barWidth = percent * barTotalWidth;
+        barProgress.setAttribute('width', barWidth);
+        barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent');
+        barText.textContent = percentText;
+        
+        // Atualiza o timer regressivo
+        const remaining = effectiveEndTime - now;
+        const seconds = Math.floor((remaining / 1000) % 60);
+        const minutes = Math.floor((remaining / 1000 / 60) % 60);
+        const hours   = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+        const days    = Math.floor(remaining / (1000 * 60 * 60 * 24));
+        countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+      
+      updateCharts();
+      // Atualiza o relógio a cada segundo
+      setInterval(updateCharts, 1000);
+    })();
+  </script>
+</body>
+</html>
