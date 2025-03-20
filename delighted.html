@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+/* Substitua esta parte no seu CSS */
+body {
+  background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
+  color: #F7A8B8; /* Rosa da bandeira trans */
+  font-family: 'HelveticaNeue', sans-serif;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Altera 'center' para 'flex-start' */
+  align-items: center;
+  height: 100vh;
+}
+
+.titulo-principal {
+  font-size: 35px;
+  color: white; /* Texto branco */
+  background-color: #333; /* Fundo escuro para destaque */
+  padding: 15px; /* Padding de 15px */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin: 20px 0;
+}
+
+.flip-clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.titulo {
+  font-size: 30px;
+  color: white; /* Texto branco */
+  background-color: black; /* Fundo preto */
+  padding: 10px; /* Padding de 10px */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin: 20px 0;
+}
+
+.contador {
+  font-size: 50px;
+  margin: 10px;
+  background: black; /* Preto do flip */
+  color: white; /* Branco dos números */
+  display: inline-block;
+  padding: 0px 20px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.contador span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.unidade {
+  font-size: 18px; /* Reduzido para melhorar o encaixe */
+  position: absolute;
+  top: 80%; /* Ajustado para ficar mais baixo, fora dos dígitos */
+  right: 10px; /* Posição ajustada para que não sobreponha os dígitos */
+  transform: translateY(-50%);
+  color: #F7A8B8; /* Rosa da bandeira trans */
+}
+
+/* Novo Estilo para Agrupar Contadores Hormonais */
+.flip-clock-hormonal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espaçamento entre os contadores */
+  margin-top: 20px;
+}
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/transb.fw.png">
+  <title>Transição Dra. Tati</title>
+</head>
+<body>
+  <!-- Título Principal -->
+  <div class="titulo-principal">Delighted Akuma</div>
+
+  <!-- Seção da Transição Hormonal -->
+  <div class="titulo">Transição Hormonal do Delighted</div>
+  <div class="flip-clock">
+    <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div id="anos-hormonal" class="contador"><span>0</span><span class="unidade">anos</span></div>
+  </div>
+
+  <!-- Seção da Transição Social -->
+  <div class="titulo">Transição Social</div>
+  <div class="flip-clock">
+    <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
+    <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
+    <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div id="anos-social" class="contador"><span>0</span><span class="unidade">anos</span></div>
+  </div>
+
+  <script>
+    function calcularTempo(dataInicial, idDia, idSemana, idMes, idAno) {
+      const dataAtual = new Date();
+      const diffTime = dataAtual - dataInicial;
+
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ','); // Uma casa decimal
+      const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ','); // Uma casa decimal
+      const diffYears = (diffDays / 365.25).toFixed(1).replace('.', ','); // Uma casa decimal
+
+      atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
+      atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
+      atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
+      atualizarFlipClock(document.querySelector(`#${idAno} span:first-child`), diffYears);
+    }
+
+    function atualizarFlipClock(element, newValue) {
+      element.textContent = newValue;
+    }
+
+    setInterval(() => {
+      // Cálculo para a Transição Hormonal 
+      calcularTempo(new Date('2025-02-03'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal', 'anos-hormonal');
+
+      // Cálculo para a Transição Social
+      calcularTempo(new Date('2019-07-01'), 'dias-social', 'semanas-social', 'meses-social', 'anos-social');
+    }, 1000);
+
+    // Inicializa os valores ao carregar a página
+    calcularTempo(new Date('2025-02-03'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal', 'anos-hormonal');
+    calcularTempo(new Date('2019-07-01'), 'dias-social', 'semanas-social', 'meses-social', 'anos-social');
+  </script>
+</body>
+</html>
