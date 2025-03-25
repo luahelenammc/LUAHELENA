@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Contagem Regressiva</title>
+  <title>Contagem Regressiva Simulada</title>
   <style>
     body {
       background-color: #000;
@@ -29,7 +29,7 @@
       stroke: #eee;
       stroke-width: 20;
     }
-    /* Círculo que indica o progresso com animação de cor */
+    /* Círculo de progresso com animação de cor */
     .progress {
       fill: none;
       stroke-width: 20;
@@ -37,8 +37,8 @@
       animation: colorPulse 2s infinite;
     }
     @keyframes colorPulse {
-      0%   { stroke: #32CD32; } /* verde-lima */
-      50%  { stroke: #00FFFF; } /* azul-piscina */
+      0%   { stroke: #32CD32; }
+      50%  { stroke: #00FFFF; }
       100% { stroke: #32CD32; }
     }
     /* Gráfico de barra */
@@ -61,20 +61,17 @@
   </style>
 </head>
 <body>
-  <h1>Contagem Regressiva</h1>
+  <h1>Contagem Regressiva Simulada</h1>
   
   <!-- Gráfico Donut -->
   <div class="chart-container">
     <h2>Gráfico de Pizza Oca</h2>
     <svg class="donut-chart" viewBox="0 0 200 200">
-      <!-- Círculo de fundo -->
       <circle class="background" cx="100" cy="100" r="70"></circle>
-      <!-- Círculo de progresso -->
       <circle class="progress" cx="100" cy="100" r="70"
               stroke-dasharray="0 440"
               stroke-dashoffset="0"
               transform="rotate(-90 100 100)"></circle>
-      <!-- Texto central -->
       <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
     </svg>
   </div>
@@ -83,11 +80,8 @@
   <div class="chart-container">
     <h2>Gráfico de Barra Horizontal</h2>
     <svg class="bar-chart">
-      <!-- Fundo da barra -->
       <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
-      <!-- Barra de progresso -->
       <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
-      <!-- Texto centralizado -->
       <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
     </svg>
   </div>
@@ -97,12 +91,13 @@
 
   <script>
     (function(){
-      // Define as datas de início e fim:
-      // Início: 25/03/2017 às 00:00
-      // Fim: 26/11/2021 às 00:00
+      // Datas definidas: início em 25/03/2017 e fim em 26/11/2021
       const startDate = new Date("2017-03-25T00:00:00");
       const endDate   = new Date("2021-11-26T00:00:00");
       const totalDuration = endDate - startDate;
+      
+      // Variável que simula o tempo (para testes, já que essas datas são do passado)
+      let simulatedNow = new Date(startDate.getTime());
 
       // Seleção dos elementos SVG e textos
       const donutCircle = document.querySelector('.donut-chart .progress');
@@ -116,49 +111,55 @@
       const circumference = 2 * Math.PI * radius; // Aproximadamente 440
 
       function updateCharts(){
-        const now = new Date();
-        let elapsed = now - startDate;
+        let elapsed = simulatedNow - startDate;
         if(elapsed < 0) elapsed = 0;
         if(elapsed > totalDuration) elapsed = totalDuration;
         const percent = elapsed / totalDuration;
         const percentText = (percent * 100).toFixed(2) + '%';
 
-        // Atualiza o gráfico donut: calcula o comprimento do arco a ser mostrado
+        // Atualiza o gráfico donut
         const progressLength = percent * circumference;
         const remainderLength = circumference - progressLength;
         donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
         donutText.textContent = percentText;
 
-        // Atualiza o gráfico de barra: largura proporcional a 300px
+        // Atualiza o gráfico de barra horizontal
         const barTotalWidth = 300;
         const barWidth = percent * barTotalWidth;
         barProgress.setAttribute('width', barWidth);
-        barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent'); // Corrige a cor da barra
+        barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent');
         barText.textContent = percentText;
       }
 
       function updateCountdown(){
-        const now = new Date();
-        let remaining = endDate - now;
+        let remaining = endDate - simulatedNow;
         if(remaining < 0) remaining = 0;
 
-        // Calcula dias, horas, minutos e segundos
         const seconds = Math.floor((remaining / 1000) % 60);
         const minutes = Math.floor((remaining / 1000 / 60) % 60);
         const hours   = Math.floor((remaining / (1000 * 60 * 60)) % 24);
         const days    = Math.floor(remaining / (1000 * 60 * 60 * 24));
 
-        // Formata o timer regressivo
         countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
       }
 
+      // Função para simular o avanço do tempo (incrementa 1 segundo a cada chamada)
+      function updateSimulatedTime(){
+        if(simulatedNow < endDate) {
+          simulatedNow = new Date(simulatedNow.getTime() + 1000);
+        }
+      }
+
+      // Inicializa as atualizações
       updateCharts();
       updateCountdown();
 
-      // Atualiza os gráficos a cada 1 minuto (60000 ms)
-      setInterval(updateCharts, 60000);
-      // Atualiza o timer regressivo a cada 1 segundo (1000 ms)
-      setInterval(updateCountdown, 1000);
+      // Atualiza a simulação, gráficos e timer a cada 1 segundo
+      setInterval(function(){
+        updateSimulatedTime();
+        updateCharts();
+        updateCountdown();
+      }, 1000);
     })();
   </script>
 </body>
