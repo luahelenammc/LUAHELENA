@@ -1,80 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <style>
-/* Substitua esta parte no seu CSS */
-body {
-  background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
-  color: #F7A8B8; /* Rosa da bandeira trans */
-  font-family: 'HelveticaNeue', sans-serif;
-  text-align: center;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Altera 'center' para 'flex-start' */
-  align-items: center;
-  height: 100vh;
-}
-
-.flip-clock {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.titulo {
-  font-size: 30px;
-  color: white; /* Texto branco */
-  background-color: black; /* Fundo preto */
-  padding: 10px; /* Padding de 10px */
-  border-radius: 10px; /* Bordas arredondadas */
-  margin: 20px 0;
-}
-
-.contador {
-  font-size: 50px;
-  margin: 10px;
-  background: black; /* Preto do flip */
-  color: white; /* Branco dos números */
-  display: inline-block;
-  padding: 0px 20px;
-  height: 100px;
-  line-height: 100px;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-}
-
-.contador span {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.unidade {
-  font-size: 18px; /* Reduzido para melhorar o encaixe */
-  position: absolute;
-  top: 80%; /* Ajustado para ficar mais baixo, fora dos dígitos */
-  right: 10px; /* Posição ajustada para que não sobreponha os dígitos */
-  transform: translateY(-50%);
-  color: #F7A8B8; /* Rosa da bandeira trans */
-}
-
-/* Novo Estilo para Agrupar Contadores Hormonais */
-.flip-clock-hormonal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px; /* Espaçamento entre os contadores */
-  margin-top: 20px;
-}
-  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="/images/transb.fw.png">
   <title>Transição Moon 🌜</title>
+  <link rel="icon" type="image/x-icon" href="/images/transb.fw.png">
+  <style>
+    body {
+      background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
+      color: #F7A8B8;
+      font-family: 'HelveticaNeue', sans-serif;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+    }
+    .flip-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .titulo {
+      font-size: 30px;
+      color: white;
+      background-color: black;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    .contador {
+      font-size: 50px;
+      margin: 10px;
+      background: black;
+      color: white;
+      display: inline-block;
+      padding: 0px 20px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
+    .contador span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .unidade {
+      font-size: 18px;
+      position: absolute;
+      top: 80%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: #F7A8B8;
+    }
+    .flip-clock-hormonal {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <!-- Seção da Transição Social -->
@@ -93,54 +85,34 @@ body {
       <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
       <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
     </div>
-
-
+  </div>
 
   <script>
+    function atualizarFlipClock(element, newValue) {
+      element.textContent = newValue;
+    }
+
     function calcularTempo(dataInicial, idDia, idSemana, idMes) {
       const dataAtual = new Date();
       const diffTime = dataAtual - dataInicial;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      const diffWeeks = (diffDays / 7).toFixed(2).replace('.', ',');
-      const diffMonths = (diffDays / 30.4375).toFixed(2).replace('.', ',');
-
+      const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ',');
+      const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ',');
       atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
       atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
       atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
     }
 
-    function atualizarFlipClock(element, newValue) {
-      element.textContent = newValue;
-    }
-
     setInterval(() => {
-      // Cálculo para a Transição Social (a partir de 01/06/2024)
+      // Transição Social (a partir de 01/06/2024)
       calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
-
-      // Cálculo para a Transição Hormonal (total) (a partir de 06/09/2024)
+      // Transição Hormonal (total) (a partir de 06/09/2024)
       calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+    }, 1000);
 
-     
     // Inicializa os valores ao carregar a página
     calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
     calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
-    calcularTempo(new Date('2024-11-21'), 'dias-hormonal2', 'semanas-hormonal2', 'meses-hormonal2');
-  </script>
-
-  <script>
-function calcularTempo(dataInicial, idDia, idSemana, idMes) {
-  const dataAtual = new Date();
-  const diffTime = dataAtual - dataInicial;
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ','); // Corrigido para uma casa decimal
-  const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ','); // Corrigido para uma casa decimal
-
-  atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
-  atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
-  atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
-}
-
-    
   </script>
 </body>
 </html>
