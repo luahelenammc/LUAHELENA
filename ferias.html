@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Contagem Regressiva</title>
+  <title>Próximas férias</title>
   <style>
     body {
       background-color: #000;
@@ -52,8 +52,8 @@
     .bar-progress {
       animation: colorPulse 2s infinite;
     }
-    /* Estilo para o timer regressivo */
-    #countdown {
+    /* Estilo para os contadores */
+    #countdown, #week-countdown {
       margin-top: 30px;
       font-size: 24px;
       font-weight: bold;
@@ -61,7 +61,7 @@
   </style>
 </head>
 <body>
-  <h1>Contagem Regressiva</h1>
+  <h1>Contagem para as férias</h1>
   
   <!-- Gráfico Donut -->
   <div class="chart-container">
@@ -94,14 +94,16 @@
 
   <!-- Timer regressivo -->
   <div id="countdown">Carregando timer...</div>
+  <!-- Contador de semanas restantes -->
+  <div id="week-countdown"></div>
 
   <script>
     (function(){
       // Define as datas de início e fim:
-      // Início: 25/03/2017 às 00:00
-      // Fim: 26/11/2021 às 00:00
-      const startDate = new Date("2017-03-25T00:00:00");
-      const endDate   = new Date("2021-11-26T00:00:00");
+      // Início: 17/03/2025 às 00:00
+      // Fim: 01/12/2025 às 00:00
+      const startDate = new Date("2025-03-17T00:00:00");
+      const endDate   = new Date("2025-12-01T00:00:00");
       const totalDuration = endDate - startDate;
 
       // Seleção dos elementos SVG e textos
@@ -110,6 +112,7 @@
       const barProgress = document.getElementById('bar-progress');
       const barText     = document.getElementById('bar-text');
       const countdownEl = document.getElementById('countdown');
+      const weekCountdownEl = document.getElementById('week-countdown');
 
       // Propriedades do círculo do gráfico donut
       const radius = 70;
@@ -118,11 +121,6 @@
       function updateCharts(){
         const now = new Date();
         let elapsed = now - startDate;
-        console.log("Data atual:", now);
-        console.log("Data de início:", startDate);
-        console.log("Data de fim:", endDate);
-        console.log("Tempo total:", totalDuration);
-        console.log("Tempo decorrido:", elapsed);
         
         if(elapsed < 0) elapsed = 0;
         if(elapsed > totalDuration) elapsed = totalDuration;
@@ -155,14 +153,20 @@
         const days    = Math.floor(remaining / (1000 * 60 * 60 * 24));
 
         countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        // Calcula o tempo restante em semanas
+        const weeks = (remaining / (1000 * 60 * 60 * 24 * 7)).toFixed(2);
+        weekCountdownEl.textContent = `Faltam: ${weeks} semanas`;
       }
 
       updateCharts();
       updateCountdown();
 
-      // Atualiza os gráficos a cada 1 minuto e o timer a cada 1 segundo
-      setInterval(updateCharts, 60000);
-      setInterval(updateCountdown, 1000);
+      // Atualiza os gráficos e timers a cada 1 segundo
+      setInterval(() => {
+        updateCharts();
+        updateCountdown();
+      }, 1000);
     })();
   </script>
 </body>
