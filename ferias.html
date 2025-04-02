@@ -104,6 +104,10 @@
     .week-cell.lit {
       background-color: #32CD32;
     }
+    /* Classe para destacar a semana atual em azul-piscina */
+    .week-cell.current {
+      background-color: #40E0D0;
+    }
   </style>
 </head>
 <body>
@@ -224,12 +228,17 @@
         });
         
         // Atualiza o painel de semanas
-        const elapsedWeeks = Math.floor((now - startDate) / weekDuration);
+        let elapsedTime = now - startDate;
+        if (elapsedTime < 0) elapsedTime = 0;
+        const elapsedWeeks = Math.floor(elapsedTime / weekDuration);
         weekCells.forEach((weekCell, index) => {
+          weekCell.classList.remove('lit');
+          weekCell.classList.remove('current');
           if(index < elapsedWeeks){
             weekCell.classList.add('lit');
-          } else {
-            weekCell.classList.remove('lit');
+          } else if(index === elapsedWeeks && elapsedTime < totalDuration) {
+            // Esta é a semana atual (em andamento)
+            weekCell.classList.add('current');
           }
         });
       }
