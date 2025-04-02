@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Próximas férias</title>
+  <title>Contagem Regressiva</title>
   <style>
     body {
       background-color: #000;
@@ -23,13 +23,11 @@
       width: 200px;
       height: 200px;
     }
-    /* Círculo de fundo (total) */
     .background {
       fill: none;
       stroke: #eee;
       stroke-width: 20;
     }
-    /* Círculo que indica o progresso com animação de cor */
     .progress {
       fill: none;
       stroke-width: 20;
@@ -41,7 +39,7 @@
       50%  { stroke: #00FFFF; }
       100% { stroke: #32CD32; }
     }
-    /* Gráfico de barra */
+    /* Gráfico de barra horizontal */
     .bar-chart {
       width: 300px;
       height: 50px;
@@ -52,29 +50,70 @@
     .bar-progress {
       animation: colorPulse 2s infinite;
     }
-    /* Estilo para os contadores */
+    /* Estilos para os contadores */
     #countdown, #week-countdown {
       margin-top: 30px;
       font-size: 24px;
       font-weight: bold;
     }
+    /* Container para os dois painéis de quadradinhos */
+    #grids {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    /* Estilos para o painel "campo minado" (porcentagem) */
+    #minefield {
+      display: grid;
+      grid-template-columns: repeat(10, 20px);
+      grid-gap: 4px;
+      justify-content: center;
+    }
+    .cell {
+      width: 20px;
+      height: 20px;
+      background-color: #222;
+      border: 1px solid #555;
+    }
+    .cell.lit {
+      background-color: #32CD32;
+    }
+    /* Container para o gráfico de semanas com título */
+    #week-container {
+      text-align: center;
+    }
+    /* Estilos para o painel de semanas */
+    #weekfield {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-gap: 6px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .week-cell {
+      width: 30px;
+      height: 30px;
+      background-color: #222;
+      border: 1px solid #555;
+    }
+    .week-cell.lit {
+      background-color: #32CD32;
+    }
   </style>
 </head>
 <body>
-  <h1>Contagem para as férias</h1>
+  <h1>Contagem Regressiva</h1>
   
   <!-- Gráfico Donut -->
   <div class="chart-container">
     <h2>Gráfico de Pizza Oca</h2>
     <svg class="donut-chart" viewBox="0 0 200 200">
-      <!-- Círculo de fundo -->
       <circle class="background" cx="100" cy="100" r="70"></circle>
-      <!-- Círculo de progresso -->
       <circle class="progress" cx="100" cy="100" r="70"
               stroke-dasharray="0 440"
               stroke-dashoffset="0"
               transform="rotate(-90 100 100)"></circle>
-      <!-- Texto central -->
       <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
     </svg>
   </div>
@@ -83,19 +122,27 @@
   <div class="chart-container">
     <h2>Gráfico de Barra Horizontal</h2>
     <svg class="bar-chart">
-      <!-- Fundo da barra -->
       <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
-      <!-- Barra de progresso -->
       <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
-      <!-- Texto centralizado -->
       <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
     </svg>
   </div>
 
   <!-- Timer regressivo -->
   <div id="countdown">Carregando timer...</div>
-  <!-- Contador de semanas restantes -->
+  <!-- Contador de semanas restantes (texto) -->
   <div id="week-countdown"></div>
+  
+  <!-- Container para os dois gráficos de quadradinhos -->
+  <div id="grids">
+    <!-- Painel do "campo minado" (representa a porcentagem) -->
+    <div id="minefield"></div>
+    <!-- Painel de semanas com título -->
+    <div id="week-container">
+      <h2>Gráfico de Semanas</h2>
+      <div id="weekfield"></div>
+    </div>
+  </div>
 
   <script>
     (function(){
@@ -105,25 +152,45 @@
       const startDate = new Date("2025-03-17T00:00:00");
       const endDate   = new Date("2025-12-01T00:00:00");
       const totalDuration = endDate - startDate;
-
-      // Seleção dos elementos SVG e textos
+      
+      // Seleção dos elementos dos gráficos e contadores
       const donutCircle = document.querySelector('.donut-chart .progress');
       const donutText   = document.getElementById('donut-text');
       const barProgress = document.getElementById('bar-progress');
       const barText     = document.getElementById('bar-text');
       const countdownEl = document.getElementById('countdown');
       const weekCountdownEl = document.getElementById('week-countdown');
-
-      // Propriedades do círculo do gráfico donut
+      const minefieldEl = document.getElementById('minefield');
+      const weekfieldEl = document.getElementById('weekfield');
+      
+      // Propriedades do gráfico donut
       const radius = 70;
       const circumference = 2 * Math.PI * radius;
+      
+      // Cria o painel de "campo minado" com 100 quadradinhos (representa porcentagem)
+      const totalCells = 100;
+      for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        minefieldEl.appendChild(cell);
+      }
+      const cells = document.querySelectorAll('.cell');
+      
+      // Cria o painel de semanas
+      const weekDuration = 1000 * 60 * 60 * 24 * 7; // uma semana em ms
+      const totalWeeks = Math.ceil(totalDuration / weekDuration);
+      for (let i = 0; i < totalWeeks; i++) {
+        const weekCell = document.createElement('div');
+        weekCell.classList.add('week-cell');
+        weekfieldEl.appendChild(weekCell);
+      }
+      const weekCells = document.querySelectorAll('.week-cell');
 
       function updateCharts(){
         const now = new Date();
         let elapsed = now - startDate;
-        
-        if(elapsed < 0) elapsed = 0;
-        if(elapsed > totalDuration) elapsed = totalDuration;
+        if (elapsed < 0) elapsed = 0;
+        if (elapsed > totalDuration) elapsed = totalDuration;
         const percent = elapsed / totalDuration;
         const percentText = (percent * 100).toFixed(2) + '%';
 
@@ -139,6 +206,26 @@
         barProgress.setAttribute('width', barWidth);
         barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent');
         barText.textContent = percentText;
+        
+        // Atualiza o painel "campo minado"
+        const cellsToLight = Math.floor(percent * totalCells);
+        cells.forEach((cell, index) => {
+          if(index < cellsToLight){
+            cell.classList.add('lit');
+          } else {
+            cell.classList.remove('lit');
+          }
+        });
+        
+        // Atualiza o painel de semanas
+        const elapsedWeeks = Math.floor((now - startDate) / weekDuration);
+        weekCells.forEach((weekCell, index) => {
+          if(index < elapsedWeeks){
+            weekCell.classList.add('lit');
+          } else {
+            weekCell.classList.remove('lit');
+          }
+        });
       }
 
       function updateCountdown(){
@@ -154,19 +241,19 @@
 
         countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-        // Calcula o tempo restante em semanas
+        // Calcula o tempo restante em semanas (para exibição textual)
         const weeks = (remaining / (1000 * 60 * 60 * 24 * 7)).toFixed(2);
         weekCountdownEl.textContent = `Faltam: ${weeks} semanas`;
       }
 
-      updateCharts();
-      updateCountdown();
-
-      // Atualiza os gráficos e timers a cada 1 segundo
-      setInterval(() => {
+      // Atualiza todos os gráficos e contadores a cada 1 segundo
+      function updateAll(){
         updateCharts();
         updateCountdown();
-      }, 1000);
+      }
+      
+      updateAll();
+      setInterval(updateAll, 1000);
     })();
   </script>
 </body>
