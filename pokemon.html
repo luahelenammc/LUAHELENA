@@ -68,9 +68,19 @@
       position: relative;
       transition: box-shadow 0.3s;
     }
-    .pokemon-card:hover { box-shadow: 0px 0px 15px 2px #aaa; }
+    /* Quando o card é hoverado, ele escala em 1.2 */
+.pokemon-card:hover {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+/* Quando o card é hoverado, a imagem interna escala no inverso */
+.pokemon-card:hover .pokemon-image {
+  transform: scale(0.8333);
+  transition: transform 0.3s ease;
+}
     .pokemon-image { max-width: 100%;
-                     image-rendering: pixelated;}
+                   }
     .pokemon-name { font-size: 16px; margin: 5px 0; }
     .pokemon-rank {
       position: absolute;
