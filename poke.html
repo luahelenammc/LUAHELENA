@@ -1,155 +1,237 @@
-<!DOCTYPE html> <html lang="pt"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Meus Pokémons - Ordenados e Filtrados</title> <link rel="icon" type="image/x-icon" href="images/pokeball.png"> <style> /* Estilização base, adaptada do seu layout original */ body { font-family: 'General Sans', sans-serif; font-size: 12px; background: #f7f7f7 url("/images/pokebg.png") repeat; color: black; margin: 0; padding: 0; }
-css
-Copiar
-/* Barra de rolagem personalizada */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #00ff99; 
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc99;
-}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meus Pokémons - Ordenados e Filtrados</title>
+  <link rel="icon" type="image/x-icon" href="images/pokeball.png">
+  <style>
+    /* Estilização Base */
+    body {
+      font-family: 'General Sans', sans-serif;
+      font-size: 12px;
+      background: #f7f7f7 url("images/pokebg.png") repeat;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+    /* Scrollbar Personalizada */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #00ff99; 
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #00cc99; }
 
-#wrapper {
-  text-align: center;
-  width: 100%;
-}
-
-#top {
-  margin: 10px 0;
-  font-size: 20px;
-}
-
-#topblock {
-  background: black;
-  color: white;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 15px;
-}
-
-/* Barra de botões de filtro */
-#filter-buttons {
-  margin: 20px;
-}
-.filter-button {
-  padding: 8px 16px;
-  margin: 4px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 12px;
-}
-.filter-button:hover {
-  opacity: 0.8;
-}
-
-/* Container da galeria */
-#pokemon-container {
-  margin: 20px auto;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* Estilização dos cards de cada Pokémon */
-.pokemon-card {
-  background: #f7f7f7;
-  border-radius: 20px;
-  padding: 10px;
-  width: 150px;
-  text-align: center;
-  position: relative;
-  transition: box-shadow 0.3s;
-}
-.pokemon-card:hover {
-  box-shadow: 0px 0px 15px 2px #aaa;
-}
-.pokemon-image {
-  max-width: 100%;
-}
-.pokemon-name {
-  font-size: 16px;
-  margin: 5px 0;
-}
-.pokemon-rank {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  background: black;
-  color: white;
-  padding: 2px 5px;
-  border-radius: 3px;
-  font-size: 12px;
-}
-
-/* Estilização dos links do rodapé, similar ao original */
-#bottom {
-  text-align: center;
-  margin-bottom: 20px;
-}
-#bottomblock {
-  background: white;
-  color: black;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 15px;
-  margin: 10px auto;
-}
-a:link, a:visited {
-  text-decoration: none;
-  color: #cf0000;
-}
-a:hover, a:active {
-  text-decoration: none;
-  color: #f50808;
-  text-shadow: 0 0 50px #f50808, 0 0 5px #f50808;
-}
-</style> </head> <body> <a name="top"></a> <div id="wrapper"> <!-- Cabeçalho com a identidade visual --> <div id="top"> <img src="/images/pokeshelf.png" style="max-width: 100%;" alt="Poké Shelf"> <br> <div id="topblock">Meus Pokémons no: Pokémon Vortex</div> <br> <a href="https://pokemon-vortex.com/" target="_blank"> <img src="/images/vortex.png" style="max-width: 300px;" title="Pokémon Vortex (jogo de navegador)" alt="Vortex"> </a> </div>
-php-template
-Copiar
-<!-- Barra de botões para filtro dinâmico por tipo -->
-<div id="filter-buttons">
-  <button class="filter-button" data-filter="todos">Ver Todos</button>
-  <button class="filter-button" data-filter="Normal">Normal</button>
-  <button class="filter-button" data-filter="Fire">Fire</button>
-  <button class="filter-button" data-filter="Water">Water</button>
-  <button class="filter-button" data-filter="Electric">Electric</button>
-  <button class="filter-button" data-filter="Grass">Grass</button>
-  <button class="filter-button" data-filter="Ice">Ice</button>
-  <button class="filter-button" data-filter="Fighting">Fighting</button>
-  <button class="filter-button" data-filter="Poison">Poison</button>
-  <button class="filter-button" data-filter="Ground">Ground</button>
-  <button class="filter-button" data-filter="Flying">Flying</button>
-  <button class="filter-button" data-filter="Psychic">Psychic</button>
-  <button class="filter-button" data-filter="Bug">Bug</button>
-  <button class="filter-button" data-filter="Rock">Rock</button>
-  <button class="filter-button" data-filter="Ghost">Ghost</button>
-  <button class="filter-button" data-filter="Dragon">Dragon</button>
-  <button class="filter-button" data-filter="Dark">Dark</button>
-  <button class="filter-button" data-filter="Steel">Steel</button>
-  <button class="filter-button" data-filter="Fairy">Fairy</button>
-  <button class="filter-button" data-filter="Stellar">Stellar</button>
-</div>
-
-<!-- Container onde os cards de Pokémons serão gerados dinamicamente -->
-<div id="pokemon-container">
-  <!-- Os elementos serão injetados aqui via JavaScript -->
-</div>
-
-<!-- Rodapé com links para navegação -->
-<div id="bottom">
-  <div id="bottomblock"><a href="#top">↑ Retornar ao topo da página</a></div>
-  <br>
-  <div id="bottomblock"><a href="/outros.html">« Retornar ao site principal</a></div>
-</div>
-</div> <script> // Array com alguns objetos exemplificativos de Pokémon. // Cada objeto inclui: // - file: caminho da imagem (usando o mesmo padrão do seu original) // - name: nome exibido (extraído da URL ou definido manualmente para casos especiais) // - rank: posição absoluta (segundo sua ordem estética descendente) // - types: array com os tipos verdadeiros do Pokémon (complete conforme necessário) const pokemons = [ { file: "images/pokemon/Shiny%20Mew.png", name: "Mew (Shiny)", rank: 1, types: ["Psychic"] }, { file: "images/pokemon/Mew.png", name: "Mew", rank: 2, types: ["Psychic"] }, { file: "images/pokemon/Shiny%20Mewtwo.png", name: "Mewtwo (Shiny)", rank: 3, types: ["Psychic"] }, { file: "images/pokemon/Mewtwo.png", name: "Mewtwo", rank: 4, types: ["Psychic"] }, { file: "images/pokemon/Shiny%20Celebi.png", name: "Celebi (Shiny)", rank: 5, types: ["Psychic", "Grass"] }, { file: "images/pokemon/Celebi.png", name: "Celebi", rank: 6, types: ["Psychic", "Grass"] }, { file: "images/pokemon/Jirachi.png", name: "Jirachi", rank: 7, types: ["Steel", "Psychic"] }, { file: "images/pokemon/Arceus.png", name: "Arceus", rank: 8, types: ["Normal"] }, { file: "images/pokemon/Arceus%20(Grass).png", name: "Arceus (Grass)", rank: 9, types: ["Grass"] }, { file: "images/pokemon/Arceus%20(Water).png", name: "Arceus (Water)", rank: 10, types: ["Water"] }, { file: "images/pokemon/Arceus%20(Fire).png", name: "Arceus (Fire)", rank: 11, types: ["Fire"] }, { file: "images/pokemon/Arceus%20(Dark).png", name: "Arceus (Dark)", rank: 12, types: ["Dark"] }, // ... Insira os demais Pokémons da sua lista com seus respectivos ranks e tipos. ]; // Cria um cartão (card) para cada Pokémon. function createPokemonCard(pokemon) { const card = document.createElement("div"); card.className = "pokemon-card"; // Atribui os tipos em um data-attribute para facilitar a filtragem. card.setAttribute("data-types", pokemon.types.join(",")); // Exibe o ranking absoluto. const rankLabel = document.createElement("div"); rankLabel.className = "pokemon-rank"; rankLabel.textContent = "#" + pokemon.rank; card.appendChild(rankLabel); // Insere a imagem do Pokémon. const img = document.createElement("img"); img.className = "pokemon-image"; img.src = pokemon.file; img.alt = pokemon.name; card.appendChild(img); // Exibe o nome do Pokémon. const nameDiv = document.createElement("div"); nameDiv.className = "pokemon-name"; nameDiv.textContent = pokemon.name; card.appendChild(nameDiv); return card; } // Função que renderiza os Pokémons na tela conforme um filtro. // Se filterType for "todos", exibe tudo na ordem original (por rank). function renderPokemons(filterType = "todos") { const container = document.getElementById("pokemon-container"); container.innerHTML = ""; // Limpa o container // Filtra o array se um tipo específico for selecionado. const filtered = (filterType === "todos") ? pokemons : pokemons.filter(pokemon => pokemon.types.includes(filterType)); // Ordena os Pokémons de acordo com o rank (mantendo sua ordem estética). filtered.sort((a, b) => a.rank - b.rank); // Cria e insere os cards na página. filtered.forEach(pokemon => { const card = createPokemonCard(pokemon); container.appendChild(card); }); } // Adiciona os event listeners aos botões de filtro. document.querySelectorAll(".filter-button").forEach(button => { button.addEventListener("click", function() { const filter = this.getAttribute("data-filter"); renderPokemons(filter); }); }); // Renderiza inicialmente todos os Pokémons. renderPokemons(); </script> </body> </html>
+    #wrapper { text-align: center; width: 100%; }
+    #top { margin: 10px 0; font-size: 20px; }
+    #topblock {
+      background: black;
+      color: white;
+      padding: 10px;
+      display: inline-block;
+      border-radius: 15px;
+      margin-bottom: 10px;
+    }
+    /* Botões de Filtro */
+    #filter-buttons {
+      margin: 20px;
+    }
+    .filter-button {
+      padding: 8px 16px;
+      margin: 4px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      background-color: #ddd;
+    }
+    .filter-button.active, .filter-button:hover { background-color: #bbb; }
+    /* Container de Pokémons */
+    #pokemon-container {
+      margin: 20px auto;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    /* Cartões de Cada Pokémon */
+    .pokemon-card {
+      background: #f7f7f7;
+      border-radius: 20px;
+      padding: 10px;
+      width: 150px;
+      text-align: center;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .pokemon-card:hover { box-shadow: 0px 0px 15px 2px #aaa; }
+    .pokemon-image { max-width: 100%; }
+    .pokemon-name { font-size: 16px; margin: 5px 0; }
+    .pokemon-rank {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: black;
+      color: white;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+    /* Rodapé */
+    #bottom { text-align: center; margin-bottom: 20px; }
+    #bottomblock {
+      background: white;
+      color: black;
+      padding: 10px;
+      display: inline-block;
+      border-radius: 15px;
+      margin: 10px auto;
+    }
+    a:link, a:visited { text-decoration: none; color: #cf0000; }
+    a:hover, a:active { text-decoration: none; color: #f50808; text-shadow: 0 0 50px #f50808, 0 0 5px #f50808; }
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+    <!-- Cabeçalho -->
+    <div id="top">
+      <img src="images/pokeshelf.png" style="max-width: 100%;" alt="Poké Shelf">
+      <br>
+      <div id="topblock">Meus Pokémons no: Pokémon Vortex</div>
+      <br>
+      <a href="https://pokemon-vortex.com/" target="_blank">
+        <img src="images/vortex.png" style="max-width: 300px;" title="Pokémon Vortex (jogo de navegador)" alt="Vortex">
+      </a>
+    </div>
+    
+    <!-- Botões de Filtro -->
+    <div id="filter-buttons">
+      <button class="filter-button active" data-filter="todos">Ver Todos</button>
+      <button class="filter-button" data-filter="Normal">Normal</button>
+      <button class="filter-button" data-filter="Fire">Fire</button>
+      <button class="filter-button" data-filter="Water">Water</button>
+      <button class="filter-button" data-filter="Electric">Electric</button>
+      <button class="filter-button" data-filter="Grass">Grass</button>
+      <button class="filter-button" data-filter="Ice">Ice</button>
+      <button class="filter-button" data-filter="Fighting">Fighting</button>
+      <button class="filter-button" data-filter="Poison">Poison</button>
+      <button class="filter-button" data-filter="Ground">Ground</button>
+      <button class="filter-button" data-filter="Flying">Flying</button>
+      <button class="filter-button" data-filter="Psychic">Psychic</button>
+      <button class="filter-button" data-filter="Bug">Bug</button>
+      <button class="filter-button" data-filter="Rock">Rock</button>
+      <button class="filter-button" data-filter="Ghost">Ghost</button>
+      <button class="filter-button" data-filter="Dragon">Dragon</button>
+      <button class="filter-button" data-filter="Dark">Dark</button>
+      <button class="filter-button" data-filter="Steel">Steel</button>
+      <button class="filter-button" data-filter="Fairy">Fairy</button>
+      <button class="filter-button" data-filter="Stellar">Stellar</button>
+    </div>
+    
+    <!-- Container dos Cartões de Pokémons -->
+    <div id="pokemon-container">
+      <!-- Os cartões serão inseridos via JavaScript -->
+    </div>
+    
+    <!-- Rodapé -->
+    <div id="bottom">
+      <div id="bottomblock"><a href="#top">↑ Retornar ao topo da página</a></div>
+      <br>
+      <div id="bottomblock"><a href="/outros.html">« Retornar ao site principal</a></div>
+    </div>
+  </div>
+  
+  <script>
+    // Exemplo de dados com alguns Pokémons; complete com sua lista total e tipos reais.
+    const pokemons = [
+      { file: "images/pokemon/Shiny%20Mew.png", name: "Mew (Shiny)", rank: 1, types: ["Psychic"] },
+      { file: "images/pokemon/Mew.png", name: "Mew", rank: 2, types: ["Psychic"] },
+      { file: "images/pokemon/Shiny%20Mewtwo.png", name: "Mewtwo (Shiny)", rank: 3, types: ["Psychic"] },
+      { file: "images/pokemon/Mewtwo.png", name: "Mewtwo", rank: 4, types: ["Psychic"] },
+      { file: "images/pokemon/Shiny%20Celebi.png", name: "Celebi (Shiny)", rank: 5, types: ["Psychic", "Grass"] },
+      { file: "images/pokemon/Celebi.png", name: "Celebi", rank: 6, types: ["Psychic", "Grass"] },
+      { file: "images/pokemon/Jirachi.png", name: "Jirachi", rank: 7, types: ["Steel", "Psychic"] },
+      { file: "images/pokemon/Arceus.png", name: "Arceus", rank: 8, types: ["Normal"] },
+      { file: "images/pokemon/Arceus%20(Grass).png", name: "Arceus (Grass)", rank: 9, types: ["Grass"] },
+      { file: "images/pokemon/Arceus%20(Water).png", name: "Arceus (Water)", rank: 10, types: ["Water"] },
+      { file: "images/pokemon/Arceus%20(Fire).png", name: "Arceus (Fire)", rank: 11, types: ["Fire"] },
+      { file: "images/pokemon/Arceus%20(Dark).png", name: "Arceus (Dark)", rank: 12, types: ["Dark"] }
+      // Adicione os demais pokémons conforme a necessidade...
+    ];
+    
+    // Cria o card de um Pokémon
+    function createPokemonCard(pokemon) {
+      const card = document.createElement("div");
+      card.className = "pokemon-card";
+      card.setAttribute("data-types", pokemon.types.join(","));
+      
+      // Label de rank
+      const rankLabel = document.createElement("div");
+      rankLabel.className = "pokemon-rank";
+      rankLabel.textContent = "#" + pokemon.rank;
+      card.appendChild(rankLabel);
+      
+      // Imagem
+      const img = document.createElement("img");
+      img.className = "pokemon-image";
+      img.src = pokemon.file;
+      img.alt = pokemon.name;
+      card.appendChild(img);
+      
+      // Nome
+      const nameDiv = document.createElement("div");
+      nameDiv.className = "pokemon-name";
+      nameDiv.textContent = pokemon.name;
+      card.appendChild(nameDiv);
+      
+      return card;
+    }
+    
+    // Renderiza os Pokémons conforme o filtro selecionado
+    function renderPokemons(filterType = "todos") {
+      const container = document.getElementById("pokemon-container");
+      container.innerHTML = ""; // Limpa o container
+      
+      // Filtragem do array conforme o tipo
+      let filtered = (filterType === "todos")
+        ? pokemons
+        : pokemons.filter(pokemon => pokemon.types.includes(filterType));
+      
+      // Ordena por rank (ordem ascendente, preservando a ordem estética)
+      filtered.sort((a, b) => a.rank - b.rank);
+      
+      // Insere cada card no container
+      filtered.forEach(pokemon => {
+        const card = createPokemonCard(pokemon);
+        container.appendChild(card);
+      });
+    }
+    
+    // Ativa a classe "active" no botão de filtro selecionado
+    function setActiveButton(button) {
+      const buttons = document.querySelectorAll(".filter-button");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+    }
+    
+    // Configura os event listeners dos botões de filtro
+    document.querySelectorAll(".filter-button").forEach(button => {
+      button.addEventListener("click", function() {
+        const filter = this.getAttribute("data-filter");
+        setActiveButton(this);
+        renderPokemons(filter);
+      });
+    });
+    
+    // Renderização inicial com todos os pokémons
+    renderPokemons();
+  </script>
+</body>
+</html>
