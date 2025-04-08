@@ -93,6 +93,30 @@
     }
     a:link, a:visited { text-decoration: none; color: #cf0000; }
     a:hover, a:active { text-decoration: none; color: #f50808; text-shadow: 0 0 50px #f50808, 0 0 5px #f50808; }
+
+
+    /* Animação fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Aplicação do fade-in por classe */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Zoom no hover */
+.pokemon-card {
+  transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+    
   </style>
 </head>
 <body>
@@ -511,10 +535,12 @@
       // Ordena por rank (manutenção da ordem estética)
       filtered.sort((a, b) => a.rank - b.rank);
       
-      filtered.forEach(pokemon => {
-        const card = createPokemonCard(pokemon);
-        container.appendChild(card);
-      });
+    filtered.forEach(pokemon => {
+  const card = createPokemonCard(pokemon);
+  card.classList.add("fade-in"); // Adiciona a classe de animação
+  container.appendChild(card);
+});
+
     }
     
     // Altera o botão ativo
