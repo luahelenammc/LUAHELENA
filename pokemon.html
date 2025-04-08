@@ -117,6 +117,46 @@
   z-index: 2;
 }
 
+
+    /* Container para as tags */
+.pokemon-tags {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Estilos para cada tag */
+.pokemon-tag {
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 10px;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Paleta de cores para cada tipo */
+.tag-Normal   { background-color: #A8A77A; }
+.tag-Fire     { background-color: #EE8130; }
+.tag-Water    { background-color: #6390F0; }
+.tag-Electric { background-color: #F7D02C; }
+.tag-Grass    { background-color: #7AC74C; }
+.tag-Ice      { background-color: #96D9D6; }
+.tag-Fighting { background-color: #C22E28; }
+.tag-Poison   { background-color: #A33EA1; }
+.tag-Ground   { background-color: #E2BF65; }
+.tag-Flying   { background-color: #A98FF3; }
+.tag-Psychic  { background-color: #F95587; }
+.tag-Bug      { background-color: #A6B91A; }
+.tag-Rock     { background-color: #B6A136; }
+.tag-Ghost    { background-color: #735797; }
+.tag-Dragon   { background-color: #6F35FC; }
+.tag-Dark     { background-color: #705746; }
+.tag-Steel    { background-color: #B7B7CE; }
+.tag-Fairy    { background-color: #D685AD; }
+.tag-Stellar  { background-color: #E0DFFF; }
+
     
   </style>
 </head>
@@ -497,32 +537,46 @@
     ];
     
     // Cria o card de um Pokémon
-    function createPokemonCard(pokemon) {
-      const card = document.createElement("div");
-      card.className = "pokemon-card";
-      card.setAttribute("data-types", pokemon.types.join(","));
-      
-      // Label de rank
-      const rankLabel = document.createElement("div");
-      rankLabel.className = "pokemon-rank";
-      rankLabel.textContent = "#" + pokemon.rank;
-      card.appendChild(rankLabel);
-      
-      // Imagem
-      const img = document.createElement("img");
-      img.className = "pokemon-image";
-      img.src = pokemon.file;
-      img.alt = pokemon.name;
-      card.appendChild(img);
-      
-      // Nome
-      const nameDiv = document.createElement("div");
-      nameDiv.className = "pokemon-name";
-      nameDiv.textContent = pokemon.name;
-      card.appendChild(nameDiv);
-      
-      return card;
-    }
+  function createPokemonCard(pokemon) {
+  const card = document.createElement("div");
+  card.className = "pokemon-card";
+  card.setAttribute("data-types", pokemon.types.join(","));
+  
+  // Label de rank
+  const rankLabel = document.createElement("div");
+  rankLabel.className = "pokemon-rank";
+  rankLabel.textContent = "#" + pokemon.rank;
+  card.appendChild(rankLabel);
+  
+  // Imagem
+  const img = document.createElement("img");
+  img.className = "pokemon-image";
+  img.src = pokemon.file;
+  img.alt = pokemon.name;
+  card.appendChild(img);
+  
+  // Nome do Pokémon
+  const nameDiv = document.createElement("div");
+  nameDiv.className = "pokemon-name";
+  nameDiv.textContent = pokemon.name;
+  card.appendChild(nameDiv);
+  
+  // Criação das tags dos tipos
+  const tagsContainer = document.createElement("div");
+  tagsContainer.className = "pokemon-tags";
+  
+  pokemon.types.forEach(type => {
+    const tag = document.createElement("span");
+    tag.className = "pokemon-tag tag-" + type;
+    tag.textContent = type;
+    tagsContainer.appendChild(tag);
+  });
+  
+  card.appendChild(tagsContainer);
+  
+  return card;
+}
+
     
     // Renderiza os Pokémons conforme o filtro selecionado
     function renderPokemons(filterType = "todos") {
