@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histórico de Estradiol - Moon</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: #f5f5f5;
+      padding: 20px;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #e6b3ff;
+      font-size: 1.2rem;
+    }
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      background: #2c2c3e;
+      border-radius: 12px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Histórico de Estradiol (E2) – Lua Helena Moon</h1>
+  <div class="chart-container">
+    <canvas id="estradiolChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('estradiolChart').getContext('2d');
+    const estradiolChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Ago/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25'],
+        datasets: [{
+          label: 'Estradiol (pg/mL)',
+          data: [28, 32, 114, 74, 312],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: '#e6b3ff',
+          borderWidth: 3,
+          pointBackgroundColor: '#fff',
+          pointBorderColor: '#e6b3ff',
+          tension: 0.4
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: 350,
+            title: {
+              display: true,
+              text: 'pg/mL',
+              color: '#ccc'
+            },
+            ticks: {
+              color: '#ccc'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#ccc'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccc'
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.parsed.y} pg/mL`;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
