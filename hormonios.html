@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Hormonal - Lua Helena Moon</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #e6b3ff;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+    }
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+      background: #2c2c3e;
+      border-radius: 12px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Painel de Hormônios - Lua Helena Moon</h1>  <div class="chart-container">
+    <h2>Estradiol (E2)</h2>
+    <canvas id="chartE2"></canvas>
+  </div>
+  <div class="chart-container">
+    <h2>Testosterona Total</h2>
+    <canvas id="chartTT"></canvas>
+  </div>
+  <div class="chart-container">
+    <h2>LH</h2>
+    <canvas id="chartLH"></canvas>
+  </div>
+  <div class="chart-container">
+    <h2>FSH</h2>
+    <canvas id="chartFSH"></canvas>
+  </div>
+  <div class="chart-container">
+    <h2>Prolactina</h2>
+    <canvas id="chartProlactina"></canvas>
+  </div>  <script>
+    function criaGrafico(id, label, labels, dados, cor) {
+      new Chart(document.getElementById(id).getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: label,
+            data: dados,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: cor,
+            borderWidth: 3,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: cor,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 2,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { color: '#ccc' },
+              title: { display: true, text: label, color: '#ccc' }
+            },
+            x: {
+              ticks: { color: '#ccc' }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#ccc' } },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.parsed.y}`
+              }
+            }
+          }
+        }
+      });
+    }
+
+    criaGrafico('chartE2', 'pg/mL', ['Ago/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25'], [28, 32, 114, 74, 312], '#e6b3ff');
+    criaGrafico('chartTT', 'ng/dL', ['Set/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25'], [74, 19, 13, 13, 13], '#ffcc00');
+    criaGrafico('chartLH', 'UI/L', ['Set/24', 'Dez/24'], [6.4, 0.1], '#66d9ef');
+    criaGrafico('chartFSH', 'UI/L', ['Set/24', 'Dez/24'], [5.3, 0.2], '#ff6ec7');
+    criaGrafico('chartProlactina', 'ng/mL', ['Dez/24'], [19.2], '#8be9fd');
+  </script></body>
+</html>
