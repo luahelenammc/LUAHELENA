@@ -28,27 +28,73 @@
       border-radius: 12px;
       padding: 10px;
     }
+    table {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      border-collapse: collapse;
+      background-color: #2c2c3e;
+      color: #f5f5f5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #444;
+    }
   </style>
 </head>
 <body>
   <h1>Painel de Hormônios - Lua Helena Moon</h1>  <div class="chart-container">
     <h2>Estradiol (E2)</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (pg/mL)</th></tr>
+      <tr><td>Ago/24</td><td>28</td></tr>
+      <tr><td>Nov/24</td><td>32</td></tr>
+      <tr><td>Dez/24</td><td>114</td></tr>
+      <tr><td>Mar/25</td><td>74</td></tr>
+      <tr><td>Abr/25</td><td>312</td></tr>
+    </table>
     <canvas id="chartE2"></canvas>
-  </div>
-  <div class="chart-container">
+  </div>  <div class="chart-container">
     <h2>Testosterona Total</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (ng/dL)</th></tr>
+      <tr><td>Set/24</td><td>74</td></tr>
+      <tr><td>Nov/24</td><td>19</td></tr>
+      <tr><td>Dez/24</td><td>13</td></tr>
+      <tr><td>Mar/25</td><td>13</td></tr>
+      <tr><td>Abr/25</td><td>13</td></tr>
+    </table>
     <canvas id="chartTT"></canvas>
-  </div>
-  <div class="chart-container">
+  </div>  <div class="chart-container">
     <h2>LH</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (UI/L)</th></tr>
+      <tr><td>Set/24</td><td>6.4</td></tr>
+      <tr><td>Dez/24</td><td>0.1</td></tr>
+    </table>
     <canvas id="chartLH"></canvas>
-  </div>
-  <div class="chart-container">
+  </div>  <div class="chart-container">
     <h2>FSH</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (UI/L)</th></tr>
+      <tr><td>Set/24</td><td>5.3</td></tr>
+      <tr><td>Dez/24</td><td>0.2</td></tr>
+    </table>
     <canvas id="chartFSH"></canvas>
-  </div>
-  <div class="chart-container">
+  </div>  <div class="chart-container">
     <h2>Prolactina</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (ng/mL)</th></tr>
+      <tr><td>Nov/24</td><td>11.8</td></tr>
+      <tr><td>Dez/24</td><td>19.2</td></tr>
+      <tr><td>Abr/25</td><td>18.0</td></tr>
+    </table>
     <canvas id="chartProlactina"></canvas>
   </div>  <script>
     function criaGrafico(id, label, labels, dados, cor) {
