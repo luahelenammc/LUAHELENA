@@ -5,138 +5,128 @@
   <title>Blog da Lua - Minhas Viagens</title>
 
   <style>
-    @charset "utf-8";
+ @charset "utf-8";
 /* CSS Document */
 
 /* MOUSE MAC OS X */
 html, body {
-  cursor:url('/images/mouse.png'), auto !important;
+  cursor: url('/images/mouse.png'), auto !important;
 }
 a:hover {
-  cursor:url('/images/select.png'), auto !important;
+  cursor: url('/images/select.png'), auto !important;
 }
 a:active {
-  cursor:url('/images/wheel.png'), auto !important;
+  cursor: url('/images/wheel.png'), auto !important;
 }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: #e6ddc4 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-      font-family: 'Georgia', serif;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 50px;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  background: #e6ddc4 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+}
 
-    .selo {
-      position: sticky;
-      top: 50px;
-      width: 300px;
-      min-height: 300px;
-      background: radial-gradient(circle at center, #7a2010 40%, #3e0d05 100%);
-      border-radius: 50%;
-      color: #fff0e6;
-      padding: 40px;
-      margin-right: 40px;
-      box-shadow: inset -4px -4px 10px rgba(0,0,0,0.5),
-                  4px 4px 12px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      box-sizing: border-box;
-      height: fit-content;
-    }
+/* SELO */
+.selo {
+  position: sticky;
+  top: 50px;
+  width: 300px;
+  min-height: 300px;
+  background: radial-gradient(circle at center, #7a2010 40%, #3e0d05 100%);
+  border-radius: 50%;
+  color: #fff0e6;
+  padding: 40px;
+  margin-right: 40px;
+  box-shadow:
+    inset -4px -4px 10px rgba(0,0,0,0.5),
+    4px 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  height: fit-content;
+}
 
-    .selo h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+.selo h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    .selo p {
-      font-size: 14px;
-      line-height: 1.6;
-    }
+.selo p {
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-    .posts-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 750px;
-    }
+/* POSTS */
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 750px;
+}
 
-    .pergaminho {
-      background: #fef9e7;
-      border: 4px double #7b4a12;
-      padding: 40px 60px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-      color: #3b2e17;
-      text-align: center;
-    }
+.pergaminho {
+  background: #fef9e7;
+  border: 4px double #7b4a12;
+  padding: 40px 60px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  color: #3b2e17;
+  text-align: center;
+}
 
-    .post-img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #caa97f;
-      margin-bottom: 20px;
-    }
+.post-img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #caa97f;
+  margin-bottom: 20px;
+}
 
-    h1 {
-      font-size: 34px;
-      color: #5e1b0c;
-      margin-bottom: 10px;
-    }
+h1 {
+  font-size: 34px;
+  color: #5e1b0c;
+  margin-bottom: 10px;
+}
 
-    .descricao {
-      font-size: 18px;
-      color: #403219;
-      line-height: 1.8;
-      text-align: justify;
-      text-indent: 30px;
-    }
+.descricao {
+  font-size: 18px;
+  color: #403219;
+  line-height: 1.8;
+  text-align: justify;
+  text-indent: 30px;
+}
 
-    a.coordenadas-link {
-      text-decoration: none;
-    }
+/* COORDENADAS */
+a.coordenadas-link {
+  text-decoration: none;
+}
 
-    .coordenadas {
-      margin-top: 20px;
-      font-size: 16px;
-      font-style: italic;
-      color: #6b4a2b;
-      background: rgba(245, 235, 200, 0.7);
-      padding: 8px 16px;
-      border-left: 4px solid #b48a55;
-      display: inline-block;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
+.coordenadas {
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: italic;
+  color: #6b4a2b;
+  background: rgba(245, 235, 200, 0.7);
+  padding: 8px 16px;
+  border-left: 4px solid #b48a55;
+  display: inline-block;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
 
-    a.coordenadas-link:hover .coordenadas {
-      box-shadow: 0 0 12px #7a2010, 0 0 20px #7a2010aa;
-      transform: scale(1.03);
-    }
+a.coordenadas-link:hover .coordenadas {
+  box-shadow: 0 0 12px #7a2010, 0 0 20px #7a2010aa;
+  transform: scale(1.03);
+}
 
-    @media (max-width: 1000px) {
-      body {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .selo {
-        margin: 0 0 30px 0;
-      }
-
-      .posts-container {
-        padding: 0 20px;
-      }
-    }
-
-   a:link,
+/* LINKS */
+a:link,
 a:visited {
   text-decoration: none;
   color: #7a2010;
@@ -150,6 +140,37 @@ a:focus {
 
 a:active {
   color: #b12210;
+}
+
+/* RESPONSIVO: tablets e desktops menores */
+@media (max-width: 1000px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selo {
+    margin: 0 0 30px 0;
+  }
+
+  .posts-container {
+    padding: 0 20px;
+  }
+}
+
+/* ESPECIAL: apenas em mobiles (até 600px de largura) */
+@media (max-width: 600px) {
+  /* faz com que o selo permaneça no fluxo normal, sempre no topo */
+  .selo {
+    position: static;
+    top: auto;
+    margin-bottom: 30px;
+  }
+  /* aumenta as coordenadas para melhor leitura no mobile */
+  .coordenadas {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
 }
 
     
