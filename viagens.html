@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog da Lua - Minhas Viagens</title>
 
   <style>
@@ -162,16 +163,17 @@ a:active {
 @media (max-width: 600px) {
   /* faz com que o selo permaneça no fluxo normal, sempre no topo */
   .selo {
-    position: static;
-    top: auto;
+    position: static !important;
+    top: auto !important;
     margin-bottom: 30px;
   }
   /* aumenta as coordenadas para melhor leitura no mobile */
   .coordenadas {
-    font-size: 18px;
-    padding: 12px 20px;
+    font-size: 18px !important;
+    padding: 12px 20px !important;
   }
 }
+
 
     
   </style>
