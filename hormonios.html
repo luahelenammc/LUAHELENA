@@ -1,3 +1,4 @@
+<!-- Atualizado com dados de Junho/25 -->
 <!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -49,7 +50,9 @@
   </style>
 </head>
 <body>
-  <h1>Painel de Hormônios - Lua Helena Moon</h1>  <div class="chart-container">
+  <h1>Painel de Hormônios - Lua Helena Moon</h1>
+
+  <div class="chart-container">
     <h2>Estradiol (E2)</h2>
     <table>
       <tr><th>Data</th><th>Valor (pg/mL)</th></tr>
@@ -58,9 +61,12 @@
       <tr><td>Dez/24</td><td>114</td></tr>
       <tr><td>Mar/25</td><td>74</td></tr>
       <tr><td>Abr/25</td><td>312</td></tr>
+      <tr><td>Jun/25</td><td>78</td></tr>
     </table>
     <canvas id="chartE2"></canvas>
-  </div>  <div class="chart-container">
+  </div>
+
+  <div class="chart-container">
     <h2>Testosterona Total</h2>
     <table>
       <tr><th>Data</th><th>Valor (ng/dL)</th></tr>
@@ -69,9 +75,21 @@
       <tr><td>Dez/24</td><td>13</td></tr>
       <tr><td>Mar/25</td><td>13</td></tr>
       <tr><td>Abr/25</td><td>13</td></tr>
+      <tr><td>Jun/25</td><td>21</td></tr>
     </table>
     <canvas id="chartTT"></canvas>
-  </div>  <div class="chart-container">
+  </div>
+
+  <div class="chart-container">
+    <h2>Testosterona Livre</h2>
+    <table>
+      <tr><th>Data</th><th>Valor (pg/mL)</th></tr>
+      <tr><td>Jun/25</td><td>0.41</td></tr>
+    </table>
+    <canvas id="chartTLivre"></canvas>
+  </div>
+
+  <div class="chart-container">
     <h2>LH</h2>
     <table>
       <tr><th>Data</th><th>Valor (UI/L)</th></tr>
@@ -79,7 +97,9 @@
       <tr><td>Dez/24</td><td>0.1</td></tr>
     </table>
     <canvas id="chartLH"></canvas>
-  </div>  <div class="chart-container">
+  </div>
+
+  <div class="chart-container">
     <h2>FSH</h2>
     <table>
       <tr><th>Data</th><th>Valor (UI/L)</th></tr>
@@ -87,16 +107,21 @@
       <tr><td>Dez/24</td><td>0.2</td></tr>
     </table>
     <canvas id="chartFSH"></canvas>
-  </div>  <div class="chart-container">
+  </div>
+
+  <div class="chart-container">
     <h2>Prolactina</h2>
     <table>
       <tr><th>Data</th><th>Valor (ng/mL)</th></tr>
       <tr><td>Nov/24</td><td>11.8</td></tr>
       <tr><td>Dez/24</td><td>19.2</td></tr>
       <tr><td>Abr/25</td><td>18.0</td></tr>
+      <tr><td>Jun/25</td><td>19.0</td></tr>
     </table>
     <canvas id="chartProlactina"></canvas>
-  </div>  <script>
+  </div>
+
+  <script>
     function criaGrafico(id, label, labels, dados, cor) {
       new Chart(document.getElementById(id).getContext('2d'), {
         type: 'line',
@@ -139,10 +164,12 @@
       });
     }
 
-    criaGrafico('chartE2', 'pg/mL', ['Ago/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25'], [28, 32, 114, 74, 312], '#e6b3ff');
-    criaGrafico('chartTT', 'ng/dL', ['Set/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25'], [74, 19, 13, 13, 13], '#ffcc00');
+    criaGrafico('chartE2', 'pg/mL', ['Ago/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25', 'Jun/25'], [28, 32, 114, 74, 312, 78], '#e6b3ff');
+    criaGrafico('chartTT', 'ng/dL', ['Set/24', 'Nov/24', 'Dez/24', 'Mar/25', 'Abr/25', 'Jun/25'], [74, 19, 13, 13, 13, 21], '#ffcc00');
+    criaGrafico('chartTLivre', 'pg/mL', ['Jun/25'], [0.41], '#ff9999');
     criaGrafico('chartLH', 'UI/L', ['Set/24', 'Dez/24'], [6.4, 0.1], '#66d9ef');
     criaGrafico('chartFSH', 'UI/L', ['Set/24', 'Dez/24'], [5.3, 0.2], '#ff6ec7');
-    criaGrafico('chartProlactina', 'ng/mL', ['Nov/24', 'Dez/24', 'Abr/25'], [11.8, 19.2, 18.0], '#8be9fd');
-  </script></body>
+    criaGrafico('chartProlactina', 'ng/mL', ['Nov/24', 'Dez/24', 'Abr/25', 'Jun/25'], [11.8, 19.2, 18.0, 19.0], '#8be9fd');
+  </script>
+</body>
 </html>
