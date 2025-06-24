@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contagem da Autorização CRS</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .chart-container {
+      display: inline-block;
+      background-color: #ccc;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+    /* Gráfico do tipo donut */
+    .donut-chart {
+      width: 200px;
+      height: 200px;
+    }
+    /* Círculo de fundo (total) */
+    .background {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 20;
+    }
+    /* Círculo que indica a decorrência com animação de cor */
+    .progress {
+      fill: none;
+      stroke-width: 20;
+      stroke-linecap: round;
+      animation: colorPulse 2s infinite;
+    }
+    @keyframes colorPulse {
+      0%   { stroke: #ff77ff; } /* rosa-claro-neon */
+      50%  { stroke: #00ffff; } /* azul-piscina-neon */
+      100% { stroke: #ff77ff; }
+    }
+    /* Gráfico de barra */
+    .bar-chart {
+      width: 300px;
+      height: 50px;
+    }
+    .bar-bg {
+      fill: #eee;
+    }
+    .bar-progress {
+      fill: #ff77ff;
+      animation: colorPulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contagem da Autorização CRS</h1>
+  
+  <!-- Gráfico Donut -->
+  <div class="chart-container">
+    <h2>Gráfico de Pizza Oca</h2>
+    <svg class="donut-chart" viewBox="0 0 200 200">
+      <!-- Círculo de fundo -->
+      <circle class="background" cx="100" cy="100" r="70"></circle>
+      <!-- Círculo de progresso (decorrência) -->
+      <circle class="progress" cx="100" cy="100" r="70"
+              stroke-dasharray="0 440"
+              stroke-dashoffset="0"
+              transform="rotate(-90 100 100)"></circle>
+      <!-- Texto central -->
+      <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
+    </svg>
+  </div>
+  
+  <!-- Gráfico de Barra Horizontal -->
+  <div class="chart-container">
+    <h2>Gráfico de Barra Horizontal</h2>
+    <svg class="bar-chart">
+      <!-- Fundo da barra -->
+      <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+      <!-- Barra de progresso -->
+      <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+      <!-- Texto centralizado -->
+      <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
+    </svg>
+  </div>
+
+  <script>
+    (function(){
+      // Ponto de partida: 17/06/2025 | Data máxima (alvo): 01/07/2025
+      const startDate = new Date("2025-06-17T00:00:00");
+      const endDate   = new Date("2025-07-01T00:00:00");
+      const totalDuration = endDate - startDate;
+
+      // Seleção dos elementos SVG e textos
+      const donutCircle = document.querySelector('.donut-chart .progress');
+      const donutText   = document.getElementById('donut-text');
+      const barProgress = document.getElementById('bar-progress');
+      const barText     = document.getElementById('bar-text');
+
+      // Propriedades do círculo do gráfico donut
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius; // ≈ 440
+
+      function updateCharts(){
+        const now = new Date();
+        let elapsed = now - startDate;
+        if(elapsed < 0) elapsed = 0;
+        if(elapsed > totalDuration) elapsed = totalDuration;
+        const percent = elapsed / totalDuration;
+        const percentText = (percent * 100).toFixed(2) + '%';
+
+        // Atualiza o gráfico donut
+        const progressLength = percent * circumference;
+        const remainderLength = circumference - progressLength;
+        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
+        donutText.textContent = percentText;
+
+        // Atualiza o gráfico de barra
+        const barTotalWidth = 300;
+        const barWidth = percent * barTotalWidth;
+        barProgress.setAttribute('width', barWidth);
+        barText.textContent = percentText;
+      }
+
+      updateCharts();
+      // Atualiza a cada 1 segundo
+      setInterval(updateCharts, 1000);
+    })();
+  </script>
+</body>
+</html>
