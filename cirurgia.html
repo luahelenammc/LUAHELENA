@@ -107,14 +107,14 @@
         <circle class="background" cx="120" cy="120" r="90"></circle>
         <!-- segmentos injetados via JS -->
         <!-- ponteiro de hoje como linha -->
-        <line id="pointerLine" class="pointer-line" x1="120" y1="40" x2="120" y2="20"></line>
+        <line id="pointerLine" class="pointer-line" x1="120" y1="40" x2="120" y2="-10"></line>
       </svg>
       <div class="legend" id="legend"></div>
     </div>
     <div id="tooltip"></div>
   </div>
 
-  <!-- Bar Chart (mantido) -->
+  <!-- Bar Chart -->
   <div class="chart-container">
     <h2>Progresso Multimarcos (Barra)</h2>
     <svg class="bar-chart" viewBox="0 0 300 50"></svg>
@@ -122,13 +122,12 @@
 
   <script>
   (function(){
-    // dados
     const markers = [
       new Date("2024-06-02T00:00:00"),
       new Date("2024-09-06T00:00:00"),
       new Date("2025-06-17T11:00:00"),
-      new Date("2025-09-18T07:00:00"), // CRS
-      new Date("2025-09-24T00:00:00"), // Alta
+      new Date("2025-09-18T07:00:00"),
+      new Date("2025-09-24T00:00:00"),
       new Date("2025-09-30T00:00:00"),
       new Date("2025-12-18T00:00:00")
     ];
@@ -153,12 +152,9 @@
     const circumference = 2 * Math.PI * radius;
     let offset = 0;
 
-    // desenha segmentos
     labels.forEach((lab,i) => {
       const span = markers[i+1] - markers[i];
-      const pct  = span / totalDuration;
-      const segLen = pct * circumference;
-      // stroke-dasharray: segLen + (circumference)
+      const segLen = (span/totalDuration)*circumference;
       const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
       circle.setAttribute("class","segment");
       circle.setAttribute("data-index", i);
@@ -169,8 +165,6 @@
       circle.setAttribute("stroke-dasharray", `${segLen} ${circumference}`);
       circle.setAttribute("stroke-dashoffset", -offset);
       circle.setAttribute("transform", `rotate(-90 ${cx} ${cy})`);
-
-      // tooltip
       circle.addEventListener('mouseenter', e => {
         tooltip.textContent = `${labels[i]} (${markers[i].toLocaleDateString()} → ${markers[i+1].toLocaleDateString()})`;
         tooltip.style.display = 'block';
@@ -181,12 +175,11 @@
         tooltip.style.top  = `${e.clientY - rect.top - 10}px`;
       });
       circle.addEventListener('mouseleave', () => tooltip.style.display = 'none');
-
       svgDonut.insertBefore(circle, document.getElementById('pointerLine'));
       offset += segLen;
     });
 
-    // destacar CRS (#3) e Alta (#4)
+    // destacar CRS e Alta
     [3,4].forEach(idx => {
       const el = svgDonut.querySelector(`circle.segment[data-index="${idx}"]`);
       if (el) svgDonut.insertBefore(el, document.getElementById('pointerLine'));
@@ -206,9 +199,10 @@
     function updatePointer() {
       let now = new Date(), elapsed = now - markers[0];
       elapsed = Math.max(0, Math.min(elapsed, totalDuration));
-      const pct = elapsed / totalDuration;
+      const pct = elapsed/totalDuration;
       const angle = pct*2*Math.PI - Math.PI/2;
-      const innerR = radius - 10, outerR = radius + 10;
+      const innerR = radius - 10;
+      const outerR = radius + 20; // extend further out
       const x1 = cx + innerR * Math.cos(angle);
       const y1 = cy + innerR * Math.sin(angle);
       const x2 = cx + outerR * Math.cos(angle);
@@ -218,50 +212,46 @@
       pointerLine.setAttribute('x2', x2);
       pointerLine.setAttribute('y2', y2);
     }
-    updatePointer(); setInterval(updatePointer, 1000);
+    updatePointer(); setInterval(updatePointer,1000);
 
-    // --- BAR (permanece igual) ---
-    const svgBar = document.querySelector('.bar-chart');
-    const barW = 300; let barOffset = 0;
-    labels.forEach((lab,i) => {
-      const span = markers[i+1] - markers[i];
-      const pct  = span / totalDuration;
-      const w = pct * barW;
-      const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
-      rect.setAttribute("class","segment-bar");
-      rect.setAttribute("x", barOffset);
-      rect.setAttribute("y", 15);
-      rect.setAttribute("width", w);
-      rect.setAttribute("height", 20);
-      rect.setAttribute("fill", colors[i]);
-      rect.addEventListener('mouseenter', e => {
-        tooltip.textContent = `${labels[i]} (${markers[i].toLocaleDateString()} → ${markers[i+1].toLocaleDateString()})`;
-        tooltip.style.display = 'block';
+    // BAR (mantido)
+    const svgBar = document.querySelector('.bar-chart'), barW=300;
+    let barOffset =0;
+    labels.forEach((lab,i)=>{
+      const span=markers[i+1]-markers[i];
+      const w=(span/totalDuration)*barW;
+      const rect=document.createElementNS("http://www.w3.org/2000/svg","rect");
+      rect.setAttribute("x",barOffset);
+      rect.setAttribute("y",15);
+      rect.setAttribute("width",w);
+      rect.setAttribute("height",20);
+      rect.setAttribute("fill",colors[i]);
+      rect.addEventListener('mouseenter',e=>{
+        tooltip.textContent=`${labels[i]} (${markers[i].toLocaleDateString()} → ${markers[i+1].toLocaleDateString()})`;
+        tooltip.style.display='block';
       });
-      rect.addEventListener('mousemove', e => {
-        const r = svgBar.getBoundingClientRect();
-        tooltip.style.left = `${e.clientX - r.left}px`;
-        tooltip.style.top  = `${e.clientY - r.top - 10}px`;
+      rect.addEventListener('mousemove',e=>{
+        const r=svgBar.getBoundingClientRect();
+        tooltip.style.left=`${e.clientX-r.left}px`;
+        tooltip.style.top=`${e.clientY-r.top-10}px`;
       });
-      rect.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+      rect.addEventListener('mouseleave',()=>tooltip.style.display='none');
       svgBar.appendChild(rect);
-      barOffset += w;
+      barOffset+=w;
     });
-    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    const line=document.createElementNS("http://www.w3.org/2000/svg","line");
     line.setAttribute("class","pointer-bar");
-    line.setAttribute("y1", 10);
-    line.setAttribute("y2", 40);
+    line.setAttribute("y1",10);
+    line.setAttribute("y2",40);
     svgBar.appendChild(line);
-    function updateBarPointer(){
-      let now = new Date(), elapsed = now - markers[0];
-      elapsed = Math.max(0, Math.min(elapsed, totalDuration));
-      const pct = elapsed/totalDuration;
-      const x = pct * barW;
-      line.setAttribute("x1", x);
-      line.setAttribute("x2", x);
+    function updateBar(){
+      let now=new Date(),elapsed=now-markers[0];
+      elapsed=Math.max(0,Math.min(elapsed,totalDuration));
+      const x=(elapsed/totalDuration)*barW;
+      line.setAttribute("x1",x);
+      line.setAttribute("x2",x);
     }
-    updateBarPointer(); setInterval(updateBarPointer,1000);
-
+    updateBar(); setInterval(updateBar,1000);
   })();
   </script>
 </body>
