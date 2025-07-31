@@ -20,17 +20,18 @@
       background-color: #111;
       padding: 20px;
       border-radius: 10px;
+      margin-bottom: 40px;
     }
     .chart-flex {
       display: flex;
       justify-content: center;
       align-items: flex-start;
     }
+    /* Donut */
     .donut-chart {
       width: 300px;
       height: 300px;
     }
-    /* Removendo bordas arredondadas nos segmentos */
     .donut-chart .segment {
       fill: none;
       stroke-linecap: butt;
@@ -48,6 +49,19 @@
       stroke: #000;
       stroke-width: 2;
       pointer-events: none;
+    }
+    /* Barra */
+    .bar-chart {
+      width: 300px;
+      height: 50px;
+      margin-top: 20px;
+    }
+    .bar-chart .segment-bar {
+      cursor: pointer;
+    }
+    .bar-chart .pointer-bar {
+      stroke: #fff;
+      stroke-width: 2;
     }
     .legend {
       margin-left: 24px;
@@ -85,13 +99,12 @@
 <body>
   <h1>Cirurgia de Readequação Sexual</h1>
 
-  <div class="chart-container">
-    <h2>Progresso Multimarcos</h2>
+  <!-- Donut Chart -->
+  <div class="chart-container" id="donut-container">
+    <h2>Progresso Multimarcos (Donut)</h2>
     <div class="chart-flex">
       <svg class="donut-chart" viewBox="0 0 240 240">
-        <!-- anel de fundo -->
         <circle class="background" cx="120" cy="120" r="90"></circle>
-        <!-- ponteiro “hoje” -->
         <circle class="pointer" id="pointer" r="8" cx="120" cy="30"></circle>
       </svg>
       <div class="legend" id="legend"></div>
@@ -99,118 +112,157 @@
     <div id="tooltip"></div>
   </div>
 
+  <!-- Bar Chart -->
+  <div class="chart-container" id="bar-container">
+    <h2>Progresso Multimarcos (Barra)</h2>
+    <svg class="bar-chart" viewBox="0 0 300 50">
+      <!-- segmentos e ponteiro serão injetados -->
+    </svg>
+  </div>
+
   <script>
   (function(){
-    // 1) Marcos e rótulos
+    // Marcos, rótulos e cores
     const markers = [
-      new Date("2024-06-02T00:00:00"), // #0
-      new Date("2024-09-06T00:00:00"), // #1
-      new Date("2025-06-17T11:00:00"), // #2
-      new Date("2025-09-18T07:00:00"), // #3 cirurgia
-      new Date("2025-09-24T00:00:00"), // #4 alta
-      new Date("2025-09-30T00:00:00"), // #5 casa
-      new Date("2025-12-18T00:00:00")  // #6
+      new Date("2024-06-02T00:00:00"),
+      new Date("2024-09-06T00:00:00"),
+      new Date("2025-06-17T11:00:00"),
+      new Date("2025-09-18T07:00:00"),
+      new Date("2025-09-24T00:00:00"),
+      new Date("2025-09-30T00:00:00"),
+      new Date("2025-12-18T00:00:00")
     ];
     const labels = [
-      "Descoberta da identidade trans",    // 0→1
-      "Início da THF",                     // 1→2
-      "Consulta com Dr. Cury",             // 2→3
-      "Cirurgia de redesignação (CRS)",    // 3→4
-      "Alta hospitalar",                   // 4→5
-      "Desinchação final"                  // 5→6
+      "Descoberta da identidade trans",
+      "Início da THF",
+      "Consulta com Dr. Cury",
+      "Cirurgia de redesignação (CRS)",
+      "Alta hospitalar",
+      "Desinchação final"
     ];
     const colors = [
-      "#e6194b",
-      "#3cb44b",
-      "#ffe119",
-      "#4363d8",
-      "#f58231",
-      "#911eb4"
+      "#e6194b", "#3cb44b", "#ffe119",
+      "#4363d8", "#f58231", "#911eb4"
     ];
-
-    const svg           = document.querySelector('.donut-chart');
-    const cx            = 120, cy = 120;
-    const radius        = 90;
-    const strokeWidth   = 20;
-    const circumference = 2 * Math.PI * radius;
     const totalDuration = markers[6] - markers[0];
 
-    const legendDiv = document.getElementById('legend');
-    const tooltip   = document.getElementById('tooltip');
-    let offsetAccum = 0;
+    // Tooltip
+    const tooltip = document.getElementById('tooltip');
 
-    // 2) Desenha cada segmento
-    for (let i = 0; i < labels.length; i++) {
-      const span   = markers[i+1] - markers[i];
-      const pct    = span / totalDuration;
-      const segLen = pct * circumference;
-      const rest   = circumference - segLen;
+    // --- DONUT SETUP ---
+    const svgDonut = document.querySelector('.donut-chart');
+    const cx = 120, cy = 120, radius = 90;
+    const circumference = 2 * Math.PI * radius;
+    let offset = 0;
 
-      const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
-      circle.setAttribute("class","segment");
-      circle.setAttribute("data-index", i);
-      circle.setAttribute("cx",cx);
-      circle.setAttribute("cy",cy);
-      circle.setAttribute("r",radius);
-      circle.setAttribute("stroke",colors[i]);
-      circle.setAttribute("stroke-width",strokeWidth);
-      circle.setAttribute("stroke-dasharray",`${segLen} ${rest}`);
-      circle.setAttribute("stroke-dashoffset", -offsetAccum);
-      circle.setAttribute("transform",`rotate(-90 ${cx} ${cy})`);
+    // draw donut segments
+    labels.forEach((lab, i) => {
+      const span = markers[i+1] - markers[i];
+      const pct = span / totalDuration;
+      const len = pct * circumference;
+      const rest = circumference - len;
 
-      // tooltip imediato
-      circle.addEventListener('mouseenter', e => {
-        const d1 = markers[i].toLocaleDateString("pt-BR");
-        const d2 = markers[i+1].toLocaleDateString("pt-BR");
-        tooltip.textContent = `${labels[i]} (${d1} → ${d2})`;
+      const seg = document.createElementNS("http://www.w3.org/2000/svg","circle");
+      seg.setAttribute("class","segment");
+      seg.setAttribute("data-index", i);
+      seg.setAttribute("cx", cx);
+      seg.setAttribute("cy", cy);
+      seg.setAttribute("r", radius);
+      seg.setAttribute("stroke", colors[i]);
+      seg.setAttribute("stroke-width", 20);
+      seg.setAttribute("stroke-dasharray", `${len} ${rest}`);
+      seg.setAttribute("stroke-dashoffset", -offset);
+      seg.setAttribute("transform", `rotate(-90 ${cx} ${cy})`);
+      // tooltip events
+      seg.addEventListener('mouseenter', e => {
+        tooltip.textContent = `${labels[i]} (${markers[i].toLocaleDateString()} → ${markers[i+1].toLocaleDateString()})`;
         tooltip.style.display = 'block';
       });
-      circle.addEventListener('mousemove', e => {
-        const rect = svg.getBoundingClientRect();
-        tooltip.style.left = `${e.clientX - rect.left}px`;
-        tooltip.style.top  = `${e.clientY - rect.top - 10}px`;
+      seg.addEventListener('mousemove', e => {
+        const r = svgDonut.getBoundingClientRect();
+        tooltip.style.left = `${e.clientX - r.left}px`;
+        tooltip.style.top  = `${e.clientY - r.top - 10}px`;
       });
-      circle.addEventListener('mouseleave', () => {
-        tooltip.style.display = 'none';
-      });
+      seg.addEventListener('mouseleave', () => tooltip.style.display = 'none');
 
-      svg.insertBefore(circle, document.getElementById('pointer'));
-
-      // legenda (uma vez)
-      if (i === 0) {
-        labels.forEach((lab, idx) => {
-          const item = document.createElement("div");
-          item.className = "legend-item";
-          item.innerHTML = `<span class="swatch" style="background:${colors[idx]}"></span><span>${lab}</span>`;
-          legendDiv.appendChild(item);
-        });
-      }
-
-      offsetAccum += segLen;
-    }
-
-    // 3) Destacar marcadores #3 e #4 no topo
-    const pointer = document.getElementById('pointer');
-    [3,4].forEach(idx => {
-      const el = svg.querySelector(`circle.segment[data-index="${idx}"]`);
-      if (el) svg.insertBefore(el, pointer);
+      svgDonut.insertBefore(seg, document.getElementById('pointer'));
+      offset += len;
     });
 
-    // 4) Atualiza ponteiro “hoje”
+    // legend
+    const legendDiv = document.getElementById('legend');
+    labels.forEach((lab,i) => {
+      const item = document.createElement('div');
+      item.className = 'legend-item';
+      item.innerHTML = `<span class="swatch" style="background:${colors[i]}"></span>${lab}`;
+      legendDiv.appendChild(item);
+    });
+
+    // donut pointer
+    const pointer = document.getElementById('pointer');
     function updatePointer() {
-      const now = new Date();
-      let elapsed = now - markers[0];
+      let now = new Date(), elapsed = now - markers[0];
       if (elapsed < 0) elapsed = 0;
       if (elapsed > totalDuration) elapsed = totalDuration;
       const pct = elapsed / totalDuration;
-      const angle = pct * 2 * Math.PI - Math.PI/2;
-      const px = cx + radius * Math.cos(angle);
-      const py = cy + radius * Math.sin(angle);
-      pointer.setAttribute("cx",px);
-      pointer.setAttribute("cy",py);
+      const ang = pct*2*Math.PI - Math.PI/2;
+      pointer.setAttribute('cx', cx + radius*Math.cos(ang));
+      pointer.setAttribute('cy', cy + radius*Math.sin(ang));
     }
-    updatePointer();
-    setInterval(updatePointer, 1000);
+    updatePointer(); setInterval(updatePointer,1000);
+
+    // --- BAR SETUP ---
+    const svgBar = document.querySelector('.bar-chart');
+    const barWidth = 300;
+    let barOffset = 0;
+
+    // draw bar segments
+    labels.forEach((lab,i) => {
+      const span = markers[i+1] - markers[i];
+      const pct = span / totalDuration;
+      const w = pct * barWidth;
+
+      const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+      rect.setAttribute("class","segment-bar");
+      rect.setAttribute("x", barOffset);
+      rect.setAttribute("y", 15);
+      rect.setAttribute("width", w);
+      rect.setAttribute("height", 20);
+      rect.setAttribute("fill", colors[i]);
+      // tooltip events
+      rect.addEventListener('mouseenter', e => {
+        tooltip.textContent = `${labels[i]} (${markers[i].toLocaleDateString()} → ${markers[i+1].toLocaleDateString()})`;
+        tooltip.style.display = 'block';
+      });
+      rect.addEventListener('mousemove', e => {
+        const r = svgBar.getBoundingClientRect();
+        tooltip.style.left = `${e.clientX - r.left}px`;
+        tooltip.style.top  = `${e.clientY - r.top - 10}px`;
+      });
+      rect.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+
+      svgBar.appendChild(rect);
+      barOffset += w;
+    });
+
+    // bar pointer line
+    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    line.setAttribute("class","pointer-bar");
+    line.setAttribute("y1", 10);
+    line.setAttribute("y2", 40);
+    svgBar.appendChild(line);
+
+    function updateBarPointer() {
+      let now = new Date(), elapsed = now - markers[0];
+      if (elapsed < 0) elapsed = 0;
+      if (elapsed > totalDuration) elapsed = totalDuration;
+      const pct = elapsed / totalDuration;
+      const x = pct * barWidth;
+      line.setAttribute("x1", x);
+      line.setAttribute("x2", x);
+    }
+
+    updateBarPointer(); setInterval(updateBarPointer,1000);
 
   })();
   </script>
