@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cirurgia de Readequação Sexual</title>
+  <title>Cirurgia de Readequação Sexual – Multimarcos</title>
   <style>
     body {
       background-color: #000;
@@ -11,124 +11,208 @@
       text-align: center;
       padding: 20px;
     }
+    h1, h2 {
+      margin: 0 0 16px;
+    }
     .chart-container {
+      position: relative;
       display: inline-block;
-      background-color: #ccc;
+      background-color: #111;
       padding: 20px;
-      margin: 20px;
       border-radius: 10px;
     }
-    /* Gráfico do tipo donut */
+    .chart-flex {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
     .donut-chart {
-      width: 200px;
-      height: 200px;
-    }
-    /* Círculo de fundo (total) */
-    .background {
-      fill: none;
-      stroke: #eee;
-      stroke-width: 20;
-    }
-    /* Círculo que indica a decorrência com animação de cor */
-    .progress {
-      fill: none;
-      stroke-width: 20;
-      stroke-linecap: round;
-      animation: colorPulse 2s infinite;
-    }
-    @keyframes colorPulse {
-      0%   { stroke: #ff77ff; } /* rosa-claro-neon */
-      50%  { stroke: #00ffff; } /* azul-piscina-neon */
-      100% { stroke: #ff77ff; }
-    }
-    /* Gráfico de barra */
-    .bar-chart {
       width: 300px;
-      height: 50px;
+      height: 300px;
     }
-    .bar-bg {
-      fill: #eee;
+    /* Removendo bordas arredondadas nos segmentos */
+    .donut-chart .segment {
+      fill: none;
+      stroke-linecap: butt;
+      cursor: pointer;
     }
-    .bar-progress {
-      fill: #ff77ff;
-      animation: colorPulse 2s infinite;
+    .donut-chart .background {
+      fill: none;
+      stroke: #222;
+      stroke-width: 20;
+      stroke-linecap: butt;
+      cursor: default;
+    }
+    .donut-chart .pointer {
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 2;
+      pointer-events: none;
+    }
+    .legend {
+      margin-left: 24px;
+      text-align: left;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+    .swatch {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      margin-right: 8px;
+      border-radius: 2px;
+    }
+    /* tooltip customizado */
+    #tooltip {
+      position: absolute;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      white-space: nowrap;
+      display: none;
+      transform: translate(-50%, -120%);
+      z-index: 10;
     }
   </style>
 </head>
 <body>
   <h1>Cirurgia de Readequação Sexual</h1>
-  
-  <!-- Gráfico Donut -->
+
   <div class="chart-container">
-    <h2>Gráfico de Pizza Oca</h2>
-    <svg class="donut-chart" viewBox="0 0 200 200">
-      <!-- Círculo de fundo -->
-      <circle class="background" cx="100" cy="100" r="70"></circle>
-      <!-- Círculo de progresso (decorrência) -->
-      <circle class="progress" cx="100" cy="100" r="70"
-              stroke-dasharray="0 440"
-              stroke-dashoffset="0"
-              transform="rotate(-90 100 100)"></circle>
-      <!-- Texto central -->
-      <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
-    </svg>
-  </div>
-  
-  <!-- Gráfico de Barra Horizontal -->
-  <div class="chart-container">
-    <h2>Gráfico de Barra Horizontal</h2>
-    <svg class="bar-chart">
-      <!-- Fundo da barra -->
-      <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
-      <!-- Barra de progresso -->
-      <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
-      <!-- Texto centralizado -->
-      <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
-    </svg>
+    <h2>Progresso Multimarcos</h2>
+    <div class="chart-flex">
+      <svg class="donut-chart" viewBox="0 0 240 240">
+        <!-- anel de fundo -->
+        <circle class="background" cx="120" cy="120" r="90"></circle>
+        <!-- ponteiro “hoje” -->
+        <circle class="pointer" id="pointer" r="8" cx="120" cy="30"></circle>
+      </svg>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div id="tooltip"></div>
   </div>
 
   <script>
-    (function(){
-      // Ponto de partida: 17/06/2025 | Data máxima (alvo): 01/07/2025
-      const startDate = new Date("2025-06-17T11:00:00");
-      const endDate   = new Date("2025-09-18T07:00:00");
-      const totalDuration = endDate - startDate;
+  (function(){
+    // 1) Marcos e rótulos
+    const markers = [
+      new Date("2024-06-02T00:00:00"), // #0
+      new Date("2024-09-06T00:00:00"), // #1
+      new Date("2025-06-17T11:00:00"), // #2
+      new Date("2025-09-18T07:00:00"), // #3 cirurgia
+      new Date("2025-09-24T00:00:00"), // #4 alta
+      new Date("2025-09-30T00:00:00"), // #5 casa
+      new Date("2025-12-18T00:00:00")  // #6
+    ];
+    const labels = [
+      "Descoberta da identidade trans",    // 0→1
+      "Início da THF",                     // 1→2
+      "Consulta com Dr. Cury",             // 2→3
+      "Cirurgia de redesignação (CRS)",    // 3→4
+      "Alta hospitalar",                   // 4→5
+      "Desinchação final"                  // 5→6
+    ];
+    const colors = [
+      "#e6194b",
+      "#3cb44b",
+      "#ffe119",
+      "#4363d8",
+      "#f58231",
+      "#911eb4"
+    ];
 
-      // Seleção dos elementos SVG e textos
-      const donutCircle = document.querySelector('.donut-chart .progress');
-      const donutText   = document.getElementById('donut-text');
-      const barProgress = document.getElementById('bar-progress');
-      const barText     = document.getElementById('bar-text');
+    const svg           = document.querySelector('.donut-chart');
+    const cx            = 120, cy = 120;
+    const radius        = 90;
+    const strokeWidth   = 20;
+    const circumference = 2 * Math.PI * radius;
+    const totalDuration = markers[6] - markers[0];
 
-      // Propriedades do círculo do gráfico donut
-      const radius = 70;
-      const circumference = 2 * Math.PI * radius; // ≈ 440
+    const legendDiv = document.getElementById('legend');
+    const tooltip   = document.getElementById('tooltip');
+    let offsetAccum = 0;
 
-      function updateCharts(){
-        const now = new Date();
-        let elapsed = now - startDate;
-        if(elapsed < 0) elapsed = 0;
-        if(elapsed > totalDuration) elapsed = totalDuration;
-        const percent = elapsed / totalDuration;
-        const percentText = (percent * 100).toFixed(2) + '%';
+    // 2) Desenha cada segmento
+    for (let i = 0; i < labels.length; i++) {
+      const span   = markers[i+1] - markers[i];
+      const pct    = span / totalDuration;
+      const segLen = pct * circumference;
+      const rest   = circumference - segLen;
 
-        // Atualiza o gráfico donut
-        const progressLength = percent * circumference;
-        const remainderLength = circumference - progressLength;
-        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
-        donutText.textContent = percentText;
+      const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+      circle.setAttribute("class","segment");
+      circle.setAttribute("data-index", i);
+      circle.setAttribute("cx",cx);
+      circle.setAttribute("cy",cy);
+      circle.setAttribute("r",radius);
+      circle.setAttribute("stroke",colors[i]);
+      circle.setAttribute("stroke-width",strokeWidth);
+      circle.setAttribute("stroke-dasharray",`${segLen} ${rest}`);
+      circle.setAttribute("stroke-dashoffset", -offsetAccum);
+      circle.setAttribute("transform",`rotate(-90 ${cx} ${cy})`);
 
-        // Atualiza o gráfico de barra
-        const barTotalWidth = 300;
-        const barWidth = percent * barTotalWidth;
-        barProgress.setAttribute('width', barWidth);
-        barText.textContent = percentText;
+      // tooltip imediato
+      circle.addEventListener('mouseenter', e => {
+        const d1 = markers[i].toLocaleDateString("pt-BR");
+        const d2 = markers[i+1].toLocaleDateString("pt-BR");
+        tooltip.textContent = `${labels[i]} (${d1} → ${d2})`;
+        tooltip.style.display = 'block';
+      });
+      circle.addEventListener('mousemove', e => {
+        const rect = svg.getBoundingClientRect();
+        tooltip.style.left = `${e.clientX - rect.left}px`;
+        tooltip.style.top  = `${e.clientY - rect.top - 10}px`;
+      });
+      circle.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+
+      svg.insertBefore(circle, document.getElementById('pointer'));
+
+      // legenda (uma vez)
+      if (i === 0) {
+        labels.forEach((lab, idx) => {
+          const item = document.createElement("div");
+          item.className = "legend-item";
+          item.innerHTML = `<span class="swatch" style="background:${colors[idx]}"></span><span>${lab}</span>`;
+          legendDiv.appendChild(item);
+        });
       }
 
-      updateCharts();
-      // Atualiza a cada 1 segundo
-      setInterval(updateCharts, 1000);
-    })();
+      offsetAccum += segLen;
+    }
+
+    // 3) Destacar marcadores #3 e #4 no topo
+    const pointer = document.getElementById('pointer');
+    [3,4].forEach(idx => {
+      const el = svg.querySelector(`circle.segment[data-index="${idx}"]`);
+      if (el) svg.insertBefore(el, pointer);
+    });
+
+    // 4) Atualiza ponteiro “hoje”
+    function updatePointer() {
+      const now = new Date();
+      let elapsed = now - markers[0];
+      if (elapsed < 0) elapsed = 0;
+      if (elapsed > totalDuration) elapsed = totalDuration;
+      const pct = elapsed / totalDuration;
+      const angle = pct * 2 * Math.PI - Math.PI/2;
+      const px = cx + radius * Math.cos(angle);
+      const py = cy + radius * Math.sin(angle);
+      pointer.setAttribute("cx",px);
+      pointer.setAttribute("cy",py);
+    }
+    updatePointer();
+    setInterval(updatePointer, 1000);
+
+  })();
   </script>
 </body>
 </html>
