@@ -207,10 +207,12 @@
       to { opacity: 0; transform: scale(.92) translateY(12px); }
     }
 
-    /* Stickers de emojis */
+    /* Stickers de emojis — agora ENORMES */
     .sticker {
-      position: fixed; font-size: clamp(20px, 3.5vw, 38px); pointer-events: none; z-index: 20;
-      animation: floatUp linear forwards; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+      position: fixed;
+      font-size: clamp(48px, 10vw, 140px); /* 👈 grandões em qualquer tela */
+      pointer-events: none; z-index: 20;
+      animation: floatUp linear forwards; filter: drop-shadow(0 6px 16px rgba(0,0,0,.4));
     }
     @keyframes floatUp {
       from { transform: translateY(0) translateX(0) rotate(0); opacity: .95; }
@@ -251,7 +253,8 @@
 
   <!-- Botões rápidos -->
   <div class="quick-buttons">
-    <button onclick="quickSet('2025-09-18T07:00','crs','🩺 Cirurgia CRS', ['🩺','💉','🧴','🧪','🩹'])">🩺 Cirurgia CRS</button>
+    <!-- CRS agora com 👙 e 🍑 -->
+    <button onclick="quickSet('2025-09-18T07:00','crs','🩺 Cirurgia CRS', ['🩺','💉','👙','🍑','💗'])">🩺 Cirurgia CRS</button>
     <button onclick="quickSet('2024-06-01T22:00','social','🎭 Transição Social', ['🎭','✨','👗','💄','🌙'])">🎭 Transição Social</button>
     <button onclick="quickSet('2024-09-06T21:00','hormonal','🧬 Transição Hormonal', ['🧬','💗','🌸','💊','⚗️'])">🧬 Transição Hormonal</button>
     <button onclick="quickSet('2023-10-02T08:00','medical','🏥 Tempo de Medical', ['🏥','📋','🩺','🚑','🧼'])">🏥 Tempo de Medical</button>
@@ -385,7 +388,7 @@
       if (key) body.classList.add('theme-' + key);
     }
 
-    /* ---------- Stickers ---------- */
+    /* ---------- Stickers gigantes ---------- */
     function spawnStickers(list){
       const count = Math.min(12, Math.max(6, Math.round(window.innerWidth/140)));
       for (let i=0;i<count;i++){
@@ -395,9 +398,9 @@
         const x = Math.random()*100;
         const dur = 5 + Math.random()*4;
         e.style.left = `calc(${x}vw - 10px)`;
-        e.style.bottom = `-40px`;
+        e.style.bottom = `-60px`;
         e.style.animationDuration = `${dur}s`;
-        e.style.setProperty('--drift', `${(Math.random()*120 - 60)}px`);
+        e.style.setProperty('--drift', `${(Math.random()*160 - 80)}px`);
         e.style.setProperty('--rot', `${(Math.random()*60 - 30)}deg`);
         document.body.appendChild(e);
         setTimeout(()=> e.remove(), dur*1000);
