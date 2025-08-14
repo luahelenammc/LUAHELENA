@@ -8,7 +8,6 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     :root{
-      /* Tema base (override por classe no <body>) */
       --bg1:#1b1f25; --bg2:#101317; --bg3:#0b0d10;
       --cardTop:#1a1f25; --cardMid:#14181d; --cardBot:#101419;
       --accent:#66d1ff;
@@ -34,188 +33,109 @@
 
     /* “Impressora” fixa no topo */
     .printer-slot {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(640px, 90vw);
-      height: 46px;
-      border-radius: 0 0 18px 18px;
+      position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+      width: min(640px, 90vw); height: 46px; border-radius: 0 0 18px 18px;
       background:
         linear-gradient(180deg, rgba(255,255,255,.12), rgba(0,0,0,.2)),
         linear-gradient(180deg, #20252b, #0f1216);
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.55),
-        inset 0 -2px 6px rgba(0,0,0,.75),
-        inset 0 6px 10px rgba(255,255,255,.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,.55), inset 0 -2px 6px rgba(0,0,0,.75), inset 0 6px 10px rgba(255,255,255,.04);
       z-index: 30;
     }
     .printer-slot::after{
-      /* fenda */
-      content:"";
-      position:absolute; left:8%; right:8%; top:12px; height:12px;
-      border-radius:8px;
-      background:
-        linear-gradient(180deg, #0a0c0f, #000);
-      box-shadow:
-        inset 0 2px 6px rgba(0,0,0,.9),
-        0 8px 18px rgba(0,0,0,.45);
+      content:""; position:absolute; left:8%; right:8%; top:12px; height:12px; border-radius:8px;
+      background: linear-gradient(180deg, #0a0c0f, #000);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,.9), 0 8px 18px rgba(0,0,0,.45);
     }
 
     /* Atalhos */
     .quick-buttons {
-      margin-top: .2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem .6rem;
-      justify-content: center;
-      filter: drop-shadow(0 4px 14px rgba(0,0,0,.35));
-      z-index: 1;
+      margin-top: .2rem; display: flex; flex-wrap: wrap; gap: .6rem .6rem; justify-content: center;
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); z-index: 1;
     }
     .quick-buttons button {
-      cursor: pointer;
-      border: none;
-      padding: .55rem .9rem;
-      border-radius: 999px;
-      background: linear-gradient(#f5f7fa, #cfd6df);
-      color: #0e1116;
-      font-weight: 700;
-      letter-spacing: .01em;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.65),
-        inset 0 -1px 0 rgba(0,0,0,.15),
-        0 6px 18px rgba(0,0,0,.35);
-      transition: transform .06s ease, filter .12s ease;
-      white-space: nowrap;
+      cursor: pointer; border: none; padding: .55rem .9rem; border-radius: 999px;
+      background: linear-gradient(#f5f7fa, #cfd6df); color: #0e1116; font-weight: 700; letter-spacing: .01em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.65), inset 0 -1px 0 rgba(0,0,0,.15), 0 6px 18px rgba(0,0,0,.35);
+      transition: transform .06s ease, filter .12s ease; white-space: nowrap;
     }
     .quick-buttons button:active { transform: translateY(1px); filter: brightness(.96); }
 
     /* Input + botão iniciar */
     .input-container {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-      flex-wrap: wrap;
-      filter: drop-shadow(0 4px 14px rgba(0,0,0,.45));
-      z-index: 1;
+      display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,.45)); z-index: 1;
     }
-    .input-container input[type="datetime-local"] {
-      appearance: none; border: none; outline: none;
-      padding: .6rem .8rem; font-size: 0.95rem; border-radius: 10px;
-      background: linear-gradient(#2a2f37, #22262d);
-      color: #f3f5f7;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        inset 0 -1px 0 rgba(0,0,0,.35),
-        0 6px 18px rgba(0,0,0,.35);
+    .input-container input[type="datetime-local"]{
+      appearance:none; border:none; outline:none; padding:.6rem .8rem; font-size:.95rem; border-radius:10px;
+      background: linear-gradient(#2a2f37, #22262d); color:#f3f5f7;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.35);
     }
-    .input-container button {
-      cursor: pointer; border: none; padding: .6rem 1rem;
-      font-weight: 700; letter-spacing: .02em; border-radius: 10px;
-      color: #0e1116; background: linear-gradient(#f5f7fa, #cfd6df);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.7),
-        inset 0 -1px 0 rgba(0,0,0,.15),
-        0 8px 20px rgba(0,0,0,.35);
+    .input-container button{
+      cursor:pointer; border:none; padding:.6rem 1rem; font-weight:700; letter-spacing:.02em; border-radius:10px;
+      color:#0e1116; background:linear-gradient(#f5f7fa,#cfd6df);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(0,0,0,.15), 0 8px 20px rgba(0,0,0,.35);
       transition: transform .06s ease, filter .12s ease;
     }
-    .input-container button:active { transform: translateY(1px); filter: brightness(.96); }
+    .input-container button:active{ transform: translateY(1px); filter: brightness(.96); }
 
     /* Layout em linhas do relógio */
-    .clock-rows {
-      display: grid;
-      grid-template-rows: auto auto auto;
-      gap: 0.9rem;
-      perspective: 1200px;
-      z-index: 1;
-    }
-    .row {
-      display: flex;
-      gap: 1.1rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    /* Etiqueta à direita */
-    .digit-group {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      user-select: none;
-    }
+    .clock-rows { display: grid; grid-template-rows: auto auto auto; gap: .9rem; perspective: 1200px; z-index: 1; }
+    .row { display: flex; gap: 1.1rem; flex-wrap: wrap; align-items: flex-start; justify-content: center; }
+    .digit-group { display: inline-flex; align-items: center; gap: .5rem; user-select: none; }
     .group-label {
-      font-size: 0.8rem;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-      color: var(--label);
-      margin-top: .15rem;
-      min-width: 3ch;
-      text-align: left;
+      font-size: .8rem; letter-spacing: .11em; text-transform: uppercase; color: var(--label);
+      margin-top: .15rem; min-width: 3ch; text-align: left;
     }
 
     /* Cartão físico do dígito */
-    .digit {
-      width: 110px; height: 140px;
-      perspective: 1000px; position: relative; border-radius: 14px;
-      filter: drop-shadow(0 16px 30px rgba(0,0,0,.55));
+    .digit { width: 110px; height: 140px; perspective: 1000px; position: relative; border-radius: 14px; filter: drop-shadow(0 16px 30px rgba(0,0,0,.55)); }
+    .digit::before{
+      content:""; position:absolute; inset:-6px; border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 28%, rgba(0,0,0,.35) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 2px 6px rgba(0,0,0,.4); pointer-events:none;
     }
-    .digit::before {
-      content: ""; position: absolute; inset: -6px; border-radius: 18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 28%, rgba(0,0,0,.35) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 2px 6px rgba(0,0,0,.4);
-      pointer-events: none;
+    .flip-container{
+      width:100%; height:100%; position:relative; transform-style:preserve-3d; transition: transform 460ms cubic-bezier(.22,.61,.36,1);
+      will-change: transform; border-radius:14px; overflow:hidden;
     }
-    .flip-container {
-      width: 100%; height: 100%; position: relative;
-      transform-style: preserve-3d;
-      transition: transform 460ms cubic-bezier(.22,.61,.36,1);
-      will-change: transform; border-radius: 14px; overflow: hidden;
-    }
-    .flip-front, .flip-back {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3.25rem; font-weight: 800; letter-spacing: .02em;
-      color: var(--text);
+    .flip-front,.flip-back{
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      font-size:3.25rem; font-weight:800; letter-spacing:.02em; color:var(--text);
       text-shadow: 0 1px 0 rgba(0,0,0,.65), 0 2px 8px rgba(0,0,0,.35);
-      backface-visibility: hidden;
+      backface-visibility:hidden;
       background:
         radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.04), rgba(255,255,255,0) 60%),
         linear-gradient(180deg, var(--cardTop) 0%, var(--cardMid) 52%, var(--cardBot) 100%),
         repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 2px, rgba(255,255,255,0) 2px 4px);
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.04);
-      box-shadow:
-        inset 0 14px 28px rgba(255,255,255,.04),
-        inset 0 -18px 38px rgba(0,0,0,.55),
-        inset 0 0 0 1px rgba(0,0,0,.6),
-        0 0 0 2px color-mix(in oklab, var(--accent) 20%, transparent);
+      border-radius:14px; border:1px solid rgba(255,255,255,.04);
+      box-shadow: inset 0 14px 28px rgba(255,255,255,.04), inset 0 -18px 38px rgba(0,0,0,.55), inset 0 0 0 1px rgba(0,0,0,.6),
+                  0 0 0 2px color-mix(in oklab, var(--accent) 20%, transparent);
     }
-    .flip-front::before, .flip-back::before {
-      content: ""; position: absolute; inset: 0; border-radius: 14px;
+    .flip-front::before,.flip-back::before{
+      content:""; position:absolute; inset:0; border-radius:14px;
       background:
         linear-gradient(180deg, transparent calc(50% - 1px), rgba(255,255,255,.09) calc(50% - 1px), rgba(0,0,0,.55) 50%, transparent calc(50% + 2px)),
         radial-gradient(8px 8px at 12px 12px, rgba(255,255,255,.35), rgba(255,255,255,0) 70%),
         radial-gradient(8px 8px at calc(100% - 12px) 12px, rgba(255,255,255,.35), rgba(255,255,255,0) 70%),
         radial-gradient(8px 8px at 12px calc(100% - 12px), rgba(255,255,255,.35), rgba(255,255,255,0) 70%),
         radial-gradient(8px 8px at calc(100% - 12px) calc(100% - 12px), rgba(255,255,255,.35), rgba(255,255,255,0) 70%);
-      pointer-events: none;
+      pointer-events:none;
     }
-    .flip-front::after, .flip-back::after {
-      content: ""; position: absolute; inset: 0; border-radius: 14px;
+    .flip-front::after,.flip-back::after{
+      content:""; position:absolute; inset:0; border-radius:14px;
       background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 18%, transparent), rgba(255,255,255,0) 28%);
-      mix-blend-mode: screen; pointer-events: none;
+      mix-blend-mode: screen; pointer-events:none;
     }
     .flip-back { transform: rotateX(180deg); }
     .digit.flipped .flip-container { transform: rotateX(180deg); }
 
-    /* Grupos opcionais (anos/meses/dias) inicialmente ocultos */
+    /* Grupos opcionais */
     #yearGroup, #monthGroup, #dayGroup { display: none; }
 
-    /* RECEIPT skeuomórfico */
+    /* ---------- RECEIPT skeuomórfico, arrastável e descartável ---------- */
     .receipt {
       position: fixed;
-      top: 14px; /* sai da fenda */
+      top: 14px;
       left: 50%;
       transform: translateX(-50%) translateY(-130%) rotate(2deg);
       width: min(520px, 84vw);
@@ -224,78 +144,89 @@
         linear-gradient(180deg, #fff, #fbfbfb 45%, #f2f2f2 100%);
       border: 1px solid #e6e6e6;
       border-radius: 6px 6px 12px 12px;
-      box-shadow:
-        0 12px 24px rgba(0,0,0,.35),
-        inset 0 -10px 20px rgba(0,0,0,.06);
+      box-shadow: 0 12px 24px rgba(0,0,0,.35), inset 0 -10px 20px rgba(0,0,0,.06);
       padding: 16px 18px 18px;
-      z-index: 40;
+      z-index: 12; /* fora do caminho do relógio */
       filter: contrast(1.03) saturate(.94);
       overflow: hidden;
       clip-path: inset(-20px round 6px);
       animation: eject .85s cubic-bezier(.22,.9,.24,1) forwards;
+      cursor: default;
+      user-select: none;
+      touch-action: none;
     }
+    .receipt.parked { cursor: grab; }
+    .receipt.dragging { cursor: grabbing; z-index: 50; }
     .receipt::before{
-      /* serrilhado superior */
-      content:"";
-      position:absolute; left:0; right:0; top:0; height:10px;
-      background:
-        repeating-linear-gradient(90deg, #eaeaea 0 10px, transparent 10px 20px);
+      content:""; position:absolute; left:0; right:0; top:0; height:10px;
+      background: repeating-linear-gradient(90deg, #eaeaea 0 10px, transparent 10px 20px);
       mask: radial-gradient(6px 6px at 0 100%, #0000 98%, #000 101%) 0 0/20px 10px repeat-x;
       opacity:.9;
     }
     .receipt::after{
-      /* banding térmico */
-      content:"";
-      position:absolute; inset:0;
-      background:
-        repeating-linear-gradient(180deg, rgba(0,0,0,.02) 0 2px, rgba(0,0,0,0) 2px 6px);
+      content:""; position:absolute; inset:0;
+      background: repeating-linear-gradient(180deg, rgba(0,0,0,.02) 0 2px, rgba(0,0,0,0) 2px 6px);
       pointer-events:none;
     }
     .r-title{
       font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      color: #111;
-      margin-bottom: 6px;
+      font-weight: 700; font-size: 16px; letter-spacing: .02em; text-transform: uppercase; color: #111; margin-bottom: 6px;
     }
     .r-line{
       font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 15px; color:#111; letter-spacing: .02em;
-      white-space: pre-wrap;
-      filter: grayscale(.15);
-      transform: translateZ(0);
-      animation: printLine .65s steps(30,end) forwards;
-      opacity: 0;
+      font-size: 15px; color:#111; letter-spacing: .02em; white-space: pre-wrap; filter: grayscale(.15);
+      transform: translateZ(0); animation: printLine .65s steps(30,end) forwards; opacity: 0;
     }
     .r-line + .r-line { animation-delay: .12s; }
-    .r-muted{ color:#333; opacity:.9; }
-    .r-accent{ color:#000; font-weight:700; }
+    .r-muted{ color:#333; opacity:.9; } .r-accent{ color:#000; font-weight:700; }
+    @keyframes eject { 0% { transform: translateX(-50%) translateY(-130%) rotate(2deg); }
+                       65% { transform: translateX(-50%) translateY(0%) rotate(-1deg); }
+                      100% { transform: translateX(-50%) translateY(0%) rotate(0deg); } }
+    @keyframes printLine { 0% { opacity:0; filter: blur(.6px); } 100% { opacity:1; filter: blur(0); } }
 
-    @keyframes eject {
-      0%   { transform: translateX(-50%) translateY(-130%) rotate(2deg); }
-      65%  { transform: translateX(-50%) translateY(0%) rotate(-1deg); }
-      100% { transform: translateX(-50%) translateY(0%) rotate(0deg); }
+    /* Limbo (aparece ao arrastar) */
+    .limbo {
+      position: fixed; bottom: 18px; right: 18px;
+      width: clamp(140px, 22vw, 220px); height: clamp(90px, 14vw, 120px);
+      border-radius: 16px;
+      background:
+        radial-gradient(100% 100% at 50% 50%, rgba(255,255,255,.08), rgba(255,255,255,0) 70%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.28));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 24px rgba(0,0,0,.35);
+      border: 1px dashed color-mix(in oklab, var(--accent) 60%, #fff 0%);
+      display: grid; place-items: center;
+      color: color-mix(in oklab, var(--accent) 80%, #fff 0%);
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      opacity: 0; transform: translateY(10px) scale(.98);
+      transition: opacity .2s ease, transform .2s ease;
+      pointer-events: none; z-index: 40;
     }
-    @keyframes printLine {
-      0% { opacity:0; filter: blur(.6px); }
-      100% { opacity:1; filter: blur(0); }
+    .limbo.show { opacity: 1; transform: translateY(0) scale(1); }
+    .limbo.sink { animation: sink .45s ease forwards; }
+    @keyframes sink {
+      to { opacity: 0; transform: scale(.92) translateY(12px); }
     }
 
     /* Stickers de emojis */
     .sticker {
-      position: fixed;
-      font-size: clamp(20px, 3.5vw, 38px);
-      pointer-events: none;
-      z-index: 20;
-      animation: floatUp linear forwards;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+      position: fixed; font-size: clamp(20px, 3.5vw, 38px); pointer-events: none; z-index: 20;
+      animation: floatUp linear forwards; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
     }
     @keyframes floatUp {
       from { transform: translateY(0) translateX(0) rotate(0); opacity: .95; }
       to   { transform: translateY(-120vh) translateX(var(--drift, 60px)) rotate(var(--rot, 20deg)); opacity: 0; }
     }
+
+    /* Carimbo da data-alvo sob o timer */
+    .target-stamp {
+      margin-top: .2rem; text-align: center; text-wrap: balance;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: .92; color: var(--text);
+      text-shadow: 0 2px 10px rgba(0,0,0,.35);
+      z-index: 1;
+    }
+    .target-stamp .line1 { font-weight: 900; letter-spacing: .14em; font-size: clamp(28px, 6vw, 56px); }
+    .target-stamp .line2 { font-weight: 800; letter-spacing: .10em; font-size: clamp(22px, 5vw, 44px); opacity: .95; }
 
     /* Responsivo */
     @media (max-width: 1100px) { .digit { width: 96px; height: 122px; } .flip-front, .flip-back { font-size: 2.8rem; } }
@@ -304,10 +235,10 @@
     @media (max-width: 560px)  { .clock-rows { transform: scale(.86); } }
     @media (max-width: 460px)  { .clock-rows { transform: scale(.78); } }
 
-    /* Temas (alteram vars no body) */
-    body.theme-crs { --accent:#49e1d6; --bg1:#12323a; --bg2:#0e2026; --bg3:#0a1518; --cardTop:#0e2227; --cardMid:#0b1a1f; --cardBot:#0a161b; --label:#9de8e0; }
-    body.theme-social { --accent:#db7bff; --bg1:#2a1733; --bg2:#190e1f; --bg3:#120a18; --cardTop:#221429; --cardMid:#1b1022; --cardBot:#150c1b; --label:#e8c6ff; }
-    body.theme-hormonal { --accent:#ff5fb4; --bg1:#331727; --bg2:#1e0d17; --bg3:#14090f; --cardTop:#25121c; --cardMid:#1d0e16; --cardBot:#150a11; --label:#ffc9e6; }
+    /* Temas */
+    body.theme-crs     { --accent:#49e1d6; --bg1:#12323a; --bg2:#0e2026; --bg3:#0a1518; --cardTop:#0e2227; --cardMid:#0b1a1f; --cardBot:#0a161b; --label:#9de8e0; }
+    body.theme-social  { --accent:#db7bff; --bg1:#2a1733; --bg2:#190e1f; --bg3:#120a18; --cardTop:#221429; --cardMid:#1b1022; --cardBot:#150c1b; --label:#e8c6ff; }
+    body.theme-hormonal{ --accent:#ff5fb4; --bg1:#331727; --bg2:#1e0d17; --bg3:#14090f; --cardTop:#25121c; --cardMid:#1d0e16; --cardBot:#150a11; --label:#ffc9e6; }
     body.theme-medical { --accent:#65a7ff; --bg1:#172133; --bg2:#0f1624; --bg3:#0b111c; --cardTop:#141d2d; --cardMid:#101726; --cardBot:#0c121e; --label:#b9d5ff; }
   </style>
 </head>
@@ -315,9 +246,12 @@
   <!-- Impressora -->
   <div class="printer-slot" aria-hidden="true"></div>
 
+  <!-- Limbo para descartar recibos -->
+  <div class="limbo" id="limbo">LIMBO</div>
+
   <!-- Botões rápidos -->
   <div class="quick-buttons">
-    <button onclick="quickSet('2025-09-18T07:00','crs','🩺 Cirurgia CRS', ['🩺','💉','👙','🧪','🍑'])">🩺 Cirurgia CRS</button>
+    <button onclick="quickSet('2025-09-18T07:00','crs','🩺 Cirurgia CRS', ['🩺','💉','🧴','🧪','🩹'])">🩺 Cirurgia CRS</button>
     <button onclick="quickSet('2024-06-01T22:00','social','🎭 Transição Social', ['🎭','✨','👗','💄','🌙'])">🎭 Transição Social</button>
     <button onclick="quickSet('2024-09-06T21:00','hormonal','🧬 Transição Hormonal', ['🧬','💗','🌸','💊','⚗️'])">🧬 Transição Hormonal</button>
     <button onclick="quickSet('2023-10-02T08:00','medical','🏥 Tempo de Medical', ['🏥','📋','🩺','🚑','🧼'])">🏥 Tempo de Medical</button>
@@ -336,8 +270,7 @@
       <div class="digit-group" id="yearGroup">
         <div class="digit" id="yearValue" data-value="0">
           <div class="flip-container">
-            <div class="flip-front">0</div>
-            <div class="flip-back">0</div>
+            <div class="flip-front">0</div><div class="flip-back">0</div>
           </div>
         </div>
         <div class="group-label">Anos</div>
@@ -346,8 +279,7 @@
       <div class="digit-group" id="monthGroup">
         <div class="digit" id="monthValue" data-value="0">
           <div class="flip-container">
-            <div class="flip-front">0</div>
-            <div class="flip-back">0</div>
+            <div class="flip-front">0</div><div class="flip-back">0</div>
           </div>
         </div>
         <div class="group-label">Meses</div>
@@ -359,8 +291,7 @@
       <div class="digit-group" id="dayGroup">
         <div class="digit" id="dayValue" data-value="0">
           <div class="flip-container">
-            <div class="flip-front">0</div>
-            <div class="flip-back">0</div>
+            <div class="flip-front">0</div><div class="flip-back">0</div>
           </div>
         </div>
         <div class="group-label">Dias</div>
@@ -372,8 +303,7 @@
       <div class="digit-group">
         <div class="digit" id="hourValue" data-value="00">
           <div class="flip-container">
-            <div class="flip-front">00</div>
-            <div class="flip-back">00</div>
+            <div class="flip-front">00</div><div class="flip-back">00</div>
           </div>
         </div>
         <div class="group-label">Horas</div>
@@ -382,8 +312,7 @@
       <div class="digit-group">
         <div class="digit" id="minuteValue" data-value="00">
           <div class="flip-container">
-            <div class="flip-front">00</div>
-            <div class="flip-back">00</div>
+            <div class="flip-front">00</div><div class="flip-back">00</div>
           </div>
         </div>
         <div class="group-label">Minutos</div>
@@ -392,8 +321,7 @@
       <div class="digit-group">
         <div class="digit" id="secondValue" data-value="00">
           <div class="flip-container">
-            <div class="flip-front">00</div>
-            <div class="flip-back">00</div>
+            <div class="flip-front">00</div><div class="flip-back">00</div>
           </div>
         </div>
         <div class="group-label">Segundos</div>
@@ -401,19 +329,34 @@
     </div>
   </div>
 
+  <!-- Carimbo grande da data-alvo -->
+  <div id="targetStamp" class="target-stamp" aria-live="polite"></div>
+
   <script>
+    /* --- Auto-despawn do recibo --- */
+    function dismissReceipt(el){
+      el.style.transition = 'opacity .45s ease, transform .45s ease';
+      el.style.transform = 'scale(.96) translateY(-6px)';
+      el.style.opacity = '0';
+      setTimeout(()=> el.remove(), 480);
+    }
+    function scheduleAutoDismiss(el, ms=5200){
+      cancelAutoDismiss(el);
+      el._autoTimer = setTimeout(()=> dismissReceipt(el), ms);
+    }
+    function cancelAutoDismiss(el){
+      if (el && el._autoTimer){ clearTimeout(el._autoTimer); el._autoTimer = null; }
+    }
+
     /* ---------- Flip original ---------- */
     function flipDigit(digitElem, newVal) {
       const oldVal = digitElem.getAttribute("data-value");
       if (String(newVal) === oldVal) return;
-
       const flipContainer = digitElem.querySelector(".flip-container");
       const frontElem = digitElem.querySelector(".flip-front");
       const backElem  = digitElem.querySelector(".flip-back");
-
       backElem.textContent  = newVal;
       frontElem.textContent = oldVal;
-
       digitElem.classList.add("flipped");
       setTimeout(() => {
         digitElem.classList.remove("flipped");
@@ -429,7 +372,6 @@
       const params = new URLSearchParams(window.location.search);
       return params.get(name);
     }
-
     function updateURL(datetime) {
       const url = new URL(window.location);
       url.searchParams.set('datetime', datetime);
@@ -450,7 +392,7 @@
         const e = document.createElement('div');
         e.className = 'sticker';
         e.textContent = list[Math.floor(Math.random()*list.length)];
-        const x = Math.random()*100; // vw
+        const x = Math.random()*100;
         const dur = 5 + Math.random()*4;
         e.style.left = `calc(${x}vw - 10px)`;
         e.style.bottom = `-40px`;
@@ -462,25 +404,29 @@
       }
     }
 
+    /* ---------- Carimbo da data sob o timer ---------- */
+    function updateTargetStamp(iso){
+      const stamp = document.getElementById('targetStamp');
+      const d = new Date(iso);
+      if (isNaN(d)) { stamp.innerHTML = ''; return; }
+      const dd = String(d.getDate()).padStart(2,'0');
+      const mNames = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+      const mm = mNames[d.getMonth()];
+      const yy = d.getFullYear();
+      stamp.innerHTML = `<div class="line1">${dd} ${mm}</div><div class="line2">${yy}</div>`;
+    }
+
     /* ---------- Recibo ---------- */
     function formatPtBR(iso){
       const d = new Date(iso);
       if (isNaN(d)) return iso;
-      return d.toLocaleString('pt-BR', {
-        year:'numeric', month:'2-digit', day:'2-digit',
-        hour:'2-digit', minute:'2-digit'
-      });
+      return d.toLocaleString('pt-BR', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
     }
-
     function printReceipt(title, iso){
       const r = document.createElement('div');
       r.className = 'receipt';
       const agora = new Date();
-      const emitido = agora.toLocaleString('pt-BR', {
-        year:'numeric', month:'2-digit', day:'2-digit',
-        hour:'2-digit', minute:'2-digit', second:'2-digit'
-      });
-
+      const emitido = agora.toLocaleString('pt-BR', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' });
       r.innerHTML = `
         <div class="r-title">RECIBO ÁUREO</div>
         <div class="r-line">Evento: <span class="r-accent">${title}</span></div>
@@ -490,13 +436,83 @@
       `;
       document.body.appendChild(r);
 
-      // some fade-out after a while
-      setTimeout(() => {
-        r.style.transition = 'opacity .6s ease, transform .6s ease';
-        r.style.opacity = '0';
-        r.style.transform = 'translateX(-50%) translateY(-10%) scale(.98)';
-        setTimeout(()=> r.remove(), 700);
-      }, 5200);
+      // Ao final da ejeção, estaciona no canto e agenda sumiço automático
+      r.addEventListener('animationend', () => {
+        const rect = r.getBoundingClientRect();
+        r.style.transition = 'transform .28s ease, left .28s ease, top .28s ease';
+        r.style.left = (window.innerWidth - rect.width - 18) + 'px';
+        r.style.top  = (60) + 'px';
+        r.style.transform = 'translateX(0) translateY(0) rotate(0deg) scale(.95)';
+        r.classList.add('parked');
+
+        scheduleAutoDismiss(r, 5200);
+      }, { once:true });
+
+      makeDraggable(r);
+    }
+
+    /* Drag & Drop do recibo para o limbo */
+    function makeDraggable(el){
+      let dragging = false, offX = 0, offY = 0, pid = null;
+      const limbo = document.getElementById('limbo');
+
+      function overLimbo(elem){
+        const lr = limbo.getBoundingClientRect();
+        const er = elem.getBoundingClientRect();
+        const cx = er.left + er.width/2;
+        const cy = er.top + er.height/2;
+        return cx > lr.left && cx < lr.right && cy > lr.top && cy < lr.bottom;
+      }
+
+      el.addEventListener('pointerdown', (e) => {
+        pid = e.pointerId;
+        el.setPointerCapture(pid);
+        dragging = true;
+        el.classList.add('dragging');
+        limbo.classList.add('show');
+
+        const r = el.getBoundingClientRect();
+        offX = e.clientX - r.left;
+        offY = e.clientY - r.top;
+
+        // garantir posição absoluta numérica
+        el.style.left = r.left + 'px';
+        el.style.top  = r.top + 'px';
+        el.style.transform = 'none';
+
+        // pausa auto-despacho
+        cancelAutoDismiss(el);
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        el.style.left = (e.clientX - offX) + 'px';
+        el.style.top  = (e.clientY - offY) + 'px';
+      });
+
+      el.addEventListener('pointerup', (e) => {
+        if (!dragging) return;
+        dragging = false;
+        el.classList.remove('dragging');
+        el.releasePointerCapture(pid);
+        pid = null;
+
+        if (overLimbo(el)) {
+          // afunda no limbo
+          limbo.classList.add('sink');
+          el.style.transition = 'opacity .45s ease, transform .45s ease';
+          el.style.transform = 'scale(.92) rotate(-6deg) translateY(12px)';
+          el.style.opacity = '0';
+          setTimeout(() => {
+            el.remove();
+            limbo.classList.remove('sink','show');
+          }, 460);
+        } else {
+          limbo.classList.remove('show');
+          // reprograma sumiço automático
+          scheduleAutoDismiss(el, 3500);
+        }
+      });
     }
 
     /* ---------- Quick buttons ---------- */
@@ -505,7 +521,7 @@
       inputElem.value = isoLocal;
       applyTheme(themeKey);
       spawnStickers(emojis || ['✨','🌙','⭐']);
-      startCountdown(label); // passa label para o recibo
+      startCountdown(label);
     }
 
     /* ---------- Start & loop ---------- */
@@ -517,10 +533,10 @@
       targetDate = new Date(inputVal);
       clearInterval(countdownInterval);
       updateURL(inputVal);
+      updateTargetStamp(inputVal);
       updateCounter();
       countdownInterval = setInterval(updateCounter, 1000);
 
-      // Recibo ao iniciar
       const title = labelOverride || 'Contador iniciado';
       printReceipt(title, inputVal);
     }
@@ -575,9 +591,9 @@
           const inputElem = document.getElementById("targetDatetime");
           inputElem.value = datetimeParam;
           targetDate = validDate;
+          updateTargetStamp(datetimeParam);
           updateCounter();
           countdownInterval = setInterval(updateCounter, 1000);
-          // Recibo de carregamento via URL
           printReceipt('Carregado pela URL', datetimeParam);
         }
       }
