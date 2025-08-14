@@ -7,34 +7,75 @@
   <style>
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+    :root{
+      /* Tema base (override por classe no <body>) */
+      --bg1:#1b1f25; --bg2:#101317; --bg3:#0b0d10;
+      --cardTop:#1a1f25; --cardMid:#14181d; --cardBot:#101419;
+      --accent:#66d1ff;
+      --label:#9aa3af;
+      --text:#e8eaee;
+    }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Arial, sans-serif;
       font-variant-numeric: tabular-nums lining-nums;
       background:
-        radial-gradient(1400px 700px at 50% -10%, #1b1f25 0%, #101317 55%, #0b0d10 100%),
-        #0e1116;
-      color: #e6e9ef;
+        radial-gradient(1400px 700px at 50% -10%, var(--bg1) 0%, var(--bg2) 55%, var(--bg3) 100%),
+        var(--bg3);
+      color: var(--text);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 1.6rem;
-      padding: 2rem;
+      justify-content: flex-start;
+      gap: 1.2rem;
+      padding: 5.5rem 2rem 2rem; /* espaço para a “impressora” */
+      overflow-x: hidden;
+    }
+
+    /* “Impressora” fixa no topo */
+    .printer-slot {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(640px, 90vw);
+      height: 46px;
+      border-radius: 0 0 18px 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(0,0,0,.2)),
+        linear-gradient(180deg, #20252b, #0f1216);
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.55),
+        inset 0 -2px 6px rgba(0,0,0,.75),
+        inset 0 6px 10px rgba(255,255,255,.04);
+      z-index: 30;
+    }
+    .printer-slot::after{
+      /* fenda */
+      content:"";
+      position:absolute; left:8%; right:8%; top:12px; height:12px;
+      border-radius:8px;
+      background:
+        linear-gradient(180deg, #0a0c0f, #000);
+      box-shadow:
+        inset 0 2px 6px rgba(0,0,0,.9),
+        0 8px 18px rgba(0,0,0,.45);
     }
 
     /* Atalhos */
     .quick-buttons {
+      margin-top: .2rem;
       display: flex;
       flex-wrap: wrap;
       gap: .6rem .6rem;
       justify-content: center;
       filter: drop-shadow(0 4px 14px rgba(0,0,0,.35));
+      z-index: 1;
     }
     .quick-buttons button {
       cursor: pointer;
       border: none;
-      padding: .55rem .8rem;
+      padding: .55rem .9rem;
       border-radius: 999px;
       background: linear-gradient(#f5f7fa, #cfd6df);
       color: #0e1116;
@@ -56,14 +97,11 @@
       align-items: center;
       flex-wrap: wrap;
       filter: drop-shadow(0 4px 14px rgba(0,0,0,.45));
+      z-index: 1;
     }
     .input-container input[type="datetime-local"] {
-      appearance: none;
-      border: none;
-      outline: none;
-      padding: .6rem .8rem;
-      font-size: 0.95rem;
-      border-radius: 10px;
+      appearance: none; border: none; outline: none;
+      padding: .6rem .8rem; font-size: 0.95rem; border-radius: 10px;
       background: linear-gradient(#2a2f37, #22262d);
       color: #f3f5f7;
       box-shadow:
@@ -72,14 +110,9 @@
         0 6px 18px rgba(0,0,0,.35);
     }
     .input-container button {
-      cursor: pointer;
-      border: none;
-      padding: .6rem 1rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-      border-radius: 10px;
-      color: #0e1116;
-      background: linear-gradient(#f5f7fa, #cfd6df);
+      cursor: pointer; border: none; padding: .6rem 1rem;
+      font-weight: 700; letter-spacing: .02em; border-radius: 10px;
+      color: #0e1116; background: linear-gradient(#f5f7fa, #cfd6df);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.7),
         inset 0 -1px 0 rgba(0,0,0,.15),
@@ -88,12 +121,13 @@
     }
     .input-container button:active { transform: translateY(1px); filter: brightness(.96); }
 
-    /* Layout em linhas */
+    /* Layout em linhas do relógio */
     .clock-rows {
       display: grid;
       grid-template-rows: auto auto auto;
       gap: 0.9rem;
       perspective: 1200px;
+      z-index: 1;
     }
     .row {
       display: flex;
@@ -102,8 +136,7 @@
       align-items: flex-start;
       justify-content: center;
     }
-
-    /* Grupo: cartão à esquerda, legenda à direita */
+    /* Etiqueta à direita */
     .digit-group {
       display: inline-flex;
       align-items: center;
@@ -114,74 +147,52 @@
       font-size: 0.8rem;
       letter-spacing: .11em;
       text-transform: uppercase;
-      color: #9aa3af;
+      color: var(--label);
       margin-top: .15rem;
       min-width: 3ch;
-      text-align: left; /* legenda à direita do cartão */
+      text-align: left;
     }
 
     /* Cartão físico do dígito */
     .digit {
-      width: 110px;
-      height: 140px;
-      perspective: 1000px;
-      position: relative;
-      border-radius: 14px;
+      width: 110px; height: 140px;
+      perspective: 1000px; position: relative; border-radius: 14px;
       filter: drop-shadow(0 16px 30px rgba(0,0,0,.55));
     }
     .digit::before {
-      content: "";
-      position: absolute;
-      inset: -6px;
-      border-radius: 18px;
+      content: ""; position: absolute; inset: -6px; border-radius: 18px;
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 28%, rgba(0,0,0,.35) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 2px 6px rgba(0,0,0,.4);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 2px 6px rgba(0,0,0,.4);
       pointer-events: none;
     }
     .flip-container {
-      width: 100%; height: 100%;
-      position: relative;
+      width: 100%; height: 100%; position: relative;
       transform-style: preserve-3d;
       transition: transform 460ms cubic-bezier(.22,.61,.36,1);
-      will-change: transform;
-      border-radius: 14px;
-      overflow: hidden;
+      will-change: transform; border-radius: 14px; overflow: hidden;
     }
-    .flip-front,
-    .flip-back {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.25rem;
-      font-weight: 800;
-      letter-spacing: .02em;
-      color: #e8eaee;
-      text-shadow:
-        0 1px 0 rgba(0,0,0,.65),
-        0 2px 8px rgba(0,0,0,.35);
+    .flip-front, .flip-back {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.25rem; font-weight: 800; letter-spacing: .02em;
+      color: var(--text);
+      text-shadow: 0 1px 0 rgba(0,0,0,.65), 0 2px 8px rgba(0,0,0,.35);
       backface-visibility: hidden;
       background:
         radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.04), rgba(255,255,255,0) 60%),
-        linear-gradient(180deg, #1a1f25 0%, #14181d 52%, #101419 100%),
+        linear-gradient(180deg, var(--cardTop) 0%, var(--cardMid) 52%, var(--cardBot) 100%),
         repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 2px, rgba(255,255,255,0) 2px 4px);
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.04);
       box-shadow:
         inset 0 14px 28px rgba(255,255,255,.04),
         inset 0 -18px 38px rgba(0,0,0,.55),
-        inset 0 0 0 1px rgba(0,0,0,.6);
+        inset 0 0 0 1px rgba(0,0,0,.6),
+        0 0 0 2px color-mix(in oklab, var(--accent) 20%, transparent);
     }
-    .flip-front::before,
-    .flip-back::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
+    .flip-front::before, .flip-back::before {
+      content: ""; position: absolute; inset: 0; border-radius: 14px;
       background:
         linear-gradient(180deg, transparent calc(50% - 1px), rgba(255,255,255,.09) calc(50% - 1px), rgba(0,0,0,.55) 50%, transparent calc(50% + 2px)),
         radial-gradient(8px 8px at 12px 12px, rgba(255,255,255,.35), rgba(255,255,255,0) 70%),
@@ -190,15 +201,10 @@
         radial-gradient(8px 8px at calc(100% - 12px) calc(100% - 12px), rgba(255,255,255,.35), rgba(255,255,255,0) 70%);
       pointer-events: none;
     }
-    .flip-front::after,
-    .flip-back::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0) 28%);
-      mix-blend-mode: screen;
-      pointer-events: none;
+    .flip-front::after, .flip-back::after {
+      content: ""; position: absolute; inset: 0; border-radius: 14px;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 18%, transparent), rgba(255,255,255,0) 28%);
+      mix-blend-mode: screen; pointer-events: none;
     }
     .flip-back { transform: rotateX(180deg); }
     .digit.flipped .flip-container { transform: rotateX(180deg); }
@@ -206,21 +212,115 @@
     /* Grupos opcionais (anos/meses/dias) inicialmente ocultos */
     #yearGroup, #monthGroup, #dayGroup { display: none; }
 
+    /* RECEIPT skeuomórfico */
+    .receipt {
+      position: fixed;
+      top: 14px; /* sai da fenda */
+      left: 50%;
+      transform: translateX(-50%) translateY(-130%) rotate(2deg);
+      width: min(520px, 84vw);
+      background:
+        radial-gradient(200% 100% at 50% -20%, rgba(0,0,0,.12), rgba(0,0,0,0) 30%),
+        linear-gradient(180deg, #fff, #fbfbfb 45%, #f2f2f2 100%);
+      border: 1px solid #e6e6e6;
+      border-radius: 6px 6px 12px 12px;
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.35),
+        inset 0 -10px 20px rgba(0,0,0,.06);
+      padding: 16px 18px 18px;
+      z-index: 40;
+      filter: contrast(1.03) saturate(.94);
+      overflow: hidden;
+      clip-path: inset(-20px round 6px);
+      animation: eject .85s cubic-bezier(.22,.9,.24,1) forwards;
+    }
+    .receipt::before{
+      /* serrilhado superior */
+      content:"";
+      position:absolute; left:0; right:0; top:0; height:10px;
+      background:
+        repeating-linear-gradient(90deg, #eaeaea 0 10px, transparent 10px 20px);
+      mask: radial-gradient(6px 6px at 0 100%, #0000 98%, #000 101%) 0 0/20px 10px repeat-x;
+      opacity:.9;
+    }
+    .receipt::after{
+      /* banding térmico */
+      content:"";
+      position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(180deg, rgba(0,0,0,.02) 0 2px, rgba(0,0,0,0) 2px 6px);
+      pointer-events:none;
+    }
+    .r-title{
+      font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 6px;
+    }
+    .r-line{
+      font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 15px; color:#111; letter-spacing: .02em;
+      white-space: pre-wrap;
+      filter: grayscale(.15);
+      transform: translateZ(0);
+      animation: printLine .65s steps(30,end) forwards;
+      opacity: 0;
+    }
+    .r-line + .r-line { animation-delay: .12s; }
+    .r-muted{ color:#333; opacity:.9; }
+    .r-accent{ color:#000; font-weight:700; }
+
+    @keyframes eject {
+      0%   { transform: translateX(-50%) translateY(-130%) rotate(2deg); }
+      65%  { transform: translateX(-50%) translateY(0%) rotate(-1deg); }
+      100% { transform: translateX(-50%) translateY(0%) rotate(0deg); }
+    }
+    @keyframes printLine {
+      0% { opacity:0; filter: blur(.6px); }
+      100% { opacity:1; filter: blur(0); }
+    }
+
+    /* Stickers de emojis */
+    .sticker {
+      position: fixed;
+      font-size: clamp(20px, 3.5vw, 38px);
+      pointer-events: none;
+      z-index: 20;
+      animation: floatUp linear forwards;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) translateX(0) rotate(0); opacity: .95; }
+      to   { transform: translateY(-120vh) translateX(var(--drift, 60px)) rotate(var(--rot, 20deg)); opacity: 0; }
+    }
+
     /* Responsivo */
     @media (max-width: 1100px) { .digit { width: 96px; height: 122px; } .flip-front, .flip-back { font-size: 2.8rem; } }
     @media (max-width: 880px)  { .digit { width: 86px; height: 110px; } .flip-front, .flip-back { font-size: 2.4rem; } }
     @media (max-width: 768px)  { .clock-rows { transform: scale(.95); transform-origin: top center; } }
     @media (max-width: 560px)  { .clock-rows { transform: scale(.86); } }
     @media (max-width: 460px)  { .clock-rows { transform: scale(.78); } }
+
+    /* Temas (alteram vars no body) */
+    body.theme-crs { --accent:#49e1d6; --bg1:#12323a; --bg2:#0e2026; --bg3:#0a1518; --cardTop:#0e2227; --cardMid:#0b1a1f; --cardBot:#0a161b; --label:#9de8e0; }
+    body.theme-social { --accent:#db7bff; --bg1:#2a1733; --bg2:#190e1f; --bg3:#120a18; --cardTop:#221429; --cardMid:#1b1022; --cardBot:#150c1b; --label:#e8c6ff; }
+    body.theme-hormonal { --accent:#ff5fb4; --bg1:#331727; --bg2:#1e0d17; --bg3:#14090f; --cardTop:#25121c; --cardMid:#1d0e16; --cardBot:#150a11; --label:#ffc9e6; }
+    body.theme-medical { --accent:#65a7ff; --bg1:#172133; --bg2:#0f1624; --bg3:#0b111c; --cardTop:#141d2d; --cardMid:#101726; --cardBot:#0c121e; --label:#b9d5ff; }
   </style>
 </head>
-<body>
+<body class="">
+  <!-- Impressora -->
+  <div class="printer-slot" aria-hidden="true"></div>
+
   <!-- Botões rápidos -->
   <div class="quick-buttons">
-    <button onclick="quickSet('2025-09-18T07:00')">🩺 Cirurgia CRS</button>
-    <button onclick="quickSet('2024-06-01T22:00')">🎭 Transição Social</button>
-    <button onclick="quickSet('2024-09-06T21:00')">🧬 Transição Hormonal</button>
-    <button onclick="quickSet('2023-10-02T08:00')">🏥 Tempo de Medical</button>
+    <button onclick="quickSet('2025-09-18T07:00','crs','🩺 Cirurgia CRS', ['🩺','💉','👙','🧪','🍑'])">🩺 Cirurgia CRS</button>
+    <button onclick="quickSet('2024-06-01T22:00','social','🎭 Transição Social', ['🎭','✨','👗','💄','🌙'])">🎭 Transição Social</button>
+    <button onclick="quickSet('2024-09-06T21:00','hormonal','🧬 Transição Hormonal', ['🧬','💗','🌸','💊','⚗️'])">🧬 Transição Hormonal</button>
+    <button onclick="quickSet('2023-10-02T08:00','medical','🏥 Tempo de Medical', ['🏥','📋','🩺','🚑','🧼'])">🏥 Tempo de Medical</button>
   </div>
 
   <!-- Input manual -->
@@ -302,6 +402,7 @@
   </div>
 
   <script>
+    /* ---------- Flip original ---------- */
     function flipDigit(digitElem, newVal) {
       const oldVal = digitElem.getAttribute("data-value");
       if (String(newVal) === oldVal) return;
@@ -335,22 +436,93 @@
       window.history.replaceState({}, '', url);
     }
 
-    function startCountdown() {
+    /* ---------- Temas ---------- */
+    function applyTheme(key){
+      const body = document.body;
+      body.classList.remove('theme-crs','theme-social','theme-hormonal','theme-medical');
+      if (key) body.classList.add('theme-' + key);
+    }
+
+    /* ---------- Stickers ---------- */
+    function spawnStickers(list){
+      const count = Math.min(12, Math.max(6, Math.round(window.innerWidth/140)));
+      for (let i=0;i<count;i++){
+        const e = document.createElement('div');
+        e.className = 'sticker';
+        e.textContent = list[Math.floor(Math.random()*list.length)];
+        const x = Math.random()*100; // vw
+        const dur = 5 + Math.random()*4;
+        e.style.left = `calc(${x}vw - 10px)`;
+        e.style.bottom = `-40px`;
+        e.style.animationDuration = `${dur}s`;
+        e.style.setProperty('--drift', `${(Math.random()*120 - 60)}px`);
+        e.style.setProperty('--rot', `${(Math.random()*60 - 30)}deg`);
+        document.body.appendChild(e);
+        setTimeout(()=> e.remove(), dur*1000);
+      }
+    }
+
+    /* ---------- Recibo ---------- */
+    function formatPtBR(iso){
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleString('pt-BR', {
+        year:'numeric', month:'2-digit', day:'2-digit',
+        hour:'2-digit', minute:'2-digit'
+      });
+    }
+
+    function printReceipt(title, iso){
+      const r = document.createElement('div');
+      r.className = 'receipt';
+      const agora = new Date();
+      const emitido = agora.toLocaleString('pt-BR', {
+        year:'numeric', month:'2-digit', day:'2-digit',
+        hour:'2-digit', minute:'2-digit', second:'2-digit'
+      });
+
+      r.innerHTML = `
+        <div class="r-title">RECIBO ÁUREO</div>
+        <div class="r-line">Evento: <span class="r-accent">${title}</span></div>
+        <div class="r-line">Data alvo: <span class="r-accent">${formatPtBR(iso)}</span></div>
+        <div class="r-line r-muted">Emitido em: ${emitido}</div>
+        <div class="r-line r-muted">Autenticação: ${Math.random().toString(36).slice(2,10).toUpperCase()}</div>
+      `;
+      document.body.appendChild(r);
+
+      // some fade-out after a while
+      setTimeout(() => {
+        r.style.transition = 'opacity .6s ease, transform .6s ease';
+        r.style.opacity = '0';
+        r.style.transform = 'translateX(-50%) translateY(-10%) scale(.98)';
+        setTimeout(()=> r.remove(), 700);
+      }, 5200);
+    }
+
+    /* ---------- Quick buttons ---------- */
+    function quickSet(isoLocal, themeKey, label, emojis) {
+      const inputElem = document.getElementById("targetDatetime");
+      inputElem.value = isoLocal;
+      applyTheme(themeKey);
+      spawnStickers(emojis || ['✨','🌙','⭐']);
+      startCountdown(label); // passa label para o recibo
+    }
+
+    /* ---------- Start & loop ---------- */
+    function startCountdown(labelOverride) {
       const inputElem = document.getElementById("targetDatetime");
       const inputVal = inputElem.value;
       if (!inputVal) { alert("Selecione uma data e hora!"); return; }
+
       targetDate = new Date(inputVal);
       clearInterval(countdownInterval);
       updateURL(inputVal);
       updateCounter();
       countdownInterval = setInterval(updateCounter, 1000);
-    }
 
-    function quickSet(isoLocal) {
-      // Define o input, atualiza URL e dispara o contador
-      const inputElem = document.getElementById("targetDatetime");
-      inputElem.value = isoLocal;
-      startCountdown();
+      // Recibo ao iniciar
+      const title = labelOverride || 'Contador iniciado';
+      printReceipt(title, inputVal);
     }
 
     function updateCounter() {
@@ -379,7 +551,7 @@
       const dayGroup   = document.getElementById("dayGroup");
 
       yearGroup.style.display  = years  > 0 ? "inline-flex" : "none";
-      monthGroup.style.display = months > 0 || years > 0 ? "inline-flex" : "none"; // mantém meses junto com anos
+      monthGroup.style.display = months > 0 || years > 0 ? "inline-flex" : "none";
       dayGroup.style.display   = days   > 0 || months > 0 || years > 0 ? "inline-flex" : "none";
 
       flipDigit(document.getElementById("yearValue"),   String(years));
@@ -394,6 +566,7 @@
         : `Falta: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
+    /* ---------- Init via URL ---------- */
     function initializeFromURL() {
       const datetimeParam = getURLParameter('datetime');
       if (datetimeParam) {
@@ -404,6 +577,8 @@
           targetDate = validDate;
           updateCounter();
           countdownInterval = setInterval(updateCounter, 1000);
+          // Recibo de carregamento via URL
+          printReceipt('Carregado pela URL', datetimeParam);
         }
       }
     }
