@@ -22,13 +22,13 @@
     main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
     .group { background: #fff; border-radius: 16px; box-shadow: 0 6px 14px rgba(0,0,0,.08); overflow: hidden; margin-bottom: 1.5rem; }
     .group-header { background: linear-gradient(90deg, var(--blue), var(--pink)); color: #fff; padding: 1.1rem 1.2rem; font-weight: 700; display:flex; justify-content: space-between; align-items:center; cursor:pointer; }
-    .group-content { max-height: 0; overflow: hidden; transition: max-height .45s ease; background: #fff; padding: 0 1rem; }
-    .group-content.open { padding: 1rem 1rem 1.5rem; }
+    .group-content { max-height: 0; overflow: hidden; transition: max-height .45s ease; background: #fff; }
+    .group-content.open { padding: 1rem; }
     .accordion { border-radius: 10px; overflow: hidden; margin: 1rem 0; background: #fff; border: 1px solid #f0d6e6; }
     .accordion-header { background: var(--pink); color: var(--white); padding: 1rem; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
     .accordion-header:hover { opacity: 0.95; }
-    .accordion-content { max-height: 0; transition: max-height 0.4s ease; overflow: hidden; padding: 0 1rem; background: #f6f1f7; }
-    .accordion-content.open { padding: 1rem 1rem 1.5rem; }
+    .accordion-content { max-height: 0; transition: max-height 0.4s ease; overflow: hidden; background: #f6f1f7; }
+    .accordion-content.open { padding: 1rem; }
     .toggle-icon { transition: transform 0.3s ease; }
     .toggle-icon.rotate { transform: rotate(90deg); }
     details.spoiler summary { cursor:pointer; color: var(--pink); font-weight:600; }
@@ -152,38 +152,35 @@
   </footer>
 
   <script>
+    function toggleSection(header, content, icon){
+      const isOpen = content.classList.contains('open');
+      if(isOpen){
+        content.style.maxHeight = null;
+        content.classList.remove('open');
+        icon.classList.remove('rotate');
+      } else {
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.classList.add('rotate');
+      }
+    }
+
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.toggle-icon');
-        const isOpen = content.classList.contains('open');
-        if (isOpen) {
-          content.style.maxHeight = null;
-          content.classList.remove('open');
-          icon.classList.remove('rotate');
-        } else {
-          content.classList.add('open');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          icon.classList.add('rotate');
-        }
+        toggleSection(header, content, icon);
       });
     });
+
     document.querySelectorAll('.group-header').forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.toggle-icon');
-        const isOpen = content.classList.contains('open');
-        if (isOpen) {
-          content.style.maxHeight = null;
-          content.classList.remove('open');
-          icon.classList.remove('rotate');
-        } else {
-          content.classList.add('open');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          icon.classList.add('rotate');
-        }
+        toggleSection(header, content, icon);
       });
     });
+
     document.getElementById('date').textContent = new Date().toLocaleDateString('pt-BR');
   </script>
 </body>
