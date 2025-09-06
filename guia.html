@@ -60,6 +60,14 @@
     footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
 
     @media (max-width: 600px) { header h1 { font-size: 1.8rem; } }
+      footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
+
+    /* DISCLAIMER */
+    .disclaimer{max-width:1000px;margin:-1rem auto 1.5rem;display:flex;align-items:center;gap:.75rem;background:linear-gradient(90deg,rgba(90,179,255,.12),rgba(255,155,205,.12));border:1px solid rgba(255,155,205,.35);border-left:8px solid var(--blue);padding:.75rem 1rem;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
+    .disc-left{font-size:1.2rem}
+    .disc-text{font-size:.9rem;flex:1;color:#444}
+    .disc-close{background:var(--pink);color:#fff;border:0;border-radius:999px;padding:.4rem .8rem;font-weight:700;cursor:pointer}
+    .disc-close:hover{opacity:.92}
   </style>
 </head>
 <body>
@@ -67,6 +75,15 @@
     <h1>🌸 Guia da CRS (Cirurgia de Redesignação Sexual) pelo Plano de Saúde 🌸</h1>
     <p>Passo a passo prático, fofo e empoderado para garantir sua cirurgia 💖</p>
   </header>
+
+  <!-- DISCREET DISCLAIMER -->
+  <div class="disclaimer" id="disclaimer">
+    <div class="disc-left">ℹ️</div>
+    <div class="disc-text">
+      <strong>Orientação rápida:</strong> planos de saúde devem disponibilizar <em>consulta com médico credenciado</em> para emissão de encaminhamento à CRS. Se negarem ou exigirem pagamento, protocole reclamação e acione a ANS (0800‑701‑9656). Reembolso integral só se não houver profissional na rede.
+    </div>
+    <button class="disc-close" id="discClose" aria-label="Fechar aviso">Entendi</button>
+  </div>
 
   <main>
 
@@ -243,6 +260,18 @@
         }
       });
     });
+
+    // Disclaimer hide with persistence
+    const disc = document.getElementById('disclaimer');
+    const discClose = document.getElementById('discClose');
+    if(localStorage.getItem('hideDisclaimer')==='1'){
+      disc?.parentNode?.removeChild(disc);
+    } else {
+      discClose?.addEventListener('click',()=>{
+        disc?.parentNode?.removeChild(disc);
+        localStorage.setItem('hideDisclaimer','1');
+      });
+    }
 
     // Update date
     document.getElementById('date').textContent = new Date().toLocaleDateString('pt-BR');
