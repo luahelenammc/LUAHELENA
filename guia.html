@@ -16,58 +16,29 @@
       --mint: #c9fff2;
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--gray);
-      background: var(--lav);
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: repeating-linear-gradient(90deg,
-        var(--blue) 0 20%, var(--white) 20% 40%, var(--pink) 40% 60%, var(--white) 60% 80%, var(--blue) 80% 100%);
-      color: var(--gray);
-    }
+    body { margin: 0; font-family: 'Poppins', sans-serif; color: var(--gray); background: var(--lav); line-height: 1.6; }
+    header { text-align: center; padding: 4rem 1rem; background: repeating-linear-gradient(90deg, var(--blue) 0 20%, var(--white) 20% 40%, var(--pink) 40% 60%, var(--white) 60% 80%, var(--blue) 80% 100%); color: var(--gray); }
     header h1 { font-size: 2.5rem; margin: 0 0 0.5rem; }
     header p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-
     main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-
-    /* ===== BIG GROUP ACCORDION ===== */
     .group { background: #fff; border-radius: 16px; box-shadow: 0 6px 14px rgba(0,0,0,.08); overflow: hidden; margin-bottom: 1.5rem; }
     .group-header { background: linear-gradient(90deg, var(--blue), var(--pink)); color: #fff; padding: 1.1rem 1.2rem; font-weight: 700; display:flex; justify-content: space-between; align-items:center; cursor:pointer; }
     .group-content { max-height: 0; overflow: hidden; transition: max-height .45s ease; background: #fff; padding: 0 1rem; }
     .group-content.open { padding: 1rem 1rem 1.5rem; }
-
-    /* small badge inside group header */
     .badge { background: rgba(255,255,255,.2); padding: .2rem .6rem; border-radius: 999px; font-size: .85rem; margin-left: .5rem; }
-
-    /* ===== INNER ACCORDIONS ===== */
     .accordion { border-radius: 10px; overflow: hidden; margin: 1rem 0; background: #fff; border: 1px solid #f0d6e6; }
     .accordion-header { background: var(--pink); color: var(--white); padding: 1rem; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
     .accordion-header:hover { opacity: 0.95; }
     .accordion-content { max-height: 0; transition: max-height 0.4s ease; overflow: hidden; padding: 0 1rem; background: #f6f1f7; }
     .accordion-content.open { padding: 1rem 1rem 1.5rem; }
-
     .toggle-icon { transition: transform 0.3s ease; }
     .toggle-icon.rotate { transform: rotate(90deg); }
-
     .accordion-content p, .accordion-content li { margin: 0.5rem 0; }
     .accordion-content ul, .accordion-content ol { padding-left: 1.2rem; }
-
     footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
-
+    details.spoiler summary { cursor:pointer; color: var(--pink); font-weight:600; }
+    details.spoiler p { font-size:0.9rem; margin-top:0.5rem; background:rgba(90,179,255,.1); padding:0.6rem 0.8rem; border-left:4px solid var(--blue); border-radius:8px; }
     @media (max-width: 600px) { header h1 { font-size: 1.8rem; } }
-      footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
-
-    /* DISCLAIMER */
-    .disclaimer{max-width:1000px;margin:-1rem auto 1.5rem;display:flex;align-items:center;gap:.75rem;background:linear-gradient(90deg,rgba(90,179,255,.12),rgba(255,155,205,.12));border:1px solid rgba(255,155,205,.35);border-left:8px solid var(--blue);padding:.75rem 1rem;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
-    .disc-left{font-size:1.2rem}
-    .disc-text{font-size:.9rem;flex:1;color:#444}
-    .disc-close{background:var(--pink);color:#fff;border:0;border-radius:999px;padding:.4rem .8rem;font-weight:700;cursor:pointer}
-    .disc-close:hover{opacity:.92}
   </style>
 </head>
 <body>
@@ -76,35 +47,10 @@
     <p>Passo a passo prático, fofo e empoderado para garantir sua cirurgia 💖</p>
   </header>
 
-  <!-- DISCREET DISCLAIMER -->
-  <div class="disclaimer" id="disclaimer">
-    <div class="disc-left">ℹ️</div>
-    <div class="disc-text">
-      <strong>Orientação rápida:</strong> planos de saúde devem disponibilizar <em>consulta com médico credenciado</em> para emissão de encaminhamento à CRS. Se negarem ou exigirem pagamento, protocole reclamação e acione a ANS (0800‑701‑9656). Reembolso integral só se não houver profissional na rede.
-    </div>
-    <button class="disc-close" id="discClose" aria-label="Fechar aviso">Entendi</button>
-  </div>
-
   <main>
-
-    <!-- ====== GRUPO 1: PARTE BUROCRÁTICA ====== -->
     <section class="group" id="grupo-burocracia">
       <div class="group-header">🗂️ Parte Burocrática <span class="badge">laudos, autorizações & direitos</span> <span class="toggle-icon">▶</span></div>
       <div class="group-content">
-        <!-- Requisitos -->
-        <section class="accordion" id="requisitos">
-          <div class="accordion-header">📄 Requisitos Básicos <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>🧠 Laudo de profissional de saúde mental (CID F64.0) - psicóloga <strong>ou</strong> psiquiatra.</li>
-              <li>💓 Laudo endócrino confirmando boa saúde geral e THF estável.</li>
-              <li>⏳ <strong>2 anos</strong> de acompanhamento terapêutico recomendado (WPATH SOC-8).</li>
-              <li>🏥 Cirurgião <em>credenciado</em> no seu plano — evita judicialização.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Documentos -->
         <section class="accordion">
           <div class="accordion-header">🧾 Documentos Necessários <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
@@ -115,109 +61,14 @@
               <li>🖊️ Solicitação formal do cirurgião para a CRS.</li>
               <li>🗂️ Protocolo de atendimento do app/portal.</li>
             </ul>
-          </div>
-        </section>
-
-        <!-- Passo a passo -->
-        <section class="accordion">
-          <div class="accordion-header">🚀 Passo a Passo de Autorização <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ol>
-              <li>📅 Consulta com o cirurgião credenciado.</li>
-              <li>📤 Anexe laudos & solicitação no aplicativo do plano.</li>
-              <li>🔔 Acompanhe o protocolo; salve PDFs e e-mails.</li>
-              <li>⏱️ Prazo ANS: resposta em <strong>até 21 dias úteis</strong>.</li>
-              <li>✅ Recebeu a autorização? Partiu marcar a cirurgia!</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- Negativa -->
-        <section class="accordion">
-          <div class="accordion-header">⚖️ Se o plano negar, o que fazer? <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>📃 Peça a negativa formal por escrito (RN 395/ANS).</li>
-              <li>📞 0800-701-9656 (ANS) — registre reclamação.</li>
-              <li>👩‍⚖️ Defensoria/advogada para tutela de urgência (48–72h costumam bastar).</li>
-              <li>📚 Base legal: RN 465/2021 + Art. 35-C da Lei 9.656/98.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Referências -->
-        <section class="accordion">
-          <div class="accordion-header">🔗 Referências Legais & Técnicas <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>📜 Resolução Normativa 465/2021 — ANS.</li>
-              <li>📜 Art. 35-C da Lei 9.656/98.</li>
-              <li>📜 WPATH Standards of Care v8 (2022).</li>
-              <li>📜 Parecer CFM 2.148/2016.</li>
-            </ul>
+            <details class="spoiler">
+              <summary>ℹ️ Aviso importante sobre consultas</summary>
+              <p>Os planos de saúde devem oferecer <strong>consulta com médico credenciado</strong> para emissão do encaminhamento à CRS. Caso neguem ou exijam pagamento, protocole reclamação e acione a ANS (0800‑701‑9656). O reembolso integral só se aplica se não houver profissional disponível na rede.</p>
+            </details>
           </div>
         </section>
       </div>
     </section>
-
-    <!-- ====== GRUPO 2: PARTE HOSPITALAR ====== -->
-    <section class="group" id="grupo-hospitalar">
-      <div class="group-header">🏥 Parte Hospitalar <span class="badge">pré-op, internação & pós-op</span> <span class="toggle-icon">▶</span></div>
-      <div class="group-content">
-        <!-- Após autorização -->
-        <section class="accordion">
-          <div class="accordion-header">🗓️ Após a Autorização <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>🧪 Exames pré-operatórios (hemograma, coagulograma, HIV, função hepática, etc.).</li>
-              <li>⏸️ Interromper hormônios até 4 semanas antes, se indicado.</li>
-              <li>👯‍♀️ Organize acompanhante & estadia próxima ao hospital.</li>
-              <li>🤝 Consulta D-1 para definir estética (clitóris, lábios, profundidade).</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="accordion">
-          <div class="accordion-header">✔️ Checklist Pré-Cirurgia <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>🩲 Absorventes noturnos/fralda.</li>
-              <li>💧 Lubrificante à base de água + camisinhas para dilatadores.</li>
-              <li>🛏️ Almofada donut para sentar.</li>
-              <li>📜 Atestados médicos + aviso ao trabalho.</li>
-              <li>📁 Cópia impressa de toda a papelada (backup).</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Pós-op -->
-        <section class="accordion">
-          <div class="accordion-header">🌱 Dicas Pós-Operatórias <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li>🚰 Hidrate-se até o xixi ficar clarinho.</li>
-              <li>🚶‍♀️ Caminhe cedo para aliviar dor nas pernas.</li>
-              <li>⏰ Dilatação disciplinada — 3–4×/dia nos 3 primeiros meses.</li>
-              <li>🚿 Higiene: lavar após xixi/cocô; nunca forçar evacuação ou micção.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Glossário -->
-        <section class="accordion">
-          <div class="accordion-header">📖 Glossário Rápido <span class="toggle-icon">▶</span></div>
-          <div class="accordion-content">
-            <ul>
-              <li><strong>CRS/SRS:</strong> Cirurgia de Redesignação Sexual.</li>
-              <li><strong>PIV:</strong> Penile Inversion Vaginoplasty.</li>
-              <li><strong>D-1:</strong> Dia anterior à cirurgia (pré-op imediato).</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-    </section>
-
   </main>
 
   <footer>
@@ -225,7 +76,6 @@
   </footer>
 
   <script>
-    // Small accordions (inner)
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
@@ -242,8 +92,6 @@
         }
       });
     });
-
-    // Big group accordions
     document.querySelectorAll('.group-header').forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
@@ -260,20 +108,6 @@
         }
       });
     });
-
-    // Disclaimer hide with persistence
-    const disc = document.getElementById('disclaimer');
-    const discClose = document.getElementById('discClose');
-    if(localStorage.getItem('hideDisclaimer')==='1'){
-      disc?.parentNode?.removeChild(disc);
-    } else {
-      discClose?.addEventListener('click',()=>{
-        disc?.parentNode?.removeChild(disc);
-        localStorage.setItem('hideDisclaimer','1');
-      });
-    }
-
-    // Update date
     document.getElementById('date').textContent = new Date().toLocaleDateString('pt-BR');
   </script>
 </body>
