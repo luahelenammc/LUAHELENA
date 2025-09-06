@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Guia da CRS pelo Plano de Saúde 🌈</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #5AB3FF;
+      --pink: #FF9BCD;
+      --white: #FFFFFF;
+      --lavender: #f5e9ff;
+      --gray: #333;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--gray);
+      background: var(--lavender);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: repeating-linear-gradient( 90deg,
+        var(--blue) 0 20%, var(--white) 20% 40%, var(--pink) 40% 60%, var(--white) 60% 80%, var(--blue) 80% 100% );
+      color: var(--gray);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .accordion {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .accordion-header {
+      background: var(--pink);
+      color: var(--white);
+      padding: 1rem;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+    .accordion-header:hover { opacity: 0.9; }
+    .accordion-content {
+      max-height: 0;
+      transition: max-height 0.4s ease;
+      overflow: hidden;
+      padding: 0 1rem;
+    }
+    .accordion-content.open {
+      padding: 1rem;
+    }
+    .accordion-content p,
+    .accordion-content li {
+      margin: 0.5rem 0;
+    }
+    .accordion-content ul {
+      padding-left: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    /* Toggle icon */
+    .toggle-icon {
+      transition: transform 0.3s ease;
+    }
+    .toggle-icon.rotate {
+      transform: rotate(90deg);
+    }
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 Guia da CRS (Cirurgia de Redesignação Sexual) pelo Plano de Saúde 🌸</h1>
+    <p>Passo a passo prático, fofo e empoderado para garantir sua cirurgia 💖</p>
+  </header>
+
+  <main>
+    <!-- Accordion Template -->
+    <section class="accordion" id="requisitos">
+      <div class="accordion-header">📄 Requisitos Básicos <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>🧠 Laudo de profissional de saúde mental (CID F64.0) ‑ psicóloga <strong>ou</strong> psiquiatra.</li>
+          <li>💓 Laudo endócrino confirmando boa saúde geral e THF estável.</li>
+          <li>⏳ <strong>2 anos</strong> de acompanhamento terapêutico recomendado (WPATH SOC‑8).</li>
+          <li>🏥 Cirurgião <em>credenciado</em> no seu plano — evita judicialização.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">🧾 Documentos Necessários <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>🩷 PDF/foto do RG (preferível já com nome social).</li>
+          <li>💼 Cartão do plano de saúde + comprovante de pagamento.</li>
+          <li>📑 Todos os laudos assinados com carimbo &amp; CRM/CRP.</li>
+          <li>🖊️ Solicitação formal do cirurgião para a CRS.</li>
+          <li>🗂️ Protocolo de atendimento gerado no app/portal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">🚀 Passo a Passo de Autorização <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ol>
+          <li>📅 Agende consulta com o cirurgião credenciado.</li>
+          <li>📤 Anexe laudos &amp; solicitação no aplicativo do plano.</li>
+          <li>🔔 Acompanhe o protocolo; salve PDFs e e‑mails.</li>
+          <li>⏱️ Prazo ANS: resposta em <strong>até 21 dias úteis</strong>.</li>
+          <li>✅ Recebeu a autorização? Partiu marcar a cirurgia!</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">⚖️ O que fazer em caso de negativa? <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>📃 Exija justificativa formal (RN 395/ANS).</li>
+          <li>📞 Ligue 0800‑701‑9656 (ANS) e abra reclamação.</li>
+          <li>👩‍⚖️ Procure Defensoria/advogado para tutela de urgência — decisões saem em 48‑72h!</li>
+          <li>📚 Cite a RN 465 da ANS + Art. 35‑C da Lei 9.656/98.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">🗓️ Após a Autorização <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>🧪 Faça exames pré‑operatórios (hemograma, coagulograma, HIV, função hepática...).</li>
+          <li>⏸️ Pare hormônios 4 semanas antes se indicado pelo cirurgião.</li>
+          <li>👯‍♀️ Organize acompanhante &amp; estadia (hotel) para 1‑2 semanas após alta.</li>
+          <li>🤝 Combine consulta D‑1 para definir estética (clitóris, lábios, profundidade).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">✔️ Checklist Pré‑Cirurgia <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>🩲 Absorventes noturnos/fralda.</li>
+          <li>💧 Lubrificante à base de água + camisinhas para dilatadores.</li>
+          <li>🛏️ Almofada donut para sentar.</li>
+          <li>📜 Atestados médicos + aviso ao trabalho.</li>
+          <li>📁 Cópia impressa de toda a papelada (backup).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">🌱 Dicas Pós‑Operatórias <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>🚰 Hidrate‑se até o xixi ficar clarinho.</li>
+          <li>🚶‍♀️ Caminhe cedo para aliviar dor nas pernas.</li>
+          <li>⏰ Dilatação disciplinada — 3‑4×/dia nos 3 primeiros meses.</li>
+          <li>🚿 Lave a neovagina após xixi/cocô; nada de forçar!</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">📖 Glossário Rápido <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li><strong>CRS/SRS:</strong> Cirurgia de Redesignação Sexual.</li>
+          <li><strong>PIV:</strong> Penile Inversion Vaginoplasty.</li>
+          <li><strong>WPATH SOC‑8:</strong> Padrão internacional de cuidados para pessoas trans.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <div class="accordion-header">🔗 Referências Legais &amp; Técnicas <span class="toggle-icon">▶</span></div>
+      <div class="accordion-content">
+        <ul>
+          <li>📜 Resolução Normativa 465/2021 — ANS.</li>
+          <li>📜 Art. 35‑C da Lei 9.656/98.</li>
+          <li>📜 WPATH Standards of Care v8 (2022).</li>
+          <li>📜 Parecer CFM 2.148/2016.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Feito com 💖 e esperança para todas as manas trans. Última atualização: <span id="date"></span>.
+  </footer>
+
+  <script>
+    // Accordion toggle behaviour
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.toggle-icon');
+        if(content.style.maxHeight){
+          content.style.maxHeight = null;
+          content.classList.remove('open');
+          icon.classList.remove('rotate');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.classList.add('open');
+          icon.classList.add('rotate');
+        }
+      });
+    });
+
+    // Insert current date
+    document.getElementById('date').textContent = new Date().toLocaleDateString('pt-BR');
+  </script>
+</body>
+</html>
