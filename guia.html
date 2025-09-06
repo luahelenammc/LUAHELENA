@@ -7,33 +7,27 @@
   <title>🌸 Guia da CRS pelo Plano de Saúde 🌈</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --blue: #5AB3FF;
-      --pink: #FF9BCD;
-      --white: #FFFFFF;
-      --lav: #f5e9ff;
-      --gray: #333;
-    }
+    :root { --blue: #5AB3FF; --pink: #FF9BCD; --lav: #f5e9ff; --gray: #333; }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Poppins', sans-serif; color: var(--gray); background: var(--lav); line-height: 1.6; }
-    header { text-align: center; padding: 4rem 1rem; background: repeating-linear-gradient(90deg, var(--blue) 0 20%, var(--white) 20% 40%, var(--pink) 40% 60%, var(--white) 60% 80%, var(--blue) 80% 100%); }
-    header h1 { font-size: 2.5rem; margin: 0 0 0.5rem; }
-    header p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-    main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-    .group { background: #fff; border-radius: 16px; box-shadow: 0 6px 14px rgba(0,0,0,.08); overflow: hidden; margin-bottom: 1.5rem; }
-    .group-header { background: linear-gradient(90deg, var(--blue), var(--pink)); color: #fff; padding: 1.1rem 1.2rem; font-weight: 700; display:flex; justify-content: space-between; align-items:center; cursor:pointer; }
-    .group-content { max-height: 0; overflow: hidden; transition: max-height .5s ease-in-out, padding .5s ease-in-out; padding: 0 1rem; }
-    .group-content.open { max-height: 2000px; /* enough to show all */ padding: 1rem; }
-    .accordion { border-radius: 10px; overflow: hidden; margin: 1rem 0; background: #fff; border: 1px solid #f0d6e6; }
-    .accordion-header { background: var(--pink); color: var(--white); padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height .5s ease-in-out, padding .5s ease-in-out; padding: 0 1rem; background: #f6f1f7; }
-    .accordion-content.open { max-height: 1500px; /* ample height */ padding: 1rem; }
-    .toggle-icon { transition: transform 0.3s ease; }
-    .toggle-icon.rotate { transform: rotate(90deg); }
-    details.spoiler summary { cursor:pointer; color: var(--pink); font-weight:600; }
-    details.spoiler p { font-size:0.9rem; margin-top:0.5rem; background:rgba(90,179,255,.1); padding:0.6rem 0.8rem; border-left:4px solid var(--blue); border-radius:8px; }
-    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
-    @media (max-width: 600px) { header h1 { font-size: 1.8rem; } }
+    body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--lav); color: var(--gray); }
+    header { text-align:center; padding:4rem 1rem; background:repeating-linear-gradient(90deg, var(--blue) 0 20%, #fff 20% 40%, var(--pink) 40% 60%, #fff 60% 80%, var(--blue) 80% 100%); }
+    header h1 { margin:0; font-size:2.5rem; }
+    header p { margin-top:.5rem; }
+    main { max-width:1000px; margin:2rem auto; padding:0 1rem; }
+    .group { margin-bottom:1.5rem; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+    .group-header { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.2rem; background:linear-gradient(90deg,var(--blue),var(--pink)); color:#fff; font-weight:700; cursor:pointer; }
+    .group-content { display:none; padding:1rem; background:#fff; }
+    .group-content.open { display:block; }
+    .accordion { background:#fff; border:1px solid #f0d6e6; border-radius:10px; margin:1rem 0; }
+    .accordion-header { display:flex; justify-content:space-between; align-items:center; padding:1rem; background:var(--pink); color:#fff; cursor:pointer; font-weight:600; }
+    .accordion-content { display:none; padding:1rem; background:#f6f1f7; }
+    .accordion-content.open { display:block; }
+    .toggle-icon { transition:transform .3s ease; }
+    .toggle-icon.rotate { transform:rotate(90deg); }
+    details.spoiler summary { cursor:pointer; color:var(--pink); font-weight:600; }
+    details.spoiler p { background:rgba(90,179,255,.1); padding:.6rem .8rem; border-left:4px solid var(--blue); border-radius:8px; margin-top:.5rem; font-size:.9rem; }
+    footer { text-align:center; padding:2rem 1rem; font-size:.9rem; color:#666; }
+    @media (max-width:600px){ header h1{font-size:1.8rem;} }
   </style>
 </head>
 <body>
@@ -41,9 +35,7 @@
     <h1>🌸 Guia da CRS (Cirurgia de Redesignação Sexual) pelo Plano de Saúde 🌸</h1>
     <p>Passo a passo prático, fofo e empoderado para garantir sua cirurgia 💖</p>
   </header>
-
   <main>
-    <!-- Grupo Burocrático -->
     <section class="group">
       <div class="group-header">🗂️ Parte Burocrática <span class="toggle-icon">▶</span></div>
       <div class="group-content">
@@ -51,133 +43,107 @@
           <div class="accordion-header">📄 Requisitos Básicos <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>🧠 Laudo de profissional de saúde mental (CID F64.0).</li>
-              <li>💓 Laudo endócrino confirmando saúde geral e THF estável.</li>
-              <li>⏳ 2 anos de acompanhamento terapêutico recomendado.</li>
-              <li>🏥 Cirurgião credenciado no plano.</li>
+              <li>Laudo de saúde mental (CID F64.0)</li>
+              <li>Laudo endócrino</li>
+              <li>2 anos de acompanhamento</li>
+              <li>Cirurgião credenciado</li>
             </ul>
           </div>
         </section>
-
         <section class="accordion">
           <div class="accordion-header">🧾 Documentos Necessários <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>🩷 Documento de identidade (ideal já com nome social).</li>
-              <li>💼 Cartão do plano + comprovante de pagamento.</li>
-              <li>📑 Laudos assinados com carimbo & CRM/CRP.</li>
-              <li>🖊️ Solicitação formal do cirurgião para a CRS.</li>
-              <li>🗂️ Protocolo de atendimento do app/portal.</li>
+              <li>Documento de identidade</li>
+              <li>Cartão do plano</li>
+              <li>Laudos CRM/CRP</li>
+              <li>Solicitação cirúrgica</li>
+              <li>Protocolo no app</li>
             </ul>
             <details class="spoiler">
-              <summary>ℹ️ Aviso importante sobre consultas</summary>
-              <p>Os planos de saúde devem oferecer <strong>consulta com médico credenciado</strong> para emissão do encaminhamento à CRS. Caso neguem ou exijam pagamento, protocole reclamação e acione a ANS (0800-701-9656). O reembolso integral só se aplica se não houver profissional disponível na rede.</p>
+              <summary>ℹ️ Aviso sobre consultas</summary>
+              <p>Planos devem oferecer consulta com médico credenciado; se negarem, protocole reclamação na ANS (0800‑701‑9656). Reembolso só se não houver profissional na rede.</p>
             </details>
           </div>
         </section>
-
         <section class="accordion">
           <div class="accordion-header">🚀 Passo a Passo de Autorização <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ol>
-              <li>Consulta com cirurgião credenciado.</li>
-              <li>Anexar laudos & solicitação no app.</li>
-              <li>Acompanhar protocolo.</li>
-              <li>Prazo ANS: até 21 dias úteis.</li>
-              <li>Autorizado? Marcar cirurgia!</li>
+              <li>Consulta com cirurgião</li>
+              <li>Anexar laudos no app</li>
+              <li>Acompanhar protocolo</li>
+              <li>ANS: até 21 dias úteis</li>
+              <li>Marcar cirurgia</li>
             </ol>
           </div>
         </section>
-
         <section class="accordion">
-          <div class="accordion-header">⚖️ O que fazer em caso de negativa? <span class="toggle-icon">▶</span></div>
+          <div class="accordion-header">⚖️ Em caso de negativa <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>Exija justificativa formal (RN 395/ANS).</li>
-              <li>Ligue 0800-701-9656 (ANS).</li>
-              <li>Procure Defensoria/advogada para tutela de urgência.</li>
-              <li>Cite RN 465/2021 + Art. 35-C da Lei 9.656/98.</li>
+              <li>Peça justificativa formal</li>
+              <li>Ligue 0800‑701‑9656 (ANS)</li>
+              <li>Defensoria para tutela de urgência</li>
+              <li>Cite RN465/2021 e Lei 9.656/98</li>
             </ul>
           </div>
         </section>
       </div>
     </section>
-
-    <!-- Grupo Hospitalar -->
     <section class="group">
       <div class="group-header">🏥 Parte Hospitalar <span class="toggle-icon">▶</span></div>
       <div class="group-content">
         <section class="accordion">
-          <div class="accordion-header">🗓️ Após a Autorização <span class="toggle-icon">▶</span></div>
+          <div class="accordion-header">🗓️ Após Autorização <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>🧪 Exames pré-operatórios.</li>
-              <li>⏸️ Suspender hormônios se indicado.</li>
-              <li>👯‍♀️ Organizar acompanhante & estadia.</li>
-              <li>🤝 Consulta D-1 para definir estética.</li>
+              <li>Exames pré-op</li>
+              <li>Suspender hormônios</li>
+              <li>Acompanhante & hotel</li>
+              <li>Consulta D-1</li>
             </ul>
           </div>
         </section>
-
         <section class="accordion">
           <div class="accordion-header">✔️ Checklist Pré-Cirurgia <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>Absorventes/fraldas.</li>
-              <li>Lubrificante + camisinhas.</li>
-              <li>Almofada donut.</li>
-              <li>Atestados + aviso ao trabalho.</li>
-              <li>Papelada impressa.</li>
+              <li>Absorventes</li>
+              <li>Lubrificante & camisinha</li>
+              <li>Almofada donut</li>
+              <li>Atestado médico</li>
+              <li>Papelada</li>
             </ul>
           </div>
         </section>
-
         <section class="accordion">
-          <div class="accordion-header">🌱 Dicas Pós-Operatórias <span class="toggle-icon">▶</span></div>
+          <div class="accordion-header">🌱 Dicas Pós-Op <span class="toggle-icon">▶</span></div>
           <div class="accordion-content">
             <ul>
-              <li>Hidratação abundante.</li>
-              <li>Caminhadas leves cedo.</li>
-              <li>Dilatação disciplinada.</li>
-              <li>Higienização suave e frequente.</li>
+              <li>Hidratação</li>
+              <li>Caminhar cedo</li>
+              <li>Dilatação</li>
+              <li>Higiene</li>
             </ul>
           </div>
         </section>
       </div>
     </section>
   </main>
-
   <footer>
-    Feito com 💖 e esperança para todas as manas trans. Última atualização: <span id="date"></span>.
+    Feito com 💖. Atualização: <span id="date"></span>.
   </footer>
-
   <script>
-    function toggleSection(header, content, icon){
-      const isOpen = content.classList.contains('open');
-      if(isOpen){
-        content.style.maxHeight = null;
-        content.classList.remove('open');
-        icon.classList.remove('rotate');
-      } else {
-        content.classList.add('open');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        icon.classList.add('rotate');
-      }
-    }
-
-    document.querySelectorAll('.accordion-header').forEach(header => header.addEventListener('click', () => {
-      const content = header.nextElementSibling;
-      const icon = header.querySelector('.toggle-icon');
-      toggleSection(header, content, icon);
+    document.querySelectorAll('.group-header').forEach(h=>h.addEventListener('click', ()=>{
+      const c=h.nextElementSibling; const i=h.querySelector('.toggle-icon');
+      c.classList.toggle('open'); i.classList.toggle('rotate');
     }));
-
-    document.querySelectorAll('.group-header').forEach(header => header.addEventListener('click', () => {
-      const content = header.nextElementSibling;
-      const icon = header.querySelector('.toggle-icon');
-      toggleSection(header, content, icon);
+    document.querySelectorAll('.accordion-header').forEach(h=>h.addEventListener('click', ()=>{
+      const c=h.nextElementSibling; const i=h.querySelector('.toggle-icon');
+      c.classList.toggle('open'); i.classList.toggle('rotate');
     }));
-
-    document.getElementById('date').textContent = new Date().toLocaleDateString('pt-BR');
+    document.getElementById('date').textContent=new Date().toLocaleDateString('pt-BR');
   </script>
 </body>
 </html>
