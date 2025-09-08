@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rosa Encantada — Contador da CRS</title>
+<title>Rosa Encantada — Pétalas que Caem</title>
 <style>
   :root{
     --bg:#0b0f1a;
@@ -26,11 +26,12 @@
       radial-gradient(1200px 600px at 70% -20%, #1a2444 0%, transparent 60%),
       radial-gradient(1200px 600px at 20% 120%, #1b0036 0%, transparent 60%),
       var(--bg);
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple SD Gothic Neo", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Source Sans Pro", sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Source Sans Pro", sans-serif;
     color:var(--text);
-    display:grid;
-    place-items:center;
-    overflow:hidden;
+    display:grid; place-items:center;
+      overflow-y:auto;
+  overflow-x:hidden;
+
   }
 
   .wrap{
@@ -41,9 +42,7 @@
     align-items:center;
     padding:24px;
   }
-  @media (max-width:900px){
-    .wrap{grid-template-columns:1fr}
-  }
+  @media (max-width:900px){ .wrap{grid-template-columns:1fr} }
 
   .card{
     background:linear-gradient(180deg,#10162a,#0c1120 60%,#0a0f1b);
@@ -53,198 +52,85 @@
     padding:20px 22px;
   }
 
-  /* Lado textual */
-  .panel h1{
-    font-size: clamp(22px, 2.6vw, 30px);
-    line-height:1.15;
-    margin:0 0 8px 0;
-    letter-spacing:0.3px;
-  }
-  .panel .date{
-    font-size:14px;
-    color:#c7c1d9;
-    opacity:.9;
-    margin-bottom:12px;
-  }
-  .metrics{
-    display:flex; gap:16px; flex-wrap:wrap; margin:14px 0 12px 0;
-  }
-  .pill{
-    border:1px solid #3b3f66;
-    border-radius:999px;
-    padding:8px 12px;
-    font-size:13px;
-    background:#121633;
-    box-shadow: inset 0 1px 0 #ffffff10;
-  }
-  .dlabel{
-    font-weight:700; color:var(--accent)
-  }
-  .legend{
-    font-size:13px; color:#cfc7df; opacity:.95;
-  }
-  .bar{
-    position:relative; height:10px; border-radius:999px;
-    background:#1b2344; margin:10px 0 2px 0; overflow:hidden; outline:1px solid #2c3562;
-  }
-  .bar>i{
-    display:block; height:100%; width:0%;
-    background:linear-gradient(90deg,#ff3b7a,#ff6b6b,#ffd166);
-    box-shadow: 0 0 18px #ff3b7a66 inset;
-    transition:width 800ms cubic-bezier(.22,.8,.3,1);
-  }
+  /* Painel */
+  .panel h1{font-size:clamp(22px,2.6vw,30px); line-height:1.15; margin:0 0 8px}
+  .panel .date{font-size:14px; color:#c7c1d9; opacity:.9; margin-bottom:12px}
+  .metrics{display:flex; gap:16px; flex-wrap:wrap; margin:14px 0 12px}
+  .pill{border:1px solid #3b3f66; border-radius:999px; padding:8px 12px; font-size:13px; background:#121633; box-shadow:inset 0 1px 0 #ffffff10}
+  .dlabel{font-weight:700; color:var(--accent)}
+  .legend{font-size:13px; color:#cfc7df; opacity:.95}
+  .bar{position:relative; height:10px; border-radius:999px; background:#1b2344; margin:10px 0 2px; overflow:hidden; outline:1px solid #2c3562}
+  .bar>i{display:block; height:100%; width:0%; background:linear-gradient(90deg,#ff3b7a,#ff6b6b,#ffd166); box-shadow:0 0 18px #ff3b7a66 inset; transition:width 800ms cubic-bezier(.22,.8,.3,1)}
+  .help{font-size:12px; color:#b9b2c9; opacity:.9; margin-top:8px}
+  .btn{display:inline-block; margin-top:12px; padding:8px 12px; border-radius:10px; background:#1a2044; border:1px solid #3a4274; color:#e9e4ff; text-decoration:none; font-weight:700; font-size:13px; box-shadow:inset 0 1px 0 #ffffff12; cursor:pointer}
+  .btn:active{transform:translateY(1px)}
+  .mini{font-size:12px; color:#c8c1d7cc; margin-top:10px}
+  .mini b{color:#ffe9a6}
 
-  /* Cena da rosa */
+  /* Cena */
   .stage{
-    position:relative;
-    height:520px;
-    border-radius:16px;
-    overflow:hidden;
+    position:relative; height:520px; border-radius:16px; overflow:hidden;
     background:
       radial-gradient(600px 220px at 50% 110%, #000000aa 0%, transparent 60%),
       radial-gradient(700px 240px at 50% 120%, #12081f 0%, transparent 58%),
       linear-gradient(180deg,#0d1327,#0a0f1e 40%, #070b14);
-    display:grid; place-items:center;
-    isolation:isolate;
+    display:grid; place-items:center; isolation:isolate;
+  }
+  .badge{
+    position:absolute; top:14px; right:14px;
+    font:700 12px/1 ui-sans-serif,system-ui;
+    padding:8px 10px; border-radius:10px; border:1px solid #3c4168;
+    background:#101633cc; backdrop-filter:blur(6px); color:#e6dcff; letter-spacing:.3px;
+    box-shadow:0 4px 10px #0006, inset 0 1px 0 #ffffff10; z-index:4;
   }
 
-  /* Base de madeira */
-  .base{
-    position:absolute; bottom:36px; left:50%; translate:-50% 0;
-    width:320px; height:28px; border-radius:14px;
-    background:
-      radial-gradient(200px 30px at 50% 30%, #00000055 0%, transparent 65%),
-      linear-gradient(180deg,#3a2a1a,#21160d);
-    box-shadow: 0 30px 50px #0007, inset 0 2px 0 #ffffff1a, inset 0 -6px 12px #0008;
+  /* Camadas da rosa */
+  .base{position:absolute; bottom:36px; left:50%; translate:-50% 0; width:320px; height:28px; border-radius:14px;
+    background:radial-gradient(200px 30px at 50% 30%, #00000055 0%, transparent 65%), linear-gradient(180deg,#3a2a1a,#21160d);
+    box-shadow:0 30px 50px #0007, inset 0 2px 0 #ffffff1a, inset 0 -6px 12px #0008; z-index:1;
   }
-  .base:after{
-    content:""; position:absolute; inset:0; border-radius:inherit;
-    background: linear-gradient(90deg, #6a4a2c22, #0000 20% 80%, #6a4a2c22);
-    mask: linear-gradient(#000,#000) exclude, radial-gradient(190px 20px at 50% 10px, #0000 60%, #000 61%);
-    opacity:.5;
-  }
-
-  /* Cúpula de vidro */
-  .dome{
-    position:absolute; bottom:64px; width:360px; height:420px;
-    border-radius:360px 360px 0 0 / 420px 420px 0 0;
+  .dome{position:absolute; bottom:64px; width:360px; height:420px; border-radius:360px 360px 0 0 / 420px 420px 0 0;
     border:1.5px solid #9fb2ff26;
-    background:
-      radial-gradient(400px 220px at 50% 10%, var(--glass), transparent 70%),
-      radial-gradient(320px 220px at 30% 8%, var(--glare), transparent 60%),
-      radial-gradient(220px 140px at 68% 6%, #ffffff10, transparent 65%);
-    box-shadow: inset 0 0 80px #8aa6ff14, 0 0 0 1px #ffffff08;
-    pointer-events:none;
+    background:radial-gradient(400px 220px at 50% 10%, var(--glass), transparent 70%), radial-gradient(320px 220px at 30% 8%, var(--glare), transparent 60%), radial-gradient(220px 140px at 68% 6%, #ffffff10, transparent 65%);
+    box-shadow:inset 0 0 80px #8aa6ff14, 0 0 0 1px #ffffff08; pointer-events:none; z-index:3;
   }
-
-  /* Hastes e folhas */
-  .stem{
-    position:absolute; bottom:140px; left:50%; translate:-50% 0;
-    width:10px; height:220px; border-radius:6px;
-    background: linear-gradient(180deg, #1e5a2c, var(--stem));
-    filter: drop-shadow(0 6px 2px #0007);
-  }
-  .leaf{
-    position:absolute; width:120px; height:70px; bottom:210px;
-    background: radial-gradient(120px 60px at 60% 40%, #54c46c, var(--leaf));
-    border-radius:120px 120px 10px 120px;
-    filter: drop-shadow(0 8px 4px #0008);
-  }
+  .stem{position:absolute; bottom:140px; left:50%; translate:-50% 0; width:10px; height:220px; border-radius:6px; background:linear-gradient(180deg,#1e5a2c,var(--stem)); filter:drop-shadow(0 6px 2px #0007); z-index:1;}
+  .leaf{position:absolute; width:120px; height:70px; bottom:210px; background:radial-gradient(120px 60px at 60% 40%, #54c46c, var(--leaf)); border-radius:120px 120px 10px 120px; filter:drop-shadow(0 8px 4px #0008); z-index:1;}
   .leaf.left{ right:50%; translate: 12px 0 rotate(-18deg) }
-  .leaf.right{ left:50%; translate: -12px 0 rotate(18deg)  rotateY(180deg)}
+  .leaf.right{ left:50%; translate: -12px 0 rotate(18deg) rotateY(180deg) }
 
-  /* Miolo da rosa */
-  .rose-head{
-    position:absolute; bottom:290px; left:50%; translate:-50% 0;
-    width:160px; height:140px;
-    filter: drop-shadow(0 10px 10px #0009);
-  }
-  .core{
-    position:absolute; inset:0; border-radius:160px 160px 120px 120px;
-    background: radial-gradient(120px 100px at 50% 40%, #ff5f91, var(--rose));
-    box-shadow: inset 0 -20px 30px var(--rose-dark);
-  }
+  .rose-head{position:absolute; bottom:290px; left:50%; translate:-50% 0; width:160px; height:140px; filter:drop-shadow(0 10px 10px #0009); z-index:2;}
+  .core{position:absolute; inset:0; border-radius:160px 160px 120px 120px; background:radial-gradient(120px 100px at 50% 40%, #ff5f91, var(--rose)); box-shadow: inset 0 -20px 30px var(--rose-dark);}
 
-  /* Pétalas */
-  .petals{ position:absolute; inset:0; }
+  /* Pétalas (SVG posicionado) */
+  .petals{position:absolute; inset:0}
   .petal{
-    position:absolute; width:64px; height:76px;
-    background: radial-gradient(80px 60px at 50% 30%, #ff7ba6, var(--rose));
-    border-radius:60px 60px 50px 50px/ 70px 70px 40px 40px;
-    box-shadow:
-      inset 0 -12px 18px var(--rose-dark),
-      0 10px 16px var(--petal-shadow);
-    transform-origin: 50% 100%;
+    position:absolute;
+    width:66px; height:86px;
+    filter: drop-shadow(0 10px 16px var(--petal-shadow));
+    transform-origin:50% 85%;
   }
 
-  /* Pétala caindo hoje */
-  .falling{
-    animation: drift 22s linear infinite;
-    transform-origin: 50% 10%;
-    opacity:.98;
-  }
-  @keyframes drift{
-    0%   { transform: translate(0,-6px) rotate(0deg); opacity:1 }
-    20%  { transform: translate(6px,30px) rotate(-8deg) }
-    40%  { transform: translate(-4px,90px) rotate(10deg) }
-    60%  { transform: translate(8px,170px) rotate(22deg) }
-    80%  { transform: translate(-6px,260px) rotate(34deg) }
-    100% { transform: translate(0,340px) rotate(46deg); opacity:.2 }
+  /* Pétala cadente diária (SVG) */
+  #fallingPetal{
+    position:absolute;
+    width:72px; height:96px;
+    z-index:2; /* acima do caule/folhas e junto da cabeça; abaixo da redoma */
+    filter: drop-shadow(0 10px 16px var(--petal-shadow));
+    transform-origin:50% 85%;
   }
 
   /* Brilhos mágicos */
   .spark{
-    position:absolute;
-    width:2px; height:2px; background:#fff8;
-    border-radius:50%;
-    animation: twinkle 3.2s ease-in-out infinite;
-    box-shadow: 0 0 12px #fff8, 0 0 24px #ffd16688;
+    position:absolute; width:2px; height:2px; background:#fff8; border-radius:50%;
+    animation: twinkle 3.2s ease-in-out infinite; box-shadow:0 0 12px #fff8, 0 0 24px #ffd16688;
   }
-  @keyframes twinkle{
-    0%,100%{transform:scale(0.6); opacity:.2}
-    50%{transform:scale(1.6); opacity:1}
-  }
-
-  /* Rodapé mini */
-  .mini{
-    font-size:12px; color:#c8c1d7cc; margin-top:10px;
-  }
-  .mini b{color:#ffe9a6}
-
-  .badge{
-    position:absolute; top:14px; right:14px;
-    font: 700 12px/1 ui-sans-serif, system-ui;
-    padding:8px 10px;
-    border-radius:10px;
-    border:1px solid #3c4168;
-    background:#101633cc;
-    backdrop-filter: blur(6px);
-    color:#e6dcff;
-    letter-spacing:.3px;
-    box-shadow: 0 4px 10px #0006, inset 0 1px 0 #ffffff10;
-  }
-  .badge i{color:var(--accent); font-style:normal}
-
-  /* Tooltip sutil para instruções */
-  .help{
-    font-size:12px; color:#b9b2c9; opacity:.9; margin-top:8px
-  }
-
-  /* Botão de celebrar D0 */
-  .btn{
-    display:inline-block; margin-top:12px;
-    padding:8px 12px; border-radius:10px;
-    background:#1a2044; border:1px solid #3a4274; color:#e9e4ff;
-    text-decoration:none; font-weight:700; font-size:13px;
-    box-shadow: inset 0 1px 0 #ffffff12;
-    cursor:pointer; user-select:none;
-  }
-  .btn:active{transform:translateY(1px)}
+  @keyframes twinkle{ 0%,100%{transform:scale(.6); opacity:.2} 50%{transform:scale(1.6); opacity:1} }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Painel de informações -->
+    <!-- Painel -->
     <section class="card panel" id="panel">
       <h1>Rosa Encantada da Contagem</h1>
       <div class="date" id="todayStr"></div>
@@ -254,151 +140,197 @@
         <div class="pill">Cirurgia: <b id="targetStr">—</b></div>
       </div>
 
-      <div class="legend" id="legend">
-        Uma pétala cai lentamente representando o dia atual. A rosa perde uma pétala a cada novo dia.
-      </div>
+      <div class="legend" id="legend">A pétala do dia desce do miolo até a base conforme o relógio local.</div>
 
       <div class="bar"><i id="prog"></i></div>
-      <div class="help">Dica: para ajustar datas ou o número inicial de pétalas, edite a constante <code>CONFIG</code> no topo do script.</div>
+      <div class="help">Ajuste datas em <code>CONFIG</code> no script.</div>
 
       <a class="btn" id="celebrateBtn" title="Explodir brilhos no D0">Celebrar</a>
-
       <div class="mini" id="note"></div>
     </section>
 
-    <!-- Cena da rosa -->
-    <section class="card stage">
+    <!-- Cena -->
+    <section class="card stage" id="stage">
       <div class="badge">Rumo ao D0: <i id="daysLeftBadge">—</i> dias</div>
+
       <div class="dome" aria-hidden="true"></div>
       <div class="stem" aria-hidden="true"></div>
       <div class="leaf left" aria-hidden="true"></div>
       <div class="leaf right" aria-hidden="true"></div>
 
-      <div class="rose-head" aria-label="Cabeça da rosa">
+      <div class="rose-head" id="roseHead" aria-label="Cabeça da rosa">
         <div class="core"></div>
         <div class="petals" id="petals"></div>
       </div>
 
-      <div class="base" aria-hidden="true"></div>
+      <div class="base" id="base" aria-hidden="true"></div>
+
+      <!-- Pétala do dia (SVG) -->
+      <svg id="fallingPetal" viewBox="0 0 100 140" width="72" height="96" aria-label="Pétala do dia">
+        <defs>
+          <radialGradient id="gradFall" cx="50%" cy="28%" r="70%">
+            <stop offset="0%"  stop-color="#ff87af"/>
+            <stop offset="60%" stop-color="#ff6b94"/>
+            <stop offset="100%" stop-color="#c62b5c"/>
+          </radialGradient>
+        </defs>
+        <path d="M50 2 C 78 22, 100 58, 50 138 C 0 58, 22 22, 50 2 Z"
+              fill="url(#gradFall)" />
+      </svg>
     </section>
   </div>
 
 <script>
 /* ===========================
-   CONFIGURAÇÃO
+   CONFIG
    =========================== */
 const CONFIG = {
-  // Data base que define "HOJE" quando o contador começou com 9 pétalas.
-  baseDateISO: '2025-09-08',       // 08/09/2025
-  startPetals: 9,                  // hoje = 9 pétalas (como você pediu)
-  // Data da cirurgia (D0)
-  targetISO: '2025-09-18',         // 18/09/2025
-  // Aparência das pétalas no miolo
-  petalRadius: 66,                 // raio aproximado da distribuição circular
-  // Quantas faíscas mágicas orbitam
-  sparks: 22
+  baseDateISO: '2025-09-08',   // início da contagem visual
+  targetISO:   '2025-09-18',   // D0 (não é contado como "pétala do dia")
+  petalRadius: 66,             // distribuição das pétalas no miolo
+  sparks: 22,                  // brilhos
+  updateIntervalMs: 30000      // atualiza queda a cada 30s
 };
 
-/* Utilidades de data em TZ local */
+/* ===== Utilidades (TZ local) ===== */
 const msDay = 24*60*60*1000;
-function toLocalDateOnly(d){
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-}
-function parseISODateOnly(iso){
-  const [y,m,d] = iso.split('-').map(Number);
-  return new Date(y, m-1, d);
-}
-function daysBetween(a, b){
-  // dias inteiros entre datas calendário
-  const A = toLocalDateOnly(a);
-  const B = toLocalDateOnly(b);
-  return Math.round((B - A)/msDay);
-}
-function clamp(n, min, max){ return Math.min(max, Math.max(min, n)); }
+function toLocalDateOnly(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function parseISODateOnly(iso){ const [y,m,d] = iso.split('-').map(Number); return new Date(y, m-1, d); }
+function daysBetween(a,b){ const A=toLocalDateOnly(a), B=toLocalDateOnly(b); return Math.round((B-A)/msDay); }
+function clamp(n,min,max){ return Math.min(max, Math.max(min,n)); }
 
-/* Estado derivado */
-const today = new Date(); // horário local
-const baseDate = parseISODateOnly(CONFIG.baseDateISO);
+/* ===== Datas ===== */
+const today      = new Date();
+const baseDate   = parseISODateOnly(CONFIG.baseDateISO);
 const targetDate = parseISODateOnly(CONFIG.targetISO);
 
-// petalsToday: número que decresce 1 por dia desde a base
-const passed = daysBetween(baseDate, today);
-const petalsToday = clamp(CONFIG.startPetals - passed, 0, CONFIG.startPetals);
+/* Pétalas de hoje = dias restantes até o alvo, EXCLUINDO o próprio dia do alvo */
+const petalsToday = Math.max(0, daysBetween(toLocalDateOnly(today), targetDate)); // 08→10, 17→1, 18→0
 
-// daysLeft para o D0 (exclusivo de hoje)
-const daysLeft = Math.max(0, daysBetween(toLocalDateOnly(today), targetDate));
-const totalSpan = Math.max(1, daysBetween(baseDate, targetDate)); // para progresso
+/* D-rotulo e progresso desde a base */
+const daysLeft = petalsToday; // mesmo conceito
+const totalSpan = Math.max(1, daysBetween(baseDate, targetDate)); // 10 no seu caso
+const done = clamp(totalSpan - daysLeft, 0, totalSpan);
 
-/* UI: textos básicos */
-const fmt = (d)=> d.toLocaleDateString('pt-BR', {weekday:'long', year:'numeric', month:'2-digit', day:'2-digit'});
+/* ===== UI textual ===== */
+const fmt = (d)=> d.toLocaleDateString('pt-BR',{weekday:'long',year:'numeric',month:'2-digit',day:'2-digit'});
 document.getElementById('todayStr').textContent = `Hoje: ${fmt(today)}`;
 document.getElementById('targetStr').textContent = targetDate.toLocaleDateString('pt-BR');
 document.getElementById('daysLeftBadge').textContent = daysLeft;
 document.getElementById('petalsCount').textContent = petalsToday;
+document.getElementById('prog').style.width = ((done/totalSpan)*100).toFixed(1)+'%';
 
-// Rótulo D-? / D0 / D+
 let dLabel = 'D-?';
 if(daysLeft > 0) dLabel = `D-${daysLeft}`;
 else if(daysLeft === 0) dLabel = 'D0';
 else dLabel = `D+${Math.abs(daysLeft)}`;
 document.getElementById('dLabel').textContent = dLabel;
 
-// Barra de progresso desde a base até o alvo
-const done = clamp(daysBetween(baseDate, today), 0, totalSpan);
-document.getElementById('prog').style.width = ((done/totalSpan)*100).toFixed(1)+'%';
+/* Nota pedagógica */
+document.getElementById('note').innerHTML =
+  `Contagem ajustada: não contamos o dia da cirurgia (<b>${targetDate.toLocaleDateString('pt-BR')}</b>).`;
 
-// Nota sobre a divergência 9 vs 10 dias
-const note = document.getElementById('note');
-if(CONFIG.startPetals === 9){
-  note.innerHTML = `Nota: matematicamente, de <b>${baseDate.toLocaleDateString('pt-BR')}</b> até <b>${targetDate.toLocaleDateString('pt-BR')}</b> faltavam 10 dias. 
-  Aqui a rosa começa com <b>9 pétalas</b> hoje por design, como você especificou.`;
-}
-
-/* Monta pétalas */
+/* ===== Pétalas no miolo (todas MENOS a cadente) ===== */
 const petalsRoot = document.getElementById('petals');
-function createPetal(ix, total, falling=false){
-  const el = document.createElement('div');
-  el.className = 'petal' + (falling ? ' falling' : '');
-  // Distribuição polar ao redor do miolo
-  const angle = (ix/Math.max(1,total)) * Math.PI * 2 + (Math.random()*0.25);
-  const r = CONFIG.petalRadius + (Math.random()*10-5);
-  const cx = 80 + Math.cos(angle)*r;
-  const cy = 76 + Math.sin(angle)*(r*0.6); // oval
-  el.style.left = (cx-32)+'px';
-  el.style.top  = (cy-60)+'px';
-  el.style.transform += ` rotate(${(Math.random()*24-12).toFixed(1)}deg)`;
+function makePetalSVG(w=66, h=86){
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS,'svg');
+  svg.setAttribute('class','petal');
+  svg.setAttribute('viewBox','0 0 100 140');
+  svg.setAttribute('width', String(w));
+  svg.setAttribute('height', String(h));
 
-  // pequenas variações de cor
-  const hueShift = (Math.random()*8-4);
-  el.style.filter = `hue-rotate(${hueShift}deg)`;
+  const defs = document.createElementNS(svgNS,'defs');
+  const gid = `grad_${Math.random().toString(36).slice(2)}`;
+  const grad = document.createElementNS(svgNS,'radialGradient');
+  grad.setAttribute('id', gid);
+  grad.setAttribute('cx','50%'); grad.setAttribute('cy','28%'); grad.setAttribute('r','70%');
 
-  if(falling){
-    // Começa perto do topo para a animação parecer cair
-    el.style.left = (80 + (Math.random()*18-9))+'px';
-    el.style.top  = (Math.random()*8-2)+'px';
-    el.style.opacity = 0.98;
-  }
-  petalsRoot.appendChild(el);
+  const stop1 = document.createElementNS(svgNS,'stop'); stop1.setAttribute('offset','0%');   stop1.setAttribute('stop-color','#ff7ba6');
+  const stop2 = document.createElementNS(svgNS,'stop'); stop2.setAttribute('offset','60%');  stop2.setAttribute('stop-color','#ff5f91');
+  const stop3 = document.createElementNS(svgNS,'stop'); stop3.setAttribute('offset','100%'); stop3.setAttribute('stop-color','#c62b5c');
+
+  grad.appendChild(stop1); grad.appendChild(stop2); grad.appendChild(stop3);
+  defs.appendChild(grad);
+
+  const path = document.createElementNS(svgNS,'path');
+  path.setAttribute('d','M50 2 C 78 22, 100 58, 50 138 C 0 58, 22 22, 50 2 Z');
+  path.setAttribute('fill', `url(#${gid})`);
+
+  svg.appendChild(defs);
+  svg.appendChild(path);
+  return svg;
 }
 
-// Limpa e redesenha
-function drawRose(){
+function drawRoseHead(){
   petalsRoot.innerHTML = '';
-  const total = petalsToday;
-  if(total === 0){
-    burstSparks(36);
-    return;
-  }
-  // Uma pétala cai lentamente; as demais ficam no miolo
-  const fallingIndex = Math.floor(Math.random()*total);
-  for(let i=0;i<total;i++){
-    createPetal(i, total, i===fallingIndex);
+  const staticCount = Math.max(0, petalsToday - (petalsToday>0 ? 1 : 0)); // reserva 1 p/ cair
+  for(let i=0;i<staticCount;i++){
+    const svg = makePetalSVG();
+    const angle = (i/Math.max(1,staticCount)) * Math.PI * 2 + (Math.random()*0.25);
+    const r = CONFIG.petalRadius + (Math.random()*10-5);
+    const cx = 80 + Math.cos(angle)*r;
+    const cy = 76 + Math.sin(angle)*(r*0.6);
+    svg.style.left = (cx-33)+'px';
+    svg.style.top  = (cy-68)+'px';
+    svg.style.transform = `rotate(${(Math.random()*28-14).toFixed(1)}deg)`;
+    petalsRoot.appendChild(svg);
   }
 }
-drawRose();
+drawRoseHead();
 
-/* Brilhos mágicos em órbita */
-const stage = document.querySelector('.stage');
+/* ===== Pétala cadente guiada pelo relógio ===== */
+const stage   = document.getElementById('stage');
+const baseEl  = document.getElementById('base');
+const roseEl  = document.getElementById('roseHead');
+const fallSVG = document.getElementById('fallingPetal');
+
+if(petalsToday === 0){
+  // D0: sem pétala cadente
+  fallSVG.style.display = 'none';
+}
+
+function getDayProgress(){
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0);
+  const end   = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0,0,0);
+  return clamp((now - start) / (end - start), 0, 1);
+}
+
+let fallingStartX = null;
+function positionFallingPetal(){
+  if(petalsToday === 0) return;
+
+  const stageRect = stage.getBoundingClientRect();
+  const baseRect  = baseEl.getBoundingClientRect();
+  const roseRect  = roseEl.getBoundingClientRect();
+
+  const startY = roseRect.top + 6;     // topo do miolo
+  const endY   = baseRect.top - 4;     // topo da base (chão)
+  const prog   = getDayProgress();
+  const yPx    = startY + (endY - startY) * prog;
+
+  if(fallingStartX === null){
+    const centerRose = roseRect.left + roseRect.width/2;
+    fallingStartX = centerRose + (Math.random()*30 - 15);
+  }
+
+  const petalRect = fallSVG.getBoundingClientRect();
+  const left = fallingStartX - stageRect.left - petalRect.width/2;
+  const top  = yPx           - stageRect.top  - petalRect.height/2;
+
+  fallSVG.style.left = `${left}px`;
+  fallSVG.style.top  = `${top}px`;
+  const tilt = -8 + prog*24;
+  fallSVG.style.transform = `rotate(${tilt.toFixed(1)}deg)`;
+}
+
+// Posiciona imediatamente e agenda atualizações
+positionFallingPetal();
+let fallTimer = setInterval(positionFallingPetal, CONFIG.updateIntervalMs);
+window.addEventListener('resize', positionFallingPetal);
+
+/* ===== Brilhos mágicos ===== */
 function randomBetween(min,max){ return Math.random()*(max-min)+min }
 function spawnSpark(){
   const s = document.createElement('i');
@@ -410,44 +342,46 @@ function spawnSpark(){
   stage.appendChild(s);
   return s;
 }
-let sparks = [];
-for(let i=0;i<CONFIG.sparks;i++) sparks.push(spawnSpark());
+for(let i=0;i<CONFIG.sparks;i++) spawnSpark();
 
-/* Efeito celebrar (D0 ou quando clicar) */
+/* ===== Celebrar ===== */
 function burstSparks(n=28){
+  const x = stage.clientWidth/2, y = stage.clientHeight/2 + 10;
   for(let i=0;i<n;i++){
     const s = document.createElement('i');
     s.className='spark';
-    const x = 210, y = 240; // centro aproximado da rosa
     s.style.left = x+'px';
     s.style.top  = y+'px';
     const dx = (Math.random()*2-1)*160;
     const dy = (Math.random()*-1)*220 - 30;
     const dur = randomBetween(0.9,1.6);
-    s.animate([
-      { transform:`translate(0,0) scale(1)`, opacity:1 },
-      { transform:`translate(${dx}px, ${dy}px) scale(0.2)`, opacity:0 }
-    ], { duration: dur*1000, easing:'cubic-bezier(.2,.7,.2,1)' });
+    s.animate(
+      [{ transform:`translate(0,0) scale(1)`, opacity:1 },
+       { transform:`translate(${dx}px, ${dy}px) scale(0.2)`, opacity:0 }],
+      { duration: dur*1000, easing:'cubic-bezier(.2,.7,.2,1)'}
+    );
     setTimeout(()=> s.remove(), dur*1000);
     stage.appendChild(s);
   }
 }
 document.getElementById('celebrateBtn').addEventListener('click', ()=> burstSparks(40));
 
-/* Atualização diária automática à meia-noite local */
+/* ===== Vira-dia (recarrega) ===== */
 (function scheduleMidnightRefresh(){
   const now = new Date();
   const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0,0,2);
   setTimeout(()=> location.reload(), midnight - now);
 })();
 
-/* Acessibilidade: texto alternativo da legenda, conforme estado */
+/* ===== Legenda dinâmica ===== */
 (function updateLegend(){
   const legend = document.getElementById('legend');
   if(petalsToday === 0){
     legend.textContent = 'Todas as pétalas já caíram. É D0. Respira: você chegou.';
   } else if (petalsToday === 1){
-    legend.textContent = 'A última pétala sustenta o encantamento. Hoje ela cai.';
+    legend.textContent = 'A última pétala sustenta o encantamento. Hoje ela desce até o descanso.';
+  } else {
+    legend.textContent = 'A pétala do dia desce do miolo até a base conforme o relógio local.';
   }
 })();
 </script>
