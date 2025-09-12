@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linha do Tempo · CRS (D-2 → D12)</title>
+<style>
+  /* ===== Paleta skeuomorphic rosé ===== */
+  :root{
+    --leather:#db6ea0; --leather-dark:#b85b86; --stitch:#ffdbe9;
+    --paper:#fbfaf7; --ink:#3a3740; --accent:#ff4fa0; --shadow:rgba(0,0,0,.25);
+    --muted:#9f9588;
+
+    /* Segmentos */
+    --cibele1:#fff0f6; --cibele2:#ffd1e8;   /* 16–20 */
+    --rosana1:#fff7e6; --rosana2:#ffe0b2;   /* 21–24 */
+    --hotel1:#e8f9f0;  --hotel2:#c9f0da;    /* 25–30 */
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:24px;
+    background: radial-gradient(ellipse at top, #f5eff7 0%, #efeaf1 55%, #e8e3ee 100%);
+    font-family:"Helvetica Neue", Arial, sans-serif; color:var(--ink);
+  }
+
+  /* Cabeçalho couro com costura */
+  .header{
+    max-width:1080px; margin:0 auto 20px;
+    background:linear-gradient(180deg,var(--leather),var(--leather-dark));
+    border-radius:16px; position:relative;
+    box-shadow:0 10px 22px var(--shadow),
+               inset 0 2px 0 rgba(255,255,255,.35),
+               inset 0 -2px 0 rgba(0,0,0,.15);
+    padding:18px 20px 22px; color:#fff;
+  }
+  .header:after{
+    content:""; position:absolute; inset:12px;
+    border:2px dashed var(--stitch); border-radius:12px; opacity:.95; pointer-events:none;
+  }
+  .title{ font-weight:800; font-size:28px; text-shadow:0 2px 0 rgba(0,0,0,.25) }
+  .subtitle{ font-size:14px; opacity:.9 }
+
+  /* Painel papel + progresso */
+  .panel{
+    max-width:1080px; margin:0 auto;
+    background:linear-gradient(180deg,#fff 0%, var(--paper) 68%);
+    border:1px solid #e8e3dc; border-radius:14px;
+    box-shadow:0 14px 28px var(--shadow), inset 0 1px 0 #fff;
+    padding:18px 18px 6px;
+  }
+  .progress-wrap{
+    display:flex; align-items:center; gap:12px; margin:6px 6px 14px;
+  }
+  .progress{
+    flex:1; height:12px; border-radius:999px; background:#efe7de; position:relative;
+    box-shadow: inset 0 1px 0 #fff;
+  }
+  .bar{
+    position:absolute; inset:0 auto 0 0; width:0%;
+    background:linear-gradient(180deg,#ffd1e8,#ff7abf);
+    border:1px solid #eaa0c7; border-radius:999px;
+    box-shadow:0 2px 0 rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.8);
+    transition:width .6s ease;
+  }
+  .badge{
+    display:inline-block; padding:6px 10px; border-radius:10px; font-weight:800;
+    background:linear-gradient(180deg,#ffe7f4,#ffbadb); color:#6b2a48;
+    border:1px solid #e3a6c4; box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 1px 0 #fff;
+  }
+  .today-chip{
+    margin-left:auto;
+    background:linear-gradient(180deg,#fff2f9,#ffd6ea);
+    border:1px solid #efb2cf; color:#7b2b4f; font-weight:800; padding:6px 10px;
+    border-radius:10px; box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 1px 0 #fff;
+  }
+
+  /* Legenda de segmentos */
+  .legend{ display:flex; flex-wrap:wrap; gap:8px; margin:0 6px 14px; }
+  .legend .item{
+    padding:6px 10px; border-radius:10px; font-weight:700; border:1px solid #e0d7cc;
+    box-shadow:0 1px 0 rgba(0,0,0,.05), inset 0 1px 0 #fff;
+  }
+  .lg-cibele{ background:linear-gradient(180deg,var(--cibele1),var(--cibele2)); }
+  .lg-rosana{ background:linear-gradient(180deg,var(--rosana1),var(--rosana2)); }
+  .lg-hotel { background:linear-gradient(180deg,var(--hotel1), var(--hotel2)); }
+
+  /* Timeline vertical */
+  .timeline{ position:relative; padding-left:36px; margin:0 6px 10px; }
+  .timeline:before{
+    content:""; position:absolute; left:18px; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,#f0d7e4,#e8c1d7);
+    border-radius:4px; box-shadow:inset 0 1px 0 #fff;
+  }
+
+  .card{
+    position:relative; margin:14px 0 18px;
+    border:1px solid #eadfce; border-radius:12px; padding:14px 14px 12px;
+    box-shadow:0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 #fff;
+    background:linear-gradient(180deg,#fff,var(--paper)); /* base, substituída pelos segmentos */
+  }
+  .card.segment-cibele{ background:linear-gradient(180deg,var(--cibele1),var(--cibele2)); }
+  .card.segment-rosana{ background:linear-gradient(180deg,var(--rosana1),var(--rosana2)); }
+  .card.segment-hotel { background:linear-gradient(180deg,var(--hotel1), var(--hotel2)); }
+
+  .card .dot{
+    position:absolute; left:-28px; top:16px; width:20px; height:20px; border-radius:50%;
+    background:linear-gradient(180deg,#ff9ad0,#ff5fb1);
+    border:1px solid #e38fbf; box-shadow:0 2px 0 rgba(0,0,0,.08), inset 0 1px 0 #fff;
+  }
+  .card.pre .dot{ background:linear-gradient(180deg,#ffe08f,#ffc642); border-color:#e5b85b }  /* pré-op */
+  .card.op  .dot{ background:linear-gradient(180deg,#ff7abf,#ff2f9c) }                      /* D0 */
+  .card.post .dot{background:linear-gradient(180deg,#b2f0c7,#65d78e); border-color:#5ac686 } /* pós-op */
+
+  .head{ display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+  .tag{
+    padding:4px 10px; border-radius:10px; font-weight:800;
+    background:linear-gradient(180deg,#ffe7f4,#ffbadb);
+    border:1px solid #e3a6c4; color:#6b2a48;
+    box-shadow:0 2px 0 rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.85);
+  }
+  .date{
+    padding:4px 10px; border-radius:10px; font-weight:700; color:#5b5349;
+    background:linear-gradient(180deg,#fff,#f6f0ea);
+    border:1px solid #ddd2c6; box-shadow:0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.05);
+  }
+  .title{ font-weight:800; letter-spacing:.2px; }
+
+  /* Itens como chips skeuo */
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .chip{
+    padding:6px 10px; border-radius:999px; font-weight:700; font-size:14px;
+    background:linear-gradient(180deg,#ffffff,#f6f0ea);
+    border:1px solid #ddd2c6; color:#5b3f4d;
+    box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.85);
+  }
+
+  /* efeito “hoje” cintilante no cartão */
+  .today{
+    box-shadow:0 10px 22px rgba(255,105,180,.18), inset 0 0 0 2px #ff9ad0;
+    position:relative;
+  }
+  .today:after{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 26%, rgba(255,255,255,.55), transparent 35%),
+      radial-gradient(circle at 82% 20%, rgba(255,255,255,.45), transparent 35%),
+      radial-gradient(circle at 60% 86%, rgba(255,255,255,.35), transparent 40%);
+    mix-blend-mode:screen; animation:twinkle 2s infinite ease-in-out;
+    border-radius:12px; pointer-events:none;
+  }
+  @keyframes twinkle{ 0%,100%{opacity:.55} 50%{opacity:1} }
+
+  .muted{ color:var(--muted) }
+
+  @media (max-width:760px){
+    .chips{ gap:6px }
+    .chip{ font-size:13px }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="title">Linha do Tempo · CRS</div>
+    <div class="subtitle">De D-2 até D12 · pré, cirurgia e pós-op</div>
+  </div>
+
+  <div class="panel">
+    <div class="progress-wrap">
+      <span class="badge" id="where">Preparando…</span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="today-chip" id="todayLabel">Hoje: —</span>
+    </div>
+
+    <div class="legend">
+      <span class="item lg-cibele">16–20 set · Cibele (hospital)</span>
+      <span class="item lg-rosana">21–24 set · Rrosana (hospital)</span>
+      <span class="item lg-hotel">25–30 set · Sem acompanhante (hotel)</span>
+    </div>
+
+    <div class="timeline" id="timeline"><!-- Cartões via JS --></div>
+  </div>
+
+<script>
+  // Utilitários
+  const pad2 = n => String(n).padStart(2,'0');
+  const labelD = dia => {
+    const delta = dia - 18; // 18 => 0
+    if (delta === 0) return 'D0';
+    return delta > 0 ? 'D'+delta : 'D'+delta; // D-2, D-1, D1...
+  };
+  const tipoFase = dia => dia < 18 ? 'pre' : (dia === 18 ? 'op' : 'post');
+  const segmento = dia => {
+    if (dia >= 16 && dia <= 20) return 'segment-cibele';
+    if (dia >= 21 && dia <= 24) return 'segment-rosana';
+    return 'segment-hotel'; // 25–30
+  };
+
+  // Itens conhecidos
+  const itensPorDia = {
+    16: ['viagem'],
+    17: ['advogada','internação pré-cirúrgica'],
+    18: ['CRS'],
+    22: ['retirada dos drenos'],
+    23: ['retirada da sonda'],
+    24: ['retirada de tampões','exame do dedo','alta hospitalar'],
+    30: ['tirar os pontos','volta para casa']
+  };
+
+  // Render
+  const elTimeline = document.getElementById('timeline');
+  for (let d = 16; d <= 30; d++){
+    const card = document.createElement('section');
+    const fase = tipoFase(d);
+    const seg = segmento(d);
+    card.className = `card ${fase} ${seg}`;
+    card.id = `dia-${d}`;
+
+    const chips = (itensPorDia[d] || [])
+      .map(t => `<span class="chip">${t}</span>`).join('');
+
+    card.innerHTML = `
+      <div class="dot"></div>
+      <div class="head">
+        <span class="tag">${labelD(d)}</span>
+        <span class="date">${pad2(d)}/09/2025</span>
+        <span class="title">${
+          d===18 ? 'Dia de Cirurgia' :
+          d<18 ? 'Pré-operatório'  : 'Pós-operatório'
+        }</span>
+      </div>
+      ${chips ? `<div class="chips">${chips}</div>` : ``}
+    `;
+    elTimeline.appendChild(card);
+  }
+
+  // Destaque do hoje + progresso
+  function setHojeEProgresso(){
+    const now = new Date();
+    const y = now.getFullYear(), m = now.getMonth(), d = now.getDate();
+
+    const hojeLabel = document.getElementById('todayLabel');
+    const where = document.getElementById('where');
+    const bar = document.getElementById('bar');
+
+    let idxHoje = -1; // 0 => 16/09; ... 14 => 30/09
+
+    if (y===2025 && m===8 && d>=16 && d<=30){
+      const card = document.getElementById('dia-'+d);
+      if (card) card.classList.add('today');
+      hojeLabel.textContent = `Hoje: ${labelD(d)}`;
+      idxHoje = d - 16;
+    } else {
+      hojeLabel.textContent = "Hoje: —";
+    }
+
+    // Progresso 0% em D-2 (16/09) até 100% em D12 (30/09) — 15 etapas
+    const total = 14; // índices 0..14
+    const pct = idxHoje < 0 ? 0 : Math.min(100, Math.round((idxHoje/total)*100));
+    bar.style.width = pct + "%";
+
+    where.textContent =
+      idxHoje < 0 ? "Fora da janela D-2…D12" :
+      (idxHoje <= 1 ? "Pré-op" : (idxHoje === 2 ? "Dia de cirurgia" : "Pós-op"));
+  }
+  setHojeEProgresso();
+</script>
+</body>
+</html>
