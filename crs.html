@@ -46,8 +46,8 @@
     box-shadow:0 14px 28px var(--shadow), inset 0 1px 0 #fff;
     padding:18px 18px 6px;
   }
-  .progress-wrap{ display:flex; align-items:center; gap:12px; margin:6px 6px 14px; }
-  .progress{ flex:1; height:14px; border-radius:999px; background:#efe7de; position:relative; box-shadow: inset 0 1px 0 #fff; }
+  .progress-wrap{ display:flex; align-items:center; gap:12px; margin:6px 6px 14px; flex-wrap:wrap; }
+  .progress{ flex:1; height:14px; border-radius:999px; background:#efe7de; position:relative; box-shadow: inset 0 1px 0 #fff; min-width:120px; }
   .bar{
     position:absolute; inset:0 auto 0 0; width:0%;
     background:linear-gradient(180deg,#ffd1e8,#ff7abf);
@@ -155,11 +155,17 @@
 <script>
   // Helpers
   const pad2 = n => String(n).padStart(2,'0');
-  const labelD = dia => (dia===18 ? 'D0' : (dia>18 ? 'D'+(dia-18) : 'D'+(dia-18))); // D-2, D-1, D0, D1...
+  const labelD = dia => (dia===18 ? 'D0' : (dia>18 ? 'D'+(dia-18) : 'D'+(dia-18)));
   const tipoFase = dia => dia < 18 ? 'pre' : (dia === 18 ? 'op' : 'post');
   const segmento = dia => (dia>=16 && dia<=20) ? 'segment-cibele' : (dia>=21 && dia<=24) ? 'segment-rosana' : 'segment-hotel';
-  const emoji = dia => (dia<=24 ? '🏥' : '🛎️');
   const wdayPt = d => ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'][d];
+
+  // Emojis
+  const emoji = dia => {
+    if (dia === 16) return '🚍🛎️';
+    if (dia >= 17 && dia <= 24) return '🏥';
+    return '🛎️';
+  };
 
   // Itens
   const itensPorDia = {
@@ -175,7 +181,7 @@
   // Render timeline
   const elTimeline = document.getElementById('timeline');
   for (let d = 16; d <= 30; d++){
-    const dt = new Date(2025, 8, d); // Setembro (mês 8)
+    const dt = new Date(2025, 8, d);
     const chips = (itensPorDia[d] || []).map(t => `<span class="chip">${t}</span>`).join('');
     const card = document.createElement('section');
     card.className = `card ${tipoFase(d)} ${segmento(d)}`;
@@ -201,7 +207,7 @@
     const where = document.getElementById('where');
     const bar = document.getElementById('bar');
 
-    let idxHoje = -1; // 0 => 16/09
+    let idxHoje = -1;
     if (y===2025 && m===8 && d>=16 && d<=30){
       const card = document.getElementById('dia-'+d);
       if (card) card.classList.add('today');
