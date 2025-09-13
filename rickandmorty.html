@@ -3,62 +3,177 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Rick and Morty — Tracker Skeuo</title>
+<title>Rick and Morty — Tracker • Black Gorilla Glass</title>
 <style>
+  /* --------- Base mobile --------- */
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
     font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#e7ecf2;
     background:
-      radial-gradient(1200px 800px at 50% -200px, rgba(255,255,255,0.5), rgba(255,255,255,0) 60%),
-      linear-gradient(180deg,#f2f4f7 0%,#e6eaef 50%,#dce2e8 100%);
-    color:#1a1a1a
+      radial-gradient(1200px 800px at 50% -250px, rgba(255,255,255,0.08), rgba(0,0,0,0) 60%),
+      linear-gradient(180deg,#0a0b0d 0%, #0d0f12 40%, #0a0c0f 100%);
   }
-  .error{display:none;padding:10px 12px;color:#fff;background:#c0392b;border-bottom:1px solid #922b21;font-size:13px}
-  .nav{position:sticky;top:0;z-index:10;padding:12px 16px 10px;background:linear-gradient(180deg,#f7f9fc 0%,#e9eef4 48%,#d4dbe3 49%,#c7d0da 100%);border-bottom:1px solid #b8c2cd;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 1px 0 rgba(255,255,255,.6),0 2px 10px rgba(0,0,0,.1)}
-  .nav .title{font-weight:700;letter-spacing:.2px;text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.9)}
-  .sub{text-align:center;font-size:12px;opacity:.8;margin-top:2px}
-  .wrap{padding:14px;max-width:900px;margin:0 auto}
-  .card{margin:12px 0;padding:12px;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#edf2f7 60%,#e7edf4 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 1px 0 rgba(255,255,255,.7),0 6px 18px rgba(0,0,0,.12);border:1px solid #cfd8e3}
-  .card-header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
-  .h{font-weight:700;text-shadow:0 1px 0 rgba(255,255,255,.9)}
-  .meta{font-size:12px;opacity:.8}
-  .progress{position:relative;height:12px;border-radius:10px;margin:8px 0 10px;overflow:hidden;background:linear-gradient(180deg,#d8e0ea,#c9d4e0);box-shadow:inset 0 2px 4px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.6);border:1px solid #b9c4cf}
-  .progress>span{display:block;height:100%;width:0%;background:linear-gradient(180deg,#9ed0ff 0%,#6cb9ff 48%,#47a0ff 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.08);transition:width .25s ease}
-  .controls{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
-  .btn{font-size:12px;padding:7px 10px;border-radius:10px;border:1px solid #9fb0c2;background:linear-gradient(180deg,#fff 0%,#eef3f8 50%,#e2e9f1 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 0 rgba(255,255,255,.8),0 2px 6px rgba(0,0,0,.08)}
-  .btn:active{transform:translateY(1px)}
-  .episodes{display:flex;flex-wrap:wrap;gap:8px}
-  .pill{min-width:44px;padding:8px 10px;border-radius:24px;text-align:center;font-weight:700;font-size:13px;border:1px solid #aebdcb;background:linear-gradient(180deg,#fff 0%,#eff4f8 60%,#e5ecf3 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 1px 0 rgba(255,255,255,.8),0 3px 10px rgba(0,0,0,.1);user-select:none}
-  .pill.pending{color:#4a5568}
-  .pill.watched{color:#0b3f8a;border-color:#6faef5;background:linear-gradient(180deg,#cfe7ff 0%,#b8d8ff 50%,#a7ceff 100%)}
-  .pill.rewatch{color:#165a2b;border-color:#7fd9a2;background:linear-gradient(180deg,#ccf7df 0%,#b1efcd 50%,#9fe8c1 100%)}
-  .footer{padding:12px 14px 18px;text-align:center;opacity:.8;font-size:12px}
-  .toolbar{position:sticky;bottom:0;z-index:5;padding:10px 14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:linear-gradient(180deg,#eef3f8 0%,#dfe7f0 50%,#d3dde8 100%);border-top:1px solid #bcc7d3;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 -1px 0 rgba(255,255,255,.6),0 -6px 18px rgba(0,0,0,.12)}
-  .toolbar .btn{font-size:13px}
-  @media (min-width:700px){.episodes{gap:10px}.pill{font-size:14px;padding:9px 12px}}
-  .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:12px}
+
+  /* --------- Vidro preto “gorilla glass” --------- */
+  .glass{
+    position:relative;
+    border-radius:16px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02) 35%, rgba(0,0,0,0.35) 36%, rgba(0,0,0,0.55) 100%),
+      linear-gradient(180deg, #1b1f26 0%, #14171d 100%);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.10),
+      inset 0 -1px 0 rgba(0,0,0,0.6),
+      0 12px 28px rgba(0,0,0,0.45),
+      0 2px 6px rgba(0,0,0,0.6);
+    overflow:hidden;
+  }
+  /* reflexo superior longo */
+  .glass::before{
+    content:"";
+    position:absolute; left:0; right:0; top:-40%;
+    height:70%;
+    background:radial-gradient(120% 80% at 50% 100%, rgba(255,255,255,0.22), rgba(255,255,255,0.06) 60%, transparent 70%);
+    pointer-events:none; filter:blur(1px);
+  }
+  /* brilho inferior */
+  .glass::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-30%;
+    height:55%;
+    background:radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,0.07), transparent 70%);
+    pointer-events:none;
+  }
+
+  /* --------- Barra superior --------- */
+  .nav{
+    position:sticky; top:0; z-index:20;
+    padding:14px 16px 12px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 48%, rgba(0,0,0,0.5) 49%, rgba(0,0,0,0.75) 100%),
+      linear-gradient(180deg,#1a1f26 0%, #11161b 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.10),
+      0 12px 24px rgba(0,0,0,0.35);
+  }
+  .title{font-weight:800; text-align:center; letter-spacing:.2px; text-shadow:0 1px 0 rgba(0,0,0,0.8), 0 0 22px rgba(255,255,255,0.08)}
+  .sub{ text-align:center; font-size:12px; opacity:.75; margin-top:2px;}
+
+  /* --------- Layout --------- */
+  .wrap{ padding:14px; max-width:900px; margin:0 auto; }
+  .card{ margin:12px 0; padding:12px; }
+  .card-header{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px;}
+  .h{ font-weight:800; text-shadow:0 1px 0 rgba(0,0,0,0.9); }
+  .meta{ font-size:12px; opacity:.8; }
+
+  /* --------- Barra de progresso vidro --------- */
+  .progress{
+    position:relative; height:12px; border-radius:10px; margin:8px 0 10px; overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.65)),
+      linear-gradient(180deg,#11151a,#0c0f13);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .progress>span{
+    display:block; height:100%; width:0%;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.10) 40%, rgba(0,0,0,0.25) 41%),
+      linear-gradient(180deg,#67b3ff, #2f85ff, #1f6be0);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.3);
+    transition:width .25s ease;
+  }
+
+  /* --------- Controles e botões --------- */
+  .controls{ display:flex; gap:6px; flex-wrap:wrap; margin:8px 0 4px;}
+  .btn{
+    font-size:12px; padding:7px 12px; border-radius:12px;
+    color:#e8edf3;
+    border:1px solid rgba(255,255,255,0.10);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 50%, rgba(0,0,0,0.5) 51%, rgba(0,0,0,0.8) 100%),
+      linear-gradient(180deg,#2a2f38,#1a1f26);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 10px rgba(0,0,0,0.5);
+  }
+  .btn:active{ transform:translateY(1px); }
+
+  /* --------- Lista de episódios (pílulas vidro) --------- */
+  .episodes{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    min-width:46px; padding:9px 12px; border-radius:26px; text-align:center; font-weight:800; font-size:13px;
+    border:1px solid rgba(255,255,255,0.10);
+    color:#dfe7ef;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03) 44%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.75) 100%),
+      linear-gradient(180deg,#242a33, #1a1f26);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.14),
+      inset 0 -1px 0 rgba(0,0,0,0.6),
+      0 6px 14px rgba(0,0,0,0.45);
+    user-select:none;
+  }
+  .pill.pending{ opacity:.85; }
+  .pill.watched{
+    color:#cfe5ff;
+    border-color:rgba(103,179,255,0.55);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08) 44%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.75) 100%),
+      linear-gradient(180deg,#2b3f56,#1d2e44);
+  }
+  .pill.rewatch{
+    color:#c9f7de;
+    border-color:rgba(127,217,162,0.55);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08) 44%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.75) 100%),
+      linear-gradient(180deg,#264a36,#1b3326);
+  }
+
+  /* --------- Toolbar fixa --------- */
+  .toolbar{
+    position:sticky; bottom:0; z-index:15; padding:10px 14px;
+    display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 48%, rgba(0,0,0,0.6) 49%, rgba(0,0,0,0.85) 100%),
+      linear-gradient(180deg,#1b1f26,#11161b);
+    border-top:1px solid rgba(255,255,255,0.06);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 -8px 22px rgba(0,0,0,0.5);
+  }
+  .footer{ padding:12px 14px 18px; text-align:center; opacity:.75; font-size:12px; }
+
+  /* --------- Erro --------- */
+  .error{display:none;padding:10px 12px;color:#fff;background:#8b1e1e;border-bottom:1px solid #6f1515;font-size:13px}
+
+  /* --------- Responsivo --------- */
+  @media (min-width:700px){
+    .episodes{gap:10px}
+    .pill{font-size:14px;padding:10px 14px}
+  }
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:12px}
 </style>
 </head>
 <body>
   <div id="err" class="error"></div>
 
-  <div class="nav">
+  <div class="nav glass">
     <div class="title">Rick and Morty — Episódios</div>
-    <div class="sub">Skeuomorphic Tracker • toque nos episódios para alternar estado</div>
+    <div class="sub">Skeuomorphic Black • toque nos episódios para alternar estado</div>
   </div>
 
   <div class="wrap" id="app"></div>
 
-  <div class="toolbar">
+  <div class="toolbar glass">
     <button class="btn" id="btnAllWatched">Tudo: Visto (azul)</button>
     <button class="btn" id="btnAllRewatch">Tudo: Rever (verde)</button>
-    <button class="btn" id="btnAllPending">Tudo: Pendente (cinza)</button>
-    <button class="btn" id="btnReset">Resetar para configuração inicial</button>
+    <button class="btn" id="btnAllPending">Tudo: Pendente</button>
+    <button class="btn" id="btnReset">Resetar</button>
     <button class="btn" id="btnExport">Copiar estado como JS</button>
   </div>
 
-  <div class="footer">Estados: azul = visto • verde = rever • cinza = pendente. Progresso salvo em cache local (localStorage).</div>
+  <div class="footer">Azul = visto • Verde = rever • Cinza = pendente. Salva em cache local.</div>
 
 <script>
 (function(){
@@ -68,44 +183,26 @@
 
   function start(){
     /* ============================================================
-       BLOCO DE CONFIGURAÇÃO HUMANA
-       Edite APENAS isso aqui para definir o que você já viu.
-       Sintaxe por temporada:
-       - "1-11" significa episódios 1 até 11
-       - "1,3,5-9" listas e intervalos
-       - "" vazio significa nenhum
-       Use T1..T8 em watched (azul) e rewatch (verde).
+       CONFIGURAÇÃO HUMANA
+       Temporadas em ordem natural (1..8), mas a UI renderiza 8→1.
+       Edite strings tipo "1-11" ou "1,3-5". Vazio = nenhum.
        ============================================================ */
     const CONFIG = {
       seasons: [11,10,10,10,10,10,10,10],
-      watched: {   // azul (concluídos)
-        T1: "1-11",
-        T2: "1-10",
-        T3: "1-10",
-        T4: "1-10",
-        T5: "1-10",
-        T6: "1-10",
-        T7: "",        // nenhum visto da 7, pois está em "rever"
-        T8: "1"        // só o E1
+      watched: { // azul
+        T1:"1-11", T2:"1-10", T3:"1-10", T4:"1-10", T5:"1-10", T6:"1-10",
+        T7:"",     // vai para rewatch
+        T8:"1"
       },
-      rewatch: {  // verde (precisa rever)
-        T1: "",
-        T2: "",
-        T3: "",
-        T4: "",
-        T5: "",
-        T6: "",
-        T7: "1-10",    // toda a sétima
-        T8: ""         // ajuste quando quiser
+      rewatch: { // verde
+        T1:"",T2:"",T3:"",T4:"",T5:"",T6:"",
+        T7:"1-10",
+        T8:""
       }
     };
-    /* ============================================================
-       Fim do bloco humano. O resto é motor.
-       ============================================================ */
 
-    // — helpers de parsing —
+    /* ---------- parser de listas ---------- */
     function parseSpec(spec){
-      // aceita "", "1,2,5-9"
       const set = new Set();
       if(!spec) return set;
       spec.split(",").map(s=>s.trim()).filter(Boolean).forEach(tok=>{
@@ -113,125 +210,120 @@
           const [a,b]=tok.split("-").map(n=>parseInt(n,10));
           const lo=Math.min(a,b), hi=Math.max(a,b);
           for(let i=lo;i<=hi;i++) set.add(i);
-        } else if(/^\d+$/.test(tok)){
-          set.add(parseInt(tok,10));
-        }
+        } else if(/^\d+$/.test(tok)){ set.add(parseInt(tok,10)); }
       });
       return set;
     }
 
-    // monta INITIAL_STATE a partir do CONFIG
+    /* ---------- estado inicial ---------- */
     const INITIAL_STATE = {
       seasons: CONFIG.seasons.map((count,idx)=>({ n: idx+1, episodes: count })),
       seed: (function(){
-        const seed = {};
+        const seed={};
         CONFIG.seasons.forEach((count, idx)=>{
-          const s = idx+1;
-          seed[s] = {};
-          const w = parseSpec(CONFIG.watched["T"+s] || "");
-          const r = parseSpec(CONFIG.rewatch["T"+s] || "");
-          for(let e=1;e<=count;e++){
-            // prioridade: watched > rewatch > pendente
-            seed[s][e] = w.has(e) ? 1 : r.has(e) ? 2 : 0;
-          }
+          const s=idx+1; seed[s]={};
+          const w=parseSpec(CONFIG.watched["T"+s]||"");
+          const r=parseSpec(CONFIG.rewatch["T"+s]||"");
+          for(let e=1;e<=count;e++){ seed[s][e] = w.has(e)?1 : r.has(e)?2 : 0; }
         });
         return seed;
       })()
     };
 
-    // — persistência —
-    const LS_KEY = "ram-tracker-v2";
-    const safeParse = j=>{ try{return JSON.parse(j)}catch{return null} };
-    const loadState  = ()=>{ try{ const raw=localStorage.getItem(LS_KEY); const p=raw?safeParse(raw):null; return (p&&p.seasons&&p.seed)?p:null; } catch{ return null; } };
-    const saveState  = s=>{ try{ localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch{} };
-    const deepClone  = o=>JSON.parse(JSON.stringify(o));
+    /* ---------- persistência ---------- */
+    const LS_KEY="ram-tracker-black-v1";
+    const safeParse=j=>{try{return JSON.parse(j)}catch{return null}};
+    const loadState=()=>{try{const raw=localStorage.getItem(LS_KEY);const p=raw?safeParse(raw):null;return(p&&p.seasons&&p.seed)?p:null}catch{return null}};
+    const saveState=s=>{try{localStorage.setItem(LS_KEY,JSON.stringify(s))}catch{}};
+    const deepClone=o=>JSON.parse(JSON.stringify(o));
     let state = loadState() || deepClone(INITIAL_STATE);
 
-    // — DOM utils —
-    const app = document.getElementById("app");
-    const el=(t,c,txt)=>{ const x=document.createElement(t); if(c)x.className=c; if(txt!=null)x.textContent=txt; return x; };
-    const clsFor=v=> v===1?"watched": v===2?"rewatch":"pending";
+    /* ---------- util DOM ---------- */
+    const app=document.getElementById("app");
+    const el=(t,c,txt)=>{const x=document.createElement(t); if(c)x.className=c+" glass"; else x.className="glass"; if(txt!=null)x.textContent=txt; return x;}
+    const elBare=(t,c,txt)=>{const x=document.createElement(t); if(c)x.className=c; if(txt!=null)x.textContent=txt; return x;}
+    const clsFor=v=> v===1?"pill watched": v===2?"pill rewatch":"pill pending";
     function ensureSeason(st,s,count){ if(!st.seed[s]) st.seed[s]={}; for(let e=1;e<=count;e++) if(st.seed[s][e]==null) st.seed[s][e]=0; }
 
     function computeSeason(st,s){
-      const season = st.seasons.find(x=>x.n===s);
-      const count = season.episodes;
+      const season=st.seasons.find(x=>x.n===s);
+      const count=season.episodes;
       ensureSeason(st,s,count);
-      let done=0, rewatch=0;
-      for(let e=1;e<=count;e++){ const v=st.seed[s][e]; if(v===1) done++; else if(v===2) rewatch++; }
-      return { done, rewatch, total: count, pct: count? (done/count)*100 : 0 };
+      let done=0,rewatch=0;
+      for(let e=1;e<=count;e++){const v=st.seed[s][e]; if(v===1)done++; else if(v===2)rewatch++;}
+      return {done,rewatch,total:count,pct: count?(done/count)*100:0};
     }
     function computeOverall(st){
-      let total=0, done=0;
+      let total=0,done=0;
       st.seasons.forEach(season=>{
-        const s=season.n; total+=season.episodes; ensureSeason(st,s,season.episodes);
+        total+=season.episodes; const s=season.n; ensureSeason(st,s,season.episodes);
         for(let e=1;e<=season.episodes;e++) if(st.seed[s][e]===1) done++;
       });
-      return { total, done, pct: total? (done/total)*100 : 0 };
+      return {total,done,pct: total?(done/total)*100:0};
     }
 
+    /* ---------- render (ordem decrescente) ---------- */
     function render(){
       app.innerHTML="";
       const overall=computeOverall(state);
       app.appendChild(renderOverallCard(overall));
-      state.seasons.forEach(season=> app.appendChild(renderSeasonCard(season)));
+
+      const seasonsDesc = [...state.seasons].reverse(); // 8 → 1
+      seasonsDesc.forEach(season=> app.appendChild(renderSeasonCard(season)));
     }
 
     function renderOverallCard(o){
       const card=el("div","card");
-      const head=el("div","card-header");
-      head.append(el("div","h","Progresso total"), el("div","meta",`${o.done}/${o.total} episódios concluídos`));
-      const bar=el("div","progress"); const span=el("span"); span.style.width=`${Math.round(o.pct)}%`; bar.appendChild(span);
+      const head=elBare("div","card-header");
+      head.append(elBare("div","h","Progresso total"), elBare("div","meta",`${o.done}/${o.total} episódios concluídos`));
+      const bar=elBare("div","progress"); const span=elBare("span"); span.style.width=`${Math.round(o.pct)}%`; bar.appendChild(span);
       card.append(head,bar); return card;
     }
 
+    function btn(label,fn){ const b=elBare("button","btn",label); b.addEventListener("click",fn); return b; }
+
     function renderSeasonCard(season){
-      const s=season.n, card=el("div","card");
+      const s=season.n;
+      const card=el("div","card");
       const pr=computeSeason(state,s);
-      const head=el("div","card-header");
-      const title=el("div","h",`Temporada ${s}`);
-      const meta=el("div","meta",`visto: ${pr.done} • rever: ${pr.rewatch} • total: ${pr.total}`);
-      head.append(title,meta);
 
-      const bar=el("div","progress"); const span=el("span"); span.style.width=`${Math.round(pr.pct)}%`; bar.appendChild(span);
+      const head=elBare("div","card-header");
+      head.append(elBare("div","h",`Temporada ${s}`), elBare("div","meta",`visto: ${pr.done} • rever: ${pr.rewatch} • total: ${pr.total}`));
 
-      const controls=el("div","controls");
-      controls.append(
-        btn("Marcar Visto",()=>setSeason(s,1)),
-        btn("Marcar Rever",()=>setSeason(s,2)),
-        btn("Marcar Pendente",()=>setSeason(s,0))
-      );
+      const bar=elBare("div","progress"); const span=elBare("span"); span.style.width=`${Math.round(pr.pct)}%`; bar.appendChild(span);
 
-      const list=el("div","episodes");
+      const controls=elBare("div","controls");
+      controls.append(btn("Marcar Visto",()=>setSeason(s,1)), btn("Marcar Rever",()=>setSeason(s,2)), btn("Marcar Pendente",()=>setSeason(s,0)));
+
+      const list=elBare("div","episodes");
       ensureSeason(state,s,season.episodes);
       for(let e=1;e<=season.episodes;e++){
-        const st = state.seed[s][e] ?? 0;
-        const pill=el("div",`pill ${clsFor(st)}`,`E${e}`);
+        const v=state.seed[s][e]??0;
+        const pill=elBare("div",clsFor(v),`E${e}`);
         pill.title="Toque para alternar estado";
         pill.addEventListener("click",()=>{
           const next=(state.seed[s][e]+1)%3;
           state.seed[s][e]=next; saveState(state);
-          pill.className=`pill ${clsFor(next)}`; updateSeasonHeader(card,s);
+          pill.className=clsFor(next);
+          updateSeasonHeader(card,s);
         });
         list.appendChild(pill);
       }
 
       card.append(head,bar,controls,list);
       card._progressBar=bar.firstElementChild;
-      card._meta=meta;
+      card._meta=head.lastChild;
       return card;
     }
-
-    const btn=(label,fn)=>{ const b=el("button","btn",label); b.addEventListener("click",fn); return b; };
 
     function updateSeasonHeader(card,s){
       const pr=computeSeason(state,s);
       card._meta.textContent=`visto: ${pr.done} • rever: ${pr.rewatch} • total: ${pr.total}`;
       card._progressBar.style.width=`${Math.round(pr.pct)}%`;
-      const oc=app.firstElementChild;
+      const overallCard=app.firstElementChild;
       const o=computeOverall(state);
-      oc.querySelector(".progress > span").style.width=`${Math.round(o.pct)}%`;
-      oc.querySelector(".card-header .meta").textContent=`${o.done}/${o.total} episódios concluídos`;
+      overallCard.querySelector(".progress > span").style.width=`${Math.round(o.pct)}%`;
+      overallCard.querySelector(".card-header .meta").textContent=`${o.done}/${o.total} episódios concluídos`;
     }
 
     function setSeason(s,status){
@@ -241,13 +333,12 @@
       saveState(state); render();
     }
 
-    // toolbar
+    /* ---------- toolbar ---------- */
     document.getElementById("btnAllWatched").addEventListener("click",()=>{ state.seasons.forEach(se=>setSeason(se.n,1)); });
     document.getElementById("btnAllRewatch").addEventListener("click",()=>{ state.seasons.forEach(se=>setSeason(se.n,2)); });
     document.getElementById("btnAllPending").addEventListener("click",()=>{ state.seasons.forEach(se=>setSeason(se.n,0)); });
-    document.getElementById("btnReset").addEventListener("click",()=>{ state = deepClone(INITIAL_STATE); saveState(state); render(); });
+    document.getElementById("btnReset").addEventListener("click",()=>{ state=deepClone(INITIAL_STATE); saveState(state); render(); });
 
-    // exporta estado atual como CONFIG JS (pra colar no código)
     document.getElementById("btnExport").addEventListener("click",()=>{
       const watched={}, rewatch={};
       state.seasons.forEach(season=>{
@@ -255,36 +346,31 @@
         const w=[], r=[];
         for(let e=1;e<=count;e++){
           const v=state.seed[s][e];
-          if(v===1) w.push(e);
-          else if(v===2) r.push(e);
+          if(v===1) w.push(e); else if(v===2) r.push(e);
         }
         watched["T"+s]=compressList(w);
         rewatch["T"+s]=compressList(r);
       });
       const snippet =
-`// Cole no bloco CONFIG e salve
+`// Cole no bloco CONFIG
 watched: ${JSON.stringify(watched, null, 2)},
 rewatch: ${JSON.stringify(rewatch, null, 2)}`;
       copyToClipboard(snippet);
-      toast("Config atual copiada como JS (clipboard).");
+      toast("Config atual copiada (clipboard).");
     });
 
-    // compressão 1,2,3,7,8 -> "1-3,7-8"
     function compressList(arr){
       if(arr.length===0) return "";
       arr.sort((a,b)=>a-b);
-      const out=[];
-      let start=arr[0], prev=arr[0];
+      const out=[]; let start=arr[0], prev=arr[0];
       for(let i=1;i<=arr.length;i++){
         const v=arr[i];
         if(v===prev+1){ prev=v; continue; }
-        if(start===prev) out.push(String(start));
-        else out.push(start+"-"+prev);
+        out.push(start===prev? String(start) : `${start}-${prev}`);
         start=v; prev=v;
       }
       return out.join(", ");
     }
-
     function copyToClipboard(text){
       const ta=document.createElement("textarea"); ta.className="mono"; ta.value=text; document.body.appendChild(ta);
       ta.select(); document.execCommand("copy"); document.body.removeChild(ta);
@@ -292,12 +378,12 @@ rewatch: ${JSON.stringify(rewatch, null, 2)}`;
     function toast(msg){
       const d=document.createElement("div");
       d.textContent=msg; d.style.position="fixed"; d.style.bottom="12px"; d.style.left="50%"; d.style.transform="translateX(-50%)";
-      d.style.padding="8px 12px"; d.style.border="1px solid #9fb0c2"; d.style.borderRadius="10px"; d.style.background="#fff";
-      d.style.boxShadow="0 2px 10px rgba(0,0,0,.15)"; d.style.fontSize="12px";
+      d.style.padding="8px 12px"; d.style.border="1px solid rgba(255,255,255,0.1)"; d.style.borderRadius="12px";
+      d.style.background="linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.8))";
+      d.style.boxShadow="0 12px 24px rgba(0,0,0,0.5)"; d.style.fontSize="12px"; d.style.color="#e7ecf2";
       document.body.appendChild(d); setTimeout(()=>d.remove(),1800);
     }
 
-    // inicializa
     render();
   }
 })();
