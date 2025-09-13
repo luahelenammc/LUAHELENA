@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nith-Haiah — Guia & Portfólio (25 de junho)</title>
+<meta name="description" content="Página skeuomorphic com efeito Gorilla Glass: guia conciso de Nith-Haiah (Anjo 25) e slideshow de portfólio no topo. Código auto-contido (HTML+CSS+JS)." />
+<style>
+/* ===========================
+   VARIÁVEIS & PALETA
+   =========================== */
+:root{
+  --bg-top: #050916;
+  --bg-bottom: #0b1730;
+  --paper: #fffdf9;
+  --card: #f6f2ea;
+  --pearl: #f9f7f3;
+  --ink: #1a2328;
+  --muted: #6b6970;
+  --emerald: #1f7a4a;
+  --emerald-soft: #2fa16a;
+  --gold: #d6a84b;
+  --lavender: #cdb9ff;
+  --glass: rgba(255,255,255,0.06);
+  --radius: 18px;
+  --shadow-xl: 0 28px 80px rgba(2,6,20,0.55);
+  --shadow-md: 0 18px 36px rgba(6,10,20,0.28);
+  --bevel: inset 0 1px 0 rgba(255,255,255,0.65), inset 0 -1px 0 rgba(0,0,0,0.08);
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ===========================
+   RESET BÁSICO
+   =========================== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:var(--font); color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% 8%, rgba(86,60,180,0.14), transparent 30%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+
+/* ===========================
+   GALERIA — GORILLA GLASS TOP
+   =========================== */
+.glass-hero{
+  max-width:1160px; margin:0 auto 22px auto; position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  /* Base vidro com tinta sob a peça (backsplash) */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+    radial-gradient(1800px 600px at 50% -10%, rgba(255,255,255,0.08), transparent 60%),
+    linear-gradient(180deg, #0b1328, #0a1022 40%, #0a1226 100%);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.glass-hero::before{
+  /* Reflexo externo (fade) */
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(12deg, rgba(255,255,255,0.08) 0%, transparent 32%),
+    linear-gradient(180deg, transparent 70%, rgba(255,255,255,0.05) 100%);
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+.glass-hero::after{
+  /* Micro-ruído + micro-arranhões sutis */
+  content:"";
+  position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01) 1px, transparent 1px, transparent 4px);
+  opacity:0.25; pointer-events:none;
+}
+
+/* Moldura interna com chanfrado (bevel) */
+.glass-inner{
+  position:relative; border-radius:24px; margin:10px; overflow:hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  box-shadow: var(--bevel), inset 0 0 0 1px rgba(255,255,255,0.05);
+  min-height: 360px;
+}
+
+/* Barra de vidro superior com brilho curvado */
+.glare{
+  content:""; position:absolute; left:0; right:0; top:0; height:32%;
+  background:
+    radial-gradient(120% 120% at -10% -10%, rgba(255,255,255,0.38), transparent 52%),
+    linear-gradient(180deg, rgba(255,255,255,0.18), transparent 55%);
+  mix-blend-mode:screen; pointer-events:none; z-index:3;
+  filter: blur(0.2px);
+}
+
+/* Slides */
+.slides{ width:100%; height:100%; display:flex; transition:transform 650ms cubic-bezier(.2,.8,.2,1); position:relative; z-index:1; }
+.slide{ min-width:100%; height:480px; background-size:cover; background-position:center; }
+@media (max-width:980px){ .slide{ height:280px; } }
+
+/* Controles */
+.controls{
+  position:absolute; left:16px; right:16px; top:16px;
+  display:flex; justify-content:space-between; z-index:4; pointer-events:none;
+}
+.ctrl-btn{
+  pointer-events:auto; cursor:pointer;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), #fff);
+  border-radius:12px; padding:10px 12px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25), inset 0 2px 0 rgba(255,255,255,0.8);
+  font-weight:700; color:#222; opacity:0.96;
+}
+.ctrl-dots{ position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:4; }
+.dot{
+  width:10px; height:10px; border-radius:50%;
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+  cursor:pointer;
+}
+.dot.active{ background: #2fa16a; }
+
+/* ===========================
+   LAYOUT CONTEÚDO (DEPOIS DO HERO)
+   =========================== */
+.wrapper{
+  width:100%; max-width:1160px; margin:0 auto;
+  display:grid; grid-template-columns: 380px 1fr; gap:24px; align-items:start;
+}
+
+/* Painel esquerdo — skeuomorphic/papel */
+.panel{
+  background: linear-gradient(180deg, var(--card), #efe9de);
+  border-radius: calc(var(--radius) + 6px);
+  padding:18px; border:1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* Cabeçalho com “almofada” */
+.spine{ display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.logo{
+  width:88px;height:88px;border-radius:16px;
+  background: linear-gradient(180deg,#fff,#fbf7f0);
+  box-shadow: 0 12px 26px rgba(12,20,36,0.18), inset 0 4px 10px rgba(255,255,255,0.7);
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(0,0,0,0.04);
+}
+.logo svg{ width:64px; height:64px; }
+.title h1{ margin:0; font-size:18px; color:var(--emerald); letter-spacing:0.4px; }
+.title p{ margin:4px 0 0 0; color:var(--muted); font-size:13px; }
+
+/* Chips */
+.chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.chip{
+  background: linear-gradient(180deg, #fff, #f7f2ea);
+  padding:8px 12px; border-radius:999px; font-size:13px; color:var(--muted);
+  border:1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 10px 20px rgba(10,14,22,0.06), inset 0 2px 6px rgba(255,255,255,0.6);
+}
+
+/* Sigil plate */
+.sigil-plate{ display:flex; gap:12px; align-items:center; margin-top:12px; }
+.plate{
+  width:116px;height:116px;border-radius:18px;
+  background: radial-gradient(ellipse at 30% 25%, #fff, #fbf6ec 40%, #f0eadf 100%);
+  box-shadow: 0 18px 46px rgba(12,20,30,0.18), inset 0 6px 18px rgba(255,255,255,0.65);
+  display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.04);
+  position:relative;
+}
+.plate small{ position:absolute; bottom:6px; font-size:11px; color:var(--muted); }
+
+/* Seções direitas */
+.content{ display:flex; flex-direction:column; gap:16px; }
+.section{
+  background: linear-gradient(180deg,#fff,#fbf7f0);
+  border-radius:14px; padding:18px; border:1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-md);
+}
+.section h2{ margin:0 0 8px 0; color:var(--emerald); font-size:16px; }
+.section p{ margin:0 0 10px 0; color:#2b3330; line-height:1.45; }
+.dl{ display:grid; gap:10px; }
+.ditem{ display:flex; gap:12px; align-items:flex-start; }
+.ditem .k{ width:140px; font-weight:700; color:#234f3a; font-size:14px; }
+.ditem .v{ color:#2b3330; font-size:14px; }
+
+.corres{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.cor{ background:linear-gradient(180deg,#fff,#fcf9f6); padding:8px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.03); color:var(--muted); font-size:13px; }
+
+/* Responsivo */
+@media (max-width:980px){
+  body{ padding:14px; }
+  .wrapper{ grid-template-columns:1fr; gap:18px; }
+  .logo{ width:72px; height:72px; }
+  .plate{ width:96px; height:96px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===========================
+     HERO: SLIDESHOW GORILLA GLASS
+     =========================== -->
+<div class="glass-hero" id="hero">
+  <div class="glass-inner">
+    <div class="glare" aria-hidden="true"></div>
+
+    <div class="slides" id="slides"><!-- JS popula --></div>
+
+    <div class="controls" aria-hidden="true">
+      <button id="prev" class="ctrl-btn">◀︎ Prev</button>
+      <button id="next" class="ctrl-btn">Next ▶︎</button>
+    </div>
+    <div class="ctrl-dots" id="dots" aria-hidden="true"></div>
+  </div>
+</div>
+
+<!-- ===========================
+     CONTEÚDO
+     =========================== -->
+<div class="wrapper" role="application">
+
+  <!-- ESQUERDA: CARTÃO PESQUISA -->
+  <aside class="panel" aria-labelledby="leftTitle">
+    <div class="spine">
+      <div class="logo" aria-hidden="true">
+        <!-- sigil estilizado -->
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="60" cy="60" r="50" fill="#fff" stroke="#e9dfc6" stroke-width="2"/>
+          <g transform="translate(24,24)" fill="#1f7a4a">
+            <rect x="26" y="6" width="10" height="68" rx="2"/>
+            <rect x="6" y="28" width="92" height="6" rx="3"/>
+            <rect x="18" y="58" width="64" height="6" rx="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="title">
+        <h1 id="leftTitle">Nith-Haiah — Anjo 25</h1>
+        <p>Guardião de nascidos em <strong>25 de junho</strong> — sabedoria prática e proteção ética</p>
+      </div>
+    </div>
+
+    <div class="chips">
+      <div class="chip">Ordem: Dominações</div>
+      <div class="chip">Sefirá: Chesed</div>
+      <div class="chip">Planeta: Júpiter</div>
+      <div class="chip">Graus: início de Leão</div>
+    </div>
+
+    <div class="sigil-plate">
+      <div class="plate" title="Sigil Nith-Haiah">
+        <svg viewBox="0 0 200 200" width="92" height="92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><radialGradient id="r1" cx="40%" cy="30%"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#f3ead2"/></radialGradient></defs>
+          <circle cx="100" cy="100" r="92" fill="url(#r1)" stroke="#e7dcc1" stroke-width="2"/>
+          <g transform="translate(36,36)" fill="#1f7a4a">
+            <rect x="22" y="8" width="12" height="72" rx="2"/>
+            <rect x="8" y="32" width="88" height="8" rx="2"/>
+            <rect x="18" y="60" width="56" height="8" rx="2"/>
+          </g>
+        </svg>
+        <small>נתהיה</small>
+      </div>
+      <div style="flex:1">
+        <div style="font-weight:700; color:#2f5a3f">Sigil — נתהיה</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:6px;">Texto hebraico e símbolo tradicional. Use com respeito.</div>
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button id="copySig" class="ctrl-btn" title="Copiar sigil">Copiar sigil</button>
+          <button id="copyHeb" class="ctrl-btn" title="Copiar nome">Copiar nome</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- DIREITA: CONTEÚDO CONCISO -->
+  <main class="content" aria-labelledby="mainTitle">
+
+    <section class="section" id="research">
+      <h2 id="mainTitle">Guia conciso — o que a pesquisa mostra</h2>
+      <p>Esta página compila achados recorrentes sobre <strong>Nith-Haiah</strong> em tradições cabalísticas modernas: etimologia, posição, domínios e iconografia. Trata-se de literatura devocional; é simbólica e interpretativa.</p>
+      <div class="corres">
+        <div class="cor">Etimologia: “Deus que dá sabedoria” / “Deus generoso”</div>
+        <div class="cor">Posição: 25.º do Shem HaMephorash</div>
+        <div class="cor">Ordem: Dominações • Sefirá: Chesed</div>
+        <div class="cor">Planeta: Júpiter • Elemento: Fogo sutil</div>
+        <div class="cor">Graus: início de Leão (23–27 jul)</div>
+        <div class="cor">Salmo citado: Salmo 9:1</div>
+      </div>
+    </section>
+
+    <section class="section" id="domains">
+      <h2>Domínios & Dons</h2>
+      <div class="dl">
+        <div class="ditem"><div class="k">Sabedoria</div><div class="v">Favorece estudo hermético, filosofia prática e uso benevolente do conhecimento.</div></div>
+        <div class="ditem"><div class="k">Proteção</div><div class="v">Escudo contra manipulação espiritual, falsos mestres e distorções de poder.</div></div>
+        <div class="ditem"><div class="k">Clareza</div><div class="v">Discernimento entre informação útil e ruído; serenidade para decisões difíceis.</div></div>
+        <div class="ditem"><div class="k">Sonhos</div><div class="v">Relatos de insights oníricos e imaginação simbólica fecunda.</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="icon">
+      <h2>Aparência (iconografia)</h2>
+      <p>Sem corpo físico; representações convergem para um anjo sereno-andrógino com:</p>
+      <ul style="margin:8px 0 0 18px; color:#26302d; line-height:1.5;">
+        <li>Túnicas brancas/verde-esmeralda com detalhes dourados.</li>
+        <li>Asas translúcidas com pontas lavanda-douradas; halo ou disco radiante.</li>
+        <li>Objetos: coruja, bastão com ramos dourados, livro antigo, vela que pinga luz.</li>
+        <li>Cenários de nuvens/firmamento; geometria simples ligada a Chesed.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ==============================================
+   CONFIGURAÇÃO DE IMAGENS DO SLIDESHOW
+   Edite a lista abaixo com os arquivos que você gerou no Midjourney.
+   Os caminhos podem ser relativos (ex.: "img/1.png") ou absolutos.
+   ============================================== */
+const IMAGES = ["/images/nith-haiah/1.png","/images/nith-haiah/2.png","/images/nith-haiah/3.png","/images/nith-haiah/4.png","/images/nith-haiah/5.png","/images/nith-haiah/6.png"];
+
+/* ---------- SLIDESHOW LOGIC ---------- */
+const slidesEl = document.getElementById('slides');
+const dotsEl = document.getElementById('dots');
+let current = 0, autoplay = true, interval = 4200, timer = null;
+
+function buildSlides(){
+  slidesEl.innerHTML = '';
+  dotsEl.innerHTML = '';
+  IMAGES.forEach((src, i) => {
+    const s = document.createElement('div');
+    s.className = 'slide';
+    s.style.backgroundImage = `url(${src})`;
+    s.setAttribute('role','group');
+    s.setAttribute('aria-label',`Slide ${i+1} de ${IMAGES.length}`);
+    slidesEl.appendChild(s);
+
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.dataset.index = i;
+    d.addEventListener('click', ()=> goTo(i));
+    dotsEl.appendChild(d);
+  });
+  update();
+}
+
+function update(){
+  slidesEl.style.transform = `translateX(-${current * 100}%)`;
+  Array.from(dotsEl.children).forEach(dot => dot.classList.remove('active'));
+  if(dotsEl.children[current]) dotsEl.children[current].classList.add('active');
+}
+
+function next(){ current = (current + 1) % IMAGES.length; update(); }
+function prev(){ current = (current - 1 + IMAGES.length) % IMAGES.length; update(); }
+function goTo(i){ current = Math.max(0, Math.min(i, IMAGES.length-1)); update(); }
+
+function startTimer(){ stopTimer(); timer = setInterval(()=> { if(autoplay) next(); }, interval); }
+function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+
+document.getElementById('next').addEventListener('click', ()=>{ next(); startTimer(); });
+document.getElementById('prev').addEventListener('click', ()=>{ prev(); startTimer(); });
+
+/* Pause/resume ao passar mouse */
+const hero = document.getElementById('hero');
+hero.addEventListener('mouseenter', ()=> autoplay = false);
+hero.addEventListener('mouseleave', ()=> autoplay = true);
+
+/* Arraste no mobile */
+let startX = null;
+slidesEl.addEventListener('touchstart', e=> { startX = e.touches[0].clientX; });
+slidesEl.addEventListener('touchend', e=> {
+  if(startX === null) return;
+  const dx = e.changedTouches[0].clientX - startX;
+  if(Math.abs(dx) > 40){ if(dx < 0) next(); else prev(); }
+  startX = null;
+});
+
+/* Copiar sigil/nome */
+function copyToClipboard(text, btn) {
+  if (!navigator.clipboard) { alert('Clipboard API indisponível.'); return; }
+  navigator.clipboard.writeText(text).then(()=> {
+    const orig = btn.textContent;
+    btn.textContent = 'Copiado ✓';
+    setTimeout(()=> btn.textContent = orig, 1400);
+  }).catch(()=> alert('Não foi possível copiar.'));
+}
+document.getElementById('copySig').addEventListener('click', function(){ copyToClipboard('נתהיה', this); });
+document.getElementById('copyHeb').addEventListener('click', function(){ copyToClipboard('Nith-Haiah', this); });
+
+/* Init */
+if(IMAGES.length === 0){
+  slidesEl.innerHTML = '<div style="height:220px; display:flex; align-items:center; justify-content:center; color:#fff;">Adicione imagens no array IMAGES.</div>';
+} else {
+  buildSlides();
+  startTimer();
+}
+
+/* Acessibilidade: teclado */
+document.addEventListener('keydown', e=>{
+  if(e.key === 'ArrowRight') next();
+  if(e.key === 'ArrowLeft') prev();
+});
+</script>
+</body>
+</html>
