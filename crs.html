@@ -1,231 +1,373 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Linha do Tempo · CRS (D-2 → D12)</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CRS D-Counter — Flip Cards (fiel ao original)</title>
 <style>
+  /* ========== Paleta e reset ========== */
   :root{
-    --leather:#db6ea0; --leather-dark:#b85b86; --stitch:#ffdbe9;
-    --paper:#fbfaf7; --ink:#3a3740; --accent:#ff4fa0; --shadow:rgba(0,0,0,.25);
-    --muted:#9f9588;
-
-    /* Segmentos: Cibele (verde-lima), Rosana (amarelo), Hotel (vinho suave) */
-    --cibele1:#eefdd1; --cibele2:#c5f572;
-    --rosana1:#fff7c7; --rosana2:#ffe082;
-    --hotel1:#fde0e8;  --hotel2:#e6a3b5;
+    --bg1:#1b1f25; --bg2:#101317; --bg3:#0b0d10;
+    --cardTop:#1a1f25; --cardMid:#14181d; --cardBot:#101419;
+    --accent:#7fe0ff; --label:#b3bdca; --text:#eef3f8;
   }
-
   *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial}
   body{
-    margin:0; padding:24px;
-    background: radial-gradient(ellipse at top, #f5eff7 0%, #efeaf1 55%, #e8e3ee 100%);
-    font-family:"Helvetica Neue", Arial, sans-serif; color:var(--ink);
-  }
-
-  /* Cabeçalho couro */
-  .header{
-    max-width:1080px; margin:0 auto 20px;
-    background:linear-gradient(180deg,var(--leather),var(--leather-dark));
-    border-radius:16px; position:relative;
-    box-shadow:0 10px 22px var(--shadow), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -2px 0 rgba(0,0,0,.15);
-    padding:18px 20px 22px; color:#fff;
-  }
-  .header:after{
-    content:""; position:absolute; inset:12px;
-    border:2px dashed var(--stitch); border-radius:12px; opacity:.95; pointer-events:none;
-  }
-  .title{ font-weight:800; font-size:clamp(22px,4vw,28px); text-shadow:0 2px 0 rgba(0,0,0,.25) }
-  .subtitle{ font-size:clamp(12px,2.6vw,14px); opacity:.9 }
-
-  /* Painel + progresso */
-  .panel{
-    max-width:1080px; margin:0 auto;
-    background:linear-gradient(180deg,#fff 0%, var(--paper) 68%);
-    border:1px solid #e8e3dc; border-radius:14px;
-    box-shadow:0 14px 28px var(--shadow), inset 0 1px 0 #fff;
-    padding:18px 18px 6px;
-  }
-  .progress-wrap{ display:flex; align-items:center; gap:12px; margin:6px 6px 14px; flex-wrap:wrap; }
-  .progress{ flex:1; height:14px; border-radius:999px; background:#efe7de; position:relative; box-shadow: inset 0 1px 0 #fff; min-width:120px; }
-  .bar{
-    position:absolute; inset:0 auto 0 0; width:0%;
-    background:linear-gradient(180deg,#ffd1e8,#ff7abf);
-    border:1px solid #eaa0c7; border-radius:999px;
-    box-shadow:0 2px 0 rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.8);
-    transition:width .6s ease;
-  }
-  .badge, .today-chip{
-    padding:6px 10px; border-radius:10px; font-weight:800; white-space:nowrap;
-    box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 1px 0 #fff;
-  }
-  .badge{
-    background:linear-gradient(180deg,#ffe7f4,#ffbadb); color:#6b2a48; border:1px solid #e3a6c4;
-  }
-  .today-chip{
-    margin-left:auto; background:linear-gradient(180deg,#fff2f9,#ffd6ea);
-    border:1px solid #efb2cf; color:#7b2b4f;
-  }
-
-  /* Legenda */
-  .legend{ display:flex; flex-wrap:wrap; gap:8px; margin:0 6px 14px; }
-  .legend .item{ padding:6px 10px; border-radius:10px; font-weight:700; border:1px solid #e0d7cc; box-shadow:0 1px 0 rgba(0,0,0,.05), inset 0 1px 0 #fff; }
-  .lg-cibele{ background:linear-gradient(180deg,var(--cibele1),var(--cibele2)); }
-  .lg-rosana{ background:linear-gradient(180deg,var(--rosana1),var(--rosana2)); }
-  .lg-hotel { background:linear-gradient(180deg,var(--hotel1), var(--hotel2)); }
-
-  /* Timeline */
-  .timeline{ position:relative; padding-left:36px; margin:0 6px 10px; }
-  .timeline:before{
-    content:""; position:absolute; left:18px; top:0; bottom:0; width:4px;
-    background:linear-gradient(180deg,#f0d7e4,#e8c1d7); border-radius:4px; box-shadow:inset 0 1px 0 #fff;
-  }
-
-  .card{
-    position:relative; margin:14px 0 18px;
-    border:1px solid #eadfce; border-radius:12px; padding:14px 14px 12px;
-    box-shadow:0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 #fff;
-    background:linear-gradient(180deg,#fff,var(--paper));
-  }
-  .card.segment-cibele{ background:linear-gradient(180deg,var(--cibele1),var(--cibele2)); }
-  .card.segment-rosana{ background:linear-gradient(180deg,var(--rosana1),var(--rosana2)); }
-  .card.segment-hotel { background:linear-gradient(180deg,var(--hotel1), var(--hotel2)); }
-
-  .card .dot{
-    position:absolute; left:-28px; top:16px; width:20px; height:20px; border-radius:50%;
-    background:linear-gradient(180deg,#ff9ad0,#ff5fb1);
-    border:1px solid #e38fbf; box-shadow:0 2px 0 rgba(0,0,0,.08), inset 0 1px 0 #fff;
-  }
-  .card.pre .dot{ background:linear-gradient(180deg,#ffe08f,#ffc642); border-color:#e5b85b }
-  .card.op  .dot{ background:linear-gradient(180deg,#ff7abf,#ff2f9c) }
-  .card.post .dot{background:linear-gradient(180deg,#b2f0c7,#65d78e); border-color:#5ac686 }
-
-  .head{ display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
-  .tag{ padding:4px 10px; border-radius:10px; font-weight:800; background:linear-gradient(180deg,#ffe7f4,#ffbadb); border:1px solid #e3a6c4; color:#6b2a48; box-shadow:0 2px 0 rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.85); }
-  .date{ padding:4px 10px; border-radius:10px; font-weight:700; color:#5b5349; background:linear-gradient(180deg,#fff,#f6f0ea); border:1px solid #ddd2c6; box-shadow:0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.05); }
-  .wday{ padding:4px 8px; border-radius:8px; font-weight:800; color:#5a4a52; background:linear-gradient(180deg,#ffffff,#f4edf0); border:1px solid #e2d6cc; box-shadow:0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.04); }
-  .title{ font-weight:800; letter-spacing:.2px; display:flex; align-items:center; gap:6px; }
-  .emo{ font-size:18px; filter: drop-shadow(0 1px 0 rgba(255,255,255,.4)); }
-
-  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-  .chip{ padding:6px 10px; border-radius:999px; font-weight:700; font-size:14px; background:linear-gradient(180deg,#ffffff,#f6f0ea); border:1px solid #ddd2c6; color:#5b3f4d; box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.85); }
-
-  .today{ box-shadow:0 10px 22px rgba(255,105,180,.18), inset 0 0 0 2px #ff9ad0; position:relative; }
-  .today:after{
-    content:""; position:absolute; inset:0;
     background:
-      radial-gradient(circle at 18% 26%, rgba(255,255,255,.55), transparent 35%),
-      radial-gradient(circle at 82% 20%, rgba(255,255,255,.45), transparent 35%),
-      radial-gradient(circle at 60% 86%, rgba(255,255,255,.35), transparent 40%);
-    mix-blend-mode:screen; animation:twinkle 2s infinite ease-in-out; border-radius:12px; pointer-events:none;
+      radial-gradient(1400px 700px at 50% -10%, var(--bg1) 0%, var(--bg2) 55%, var(--bg3) 100%),
+      var(--bg3);
+    color:var(--text);
+    display:flex;align-items:center;justify-content:flex-start;
+    padding:6.2rem 2rem 2rem; gap:1rem; flex-direction:column;
   }
-  @keyframes twinkle{ 0%,100%{opacity:.55} 50%{opacity:1} }
 
-  @media (max-width:720px){
-    .progress-wrap{ flex-direction:column; align-items:stretch; gap:10px; }
-    .progress{ height:18px; }
-    .today-chip{ margin-left:0; width:100%; text-align:center; }
-    .badge{ width:100%; text-align:center; }
+  /* ========== Impressora (top) ========== */
+  .printer-slot{
+    position:fixed; top:0; left:50%; transform:translateX(-50%);
+    width:min(640px,90vw); height:46px; border-radius:0 0 18px 18px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.18), rgba(0,0,0,.25)),
+      linear-gradient(180deg, #242a32, #0f1216);
+    box-shadow:
+      0 14px 34px rgba(0,0,0,.65),
+      inset 0 -2px 8px rgba(0,0,0,.8),
+      inset 0 8px 12px rgba(255,255,255,.06);
+    z-index:40;
   }
+  .printer-slot::after{
+    content:""; position:absolute; left:8%; right:8%; top:12px; height:12px; border-radius:8px;
+    background: linear-gradient(180deg, #06080a, #000);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,.95), 0 10px 22px rgba(0,0,0,.45);
+  }
+
+  /* ========== Container central ========== */
+  .stage{width:min(920px,96vw); display:flex; flex-direction:column; align-items:center; gap:1.2rem; z-index:10}
+  .card{
+    width:100%; max-width:860px;
+    background:
+      radial-gradient(400px 160px at 50% -20%, rgba(255,255,255,.02), rgba(255,255,255,0) 40%),
+      linear-gradient(180deg,var(--cardTop),var(--cardMid),var(--cardBot));
+    border-radius:14px; padding:22px;
+    box-shadow: 0 28px 64px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.03);
+    display:flex; flex-direction:column; gap:14px; align-items:center;
+  }
+
+  .meta-row{width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px}
+  .label{font-size:12px; color:var(--label); font-weight:800; letter-spacing:.14em; text-transform:uppercase}
+  .muted{font-size:13px; color:rgba(255,255,255,.78)}
+
+  /* ========== Linha dos dígitos (prefixo + cartas) ========== */
+  .digits-row{
+    display:flex; align-items:center; gap:12px;
+    padding:18px;border-radius:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06));
+    box-shadow: inset 0 10px 24px rgba(255,255,255,.02), 0 18px 40px rgba(0,0,0,.55);
+  }
+
+  .prefix {
+    min-width:56px; height:132px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(80% 40% at 50% 8%, rgba(255,255,255,.03), rgba(255,255,255,0) 40%),
+      linear-gradient(180deg,#1d2227,#0e1114);
+    color:var(--label); font-weight:900; letter-spacing:.12em; font-size:22px;
+    border:1px solid rgba(255,255,255,.04);
+    box-shadow: inset 0 8px 18px rgba(255,255,255,.02);
+    padding:8px;
+  }
+
+  /* ========== Cartão do dígito — fiel ao original ========== */
+  .digit {
+    width:110px; height:140px; perspective:1000px; position:relative; border-radius:14px;
+    filter: drop-shadow(0 18px 36px rgba(0,0,0,.65));
+    border-radius:14px; overflow:visible;
+  }
+
+  .digit::before{
+    content:""; position:absolute; inset:-6px; border-radius:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0) 28%, rgba(0,0,0,.45) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 2px 8px rgba(0,0,0,.55); pointer-events:none;
+  }
+
+  .flip-container{
+    width:100%; height:100%; position:relative; transform-style:preserve-3d;
+    transition: transform 460ms cubic-bezier(.22,.61,.36,1);
+    will-change: transform; border-radius:14px; overflow:hidden;
+  }
+
+  .flip-front, .flip-back {
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
+    font-size:3.35rem; font-weight:900; letter-spacing:.02em; color:var(--text);
+    text-shadow: 0 1px 0 rgba(0,0,0,.75), 0 2px 10px rgba(0,0,0,.45);
+    backface-visibility:hidden;
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.06), rgba(255,255,255,0) 60%),
+      linear-gradient(180deg, var(--cardTop) 0%, var(--cardMid) 52%, var(--cardBot) 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 2px, rgba(255,255,255,0) 2px 4px);
+    border-radius:14px; border:1px solid rgba(255,255,255,.06);
+    box-shadow:
+      inset 0 16px 30px rgba(255,255,255,.05),
+      inset 0 -22px 44px rgba(0,0,0,.65),
+      inset 0 0 0 1px rgba(0,0,0,.65),
+      0 0 0 2px color-mix(in oklab, var(--accent) 26%, transparent);
+  }
+
+  .flip-front::before, .flip-back::before{
+    content:""; position:absolute; inset:0; border-radius:14px;
+    background:
+      linear-gradient(180deg, transparent calc(50% - 1px), rgba(255,255,255,.12) calc(50% - 1px), rgba(0,0,0,.65) 50%, transparent calc(50% + 2px)),
+      radial-gradient(8px 8px at 12px 12px, rgba(255,255,255,.45), rgba(255,255,255,0) 70%),
+      radial-gradient(8px 8px at calc(100% - 12px) 12px, rgba(255,255,255,.45), rgba(255,255,255,0) 70%),
+      radial-gradient(8px 8px at 12px calc(100% - 12px), rgba(255,255,255,.45), rgba(255,255,255,0) 70%),
+      radial-gradient(8px 8px at calc(100% - 12px) calc(100% - 12px), rgba(255,255,255,.45), rgba(255,255,255,0) 70%);
+    pointer-events:none;
+  }
+  .flip-front::after, .flip-back::after{
+    content:""; position:absolute; inset:0; border-radius:14px;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 26%, transparent), rgba(255,255,255,0) 28%);
+    mix-blend-mode: screen; pointer-events:none;
+  }
+
+  .flip-back { transform: rotateX(180deg); }
+
+  .digit.flipped .flip-container { transform: rotateX(180deg); }
+
+  /* Conteúdo interno do card (label + número) */
+  .card-label { font-size:0.8rem; letter-spacing:.08em; color:var(--label); text-transform:uppercase; margin-top:.2rem }
+  .card-number { font-variant-numeric:tabular-nums; font-size:4.6rem; font-weight:900; color:var(--accent); text-shadow:0 2px 16px rgba(0,0,0,.6) }
+
+  /* nota total quando número > 3 dígitos */
+  .total-note { font-size:13px; color:rgba(255,255,255,.66); margin-top:8px }
+
+  /* recibo skeuomorphic */
+  .receipt{
+    position:fixed; top:86px; left:50%; transform:translateX(-50%) translateY(-160%) rotate(2deg);
+    width:min(520px,86vw); background:linear-gradient(180deg,#fff,#fbfbfb);
+    border-radius:8px; box-shadow:0 14px 36px rgba(0,0,0,.45); padding:14px 16px; z-index:50; border:1px solid #e6e6e6;
+    animation: eject .72s cubic-bezier(.22,.9,.24,1) forwards; font-family: ui-monospace, Menlo, monospace;
+  }
+  .receipt .title{font-weight:700; font-size:13px; margin-bottom:6px}
+  .receipt .line{font-size:13px; margin:4px 0; color:#111}
+  @keyframes eject { 0% { transform: translateX(-50%) translateY(-160%) rotate(2deg); } 65% { transform: translateX(-50%) translateY(-4%) rotate(-1deg); } 100% { transform: translateX(-50%) translateY(0) rotate(0); } }
+
+  /* stickers */
+  .sticker { position:fixed; font-size:64px; pointer-events:none; z-index:30; animation: floatUp linear forwards; filter: drop-shadow(0 8px 22px rgba(0,0,0,.55)); }
+  @keyframes floatUp { from { transform: translateY(0) translateX(0) rotate(0); opacity:.98 } to { transform: translateY(-120vh) translateX(80px) rotate(24deg); opacity:0 } }
+
+  /* responsivo */
+  @media (max-width:880px){ .digit{width:96px;height:122px} .card-number{font-size:3.2rem} }
+  @media (max-width:560px){ .digit{width:86px;height:110px} .card-number{font-size:2.6rem} .prefix{min-width:48px;height:110px} }
 </style>
 </head>
 <body>
+  <div class="printer-slot" aria-hidden="true"></div>
 
-  <div class="header">
-    <div class="title">Linha do Tempo · CRS</div>
-    <div class="subtitle">De D-2 até D12 · pré, cirurgia e pós-op</div>
-  </div>
+  <div class="stage">
+    <div class="card" role="region" aria-label="Contador de dias desde a cirurgia">
+      <div class="meta-row">
+        <div class="label">CRS — Contador</div>
+        <div class="muted">D0 = 18/09/2025 · Dia 1 = 19/09/2025</div>
+      </div>
 
-  <div class="panel">
-    <div class="progress-wrap">
-      <span class="badge" id="where">Preparando…</span>
-      <div class="progress"><div class="bar" id="bar"></div></div>
-      <span class="today-chip" id="todayLabel">Hoje: —</span>
+      <div id="digitsRow" class="digits-row" aria-live="polite" aria-atomic="true">
+        <div class="prefix" aria-hidden="true">D</div>
+        <!-- digits inserted by JS -->
+      </div>
+
+      <div id="note" class="total-note" aria-hidden="true"></div>
     </div>
-
-    <div class="legend">
-      <span class="item lg-cibele">🏥 16–20 set · Cibele (hospital)</span>
-      <span class="item lg-rosana">🏥 21–24 set · Rosana (hospital)</span>
-      <span class="item lg-hotel">🛎️ 25–30 set · Sem acompanhante (hotel)</span>
-    </div>
-
-    <div class="timeline" id="timeline"></div>
   </div>
 
 <script>
-  // Helpers
-  const pad2 = n => String(n).padStart(2,'0');
-  const labelD = dia => (dia===18 ? 'D0' : (dia>18 ? 'D'+(dia-18) : 'D'+(dia-18)));
-  const tipoFase = dia => dia < 18 ? 'pre' : (dia === 18 ? 'op' : 'post');
-  const segmento = dia => (dia>=16 && dia<=20) ? 'segment-cibele' : (dia>=21 && dia<=24) ? 'segment-rosana' : 'segment-hotel';
-  const wdayPt = d => ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'][d];
+/* ========= LÓGICA (fiel ao flip do original) ========= */
 
-  // Emojis
-  const emoji = dia => {
-    if (dia === 16) return '🚍🛎️';
-    if (dia >= 17 && dia <= 24) return '🏥';
-    return '🛎️';
-  };
+(function(){
+  // Data da cirurgia — constrói no horário local para evitar off-by-one.
+  const SURGERY = new Date(2025, 8, 18); // month 0-based
+  const MS_DAY = 24 * 60 * 60 * 1000;
 
-// Itens
-const itensPorDia = {
-  16: ['viagem'],
-  17: ['advogada','internação pré-cirúrgica'],
-  18: ['CRS'],
-  22: ['retirada dos drenos','retirada do tampão'],
-  23: ['retirada da sonda'],
-  24: ['alta hospitalar (condicionada a urinar normalmente)'],
-  30: ['tirar os pontos','volta para casa']
-};
+  const digitsRow = document.getElementById('digitsRow');
+  const note = document.getElementById('note');
 
-  // Render timeline
-  const elTimeline = document.getElementById('timeline');
-  for (let d = 16; d <= 30; d++){
-    const dt = new Date(2025, 8, d);
-    const chips = (itensPorDia[d] || []).map(t => `<span class="chip">${t}</span>`).join('');
-    const card = document.createElement('section');
-    card.className = `card ${tipoFase(d)} ${segmento(d)}`;
-    card.id = `dia-${d}`;
-    card.innerHTML = `
-      <div class="dot"></div>
-      <div class="head">
-        <span class="tag">${labelD(d)}</span>
-        <span class="wday">${wdayPt(dt.getDay())}</span>
-        <span class="date">${pad2(d)}/09/2025</span>
-        <span class="title">${d===18?'Dia de Cirurgia': d<18?'Pré-operatório':'Pós-operatório'} <span class="emo">${emoji(d)}</span></span>
-      </div>
-      ${chips ? `<div class="chips">${chips}</div>` : ``}
-    `;
-    elTimeline.appendChild(card);
+  // Helper: midnight local
+  function toMidnight(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+
+  // Calcula DX: número de dias desde SURGERY (D0 => 0)
+  function computeDX(today = new Date()){
+    const t = toMidnight(today);
+    const s = toMidnight(SURGERY);
+    return Math.floor((t - s) / MS_DAY); // pode ser negativo se hoje < cirurgia
   }
 
-  // Hoje + progresso
-  function setHojeEProgresso(){
-    const now = new Date();
-    const y = now.getFullYear(), m = now.getMonth(), d = now.getDate();
-    const hojeLabel = document.getElementById('todayLabel');
-    const where = document.getElementById('where');
-    const bar = document.getElementById('bar');
+  // Cria elemento .digit com a mesma estrutura do original
+  function createDigitNode(initialChar){
+    const d = document.createElement('div');
+    d.className = 'digit';
+    d.setAttribute('data-value', String(initialChar));
+    d.innerHTML = `
+      <div class="flip-container" aria-hidden="false">
+        <div class="flip-front">
+          <div class="card-label">dias</div>
+          <div class="card-number front-number">${initialChar}</div>
+        </div>
+        <div class="flip-back">
+          <div class="card-label">dias</div>
+          <div class="card-number back-number">${initialChar}</div>
+        </div>
+      </div>
+    `;
+    return d;
+  }
 
-    let idxHoje = -1;
-    if (y===2025 && m===8 && d>=16 && d<=30){
-      const card = document.getElementById('dia-'+d);
-      if (card) card.classList.add('today');
-      hojeLabel.textContent = `Hoje: ${labelD(d)}`;
-      idxHoje = d - 16;
-    } else {
-      hojeLabel.textContent = "Hoje: —";
+  // Anima um .digit para um novo caractere (igual ao flipDigit original)
+  function flipDigit(digitElem, newChar){
+    const oldVal = digitElem.getAttribute('data-value') || '';
+    if (String(newChar) === oldVal) return;
+    const front = digitElem.querySelector('.front-number');
+    const back  = digitElem.querySelector('.back-number');
+
+    // preparar visual: back recebe novo; front mostra antigo
+    back.textContent = newChar;
+    front.textContent = oldVal || '—';
+
+    // adicionar classe para animar (transform rotateX)
+    digitElem.classList.add('flipped');
+    digitElem.setAttribute('data-value', String(newChar));
+
+    // ao fim da animação, atualiza front e remove flag
+    setTimeout(() => {
+      front.textContent = newChar;
+      digitElem.classList.remove('flipped');
+    }, 460);
+  }
+
+  // Render inicial: assegura pelo menos 2 dígitos; mostra até 3 cards
+  function renderInitial(dx){
+    const abs = Math.abs(dx);
+    let s = String(abs);
+    if (s.length < 2) s = s.padStart(2,'0'); // garante 2 dígitos
+    const showCount = Math.min(3, s.length);
+    const display = s.slice(-showCount); // últimos n dígitos
+
+    // remove anteriores (exceto prefix)
+    while (digitsRow.children.length > 1) digitsRow.removeChild(digitsRow.lastChild);
+
+    // criar cards
+    for (let i = 0; i < display.length; i++){
+      const ch = display[i];
+      const node = createDigitNode(ch);
+      digitsRow.appendChild(node);
     }
 
-    const total = 14; // 0..14
-    const pct = idxHoje < 0 ? 0 : Math.min(100, Math.round((idxHoje/total)*100));
-    bar.style.width = pct + "%";
-
-    where.textContent =
-      idxHoje < 0 ? "Fora da janela D-2…D12" :
-      (idxHoje <= 1 ? "Pré-op" : (idxHoje === 2 ? "Dia de cirurgia" : "Pós-op"));
+    // nota se precisar
+    if (s.length > showCount){
+      note.textContent = `Total: ${dx} dias (mostrando últimos ${showCount} dígitos)`;
+      note.style.display = 'block';
+      note.setAttribute('aria-hidden','false');
+    } else {
+      note.textContent = '';
+      note.style.display = '';
+      note.setAttribute('aria-hidden','true');
+    }
   }
-  setHojeEProgresso();
+
+  // Atualiza por dígito (faz flip onde necessário)
+  function updateDigits(dx){
+    const abs = Math.abs(dx);
+    let s = String(abs);
+    if (s.length < 2) s = s.padStart(2,'0');
+    const showCount = Math.min(3, s.length);
+    const display = s.slice(-showCount);
+
+    const cards = Array.from(digitsRow.querySelectorAll('.digit'));
+
+    // se contagem mudou de comprimento, refaz os cards
+    if (cards.length !== display.length){
+      renderInitial(dx);
+      return;
+    }
+
+    // flip card a card
+    for (let i = 0; i < display.length; i++){
+      const card = cards[i];
+      const newChar = display[i];
+      flipDigit(card, newChar);
+    }
+
+    // nota
+    if (s.length > showCount){
+      note.textContent = `Total: ${dx} dias (mostrando últimos ${showCount} dígitos)`;
+      note.style.display = 'block';
+      note.setAttribute('aria-hidden','false');
+    } else {
+      note.textContent = '';
+      note.style.display = '';
+      note.setAttribute('aria-hidden','true');
+    }
+  }
+
+  // Recibo estético na inicialização (skeuomorphic)
+  function printReceipt(title = 'Contador iniciado'){
+    const r = document.createElement('div');
+    r.className = 'receipt';
+    const now = new Date();
+    const emitido = now.toLocaleString('pt-BR', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    r.innerHTML = `
+      <div class="title">RECIBO ÁUREO</div>
+      <div class="line">Evento: <strong>${title}</strong></div>
+      <div class="line">Data alvo: <strong>18/09/2025</strong></div>
+      <div class="line">Emitido em: ${emitido}</div>
+      <div class="line">Auth: ${Math.random().toString(36).slice(2,10).toUpperCase()}</div>
+    `;
+    document.body.appendChild(r);
+    r.addEventListener('animationend', () => {
+      r.style.transition = 'transform .28s ease, left .28s ease, top .28s ease';
+      const rect = r.getBoundingClientRect();
+      r.style.left = (window.innerWidth - rect.width - 18) + 'px';
+      r.style.top  = (86) + 'px';
+      r.style.transform = 'translateX(0) translateY(0) rotate(0) scale(.95)';
+      setTimeout(()=> {
+        r.style.opacity = '0';
+        setTimeout(()=> r.remove(), 700);
+      }, 5200);
+    }, { once:true });
+  }
+
+  // stickers (leve)
+  function spawnStickers(list = ['✨','🌙','💗','🩺']){
+    const count = Math.min(10, Math.max(4, Math.round(window.innerWidth/140)));
+    for (let i=0;i<count;i++){
+      const el = document.createElement('div');
+      el.className = 'sticker';
+      el.textContent = list[Math.floor(Math.random()*list.length)];
+      const left = Math.random()*100;
+      const dur = 5 + Math.random()*4;
+      el.style.left = `calc(${left}vw - 20px)`;
+      el.style.bottom = `-60px`;
+      el.style.animationDuration = `${dur}s`;
+      document.body.appendChild(el);
+      setTimeout(()=> el.remove(), dur*1000);
+    }
+  }
+
+  /* ========== Inicialização ========== */
+  (function init(){
+    const dx = computeDX();
+    renderInitial(dx);     // cria os cards com os valores iniciais
+    updateDigits(dx);      // garante front/back coerente
+    // atualização periódica — muda somente ao atravessar meia-noite local,
+    // mas deixamos checking a cada 30s pra ser responsivo
+    setInterval(() => {
+      updateDigits(computeDX());
+    }, 30_000);
+
+    // estetica
+    printReceipt('D-Counter CRS carregado');
+    spawnStickers();
+  })();
+
+})();
 </script>
 </body>
 </html>
