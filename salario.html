@@ -3,189 +3,83 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Salário diário — Flip</title>
-
+<title>Salário diário — Flip por dígito</title>
 <style>
-  /* --- Vars e reset --- */
   :root{
-    --bg1:#0b0f12;
-    --bg2:#0f1417;
-    --cardTop:#0f1113;
-    --cardMid:#161a1d;
-    --cardBot:#0b0d10;
-    --accent:#7fe0ff;
-    --muted:#9fb0bf;
-    --text:#eef3f8;
-    --glass: rgba(255,255,255,.04);
+    --bg1:#0b0f12; --bg2:#0f1417;
+    --cardTop:#0f1113; --cardMid:#161a1d; --cardBot:#0b0d10;
+    --accent:#7fe0ff; --muted:#9fb0bf; --text:#eef3f8;
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial;}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial}
   body{
     background:
-      radial-gradient(900px 500px at 10% 10%, rgba(12,18,22,1) 0%, rgba(8,12,14,1) 40%, rgba(3,5,6,1) 100%),
+      radial-gradient(900px 500px at 10% 10%, #0c1216 0%, #080c0e 40%, #030506 100%),
       linear-gradient(180deg,var(--bg1),var(--bg2));
     color:var(--text);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:3rem;
-    gap:1.2rem;
+    display:flex;align-items:center;justify-content:center;padding:3rem;
     -webkit-font-smoothing:antialiased;
   }
 
-  /* Container central */
-  .card {
-    width: min(820px, 96vw);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.20));
-    border-radius:18px;
-    padding:28px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.02);
-    display:grid;
-    grid-template-columns: 1fr 340px;
-    gap: 22px;
-    align-items:center;
+  .card{
+    width:min(900px,96vw);
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.2));
+    border-radius:18px;padding:28px;
+    box-shadow:0 24px 60px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.02);
+    display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:center;
   }
 
-  /* Lado esquerdo: display grande */
-  .left {
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    align-items:flex-start;
+  .left{display:flex;flex-direction:column;gap:14px}
+  .title{font-size:14px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+  .money-display{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .label-currency{font-weight:900;font-size:22px;color:var(--muted);min-width:54px;text-align:right}
+
+  /* Linha de dígitos */
+  .digits{display:flex;gap:10px;align-items:center}
+
+  /* Separador vírgula */
+  .sep{
+    font-weight:900;font-size:clamp(28px,5.6vw,44px);color:var(--muted);padding:0 2px;
   }
 
-  .title {
-    font-size:14px;
-    font-weight:700;
-    letter-spacing:.12em;
-    color:var(--muted);
-    text-transform:uppercase;
+  /* Cada dígito com flip */
+  .flip-digit{
+    width:clamp(46px,8.8vw,72px);
+    height:clamp(70px,12vw,110px);
+    perspective:1200px;position:relative;border-radius:14px;overflow:hidden;
+    box-shadow:0 18px 36px rgba(0,0,0,.65); border:1px solid rgba(255,255,255,.03);
+    background:linear-gradient(180deg,var(--cardTop),var(--cardMid) 52%,var(--cardBot));
   }
-
-  /* Display estilo flip (o “relógio” em R$) */
-  .money-display {
-    display:flex;
-    gap:14px;
-    align-items:center;
+  .flip-digit::before{
+    content:""; position:absolute; inset:-6px; border-radius:18px;
+    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.45)); pointer-events:none;
   }
-
-  .label-currency {
-    font-weight:900;
-    font-size:22px;
-    color:var(--muted);
-    min-width:54px;
-    text-align:right;
-  }
-
-  .digit {
-    width: clamp(260px, 46vw, 420px);
-    height: clamp(96px, 14vw, 140px);
-    perspective: 1200px;
-    position:relative;
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow: 0 18px 36px rgba(0,0,0,.65);
-    border:1px solid rgba(255,255,255,.03);
-    background:
-      linear-gradient(180deg, var(--cardTop), var(--cardMid) 52%, var(--cardBot));
-  }
-  .digit::before{
-    content:"";
-    position:absolute; inset:-6px; border-radius:18px;
-    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.45));
-    pointer-events:none;
-  }
-
-  .flip-container{
-    position:absolute; inset:0; transform-style:preserve-3d; transition: transform 460ms cubic-bezier(.22,.61,.36,1);
-    display:flex; align-items:center; justify-content:center;
-  }
-
-  .flip-front, .flip-back {
+  .flip-wrap{position:absolute; inset:0; transform-style:preserve-3d; transition:transform 460ms cubic-bezier(.22,.61,.36,1);
+    display:flex; align-items:center; justify-content:center;}
+  .face{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-weight:900;
-    font-size: clamp(36px, 8vw, 64px);
-    letter-spacing: .01em;
-    color:var(--text);
-    backface-visibility:hidden;
-    padding: 0 18px;
-    text-align:center;
-    text-shadow: 0 2px 8px rgba(0,0,0,.6);
+    font-weight:900; font-size:clamp(28px,5.6vw,44px); letter-spacing:.02em;
+    color:var(--text); backface-visibility:hidden; text-shadow:0 2px 8px rgba(0,0,0,.6);
   }
+  .front{transform:rotateX(0deg)}
+  .back{transform:rotateX(180deg)}
+  .flip-digit.flipped .flip-wrap{transform:rotateX(180deg)}
 
-  .flip-front {
-    transform: rotateX(0deg);
-  }
-  .flip-back {
-    transform: rotateX(180deg);
-  }
-  .digit.flipped .flip-container { transform: rotateX(180deg); }
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
 
-  /* subtítulos e detalhes */
-  .sub {
-    color:var(--muted);
-    font-size:13px;
-    margin-top:6px;
-  }
+  .right{display:flex;flex-direction:column;gap:12px}
+  .box{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.14));border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;border:1px solid rgba(255,255,255,.02)}
+  .big{font-weight:800;font-size:28px;color:var(--text)}
+  .muted{color:var(--muted);font-size:13px}
 
-  /* Lado direito: painel com relógio e % */
-  .right {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    align-items:stretch;
-  }
-  .box {
-    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.14));
-    border-radius:12px;
-    padding:14px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    border:1px solid rgba(255,255,255,.02);
-  }
-  .big {
-    font-weight:800;
-    font-size:28px;
-    color:var(--text);
-  }
-  .muted { color:var(--muted); font-size:13px; }
+  .progress{height:12px;background:linear-gradient(90deg,rgba(255,255,255,.02),rgba(0,0,0,.12));border-radius:999px;overflow:hidden;margin-top:6px}
+  .progress>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,color-mix(in oklab,var(--accent) 60%,#fff 10%),var(--accent));box-shadow:0 6px 18px rgba(0,0,0,.45) inset;transition:width 850ms cubic-bezier(.22,.61,.36,1)}
 
-  /* barra porcentagem estilo progress */
-  .progress {
-    height:12px;
-    background: linear-gradient(90deg, rgba(255,255,255,.02), rgba(0,0,0,.12));
-    border-radius:999px;
-    overflow:hidden;
-    margin-top:6px;
-  }
-  .progress > i {
-    display:block;
-    height:100%;
-    width:0%;
-    background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 60%, #fff 10%), var(--accent));
-    box-shadow: 0 6px 18px rgba(0,0,0,.45) inset;
-    transition: width 850ms cubic-bezier(.22,.61,.36,1);
-  }
+  .foot{margin-top:8px;font-size:13px;color:var(--muted)}
+  a.link{color:var(--accent);text-decoration:none;font-weight:700}
 
-  /* Link e nota */
-  .foot {
-    margin-top:8px;
-    font-size:13px;
-    color:var(--muted);
-  }
-  a.link {
-    color:var(--accent);
-    text-decoration:none;
-    font-weight:700;
-  }
-
-  /* Responsivo */
-  @media (max-width:880px){
-    .card { grid-template-columns: 1fr; padding:18px; }
-    .digit { width:100%; height:120px; }
-    .label-currency { display:none; }
-  }
+  @media (max-width:920px){.card{grid-template-columns:1fr}.label-currency{display:none}}
 </style>
 </head>
 <body>
@@ -195,13 +89,17 @@
 
       <div class="money-display">
         <div class="label-currency">R$</div>
+        <div class="digits" id="digits">
+          <!-- 3 dígitos parte inteira -->
+          <div class="flip-digit" data-index="0"><div class="flip-wrap"><div class="face front">0</div><div class="face back">0</div></div></div>
+          <div class="flip-digit" data-index="1"><div class="flip-wrap"><div class="face front">0</div><div class="face back">0</div></div></div>
+          <div class="flip-digit" data-index="2"><div class="flip-wrap"><div class="face front">0</div><div class="face back">0</div></div></div>
 
-        <!-- Display flip para o valor em R$ -->
-        <div id="moneyDigit" class="digit" data-value="R$ 0,00" aria-live="polite" role="status">
-          <div class="flip-container">
-            <div class="flip-front">R$ 0,00</div>
-            <div class="flip-back">R$ 0,00</div>
-          </div>
+          <div class="sep">,</div>
+
+          <!-- 2 dígitos decimais -->
+          <div class="flip-digit" data-index="3"><div class="flip-wrap"><div class="face front">0</div><div class="face back">0</div></div></div>
+          <div class="flip-digit" data-index="4"><div class="flip-wrap"><div class="face front">0</div><div class="face back">0</div></div></div>
         </div>
       </div>
 
@@ -218,82 +116,86 @@
         <div class="muted">Relógio</div>
         <div id="relogio" class="big">--:--:--</div>
       </div>
-
       <div class="box">
         <div class="muted">Progresso do dia (R$)</div>
         <div id="porcentagem" class="big">0%</div>
-        <div class="progress" aria-hidden="true"><i id="progressBar" style="width:0%"></i></div>
+        <div class="progress"><i id="progressBar" style="width:0%"></i></div>
       </div>
     </div>
   </div>
 
 <script>
-/* Valores originais preservados */
-const valorPorHora = 21.291;
+/* === Parâmetros originais preservados === */
+const valorPorHora = 25.381818;
 const horaInicio = 8;
 const horaFim = 17;
-const valorMaximo = 191.62;
+const valorMaximo = 228.43;
 
-/* Elementos */
-const moneyDigit = document.getElementById('moneyDigit');
-const frontElem = moneyDigit.querySelector('.flip-front');
-const backElem  = moneyDigit.querySelector('.flip-back');
+/* === Elementos === */
 const relogio = document.getElementById('relogio');
 const porcentagem = document.getElementById('porcentagem');
 const progressBar = document.getElementById('progressBar');
+const digitElems = [...document.querySelectorAll('.flip-digit')];
 
-/* Função que formata número para pt-BR com R$ e 2 casas */
-function formatCurrencyBR(val){
-  // garante arredondamento igual ao toFixed mas com , decimal
-  return 'R$ ' + val.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+/* Helper: monta array [d0,d1,d2,d3,d4] representando R$ d0 d1 d2 , d3 d4 */
+function valueToDigitArray(v){
+  // limita e arredonda para 2 casas
+  v = Math.min(Math.max(v, 0), valorMaximo);
+  const fixed = v.toFixed(2);           // "191.62"
+  const [intStrRaw, decStr] = fixed.split('.'); // ["191","62"]
+
+  // parte inteira com 3 dígitos fixos (preenche com zeros à esquerda)
+  const intStr = intStrRaw.padStart(3, '0').slice(-3);
+  const arr = [...intStr, ...decStr];   // ["1","9","1","6","2"]
+  return arr.map(ch => /\d/.test(ch) ? ch : '0'); // segurança (só dígitos)
 }
 
-/* Flip simples para a string inteira (preserva a estética do flip clock) */
-function flipCurrency(newValStr){
-  const oldVal = moneyDigit.getAttribute('data-value') || '';
-  if (newValStr === oldVal) return;
-  // prepara faces
-  backElem.textContent = newValStr;
-  frontElem.textContent = oldVal || newValStr;
-  moneyDigit.classList.add('flipped');
-  // tempo alinhado ao CSS (460ms)
+/* Flip para um dígito específico */
+function flipDigit(cell, newChar){
+  const wrap = cell.querySelector('.flip-wrap');
+  const front = cell.querySelector('.front');
+  const back  = cell.querySelector('.back');
+  const oldChar = cell.dataset.value || front.textContent;
+
+  if(newChar === oldChar) return; // não anima se não mudou
+  back.textContent = newChar;
+  front.textContent = oldChar;
+
+  cell.classList.add('flipped');
   setTimeout(() => {
-    moneyDigit.classList.remove('flipped');
-    frontElem.textContent = newValStr;
-    moneyDigit.setAttribute('data-value', newValStr);
+    cell.classList.remove('flipped');
+    front.textContent = newChar;
+    cell.dataset.value = newChar;
   }, 480);
 }
 
 /* Loop principal */
 function updateLoop(){
   const now = new Date();
-  // relógio
   relogio.textContent = now.toLocaleTimeString();
 
-  let horaAtual = now.getHours() + now.getMinutes() / 60 + now.getSeconds() / 3600;
+  let horaAtual = now.getHours() + now.getMinutes()/60 + now.getSeconds()/3600;
   let valor = 0;
   if (horaAtual >= horaInicio && horaAtual <= horaFim) {
     valor = (horaAtual - horaInicio) * valorPorHora;
   }
   if (valor > valorMaximo) valor = valorMaximo;
 
-  // format currency string
-  const formatted = formatCurrencyBR(Number(valor.toFixed(2)));
-
-  // atualiza flip
-  flipCurrency(formatted);
-
-  // percentual
+  // Atualiza % e barra
   let percentual = (valor / valorMaximo) * 100;
   if (!isFinite(percentual)) percentual = 0;
   porcentagem.textContent = `${percentual.toFixed(2)}%`;
   progressBar.style.width = `${Math.min(100, percentual)}%`;
+
+  // Atualiza dígitos individuais
+  const arr = valueToDigitArray(valor); // 5 dígitos
+  for(let i=0;i<digitElems.length;i++){
+    flipDigit(digitElems[i], arr[i]);
+  }
 }
 
-/* Inicia intervalos */
 updateLoop();
 setInterval(updateLoop, 1000);
-
 </script>
 </body>
 </html>
