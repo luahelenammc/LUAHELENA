@@ -15,7 +15,7 @@
       font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
     }
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#e6e3dd 0%, #d7d3cc 100%);color:#222}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:100%;max-width:920px;background:var(--card);border-radius:20px;padding:24px;box-shadow:var(--shadow-outer),0 1px 0 rgba(255,255,255,0.6) inset;overflow:hidden}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:100%;max-width:960px;background:var(--card);border-radius:20px;padding:24px;box-shadow:var(--shadow-outer),0 1px 0 rgba(255,255,255,0.6) inset;overflow:hidden}
 h1{margin:0;font-size:20px}
 p.sub{margin:4px 0 18px;color:#666;font-size:13px}
 
@@ -45,7 +45,7 @@ input[type=date], input[type=time], select, textarea{width:100%;padding:10px;bor
   <div class="wrap">
     <div class="card">
       <h1>Registro de Melatonina 🌙</h1>
-      <p class="sub">Selecione data/hora, dose e gere a linha para copiar automaticamente.</p><div class="grid">
+      <p class="sub">Selecione data/hora, dose, (opcional) baseados e gere a linha — a cópia acontece automaticamente.</p><div class="grid">
     <div class="panel">
       <label>Data</label>
       <input id="date" type="date">
@@ -53,14 +53,31 @@ input[type=date], input[type=time], select, textarea{width:100%;padding:10px;bor
       <input id="time" type="time">
       <button id="nowBtn" class="btn small" style="margin-top:8px">Agora ⌚</button>
 
-      <label style="margin-top:12px">Dosagem</label>
-      <div class="dosage">
+      <label style="margin-top:12px">Dosagem de melatonina</label>
+      <div class="dosage" role="radiogroup" aria-label="Dosagem de melatonina">
         <input type="radio" id="d0" name="dose" value="0" checked><label for="d0">0</label>
         <input type="radio" id="d14" name="dose" value="1/4"><label for="d14">1/4</label>
         <input type="radio" id="d13" name="dose" value="1/3"><label for="d13">1/3</label>
         <input type="radio" id="d12" name="dose" value="1/2"><label for="d12">1/2</label>
         <input type="radio" id="d1" name="dose" value="1"><label for="d1">1</label>
       </div>
+
+      <label style="margin-top:12px">Uso de baseados (opcional)</label>
+      <div class="dosage" role="radiogroup" aria-label="Quantidade de baseados">
+        <input type="radio" id="b0" name="joints" value="0" checked><label for="b0">0</label>
+        <input type="radio" id="b1" name="joints" value="1"><label for="b1">1</label>
+        <input type="radio" id="b2" name="joints" value="2"><label for="b2">2</label>
+      </div>
+
+      <label style="margin-top:10px">Até que hora</label>
+      <select id="jointCutoff">
+        <option value="">— selecione —</option>
+        <option value="18">antes das 18h</option>
+        <option value="19">antes das 19h</option>
+        <option value="20">antes das 20h</option>
+        <option value="21">antes das 21h</option>
+        <option value="22">antes das 22h</option>
+      </select>
 
       <label style="margin-top:12px">Observação (opcional)</label>
       <textarea id="note" rows="3" placeholder="ex: Dormi melhor..." style="width:100%"></textarea>
@@ -83,8 +100,12 @@ input[type=date], input[type=time], select, textarea{width:100%;padding:10px;bor
     $('#nowBtn').onclick=setNow;
 
     function getDose(){return document.querySelector('input[name=dose]:checked').value;}
+    function getJoints(){return document.querySelector('input[name=joints]:checked').value;}
 
-    async function copyText(txt){try{await navigator.clipboard.writeText(txt);return true}catch{let t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();return true}}
+    async function copyText(txt){
+      try{await navigator.clipboard.writeText(txt);return true}
+      catch{let t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();return true}
+    }
 
     function showCopied(){let h=$('#copiedHint');h.style.opacity=1;setTimeout(()=>h.style.opacity=0,1500)}
 
@@ -92,7 +113,19 @@ input[type=date], input[type=time], select, textarea{width:100%;padding:10px;bor
       const date=$('#date').value,time=$('#time').value;
       if(!date||!time){alert('Insira data e hora');return;}
       const [y,m,d]=date.split('-');
-      const out=`${d}/${m}/${y} ${time} • Melatonina: ${getDose()}${$('#note').value?` • ${$('#note').value}`:''}`;
+      const base = `${d}/${m}/${y} ${time} • Melatonina: ${getDose()}`;
+
+      const joints = getJoints();
+      const cutoff = $('#jointCutoff').value;
+      let jointText = '';
+      if(joints === '0'){
+        jointText = ' • Baseados: 0';
+      } else {
+        jointText = ` • Baseados: ${joints}${cutoff?` (antes das ${cutoff}h)`:''}`;
+      }
+
+      const note = $('#note').value ? ` • ${$('#note').value}` : '';
+      const out = base + jointText + note;
       $('#generated').textContent=out;
       await copyText(out);showCopied();
     }
