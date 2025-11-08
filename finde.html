@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Relógio — sem linha interna</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Relógio — sleeping zone com nuvens</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b0c0f; --muted:#cfd6dc; --dialBg:#0d1114;
-    --greenStart:#004d2a; --greenEnd:#00ff77;
-    --cyanStart:#00bfcf; --cyanEnd:#66ffff;
-    --futureGrayStart:#e6e6e6; --futureGrayEnd:#a9a9a9;
-    --sleepGrayStart:#eef2f6; --sleepGrayEnd:#c8cfd6;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-    font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial;
-    background:linear-gradient(180deg,#060609,#0d0f11); color:var(--muted); padding:28px;
-  }
-  .bezel{ width:760px; max-width:95vw; padding:22px; border-radius:18px;
-    background:linear-gradient(180deg,#0f1316,#17191c); box-shadow:0 12px 40px rgba(0,0,0,0.7); position:relative; }
-  .glass{ border-radius:12px; padding:18px; display:flex; gap:20px; align-items:center; justify-content:space-between;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)); backdrop-filter: blur(3px); position:relative; }
-  .chart-wrap{width:420px;min-height:420px;display:flex;align-items:center;justify-content:center;padding:8px}
-  .dial{width:400px;height:400px;border-radius:50%;background:linear-gradient(180deg,#071014,#0d1114);box-shadow:inset 0 18px 40px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;position:relative}
-  canvas{display:block;border-radius:50%; image-rendering: optimizeQuality; -webkit-font-smoothing:antialiased;}
-  #sleepEmoji{
-    position:absolute; top:50%; left:50%;
-    font-size:34px; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.6));
-    opacity:0; pointer-events:none; transform: translate(-50%,-50%) scale(0.96);
-    transition: opacity 180ms ease, transform 180ms ease; will-change:opacity, transform;
-  }
-  #sleepEmoji.visible{ opacity:1; transform: translate(-50%,-50%) scale(1); animation: sleepPulse 2.2s ease-in-out infinite; }
-  @keyframes sleepPulse{ 0%{opacity:0.35} 50%{opacity:0.95} 100%{opacity:0.35} }
-  .controls{width:280px;display:flex;flex-direction:column;gap:14px}
-  .title{margin:0;font-size:20px;font-weight:600}
-  .sub{margin:6px 0 0 0;font-size:12px;color:rgba(207,214,220,0.72)}
-  .btn{padding:12px 16px;border-radius:12px;cursor:pointer;background:linear-gradient(180deg,#d7dbe0,#bfc6cc);box-shadow:0 6px 0 #6b6f73;border:1px solid rgba(0,0,0,0.15);font-weight:600}
-  .link-salario{display:inline-block;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600;color:var(--cyanEnd)}
-  .meta{font-size:12px;color:rgba(207,214,220,0.6);display:flex;gap:8px;align-items:center}
-  .legend-pill{display:inline-block;width:10px;height:10px;border-radius:50%;}
-  @media (max-width:900px){ .glass{flex-direction:column;align-items:center} .chart-wrap{width:100%} .controls{width:100%} .dial{width:320px;height:320px} #sleepEmoji{font-size:28px} }
+:root{
+  --bg:#0b0c0f; --muted:#cfd6dc; --dialBg:#0d1114;
+  --greenStart:#004d2a; --greenEnd:#00ff77;
+  --cyanStart:#00bfcf; --cyanEnd:#66ffff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; min-height:100vh; display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',system-ui,Roboto,Helvetica,Arial; background:linear-gradient(180deg,#060609,#0d0f11);
+  color:var(--muted); padding:24px;
+}
+.bezel{ width:760px; max-width:95vw; padding:22px; border-radius:18px;
+  background:linear-gradient(180deg,#0f1316,#17191c); box-shadow:0 12px 40px rgba(0,0,0,0.7); }
+.glass{ border-radius:12px; padding:18px; display:flex; gap:20px; align-items:center; justify-content:space-between;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)); backdrop-filter: blur(3px); }
+.chart-wrap{width:420px;min-height:420px;display:flex;align-items:center;justify-content:center;padding:8px}
+.dial{width:400px;height:400px;border-radius:50%;background:linear-gradient(180deg,#071014,#0d1114);box-shadow:inset 0 18px 40px rgba(0,0,0,0.6);position:relative;display:flex;align-items:center;justify-content:center}
+canvas{display:block;border-radius:50%}
+.controls{width:320px;display:flex;flex-direction:column;gap:12px}
+.title{margin:0;font-size:20px;font-weight:600}
+.sub{margin:6px 0 0 0;font-size:12px;color:rgba(207,214,220,0.72)}
+.btn{padding:10px 14px;border-radius:10px;cursor:pointer;background:linear-gradient(180deg,#d7dbe0,#bfc6cc);box-shadow:0 6px 0 #6b6f73;border:1px solid rgba(0,0,0,0.12);font-weight:600}
+.link-salario{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600;color:var(--cyanEnd)}
+.meta{font-size:12px;color:rgba(207,214,220,0.6);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.legend-pill{display:inline-block;width:10px;height:10px;border-radius:50%;}
+@media (max-width:900px){ .glass{flex-direction:column;align-items:center} .chart-wrap{width:100%} .controls{width:100%} .dial{width:320px;height:320px} }
 </style>
 </head>
 <body>
-
   <div class="bezel" role="region" aria-label="painel relógio">
     <div class="glass">
       <div class="chart-wrap">
         <div class="dial" id="dialRoot">
-          <canvas id="myChart" width="400" height="400"></canvas>
-          <div id="sleepEmoji" aria-hidden="true">😴</div>
+          <canvas id="myChart" width="400" height="400" aria-hidden="false"></canvas>
         </div>
       </div>
 
       <div class="controls" role="group" aria-label="controles">
-        <div><h1 class="title">Período semanal — início: sex 17:00</h1><p class="sub">Zona de sono: dom 22:00 → seg 08:00 • (cinza texturizado = pendente, ciano = dormido)</p></div>
+        <div>
+          <h1 class="title">Período semanal — início: sex 17:00</h1>
+          <p class="sub">Sleeping zones: sáb 00:00–09:00, dom 00:00–09:00, dom 22:00 → seg 08:00. Zona de sono: nuvens animadas.</p>
+        </div>
         <div style="display:flex;gap:10px">
           <button class="btn" id="refreshBtn">⟳ Refresh</button>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <a class="link-salario" href="/salario.html" target="_blank" rel="noopener">Ir para Salário</a>
-          <div class="meta">
+          <div class="meta" aria-hidden="true">
             <span class="legend-pill" style="background:linear-gradient(180deg,var(--greenStart),var(--greenEnd))"></span><small>Concluído (fora do sono)</small>
-            <span class="legend-pill" style="background:linear-gradient(180deg,var(--cyanStart),var(--cyanEnd));margin-left:8px"></span><small>Atual / Dormido</small>
-            <span class="legend-pill" style="background:linear-gradient(180deg,var(--sleepGrayStart),var(--sleepGrayEnd));margin-left:8px;border:1px solid rgba(0,0,0,0.08)"></span><small>Pendente (sono)</small>
+            <span style="width:8px"></span>
+            <span class="legend-pill" style="background:linear-gradient(180deg,var(--cyanStart),var(--cyanEnd));"></span><small>Atual / Dormido</small>
+            <span style="width:8px"></span>
+            <span class="legend-pill" style="background:linear-gradient(180deg,#eef1f5,#c8cfd6);border:1px solid rgba(0,0,0,0.08)"></span><small>Pendente (sono)</small>
           </div>
         </div>
       </div>
@@ -77,78 +70,79 @@
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
-  // helpers
+  // ---------- helpers ----------
   function pad(n){ return n<10?('0'+n):(''+n); }
   function fmtLabel(d){ var days=['Dom','Seg','Ter','Qua','Qui','Sex','Sab']; return days[d.getDay()]+' '+pad(d.getHours())+':'+pad(d.getMinutes()); }
-
   var now = new Date();
   var ctx = document.getElementById('myChart').getContext('2d');
-  if (ctx && 'imageSmoothingEnabled' in ctx) ctx.imageSmoothingEnabled = true;
+  if(ctx && 'imageSmoothingEnabled' in ctx) ctx.imageSmoothingEnabled = true;
   var canvasEl = document.getElementById('myChart');
 
-  // compute start / sleepStart / end
-  function dateThisWeek(targetDay, hour, min){
-    var base = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour||0, min||0, 0, 0);
+  // ---------- compute week window (sex 17:00 -> próxima seg 08:00) and sleeping ranges ----------
+  function dateThisWeek(targetDay,hour,min){
+    var base = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour||0, min||0,0,0);
     var diff = targetDay - base.getDay();
     base.setDate(base.getDate() + diff);
-    base.setHours(hour||0, min||0, 0, 0);
+    base.setHours(hour||0,min||0,0,0);
     return base;
   }
   var candidateStart = dateThisWeek(5,17,0);
-  if(candidateStart > now) candidateStart.setDate(candidateStart.getDate() - 7);
+  if(candidateStart > now) candidateStart.setDate(candidateStart.getDate()-7);
 
-  var daysUntilSunday = (0 - candidateStart.getDay() + 7) % 7;
-  var sleepStart = new Date(candidateStart.getTime());
-  sleepStart.setDate(candidateStart.getDate() + daysUntilSunday);
-  sleepStart.setHours(22,0,0,0);
-
-  function nextWeekdayAfter(baseDate, targetDay, hour, min){
+  function nextWeekdayAfter(baseDate,targetDay,hour,min){
     var d = new Date(baseDate.getTime());
     var diff = (targetDay + 7 - d.getDay()) % 7;
-    if(diff === 0 && (d.getHours() > hour || (d.getHours()===hour && d.getMinutes()>=min))) diff = 7;
+    if(diff===0 && (d.getHours()>hour || (d.getHours()===hour && d.getMinutes()>=min))) diff = 7;
+    d.setDate(d.getDate()+diff);
+    d.setHours(hour||0,min||0,0,0);
+    return d;
+  }
+  var candidateEnd = nextWeekdayAfter(candidateStart,1,8,0);
+  if(candidateEnd <= now){
+    candidateStart.setDate(candidateStart.getDate()+7);
+    candidateEnd = nextWeekdayAfter(candidateStart,1,8,0);
+  }
+
+  function dateForWeekdayAfterStart(day,hour,min){
+    var d = new Date(candidateStart.getTime());
+    var diff = (day - d.getDay() + 7) % 7;
     d.setDate(d.getDate() + diff);
     d.setHours(hour||0,min||0,0,0);
     return d;
   }
-  var candidateEnd = nextWeekdayAfter(candidateStart, 1, 8, 0);
-  if(candidateEnd <= now){
-    candidateStart.setDate(candidateStart.getDate() + 7);
-    daysUntilSunday = (0 - candidateStart.getDay() + 7) % 7;
-    sleepStart = new Date(candidateStart.getTime());
-    sleepStart.setDate(candidateStart.getDate() + daysUntilSunday);
-    sleepStart.setHours(22,0,0,0);
-    candidateEnd = nextWeekdayAfter(candidateStart, 1, 8, 0);
+
+  var sat00 = dateForWeekdayAfterStart(6,0,0), sat09 = new Date(sat00.getTime()); sat09.setHours(9,0,0,0);
+  var sun00 = dateForWeekdayAfterStart(0,0,0), sun09 = new Date(sun00.getTime()); sun09.setHours(9,0,0,0);
+  var sun22 = dateForWeekdayAfterStart(0,22,0), mon08 = nextWeekdayAfter(sun22,1,8,0);
+
+  function normalizeRange(startD,endD){
+    while(endD <= candidateStart){ startD.setDate(startD.getDate()+7); endD.setDate(endD.getDate()+7); }
+    while(startD >= candidateEnd){ startD.setDate(startD.getDate()-7); endD.setDate(endD.getDate()-7); }
+    return {start:new Date(startD.getTime()), end:new Date(endD.getTime())};
   }
+  var r1 = normalizeRange(sat00,sat09), r2 = normalizeRange(sun00,sun09), r3 = normalizeRange(sun22,mon08);
+  var sleepRanges = [r1,r2,r3];
 
-  var startDate = candidateStart;
-  var endDate = candidateEnd;
+  var startDate = candidateStart, endDate = candidateEnd;
 
-  // slices
+  // ---------- slices ----------
   var totalMs = endDate - startDate;
   var sliceMs = totalMs / 36;
   var labels = [], sliceStarts = [];
   for(var i=0;i<36;i++){
     var s = new Date(startDate.getTime() + Math.round(i * sliceMs));
-    sliceStarts.push(s);
-    labels.push(fmtLabel(s));
+    sliceStarts.push(s); labels.push(fmtLabel(s));
   }
 
   var dataArr = new Array(36).fill(1);
   var bgArr = new Array(36).fill(null);
   var borderArr = new Array(36).fill(getComputedStyle(document.documentElement).getPropertyValue('--dialBg') || '#0d1114');
 
-  // patterns & gradients
-  function makeSleepStripePattern(){
-    var p = document.createElement('canvas'); p.width=12; p.height=12;
-    var pctx = p.getContext('2d');
-    pctx.fillStyle = '#eef1f5'; pctx.fillRect(0,0,12,12);
-    pctx.strokeStyle = '#b7c0c8'; pctx.lineWidth = 3;
-    pctx.beginPath(); pctx.moveTo(-2,10); pctx.lineTo(10,-2); pctx.stroke();
-    pctx.beginPath(); pctx.moveTo(0,14); pctx.lineTo(14,0); pctx.stroke();
-    pctx.strokeStyle='rgba(0,0,0,0.05)'; pctx.lineWidth=1; pctx.strokeRect(0.5,0.5,11,11);
-    return ctx.createPattern(p,'repeat');
+  function isInSleepRanges(d){
+    for(var k=0;k<sleepRanges.length;k++){
+      if(d >= sleepRanges[k].start && d < sleepRanges[k].end) return true;
+    } return false;
   }
-  var sleepStripePattern = makeSleepStripePattern();
 
   function makeGradient(kind){
     var g = ctx.createLinearGradient(0,0,0,400);
@@ -156,49 +150,106 @@ document.addEventListener('DOMContentLoaded', function(){
     else if(kind==='current'){ g.addColorStop(0,'#00bfcf'); g.addColorStop(1,'#66ffff'); }
     else if(kind==='future'){ g.addColorStop(0,'#e6e6e6'); g.addColorStop(1,'#a9a9a9'); }
     else if(kind==='sleepDone'){ g.addColorStop(0,'#00bfcf'); g.addColorStop(1,'#66ffff'); }
-    else if(kind==='sleepBase'){ g.addColorStop(0,'#eef2f6'); g.addColorStop(1,'#c8cfd6'); }
     else { g.addColorStop(0,'#330000'); g.addColorStop(1,'#550000'); }
     return g;
   }
 
-  // compute currentIndex correctly (fatia que contém "agora")
   var nowTime = new Date();
   var rawIndex = Math.floor((nowTime - startDate) / sliceMs);
   var currentIndex = rawIndex;
   if(isNaN(currentIndex) || currentIndex < 0) currentIndex = 0;
   if(currentIndex > 35) currentIndex = 35;
 
-  // assign colors (ensuring currentIndex is ciano and previous are green)
-  for(var i=0;i<36;i++){
-    var s = sliceStarts[i];
-    var inSleep = (s >= sleepStart && s < endDate);
-    if(i < currentIndex){
-      // passado
-      bgArr[i] = inSleep ? makeGradient('sleepDone') : makeGradient('completed');
-    } else if(i === currentIndex){
-      // atual
-      bgArr[i] = inSleep ? makeGradient('sleepDone') : makeGradient('current');
-    } else {
-      // futuro
-      bgArr[i] = inSleep ? sleepStripePattern : makeGradient('future');
-      if(bgArr[i] === sleepStripePattern) borderArr[i] = getComputedStyle(document.documentElement).getPropertyValue('--dialBg') || '#0d1114';
+  // ---------- CLOUD PATTERN (seamless tile drawn on offscreen canvas) ----------
+  var tile = 48; // tile size (px) — ajuste para densidade
+  var patternCanvas = document.createElement('canvas'); patternCanvas.width = tile; patternCanvas.height = tile;
+  var pctx = patternCanvas.getContext('2d');
+
+  // função que desenha nuvens no tile, usando phase para movimento/pulsação
+  function drawCloudTile(phase){
+    pctx.clearRect(0,0,tile,tile);
+    // base (lembra tom do sleep background)
+    pctx.fillStyle = '#efeff1';
+    pctx.fillRect(0,0,tile,tile);
+
+    // params para 3 nuvens por tile (posições relativas)
+    var clouds = [
+      {x: tile*0.25, y: tile*0.45, s: tile*0.42, o: 0.08},
+      {x: tile*0.62, y: tile*0.32, s: tile*0.5, o: 0.15},
+      {x: tile*0.72, y: tile*0.68, s: tile*0.38, o: -0.12}
+    ];
+
+    // pequena oscilação horizontal por phase (faz o padrão "respirar")
+    var shift = Math.sin(phase * Math.PI * 2) * (tile * 0.06); // <= ajuste amplitude
+
+    // desenha nuvens com sombras internas
+    clouds.forEach(function(c, idx){
+      var cx = c.x + ((idx%2===0)? shift : -shift * 0.6);
+      var cy = c.y + Math.cos(phase * Math.PI * 2 + idx) * (tile*0.02);
+      var s = c.s;
+      // sombra
+      pctx.fillStyle = 'rgba(6,10,12,0.08)';
+      pctx.beginPath();
+      pctx.ellipse(cx+3, cy+4, s*0.55, s*0.38, 0, 0, Math.PI*2);
+      pctx.fill();
+      // formas básicas de nuvem (sobreposição de círculos)
+      pctx.fillStyle = 'rgba(255,255,255,' + (0.7 + 0.15 * Math.sin(phase * Math.PI*2 + idx)) + ')';
+      var r = s * 0.33;
+      pctx.beginPath();
+      pctx.arc(cx - r*0.6, cy, r, 0, Math.PI*2);
+      pctx.arc(cx, cy - r*0.2, r*1.05, 0, Math.PI*2);
+      pctx.arc(cx + r*0.6, cy, r, 0, Math.PI*2);
+      pctx.closePath();
+      pctx.fill();
+      // suaviza contorno com stroke leve
+      pctx.strokeStyle = 'rgba(200,200,200,0.08)';
+      pctx.lineWidth = 0.6;
+      pctx.stroke();
+    });
+
+    // opcional textura leve: linhas diagonais sutis (para distinguir do cinza plano)
+    pctx.strokeStyle = 'rgba(20,22,24,0.02)';
+    pctx.lineWidth = 1;
+    for(var y= -tile; y < tile*2; y += 12){
+      pctx.beginPath();
+      pctx.moveTo(-tile, y);
+      pctx.lineTo(tile*2, y + tile);
+      pctx.stroke();
     }
   }
 
-  // plugin: glow + central text (before draw)
+  // desenha primeira versão
+  drawCloudTile(0);
+  var cloudPattern = ctx.createPattern(patternCanvas, 'repeat');
+
+  // ---------- assign backgrounds ----------
+  for(var i=0;i<36;i++){
+    var s = sliceStarts[i];
+    var inSleep = isInSleepRanges(s);
+    if(i < currentIndex){
+      bgArr[i] = inSleep ? makeGradient('sleepDone') : makeGradient('completed');
+    } else if(i === currentIndex){
+      bgArr[i] = inSleep ? makeGradient('sleepDone') : makeGradient('current');
+    } else {
+      if(inSleep){
+        bgArr[i] = cloudPattern;
+        borderArr[i] = getComputedStyle(document.documentElement).getPropertyValue('--dialBg') || '#0d1114';
+      } else {
+        bgArr[i] = makeGradient('future');
+      }
+    }
+  }
+
+  // ---------- Chart + plugins ----------
   Chart.pluginService.register({
     beforeDraw: function(chart){
       var width = chart.chart.width, height = chart.chart.height, c = chart.chart.ctx;
-      c.restore();
-      c.save();
+      c.restore(); c.save();
       c.globalCompositeOperation = 'lighter';
       var cx = width/2, cy = height/2;
       var grad = c.createRadialGradient(cx, cy, 0, cx, cy, Math.min(width,height)/2);
-      grad.addColorStop(0, 'rgba(0,255,200,0.06)');
-      grad.addColorStop(0.6,'rgba(0,255,200,0.01)');
-      grad.addColorStop(1,'rgba(0,0,0,0)');
-      c.fillStyle = grad;
-      c.beginPath(); c.arc(cx, cy, Math.min(width,height)/2 * 0.62, 0, Math.PI*2); c.fill();
+      grad.addColorStop(0, 'rgba(0,255,200,0.06)'); grad.addColorStop(0.6,'rgba(0,255,200,0.01)'); grad.addColorStop(1,'rgba(0,0,0,0)');
+      c.fillStyle = grad; c.beginPath(); c.arc(cx, cy, Math.min(width,height)/2 * 0.62, 0, Math.PI*2); c.fill();
       c.restore();
 
       c.save();
@@ -206,8 +257,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var nowLabel = pad(nowTime.getHours())+':'+pad(nowTime.getMinutes());
       var fontSize = Math.round(height / 14);
       c.font = '600 ' + fontSize + 'px Inter, sans-serif';
-      c.textAlign = 'center';
-      c.textBaseline = 'middle';
+      c.textAlign = 'center'; c.textBaseline = 'middle';
       c.fillText('"' + nowLabel + '"', width/2, height/2 - 6);
       c.fillStyle = 'rgba(255,255,255,0.65)';
       c.font = '400 ' + Math.round(fontSize/2.5) + 'px Inter, sans-serif';
@@ -216,94 +266,61 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // create chart (no seam-stroking plugin)
   var myChart = new Chart(ctx, {
     type: 'doughnut',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: dataArr,
-        backgroundColor: bgArr,
-        borderWidth: 1,
-        borderColor: borderArr,
-        hoverBorderWidth: 1,
-        hoverBorderColor: borderArr
-      }]
-    },
+    data: { labels: labels, datasets: [{ data: dataArr, backgroundColor: bgArr, borderWidth: 1, borderColor: borderArr }] },
     options: {
-      cutoutPercentage: 68,
-      rotation: -Math.PI / 2,
-      circumference: Math.PI * 2,
-      responsive: false,
-      legend: { display: false },
-      tooltips: { enabled: false },
-      animation: { animateScale: true, animateRotate: true },
-      elements: { arc: { borderAlign: 'inner' } }
+      cutoutPercentage: 68, rotation: -Math.PI/2, circumference: Math.PI*2,
+      responsive:false, legend:{display:false}, tooltips:{enabled:false},
+      animation:{animateScale:true,animateRotate:true}, elements:{ arc: { borderAlign: 'inner' } }
     }
   });
 
-  // NEW: desenha máscara circular central *após* o desenho do chart para esconder linhas internas
+  // central mask para esconder seams
   Chart.pluginService.register({
     afterDraw: function(chart){
       try{
         var meta = chart.getDatasetMeta(0);
         if(!meta || !meta.data || !meta.data.length) return;
-        // pega innerRadius do primeiro arco (todos compartilham)
         var innerR = meta.data[0]._model.innerRadius;
         var cx = chart.chart.width/2, cy = chart.chart.height/2;
         var c = chart.chart.ctx;
         c.save();
-        // opcional: pequena margem para garantir cobertura
         var coverR = innerR + 1.5;
-        // preenchimento que casa com o dial (um suave gradient)
         var g = c.createLinearGradient(0, cy - coverR, 0, cy + coverR);
         g.addColorStop(0,'#071014'); g.addColorStop(1,'#0d1114');
         c.fillStyle = g;
-        c.beginPath();
-        c.arc(cx, cy, coverR, 0, Math.PI*2);
-        c.fill();
+        c.beginPath(); c.arc(cx, cy, coverR, 0, Math.PI*2); c.fill();
         c.restore();
       }catch(e){}
     }
   });
 
-  // hover: emoji only on sleep-zone slices, positioned over the slice center
-  var sleepEmoji = document.getElementById('sleepEmoji');
-  function hideEmoji(){ sleepEmoji.classList.remove('visible'); sleepEmoji.setAttribute('aria-hidden','true'); }
-  function showEmojiAtSlice(idx){
-    var meta = myChart.getDatasetMeta(0);
-    if(!meta || !meta.data[idx]) return hideEmoji();
-    var arc = meta.data[idx]._model;
-    var angle = (arc.startAngle + arc.endAngle) / 2;
-    var r = arc.outerRadius * 0.78;
-    var dx = Math.cos(angle) * r;
-    var dy = Math.sin(angle) * r;
-    sleepEmoji.style.transform = 'translate(-50%,-50%) translate(' + dx + 'px,' + dy + 'px)';
-    sleepEmoji.classList.add('visible');
-    sleepEmoji.setAttribute('aria-hidden','false');
-  }
-
-  canvasEl.addEventListener('mousemove', function(evt){
-    var active = myChart.getElementAtEvent(evt);
-    if(active && active.length){
-      var idx = active[0]._index;
-      if(idx !== undefined && idx >= 0 && idx < sliceStarts.length){
-        var s = sliceStarts[idx];
-        var inSleep = (s >= sleepStart && s < endDate);
-        if(inSleep){ showEmojiAtSlice(idx); return; }
+  // ---------- animation loop: atualiza tile (movimento + pulso) e redesenha slices de sleep-future ----------
+  var animStart = performance.now(); var lastUpdate = 0;
+  function animate(t){
+    var elapsed = (t - animStart) / 1000;
+    var phase = (elapsed * 0.55) % 1.0; // velocidade; diminua para mais lento
+    drawCloudTile(phase);
+    cloudPattern = ctx.createPattern(patternCanvas, 'repeat');
+    for(var i=0;i<36;i++){
+      var s = sliceStarts[i];
+      if(isInSleepRanges(s) && i > currentIndex){
+        myChart.data.datasets[0].backgroundColor[i] = cloudPattern;
       }
     }
-    hideEmoji();
-  });
-  canvasEl.addEventListener('mouseleave', hideEmoji);
+    if(t - lastUpdate > 33){ try{ myChart.update(0); }catch(e){} lastUpdate = t; }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
 
-  // button refresh
+  // refresh
   document.getElementById('refreshBtn').addEventListener('click', function(){ location.reload(); });
 
   // remove native title
   document.getElementById('dialRoot').removeAttribute('title');
 
-});
+}); // DOMContentLoaded
 </script>
 </body>
 </html>
