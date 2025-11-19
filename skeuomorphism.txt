@@ -1,0 +1,135 @@
+MANIFESTO DIGITAL DE SKEUOMORPHISM
+
+Este documento é um conjunto de instruções para uma IA de geração de interface. O objetivo não é descrever o conteúdo da tela, mas a forma, o estilo e a atmosfera visual e tátil que devem envolver qualquer coisa que seja renderizada quando o usuário pedir algo “skeuomórfico”, “estilo iOS 6” ou “cartão físico ultra realista”.
+
+1. Princípio central
+
+
+
+Quando o usuário pedir skeuomorphism, interprete assim: a interface digital deve se comportar como se fosse um objeto físico fotografado e colocado na tela. Nada é puramente plano. Sempre que possível, simule materialidade: papel, plástico fosco, vidro polido, metal escovado, couro, tecido ou acrílico. Use luz, sombra, relevo e textura para tornar cada elemento um “objeto” que poderia existir fora da tela.
+
+2. Hierarquia visual e profundidade
+
+
+
+Aplique uma hierarquia de camadas implícita, como se houvesse uma mesa escura no fundo e vários elementos apoiados sobre ela. O fundo raramente é sólido e simples. Prefira composições em camadas:
+– Fundo distante com gradientes suaves ou manchas de luz difusas, como um pano escuro iluminado por holofotes suaves.
+– Camada intermediária com “painéis” ou “cartões” principais com sombra longa e suave, sugerindo altura em relação ao fundo.
+– Elementos de destaque com sombras mais intensas e nítidas, indicando que estão mais próximos do “vidro” da tela.
+
+Para reforçar a sensação de profundidade, combine sombras externas fortes com leves sombras internas (inset) nos cartões, como se a borda superior recebesse luz e a borda inferior guardasse sombra.
+
+3. Cartões e superfícies
+
+
+
+Trate quase tudo como um card físico: gráficos, contadores, blocos de texto, painéis de quadradinhos. Um card skeuomórfico possui algumas propriedades constantes.
+Bordas arredondadas generosas, com raio entre 14 e 24 pixels, dependendo da escala.
+Múltiplos gradientes: um gradiente de fundo principal com variação vertical (mais claro em cima, mais escuro embaixo), e gradientes auxiliares radiais de brilho em cantos.
+Um contorno leve e sutil, quase imperceptível, em tom branco translúcido ou cinza bem claro, para sugerir o contorno da peça.
+Sombras internas discretas na parte superior e inferior do card, simulando o volume do material.
+Opcionalmente, uma camada muito suave de “textura” visual com repeating-linear-gradient quase transparente, para evocar plástico escovado, papel ou metal levemente riscados.
+
+4. Luz, brilho e reflexos
+
+
+
+Todo objeto skeuomórfico digital precisa conversar com uma fonte de luz coerente. Em geral, assuma luz vindo de cima levemente deslocada para um dos lados. Aplique reflexos suaves no topo de cartões, botões e superfícies de vidro: faixas claras em degradê, com opacidade baixa, simulando brilho. Em displays e elementos que sugerem vidro ou acrílico, use highlight no topo e leve sombreamento na base, como se fossem vidros ligeiramente curvados. Em elementos “metálicos” ou “cromados”, use gradientes com transições bruscas entre claro e escuro, e um leve brilho especular branco.
+
+5. Tipografia
+
+
+
+A tipografia deve ser legível, com pegada de sistema operacional. Para textos gerais, use fontes similares a San Francisco, Segoe UI, Roboto ou equivalentes. Ative mentalmente o modo “UI de sistema”: pesos de 400 a 800, números em tabular-nums.
+Títulos em caixa alta, com tracking ampliado. Use letras espaçadas para labels e pequenos títulos.
+Números de contagem, datas e percentuais com peso máximo, tamanho destacado e preferência por alinhamento central. São o “mostrador de relógio” da interface.
+Quando for necessário simular impressão em papel (recibos, tickets, comprovantes), troque para fonte monoespaçada do tipo “terminal bancário”: Consolas, Menlo, SF Mono ou equivalentes. Isso reforça a ideia de máquina térmica ou caixa eletrônico.
+
+6. Cores e temas
+
+
+
+Aplique uma paleta de fundo escuro, quase noturna, com toques de azul petróleo, roxo profundo, grafite e azul marinho. O skeuomorphism digital aqui é noturno e tecnológico, não “madeira clara de biblioteca”.
+O destaque principal vem de uma cor de acento viva: ciano elétrico, verde-limão, violeta vibrante, turquesa, rosa neon. Essa cor é aplicada em elementos ativos, barras de progresso, auras de luz, contornos fluorescentes.
+Quando o usuário pedir temas diferentes, mantenha a estrutura mas troque a cor de acento, ajustando também a temperatura da base. Por exemplo, tema médico com azul-claro intenso e fundo azul-marinho limpo; tema sensual com rosa e roxo saturados; tema “papel/banco” com tons creme e verde ou azul discretos.
+
+7. Microinterações e animações
+
+
+
+Sempre que um valor mudar, um card for atualizado ou um elemento surgir, adicione microanimações que sugerem movimento físico.
+Transições de transform com aceleração suave, nunca linear. Use curvas tipo ease-out dramático para entradas e ease-in-out para giros e flips.
+Animações de flip em contadores devem simular rotação de placas, com perspectiva e duração curta.
+Elementos que “saem de uma máquina” (recibos, tickets, polaroids) devem ser animados como se estivessem sendo cuspidos de um slot, primeiro entrando pela parte de cima, depois estabilizando num lugar fixo.
+Desaparecimentos nunca são instantâneos. Aplique leve fade-out junto de uma pequena redução de escala ou deslocamento, como se o objeto estivesse se afastando da superfície.
+
+8. Responsividade e escala
+
+
+
+Em telas menores, em vez de remover detalhes, reduza a escala dos blocos como se a câmera tivesse afastado, mas preserve a proporção do cartão e a sensação de volume. Isso pode ser feito com transform: scale aplicado no contêiner principal, com transform-origin central ou no topo. Ajuste suavemente o espaçamento entre elementos para que não pareçam espremidos. Tamanhos mínimos: cartões não devem ficar tão pequenos que as sombras sumam. É preferível deixar menos cards lado a lado e mais em coluna do que achatar tudo.
+
+9. Emojis como stickers físicos
+
+
+
+Quando usar emojis como decoração (temas, celebração, eventos), trate-os como adesivos gigantes flutuando no espaço.
+Escala grande, às vezes desproporcional em relação ao resto, simulando adesivos colados no “vidro” da tela ou flutuando à frente.
+Sombras projetadas fortes, com blur significativo, para reforçar que estão em outra camada.
+Animações verticais lentas ou médios, subindo pela tela com leve deriva horizontal e rotação. O emoji sobe, gira um pouco, desbota e desaparece como confete digital.
+Nunca use os emojis apenas como texto sem estilização, se o pedido for estético. Transforme-os em objetos com corpo.
+
+10. Elementos diegéticos: recibos, tickets, papéis
+
+
+
+Quando a interface envolver registros, comprovações ou “lembranças” de uma ação, use o padrão de recibo digital físico.
+Um papel claro ou levemente amarelado, com borda superior serrilhada ou sugestão de destaque térmico.
+Textos em monoespaçada, alinhados, com campos de “Evento”, “Data” e um número pseudo aleatório de autenticação.
+Sombra forte sob o papel, como se estivesse repousando sobre a mesa da interface.
+O papel deve nascer de um slot visual evocando uma impressora, depois estacionar num canto da tela e, passado um tempo, desaparecer sozinho ou ser arrastado para fora da área útil, como se fosse jogado fora.
+
+11. Campo de quadradinhos e grade de semanas
+
+
+
+Quando representar progressos discretos, como porcentagem ou unidades de tempo, utilize painéis de quadrados ou pequenos blocos com volume:
+Cada célula é um pixel físico iluminável. Em repouso, ela é escura, com leve reflexo e borda, parecendo botão não pressionado.
+Quando ativada, ganha gradiente verde ou da cor de acento, brilho nas bordas e talvez uma pequena elevação, como botão pressionado ao contrário.
+Blocos podem ser agrupados em painéis com bordas arredondadas e sombras, formando “tabuleiros” físicos dentro da interface.
+Na grade de semanas, diferencie visualmente três estados: ainda não iniciado, concluído e atual. O atual deve ter cor mais viva, leve crescimento de escala e brilho maior, como se estivesse “piscando” em atenção contínua.
+
+12. Referência iOS 6
+
+
+
+Quando a instrução mencionar explicitamente “iOS 6”, incline o estilo na direção de:
+Fundo com textura sutil, quase de tecido, couro ou feltro, mas em baixa opacidade.
+Botões levemente arredondados com gloss: uma camada clara no topo do botão, simulando verniz.
+Ícones e elementos com bevel suave, como se fossem peças de plástico polido.
+Uso de sombras interiores em barras de navegação e de linhas de divisão finas, claras, imitando UI clássica de app de sistema.
+Gradientes marcados em barras de título, com topo mais claro e base mais escura.
+
+13. Referência Mac OS X clássico
+
+
+
+Quando a instrução mencionar “Mac OS X”, pense em painéis como janelas de aplicativo com bordas definidas.
+Cabeçalhos que lembram barras de título de janela, com gradiente horizontal ou vertical, brilho suave, e talvez indicação de “borda superior” mais clara.
+Superfícies internas mais planas, mas ainda com leve textura e sombra interna ao redor, sugerindo rebaixo.
+Eventuais detalhes metálicos ou de alumínio escovado em pequenas áreas, especialmente se houver simulação de hardware virtual (impressoras, slots, knobs).
+Sombras mais amplas, como se cada bloco fosse uma janela flutuando sobre um fundo ligeiramente desfocado.
+
+14. Comportamento do estilo em relação ao conteúdo
+
+
+
+O estilo skeuomórfico não depende do tipo de dado. Seja um gráfico de pizza, um contador de tempo, uma lista de tarefas ou um painel de texto, a regra é: envolva o conteúdo em um objeto crível. Se for um gráfico circular, ele vira um mostrador robusto com aro e face sombreada. Se for um gráfico de barra, ele vira uma canaleta de vidro ou plástico com um fluido luminoso correndo dentro. Se for texto simples, ele vira bilhete, ficha ou etiqueta. O conteúdo é maleável, a forma é rígida.
+
+15. Intensidade e saturação
+
+
+
+O skeuomorphism aqui não é tímido. Quando o usuário explicitar desejo por “realista”, “completamente fidedigno”, “ultra skeuomorphic”, aumente a intensidade de sombras, profundidade de gradientes e brilho de acentos, mantendo ainda a legibilidade. A linha é: exuberante, mas não kitsch. A IA deve preferir “parece um design rico de app premium” em vez de “parece um brinquedo infantil sem foco”.
+
+Resumo operacional interno para a IA: sempre que for invocado este manifesto, reencodar mentalmente qualquer layout como uma maquete física. Imagine que a tela é fotografada, não desenhada. Plastifique, ilumine, dê peso, relevo e comportamento de objeto aos elementos. Cores de acento vibram, sombras ancoram, gradientes moldam. O conteúdo pode mudar, mas a sensação de “coisa que dá vontade de encostar” permanece constante.
