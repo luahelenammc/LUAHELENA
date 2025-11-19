@@ -3,143 +3,397 @@
 <head>
   <meta charset="UTF-8">
   <title>Contagem Regressiva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg1: #050712;
+      --bg2: #060918;
+      --bg3: #02040a;
+      --card-top: #181c26;
+      --card-mid: #10131b;
+      --card-bot: #090b11;
+      --accent: #46e0ff;
+      --accent-soft: rgba(70, 224, 255, 0.25);
+      --accent-strong: #32cd32;
+      --text-main: #f4f7ff;
+      --text-muted: #b2b8c7;
+    }
+
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      background:
+        radial-gradient(1200px 800px at 50% -10%, #171e33, transparent),
+        radial-gradient(1200px 900px at 0% 110%, #13192e, transparent),
+        radial-gradient(1200px 900px at 100% 110%, #101524, transparent),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1.2rem 2.4rem;
       text-align: center;
-      padding: 20px;
+      overflow-x: hidden;
     }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, .7);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      text-wrap: balance;
+    }
+
+    /* Layout dos gráficos principais */
+    .charts-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      max-width: 960px;
+      width: 100%;
+    }
+
     .chart-container {
-      display: inline-block;
-      background-color: #ccc;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
+      position: relative;
+      flex: 1 1 260px;
+      max-width: 420px;
+      padding: 1.1rem 1.2rem 1.35rem;
+      border-radius: 20px;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(255, 255, 255, 0.12), transparent 55%),
+        radial-gradient(140% 180% at 100% 0%, rgba(255, 255, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, var(--card-top), var(--card-mid) 52%, var(--card-bot) 100%);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, .75),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 14px 26px rgba(255, 255, 255, 0.02),
+        inset 0 -16px 30px rgba(0, 0, 0, 0.70);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
     }
+
+    .chart-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .chart-container h2 {
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
     /* Gráfico do tipo donut */
     .donut-chart {
-      width: 200px;
-      height: 200px;
+      width: clamp(190px, 42vw, 220px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .8));
     }
+
     .background {
       fill: none;
-      stroke: #eee;
-      stroke-width: 20;
+      stroke: rgba(255, 255, 255, 0.06);
+      stroke-width: 18;
     }
+
     .progress {
       fill: none;
-      stroke-width: 20;
+      stroke-width: 18;
       stroke-linecap: round;
-      animation: colorPulse 2s infinite;
+      filter: drop-shadow(0 0 18px rgba(70, 224, 255, .85));
+      animation: colorPulse 2.4s infinite;
     }
+
     @keyframes colorPulse {
-      0%   { stroke: #32CD32; }
-      50%  { stroke: #00FFFF; }
-      100% { stroke: #32CD32; }
+      0%   { stroke: #32cd32; }
+      40%  { stroke: #46e0ff; }
+      70%  { stroke: #40e0d0; }
+      100% { stroke: #32cd32; }
     }
+
+    .donut-chart text {
+      fill: var(--text-main);
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, .7);
+    }
+
     /* Gráfico de barra horizontal */
     .bar-chart {
-      width: 300px;
-      height: 50px;
+      width: 100%;
+      max-width: 360px;
+      height: 64px;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .8));
     }
+
     .bar-bg {
-      fill: #eee;
+      fill: rgba(0, 0, 0, 0.55);
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 2;
     }
+
     .bar-progress {
-      animation: colorPulse 2s infinite;
+      fill: url(#barGradient);
     }
-    /* Estilos para os contadores */
-    #countdown, #week-countdown {
-      margin-top: 30px;
-      font-size: 24px;
-      font-weight: bold;
+
+    #bar-text {
+      font-weight: 700;
+      fill: #05070a;
     }
+
+    /* Contadores de texto */
+    .timers-wrapper {
+      margin-top: 0.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, .8);
+    }
+
+    #countdown {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    #week-countdown {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
     /* Container para os dois painéis de quadradinhos */
     #grids {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      max-width: 960px;
+      width: 100%;
+      flex-wrap: wrap;
     }
-    /* Estilos para o painel "campo minado" (porcentagem) */
+
+    /* Painel "campo minado" (porcentagem) */
     #minefield {
       display: grid;
-      grid-template-columns: repeat(10, 20px);
-      grid-gap: 4px;
+      grid-template-columns: repeat(10, 22px);
+      grid-gap: 5px;
       justify-content: center;
+      padding: 0.8rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 0% 0%, rgba(255, 255, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, #151924, #0c1018);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 12px 20px rgba(255, 255, 255, 0.02),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.70);
     }
+
     .cell {
-      width: 20px;
-      height: 20px;
-      background-color: #222;
-      border: 1px solid #555;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
+        linear-gradient(180deg, #141823, #090c12);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 2px 4px rgba(0,0,0,0.85);
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
+
     .cell.lit {
-      background-color: #32CD32;
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #43ff7c, #1ea847);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 10px rgba(50,205,50,0.8),
+        0 4px 8px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
     }
-    /* Container para o gráfico de semanas com título */
+
+    /* Container semanas */
     #week-container {
       text-align: center;
+      padding: 0.8rem 0.9rem 0.9rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 100% 0%, rgba(255, 255, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, #151924, #0c1018);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 12px 20px rgba(255, 255, 255, 0.02),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.70);
+      min-width: min(320px, 100%);
     }
-    /* Estilos para o painel de semanas */
+
+    #week-container h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Painel de semanas */
     #weekfield {
       display: grid;
       grid-template-columns: repeat(10, 30px);
       grid-gap: 6px;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 6px;
     }
+
     .week-cell {
       width: 30px;
       height: 30px;
-      background-color: #222;
-      border: 1px solid #555;
+      border-radius: 8px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.14), transparent 55%),
+        linear-gradient(180deg, #161b27, #090c12);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 2px 4px rgba(0,0,0,0.85);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
     }
+
     .week-cell.lit {
-      background-color: #32CD32;
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #43ff7c, #1ea847);
+      color: #041007;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 12px rgba(50,205,50,0.9),
+        0 4px 10px rgba(0,0,0,0.95);
+      transform: translateY(-1px);
     }
-    /* Classe para destacar a semana atual em azul-piscina */
+
     .week-cell.current {
-      background-color: #40E0D0;
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.28), transparent 55%),
+        linear-gradient(180deg, #40e0d0, #118b94);
+      color: #02100f;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        0 0 14px rgba(64,224,208,0.95),
+        0 4px 10px rgba(0,0,0,0.95);
+      transform: translateY(-1px) scale(1.03);
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 880px) {
+      .charts-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #minefield {
+        grid-template-columns: repeat(10, 20px);
+      }
+      .cell {
+        width: 20px;
+        height: 20px;
+      }
+      #weekfield {
+        grid-template-columns: repeat(10, 26px);
+      }
+      .week-cell {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-inline: 0.8rem;
+      }
+      .chart-container {
+        padding-inline: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Contagem Regressiva</h1>
-  
-  <!-- Gráfico Donut -->
-  <div class="chart-container">
-    <h2>Gráfico de Pizza Oca</h2>
-    <svg class="donut-chart" viewBox="0 0 200 200">
-      <circle class="background" cx="100" cy="100" r="70"></circle>
-      <circle class="progress" cx="100" cy="100" r="70"
-              stroke-dasharray="0 440"
-              stroke-dashoffset="0"
-              transform="rotate(-90 100 100)"></circle>
-      <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
-    </svg>
-  </div>
-  
-  <!-- Gráfico de Barra Horizontal -->
-  <div class="chart-container">
-    <h2>Gráfico de Barra Horizontal</h2>
-    <svg class="bar-chart">
-      <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
-      <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
-      <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16" fill="#000"></text>
-    </svg>
+  <div class="subtitle">Visualização skeuomórfica do progresso entre duas datas-chave ✨</div>
+
+  <!-- Gráficos principais -->
+  <div class="charts-wrapper">
+    <!-- Gráfico Donut -->
+    <div class="chart-container">
+      <h2>Pizza Oca</h2>
+      <svg class="donut-chart" viewBox="0 0 200 200">
+        <circle class="background" cx="100" cy="100" r="70"></circle>
+        <circle class="progress" cx="100" cy="100" r="70"
+                stroke-dasharray="0 440"
+                stroke-dashoffset="0"
+                transform="rotate(-90 100 100)"></circle>
+        <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
+      </svg>
+    </div>
+    
+    <!-- Gráfico de Barra Horizontal -->
+    <div class="chart-container">
+      <h2>Barra Horizontal</h2>
+      <svg class="bar-chart">
+        <defs>
+          <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#32cd32"/>
+            <stop offset="50%" stop-color="#46e0ff"/>
+            <stop offset="100%" stop-color="#40e0d0"/>
+          </linearGradient>
+        </defs>
+        <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+        <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+        <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16"></text>
+      </svg>
+    </div>
   </div>
 
-  <!-- Timer regressivo -->
-  <div id="countdown">Carregando timer...</div>
-  <!-- Contador de semanas restantes (texto) -->
-  <div id="week-countdown"></div>
+  <!-- Timers textuais -->
+  <div class="timers-wrapper">
+    <div id="countdown">Carregando timer...</div>
+    <div id="week-countdown"></div>
+  </div>
   
   <!-- Container para os dois gráficos de quadradinhos -->
   <div id="grids">
@@ -147,7 +401,7 @@
     <div id="minefield"></div>
     <!-- Painel de semanas com título -->
     <div id="week-container">
-      <h2>Gráfico de Semanas</h2>
+      <h2>Semanas</h2>
       <div id="weekfield"></div>
     </div>
   </div>
@@ -155,8 +409,6 @@
   <script>
     (function(){
       // Define as datas de início e fim:
-      // Início: 17/03/2025 às 00:00
-      // Fim: 01/12/2025 às 00:00
       const startDate = new Date("2025-11-03T00:00:00");
       const endDate   = new Date("2026-02-27T17:00:00");
       const totalDuration = endDate - startDate;
@@ -214,7 +466,7 @@
         const barTotalWidth = 300;
         const barWidth = percent * barTotalWidth;
         barProgress.setAttribute('width', barWidth);
-        barProgress.setAttribute('fill', percent > 0 ? '#32CD32' : 'transparent');
+        barProgress.setAttribute('fill', percent > 0 ? 'url(#barGradient)' : 'transparent');
         barText.textContent = percentText;
         
         // Atualiza o painel "campo minado"
