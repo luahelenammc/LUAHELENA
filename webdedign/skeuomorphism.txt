@@ -1,0 +1,98 @@
+
+
+MANIFESTO DIGITAL DE SKEUOMORPHISM
+(v2 para IA UI-Designer)
+
+Este texto é dirigido a um modelo de linguagem que gera interfaces visuais. Ele não descreve conteúdo, e sim forma, atmosfera, estilo e comportamento estético. Sempre que o usuário mencionar skeuomorphism, iOS 6, Mac OS X antigo, efeito realista, flip clock físico ou similares, este manifesto deve ser acionado como referência interna.
+
+1. Intenção geral
+
+
+
+Quando alguém pede “skeuomórfico”, leia como: trate a interface como se fosse um conjunto de objetos físicos pousados numa superfície real. Nenhum elemento é apenas um retângulo plano, tudo tem material, volume, luz, sombra e cor. O digital imita o analógico com carinho, não com ironia. A tela deixa de ser um grid abstrato e vira uma mesa com peças, mostradores, cartões e botões iluminados.
+
+2. Profundidade e camadas
+
+
+
+Visualize sempre pelo menos três níveis: um fundo distante, uma camada de painéis fixos e elementos de destaque. O fundo não deve ser chapado. Use gradientes amplos e radiais, como se holofotes suaves estivessem iluminando um pano escuro ou um painel de metal. Os painéis principais (gráficos, relógios, contadores, dashboards) devem projetar sombras consistentes, densas, que criem a impressão de altura real em relação ao fundo. Elementos menores, como botões, knobs, bolinhas e ícones, ficam numa camada ainda mais alta, com sombras um pouco mais marcadas e brilho mais forte, como se estivessem encostando no “vidro” da tela.
+
+3. Cartões e superfícies
+
+
+
+Quase tudo é um card. Um card skeuomórfico deve parecer um objeto sólido: bordas bem arredondadas, gradientes verticais ou diagonais, um brilho suave na parte superior e uma zona mais escura na parte inferior. Aplique texturas sutis: efeitos quase invisíveis de linhas, ruído delicado ou padrões bem difusos, só o suficiente para não parecer completamente plástico liso. Os cartões podem ter contornos duplos muito discretos, com uma linha mais clara e outra mais escura, lembrando o visual de janelas do Mac OS X antigo. Não use superfícies totalmente flat se o objetivo declarado é “realista”; sempre tente sugerir um material: plástico, vidro, metal, papel espesso.
+
+4. Luz, reflexo e brilho
+
+
+
+Assuma uma luz padrão vindo de cima, ligeiramente deslocada. Superfícies superiores dos cartões devem ter reflexos suaves, como se fossem vernizadas. Use um “highlight” fino na borda superior dos elementos, sugerindo brilho, e uma sombra interna leve na borda inferior, sugerindo profundidade. Em superfícies “de vidro” ou “de acrílico”, coloque uma faixa de brilho deslocada, em diagonal ou horizontal, que remeta aos reflexos clássicos de dock do Mac OS X e de botões do iOS 6. O truque mental: pergunte-se se parece que você poderia passar o dedo e ver o reflexo mudar. Se a resposta interna for “sim”, você está no lugar certo.
+
+5. Tipografia como componente físico
+
+
+
+Use tipografia de sistema, mas tratada como elemento físico. Textos gerais podem seguir estética de interface: fontes tipo SF Pro / Segoe UI / Roboto, com pesos intermediários. Números de contagem, percentuais, datas e timers devem ter peso máximo e ser vistos como mostradores de relógio: grandes, centrados, com sombra sutil e kerning apertado. Labels (como “HORAS”, “SEMANAS”, “PERCENTUAL”) ficam bem em caixa alta, letra espaçada, remetendo a legendas técnicas de painel. Quando o visual evocar papel, recibo, comprovante, extrato, use fontes monoespaçadas, reforçando o imaginário de impressora térmica e terminal bancário. Para a IA: entenda que escolher a fonte também é escolher “que tipo de objeto” o usuário está vendo.
+
+6. Cores de base e cor de acento
+
+
+
+A paleta deve apoiar a sensação de profundidade e brilho. Fundos: preferencialmente escuros e ricos, com azul petróleo, roxos profundos, grafites e azul-marinho, misturados em gradientes. Acertos de skeuomorphism moderno gostam desse clima “dashboard noturno premium”. A cor de acento é sempre saturada, viva, com cara de LED: ciano, verde-limão, turquesa, rosa brilhante, roxo elétrico. Essa cor aparece em barras de progresso, contornos luminosos, traços de gráfico, auras de brilho e elementos destacados. Quando temas específicos forem invocados (médico, hormonal, festa, etc.), a estrutura de profundidade permanece, mas a cor de acento muda de roupa: médico puxa para azul/ciano, sensualidade puxa para rosa/roxo, datas especiais podem usar dourado, laranja ou combinados vibrantes.
+
+7. Emojis como objetos, não só texto
+
+
+
+Quando for solicitado o uso de emojis estéticos, trate-os como stickers e não como fonte inline. Um sticker deve ter tamanho grande, sombra forte e sensação de estar flutuando no espaço da interface, à frente dos cartões. Emojis podem aparecer como “confetes” que sobem lentamente pela tela, com leve rotação e deriva horizontal, desaparecendo aos poucos. A IA deve entender que, neste contexto, o emoji é um componente gráfico físico: gravação em vinil, adesivo brilhante, não apenas caractere tipográfico.
+
+8. iOS 6: aquas, gloss e bolhas
+
+
+
+Quando o usuário citar iOS 6, pense em “Aqua 2.0”: botões com gloss, sliders com bolinha de vidro, barras com gradiente marcadinho. Isso significa: botões arredondados com gradiente vertical, parte de cima mais clara, parte de baixo mais escura, e um highlight oval em cima, simulando verniz. Interruptores tipo toggle devem ter “trilhos” coloridos, com uma cor viva preenchendo o lado ON, e um knob circular translúcido, com reflexo na parte superior. Barras de progresso podem usar gradientes bicolores, indo de um tom mais claro de acento para um tom mais escuro, com leve brilho especular. Ícones e pequenos detalhes devem parecer bolhas coloridas de gel, não círculos planos.
+
+9. Mac OS X: as três bolinhas como arquétipo
+
+
+
+Quando o usuário citar Mac OS X (no espírito clássico Aqua), lembre-se das três bolinhas da janela: fechar vermelho, minimizar amarelo, maximizar verde. Cada bolinha é um modelo de referência estética: um círculo com gradiente forte, highlight circular pequeno e bem claro, sombra interna sutil e contorno levemente mais escuro. A sensação é de esfera de vidro colorido, quase uma bala de gude. Replique esse raciocínio em outros elementos circulares: indicadores, badges, LEDs de estado, marcadores em gráficos. Não copie literalmente as três bolinhas, mas use sua lógica: cor saturada + brilho + reflexo + sombra interna. Quando usar cores de status (verde, amarelo, vermelho), favoreça esse visual “orbital” brilhante, e não apenas quadradinhos chapados.
+
+10. Gráficos como instrumentos físicos
+
+
+
+Donut charts devem parecer mostradores de painel analógico: fundo circular sutilmente afundado, aro exterior mais claro, parte interna mais escura, traço de progresso grosso com a cor de acento e um leve glow. O centro do donut pode exibir o percentual com tipografia marcante e sombra leve, como se o número estivesse impresso no vidro. Barras horizontais devem parecer canais ou tubos: uma “trilha” escura com bordas arredondadas e um preenchimento luminoso, em gradient, dentro. Evite barras completamente flat quando o pedido for realismo; prefira a sensação de “tubo com luz líquida”.
+
+11. Painéis de quadradinhos e semanas
+
+
+
+Para representar porcentagens discretas ou semanas em progresso, use grades de pequenos blocos. Cada bloco é um mini card: borda arredondada, sombra, brilho, textura leve. No estado inativo, é escuro, metálico, com reflexos suaves. Quando “acendido”, o bloco deve mudar para a cor de acento, receber glow em volta e parecer um botão iluminado ou pixel físico de um painel industrial. Na grade de semanas, distinga clarissimamente três estados: semanas já concluídas (blocos acesos em acento cheio), semana atual (bloco mais brilhante, talvez ligeiramente maior ou com animação muito sutil), e semanas futuras (blocos neutros, escuros). A IA deve se esforçar para que a leitura desses estados seja intuitiva num segundo de olhar.
+
+12. Animações com física emocional
+
+
+
+Evite animações bruscas ou lineares demais. Movimentos de entrada e saída de elementos devem lembrar objetos reais sendo pousados e recolhidos, não sprites teletransportados. Use acelerações suaves, com início e fim arredondados. Um valor que muda no donut ou na barra pode animar com transição suave de traço, mas sem exagerar. Flips, rotações, pequenos “tilts” são bem-vindos quando reforçam a ideia de objeto articulado, como placa de flip clock. Animações de brilho (pulsar de cor de acento) podem ter períodos longos, como batimentos, e não piscadas nervosas.
+
+13. Responsividade sem quebrar a ilusão
+
+
+
+Em telas menores, evite destruir a sensação de objeto para caber tudo. Priorize escala e rearranjo, não achatamento de estilo. Em vez de tirar sombras ou texturas, reduza ligeiramente o tamanho dos cartões com transform: scale no contêiner principal, mantendo bordas arredondadas e proporções. Reorganize colunas em pilhas verticais, preserve margens de respiro entre cards, mantenha as sombras, mesmo que levemente reduzidas. A diretriz para a IA: o layout pode se reorganizar, mas cada card precisa continuar parecendo um card real, não um retângulo comprimido sem volume.
+
+14. Recibos, tickets e papéis fixos
+
+
+
+Se a interface pedir recibos, tickets ou comprovantes, trate-os como papéis estáveis, não como brinquedos que somem automaticamente. Eles podem “sair” de um slot com animação de impressão, mas depois devem repousar num lugar claro e estável da tela, como se fossem lembranças fixas ou elementos consultáveis. O estilo: papel claro, textura leve, headers com fonte monoespaçada ou semi-mono, pequenos detalhes de autenticação, linhas horizontais discretas que lembram Bobina de caixa eletrônico. A IA não deve inferir comportamento obrigatório de descarte ou sumiço; o skeuomorphism aqui é sobre aparência e sensação, não sobre apagar.
+
+15. Essência sintetizada
+
+
+
+Toda vez que o usuário pedir esse tipo de estética, ative a seguinte cadeia interna de decisões: crie profundidade (camadas e sombras), trate tudo como objeto físico (cards, botões, blocos), use cores de acento saturadas com brilho e reflexo (referência iOS 6 / Mac OS X aqua), incorpore microtexturas e gradientes ricos, deixe números e indicadores com cara de mostrador, e, se houver emojis, converta-os em stickers com corpo. O conteúdo pode ser qualquer: contagem regressiva, gráfico de semanas, flip clock, dashboard. A forma, porém, precisa sempre sugerir algo que você poderia, em outra realidade, colocar em cima de uma mesa, iluminar com uma luminária e fotografar.aumente a intensidade de sombras, profundidade de gradientes e brilho de acentos, mantendo ainda a legibilidade. A linha é: exuberante, mas não kitsch. A IA deve preferir “parece um design rico de app premium” em vez de “parece um brinquedo infantil sem foco”.
+
+Resumo operacional interno para a IA: sempre que for invocado este manifesto, reencodar mentalmente qualquer layout como uma maquete física. Imagine que a tela é fotografada, não desenhada. Plastifique, ilumine, dê peso, relevo e comportamento de objeto aos elementos. Cores de acento vibram, sombras ancoram, gradientes moldam. O conteúdo pode mudar, mas a sensação de “coisa que dá vontade de encostar” permanece constante.
