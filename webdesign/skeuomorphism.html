@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manifesto do Skeuomorphism</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Se você estiver no ecossistema da Lua, deixe esse CSS global.
+       Se não estiver, pode remover sem quebrar o exemplo. -->
+  <link rel="stylesheet" type="text/css"
+        href="https://www.luahelena.com.br/common.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "SF Pro Text", "Segoe UI",
+                   Roboto, Ubuntu, sans-serif;
+      background:
+        radial-gradient(140% 140% at 10% 0%, #293248 0%, #080b12 40%, #05060a 100%),
+        radial-gradient(160% 140% at 90% 100%, #191f33 0%, #05060a 45%, #010207 100%);
+      color: #f4f7fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.2rem;
+      overflow-y: auto;
+    }
+
+    .page-frame {
+      width: 100%;
+      max-width: 980px;
+      position: relative;
+      padding: 0.2rem;
+    }
+
+    /* Glow de fundo atrás da janela */
+    .page-frame::before {
+      content: "";
+      position: absolute;
+      inset: -40px -60px;
+      background:
+        radial-gradient(60% 60% at 50% 0%, rgba(127, 224, 255, 0.18), transparent 70%),
+        radial-gradient(60% 60% at 10% 30%, rgba(255, 138, 255, 0.18), transparent 70%);
+      opacity: 0.85;
+      filter: blur(4px);
+      z-index: -1;
+    }
+
+    /* JANELA ESTILO MAC OS X / AQUA */
+
+    .mac-window {
+      border-radius: 14px;
+      background:
+        linear-gradient(#f4f4f4, #dedede);
+      box-shadow:
+        0 26px 52px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(0, 0, 0, 0.38);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      color: #111;
+    }
+
+    .mac-titlebar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7px 10px;
+      background:
+        linear-gradient(#e8e8e8, #c8c8c8);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 1px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .traffic-lights {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .traffic-light {
+      --button-bg: gray;
+
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in oklch, var(--button-bg) 74%, black);
+      background:
+        radial-gradient(circle at 30% 22%, #fff8 0, #fff0 60%),
+        radial-gradient(circle at 30% 80%, rgba(0, 0, 0, 0.2), transparent 60%),
+        linear-gradient(to bottom,
+          color-mix(in oklch, var(--button-bg) 86%, black),
+          var(--button-bg));
+      box-shadow:
+        inset 0 0 2px rgba(0, 0, 0, 0.6),
+        0 1px 0 rgba(255, 255, 255, 0.7),
+        0 -1px 0 rgba(0, 0, 0, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: default;
+    }
+
+    .tl-close    { --button-bg: oklch(65% 0.25 25);  }
+    .tl-minimize { --button-bg: oklch(85% 0.17 82); }
+    .tl-maximize { --button-bg: oklch(80% 0.20 135); }
+
+    .tl-icon {
+      font-size: 11px;
+      line-height: 1;
+      color: rgba(60, 60, 60, 0.85);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      transform: translateY(-0.5px);
+    }
+
+    .traffic-light:hover .tl-icon {
+      opacity: 1;
+    }
+
+    .mac-title {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4a4a4a;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mac-content {
+      max-height: min(80vh, 720px);
+      padding: 16px 18px 18px;
+      background:
+        radial-gradient(120% 160% at 10% 0%, rgba(255, 255, 255, 0.7), #f5f5f5 50%, #ececec 100%);
+      color: #151515;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow: auto;
+    }
+
+    /* Scrollbar Aqua */
+    .mac-content::-webkit-scrollbar {
+      width: 14px;
+    }
+    .mac-content::-webkit-scrollbar-track {
+      background: linear-gradient(#d6d6d6, #c2c2c2);
+      border-radius: 999px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+    }
+    .mac-content::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.75), transparent 60%),
+        linear-gradient(#2f8cff, #0050b8);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+        0 0 6px rgba(0, 0, 0, 0.7);
+    }
+
+    /* CONTEÚDO DO MANIFESTO */
+
+    .manifest-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      align-items: center;
+    }
+
+    .manifest-title-block {
+      flex: 1.4;
+    }
+
+    .manifest-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7a7f8a;
+      margin-bottom: 0.35rem;
+    }
+
+    .manifest-title {
+      font-family: "SF Pro Display", system-ui, -apple-system, sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #171b23;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6),
+        0 2px 8px rgba(0, 0, 0, 0.25);
+      margin: 0 0 .25rem;
+    }
+
+    .manifest-lead {
+      margin: 0;
+      font-size: 13px;
+      color: #3c4453;
+    }
+
+    .manifest-pill {
+      flex: 0.9;
+      align-self: stretch;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .manifest-pill-inner {
+      min-width: 210px;
+      max-width: 260px;
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, #151c29, #050812);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 8px 18px rgba(0, 0, 0, 0.75);
+      color: #dfe6ff;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .manifest-pill-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 10%, #fff, transparent 65%),
+        linear-gradient(135deg, #37ffe9, #0070ff);
+      box-shadow:
+        0 0 10px rgba(127, 224, 255, 0.85),
+        0 0 0 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .manifest-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .manifest-section {
+      position: relative;
+      padding: 0.9rem 1rem 0.95rem;
+      border-radius: 12px;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.15) 60%, rgba(0, 0, 0, 0.05) 100%),
+        linear-gradient(180deg, #f9f9fb, #eceff4);
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .manifest-section::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.85), transparent 26%, transparent 70%, rgba(0, 0, 0, 0.32));
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .manifest-section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .manifest-section-index {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7b8491;
+    }
+
+    .manifest-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #22242a;
+    }
+
+    .manifest-section-body p {
+      margin: 0.15rem 0;
+      font-size: 13px;
+      color: #303544;
+    }
+
+    .manifest-section-body em {
+      font-style: normal;
+      font-weight: 600;
+      color: #11151f;
+    }
+
+    .skeuo-list {
+      margin: 0.25rem 0 0.2rem 1.1rem;
+      padding: 0;
+      list-style: disc;
+      color: #343a49;
+      font-size: 13px;
+    }
+
+    .skeuo-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .inline-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background:
+        linear-gradient(135deg, #ffffff, #f1f4fa);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #414858;
+    }
+
+    .inline-led {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 10%, #fff, transparent 70%),
+        linear-gradient(135deg, #00ffd6, #00a2ff);
+      box-shadow:
+        0 0 10px rgba(0, 255, 214, 0.85);
+    }
+
+    .manifest-footer-note {
+      margin-top: 0.6rem;
+      font-size: 12px;
+      color: #6a7080;
+      font-style: italic;
+    }
+
+    /* CODE NODE – PROMPT PARA IA */
+
+    .code-node {
+      margin-top: 1.6rem;
+      border-radius: 12px;
+      background:
+        radial-gradient(120% 160% at 0% 0%, rgba(255, 255, 255, 0.25), transparent 48%),
+        linear-gradient(180deg, #171d2a, #050912);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+      color: #e5f3ff;
+      overflow: hidden;
+    }
+
+    .code-node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0.9rem 0.4rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.85);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.52));
+    }
+
+    .code-node-title {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9fb8ff;
+    }
+
+    .code-node-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #ffdafb;
+      opacity: 0.9;
+    }
+
+    .copy-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background:
+        radial-gradient(130% 200% at 30% 0, rgba(255, 255, 255, 0.5), transparent 60%),
+        linear-gradient(135deg, #7fe0ff, #ee8aff);
+      color: #04101a;
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+    }
+
+    .copy-btn-icon {
+      font-size: 12px;
+    }
+
+    .copy-btn:active {
+      transform: translateY(1px);
+      box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.75);
+    }
+
+    .code-node-body {
+      padding: 0.65rem 0.9rem 0.8rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 0.8rem 0.9rem;
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04) 0px,
+          rgba(255, 255, 255, 0.04) 1px,
+          rgba(0, 0, 0, 0.25) 1px,
+          rgba(0, 0, 0, 0.25) 3px
+        ),
+        linear-gradient(180deg, #05080d, #050912);
+      color: #e7f4ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                   "Liberation Mono", "Courier New", monospace;
+      font-size: 11.5px;
+      line-height: 1.5;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.9);
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: inherit;
+      white-space: pre;
+    }
+
+    @media (max-width: 720px) {
+      .mac-content {
+        max-height: none;
+      }
+      .manifest-intro {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .manifest-pill {
+        align-self: auto;
+        justify-content: flex-start;
+      }
+      .manifest-pill-inner {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-frame">
+    <div class="mac-window">
+      <div class="mac-titlebar">
+        <div class="traffic-lights">
+          <button class="traffic-light tl-close" aria-label="Fechar manifesto">
+            <span class="tl-icon">✕</span>
+          </button>
+          <button class="traffic-light tl-minimize" aria-label="Minimizar janela">
+            <span class="tl-icon">–</span>
+          </button>
+          <button class="traffic-light tl-maximize" aria-label="Expandir janela">
+            <span class="tl-icon">▢</span>
+          </button>
+        </div>
+        <div class="mac-title">Manifesto do Skeuomorphism</div>
+      </div>
+
+      <div class="mac-content">
+        <header class="manifest-intro">
+          <div class="manifest-title-block">
+            <div class="manifest-subtitle">Documento vivo para humanos e máquinas</div>
+            <h1 class="manifest-title">SKEUOMORPHISM É COISA QUE DÁ VONTADE DE ENCOSTAR</h1>
+            <p class="manifest-lead">
+              Este manifesto é um espelho: enquanto você lê sobre interfaces físicas,
+              a própria página tenta se comportar como um objeto pousado na sua mesa –
+              com luz, peso, volume e pequenos caprichos de brilho.
+            </p>
+          </div>
+          <div class="manifest-pill">
+            <div class="manifest-pill-inner">
+              <span class="manifest-pill-dot"></span>
+              <span>Modo Skeuomórfico Ativado • v1</span>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <section class="manifest-sections">
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">01</div>
+                <div class="manifest-section-title">O que é skeuomorphism, de verdade</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>
+                  Skeuomorphism, aqui, não é nostalgia vazia. É um pacto:
+                  <em>tratar cada elemento da interface como um objeto físico</em>.
+                  Nada é só um retângulo com cor sólida; tudo é feito de algum “material”
+                  imaginário — plástico polido, vidro, metal escovado, papel grosso.
+                </p>
+                <p>
+                  Quando alguém pede “faz skeuomórfico”,
+                  leia como: “transforme meu layout em uma maquete que poderia ser
+                  fotografada, não apenas desenhada”.
+                </p>
+                <ul class="skeuo-list">
+                  <li>Cartões viram placas de painel.</li>
+                  <li>Botões viram pastilhas de gel com reflexo.</li>
+                  <li>Números viram mostradores de relógio.</li>
+                  <li>Emojis viram adesivos flutuando sobre o vidro.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">02</div>
+                <div class="manifest-section-title">Três camadas obrigatórias</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>
+                  Toda tela skeuomórfica nasce em <em>camadas</em>:
+                </p>
+                <ul class="skeuo-list">
+                  <li>
+                    <strong>Fundo distante</strong> — um pano escuro com gradientes amplos,
+                    como esta própria página atrás da janela: quase um estúdio fotográfico.
+                  </li>
+                  <li>
+                    <strong>Painéis</strong> — a janela, os cards, os grandes blocos.
+                    Bordas arredondadas, sombra consistente, sensação de “encaixado”.
+                  </li>
+                  <li>
+                    <strong>Destaques</strong> — botões, knobs, LEDs, badges,
+                    stickers: tudo que parece “encostar no vidro” tem sombras mais fortes
+                    e brilho mais ousado.
+                  </li>
+                </ul>
+                <p>
+                  Se você olhar para um layout e enxergar apenas um grid de divs,
+                  volte uma casa. Se enxergar uma mesa com peças apoiadas,
+                  você está chegando lá.
+                </p>
+              </div>
+            </article>
+
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">03</div>
+                <div class="manifest-section-title">Cartões, luz e materiais</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>
+                  <em>Quase tudo é um card.</em> Um card skeuomórfico é um tijolo
+                  com canto macio: gradiente vertical ou diagonal, topo mais claro,
+                  base mais escura, um highlight fino na borda superior
+                  e um leve afundamento na borda inferior.
+                </p>
+                <p>
+                  A luz vem, por padrão, de cima. Imagine um abajur invisível
+                  jogando reflexo nos elementos:
+                </p>
+                <ul class="skeuo-list">
+                  <li>Reflexos suaves nas partes de cima (&ldquo;verniz&rdquo;).</li>
+                  <li>Sombra externa forte, estabilizando o objeto na mesa.</li>
+                  <li>Sombra interna leve em bordas inferiores, criando profundidade.</li>
+                  <li>Texturas quase imperceptíveis: um ruído fino, linhas suaves, algo que impeça o plástico de parecer falso.</li>
+                </ul>
+                <p>
+                  A pergunta de ouro: <em>“Parece algo que eu poderia fotografar?”</em>
+                  Se sim, mantenha. Se ainda está com cara de retângulo de PowerPoint,
+                  falta relevo.
+                </p>
+              </div>
+            </article>
+
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">04</div>
+                <div class="manifest-section-title">iOS 6, Mac OS X e os arquétipos Aqua</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>
+                  Quando o assunto é skeuomorphism digital, dois fantasmas são bem-vindos:
+                  <em>iOS 6</em> e <em>Mac OS X Aqua</em>.
+                </p>
+                <p>
+                  Do lado iOS 6, herde:
+                </p>
+                <ul class="skeuo-list">
+                  <li>Botões de gel com gloss oval no topo.</li>
+                  <li>
+                    Sliders com bolinha de vidro translúcida
+                    e trilho colorido bem definido.
+                  </li>
+                  <li>
+                    Barras de progresso bicolores, com brilho especular e sensação
+                    de “líquido” correndo dentro.
+                  </li>
+                </ul>
+                <p>
+                  Do lado Mac OS X, as três bolinhas da janela são um mini-manifesto:
+                </p>
+                <ul class="skeuo-list">
+                  <li>
+                    Vermelho, amarelo e verde saturados, com gradiente forte,
+                    highlight circular e sombra interna.
+                  </li>
+                  <li>Contorno ligeiramente mais escuro, como bala de gude.</li>
+                  <li>
+                    Ícone só aparece no hover, como este próprio título da janela
+                    está tentando emular.
+                  </li>
+                </ul>
+                <p>
+                  Sempre que criar círculos de status, lembre-se:
+                  <span class="inline-tag">
+                    <span class="inline-led"></span>
+                    LED físico, não bolinha flat
+                  </span>
+                </p>
+              </div>
+            </article>
+
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">05</div>
+                <div class="manifest-section-title">Tempo, donuts, barras e quadradinhos</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>
+                  Interfaces temporais são onde o skeuomorphism brilha:
+                  <em>relógios, timers, contagens de semanas, transições de vida</em>.
+                </p>
+                <p>
+                  Antes de desenhar, faça a matemática:
+                </p>
+                <ul class="skeuo-list">
+                  <li><strong>Início</strong>, <strong>fim</strong>, <strong>agora</strong>.</li>
+                  <li>Tempo total = fim − início.</li>
+                  <li>Tempo vivido = agora − início.</li>
+                  <li>Tempo restante = fim − agora.</li>
+                </ul>
+                <p>
+                  Depois, escolha <em>objetos físicos</em> para contar essa história:
+                </p>
+                <ul class="skeuo-list">
+                  <li>
+                    <strong>Donut chart</strong> como mostrador analógico:
+                    aro mais claro, centro mais escuro, traço grosso e luminoso.
+                  </li>
+                  <li>
+                    <strong>Barra-tubo</strong> como canal de luz que enche ou esvazia.
+                  </li>
+                  <li>
+                    <strong>Grade de quadradinhos</strong> como painel de LEDs:
+                    blocos apagados, bloco atual mais brilhante, blocos futuros neutros.
+                  </li>
+                </ul>
+                <p>
+                  Em <em>time-in</em>, os objetos celebram o que já foi:
+                  cores quentes, sensação de “memória consolidada”.
+                  Em <em>time-out</em>, a energia vai para o que falta:
+                  cianos, violetas, neon noturno, expectativa.
+                </p>
+              </div>
+            </article>
+
+            <article class="manifest-section">
+              <div class="manifest-section-header">
+                <div class="manifest-section-index">06</div>
+                <div class="manifest-section-title">Guia de aplicação em 6 passos</div>
+              </div>
+              <div class="manifest-section-body">
+                <p>Para aplicar o skeuomorphism em qualquer tela:</p>
+                <ul class="skeuo-list">
+                  <li><strong>1.</strong> Decida o “objeto” que a interface quer ser (dashboard, painel de controle, recibo, relógio de mesa...).</li>
+                  <li><strong>2.</strong> Desenhe as três camadas: fundo profundo, painéis, destaques em relevo.</li>
+                  <li><strong>3.</strong> Escolha uma <em>cor de acento LED</em> (ciano, verde-limão, turquesa, rosa vivo, roxo elétrico).</li>
+                  <li><strong>4.</strong> Trate tipografia como componente físico: números grandes, labels em caixa alta, recibos em mono.</li>
+                  <li><strong>5.</strong> Se houver emojis, transforme-os em stickers grandes, com sombra e animação suave de flutuar.</li>
+                  <li><strong>6.</strong> Só então adicione animações: movimentos curvos, easing emocional, brilho que pulsa como batimento, nunca piscando como banner de anúncio.</li>
+                </ul>
+                <p class="manifest-footer-note">
+                  Se, ao final, você tiver vontade de “passar o dedo” no layout,
+                  o skeuomorphism cumpriu sua função.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <!-- CODE NODE PARA IA -->
+          <section class="code-node" aria-label="Prompt de instruções para IA">
+            <header class="code-node-header">
+              <div>
+                <div class="code-node-title">MÓDULO INTERNO · PROTOCOLO SKEUOMÓRFICO</div>
+                <div class="code-node-badge">linguagem não humana · uso interno de ia</div>
+              </div>
+              <button class="copy-btn" id="copyPromptBtn" type="button">
+                <span class="copy-btn-icon">⧉</span>
+                <span>Copiar prompt</span>
+              </button>
+            </header>
+            <div class="code-node-body">
+              <pre><code id="ia-manifest-prompt">
+SKEUO_PROTOCOL v1 {
+
+  on_invoke(&quot;skeuomorphism&quot; | &quot;skeuomórfico&quot; | &quot;iOS 6&quot; | &quot;Mac OS X&quot; | &quot;flip clock&quot; | &quot;dashboard físico&quot;) {
+    mode.style           = &quot;skeuomorphic&quot;;
+    mode.semanticFocus   = &quot;forma-e-comportamento-estético&quot;;
+    mode.contentNeutral  = true;      // aplica estilo a qualquer tema
+  }
+
+  // CAMADAS FUNDAMENTAIS ------------------------------------------------------
+
+  layers.base {
+    count               &gt;= 3;        // fundo, painéis, destaques
+    background.surface  = &quot;escuro-profundo&quot;;
+    background.gradient = radial(holofotes_suaves) + linear(metal/pano);
+    treat_as(&quot;mesa_fotográfica&quot;);
+  }
+
+  layers.panels {
+    each panel {
+      shape        = rounded_rect(radius: 10-18px);
+      material     = choose(&quot;plástico-premium&quot;, &quot;metal-escovado&quot;, &quot;vidro&quot;, &quot;papel-grosso&quot;);
+      gradient     = vertical(top_light, bottom_dark);
+      border.inner = subtle_light + subtle_dark; // efeito janela Mac OS X
+      shadow.outer = strong_soft(0, 18px, 40px, rgba(0,0,0,.7));
+      texture      = micro_noise | soft_lines | subtle_pattern;
+    }
+  }
+
+  layers.highlights {
+    elements = [buttons, knobs, leds, badges, emojis_stickers];
+    for element in elements {
+      shadow.outer   = stronger_than_panels;
+      highlight.top  = thin_line(bright);
+      shadow.inner   = soft_bottom;
+      state.hover    = lift(1px) + brighten(4-10%);
+      state.active   = press(1px) + darken(4-10%);
+    }
+  }
+
+  // LUZ E REFLEXO -------------------------------------------------------------
+
+  lighting.global {
+    direction  = &quot;top-slightly-front&quot;;
+    ask(&quot;poderia passar o dedo e ver o reflexo mudar?&quot;);
+    require(answer == YES);
+  }
+
+  // TIPOGRAFIA COMO OBJETO ----------------------------------------------------
+
+  typography {
+    base_font   = [SF_Pro, Segoe_UI, Roboto, system_ui];
+    numbers {
+      role      = &quot;mostradores_físicos&quot;;
+      weight    = 800-900;
+      align     = center;
+      shadow    = soft(0,1px,0,rgba(0,0,0,.7));
+      spacing   = tight;
+      variant   = tabular_nums;
+    }
+    labels {
+      case      = UPPERCASE;
+      lettersp  = 0.12em;
+      style     = &quot;legenda_técnica_de_painel&quot;;
+      examples  = [&quot;HORAS&quot;, &quot;SEMANAS&quot;, &quot;PERCENTUAL&quot;];
+    }
+    receipts_when(paper == true) {
+      font      = monospace;
+      mood      = &quot;comprovante/terminal_bancário&quot;;
+      details   = [linhas_horizontais_leves, pequenas_marcas_de_autenticação];
+    }
+  }
+
+  // CORES E ACENTOS LED -------------------------------------------------------
+
+  palette {
+    background.darks = mix([azul_petróleo, roxo_profundo, grafite, azul_marinho]);
+    accent.led       = choose([ciano, verde_limao, turquesa, rosa_brilhante,
+                               roxo_elétrico, dourado_quente]);
+    accent.usage     = [barras_progresso, contornos_luminosos, traços_gráficos,
+                        glows, indicadores_de_estado];
+
+    context(&quot;médico&quot;)   =&gt; accent = ciano/azul;
+    context(&quot;hormonal&quot;) =&gt; accent = rosa/roxo;
+    context(&quot;festa&quot; |
+            &quot;datas_especiais&quot;) =&gt; accent = dourado/laranja/vibrante;
+  }
+
+  // EMOJIS COMO STICKERS ------------------------------------------------------
+
+  emojis.when_requested {
+    render_as       = &quot;sticker físico&quot;;
+    size            = large(60px+);
+    shadow          = strong_drop_shadow;
+    z_index         &gt; panels;
+    animation.float = slow_up_with_drift + soft_rotation + fade_out;
+  }
+
+  // iOS 6 E MAC OS X ----------------------------------------------------------
+
+  ios6_mode.on_reference {
+    buttons {
+      shape       = pill;
+      gradient    = vertical(light_top, darker_bottom);
+      gloss       = oval_highlight(top_region);
+      border      = inner_dark + outer_light;
+    }
+    toggles {
+      track      = colored_gradient;
+      knob       = glass_orb_with_reflection;
+    }
+    progress_bars {
+      gradient   = bicolor_accent;
+      specular   = soft_glare;
+    }
+  }
+
+  macos_aqua.on_reference {
+    window {
+      chrome      = &quot;mac-window&quot; pattern;
+      traffic_lights = [close:red, minimize:yellow, maximize:green];
+      for light in traffic_lights {
+        light.appearance = glass_sphere_with_inner_shadow_and_highlight;
+        icon.visibility  = hover_only(opacity_transition: .18s);
+      }
+      content.scrollbar = aqua_style(track_rounded_gray, thumb_blue_glossy);
+    }
+    reuse_logic_for(circular_indicators, badges, leds_de_status);
+  }
+
+  // GRÁFICOS FÍSICOS ----------------------------------------------------------
+
+  charts.skeuo {
+    donut {
+      base       = sunken_disc(inner_darker, outer_lighter);
+      stroke     = thick_accent_with_glow;
+      center_num = big_number_with_soft_shadow;
+    }
+    bar_tube {
+      track      = dark_channel_rounded;
+      fill       = liquid_light_gradient + inner_glow;
+    }
+    week_grid {
+      cell.base      = mini_card_with_shadow_and_texture;
+      cell.past      = accent_on + outer_glow;
+      cell.current   = accent_brighter + maybe_pulse + optional_scale(1.03);
+      cell.future    = neutral_dark_metallic;
+    }
+  }
+
+  // TEMPO: MODO CRONOLÓGICO ---------------------------------------------------
+
+  time_mode.on(&quot;relógio&quot; | &quot;timer&quot; | &quot;countdown&quot; | &quot;count-up&quot;
+               | &quot;entre duas datas&quot;) {
+    compute {
+      t_start       = input.start;
+      t_end         = input.end;
+      t_now         = now();
+      total         = t_end - t_start;
+      lived         = clamp(t_now - t_start, 0, total);
+      remaining     = clamp(t_end - t_now, 0, total);
+      pct_lived     = lived / total;
+      pct_remaining = remaining / total;
+    }
+
+    narrative.when(mode == &quot;time-in&quot;) {
+      focus       = pct_lived;
+      copy.main   = &quot;já se passaram X dias...&quot;;
+      visuals {
+        donut.fill      = pct_lived;
+        bar.grow        = pct_lived_left_to_right;
+        leds.lit        = floor(pct_lived * leds.count);
+        colors.prefer   = warm_celebratory;
+      }
+    }
+
+    narrative.when(mode == &quot;time-out&quot;) {
+      focus       = pct_remaining;
+      copy.main   = &quot;ainda faltam X dias...&quot;;
+      visuals {
+        donut.show_lived   = pct_lived;
+        bar.shrink_to_zero = pct_remaining;
+        leds.unlit_to_lit  = future -&gt; now;
+        colors.prefer      = cool_neon_expectation;
+      }
+    }
+
+    sync_all { donut, bar, leds, text } on_change(pct_lived, pct_remaining);
+  }
+
+  // ANIMAÇÃO E FÍSICA EMOCIONAL ----------------------------------------------
+
+  animation {
+    philosophy  = &quot;objetos pousando e levantando&quot;, not &quot;sprites teletransportados&quot;;
+    easing      = smooth_in_out;
+    brightness_pulse {
+      period    = long_heartbeat;
+      avoid     = nervous_blink;
+    }
+    responsive {
+      small_screens {
+        apply   = scale_down(cards_container);
+        preserve = [shadows, gradients, rounded_corners];
+        reorganize = columns_to_vertical_stack;
+      }
+    }
+  }
+
+  // ESSÊNCIA SINTETIZADA ------------------------------------------------------
+
+  essence.summarize {
+    for any(layout_request_with_skeuo) {
+      reencode_layout_as = &quot;maquete física iluminada&quot;;
+      ensure {
+        depth.layers        &gt;= 3;
+        cards.look_solid    == true;
+        accents.are_led_like == true;
+        numbers.are_displays == true;
+        emojis_are_stickers  == requested_or_implicit;
+        user_feels_like_touching_layout == true;
+      }
+      style_target = &quot;exuberante-mas-não-kitsch&quot;;
+      vibe         = &quot;app premium rico&quot;, not &quot;brinquedo aleatório&quot;;
+    }
+  }
+}
+              </code></pre>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("copyPromptBtn");
+      const code = document.getElementById("ia-manifest-prompt");
+
+      if (!btn || !code) return;
+
+      btn.addEventListener("click", async () => {
+        const originalLabel = btn.innerText;
+        const text = code.innerText;
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // fallback básico
+            const temp = document.createElement("textarea");
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+          }
+
+          btn.innerHTML = '<span class="copy-btn-icon">✔</span><span>Copiado</span>';
+          setTimeout(() => {
+            btn.innerHTML = '<span class="copy-btn-icon">⧉</span><span>Copiar prompt</span>';
+          }, 1800);
+        } catch (err) {
+          console.error("Erro ao copiar:", err);
+          btn.innerHTML = '<span class="copy-btn-icon">!</span><span>Erro</span>';
+          setTimeout(() => {
+            btn.innerHTML = '<span class="copy-btn-icon">⧉</span><span>Copiar prompt</span>';
+          }, 2000);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
