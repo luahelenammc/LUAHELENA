@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feriado em Curso — Painel Skeuo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg1: #080612;
+      --bg2: #120825;
+      --bg3: #100716;
+      --card-top: #231426;
+      --card-mid: #1a1324;
+      --card-bot: #120917;
+      --accent: #ff7ad9;
+      --accent-alt: #ffcf66;
+      --accent-soft: rgba(255, 122, 217, 0.2);
+      --accent-strong: #ff4fa8;
+      --text-main: #fef7ff;
+      --text-muted: #d0c2db;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      background:
+        radial-gradient(1300px 900px at 0% 0%, #2c2454, transparent 60%),
+        radial-gradient(1300px 900px at 100% 0%, #3b174e, transparent 60%),
+        radial-gradient(1600px 1100px at 50% 120%, #271036, transparent 70%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 40%, var(--bg3) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.6rem 1.2rem 2.4rem;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .window {
+      max-width: 960px;
+      width: 100%;
+      border-radius: 22px;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(255,255,255,0.16), transparent 55%),
+        radial-gradient(140% 180% at 100% 0%, rgba(255,255,255,0.12), transparent 60%),
+        linear-gradient(180deg, #1b1022, #120917 55%, #07040a 100%);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.75),
+        0 0 0 1px rgba(255,255,255,0.04),
+        inset 0 18px 30px rgba(255,255,255,0.05),
+        inset 0 -20px 30px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .window::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .window-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1rem 0.55rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.30));
+      border-bottom: 1px solid rgba(0,0,0,0.65);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.16),
+        inset 0 -1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 2;
+    }
+
+    .window-dots {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .window-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 4px 6px rgba(0,0,0,0.7);
+      background: radial-gradient(circle at 30% 25%, #ffffff, rgba(255,255,255,0.2) 40%, transparent 65%),
+                  radial-gradient(circle at 70% 80%, rgba(0,0,0,0.4), transparent 60%);
+    }
+
+    .dot-close  { background-color: #ff5f57; background-image:
+        radial-gradient(circle at 30% 25%, #ffe0dd, rgba(255,255,255,0.15) 40%, transparent 65%),
+        radial-gradient(circle at 70% 80%, rgba(110,0,0,0.6), transparent 60%); }
+    .dot-min    { background-color: #febc2e; background-image:
+        radial-gradient(circle at 30% 25%, #fff3cf, rgba(255,255,255,0.15) 40%, transparent 65%),
+        radial-gradient(circle at 70% 80%, rgba(114,74,0,0.6), transparent 60%); }
+    .dot-max    { background-color: #28c840; background-image:
+        radial-gradient(circle at 30% 25%, #dbffd8, rgba(255,255,255,0.15) 40%, transparent 65%),
+        radial-gradient(circle at 70% 80%, rgba(0,70,16,0.6), transparent 60%); }
+
+    .window-title {
+      flex: 1;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .window-body {
+      padding: 1.3rem 1.4rem 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 6px 18px rgba(0,0,0,0.8);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      text-wrap: balance;
+    }
+
+    .dates-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .date-pill {
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.65));
+      box-shadow:
+        0 8px 18px rgba(0,0,0,0.7),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .date-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .date-value {
+      font-weight: 600;
+    }
+
+    /* Layout dos gráficos principais */
+    .charts-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      max-width: 100%;
+    }
+
+    .chart-container {
+      position: relative;
+      flex: 1 1 260px;
+      max-width: 420px;
+      padding: 1.1rem 1.2rem 1.3rem;
+      border-radius: 20px;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(255, 255, 255, 0.14), transparent 55%),
+        radial-gradient(140% 180% at 100% 0%, rgba(255, 255, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, var(--card-top), var(--card-mid) 52%, var(--card-bot) 100%);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, .85),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 14px 26px rgba(255, 255, 255, 0.03),
+        inset 0 -16px 30px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .chart-container h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    /* Donut */
+    .donut-chart {
+      width: clamp(190px, 42vw, 220px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .85));
+    }
+
+    .background-ring {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 18;
+    }
+
+    .progress-ring {
+      fill: none;
+      stroke-width: 18;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 22px rgba(255, 122, 217, .9));
+      animation: colorPulse 2.6s infinite;
+    }
+
+    @keyframes colorPulse {
+      0%   { stroke: var(--accent-strong); }
+      40%  { stroke: var(--accent); }
+      70%  { stroke: var(--accent-alt); }
+      100% { stroke: var(--accent-strong); }
+    }
+
+    .donut-chart text {
+      fill: var(--text-main);
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, .8);
+    }
+
+    /* Barra */
+    .bar-chart {
+      width: 100%;
+      max-width: 360px;
+      height: 64px;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .85));
+    }
+
+    .bar-bg {
+      fill: rgba(0, 0, 0, 0.55);
+      stroke: rgba(255, 255, 255, 0.16);
+      stroke-width: 2;
+    }
+
+    .bar-progress {
+      fill: url(#barGradient);
+    }
+
+    #bar-text {
+      font-weight: 700;
+      fill: #18020a;
+    }
+
+    /* Contadores de texto */
+    .timers-wrapper {
+      margin-top: 0.4rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, .9);
+    }
+
+    .timer-line {
+      font-size: 1rem;
+    }
+
+    .timer-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .timer-value {
+      font-weight: 700;
+    }
+
+    /* Grade de porcentagem */
+    #minefield {
+      display: grid;
+      grid-template-columns: repeat(10, 22px);
+      grid-gap: 5px;
+      justify-content: center;
+      padding: 0.8rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 0% 0%, rgba(255, 255, 255, 0.12), transparent 70%),
+        linear-gradient(180deg, #2b172d, #120815);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, .85),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 12px 20px rgba(255, 255, 255, 0.03),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.85);
+    }
+
+    .cell {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.18), transparent 55%),
+        linear-gradient(180deg, #211225, #0c040f);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 2px 4px rgba(0,0,0,0.9);
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .cell.lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.35), transparent 55%),
+        linear-gradient(180deg, var(--accent), var(--accent-strong));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.75),
+        0 0 10px rgba(255,122,217,0.9),
+        0 4px 8px rgba(0,0,0,1);
+      transform: translateY(-1px);
+    }
+
+    .legend {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .legend span {
+      font-weight: 600;
+      color: var(--accent-alt);
+    }
+
+    /* Emojis flutuantes */
+    .emoji-floating {
+      position: absolute;
+      font-size: 3.4rem;
+      pointer-events: none;
+      opacity: 0.18;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9));
+      animation: floatUp 12s linear infinite;
+    }
+
+    .emoji-floating:nth-child(1) { left: 8%;  bottom: -10%; animation-delay: 0s;  }
+    .emoji-floating:nth-child(2) { left: 82%; bottom: -12%; animation-delay: 3s;  }
+    .emoji-floating:nth-child(3) { left: 45%; bottom: -15%; animation-delay: 6s;  }
+
+    @keyframes floatUp {
+      0%   { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.4; }
+      50%  { opacity: 0.35; transform: translate3d(-8px, -55vh, 0) rotate(-8deg); }
+      90%  { opacity: 0;   transform: translate3d(12px, -90vh, 0) rotate(8deg); }
+      100% { opacity: 0; }
+    }
+
+    @media (max-width: 880px) {
+      .window-body {
+        padding-inline: 1.1rem;
+      }
+      .charts-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #minefield {
+        grid-template-columns: repeat(10, 20px);
+      }
+      .cell {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-inline: 0.8rem;
+      }
+      .window-body {
+        padding-inline: 0.9rem;
+      }
+      .chart-container {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="window-header">
+      <div class="window-dots">
+        <span class="window-dot dot-close"></span>
+        <span class="window-dot dot-min"></span>
+        <span class="window-dot dot-max"></span>
+      </div>
+      <div class="window-title">Feriado 19–24 NOV · monitor de progresso</div>
+      <div style="width:72px"></div>
+    </div>
+
+    <div class="window-body">
+      <h1>Feriado em Curso</h1>
+      <div class="subtitle">
+        Do primeiro minuto livre <b>(19/11 às 17h)</b> até o momento em que o mundo volta a te exigir café e crachá <b>(24/11 às 08h)</b>.
+      </div>
+
+      <div class="dates-row">
+        <div class="date-pill">
+          <span class="date-label">Início</span>
+          <span class="date-value">19 NOV · 17:00</span>
+        </div>
+        <div class="date-pill">
+          <span class="date-label">Fim</span>
+          <span class="date-value">24 NOV · 08:00</span>
+        </div>
+      </div>
+
+      <div class="charts-wrapper">
+        <!-- Donut: % vivido -->
+        <div class="chart-container">
+          <h2>Feriado Vivido</h2>
+          <svg class="donut-chart" viewBox="0 0 200 200">
+            <defs>
+              <linearGradient id="donutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffcf66"/>
+                <stop offset="45%" stop-color="#ff7ad9"/>
+                <stop offset="100%" stop-color="#ff4fa8"/>
+              </linearGradient>
+            </defs>
+            <circle class="background-ring" cx="100" cy="100" r="70"></circle>
+            <circle class="progress-ring" cx="100" cy="100" r="70"
+                    stroke="url(#donutGradient)"
+                    stroke-dasharray="0 440"
+                    stroke-dashoffset="0"
+                    transform="rotate(-90 100 100)"></circle>
+            <text id="donut-text" x="100" y="97" text-anchor="middle" font-size="22"></text>
+            <text id="donut-subtext" x="100" y="120" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">
+              do feriado
+            </text>
+          </svg>
+        </div>
+
+        <!-- Barra: tempo restante -->
+        <div class="chart-container">
+          <h2>Tempo Restante</h2>
+          <svg class="bar-chart">
+            <defs>
+              <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2c0f24"/>
+                <stop offset="40%" stop-color="#ff7ad9"/>
+                <stop offset="100%" stop-color="#ffcf66"/>
+              </linearGradient>
+            </defs>
+            <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+            <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+            <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="15"></text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="timers-wrapper">
+        <div class="timer-line">
+          <span class="timer-label">Já vivido</span>
+          <span class="timer-value" id="elapsed-text">–</span>
+        </div>
+        <div class="timer-line">
+          <span class="timer-label">Ainda resta</span>
+          <span class="timer-value" id="remaining-text">–</span>
+        </div>
+      </div>
+
+      <div id="minefield"></div>
+      <div class="legend">
+        Cada quadradinho aceso é <span>1%</span> do feriado já gasto na farra / descanso.
+      </div>
+    </div>
+
+    <!-- Emojis flutuantes estilo sticker -->
+    <div class="emoji-floating">🌴</div>
+    <div class="emoji-floating">🍹</div>
+    <div class="emoji-floating">🛌</div>
+  </div>
+
+  <script>
+    (function() {
+      // Feriado: início e fim
+      const startDate = new Date("2025-11-19T17:00:00");
+      const endDate   = new Date("2025-11-24T08:00:00");
+      const totalDuration = endDate - startDate;
+
+      const donutCircle = document.querySelector('.progress-ring');
+      const donutText   = document.getElementById('donut-text');
+      const barProgress = document.getElementById('bar-progress');
+      const barText     = document.getElementById('bar-text');
+      const elapsedEl   = document.getElementById('elapsed-text');
+      const remainingEl = document.getElementById('remaining-text');
+      const minefieldEl = document.getElementById('minefield');
+
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius;
+
+      // Grade 100%
+      const totalCells = 100;
+      for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        minefieldEl.appendChild(cell);
+      }
+      const cells = document.querySelectorAll('.cell');
+
+      function formatDHMS(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const days = Math.floor(totalSeconds / (24 * 3600));
+        const remainderDay = totalSeconds % (24 * 3600);
+        const hours = Math.floor(remainderDay / 3600);
+        const remainderHour = remainderDay % 3600;
+        const minutes = Math.floor(remainderHour / 60);
+        const seconds = remainderHour % 60;
+
+        const parts = [];
+        if (days)   parts.push(`${days}d`);
+        if (hours || days) parts.push(`${hours}h`);
+        if (minutes || hours || days) parts.push(`${minutes}m`);
+        parts.push(`${seconds}s`);
+        return parts.join(" ");
+      }
+
+      function update() {
+        const now = new Date();
+
+        let elapsed = now - startDate;
+        let remaining = endDate - now;
+
+        if (elapsed < 0) elapsed = 0;
+        if (elapsed > totalDuration) elapsed = totalDuration;
+
+        if (remaining < 0) remaining = 0;
+        if (remaining > totalDuration) remaining = totalDuration;
+
+        const percentElapsed = totalDuration > 0 ? (elapsed / totalDuration) : 0;
+        const percentRemaining = 1 - percentElapsed;
+
+        const percentText = (percentElapsed * 100).toFixed(2) + '%';
+
+        // Donut
+        const progressLength = percentElapsed * circumference;
+        const remainderLength = circumference - progressLength;
+        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
+        donutText.textContent = percentText;
+
+        // Barra: representa tempo restante
+        const barTotalWidth = 300;
+        const barWidth = percentRemaining * barTotalWidth;
+        barProgress.setAttribute('width', barWidth);
+        barText.textContent = (percentRemaining * 100).toFixed(1) + "% restante";
+
+        // Textos
+        if (now < startDate) {
+          elapsedEl.textContent   = "o feriado ainda não começou";
+          remainingEl.textContent = "faltam " + formatDHMS(startDate - now) + " para o primeiro minuto livre";
+        } else if (now > endDate) {
+          elapsedEl.textContent   = "100% do feriado vivido";
+          remainingEl.textContent = "0s — oficialmente encerrado";
+        } else {
+          elapsedEl.textContent   = formatDHMS(elapsed);
+          remainingEl.textContent = formatDHMS(remaining);
+        }
+
+        // Grade de porcentagem: acende o que já foi vivido
+        const cellsToLight = Math.floor(percentElapsed * totalCells);
+        cells.forEach((cell, index) => {
+          if (index < cellsToLight) {
+            cell.classList.add('lit');
+          } else {
+            cell.classList.remove('lit');
+          }
+        });
+
+        // Título da aba
+        document.title = `Feriado: ${(percentElapsed*100).toFixed(1)}% vivido`;
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
