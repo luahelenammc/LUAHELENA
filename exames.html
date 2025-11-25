@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Painel Skeuomórfico de Exames</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg1: #060712;
+      --bg2: #09051b;
+      --bg3: #05040b;
+
+      --card-top: #262337;
+      --card-mid: #1b1827;
+      --card-bot: #13101c;
+
+      --accent: #6ff2ff;        /* LED principal */
+      --accent-soft: rgba(111, 242, 255, 0.25);
+
+      --ok: #23e06f;
+      --mild: #ffd95c;
+      --moderate: #ff914d;
+      --high: #ff4365;
+
+      --text-main: #f6f7ff;
+      --text-muted: #b8bed8;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      background:
+        radial-gradient(1400px 800px at 0% 0%, #22235f, transparent 60%),
+        radial-gradient(1400px 800px at 100% 0%, #441b63, transparent 60%),
+        radial-gradient(1400px 900px at 50% 110%, #261034, transparent 70%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 50%, var(--bg3) 100%);
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .dashboard {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 960px) {
+      .dashboard {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Card base skeuo */
+    .card {
+      position: relative;
+      border-radius: 22px;
+      padding: 1.4rem 1.3rem;
+      background:
+        radial-gradient(130% 160% at 10% 0%, rgba(255,255,255,.12), transparent 60%),
+        linear-gradient(160deg, var(--card-top), var(--card-mid) 40%, var(--card-bot) 100%);
+      box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255,255,255,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        inset 0 -8px 20px rgba(0,0,0,0.85);
+      overflow: hidden;
+    }
+
+    .card::before {
+      /* brilho diagonal de vidro */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg,
+          rgba(255,255,255,0.18) 0%,
+          rgba(255,255,255,0.06) 18%,
+          transparent 45%,
+          transparent 100%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .card-subtitle {
+      margin-top: 2px;
+      font-size: .85rem;
+      color: rgba(226,231,248,0.85);
+    }
+
+    /* LED-título em estilo semáforo Mac OS X */
+    .title-led {
+      display: inline-flex;
+      gap: .4rem;
+    }
+
+    .title-bubble {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.95), transparent 55%),
+        radial-gradient(circle at 25% 80%, rgba(255,255,255,.4), transparent 55%),
+        linear-gradient(to bottom, #ffc5c5, #da3b3b);
+      box-shadow:
+        inset 0 0 2px rgba(0,0,0,0.7),
+        0 1px 0 rgba(255,255,255,.8),
+        0 0 10px rgba(255,86,94,0.8);
+    }
+
+    .title-bubble:nth-child(2) {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.95), transparent 55%),
+        radial-gradient(circle at 25% 80%, rgba(255,255,255,.4), transparent 55%),
+        linear-gradient(to bottom, #ffe9b0, #e5a632);
+      box-shadow:
+        inset 0 0 2px rgba(0,0,0,0.7),
+        0 1px 0 rgba(255,255,255,.8),
+        0 0 10px rgba(255,188,76,0.7);
+    }
+
+    .title-bubble:nth-child(3) {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.95), transparent 55%),
+        radial-gradient(circle at 25% 80%, rgba(255,255,255,.4), transparent 55%),
+        linear-gradient(to bottom, #b6ffb6, #18b55a);
+      box-shadow:
+        inset 0 0 2px rgba(0,0,0,0.7),
+        0 1px 0 rgba(255,255,255,.8),
+        0 0 10px rgba(76,255,140,0.8);
+    }
+
+    /* COLUNA ESQUERDA – cards individuais */
+
+    .exams-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: .7rem;
+      margin-top: .4rem;
+      z-index: 1;
+    }
+
+    .exam-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1.7fr) auto;
+      gap: .9rem;
+      padding: .65rem .8rem;
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, rgba(0,0,0,.45), rgba(255,255,255,.04));
+      box-shadow:
+        0 10px 18px rgba(0,0,0,0.7),
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        inset 0 -3px 8px rgba(0,0,0,0.9);
+      backdrop-filter: blur(6px);
+    }
+
+    .exam-card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 15px;
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.12),
+          transparent 36%,
+          rgba(0,0,0,.7));
+      opacity: .85;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .exam-severity-dot {
+      position: relative;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.95), transparent 60%),
+        radial-gradient(circle at 24% 80%, rgba(255,255,255,.35), transparent 55%),
+        linear-gradient(to bottom, #6c6c6c, #191919);
+      box-shadow:
+        inset 0 0 3px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(0,0,0,0.8),
+        0 10px 16px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .exam-severity-dot::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 60%);
+      box-shadow:
+        inset 0 0 4px rgba(0,0,0,0.6),
+        0 0 16px rgba(0,0,0,0.8);
+    }
+
+    .exam-severity-dot.ok::after {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.3), transparent 60%),
+        radial-gradient(circle at 50% 50%, var(--ok), var(--ok));
+      box-shadow:
+        inset 0 0 3px rgba(0,0,0,0.6),
+        0 0 20px color-mix(in oklab, var(--ok) 80%, transparent);
+    }
+
+    .exam-severity-dot.mild::after {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.3), transparent 60%),
+        radial-gradient(circle at 50% 50%, var(--mild), var(--mild));
+      box-shadow:
+        inset 0 0 3px rgba(0,0,0,0.6),
+        0 0 20px color-mix(in oklab, var(--mild) 85%, transparent);
+    }
+
+    .exam-severity-dot.moderate::after {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.3), transparent 60%),
+        radial-gradient(circle at 50% 50%, var(--moderate), var(--moderate));
+      box-shadow:
+        inset 0 0 3px rgba(0,0,0,0.6),
+        0 0 20px color-mix(in oklab, var(--moderate) 90%, transparent);
+    }
+
+    .exam-severity-dot.high::after {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.3), transparent 60%),
+        radial-gradient(circle at 50% 50%, var(--high), var(--high));
+      box-shadow:
+        inset 0 0 3px rgba(0,0,0,0.6),
+        0 0 22px color-mix(in oklab, var(--high) 85%, transparent);
+    }
+
+    .exam-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .exam-name {
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+
+    .exam-values {
+      margin-top: .2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem .75rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    .exam-values span strong {
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(111,242,255,.5);
+      font-weight: 700;
+    }
+
+    .exam-interpretation {
+      margin-top: .15rem;
+      font-size: .78rem;
+      opacity: .9;
+    }
+
+    .exam-interpretation.ok    { color: color-mix(in oklab, var(--ok) 80%, #d9ffe6); }
+    .exam-interpretation.mild  { color: color-mix(in oklab, var(--mild) 90%, #fff4d0); }
+    .exam-interpretation.moderate { color: color-mix(in oklab, var(--moderate) 92%, #ffe3d0); }
+    .exam-interpretation.high  { color: color-mix(in oklab, var(--high) 95%, #ffd6e1); }
+
+    /* Tubo de desvio (visual vertical) */
+
+    .deviation-column {
+      position: relative;
+      width: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .25rem;
+      z-index: 1;
+    }
+
+    .tube {
+      position: relative;
+      width: 18px;
+      height: 70px;
+      border-radius: 999px;
+      padding: 2px;
+      background:
+        linear-gradient(180deg, #ffffff44, #ffffff11 28%, #000000bb 100%);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.85),
+        0 6px 12px rgba(0,0,0,0.9),
+        inset 0 1px 0 rgba(255,255,255,0.75),
+        inset 0 -2px 4px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+
+    .tube::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(30px 20px at 50% 0%, rgba(255,255,255,.7), transparent 60%);
+      mix-blend-mode: screen;
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    .tube-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, #16161f, #050508);
+      overflow: hidden;
+    }
+
+    .tube-fill {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 100%;
+      transform-origin: bottom center;
+      transform: scaleY(var(--fill, 0));
+      border-radius: inherit;
+      background:
+        radial-gradient(18px 18px at 50% 0%, #ffffffaa, transparent 70%),
+        linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 40%, #00414a));
+      box-shadow:
+        0 0 20px var(--accent-soft),
+        0 -6px 16px rgba(0,0,0,0.7);
+      transition: transform .4s cubic-bezier(.21,.82,.32,.99);
+    }
+
+    .tube-label {
+      font-size: .72rem;
+      color: var(--text-muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .tube-percent {
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    .tube-percent.negative { color: #6fd3ff; }
+    .tube-percent.positive { color: #ffa5c0; }
+
+    /* COLUNA DIREITA – visão macro */
+
+    .macro-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    /* Donut físico de visão geral */
+
+    .donut-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      z-index: 1;
+    }
+
+    @media (max-width: 480px) {
+      .donut-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .donut {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background:
+        radial-gradient(80px 70px at 30% 0%, rgba(255,255,255,.18), transparent 60%),
+        radial-gradient(circle at 50% 50%, #181628 0, #020006 55%),
+        conic-gradient(var(--ok) 0deg 0deg, var(--mild) 0deg 0deg, var(--moderate) 0deg 0deg, var(--high) 0deg 0deg);
+      box-shadow:
+        0 24px 40px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(255,255,255,0.08),
+        inset 0 4px 12px rgba(255,255,255,0.06),
+        inset 0 -8px 20px rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .donut::before {
+      content: "";
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 0%, rgba(255,255,255,.38), transparent 70%),
+        linear-gradient(180deg, #171422, #0c0b15);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.12),
+        0 0 20px rgba(0,0,0,1);
+      z-index: 1;
+    }
+
+    .donut-number {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      font-size: 1.75rem;
+      font-weight: 800;
+      text-shadow:
+        0 0 12px rgba(0,0,0,.9),
+        0 0 24px rgba(0,0,0,.7);
+    }
+
+    .donut-number span {
+      background: linear-gradient(180deg, #ffffff, #9be3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .donut-caption {
+      font-size: .78rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: .2rem;
+      text-align: center;
+    }
+
+    .macro-text {
+      font-size: .86rem;
+      color: var(--text-muted);
+      max-width: 260px;
+      line-height: 1.4;
+    }
+
+    .macro-text strong {
+      color: var(--accent);
+      text-shadow: 0 0 12px rgba(111,242,255,.7);
+    }
+
+    .macro-badges {
+      margin-top: .8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .macro-badge {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,.85));
+      box-shadow:
+        0 5px 10px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,.1);
+    }
+
+    .macro-badge.ok       { border-color: color-mix(in oklab, var(--ok) 60%, transparent); }
+    .macro-badge.mild     { border-color: color-mix(in oklab, var(--mild) 60%, transparent); }
+    .macro-badge.moderate { border-color: color-mix(in oklab, var(--moderate) 60%, transparent); }
+    .macro-badge.high     { border-color: color-mix(in oklab, var(--high) 60%, transparent); }
+
+    /* Grade de quadradinhos: “painel metabólico” */
+
+    .matrix {
+      margin-top: .3rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .55rem;
+    }
+
+    @media (max-width: 480px) {
+      .matrix {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .matrix-tile {
+      position: relative;
+      border-radius: 12px;
+      padding: .5rem .55rem;
+      background:
+        radial-gradient(120% 120% at 10% 0%, rgba(255,255,255,.18), transparent 60%),
+        linear-gradient(180deg, #2c2836, #15121e);
+      box-shadow:
+        0 10px 20px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(0,0,0,0.9),
+        inset 0 1px 0 rgba(255,255,255,0.25),
+        inset 0 -4px 7px rgba(0,0,0,0.95);
+      overflow: hidden;
+    }
+
+    .matrix-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.15),
+          transparent 38%,
+          rgba(0,0,0,.8));
+      opacity: 0.8;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .matrix-label {
+      position: relative;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      z-index: 1;
+    }
+
+    .matrix-chip {
+      position: relative;
+      margin-top: .25rem;
+      padding: .25rem .45rem;
+      border-radius: 999px;
+      font-size: .7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      background: linear-gradient(135deg, rgba(0,0,0,.7), rgba(255,255,255,.06));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -2px 4px rgba(0,0,0,0.8);
+      z-index: 1;
+    }
+
+    .matrix-chip span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.9),
+        0 0 10px currentColor;
+      background:
+        radial-gradient(circle at 30% 20%, #fff, transparent 60%),
+        radial-gradient(circle at 50% 50%, currentColor, currentColor);
+    }
+
+    .matrix-chip.ok       { color: var(--ok); }
+    .matrix-chip.mild     { color: var(--mild); }
+    .matrix-chip.moderate { color: var(--moderate); }
+    .matrix-chip.high     { color: var(--high); }
+
+    .matrix-score {
+      margin-top: .15rem;
+      font-size: .72rem;
+      color: rgba(231,235,255,0.9);
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Pequena “legenda” */
+
+    .legend {
+      margin-top: .8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      font-size: .68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      margin-right: .3rem;
+      box-shadow: 0 0 10px currentColor;
+      background:
+        radial-gradient(circle at 30% 20%, #fff, transparent 60%),
+        radial-gradient(circle at 50% 50%, currentColor, currentColor);
+    }
+
+    .legend .l-ok       { color: var(--ok); }
+    .legend .l-mild     { color: var(--mild); }
+    .legend .l-moderate { color: var(--moderate); }
+    .legend .l-high     { color: var(--high); }
+
+  </style>
+</head>
+<body>
+  <main class="dashboard">
+    <!-- COLUNA ESQUERDA: lista de exames com tubo de desvio -->
+    <section class="card">
+      <header class="card-header">
+        <div class="title-led">
+          <div class="title-bubble"></div>
+          <div class="title-bubble"></div>
+          <div class="title-bubble"></div>
+        </div>
+        <div>
+          <div class="card-title">Painel metabólico</div>
+          <div class="card-subtitle">Foco no desvio em relação à faixa de referência</div>
+        </div>
+      </header>
+
+      <div class="exams-grid" id="examsGrid">
+        <!-- preenchido por JS -->
+      </div>
+
+      <div class="legend">
+        <span class="l-ok">Normal</span>
+        <span class="l-mild">Leve desvio</span>
+        <span class="l-moderate">Desvio moderado</span>
+        <span class="l-high">Desvio importante</span>
+      </div>
+    </section>
+
+    <!-- COLUNA DIREITA: visão macro / donuts / matriz -->
+    <section class="card">
+      <header class="card-header">
+        <div class="title-led">
+          <div class="title-bubble"></div>
+          <div class="title-bubble"></div>
+          <div class="title-bubble"></div>
+        </div>
+        <div>
+          <div class="card-title">Desvio global</div>
+          <div class="card-subtitle">Resumo visual de quantos marcadores escapam da zona segura</div>
+        </div>
+      </header>
+
+      <div class="macro-stack">
+        <div class="donut-wrapper">
+          <div class="donut" id="donut">
+            <div class="donut-number">
+              <span id="donutNumber">0%</span>
+            </div>
+          </div>
+          <div>
+            <div class="macro-text">
+              Este donut soma o “peso” de todos os desvios. Quanto mais <strong>cheio</strong>,
+              maior a carga metabólica fora da faixa de referência.
+            </div>
+            <div class="macro-badges" id="macroBadges">
+              <!-- badges gerados via JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="matrix" id="matrix">
+          <!-- mosaico de exames gerado via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Dados dos exames – valores em número e faixas de referência
+    const exams = [
+      {
+        name: "Glicose em jejum",
+        result: 92,
+        unit: "mg/dL",
+        refType: "range",
+        refLow: 70,
+        refHigh: 99,
+        refText: "70–99 mg/dL",
+        interpretation: "Normal (mas com histórico de oscilação)"
+      },
+      {
+        name: "Triglicérides",
+        result: 222,
+        unit: "mg/dL",
+        refType: "max",
+        refHigh: 150,
+        refText: "<150 mg/dL",
+        interpretation: "Alto (compatível com resistência à insulina)"
+      },
+      {
+        name: "Colesterol total",
+        result: 195,
+        unit: "mg/dL",
+        refType: "max",
+        refHigh: 190,
+        refText: "<190 mg/dL",
+        interpretation: "Levemente alto"
+      },
+      {
+        name: "HDL",
+        result: 43,
+        unit: "mg/dL",
+        refType: "min",
+        refLow: 40,
+        refText: ">40 mg/dL",
+        interpretation: "Adequado"
+      },
+      {
+        name: "LDL (Fórmula Martin)",
+        result: 119,
+        unit: "mg/dL",
+        refType: "max",
+        refHigh: 115,
+        refText: "<115 mg/dL (risco baixo)",
+        interpretation: "Levemente alto"
+      },
+      {
+        name: "Não-HDL",
+        result: 152,
+        unit: "mg/dL",
+        refType: "max",
+        refHigh: 145,
+        refText: "<145 mg/dL",
+        interpretation: "Levemente alto"
+      },
+      {
+        name: "VLDL",
+        result: 33,
+        unit: "mg/dL",
+        refType: "max",
+        refHigh: 30,
+        refText: "Até 30 mg/dL",
+        interpretation: "Discretamente alto"
+      },
+      {
+        name: "Hemoglobina",
+        result: 13.8,
+        unit: "g/dL",
+        refType: "range",
+        refLow: 12,
+        refHigh: 16,
+        refText: "12–16 g/dL",
+        interpretation: "Normal"
+      },
+      {
+        name: "Leucócitos",
+        result: 7100,
+        unit: "/mm³",
+        refType: "range",
+        refLow: 4000,
+        refHigh: 11000,
+        refText: "4.000–11.000",
+        interpretation: "Normal"
+      },
+      {
+        name: "Plaquetas",
+        result: 261000,
+        unit: "/mm³",
+        refType: "range",
+        refLow: 150000,
+        refHigh: 400000,
+        refText: "150.000–400.000",
+        interpretation: "Normal"
+      },
+      {
+        name: "Albumina",
+        result: 4.4,
+        unit: "g/dL",
+        refType: "range",
+        refLow: 3.5,
+        refHigh: 5.2,
+        refText: "3,5–5,2 g/dL",
+        interpretation: "Normal"
+      },
+      {
+        name: "Proteínas totais",
+        result: 7.4,
+        unit: "g/dL",
+        refType: "range",
+        refLow: 6.0,
+        refHigh: 8.3,
+        refText: "6,0–8,3 g/dL",
+        interpretation: "Normal"
+      }
+    ];
+
+    function computeDeviation(exam) {
+      const v = exam.result;
+      let direction = 0; // -1 abaixo, 0 dentro, +1 acima
+      let devRatio = 0;
+
+      if (exam.refType === "range") {
+        if (v < exam.refLow) {
+          direction = -1;
+          devRatio = (exam.refLow - v) / exam.refLow;
+        } else if (v > exam.refHigh) {
+          direction = 1;
+          devRatio = (v - exam.refHigh) / exam.refHigh;
+        }
+      } else if (exam.refType === "max") {
+        if (v > exam.refHigh) {
+          direction = 1;
+          devRatio = (v - exam.refHigh) / exam.refHigh;
+        }
+      } else if (exam.refType === "min") {
+        if (v < exam.refLow) {
+          direction = -1;
+          devRatio = (exam.refLow - v) / exam.refLow;
+        }
+      }
+
+      // Limiar “humanizado”: tudo que passar de 60% de desvio é tratado como 60% no tubo
+      const cappedRatio = Math.min(devRatio, 0.6);
+      const visualFill = cappedRatio / 0.6; // 0–1 para preencher o tubo
+
+      let severity;
+      if (devRatio === 0) {
+        severity = "ok";
+      } else if (devRatio < 0.1) {
+        severity = "mild";
+      } else if (devRatio < 0.25) {
+        severity = "moderate";
+      } else {
+        severity = "high";
+      }
+
+      return {
+        direction,
+        devRatio,
+        visualFill,
+        severity,
+        devPercent: devRatio * 100
+      };
+    }
+
+    function buildExamCards() {
+      const grid = document.getElementById("examsGrid");
+      exams.forEach(exam => {
+        const dev = computeDeviation(exam);
+
+        const card = document.createElement("article");
+        card.className = "exam-card";
+
+        // LED de severidade
+        const dot = document.createElement("div");
+        dot.className = "exam-severity-dot " + dev.severity;
+
+        // Parte de texto principal
+        const main = document.createElement("div");
+        main.className = "exam-main";
+
+        const name = document.createElement("div");
+        name.className = "exam-name";
+        name.textContent = exam.name;
+
+        const values = document.createElement("div");
+        values.className = "exam-values";
+        values.innerHTML =
+          `<span><strong>${exam.result}</strong> ${exam.unit}</span>` +
+          `<span>ref.: ${exam.refText}</span>`;
+
+        const interp = document.createElement("div");
+        interp.className = "exam-interpretation " + dev.severity;
+        const devLabel = dev.devRatio === 0
+          ? "dentro da faixa"
+          : `${dev.devPercent.toFixed(1)}% ${dev.direction > 0 ? "acima" : "abaixo"} do limite`;
+        interp.textContent = `${exam.interpretation} · ${devLabel}`;
+
+        main.appendChild(name);
+        main.appendChild(values);
+        main.appendChild(interp);
+
+        // Tubo de desvio
+        const devCol = document.createElement("div");
+        devCol.className = "deviation-column";
+
+        const tube = document.createElement("div");
+        tube.className = "tube";
+        const tubeInner = document.createElement("div");
+        tubeInner.className = "tube-inner";
+        const tubeFill = document.createElement("div");
+        tubeFill.className = "tube-fill";
+        tubeFill.style.setProperty("--fill", dev.visualFill.toFixed(3));
+        tubeInner.appendChild(tubeFill);
+        tube.appendChild(tubeInner);
+
+        const tubeLabel = document.createElement("div");
+        tubeLabel.className = "tube-label";
+        tubeLabel.textContent = "Desvio";
+
+        const tubePercent = document.createElement("div");
+        tubePercent.className = "tube-percent " +
+          (dev.direction >= 0 ? "positive" : "negative");
+        tubePercent.textContent = dev.devRatio === 0
+          ? "0%"
+          : (dev.devPercent > 999 ? ">999%" : dev.devPercent.toFixed(0) + "%");
+
+        devCol.appendChild(tube);
+        devCol.appendChild(tubeLabel);
+        devCol.appendChild(tubePercent);
+
+        card.appendChild(dot);
+        card.appendChild(main);
+        card.appendChild(devCol);
+        grid.appendChild(card);
+      });
+    }
+
+    function buildMacroView() {
+      const donut = document.getElementById("donut");
+      const donutNumber = document.getElementById("donutNumber");
+      const macroBadges = document.getElementById("macroBadges");
+      const matrix = document.getElementById("matrix");
+
+      let sumWeightedDeviation = 0;
+      let countDeviated = 0;
+      const counts = { ok: 0, mild: 0, moderate: 0, high: 0 };
+
+      exams.forEach(exam => {
+        const dev = computeDeviation(exam);
+        counts[dev.severity] += 1;
+        if (dev.devRatio > 0) {
+          // peso levemente maior para triglicérides, LDL e Não-HDL
+          const isMetabolicCore = /Triglicérides|LDL|Não-HDL|Colesterol total/.test(exam.name);
+          const weight = isMetabolicCore ? 1.4 : 1;
+          sumWeightedDeviation += dev.devRatio * weight;
+          countDeviated++;
+        }
+
+        // tile da matriz
+        const tile = document.createElement("div");
+        tile.className = "matrix-tile";
+
+        const label = document.createElement("div");
+        label.className = "matrix-label";
+        label.textContent = exam.name.replace(" (Fórmula Martin)", "");
+
+        const chip = document.createElement("div");
+        chip.className = "matrix-chip " + dev.severity;
+        const led = document.createElement("span");
+        const chipText = document.createTextNode(
+          dev.devRatio === 0 ? "ok" :
+            dev.direction > 0 ? "acima" : "abaixo"
+        );
+        chip.appendChild(led);
+        chip.appendChild(chipText);
+
+        const score = document.createElement("div");
+        score.className = "matrix-score";
+        if (dev.devRatio === 0) {
+          score.textContent = "Alinhado à referência";
+        } else {
+          score.textContent = dev.devPercent.toFixed(1) + "% do exame fora da zona neutra";
+        }
+
+        tile.appendChild(label);
+        tile.appendChild(chip);
+        tile.appendChild(score);
+        matrix.appendChild(tile);
+      });
+
+      const total = exams.length;
+      const fractionDeviated = total ? countDeviated / total : 0;
+      // índice global: mistura “quantos” e “quão longe”
+      const globalIndex = Math.min(
+        1,
+        (fractionDeviated * 0.4) + (sumWeightedDeviation / total) * 0.8
+      );
+      const globalPercent = (globalIndex * 100);
+
+      donutNumber.textContent = globalPercent.toFixed(0) + "%";
+
+      // Constrói o conic-gradient com base nos counts
+      const totalForAngles = total || 1;
+      const angleOk = 360 * (counts.ok / totalForAngles);
+      const angleMild = 360 * (counts.mild / totalForAngles);
+      const angleModerate = 360 * (counts.moderate / totalForAngles);
+      const angleHigh = 360 * (counts.high / totalForAngles);
+
+      let start = 0;
+      const stopOk = start + angleOk;
+      const stopMild = stopOk + angleMild;
+      const stopModerate = stopMild + angleModerate;
+      const stopHigh = stopModerate + angleHigh;
+
+      donut.style.background =
+        `radial-gradient(80px 70px at 30% 0%, rgba(255,255,255,.18), transparent 60%),` +
+        `radial-gradient(circle at 50% 50%, #181628 0, #020006 55%),` +
+        `conic-gradient(` +
+          `var(--ok) 0deg ${stopOk}deg,` +
+          `var(--mild) ${stopOk}deg ${stopMild}deg,` +
+          `var(--moderate) ${stopMild}deg ${stopModerate}deg,` +
+          `var(--high) ${stopModerate}deg ${stopHigh}deg` +
+        `)`;
+
+      // Badges de resumo (“chips” de contagem)
+      const entries = [
+        { label: "Normais", key: "ok" },
+        { label: "Leve desvio", key: "mild" },
+        { label: "Desvio moderado", key: "moderate" },
+        { label: "Desvio importante", key: "high" }
+      ];
+      entries.forEach(entry => {
+        const badge = document.createElement("div");
+        badge.className = "macro-badge " + entry.key;
+        badge.textContent = `${entry.label}: ${counts[entry.key]}`;
+        macroBadges.appendChild(badge);
+      });
+    }
+
+    buildExamCards();
+    buildMacroView();
+  </script>
+</body>
+</html>
