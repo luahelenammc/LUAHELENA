@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Painel Skeuomórfico de Exames</title>
+  <title>Exames Lua (NOV 25) Pré-Mounjaro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -648,7 +648,7 @@
           <div class="title-bubble"></div>
         </div>
         <div>
-          <div class="card-title">Painel metabólico</div>
+          <div class="card-title">Painel metabólico (NOV 25 • Pré-Mounjaro)</div>
           <div class="card-subtitle">Foco no desvio em relação à faixa de referência</div>
         </div>
       </header>
@@ -820,7 +820,66 @@
         refHigh: 8.3,
         refText: "6,0–8,3 g/dL",
         interpretation: "Normal"
-      }
+      },
+        {
+    name: "TSH",
+    result: 1.96,
+    unit: "µUI/mL",
+    refType: "range",
+    refLow: 0.27,
+    refHigh: 4.20,
+    refText: "0,27–4,20",
+    interpretation: "Tireoide normal"
+  },
+  {
+    name: "Ferritina",
+    result: 44.9,
+    unit: "ng/mL",
+    refType: "range",
+    refLow: 13.0,
+    refHigh: 150.0,
+    refText: "13,0–150,0",
+    interpretation: "Estoque de ferro normal"
+  },
+  {
+    name: "Testosterona total",
+    result: 22,
+    unit: "ng/dL",
+    refType: "range",
+    refLow: 13,
+    refHigh: 53,
+    refText: "13–53 (faixa feminina)",
+    interpretation: "Dentro do esperado"
+  },
+  {
+    name: "Estradiol",
+    result: 91,
+    unit: "pg/mL",
+    refType: "range",
+    refLow: 23,
+    refHigh: 139,
+    refText: "23–139 (faixa feminina)",
+    interpretation: "Dentro do esperado (coletado logo após a dose)"
+  },
+  {
+    name: "Vitamina B12",
+    result: 194,
+    unit: "pg/mL",
+    refType: "range",
+    refLow: 180,
+    refHigh: 900,
+    refText: "180–900",
+    interpretation: "Baixa-normal (limite inferior)"
+  },
+  {
+    name: "Vitamina D (25-OH)",
+    result: 20.9,
+    unit: "ng/mL",
+    refType: "min",
+    refLow: 20,
+    refText: "≥20",
+    interpretation: "Baixa-normal; ideal seria ≥30"
+  }
     ];
 
     function computeDeviation(exam) {
