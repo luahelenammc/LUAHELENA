@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Painel de Semana — Timer Skeuo com Cubinhos</title>
+  <title>Painel da Semana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * {
@@ -167,8 +167,6 @@
       color: var(--week-lime);
     }
 
-    /* ==== Cards gerais ==== */
-
     .grid {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
@@ -245,8 +243,6 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
-
-    /* ==== Card FIM DE SEMANA (Donut rosa) ==== */
 
     .weekend-layout {
       display: grid;
@@ -431,8 +427,6 @@
         0 10px 24px rgba(0, 0, 0, 0.95);
     }
 
-    /* ==== Card SEMANA ==== */
-
     .tube-wrapper {
       margin-top: 0.4rem;
       position: relative;
@@ -508,8 +502,6 @@
       font-size: 0.76rem;
       color: var(--text-muted);
     }
-
-    /* ==== Card HORAS DE TRABALHO POR DIA ==== */
 
     .work-days {
       margin-top: 0.5rem;
@@ -590,8 +582,6 @@
       color: var(--week-lime);
       font-weight: 600;
     }
-
-    /* ==== Card CUBINHOS DE VIDRO ==== */
 
     .glass-grids {
       display: flex;
@@ -684,7 +674,6 @@
         box-shadow 0.18s ease;
     }
 
-    /* Fim de semana: apagado e aceso */
     .glass-cell.weekend-off {
       background:
         radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.10), transparent 55%),
@@ -706,7 +695,6 @@
       transform: translateY(-1px);
     }
 
-    /* Semana fora do expediente: azul, apagado/aceso */
     .glass-cell.week-off {
       background:
         radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.10), transparent 55%),
@@ -728,7 +716,6 @@
       transform: translateY(-1px);
     }
 
-    /* Expediente: verde, apagado/aceso */
     .glass-cell.work-off {
       background:
         radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.10), transparent 55%),
@@ -815,7 +802,7 @@
 
     <header class="dashboard-header">
       <div class="title-block">
-        <h1>Semana</h1>
+        <h1>Timer da Semana</h1>
         <p>
           Painel skeuomórfico acompanhando o ciclo da semana:
           <strong>fim de semana em rosa</strong> (sexta 17h &rarr; domingo),
@@ -997,7 +984,7 @@
           </div>
         </section>
 
-        <!-- Card EXTRA (texto, leitura rápida) -->
+        <!-- Card EXTRA -->
         <section class="card">
           <div class="card-inner">
             <div class="card-title">Leitura rápida</div>
@@ -1020,7 +1007,8 @@
           <div class="card-caption">
             Os cubinhos em vidro são dois universos: rosa para o <strong>fim de semana</strong>,
             e um campo onde a <strong>semana inteira</strong> aparece em azul (fora do expediente)
-            e o <strong>expediente</strong> aparece em verde-lima, já intercalados cronologicamente.
+            e o <strong>expediente</strong> aparece em verde-lima, com o fim de semana em rosa
+            também dentro desse grid completo.
           </div>
 
           <div class="glass-grids">
@@ -1034,23 +1022,27 @@
               <div class="glass-grid glass-grid-weekend" id="weekendGrid"></div>
             </div>
 
-            <!-- Bloco 2: Semana + Expediente no MESMO GRID -->
+            <!-- Bloco 2: Semana + Expediente + Fim de semana no MESMO GRID -->
             <div class="glass-grid-block">
               <div class="glass-grid-label">
                 <span class="glass-dot week"></span>
                 Semana &amp; expediente
               </div>
               <div class="glass-grid-sub">
-                Cubinhos <span style="color: var(--week-cyan);">azuis</span> são tempo da semana fora do expediente
-                (inclui noites e fim de semana), e cubinhos <span style="color: var(--week-lime);">verde-lima</span>
-                são tempo de expediente. A cor aparece em modo apagado e aceso conforme o tempo já vivido.
+                <span style="color: var(--week-lime);">Verde-lima</span> = expediente (seg–sex, 8h–17h);
+                <span style="color: var(--week-cyan);">azul</span> = semana fora do expediente;
+                <span style="color: var(--weekend-main);">rosa</span> = fim de semana,
+                tudo seguindo a linha do tempo.
               </div>
               <div class="glass-dual-grid">
                 <div class="glass-mini-label">
-                  <span style="color: var(--week-cyan);">Azul</span> = semana fora do expediente
+                  <span style="color: var(--week-cyan);">Azul</span> = descanso em dia útil / noite
                 </div>
                 <div class="glass-mini-label">
-                  <span style="color: var(--week-lime);">Verde-lima</span> = expediente (seg–sex, 8h–17h)
+                  <span style="color: var(--week-lime);">Verde-lima</span> = expediente (45h)
+                </div>
+                <div class="glass-mini-label">
+                  <span style="color: var(--weekend-main);">Rosa</span> = fim de semana dentro da semana completa
                 </div>
               </div>
               <div class="glass-grid glass-grid-week" id="weekGrid"></div>
@@ -1061,7 +1053,7 @@
     </main>
 
     <footer>
-      <span>Donut rosa, tubos neon e cubinhos de vidro em azul e verde-lima seguindo a linha do tempo da semana.</span>
+      <span>Donut rosa, tubos neon e cubinhos de vidro em azul, verde-lima e rosa seguindo a linha do tempo da semana.</span>
     </footer>
   </div>
 
@@ -1175,26 +1167,37 @@
       });
     }
 
+    // Semana + expediente + fim de semana no MESMO grid
     function updateWeekWorkGlassGrid(now, windows) {
       const grid = document.getElementById("weekGrid");
       if (!grid) return;
       const cells = grid.querySelectorAll(".glass-cell");
       if (!cells.length) return;
 
-      const { weekStart, weekEnd } = windows;
+      const { weekStart, weekEnd, weekendStart, weekendEnd } = windows;
       const totalMs = weekEnd.getTime() - weekStart.getTime();
       const nowMs = now.getTime();
       const totalCells = cells.length;
 
       cells.forEach((cell, index) => {
-        cell.classList.remove("week-lit", "work-lit", "week-off", "work-off", "weekend-lit", "weekend-off");
+        cell.classList.remove(
+          "week-lit",
+          "work-lit",
+          "week-off",
+          "work-off",
+          "weekend-lit",
+          "weekend-off"
+        );
 
         const tMid = new Date(weekStart.getTime() + (index + 0.5) * totalMs / totalCells);
         const elapsed = tMid.getTime() <= nowMs;
         const inWork = isWorkTime(tMid);
+        const inWeekend = tMid >= weekendStart && tMid < weekendEnd;
 
         if (inWork) {
           cell.classList.add(elapsed ? "work-lit" : "work-off");
+        } else if (inWeekend) {
+          cell.classList.add(elapsed ? "weekend-lit" : "weekend-off");
         } else {
           cell.classList.add(elapsed ? "week-lit" : "week-off");
         }
@@ -1408,4 +1411,4 @@
     setInterval(tick, 1000);
   </script>
 </body>
-</html>
+  </html>
