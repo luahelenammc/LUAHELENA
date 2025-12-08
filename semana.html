@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Painel de Fim de Semana — Timer Skeuo com Cubinhos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg1: #05030f;
+      --bg2: #090518;
+      --bg3: #05030a;
+
+      --card-top: #181327;
+      --card-mid: #130f20;
+      --card-bot: #0b0814;
+
+      --weekend-main: #ff7ad9;
+      --weekend-strong: #ff4fa8;
+      --weekend-soft: rgba(255, 122, 217, 0.28);
+
+      --week-cyan: #37f0ff;
+      --week-lime: #b6ff3b;
+
+      --text-main: #fdf7ff;
+      --text-muted: #b8adc9;
+
+      --weekend-progress: 0; /* 0–1 */
+      --week-progress: 0;    /* 0–1 */
+      --work-progress: 0;    /* 0–1 */
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      background:
+        radial-gradient(1600px 900px at 0% 0%, #321e62, transparent 60%),
+        radial-gradient(1600px 900px at 100% 0%, #411348, transparent 60%),
+        radial-gradient(1900px 1100px at 50% 120%, #261040, transparent 70%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 40%, var(--bg3) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 1.2rem;
+    }
+
+    .dashboard {
+      width: min(1120px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      position: relative;
+    }
+
+    .glow-orbit {
+      position: absolute;
+      inset: -40px;
+      background:
+        radial-gradient(900px 260px at 50% -10%, rgba(255, 122, 217, 0.25), transparent 60%),
+        radial-gradient(900px 260px at 20% 120%, rgba(55, 240, 255, 0.2), transparent 70%),
+        radial-gradient(900px 260px at 80% 120%, rgba(182, 255, 59, 0.2), transparent 70%);
+      opacity: 0.95;
+      pointer-events: none;
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    header.dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .title-block h1 {
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+    }
+
+    .title-block p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .now-pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(145deg, #18142a, #0c0814);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 10px 25px rgba(0, 0, 0, 0.65);
+      display: flex;
+      gap: 0.35rem;
+      align-items: baseline;
+      font-size: 0.86rem;
+    }
+
+    .now-pill-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .now-pill-time {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.8rem;
+      margin-top: 0.2rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(7, 5, 16, 0.7);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.8),
+        0 0 6px currentColor;
+    }
+
+    .legend-dot.weekend {
+      background: radial-gradient(circle at 30% 20%, #ffe2f6, #ff4fa8 60%, #5b082f 100%);
+      color: var(--weekend-main);
+    }
+
+    .legend-dot.week {
+      background: radial-gradient(circle at 30% 20%, #e8feff, #37f0ff 60%, #035769 100%);
+      color: var(--week-cyan);
+    }
+
+    .legend-dot.work {
+      background: radial-gradient(circle at 30% 20%, #f5ffda, #b6ff3b 60%, #37520a 100%);
+      color: var(--week-lime);
+    }
+
+    /* ==== Cards gerais ==== */
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 1.2rem;
+    }
+
+    .grid-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid,
+      .grid-bottom {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      position: relative;
+      border-radius: 22px;
+      background:
+        radial-gradient(160% 140% at 50% 0%, rgba(255, 255, 255, 0.09), transparent 60%),
+        linear-gradient(180deg, var(--card-top), var(--card-mid) 40%, var(--card-bot) 100%);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -16px 26px rgba(0, 0, 0, 0.8);
+      padding: 1.1rem 1.2rem 1.2rem;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.14),
+          transparent 26%,
+          transparent 74%,
+          rgba(0, 0, 0, 0.5)
+        );
+      mix-blend-mode: soft-light;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .card-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+    }
+
+    .card-main-line {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==== Card FIM DE SEMANA (Donut rosa) ==== */
+
+    .weekend-layout {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 650px) {
+      .weekend-layout {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+      }
+    }
+
+    .donut-shell {
+      width: min(220px, 50vw);
+      aspect-ratio: 1 / 1;
+      position: relative;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+    }
+
+    .donut-shell::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3), transparent 60%),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.6), transparent 70%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .donut-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .donut-track {
+      fill: none;
+      stroke: rgba(10, 4, 16, 0.9);
+      stroke-width: 16;
+      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.8));
+    }
+
+    .donut-progress {
+      fill: none;
+      stroke-linecap: round;
+      stroke-width: 16;
+      stroke: url(#weekendGradient);
+      filter:
+        drop-shadow(0 0 16px rgba(255, 122, 217, 0.9))
+        drop-shadow(0 0 28px rgba(255, 79, 168, 0.6));
+      stroke-dasharray: 289;
+      stroke-dashoffset: calc(289 * (1 - var(--weekend-progress)));
+      transition: stroke-dashoffset 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 24%;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3), transparent 65%),
+        linear-gradient(180deg, #14061e, #07020f);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -10px 18px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+      text-align: center;
+    }
+
+    .donut-number {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .donut-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .weekend-status-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.74rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.1), transparent 60%),
+        linear-gradient(145deg, rgba(255, 122, 217, 0.22), rgba(0, 0, 0, 0.7));
+      box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .badge-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.66rem;
+      color: var(--text-muted);
+    }
+
+    .badge-value {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    .weekend-text-main {
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==== Card SEMANA (tubo ciano/lima) ==== */
+
+    .tube-wrapper {
+      margin-top: 0.4rem;
+      position: relative;
+    }
+
+    .tube {
+      position: relative;
+      height: 26px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, #05060b, #030308);
+      box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.08),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.9),
+        0 12px 26px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+    }
+
+    .tube-inner {
+      position: absolute;
+      inset: 2px;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.45), transparent 55%),
+        linear-gradient(90deg, rgba(55, 240, 255, 0.2), rgba(182, 255, 59, 0.18));
+      mix-blend-mode: screen;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .tube-fill {
+      position: absolute;
+      inset: 2px;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          var(--week-cyan),
+          #00ffd0,
+          var(--week-lime)
+        );
+      box-shadow:
+        0 0 14px rgba(55, 240, 255, 0.9),
+        0 0 32px rgba(182, 255, 59, 0.7);
+      transform-origin: left center;
+      transform: scaleX(var(--week-progress));
+      transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .tube-mask {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 26%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .tube-scale {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.6rem;
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      pointer-events: none;
+    }
+
+    .tube-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.45rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==== Card HORAS DE TRABALHO (por dia) ==== */
+
+    .work-days {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .work-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .work-day-label {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .work-bar-shell {
+      height: 16px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, #05060a, #030308);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.8),
+        0 8px 18px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-bar-track {
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, rgba(55, 240, 255, 0.04), rgba(182, 255, 59, 0.04));
+      opacity: 0.85;
+    }
+
+    .work-bar-fill {
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      transform-origin: left center;
+      transform: scaleX(0);
+      background:
+        linear-gradient(90deg, #38f4ff, #5cffb4, #b6ff3b);
+      box-shadow:
+        0 0 10px rgba(56, 244, 255, 0.9),
+        0 0 22px rgba(182, 255, 59, 0.8);
+      transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  opacity 0.4s ease;
+      opacity: 0.2;
+    }
+
+    .work-bar-fill.current {
+      opacity: 1;
+    }
+
+    .work-hours-text {
+      font-variant-numeric: tabular-nums;
+      color: var(--text-muted);
+    }
+
+    .work-total-line {
+      margin-top: 0.5rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .work-total-highlight {
+      color: var(--week-lime);
+      font-weight: 600;
+    }
+
+    /* Pequeno painel de blocos de semana (pixels) */
+
+    .pixel-week {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .pixel {
+      flex: 1;
+      height: 16px;
+      border-radius: 6px;
+      background:
+        linear-gradient(180deg, #10111c, #05040b);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 6px 12px rgba(0, 0, 0, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pixel::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 0, rgba(255, 255, 255, 0.45), transparent 60%);
+      opacity: 0.12;
+    }
+
+    .pixel.labelled {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .pixel.weekend {
+      background:
+        radial-gradient(circle at 30% 20%, #ffe7f7, #ff7ad9 50%, #5a0b3c 100%);
+      box-shadow:
+        0 0 8px rgba(255, 122, 217, 0.8),
+        0 10px 22px rgba(0, 0, 0, 0.9);
+      color: #2a0217;
+      font-weight: 600;
+    }
+
+    .pixel.current {
+      outline: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow:
+        0 0 10px rgba(55, 240, 255, 0.9),
+        0 10px 24px rgba(0, 0, 0, 0.95);
+    }
+
+    /* ==== Leitura rápida ==== */
+
+    /* (mantém estrutura básica do card, sem cubos aqui;
+       os cubinhos principais virão no card dedicado abaixo) */
+
+    /* ==== Card CUBINHOS DE VIDRO (inspirado no anexo) ==== */
+
+    .glass-grids {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .glass-grid-block {
+      flex: 1 1 220px;
+      min-width: 0;
+      padding: 0.7rem 0.8rem 0.8rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 0% 0%, rgba(255, 255, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, #151424, #0b0d16);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        inset 0 12px 20px rgba(255, 255, 255, 0.02),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .glass-grid-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .glass-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.8),
+        0 0 6px currentColor;
+    }
+
+    .glass-dot.weekend {
+      background: radial-gradient(circle at 30% 20%, #ffe2f6, #ff4fa8 60%, #5b082f 100%);
+      color: var(--weekend-main);
+    }
+
+    .glass-dot.week {
+      background: radial-gradient(circle at 30% 20%, #e8feff, #37f0ff 60%, #035769 100%);
+      color: var(--week-cyan);
+    }
+
+    .glass-dot.work {
+      background: radial-gradient(circle at 30% 20%, #f5ffda, #b6ff3b 60%, #37520a 100%);
+      color: var(--week-lime);
+    }
+
+    .glass-grid-sub {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .glass-grid {
+      margin-top: 0.25rem;
+      display: grid;
+      grid-template-columns: repeat(10, 20px);
+      grid-auto-rows: 20px;
+      grid-gap: 5px;
+      justify-content: flex-start;
+    }
+
+    .glass-cell {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
+        linear-gradient(180deg, #141823, #090c12);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 2px 4px rgba(0,0,0,0.85);
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .glass-cell.weekend-lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #ffe7f7, #ff7ad9);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 10px rgba(255,122,217,0.9),
+        0 4px 8px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
+    }
+
+    .glass-cell.week-lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #e9ffff, #37f0ff);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 10px rgba(55,240,255,0.9),
+        0 4px 8px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
+    }
+
+    .glass-cell.work-lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.26), transparent 55%),
+        linear-gradient(180deg, #f6ffea, #aaff45);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 10px rgba(182,255,59,0.95),
+        0 4px 8px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
+    }
+
+    .glass-cell:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.18),
+        0 12px 22px rgba(0, 0, 0, 0.95);
+    }
+
+    footer {
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    footer span {
+      opacity: 0.8;
+    }
+
+    /* Responsivo leve */
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.7rem;
+      }
+      .card {
+        border-radius: 18px;
+        padding: 0.9rem 0.9rem 1rem;
+      }
+      .donut-shell {
+        width: min(190px, 70vw);
+      }
+      .glass-grid {
+        grid-template-columns: repeat(10, 18px);
+        grid-auto-rows: 18px;
+      }
+      .glass-cell {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="glow-orbit" aria-hidden="true"></div>
+
+    <header class="dashboard-header">
+      <div class="title-block">
+        <h1>Timer de Fim de Semana</h1>
+        <p>
+          Painel skeuomórfico acompanhando o ciclo da semana:
+          <strong>fim de semana em rosa</strong> (sexta 17h &rarr; domingo),
+          dias úteis em <strong>ciano / verde-lima</strong> e
+          destaque neon para <strong>horário de trabalho (seg–sex 8h–17h)</strong>.
+        </p>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="legend-dot weekend"></span>
+            Fim de semana (sex 17h &rarr; seg 0h)
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot week"></span>
+            Semana corrente
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot work"></span>
+            Horário de trabalho (8h–17h)
+          </div>
+        </div>
+      </div>
+
+      <div class="now-pill">
+        <span class="now-pill-label">Agora</span>
+        <span class="now-pill-time" id="nowString">--:--</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <!-- Card FIM DE SEMANA -->
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-title">Fim de semana — painel principal</div>
+            <div class="weekend-layout">
+              <div class="donut-shell">
+                <svg class="donut-svg" viewBox="0 0 120 120">
+                  <defs>
+                    <linearGradient id="weekendGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffe2f6" />
+                      <stop offset="40%" stop-color="#ff7ad9" />
+                      <stop offset="100%" stop-color="#ff4fa8" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="donut-track" cx="60" cy="60" r="46" />
+                  <circle class="donut-progress" cx="60" cy="60" r="46" />
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-number" id="weekendPercent">0%</div>
+                  <div class="donut-label" id="weekendLabel">até o próximo fim de semana</div>
+                </div>
+              </div>
+
+              <div>
+                <div class="card-main-line" id="weekendMainText">
+                  Calculando o ciclo do fim de semana…
+                </div>
+                <p class="card-caption" id="weekendSubText">
+                  Considerando o fim de semana como o período de <strong>sexta-feira 17h</strong> até
+                  <strong>segunda-feira 00h</strong> desta semana.
+                </p>
+
+                <div class="weekend-status-badges">
+                  <div class="badge" id="badgeToWeekend">
+                    <span class="badge-label">Falta / Sobrou</span>
+                    <span class="badge-value">--</span>
+                  </div>
+                  <div class="badge" id="badgeWeekendWindow">
+                    <span class="badge-label">Janela</span>
+                    <span class="badge-value">sex 17h &rarr; seg 00h</span>
+                  </div>
+                </div>
+
+                <div class="pixel-week" aria-hidden="true">
+                  <div class="pixel labelled" id="pixelSeg">SEG</div>
+                  <div class="pixel labelled" id="pixelTer">TER</div>
+                  <div class="pixel labelled" id="pixelQua">QUA</div>
+                  <div class="pixel labelled" id="pixelQui">QUI</div>
+                  <div class="pixel labelled weekend" id="pixelSex">SEX</div>
+                  <div class="pixel labelled weekend" id="pixelSab">SÁB</div>
+                  <div class="pixel labelled weekend" id="pixelDom">DOM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card SEMANA -->
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-title">Semana corrente</div>
+            <div class="card-main-line" id="weekMainText">
+              Semana em 0% concluída
+            </div>
+            <p class="card-caption">
+              Contando de <strong>segunda-feira 00h</strong> até <strong>segunda-feira 00h</strong> da próxima semana.
+              A barra neon mostra quanto da semana já foi vivida, misturando ciano e verde-lima.
+            </p>
+
+            <div class="tube-wrapper">
+              <div class="tube">
+                <div class="tube-fill"></div>
+                <div class="tube-inner"></div>
+                <div class="tube-mask"></div>
+                <div class="tube-scale">
+                  <span>Seg 00h</span>
+                  <span>Sex 17h</span>
+                  <span>Dom 23:59</span>
+                </div>
+              </div>
+              <div class="tube-labels">
+                <span id="weekElapsedLabel">Tempo vivido: --</span>
+                <span id="weekRemainingLabel">Restante: --</span>
+              </div>
+            </div>
+
+            <div class="work-total-line">
+              Horas de trabalho nesta semana: <span class="work-total-highlight">45h</span> (seg–sex, 8h–17h).
+              Progresso global do expediente:
+              <span class="work-total-highlight" id="workGlobalPercent">0%</span>.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="grid-bottom">
+        <!-- Card HORAS DE TRABALHO POR DIA -->
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-title">Expediente — seg a sex (8h–17h)</div>
+            <p class="card-caption">
+              Cada linha é um dia da semana, com um tubo de luz representando as
+              <strong>9 horas de trabalho</strong>. Dias passados ficam cheios,
+              o dia atual pulsa em verde-lima, e os próximos ainda estão apagados.
+            </p>
+
+            <div class="work-days">
+              <div class="work-row" data-day="1">
+                <div class="work-day-label">Seg</div>
+                <div class="work-bar-shell">
+                  <div class="work-bar-track"></div>
+                  <div class="work-bar-fill" id="workFill1"></div>
+                </div>
+                <div class="work-hours-text" id="workText1">--</div>
+              </div>
+              <div class="work-row" data-day="2">
+                <div class="work-day-label">Ter</div>
+                <div class="work-bar-shell">
+                  <div class="work-bar-track"></div>
+                  <div class="work-bar-fill" id="workFill2"></div>
+                </div>
+                <div class="work-hours-text" id="workText2">--</div>
+              </div>
+              <div class="work-row" data-day="3">
+                <div class="work-day-label">Qua</div>
+                <div class="work-bar-shell">
+                  <div class="work-bar-track"></div>
+                  <div class="work-bar-fill" id="workFill3"></div>
+                </div>
+                <div class="work-hours-text" id="workText3">--</div>
+              </div>
+              <div class="work-row" data-day="4">
+                <div class="work-day-label">Qui</div>
+                <div class="work-bar-shell">
+                  <div class="work-bar-track"></div>
+                  <div class="work-bar-fill" id="workFill4"></div>
+                </div>
+                <div class="work-hours-text" id="workText4">--</div>
+              </div>
+              <div class="work-row" data-day="5">
+                <div class="work-day-label">Sex</div>
+                <div class="work-bar-shell">
+                  <div class="work-bar-track"></div>
+                  <div class="work-bar-fill" id="workFill5"></div>
+                </div>
+                <div class="work-hours-text" id="workText5">--</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card EXTRA (texto, leitura rápida) -->
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-title">Leitura rápida</div>
+            <div class="card-main-line" id="quickSummary">
+              Preparando o resumo da sua semana…
+            </div>
+            <p class="card-caption" id="quickDetails">
+              Este painel resume se você está em modo <strong>fim de semana</strong>,
+              em modo <strong>expediente</strong> ou em modo <strong>pós-expediente</strong>,
+              usando o contexto completo da semana.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Novo card: CUBINHOS DE VIDRO COMPLEMENTARES -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="card-title">Cubinhos de vidro complementares</div>
+          <div class="card-caption">
+            Cada painel é um “campo de LEDs” em vidro: quanto mais cubinhos acesos,
+            maior o progresso daquele universo de tempo.
+          </div>
+
+          <div class="glass-grids">
+            <div class="glass-grid-block">
+              <div class="glass-grid-label">
+                <span class="glass-dot weekend"></span>
+                Fim de semana
+              </div>
+              <div class="glass-grid-sub">Sexta 17h &rarr; Segunda 00h</div>
+              <div class="glass-grid glass-grid-weekend" id="weekendGrid"></div>
+            </div>
+
+            <div class="glass-grid-block">
+              <div class="glass-grid-label">
+                <span class="glass-dot week"></span>
+                Semana inteira
+              </div>
+              <div class="glass-grid-sub">Seg 00h &rarr; Próxima seg 00h</div>
+              <div class="glass-grid glass-grid-week" id="weekGrid"></div>
+            </div>
+
+            <div class="glass-grid-block">
+              <div class="glass-grid-label">
+                <span class="glass-dot work"></span>
+                Expediente (45h)
+              </div>
+              <div class="glass-grid-sub">Horas de trabalho somadas no ciclo seg–sex</div>
+              <div class="glass-grid glass-grid-work" id="workGrid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Donut rosa, tubos neon e cubinhos de vidro acendendo para fim de semana, semana e expediente.</span>
+    </footer>
+  </div>
+
+  <script>
+    // === Helpers de tempo ===
+
+    const MS_HOUR = 60 * 60 * 1000;
+    const MS_DAY = 24 * MS_HOUR;
+    const WEEK_WORK_HOURS = 9 * 5; // 9h por dia, 5 dias
+    const WEEK_WORK_MS = WEEK_WORK_HOURS * MS_HOUR;
+
+    function clamp(v, min, max) {
+      return Math.min(max, Math.max(min, v));
+    }
+
+    function getStartOfWeek(date) {
+      const d = new Date(date);
+      const day = d.getDay(); // 0 domingo, 1 segunda, ...
+      const diffToMonday = (day + 6) % 7; // quantos dias desde segunda
+      d.setHours(0, 0, 0, 0);
+      d.setDate(d.getDate() - diffToMonday);
+      return d;
+    }
+
+    function formatNow(date) {
+      return date.toLocaleString("pt-BR", {
+        weekday: "short",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function formatDelta(ms) {
+      const sign = ms < 0 ? "-" : "";
+      ms = Math.abs(ms);
+      const totalMinutes = Math.floor(ms / 60000);
+      const days = Math.floor(totalMinutes / (60 * 24));
+      const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+      const mins = totalMinutes % 60;
+
+      const parts = [];
+      if (days) parts.push(days + "d");
+      if (hours) parts.push(hours + "h");
+      if (mins || parts.length === 0) parts.push(mins + "min");
+
+      return sign + parts.join(" ");
+    }
+
+    function formatHours(ms) {
+      const hours = ms / MS_HOUR;
+      return hours.toFixed(1).replace(".", ",") + "h";
+    }
+
+    // Calcula início e fim dos blocos da semana
+    function getWeekWindows(now) {
+      const weekStart = getStartOfWeek(now); // seg 00h
+      const weekEnd = new Date(weekStart.getTime() + 7 * MS_DAY); // próxima seg 00h
+
+      const weekendStart = new Date(weekStart);
+      weekendStart.setDate(weekStart.getDate() + 4); // sexta
+      weekendStart.setHours(17, 0, 0, 0);
+
+      const weekendEnd = new Date(weekStart);
+      weekendEnd.setDate(weekStart.getDate() + 7); // seg 00h
+      weekendEnd.setHours(0, 0, 0, 0);
+
+      return { weekStart, weekEnd, weekendStart, weekendEnd };
+    }
+
+    function intersectMs(aStart, aEnd, bStart, bEnd) {
+      const start = Math.max(aStart.getTime(), bStart.getTime());
+      const end = Math.min(aEnd.getTime(), bEnd.getTime());
+      return Math.max(0, end - start);
+    }
+
+    // === Estado global para os cubinhos ===
+    let currentWeekendProgress = 0;
+    let currentWeekProgress = 0;
+    let currentWorkProgress = 0;
+
+    const GLASS_CELLS = 100;
+
+    function buildGlassGrids() {
+      const ids = ["weekendGrid", "weekGrid", "workGrid"];
+      ids.forEach((id) => {
+        const container = document.getElementById(id);
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < GLASS_CELLS; i++) {
+          const cell = document.createElement("div");
+          cell.className = "glass-cell";
+          container.appendChild(cell);
+        }
+      });
+    }
+
+    function updateGlassGrid(selector, litClass, progress) {
+      const grid = document.querySelector(selector);
+      if (!grid) return;
+      const cells = grid.querySelectorAll(".glass-cell");
+      if (!cells.length) return;
+
+      const filledCount = Math.round(clamp(progress, 0, 1) * cells.length);
+
+      cells.forEach((cell, index) => {
+        cell.classList.toggle("weekend-lit", false);
+        cell.classList.toggle("week-lit", false);
+        cell.classList.toggle("work-lit", false);
+        if (index < filledCount) {
+          cell.classList.add(litClass);
+        }
+      });
+    }
+
+    function updateGlassPanels() {
+      updateGlassGrid("#weekendGrid", "weekend-lit", currentWeekendProgress);
+      updateGlassGrid("#weekGrid", "week-lit", currentWeekProgress);
+      updateGlassGrid("#workGrid", "work-lit", currentWorkProgress);
+    }
+
+    // === Atualização dos painéis ===
+
+    function updateWeekendPanel(now, windows) {
+      const { weekendStart, weekendEnd } = windows;
+      const weekendTotal = weekendEnd.getTime() - weekendStart.getTime();
+
+      let labelMode = "";
+      let weekendPct = 0;
+      let mainText = "";
+      let subText = "";
+      let badgeText = "";
+      const inWeekend = now >= weekendStart && now < weekendEnd;
+
+      if (inWeekend) {
+        const elapsed = clamp(now.getTime() - weekendStart.getTime(), 0, weekendTotal);
+        weekendPct = elapsed / weekendTotal;
+        const remaining = weekendEnd.getTime() - now.getTime();
+
+        labelMode = "fim de semana em curso";
+        mainText = "Você está oficialmente no fim de semana 💖";
+        subText =
+          "Contando a partir de sexta 17h: " +
+          ((weekendPct * 100).toFixed(1)).replace(".", ",") +
+          "% do fim de semana já foi vivido.";
+
+        badgeText = "Sobra " + formatDelta(remaining) + " até acabar.";
+      } else {
+        // não está na janela do fim de semana -> contamos até o próximo
+        let targetStart = weekendStart;
+        if (now >= weekendEnd) {
+          targetStart = new Date(weekendStart.getTime() + 7 * MS_DAY);
+        }
+        const diff = targetStart.getTime() - now.getTime();
+        const elapsed = clamp(weekendTotal - diff, 0, weekendTotal);
+        weekendPct = elapsed / weekendTotal;
+
+        labelMode = "progresso rumo ao próximo";
+        mainText = "Modo semana: aquecendo para o próximo fim de semana 🌙";
+        subText =
+          "A barra rosa indica o quanto do caminho até o próximo fim de semana já foi percorrido, " +
+          "considerando sempre a janela fixa de sexta 17h até segunda 00h.";
+
+        badgeText = "Faltam " + formatDelta(diff) + " até sextar.";
+      }
+
+      weekendPct = clamp(weekendPct, 0, 1);
+      currentWeekendProgress = weekendPct;
+
+      document.documentElement.style.setProperty("--weekend-progress", weekendPct.toString());
+
+      const percentStr = (weekendPct * 100).toFixed(1).replace(".", ",") + "%";
+      document.getElementById("weekendPercent").textContent = percentStr;
+      document.getElementById("weekendLabel").textContent = labelMode;
+      document.getElementById("weekendMainText").textContent = mainText;
+      document.getElementById("weekendSubText").textContent = subText;
+      document.querySelector("#badgeToWeekend .badge-value").textContent = badgeText;
+
+      // Pixel da semana atual (bloco que recebe contorno)
+      const day = now.getDay(); // 0 dom, 1 seg, ...
+      const map = {
+        1: "pixelSeg",
+        2: "pixelTer",
+        3: "pixelQua",
+        4: "pixelQui",
+        5: "pixelSex",
+        6: "pixelSab",
+        0: "pixelDom"
+      };
+      document
+        .querySelectorAll(".pixel.labelled")
+        .forEach((p) => p.classList.remove("current"));
+      const id = map[day];
+      const el = document.getElementById(id);
+      if (el) el.classList.add("current");
+    }
+
+    function updateWeekPanel(now, windows) {
+      const { weekStart, weekEnd, weekendStart, weekendEnd } = windows;
+      const weekTotal = weekEnd.getTime() - weekStart.getTime();
+      const elapsedWeek = clamp(now.getTime() - weekStart.getTime(), 0, weekTotal);
+      const remainingWeek = weekTotal - elapsedWeek;
+      const weekPct = clamp(elapsedWeek / weekTotal, 0, 1);
+
+      currentWeekProgress = weekPct;
+
+      document.documentElement.style.setProperty("--week-progress", weekPct.toString());
+
+      const percentStr = (weekPct * 100).toFixed(1).replace(".", ",") + "%";
+      document.getElementById("weekMainText").textContent =
+        "Semana em " + percentStr + " concluída";
+
+      document.getElementById("weekElapsedLabel").textContent =
+        "Tempo vivido: " + formatDelta(elapsedWeek);
+      document.getElementById("weekRemainingLabel").textContent =
+        "Restante: " + formatDelta(remainingWeek);
+
+      // Resumo rápido
+      const inWeekend = now >= weekendStart && now < weekendEnd;
+      const day = now.getDay();
+      const hour = now.getHours();
+      let quickMain = "";
+      let quickDetails = "";
+
+      const isWorkDay = day >= 1 && day <= 5;
+      const inWorkHours = isWorkDay && hour >= 8 && hour < 17;
+
+      if (inWeekend) {
+        quickMain = "Modo Fim de Semana 💖";
+        quickDetails =
+          "O timer está em rosa porque você está dentro do intervalo de sexta 17h até domingo. " +
+          "Aproveite: cada segundo vivido soma no donut e nos cubinhos de fim de semana.";
+      } else if (inWorkHours) {
+        quickMain = "Modo Expediente Neon 💼";
+        quickDetails =
+          "Ciano e verde-lima acendem para mostrar que o horário de trabalho (8h–17h) está em curso. " +
+          "Os tubos e os cubinhos de expediente vão enchendo em tempo real.";
+      } else if (isWorkDay) {
+        quickMain = "Modo Pós-Expediente ✨";
+        quickDetails =
+          "Você está em dia útil fora do horário 8h–17h. O tubo da semana continua avançando, " +
+          "mas os cubinhos de expediente pausam até o próximo horário útil.";
+      } else {
+        quickMain = "Modo Pré-Semana / Domingão 🛋️";
+        quickDetails =
+          "Nem expediente, nem fim de semana oficial. O painel usa esse intervalo para mostrar " +
+          "o quanto da semana inteira já passou e o quanto falta até as próximas fases.";
+      }
+
+      document.getElementById("quickSummary").textContent = quickMain;
+      document.getElementById("quickDetails").textContent = quickDetails;
+    }
+
+    function updateWorkPanel(now, windows) {
+      const { weekStart } = windows;
+
+      let totalWorkElapsed = 0;
+
+      for (let i = 0; i < 5; i++) {
+        const dayIndex = i + 1; // 1 seg, 5 sex
+        const workStart = new Date(weekStart);
+        workStart.setDate(weekStart.getDate() + i);
+        workStart.setHours(8, 0, 0, 0);
+
+        const workEnd = new Date(weekStart);
+        workEnd.setDate(weekStart.getDate() + i);
+        workEnd.setHours(17, 0, 0, 0);
+
+        const dayNow = now.getDay();
+        const isCurrentDay = dayNow === dayIndex;
+
+        const elapsedThisDay = intersectMs(workStart, workEnd, weekStart, now);
+        const fullDayWorkMs = 9 * MS_HOUR;
+
+        totalWorkElapsed += clamp(elapsedThisDay, 0, fullDayWorkMs);
+
+        const fraction = clamp(elapsedThisDay / fullDayWorkMs, 0, 1);
+        const fill = document.getElementById("workFill" + dayIndex);
+        const text = document.getElementById("workText" + dayIndex);
+
+        if (fill) {
+          fill.style.transform = "scaleX(" + fraction.toFixed(3) + ")";
+          fill.classList.toggle("current", isCurrentDay && fraction > 0 && fraction < 1);
+
+          // dia passado fica cheio e opaco
+          if (elapsedThisDay >= fullDayWorkMs) {
+            fill.classList.add("current");
+          }
+        }
+
+        if (text) {
+          if (elapsedThisDay <= 0 && now < workStart) {
+            text.textContent = "aguardando 8h";
+          } else if (elapsedThisDay >= fullDayWorkMs) {
+            text.textContent = "9,0h / 9,0h";
+          } else if (elapsedThisDay > 0) {
+            const h = elapsedThisDay / MS_HOUR;
+            text.textContent = h.toFixed(1).replace(".", ",") + "h / 9,0h";
+          } else {
+            text.textContent = "—";
+          }
+        }
+      }
+
+      const workPct = clamp(totalWorkElapsed / WEEK_WORK_MS, 0, 1);
+      currentWorkProgress = workPct;
+
+      const workPercentStr = (workPct * 100).toFixed(1).replace(".", ",") + "%";
+      document.getElementById("workGlobalPercent").textContent = workPercentStr;
+      document.documentElement.style.setProperty("--work-progress", workPct.toString());
+    }
+
+    function updateNowBadge(now) {
+      document.getElementById("nowString").textContent = formatNow(now);
+    }
+
+    function tick() {
+      const now = new Date();
+      const windows = getWeekWindows(now);
+
+      updateNowBadge(now);
+      updateWeekendPanel(now, windows);
+      updateWeekPanel(now, windows);
+      updateWorkPanel(now, windows);
+      updateGlassPanels();
+    }
+
+    buildGlassGrids();
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
