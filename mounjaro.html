@@ -16,6 +16,7 @@
 
       --accent-lime:#a6f277;
       --accent-cyan:#54d7ff;
+      --accent-red:#ff4b4b;
 
       --text-main:#111217;
       --text-soft:#3b4055;
@@ -256,6 +257,7 @@
     }
     .phase-dot.cyan{ background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-cyan)); }
     .phase-dot.lime{ background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-lime)); }
+    .phase-dot.red{  background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-red)); }
 
     .phase-text{
       font-size:0.78rem;
@@ -288,6 +290,11 @@
       border-radius:999px;
       background:linear-gradient(to right, rgba(84,215,255,0.85), rgba(166,242,119,0.85));
     }
+    /* cores por fase */
+    #phase-fill-25{  background:linear-gradient(to right, rgba(84,215,255,0.9), rgba(84,215,255,0.55)); }
+    #phase-fill-375{ background:linear-gradient(to right, rgba(166,242,119,0.9), rgba(166,242,119,0.55)); }
+    #phase-fill-5{   background:linear-gradient(to right, rgba(255,75,75,0.9), rgba(255,75,75,0.55)); }
+
 
     /* =========================
        BLOCO "PRÓXIMA DATA"
@@ -323,6 +330,9 @@
     .next-weekday{ font-size:0.9rem; color:#3c4e30; }
     .next-mg{ margin-top:0.15rem; font-size:0.86rem; color:#2c3a23; }
     .next-mg strong{ color:#1a5c1a; }
+    #next-mg.mg-25{ color:#0a5f82; }
+    #next-mg.mg-375{ color:#1a5c1a; }
+    #next-mg.mg-5{ color:#b00000; }
     .next-countdown{ font-size:0.8rem; color:#5a6b4b; margin-top:0.15rem; }
 
     /* =========================
@@ -381,6 +391,11 @@
       background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-lime));
       border-color:rgba(123,165,91,0.7);
     }
+    .mg-pill.mg-5{
+      background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-red));
+      border-color:rgba(170,60,60,0.75);
+    }
+
 
     .weekday-tag{
       display:inline-block;
@@ -433,7 +448,7 @@
         <div class="toolbar-main">
           <div class="toolbar-title">Registro semanal de aplicações</div>
           <div class="toolbar-subtitle">
-            Doses iniciais às quartas (2,5 mg) e fase atual às sextas (3,75 mg).
+            Doses iniciais às quartas (2,5 mg) e fase atual às sextas (3,75 mg → 5 mg).
           </div>
 
           <!-- peso: tudo gerado por JS (zero número estático aqui) -->
@@ -486,6 +501,15 @@
                   <div class="phase-count" id="phase-count-375">–</div>
                   <div class="phase-bar" aria-hidden="true">
                     <div class="phase-fill" id="phase-fill-375"></div>
+                  </div>
+                </div>
+
+                <div class="phase-row">
+                  <span class="phase-dot red" aria-hidden="true"></span>
+                  <div class="phase-text" id="phase-text-5">–</div>
+                  <div class="phase-count" id="phase-count-5">–</div>
+                  <div class="phase-bar" aria-hidden="true">
+                    <div class="phase-fill" id="phase-fill-5"></div>
                   </div>
                 </div>
               </div>
@@ -575,6 +599,13 @@
     }
 
     function formatMg(mg){ return mg.toString().replace(".", ",") + " mg"; }
+
+    function mgClass(mg){
+      if (mg === 2.5) return "mg-25";
+      if (mg === 3.75) return "mg-375";
+      if (mg === 5) return "mg-5";
+      return "mg-unknown";
+    }
 
     function formatKg(kg){
       const s = (Math.round(kg * 10) / 10).toString();
@@ -672,6 +703,7 @@
 
       const doses25  = doses.filter(d => d.mg === 2.5);
       const doses375 = doses.filter(d => d.mg === 3.75);
+      const doses5   = doses.filter(d => d.mg === 5);
 
       // badge da fase atual (dinâmico)
       const badge = document.getElementById("badge-phase-text");
@@ -687,18 +719,27 @@
       // mini interface por fase
       const c25 = doses25.length;
       const c375 = doses375.length;
-      const maxC = Math.max(c25, c375, 1);
+      const c5 = doses5.length;
+      const maxC = Math.max(c25, c375, c5, 1);
 
       document.getElementById("phase-text-25").textContent  = "2,5 mg · fase inicial (quartas)";
       document.getElementById("phase-count-25").textContent = `${c25}×`;
       document.getElementById("phase-fill-25").style.width  = `${clamp((c25 / maxC) * 100, 6, 100)}%`;
 
-      document.getElementById("phase-text-375").textContent  = "3,75 mg · fase atual (sextas)";
+      document.getElementById("phase-text-375").textContent  = (last.mg === 3.75)
+        ? "3,75 mg · fase atual (sextas)"
+        : "3,75 mg · fase anterior (sextas)";
       document.getElementById("phase-count-375").textContent = `${c375}×`;
       document.getElementById("phase-fill-375").style.width  = `${clamp((c375 / maxC) * 100, 6, 100)}%`;
 
+      document.getElementById("phase-text-5").textContent  = (last.mg === 5)
+        ? "5 mg · fase atual (sextas)"
+        : "5 mg · próxima fase (sextas)";
+      document.getElementById("phase-count-5").textContent = `${c5}×`;
+      document.getElementById("phase-fill-5").style.width  = `${clamp((c5 / maxC) * 100, 6, 100)}%`;
+
       document.getElementById("stat-phases-detail").textContent =
-        `início em ${first.weekday} (${formatDatePtBR(first.date)}) · fase atual em ${last.weekday}`;
+        `início em ${first.weekday} (${formatDatePtBR(first.date)}) · fase atual em ${last.weekday} (${formatMg(last.mg)})`;
 
       // próxima data
       const nextDateObj = nextWeeklyDateFrom(last.date);
@@ -709,8 +750,11 @@
       document.getElementById("next-date").textContent = `${dd}/${mm}/${yyyy}`;
       document.getElementById("next-weekday").textContent = weekdayPtBR(nextDateObj);
 
-      // regra: sempre 3,75 mg na fase atual
-      document.getElementById("next-mg").textContent = formatMg(3.75);
+      // regra: próxima dose segue a dose mais recente (fase atual)
+      const nextPlannedMg = last.mg;
+      const nextMgEl = document.getElementById("next-mg");
+      nextMgEl.textContent = formatMg(nextPlannedMg);
+      nextMgEl.className = mgClass(nextPlannedMg);
 
       const today = new Date();
       const daysDiff = diffDays(today, nextDateObj);
@@ -757,7 +801,7 @@
 
         const tdMg = document.createElement("td");
         const mgSpan = document.createElement("span");
-        mgSpan.className = "mg-pill " + (d.mg === 2.5 ? "mg-25" : "mg-375");
+        mgSpan.className = "mg-pill " + mgClass(d.mg);
         mgSpan.textContent = formatMg(d.mg);
         tdMg.appendChild(mgSpan);
         tr.appendChild(tdMg);
