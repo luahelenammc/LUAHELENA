@@ -3,102 +3,1213 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Watchlist — Debug</title>
+  <title>Watchlist — Painel</title>
+
   <style>
-    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:#0B1220; color:#EAF1FF; }
-    .wrap{ max-width:980px; margin:24px auto; padding:0 14px; }
-    .panel{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px; }
-    .row{ display:flex; gap:10px; flex-wrap:wrap; }
-    .pill{ padding:8px 10px; border-radius:999px; background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); }
-    .ok{ color:#34C759; font-weight:700; }
-    .bad{ color:#FF3B30; font-weight:700; }
-    .muted{ color:rgba(234,241,255,.7); }
-    #cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
-    .card{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:12px; }
-    @media (max-width:800px){ #cards{ grid-template-columns:1fr; } }
+    :root{
+      --bg0:#070A10;
+      --bg1:#0B1220;
+      --bg2:#0F1A2E;
+
+      --panel0:#0E1525;
+      --panel1:#111C31;
+
+      --ink:#EAF1FF;
+      --muted:#AAB6D6;
+      --muted2:#7D89A8;
+
+      --line: rgba(255,255,255,.10);
+      --line2: rgba(255,255,255,.06);
+
+      --shadowA: 0 24px 80px rgba(0,0,0,.55);
+      --shadowB: 0 10px 30px rgba(0,0,0,.55);
+      --insetHi: inset 0 1px 0 rgba(255,255,255,.14);
+      --insetLo: inset 0 -1px 0 rgba(0,0,0,.35);
+
+      --movie:#FF3B30;     /* vermelho */
+      --series:#FF9500;    /* laranja */
+      --ok:#34C759;        /* verde */
+      --cyan:#43D7FF;
+
+      --track:#0A0F1B;
+      --track2:#0D1426;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 30% -10%, rgba(67,215,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(255,149,0,.10), transparent 60%),
+        radial-gradient(1000px 700px at 60% 120%, rgba(255,59,48,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      overflow-x:hidden;
+    }
+
+    .bg-grain{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.10;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    .desk{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:36px 14px;
+    }
+
+    .window{
+      width:min(1100px, 96vw);
+      border-radius:18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        linear-gradient(180deg, var(--panel0), #0A0F1B);
+      border:1px solid var(--line);
+      box-shadow: var(--shadowA);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .titlebar{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:12px 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border-bottom:1px solid var(--line);
+      box-shadow: var(--insetHi);
+    }
+
+    .traffic{
+      display:flex; gap:8px;
+      padding:6px 8px;
+      border-radius:999px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+      user-select:none;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:50%;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(0,0,0,.45), 0 1px 6px rgba(0,0,0,.55);
+    }
+    .dot.red{ background: radial-gradient(circle at 30% 30%, #FF9A92, var(--movie)); }
+    .dot.yellow{ background: radial-gradient(circle at 30% 30%, #FFE8A1, #FFCC00); }
+    .dot.green{ background: radial-gradient(circle at 30% 30%, #A8FFBF, var(--ok)); }
+
+    .title{
+      flex:1;
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      user-select:none;
+      min-width:0;
+    }
+    .title-strong{
+      letter-spacing:.10em;
+      font-weight:800;
+      font-size:12px;
+      opacity:.95;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      white-space:nowrap;
+    }
+    .title-sub{
+      font-size:12px;
+      color:var(--muted2);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .title-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .content{
+      padding:14px;
+      display:grid;
+      gap:14px;
+    }
+
+    .panel{
+      border-radius:16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        linear-gradient(180deg, #0F1730, #0A1022);
+      border:1px solid var(--line2);
+      box-shadow: var(--shadowB), var(--insetHi), var(--insetLo);
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-2px -2px auto -2px;
+      height:54px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), transparent);
+      pointer-events:none;
+    }
+
+    .panel-filters{ padding:14px; }
+    .panel-list{ padding:14px; }
+
+    .panel-top{
+      display:grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap:10px;
+      margin-bottom:12px;
+    }
+    @media (max-width: 980px){
+      .panel-top{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .meter{
+      border-radius:14px;
+      padding:10px 12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03)),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.15));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 8px 18px rgba(0,0,0,.35);
+    }
+    .meter-label{
+      font-size:10px;
+      letter-spacing:.14em;
+      color:var(--muted2);
+    }
+    .meter-value{
+      font-size:22px;
+      font-weight:800;
+      margin-top:2px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+    }
+
+    .filters{
+      display:grid;
+      grid-template-columns: 1.2fr 1.2fr 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 980px){
+      .filters{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px){
+      .filters{ grid-template-columns: 1fr; }
+    }
+
+    .filter .label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin:0 0 6px;
+    }
+
+    .segmented{
+      display:flex;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .seg-btn{
+      flex:1;
+      padding:10px 10px;
+      border:0;
+      color:var(--muted);
+      background: transparent;
+      cursor:pointer;
+      font-weight:800;
+      font-size:12px;
+      transition: transform .12s ease, background .12s ease, color .12s ease;
+    }
+    .seg-btn:hover{ background: rgba(255,255,255,.06); }
+    .seg-btn:active{ transform: translateY(1px); }
+    .seg-btn.is-active{
+      color:var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
+    }
+
+    .searchbox{ position:relative; }
+    .input{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        rgba(0,0,0,.25);
+      color:var(--ink);
+      outline:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 20px rgba(0,0,0,.35);
+    }
+    .input::placeholder{ color: rgba(170,182,214,.6); }
+    .input:focus{
+      border-color: rgba(67,215,255,.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 10px 20px rgba(0,0,0,.35),
+        0 0 0 4px rgba(67,215,255,.14);
+    }
+    .hint{
+      margin:6px 0 0;
+      font-size:11px;
+      color:var(--muted2);
+    }
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:900;
+      color:var(--ink);
+      transition: transform .12s ease, filter .12s ease, background .12s ease, box-shadow .12s ease;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.08); color:var(--ink); }
+
+    .btn-metal{
+      width:100%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.06)),
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.12));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 10px 20px rgba(0,0,0,.35);
+    }
+    .btn-metal:hover{ filter: brightness(1.05); }
+
+    .badge{
+      display:inline-grid;
+      place-items:center;
+      min-width:22px;
+      height:22px;
+      padding:0 8px;
+      margin-left:10px;
+      border-radius:999px;
+      font-size:12px;
+      background: rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+    }
+
+    .tag-filter{ display:grid; gap:10px; position:relative; }
+
+    .tag-panel{
+      border-radius:14px;
+      padding:10px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)),
+        rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 50px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    .tag-panel-head{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:10px;
+      gap:10px;
+    }
+    .tag-panel-title{
+      font-weight:900;
+      letter-spacing:.06em;
+      font-size:12px;
+      color:var(--ink);
+      user-select:none;
+    }
+    .tag-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:8px;
+    }
+    @media (max-width: 560px){ .tag-grid{ grid-template-columns: 1fr; } }
+
+    .tag-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+      cursor:pointer;
+      user-select:none;
+    }
+    .tag-item input{ accent-color: var(--cyan); }
+    .tag-item .tagname{
+      font-size:12px;
+      color:var(--ink);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .tag-panel-foot{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:11px;
+      user-select:none;
+    }
+
+    .tag-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04)),
+        rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 10px 20px rgba(0,0,0,.30);
+      font-size:12px;
+    }
+    .chip button{
+      border:0;
+      background: transparent;
+      color: rgba(234,241,255,.75);
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    .list-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .list-title{ display:flex; gap:10px; flex-wrap:wrap; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04)),
+        rgba(0,0,0,.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+      font-weight:900;
+      letter-spacing:.08em;
+      font-size:11px;
+      user-select:none;
+    }
+    .pill-movie{ box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 0 0 1px rgba(255,59,48,.18); }
+    .pill-series{ box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 0 0 1px rgba(255,149,0,.18); }
+
+    .list-sub{
+      font-size:12px;
+      color:var(--muted2);
+      user-select:none;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+    }
+    @media (max-width: 860px){ .cards{ grid-template-columns: 1fr; } }
+
+    .card{
+      position:relative;
+      border-radius:16px;
+      padding:12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.12));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 50px rgba(0,0,0,.50), inset 0 1px 0 rgba(255,255,255,.10);
+      overflow:hidden;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.10);
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset: -2px -2px auto -2px;
+      height:60px;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), transparent);
+      pointer-events:none;
+    }
+
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .sticker{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+      flex:1;
+    }
+    .orb{
+      width:34px; height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.30), inset 0 -1px 0 rgba(0,0,0,.50), 0 10px 18px rgba(0,0,0,.45);
+      flex:0 0 auto;
+      user-select:none;
+    }
+    .orb.movie{
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
+                linear-gradient(180deg, rgba(255,59,48,.95), rgba(170,15,10,.95));
+    }
+    .orb.series{
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
+                linear-gradient(180deg, rgba(255,149,0,.95), rgba(185,95,0,.95));
+    }
+
+    .titleline{ min-width:0; }
+    .card-title{
+      font-size:16px;
+      font-weight:950;
+      margin:0;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .card-meta{
+      margin-top:6px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .mini{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size:12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+      user-select:none;
+    }
+    .mini strong{ color: var(--ink); }
+
+    .tags{
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)),
+        rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+      color: rgba(234,241,255,.88);
+      user-select:none;
+    }
+
+    .status{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+      flex:0 0 auto;
+    }
+    .ledrow{ display:flex; gap:8px; }
+    .led{
+      width:34px;
+      height:26px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02)),
+        rgba(0,0,0,.28);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 10px 18px rgba(0,0,0,.35);
+      cursor:pointer;
+      position:relative;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .led:hover{ filter: brightness(1.06); }
+    .led:active{ transform: translateY(1px); }
+    .led::after{
+      content:"";
+      position:absolute; inset:2px 2px auto 2px;
+      height:40%;
+      border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), transparent);
+      pointer-events:none;
+    }
+    .led .glyph{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      color: rgba(234,241,255,.72);
+      user-select:none;
+    }
+    .led[data-state="need"]{ opacity:.85; }
+
+    .led[data-state="downloaded"].is-on{
+      border-color: rgba(52,199,89,.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 10px 18px rgba(0,0,0,.35),
+        0 0 0 4px rgba(52,199,89,.12),
+        0 0 22px rgba(52,199,89,.22);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 45%),
+        linear-gradient(180deg, rgba(52,199,89,.85), rgba(18,102,45,.85));
+    }
+    .led[data-state="streaming"].is-on{
+      border-color: rgba(255,149,0,.40);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 10px 18px rgba(0,0,0,.35),
+        0 0 0 4px rgba(255,149,0,.12),
+        0 0 22px rgba(255,149,0,.22);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 45%),
+        linear-gradient(180deg, rgba(255,149,0,.90), rgba(160,85,0,.90));
+    }
+
+    .legend{
+      font-size:11px;
+      color: var(--muted2);
+      text-align:right;
+      user-select:none;
+    }
+
+    .progress{
+      margin-top:12px;
+      display:grid;
+      gap:6px;
+    }
+    .progress-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:10px;
+    }
+    .progress-title{
+      font-size:11px;
+      letter-spacing:.12em;
+      color: var(--muted2);
+      font-weight:900;
+      user-select:none;
+    }
+    .progress-value{
+      font-size:12px;
+      color: rgba(234,241,255,.88);
+      font-weight:900;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      user-select:none;
+    }
+    .track{
+      height:14px;
+      border-radius:999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        linear-gradient(180deg, var(--track), var(--track2));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
+      overflow:hidden;
+      position:relative;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.28), transparent 45%),
+        linear-gradient(180deg, rgba(67,215,255,.80), rgba(16,104,130,.85));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.20),
+        0 0 18px rgba(67,215,255,.16);
+      position:relative;
+      transition: width .25s ease;
+    }
+    .fill::after{
+      content:"";
+      position:absolute;
+      inset:2px 2px auto 2px;
+      height:45%;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.20), transparent);
+      pointer-events:none;
+    }
+
+    .empty{
+      padding:18px 2px 2px;
+    }
+    .empty-card{
+      border-radius:16px;
+      padding:16px;
+      background: rgba(0,0,0,.22);
+      border:1px dashed rgba(255,255,255,.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .empty-title{ font-weight:950; font-size:14px; }
+    .empty-sub{ color:var(--muted2); margin-top:6px; font-size:12px; }
+
+    .footer{
+      display:flex;
+      justify-content:center;
+      padding:6px 0 0;
+    }
+    .footer-note{
+      font-size:11px;
+      color:var(--muted2);
+      user-select:none;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: .95em;
+      color: rgba(234,241,255,.88);
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <h1 style="margin:0 0 12px;">Watchlist — Diagnóstico</h1>
+  <div class="bg-grain" aria-hidden="true"></div>
 
-    <div class="panel">
-      <div class="row">
-        <div class="pill">Script carregou: <span id="sLoaded" class="muted">…</span></div>
-        <div class="pill">Executou: <span id="sExec" class="muted">…</span></div>
-        <div class="pill">Items: <span id="sCount" class="muted">…</span></div>
-        <div class="pill">Último erro: <span id="sErr" class="muted">—</span></div>
+  <main class="desk">
+    <section class="window" aria-label="Watchlist">
+      <header class="titlebar">
+        <div class="traffic" aria-hidden="true">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+
+        <div class="title">
+          <span class="title-strong">WATCHLIST</span>
+          <span class="title-sub">— minha fila de cinema</span>
+        </div>
+
+        <div class="title-actions">
+          <button id="btnResetFilters" class="btn btn-ghost" type="button">Resetar filtros</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Painel de filtros -->
+        <section class="panel panel-filters" aria-label="Filtros">
+          <div class="panel-top">
+            <div class="meter">
+              <div class="meter-label">ITENS</div>
+              <div class="meter-value" id="countTotal">—</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">FILMES</div>
+              <div class="meter-value" id="countMovies">—</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">SÉRIES</div>
+              <div class="meter-value" id="countSeries">—</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">NÃO BAIXADOS</div>
+              <div class="meter-value" id="countNeed">—</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">EM ANDAMENTO</div>
+              <div class="meter-value" id="countProgress">—</div>
+            </div>
+          </div>
+
+          <div class="filters">
+            <!-- Tipo -->
+            <div class="filter">
+              <label class="label">Tipo</label>
+              <div class="segmented" role="group" aria-label="Filtrar por tipo">
+                <button class="seg-btn is-active" data-type="all" type="button">Tudo</button>
+                <button class="seg-btn" data-type="movie" type="button">🍿 Filmes</button>
+                <button class="seg-btn" data-type="series" type="button">🎬 Séries</button>
+              </div>
+            </div>
+
+            <!-- Status -->
+            <div class="filter">
+              <label class="label">Status</label>
+              <div class="segmented" role="group" aria-label="Filtrar por status">
+                <button class="seg-btn is-active" data-status="all" type="button">Todos</button>
+                <button class="seg-btn" data-status="need" type="button">⬚ Precisa baixar</button>
+                <button class="seg-btn" data-status="downloaded" type="button">✅ Baixado</button>
+                <button class="seg-btn" data-status="streaming" type="button">🟠 Streaming</button>
+              </div>
+            </div>
+
+            <!-- Busca -->
+            <div class="filter">
+              <label class="label" for="q">Buscar</label>
+              <div class="searchbox">
+                <input id="q" class="input" type="search" placeholder="Título, tag, S02E07..." autocomplete="off" />
+              </div>
+              <p class="hint">Dica: “S02E07”, “#drama”, “downloaded”.</p>
+            </div>
+
+            <!-- Tags -->
+            <div class="filter">
+              <label class="label">Tags</label>
+
+              <div class="tag-filter">
+                <button id="btnTags" class="btn btn-metal" type="button" aria-expanded="false" aria-controls="tagPanel">
+                  Selecionar tags
+                  <span class="badge" id="tagCount">0</span>
+                </button>
+
+                <div id="tagPanel" class="tag-panel" hidden>
+                  <div class="tag-panel-head">
+                    <div class="tag-panel-title">Filtros por tags</div>
+                    <button id="btnClearTags" class="btn btn-ghost" type="button">Limpar tags</button>
+                  </div>
+
+                  <div class="tag-grid" id="tagGrid" aria-label="Lista de tags"></div>
+
+                  <div class="tag-panel-foot">
+                    <span>As tags vêm automaticamente do <code>watchlist.js</code>.</span>
+                  </div>
+                </div>
+
+                <div class="tag-chips" id="selectedTagChips" aria-label="Tags selecionadas"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Lista -->
+        <section class="panel panel-list" aria-label="Lista">
+          <div class="list-head">
+            <div class="list-title">
+              <span class="pill pill-movie">🍿 FILMES</span>
+              <span class="pill pill-series">🎬 SÉRIES</span>
+            </div>
+            <div class="list-sub" id="resultsMeta">—</div>
+          </div>
+
+          <div id="cards" class="cards" aria-live="polite"></div>
+
+          <div id="emptyState" class="empty" hidden>
+            <div class="empty-card">
+              <div class="empty-title">Nada por aqui.</div>
+              <div class="empty-sub">Edite o <code>watchlist.js</code> para inserir itens.</div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="footer-note">
+            Estrutura unificada • fonte de dados externa: <code>watchlist.js</code>
+          </div>
+        </footer>
       </div>
-      <div class="muted" style="margin-top:10px;">
-        Se “Script carregou” estiver OK mas “Executou” não, o problema costuma ser <b>MIME type/CSP</b>.
-      </div>
-    </div>
+    </section>
+  </main>
 
-    <div id="cards"></div>
-  </div>
+  <!-- 1) Dados externos (igual ao diagnóstico que funcionou) -->
+  <script src="/watchlist.js?v=20260111"></script>
 
-  <!-- Carrega o watchlist.js com cache-buster -->
-  <script
-    src="/watchlist.js?v=20260111"
-    onload="window.__WATCHLIST_SCRIPT_TAG_LOADED__=true"
-    onerror="window.__WATCHLIST_SCRIPT_TAG_ERROR__=true"
-  ></script>
-
+  <!-- 2) App -->
   <script>
-    // Captura erros JS e mostra na tela
-    window.addEventListener("error", (e) => {
-      const msg = e?.message || e?.error?.message || "erro desconhecido";
-      document.getElementById("sErr").textContent = msg;
-      document.getElementById("sErr").className = "bad";
-    });
+    window.addEventListener("DOMContentLoaded", () => {
+      const watchlistItems =
+        (window.WATCHLIST_DATA && Array.isArray(window.WATCHLIST_DATA.items))
+          ? window.WATCHLIST_DATA.items
+          : [];
 
-    function paintStatus() {
-      const sLoaded = !!window.__WATCHLIST_SCRIPT_TAG_LOADED__ && !window.__WATCHLIST_SCRIPT_TAG_ERROR__;
-      const sExec   = !!window.__WATCHLIST_JS_LOADED__;
-      const count   = window.WATCHLIST_DATA?.items?.length;
+      const state = {
+        type: "all",       // all | movie | series
+        status: "all",     // all | need | downloaded | streaming
+        q: "",
+        tags: new Set(),   // tags selecionadas
+      };
 
-      const elLoaded = document.getElementById("sLoaded");
-      elLoaded.textContent = sLoaded ? "OK" : "NÃO";
-      elLoaded.className = sLoaded ? "ok" : "bad";
+      // Elementos
+      const $cards = document.getElementById("cards");
+      const $empty = document.getElementById("emptyState");
+      const $resultsMeta = document.getElementById("resultsMeta");
 
-      const elExec = document.getElementById("sExec");
-      elExec.textContent = sExec ? "OK" : "NÃO";
-      elExec.className = sExec ? "ok" : "bad";
+      const $countTotal = document.getElementById("countTotal");
+      const $countMovies = document.getElementById("countMovies");
+      const $countSeries = document.getElementById("countSeries");
+      const $countNeed = document.getElementById("countNeed");
+      const $countProgress = document.getElementById("countProgress");
 
-      const elCount = document.getElementById("sCount");
-      elCount.textContent = Number.isFinite(count) ? String(count) : "—";
-      elCount.className = Number.isFinite(count) ? "ok" : "bad";
-    }
+      const $q = document.getElementById("q");
 
-    function renderCards() {
-      const items = window.WATCHLIST_DATA?.items;
-      if (!Array.isArray(items)) return;
+      const $btnTags = document.getElementById("btnTags");
+      const $tagPanel = document.getElementById("tagPanel");
+      const $tagGrid = document.getElementById("tagGrid");
+      const $tagCount = document.getElementById("tagCount");
+      const $selectedTagChips = document.getElementById("selectedTagChips");
 
-      const cards = document.getElementById("cards");
-      cards.innerHTML = "";
-      for (const it of items) {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `
-          <div><b>${escapeHtml(it.title)}</b> <span class="muted">(${it.type})</span></div>
-          <div class="muted">status: ${escapeHtml(it.status)} • progresso: ${Number(it.progress||0)}%</div>
-          <div class="muted">tags: ${(it.tags||[]).map(t=>"#"+t).join(" ") || "—"}</div>
-        `;
-        cards.appendChild(div);
+      const $btnClearTags = document.getElementById("btnClearTags");
+      const $btnResetFilters = document.getElementById("btnResetFilters");
+
+      // Utils
+      const norm = (s) => String(s ?? "").toLowerCase().trim();
+
+      function clamp01_100(n){
+        const x = Number(n);
+        if (!Number.isFinite(x)) return 0;
+        return Math.max(0, Math.min(100, Math.round(x)));
       }
-    }
 
-    function escapeHtml(str){
-      return String(str ?? "")
-        .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;").replaceAll("'","&#039;");
-    }
+      function formatSE(item) {
+        if (item.type !== "series") return "";
+        const s = Number(item.season ?? 0);
+        const e = Number(item.episode ?? 0);
+        const ss = String(s).padStart(2, "0");
+        const ee = String(e).padStart(2, "0");
+        return `S${ss}E${ee}`;
+      }
 
-    // Dá um tempinho pro onload do script externo marcar flags
-    setTimeout(() => {
-      paintStatus();
-      renderCards();
-    }, 60);
+      function uniqueTagsFromItems(items) {
+        const set = new Set();
+        for (const it of items) {
+          const tags = Array.isArray(it.tags) ? it.tags : [];
+          for (const t of tags) set.add(String(t));
+        }
+        return Array.from(set).sort((a, b) => a.localeCompare(b, "pt-BR"));
+      }
+
+      function computeCounts(items) {
+        const total = items.length;
+        let movies = 0, series = 0, need = 0, progress = 0;
+        for (const it of items) {
+          if (it.type === "movie") movies++;
+          if (it.type === "series") series++;
+          if ((it.status ?? "need") === "need") need++;
+          if (clamp01_100(it.progress ?? 0) > 0) progress++;
+        }
+        return { total, movies, series, need, progress };
+      }
+
+      function applyFilters(items) {
+        const q = norm(state.q);
+
+        return items.filter((it) => {
+          // tipo
+          if (state.type !== "all" && it.type !== state.type) return false;
+
+          // status
+          const st = it.status ?? "need";
+          if (state.status !== "all" && st !== state.status) return false;
+
+          // tags (OR)
+          if (state.tags.size > 0) {
+            const tags = new Set((it.tags ?? []).map(String));
+            let any = false;
+            for (const t of state.tags) {
+              if (tags.has(t)) { any = true; break; }
+            }
+            if (!any) return false;
+          }
+
+          // busca: título, tags, SxxExx, status, tipo
+          if (q) {
+            const hay = [
+              it.title,
+              it.type,
+              it.status,
+              formatSE(it),
+              ...(it.tags ?? []).map((t) => `#${t}`),
+            ].map(norm).join(" ");
+            if (!hay.includes(q)) return false;
+          }
+
+          return true;
+        });
+      }
+
+      function setSegmentedActive(selector, attr, value) {
+        document.querySelectorAll(selector).forEach((btn) => {
+          const v = btn.getAttribute(attr);
+          btn.classList.toggle("is-active", v === value);
+        });
+      }
+
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function cssEscape(s) {
+        if (window.CSS && typeof window.CSS.escape === "function") return window.CSS.escape(String(s));
+        return String(s).replaceAll('"','\\"').replaceAll("\\","\\\\");
+      }
+
+      // Tags UI
+      function renderTagFilters() {
+        const tags = uniqueTagsFromItems(watchlistItems);
+
+        $tagGrid.innerHTML = "";
+        for (const t of tags) {
+          const id = `tag-${encodeURIComponent(t).replaceAll("%","_")}`;
+
+          const wrap = document.createElement("label");
+          wrap.className = "tag-item";
+          wrap.innerHTML = `
+            <input type="checkbox" id="${id}" data-tag="${escapeHtml(t)}" />
+            <span class="tagname">#${escapeHtml(t)}</span>
+          `;
+
+          const cb = wrap.querySelector("input");
+          cb.checked = state.tags.has(t);
+          cb.addEventListener("change", () => {
+            if (cb.checked) state.tags.add(t);
+            else state.tags.delete(t);
+            renderSelectedTagChips();
+            render();
+          });
+
+          $tagGrid.appendChild(wrap);
+        }
+
+        renderSelectedTagChips();
+      }
+
+      function renderSelectedTagChips() {
+        const arr = Array.from(state.tags);
+        $tagCount.textContent = String(arr.length);
+
+        $selectedTagChips.innerHTML = "";
+        for (const t of arr) {
+          const chip = document.createElement("span");
+          chip.className = "chip";
+          chip.innerHTML = `
+            <span>#${escapeHtml(t)}</span>
+            <button type="button" aria-label="Remover tag ${escapeHtml(t)}">×</button>
+          `;
+          chip.querySelector("button").addEventListener("click", () => {
+            state.tags.delete(t);
+            const cb = $tagGrid.querySelector(`input[data-tag="${cssEscape(t)}"]`);
+            if (cb) cb.checked = false;
+            renderSelectedTagChips();
+            render();
+          });
+          $selectedTagChips.appendChild(chip);
+        }
+      }
+
+      // Cards
+      function statusLegend(status) {
+        switch (status) {
+          case "downloaded": return "✅ baixado";
+          case "streaming": return "🟠 streaming";
+          default: return "⬚ precisa baixar";
+        }
+      }
+
+      function renderCards(items) {
+        $cards.innerHTML = "";
+
+        for (const it of items) {
+          const card = document.createElement("article");
+          card.className = "card";
+          card.setAttribute("data-id", it.id ?? "");
+
+          const icon = it.type === "movie" ? "🍿" : "🎬";
+          const orbClass = it.type === "movie" ? "movie" : "series";
+          const status = it.status ?? "need";
+
+          const seMeta = it.type === "series"
+            ? `
+              <span class="mini">Season: <strong>${Number(it.season ?? 0)}</strong></span>
+              <span class="mini">Episode: <strong>${Number(it.episode ?? 0)}</strong></span>
+              <span class="mini">${escapeHtml(formatSE(it))}</span>
+            `
+            : `<span class="mini">Filme</span>`;
+
+          const tagsHtml = (it.tags ?? [])
+            .map((t) => `<span class="tag">#${escapeHtml(t)}</span>`)
+            .join("");
+
+          // progresso (só se > 0)
+          const prog = clamp01_100(it.progress ?? 0);
+          const progressHtml = (prog > 0)
+            ? `
+              <div class="progress" aria-label="Progresso assistido">
+                <div class="progress-top">
+                  <div class="progress-title">PROGRESSO</div>
+                  <div class="progress-value">${prog}%</div>
+                </div>
+                <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${prog}">
+                  <div class="fill" style="width:${prog}%;"></div>
+                </div>
+              </div>
+            `
+            : "";
+
+          card.innerHTML = `
+            <div class="card-top">
+              <div class="sticker">
+                <div class="orb ${orbClass}" aria-hidden="true">${icon}</div>
+                <div class="titleline">
+                  <h3 class="card-title" title="${escapeHtml(it.title)}">${escapeHtml(it.title)}</h3>
+                  <div class="card-meta">${seMeta}</div>
+                </div>
+              </div>
+
+              <div class="status" aria-label="Status de obtenção">
+                <div class="ledrow" role="group" aria-label="Selecionar status">
+                  <button class="led" data-state="need" type="button" title="Precisa baixar"><span class="glyph">⬚</span></button>
+                  <button class="led" data-state="downloaded" type="button" title="Baixado"><span class="glyph">✓</span></button>
+                  <button class="led" data-state="streaming" type="button" title="Streaming"><span class="glyph">▶</span></button>
+                </div>
+                <div class="legend">${statusLegend(status)}</div>
+              </div>
+            </div>
+
+            <div class="tags">${tagsHtml || `<span class="tag">#sem-tag</span>`}</div>
+            ${progressHtml}
+          `;
+
+          // LED ativo
+          const leds = Array.from(card.querySelectorAll(".led"));
+          leds.forEach((b) => {
+            const st = b.getAttribute("data-state");
+            b.classList.toggle("is-on", st === status && status !== "need");
+          });
+
+          // Interação local (runtime)
+          leds.forEach((b) => {
+            b.addEventListener("click", () => {
+              it.status = b.getAttribute("data-state");
+              render();
+            });
+          });
+
+          $cards.appendChild(card);
+        }
+      }
+
+      function render() {
+        const c = computeCounts(watchlistItems);
+        $countTotal.textContent = String(c.total);
+        $countMovies.textContent = String(c.movies);
+        $countSeries.textContent = String(c.series);
+        $countNeed.textContent = String(c.need);
+        $countProgress.textContent = String(c.progress);
+
+        const filtered = applyFilters(watchlistItems);
+
+        $resultsMeta.textContent = `${filtered.length} resultado(s) com os filtros atuais`;
+        $empty.hidden = filtered.length !== 0;
+
+        renderCards(filtered);
+      }
+
+      // Eventos: tipo/status
+      document.querySelectorAll("[data-type]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.type = btn.getAttribute("data-type");
+          setSegmentedActive("[data-type]", "data-type", state.type);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-status]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.status = btn.getAttribute("data-status");
+          setSegmentedActive("[data-status]", "data-status", state.status);
+          render();
+        });
+      });
+
+      // Busca
+      $q.addEventListener("input", () => {
+        state.q = $q.value;
+        render();
+      });
+
+      // Tags dropdown
+      $btnTags.addEventListener("click", () => {
+        const open = !$tagPanel.hasAttribute("hidden");
+        if (open) {
+          $tagPanel.setAttribute("hidden", "");
+          $btnTags.setAttribute("aria-expanded", "false");
+        } else {
+          $tagPanel.removeAttribute("hidden");
+          $btnTags.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      // Limpar tags
+      $btnClearTags.addEventListener("click", () => {
+        state.tags.clear();
+        $tagGrid.querySelectorAll("input[type=checkbox]").forEach((cb) => (cb.checked = false));
+        renderSelectedTagChips();
+        render();
+      });
+
+      // Reset geral
+      $btnResetFilters.addEventListener("click", () => {
+        state.type = "all";
+        state.status = "all";
+        state.q = "";
+        state.tags.clear();
+        $q.value = "";
+
+        setSegmentedActive("[data-type]", "data-type", "all");
+        setSegmentedActive("[data-status]", "data-status", "all");
+
+        $tagGrid.querySelectorAll("input[type=checkbox]").forEach((cb) => (cb.checked = false));
+        renderSelectedTagChips();
+        render();
+      });
+
+      // Fechar painel de tags ao clicar fora
+      document.addEventListener("click", (ev) => {
+        const t = ev.target;
+        const clickedInside = $tagPanel.contains(t) || $btnTags.contains(t);
+        if (!clickedInside && !$tagPanel.hasAttribute("hidden")) {
+          $tagPanel.setAttribute("hidden", "");
+          $btnTags.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Boot
+      renderTagFilters();
+      render();
+    });
   </script>
 </body>
-</html>
+  </html>
