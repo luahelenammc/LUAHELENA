@@ -842,7 +842,16 @@
   <script src="/watchlist.js"></script>
 
   <!-- 2) App -->
-  <script>
+<script src="/watchlist.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const watchlistItems =
+      (window.WATCHLIST_DATA && Array.isArray(window.WATCHLIST_DATA.items))
+        ? window.WATCHLIST_DATA.items
+        : [];
+
+  
     (function () {
       // Os dados vêm do watchlist.js
       const watchlistItems = (typeof WATCHLIST_DATA !== "undefined" && WATCHLIST_DATA && Array.isArray(WATCHLIST_DATA.items))
@@ -1207,7 +1216,13 @@
       // Boot
       renderTagFilters();
       render();
+
+      
     })();
-  </script>
+
+    // ... TODO o resto do seu app vem aqui dentro ...
+  });
+</script>
+
 </body>
 </html>
