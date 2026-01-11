@@ -22,7 +22,7 @@ window.WATCHLIST_DATA = {
       episode: 6,
       tags: ["ficção científica", "thriller", "comecei"],
       status: "downloaded",
-      progress: 5,
+      progress: 55,
     },
     {
       id: "s-003",
