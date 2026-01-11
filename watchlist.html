@@ -233,7 +233,6 @@
     }
     .seg-btn:hover{ background: rgba(255,255,255,.06); }
     .seg-btn:active{ transform: translateY(1px); }
-
     .seg-btn.is-active{
       color:var(--ink);
       background:
@@ -311,7 +310,6 @@
     }
 
     .tag-filter{ display:grid; gap:10px; position:relative; }
-
     .tag-panel{
       border-radius:14px;
       padding:10px;
@@ -338,9 +336,7 @@
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap:8px;
     }
-    @media (max-width: 560px){
-      .tag-grid{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 560px){ .tag-grid{ grid-template-columns: 1fr; } }
 
     .tag-item{
       display:flex;
@@ -433,9 +429,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap:12px;
     }
-    @media (max-width: 860px){
-      .cards{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 860px){ .cards{ grid-template-columns: 1fr; } }
 
     .card{
       position:relative;
@@ -616,7 +610,6 @@
       user-select:none;
     }
 
-    /* Progresso (só aparece quando progress > 0) */
     .progress{
       margin-top:12px;
       display:grid;
@@ -784,7 +777,7 @@
               <div class="searchbox">
                 <input id="q" class="input" type="search" placeholder="Título, tag, S02E07..." autocomplete="off" />
               </div>
-              <p class="hint">Dica: “S02E07”, “#crime”, “downloaded”.</p>
+              <p class="hint">Dica: “S02E07”, “#drama”, “downloaded”.</p>
             </div>
 
             <!-- Tags -->
@@ -803,12 +796,10 @@
                     <button id="btnClearTags" class="btn btn-ghost" type="button">Limpar tags</button>
                   </div>
 
-                  <div class="tag-grid" id="tagGrid" aria-label="Lista de tags">
-                    <!-- JS injeta checkboxes de tags aqui -->
-                  </div>
+                  <div class="tag-grid" id="tagGrid" aria-label="Lista de tags"></div>
 
                   <div class="tag-panel-foot">
-                    <span>As tags vêm direto do array de itens (quando você trouxer os dados).</span>
+                    <span>As tags vêm automaticamente do <code>watchlist.js</code>.</span>
                   </div>
                 </div>
 
@@ -833,51 +824,28 @@
           <div id="emptyState" class="empty" hidden>
             <div class="empty-card">
               <div class="empty-title">Nada por aqui.</div>
-              <div class="empty-sub">Quando você colar seus itens no arquivo de dados, eles aparecem aqui automaticamente.</div>
+              <div class="empty-sub">Edite o <code>watchlist.js</code> para inserir itens.</div>
             </div>
           </div>
         </section>
 
         <footer class="footer">
           <div class="footer-note">
-            Estrutura unificada • depois você pluga o <code>data.js</code> com seus filmes/séries
+            Estrutura unificada • fonte de dados externa: <code>watchlist.js</code>
           </div>
         </footer>
       </div>
     </section>
   </main>
 
-  <script>
-    /*****************************************************************
-     * FONTE DE DADOS (placeholder)
-     * - Por enquanto, vazio (estrutura do site).
-     * - Depois você vai substituir isto por um data.js externo.
-     *
-     * Esquema esperado de item:
-     * {
-     *   id: "m-01",
-     *   type: "movie" | "series",
-     *   title: "…",
-     *   season?: 2,              // só série
-     *   episode?: 7,             // só série
-     *   tags: ["crime","…"],
-     *   status: "need" | "downloaded" | "streaming",
-     *   progress?: 0..100        // se 0 ou ausente: sem barra
-     * }
-     *****************************************************************/
-    const WATCHLIST_DATA = {
-      items: [
-        // Estrutura pronta — quando você mandar seus filmes, eu gero só o data.js.
-        // Exemplo (removido de propósito para ficar “só estrutura”):
-        // { id:"m-01", type:"movie", title:"Exemplo", tags:["tag"], status:"need", progress: 35 }
-      ]
-    };
+  <!-- 1) Dados externos -->
+  <script src="./watchlist.js"></script>
 
-    /*****************************************************************
-     * APP (render + filtros + tags dinâmicas + barra de progresso)
-     *****************************************************************/
+  <!-- 2) App -->
+  <script>
     (function () {
-      const data = (WATCHLIST_DATA && Array.isArray(WATCHLIST_DATA.items))
+      // Os dados vêm do watchlist.js
+      const watchlistItems = (typeof WATCHLIST_DATA !== "undefined" && WATCHLIST_DATA && Array.isArray(WATCHLIST_DATA.items))
         ? WATCHLIST_DATA.items
         : [];
 
@@ -960,7 +928,7 @@
           const st = it.status ?? "need";
           if (state.status !== "all" && st !== state.status) return false;
 
-          // tags (OR: passa se tiver QUALQUER uma das selecionadas)
+          // tags (OR)
           if (state.tags.size > 0) {
             const tags = new Set((it.tags ?? []).map(String));
             let any = false;
@@ -995,7 +963,7 @@
 
       // Tags UI
       function renderTagFilters() {
-        const tags = uniqueTagsFromItems(data);
+        const tags = uniqueTagsFromItems(watchlistItems);
 
         $tagGrid.innerHTML = "";
         for (const t of tags) {
@@ -1038,7 +1006,7 @@
           `;
           chip.querySelector("button").addEventListener("click", () => {
             state.tags.delete(t);
-            const cb = $tagGrid.querySelector(`input[data-tag="${cssEscape(t)}"]`);
+            const cb = $tagGrid.querySelector(\`input[data-tag="\${cssEscape(t)}"]\`);
             if (cb) cb.checked = false;
             renderSelectedTagChips();
             render();
@@ -1072,7 +1040,6 @@
             .map((t) => `<span class="tag">#${escapeHtml(t)}</span>`)
             .join("");
 
-          // Progresso (só se > 0)
           const prog = clamp01_100(it.progress ?? 0);
           const progressHtml = (prog > 0)
             ? `
@@ -1100,15 +1067,9 @@
 
               <div class="status" aria-label="Status de obtenção">
                 <div class="ledrow" role="group" aria-label="Selecionar status">
-                  <button class="led" data-state="need" type="button" title="Precisa baixar">
-                    <span class="glyph">⬚</span>
-                  </button>
-                  <button class="led" data-state="downloaded" type="button" title="Baixado">
-                    <span class="glyph">✓</span>
-                  </button>
-                  <button class="led" data-state="streaming" type="button" title="Streaming">
-                    <span class="glyph">▶</span>
-                  </button>
+                  <button class="led" data-state="need" type="button" title="Precisa baixar"><span class="glyph">⬚</span></button>
+                  <button class="led" data-state="downloaded" type="button" title="Baixado"><span class="glyph">✓</span></button>
+                  <button class="led" data-state="streaming" type="button" title="Streaming"><span class="glyph">▶</span></button>
                 </div>
                 <div class="legend">${statusLegend(status)}</div>
               </div>
@@ -1125,9 +1086,7 @@
             b.classList.toggle("is-on", st === status && status !== "need");
           });
 
-          // Interação (runtime): clicar muda status
-          // Observação: isso altera o array em memória — quando você plugar data.js, você pode manter
-          // só como visual ou depois salvar em localStorage.
+          // Interação local (runtime)
           leds.forEach((b) => {
             b.addEventListener("click", () => {
               it.status = b.getAttribute("data-state");
@@ -1148,14 +1107,14 @@
       }
 
       function render() {
-        const c = computeCounts(data);
+        const c = computeCounts(watchlistItems);
         $countTotal.textContent = String(c.total);
         $countMovies.textContent = String(c.movies);
         $countSeries.textContent = String(c.series);
         $countNeed.textContent = String(c.need);
         $countProgress.textContent = String(c.progress);
 
-        const filtered = applyFilters(data);
+        const filtered = applyFilters(watchlistItems);
 
         $resultsMeta.textContent = `${filtered.length} resultado(s) com os filtros atuais`;
         $empty.hidden = filtered.length !== 0;
@@ -1164,18 +1123,18 @@
       }
 
       // Eventos: tipo/status
-      document.querySelectorAll('[data-type]').forEach((btn) => {
+      document.querySelectorAll("[data-type]").forEach((btn) => {
         btn.addEventListener("click", () => {
           state.type = btn.getAttribute("data-type");
-          setSegmentedActive('[data-type]', "data-type", state.type);
+          setSegmentedActive("[data-type]", "data-type", state.type);
           render();
         });
       });
 
-      document.querySelectorAll('[data-status]').forEach((btn) => {
+      document.querySelectorAll("[data-status]").forEach((btn) => {
         btn.addEventListener("click", () => {
           state.status = btn.getAttribute("data-status");
-          setSegmentedActive('[data-status]', "data-status", state.status);
+          setSegmentedActive("[data-status]", "data-status", state.status);
           render();
         });
       });
@@ -1214,8 +1173,8 @@
         state.tags.clear();
         $q.value = "";
 
-        setSegmentedActive('[data-type]', "data-type", "all");
-        setSegmentedActive('[data-status]', "data-status", "all");
+        setSegmentedActive("[data-type]", "data-type", "all");
+        setSegmentedActive("[data-status]", "data-status", "all");
 
         $tagGrid.querySelectorAll("input[type=checkbox]").forEach((cb) => (cb.checked = false));
         renderSelectedTagChips();
@@ -1246,9 +1205,9 @@
       }
 
       // Boot
-      renderTagFilters(); // tags vêm do array de itens
+      renderTagFilters();
       render();
     })();
   </script>
 </body>
-  </html>
+</html>
