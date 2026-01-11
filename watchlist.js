@@ -230,3 +230,7 @@ const WATCHLIST_DATA = {
     },
   ],
 };
+
+window.WATCHLIST_DATA = {
+  items: [ /* ... */ ]
+};
