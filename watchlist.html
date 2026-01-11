@@ -842,21 +842,17 @@
   <script src="/watchlist.js"></script>
 
   <!-- 2) App -->
-<script src="/watchlist.js"></script>
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    const watchlistItems =
-      (window.WATCHLIST_DATA && Array.isArray(window.WATCHLIST_DATA.items))
-        ? window.WATCHLIST_DATA.items
-        : [];
+  const watchlistItems =
+  (window.WATCHLIST_DATA && Array.isArray(window.WATCHLIST_DATA.items))
+    ? window.WATCHLIST_DATA.items
+    : [];
 
   
     (function () {
-      // Os dados vêm do watchlist.js
-      const watchlistItems = (typeof WATCHLIST_DATA !== "undefined" && WATCHLIST_DATA && Array.isArray(WATCHLIST_DATA.items))
-        ? WATCHLIST_DATA.items
-        : [];
+
 
       const state = {
         type: "all",       // all | movie | series
