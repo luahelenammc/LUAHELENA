@@ -1,11 +1,9 @@
-// watchlist.js (na raiz do site)
-// NÃO duplique WATCHLIST_DATA em outro lugar.
+// /watchlist.js
+// Dados expostos em window para o app enxergar sempre.
 
 window.WATCHLIST_DATA = {
   items: [
-    // =========================
     // SÉRIES
-    // =========================
     {
       id: "s-001",
       type: "series",
@@ -77,9 +75,7 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
 
-    // =========================
     // FILMES
-    // =========================
     {
       id: "m-001",
       type: "movie",
@@ -114,3 +110,7 @@ window.WATCHLIST_DATA = {
     },
   ],
 };
+
+// flags de debug (não atrapalham nada)
+window.__WATCHLIST_JS_LOADED__ = true;
+console.log("✅ watchlist.js executou:", window.WATCHLIST_DATA?.items?.length ?? "sem items");
