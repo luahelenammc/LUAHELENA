@@ -74,6 +74,16 @@ window.WATCHLIST_DATA = {
       status: "downloaded",
       progress: 0,
     },
+    {
+  id: "s-008",
+  type: "series",
+  title: "Orange",
+  season: 1,
+  episode: 1,
+  tags: ["anime"],
+  status: "downloaded",
+  progress: 0,
+},
 
     // FILMES
     {
@@ -85,15 +95,7 @@ window.WATCHLIST_DATA = {
       progress: 55,
     },
     {
-      id: "m-002",
-      type: "movie",
-      title: "Ocean's 8",
-      tags: ["golpe", "ano-2008", "comecei"],
-      status: "downloaded",
-      progress: 20,
-    },
-    {
-      id: "m-003",
+      id: "m-004",
       type: "movie",
       title: "Everything everyone at once",
       tags: ["ano-2022"],
@@ -101,7 +103,7 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
     {
-      id: "m-004",
+      id: "m-005",
       type: "movie",
       title: "The Florida Project",
       tags: ["ano-2017", "drama", "independente"],
