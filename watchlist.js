@@ -5,7 +5,6 @@ window.WATCHLIST_DATA = {
   items: [
     // SÉRIES
     {
-      id: "s-001",
       type: "series",
       title: "The Real Housewives of Beverly Hills",
       season: 15,
@@ -13,9 +12,9 @@ window.WATCHLIST_DATA = {
       tags: ["reality show", "comecei"],
       status: "downloaded",
       progress: 0,
+      nextRelease: "22/01/26"
     },
     {
-      id: "s-002",
       type: "series",
       title: "Severance",
       season: 2,
@@ -25,7 +24,6 @@ window.WATCHLIST_DATA = {
       progress: 14,
     },
     {
-      id: "s-003",
       type: "series",
       title: "Normal People",
       season: 1,
@@ -35,7 +33,6 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
     {
-      id: "s-004",
       type: "series",
       title: "Chainsaw Man",
       season: 1,
@@ -45,7 +42,6 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
     {
-      id: "s-005",
       type: "series",
       title: "Silent Witch",
       season: 1,
@@ -55,7 +51,6 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
     {
-      id: "s-006",
       type: "series",
       title: "Jujutsu Kaisen",
       season: 3,
@@ -63,9 +58,9 @@ window.WATCHLIST_DATA = {
       tags: ["anime", "ação", "sobrenatural"],
       status: "downloaded",
       progress: 0,
+      nextRelease: "23/01/26",
     },
     {
-  id: "s-007",
   type: "series",
   title: "Orange",
   season: 1,
@@ -77,15 +72,13 @@ window.WATCHLIST_DATA = {
 
     // FILMES
     {
-      id: "m-001",
       type: "movie",
       title: "Caligula",
       tags: ["clássico", "ano-1979", "comecei"],
       status: "downloaded",
-      progress: 55,
+      progress: 60,
     },
     {
-      id: "m-004",
       type: "movie",
       title: "Everything everyone at once",
       tags: ["ano-2022"],
@@ -93,7 +86,6 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
     {
-      id: "m-005",
       type: "movie",
       title: "The Florida Project",
       tags: ["ano-2017", "drama", "independente"],
