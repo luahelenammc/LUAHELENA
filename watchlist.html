@@ -30,6 +30,7 @@
       --series:#FF9500;    /* laranja */
       --ok:#34C759;        /* verde */
       --cyan:#43D7FF;
+      --blue:#0A84FF;      /* azul iOS */
 
       --track:#0A0F1B;
       --track2:#0D1426;
@@ -520,6 +521,53 @@
     }
     .mini strong{ color: var(--ink); }
 
+    /* ====== NOVO: badge de lançamento do próximo episódio ====== */
+    .release{
+      font-weight:950;
+      letter-spacing:.02em;
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .release .release-date{
+      font-weight:950;
+      letter-spacing:.06em;
+      opacity:.95;
+    }
+    .release .release-text{
+      font-weight:900;
+      opacity:.92;
+    }
+    .release.future{
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.20), transparent 55%),
+        linear-gradient(180deg, rgba(255,59,48,.28), rgba(90,12,10,.20));
+      border-color: rgba(255,59,48,.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(255,59,48,.10),
+        0 0 22px rgba(255,59,48,.10);
+    }
+    .release.today{
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.20), transparent 55%),
+        linear-gradient(180deg, rgba(10,132,255,.30), rgba(10,132,255,.12));
+      border-color: rgba(10,132,255,.38);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(10,132,255,.10),
+        0 0 22px rgba(10,132,255,.10);
+    }
+    .release.past{
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 55%),
+        linear-gradient(180deg, rgba(52,199,89,.24), rgba(18,102,45,.12));
+      border-color: rgba(52,199,89,.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(52,199,89,.10),
+        0 0 22px rgba(52,199,89,.08);
+    }
+
     .tags{
       margin-top:10px;
       display:flex;
@@ -778,7 +826,7 @@
               <div class="searchbox">
                 <input id="q" class="input" type="search" placeholder="Título, tag, S02E07..." autocomplete="off" />
               </div>
-              <p class="hint">Dica: “S02E07”, “#drama”, “downloaded”.</p>
+              <p class="hint">Dica: “S02E07”, “#drama”, “downloaded”, “22/jan”.</p>
             </div>
 
             <!-- Tags -->
@@ -839,10 +887,9 @@
     </section>
   </main>
 
-  <!-- 1) Dados externos (igual ao diagnóstico que funcionou) -->
+  <!-- Dados externos -->
   <script src="/watchlist.js?v=20260111"></script>
 
-  <!-- 2) App -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       const watchlistItems =
@@ -888,6 +935,20 @@
         return Math.max(0, Math.min(100, Math.round(x)));
       }
 
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function cssEscape(s) {
+        if (window.CSS && typeof window.CSS.escape === "function") return window.CSS.escape(String(s));
+        return String(s).replaceAll('"','\\"').replaceAll("\\","\\\\");
+      }
+
       function formatSE(item) {
         if (item.type !== "series") return "";
         const s = Number(item.season ?? 0);
@@ -918,18 +979,77 @@
         return { total, movies, series, need, progress };
       }
 
+      /* ====== NOVO: nextRelease (DD/MM/YY ou DD/MM/YYYY) ====== */
+      const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+
+      function parseNextRelease(value){
+        if (!value) return null;
+
+        if (value instanceof Date && Number.isFinite(value.getTime())) {
+          const d = new Date(value);
+          d.setHours(0,0,0,0);
+          return d;
+        }
+
+        const s = String(value).trim();
+
+        // DD/MM/YY ou DD/MM/YYYY
+        const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
+        if (!m) return null;
+
+        const dd = Number(m[1]);
+        const mm = Number(m[2]); // 1..12
+        let yy = Number(m[3]);
+
+        if (!Number.isFinite(dd) || !Number.isFinite(mm) || !Number.isFinite(yy)) return null;
+        if (yy < 100) yy = 2000 + yy; // 26 => 2026
+
+        const d = new Date(yy, mm - 1, dd);
+        if (Number.isNaN(d.getTime())) return null;
+        d.setHours(0,0,0,0);
+        return d;
+      }
+
+      function shortDatePT(date){
+        const dd = String(date.getDate()).padStart(2,"0");
+        const mon = MONTHS_PT[date.getMonth()] || "???";
+        return `${dd}/${mon}`;
+      }
+
+      function daysDiffFromToday(date){
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const ms = date.getTime() - today.getTime();
+        return Math.round(ms / 86400000);
+      }
+
+      function nextReleaseBadge(item){
+        if (item.type !== "series") return "";
+        const d = parseNextRelease(item.nextRelease);
+        if (!d) return "";
+
+        const diff = daysDiffFromToday(d);
+        const dateLabel = shortDatePT(d);
+
+        if (diff > 0) {
+          const txt = diff === 1 ? "daqui a 1 dia" : `daqui a ${diff} dias`;
+          return `<span class="mini release future"><span class="release-date">${dateLabel}</span><span class="release-text">• ${txt}</span></span>`;
+        }
+        if (diff === 0) {
+          return `<span class="mini release today"><span class="release-date">${dateLabel}</span><span class="release-text">• LANÇA HOJE</span></span>`;
+        }
+        return `<span class="mini release past"><span class="release-date">${dateLabel}</span><span class="release-text">• Já lançou!</span></span>`;
+      }
+
       function applyFilters(items) {
         const q = norm(state.q);
 
         return items.filter((it) => {
-          // tipo
           if (state.type !== "all" && it.type !== state.type) return false;
 
-          // status
           const st = it.status ?? "need";
           if (state.status !== "all" && st !== state.status) return false;
 
-          // tags (OR)
           if (state.tags.size > 0) {
             const tags = new Set((it.tags ?? []).map(String));
             let any = false;
@@ -939,13 +1059,18 @@
             if (!any) return false;
           }
 
-          // busca: título, tags, SxxExx, status, tipo
           if (q) {
+            const releaseDate = (() => {
+              const d = parseNextRelease(it.nextRelease);
+              return d ? shortDatePT(d) : "";
+            })();
+
             const hay = [
               it.title,
               it.type,
               it.status,
               formatSE(it),
+              releaseDate,
               ...(it.tags ?? []).map((t) => `#${t}`),
             ].map(norm).join(" ");
             if (!hay.includes(q)) return false;
@@ -960,20 +1085,6 @@
           const v = btn.getAttribute(attr);
           btn.classList.toggle("is-active", v === value);
         });
-      }
-
-      function escapeHtml(str) {
-        return String(str ?? "")
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
-      }
-
-      function cssEscape(s) {
-        if (window.CSS && typeof window.CSS.escape === "function") return window.CSS.escape(String(s));
-        return String(s).replaceAll('"','\\"').replaceAll("\\","\\\\");
       }
 
       // Tags UI
@@ -1041,10 +1152,13 @@
       function renderCards(items) {
         $cards.innerHTML = "";
 
-        for (const it of items) {
+        for (let idx = 0; idx < items.length; idx++) {
+          const it = items[idx];
+
           const card = document.createElement("article");
           card.className = "card";
-          card.setAttribute("data-id", it.id ?? "");
+          // não depende de id; se existir, ok, se não existir, tudo certo
+          card.setAttribute("data-key", it.id ?? `${it.type}:${it.title}:${formatSE(it)}:${idx}`);
 
           const icon = it.type === "movie" ? "🍿" : "🎬";
           const orbClass = it.type === "movie" ? "movie" : "series";
@@ -1055,6 +1169,7 @@
               <span class="mini">Season: <strong>${Number(it.season ?? 0)}</strong></span>
               <span class="mini">Episode: <strong>${Number(it.episode ?? 0)}</strong></span>
               <span class="mini">${escapeHtml(formatSE(it))}</span>
+              ${nextReleaseBadge(it)}
             `
             : `<span class="mini">Filme</span>`;
 
@@ -1062,7 +1177,6 @@
             .map((t) => `<span class="tag">#${escapeHtml(t)}</span>`)
             .join("");
 
-          // progresso (só se > 0)
           const prog = clamp01_100(it.progress ?? 0);
           const progressHtml = (prog > 0)
             ? `
@@ -1102,14 +1216,12 @@
             ${progressHtml}
           `;
 
-          // LED ativo
           const leds = Array.from(card.querySelectorAll(".led"));
           leds.forEach((b) => {
             const st = b.getAttribute("data-state");
             b.classList.toggle("is-on", st === status && status !== "need");
           });
 
-          // Interação local (runtime)
           leds.forEach((b) => {
             b.addEventListener("click", () => {
               it.status = b.getAttribute("data-state");
@@ -1212,4 +1324,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
