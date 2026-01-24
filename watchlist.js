@@ -113,6 +113,7 @@ window.WATCHLIST_DATA = {
       status: "downloaded",
       progress: 0,
     },
+    ], //
 };
 
 // flags de debug (não atrapalham nada)
