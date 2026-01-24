@@ -92,7 +92,6 @@ window.WATCHLIST_DATA = {
       status: "downloaded",
       progress: 0,
     },
-  ],
   {
       type: "movie",
       title: "Coerência",
