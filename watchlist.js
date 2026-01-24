@@ -93,6 +93,27 @@ window.WATCHLIST_DATA = {
       progress: 0,
     },
   ],
+  {
+      type: "movie",
+      title: "Coerência",
+      tags: ["ficção científica", "thriller", "realidades-paralelas"],
+      status: "downloaded",
+      progress: 0,
+    },
+    {
+      type: "movie",
+      title: "A Outra Terra",
+      tags: ["ficção científica", "drama", "metafísico"],
+      status: "downloaded",
+      progress: 0,
+    },
+    {
+      type: "movie",
+      title: "Doentes de Amor",
+      tags: ["romance", "comédia", "baseado-em-fatos"],
+      status: "downloaded",
+      progress: 0,
+    },
 };
 
 // flags de debug (não atrapalham nada)
