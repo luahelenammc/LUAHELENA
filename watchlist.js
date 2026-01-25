@@ -9,9 +9,9 @@ window.WATCHLIST_DATA = {
       title: "The Real Housewives of Beverly Hills",
       displayTitle: "The Real Housewives of Beverly Hills",
       season: 15,
-      episode: 5,
+      episode: 7,
       tags: ["reality-show", "comecei"],
-      status: "downloaded",
+      status: "",
       progress: 0,
       // você disse que esse é o episódio baixado "dessa semana".
       // aqui deixei a próxima data como +7 dias (ajuste se seu tracker for diferente).
