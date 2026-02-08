@@ -4,18 +4,27 @@
 window.WATCHLIST_DATA = {
   items: [
     // SÉRIES
+        {
+      type: "series",
+      title: "Jujutsu Kaisen",
+      displayTitle: "Jujutsu Kaisen",
+      season: 3,
+      episode: 7,
+      tags: ["anime", "acao", "sobrenatural"],
+      status: "waiting",
+      progress: 0,
+      nextRelease: "13/02/26",
+    },
     {
       type: "series",
       title: "The Real Housewives of Beverly Hills",
       displayTitle: "The Real Housewives of Beverly Hills",
       season: 15,
-      episode: 7,
+      episode: 9,
       tags: ["reality-show", "comecei"],
-      status: "",
+      status: "waiting",
       progress: 0,
-      // você disse que esse é o episódio baixado "dessa semana".
-      // aqui deixei a próxima data como +7 dias (ajuste se seu tracker for diferente).
-      nextRelease: "29/01/26",
+      nextRelease: "12/02/26",
     },
     {
       type: "series",
@@ -57,17 +66,7 @@ window.WATCHLIST_DATA = {
       status: "downloaded",
       progress: 0,
     },
-    {
-      type: "series",
-      title: "Jujutsu Kaisen",
-      displayTitle: "Jujutsu Kaisen",
-      season: 3,
-      episode: 5,
-      tags: ["anime", "acao", "sobrenatural"],
-      status: "waiting",
-      progress: 0,
-      nextRelease: "30/01/26",
-    },
+
     {
       type: "series",
       title: "Orange",
