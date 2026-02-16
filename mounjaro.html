@@ -17,6 +17,7 @@
       --accent-lime:#a6f277;
       --accent-cyan:#54d7ff;
       --accent-red:#ff4b4b;
+      --accent-orange:#ff9a3c;
 
       --text-main:#111217;
       --text-soft:#3b4055;
@@ -333,6 +334,7 @@
     #next-mg.mg-25{ color:#0a5f82; }
     #next-mg.mg-375{ color:#1a5c1a; }
     #next-mg.mg-5{ color:#b00000; }
+    #next-mg.mg-unknown{ color:var(--accent-orange); }
     .next-countdown{ font-size:0.8rem; color:#5a6b4b; margin-top:0.15rem; }
 
     /* =========================
@@ -396,6 +398,12 @@
       border-color:rgba(170,60,60,0.75);
     }
 
+
+    
+    .mg-pill.mg-unknown{
+      background:radial-gradient(circle at 30% 30%, #ffffff, var(--accent-orange));
+      border-color:rgba(200,120,40,0.75);
+    }
 
     .weekday-tag{
       display:inline-block;
@@ -564,6 +572,7 @@
     // ARRAY PRINCIPAL DE DOSES
     // ====================================
     const doses = [
+
       { id: 1, date: "2025-12-03", weekday: "quarta-feira", mg: 2.5,  note: "Dose inicial · fase 2,5 mg" },
       { id: 2, date: "2025-12-10", weekday: "quarta-feira", mg: 2.5,  note: "2ª quarta de 2,5 mg" },
       { id: 3, date: "2025-12-17", weekday: "quarta-feira", mg: 2.5,  note: "3ª quarta de 2,5 mg" },
@@ -574,7 +583,9 @@
          { id: 7, date: "2026-01-16", weekday: "sexta-feira",  mg: 5, note: "2ª dose de 5 mg (sexta)" },
          { id: 8, date: "2026-01-23", weekday: "sexta-feira",  mg: 5, note: "3ª dose de 5 mg (sexta)" },
          { id: 9, date: "2026-01-30", weekday: "sexta-feira",  mg: 5, note: "4ª dose de 5 mg (sexta)" },
-               { id: 9, date: "2026-02-05", weekday: "sexta-feira",  mg: 4.41, note: "1ª dose de 4,41 mg (sexta)" }
+               { id: 10, date: "2026-02-05", weekday: "sexta-feira",  mg: 4.41, note: "1ª dose de 4,41 mg (sexta)" },
+      { id: 11, date: "2026-02-12", weekday: "quinta-feira", mg: 3.53, note: "12 UI = 3,53 mg (quinta)" }
+    
     ];
 
     // ====================================
