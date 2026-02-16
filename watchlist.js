@@ -123,25 +123,28 @@
   //   ]
   // }
   // =========================
-  const releases = {
-    "The Real Housewives of Beverly Hills": [
-      { season: 15, episode: 4, date: "08/01/26" },
-      { season: 15, episode: 5, date: "15/01/26" },
-      { season: 15, episode: 6, date: "22/01/26" }, // exemplo que você deu
-      { season: 15, episode: 7, date: "29/01/26" },
-      { season: 15, episode: 8, date: "05/02/26" },
-      { season: 15, episode: 9, date: "12/02/26" },
-    ],
+ const releases = {
+  "The Real Housewives of Beverly Hills": [
+    { season: 15, episode: 4, date: "08/01/26" },
+    { season: 15, episode: 5, date: "15/01/26" },
+    { season: 15, episode: 6, date: "22/01/26" },
+    { season: 15, episode: 7, date: "29/01/26" },
+    { season: 15, episode: 8, date: "05/02/26" },
+    { season: 15, episode: 9, date: "12/02/26" },
+    { season: 15, episode: 10, date: "19/02/26" },
+    { season: 15, episode: 11, date: "26/02/26" },
+  ],
 
-    "Jujutsu Kaisen": [
-      { season: 3, episode: 3, date: "16/01/26" },
-      { season: 3, episode: 4, date: "23/01/26" }, // exemplo que você deu
-      { season: 3, episode: 5, date: "30/01/26" },
-      { season: 3, episode: 6, date: "06/02/26" },
-      { season: 3, episode: 7, date: "13/02/26" },
-      { season: 3, episode: 8, date: "27/02/26" },
-    ],
-  };
+  "Jujutsu Kaisen": [
+    { season: 3, episode: 3, date: "16/01/26" },
+    { season: 3, episode: 4, date: "23/01/26" },
+    { season: 3, episode: 5, date: "30/01/26" },
+    { season: 3, episode: 6, date: "06/02/26" },
+    { season: 3, episode: 7, date: "13/02/26" },
+    { season: 3, episode: 8, date: "27/02/26" },
+  ],
+};
+
 
   // =========================
   // 3) EXPORTA EM window
