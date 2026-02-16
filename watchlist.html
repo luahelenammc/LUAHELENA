@@ -29,9 +29,9 @@
       --movie:#FF3B30;     /* vermelho */
       --series:#FF9500;    /* laranja */
       --ok:#34C759;        /* verde */
-      --cyan:#43D7FF;      /* ciano */
-      --blue:#0A84FF;      /* azul iOS */
-      --wait:#AF52DE;      /* roxo iOS (aguardando) */
+      --cyan:#43D7FF;
+      --wait:#FF3B30;      /* aguardando (vermelho) */
+      --watched:#AF52DE;   /* assistido (roxo) */
 
       --track:#0A0F1B;
       --track2:#0D1426;
@@ -518,78 +518,54 @@
       font-size:12px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
       user-select:none;
-      white-space:nowrap;
     }
     .mini strong{ color: var(--ink); }
 
-    /* ====== NOVO: badges de lançamento ====== */
-    .mini.release{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)),
-        rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.12);
-      color: rgba(234,241,255,.92);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 10px 18px rgba(0,0,0,.30);
+    /* ====== badge lançamento ====== */
+    .release{
+      font-weight:950;
+      letter-spacing:.02em;
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.14);
     }
-    .mini.release .release-date{ font-weight:950; letter-spacing:.02em; }
-    .mini.release .release-text{ color: rgba(234,241,255,.86); font-weight:900; }
-    .mini.release .release-se{ color: rgba(234,241,255,.72); font-weight:900; }
-
-    .mini.release.future{
+    .release .release-date{
+      font-weight:950;
+      letter-spacing:.06em;
+      opacity:.95;
+    }
+    .release .release-text{
+      font-weight:900;
+      opacity:.92;
+    }
+    .release.future{
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.20), transparent 55%),
         linear-gradient(180deg, rgba(255,59,48,.28), rgba(90,12,10,.20));
       border-color: rgba(255,59,48,.35);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 10px 18px rgba(0,0,0,.35),
-        0 0 0 4px rgba(255,59,48,.12),
-        0 0 22px rgba(255,59,48,.16);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(255,59,48,.10),
+        0 0 22px rgba(255,59,48,.10);
     }
-    .mini.release.today{
+    .release.today{
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
-        linear-gradient(180deg, rgba(10,132,255,.30), rgba(6,52,105,.22));
-      border-color: rgba(10,132,255,.40);
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.20), transparent 55%),
+        linear-gradient(180deg, rgba(10,132,255,.30), rgba(10,132,255,.12));
+      border-color: rgba(10,132,255,.38);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 10px 18px rgba(0,0,0,.35),
-        0 0 0 4px rgba(10,132,255,.12),
-        0 0 22px rgba(10,132,255,.16);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(10,132,255,.10),
+        0 0 22px rgba(10,132,255,.10);
     }
-    .mini.release.past{
+    .release.past{
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
-        linear-gradient(180deg, rgba(52,199,89,.24), rgba(16,80,38,.22));
-      border-color: rgba(52,199,89,.40);
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 55%),
+        linear-gradient(180deg, rgba(52,199,89,.24), rgba(18,102,45,.12));
+      border-color: rgba(52,199,89,.35);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 10px 18px rgba(0,0,0,.35),
-        0 0 0 4px rgba(52,199,89,.12),
-        0 0 22px rgba(52,199,89,.14);
-    }
-    .mini.release.done{
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 55%),
-        linear-gradient(180deg, rgba(67,215,255,.20), rgba(16,104,130,.18));
-      border-color: rgba(67,215,255,.35);
-    }
-
-    .mini.avail{
-      background:
-        radial-gradient(circle at 25% 30%, rgba(255,255,255,.14), transparent 55%),
-        linear-gradient(180deg, rgba(67,215,255,.22), rgba(16,104,130,.18));
-      border-color: rgba(67,215,255,.30);
-      color: rgba(234,241,255,.92);
-    }
-    .mini.backlog{
-      background:
-        radial-gradient(circle at 25% 30%, rgba(255,255,255,.14), transparent 55%),
-        linear-gradient(180deg, rgba(255,149,0,.22), rgba(160,85,0,.16));
-      border-color: rgba(255,149,0,.30);
-      color: rgba(234,241,255,.92);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 0 4px rgba(52,199,89,.10),
+        0 0 22px rgba(52,199,89,.08);
     }
 
     .tags{
@@ -618,7 +594,13 @@
       align-items:flex-end;
       flex:0 0 auto;
     }
-    .ledrow{ display:flex; gap:8px; }
+    .ledrow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      max-width: 210px;
+    }
     .led{
       width:34px;
       height:26px;
@@ -651,14 +633,7 @@
       color: rgba(234,241,255,.72);
       user-select:none;
     }
-
-    /* “need” fica sutil mas ativo */
-    .led[data-state="need"].is-on{
-      border-color: rgba(234,241,255,.22);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
-        rgba(0,0,0,.26);
-    }
+    .led[data-state="need"]{ opacity:.85; }
 
     .led[data-state="downloaded"].is-on{
       border-color: rgba(52,199,89,.35);
@@ -683,15 +658,26 @@
         linear-gradient(180deg, rgba(255,149,0,.90), rgba(160,85,0,.90));
     }
     .led[data-state="waiting"].is-on{
+      border-color: rgba(255,59,48,.40);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 10px 18px rgba(0,0,0,.35),
+        0 0 0 4px rgba(255,59,48,.12),
+        0 0 22px rgba(255,59,48,.22);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 45%),
+        linear-gradient(180deg, rgba(255,59,48,.90), rgba(120,18,12,.90));
+    }
+    .led[data-state="watched"].is-on{
       border-color: rgba(175,82,222,.45);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.12),
         0 10px 18px rgba(0,0,0,.35),
-        0 0 0 4px rgba(175,82,222,.12),
-        0 0 22px rgba(175,82,222,.18);
+        0 0 0 4px rgba(175,82,222,.14),
+        0 0 22px rgba(175,82,222,.22);
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 45%),
-        linear-gradient(180deg, rgba(175,82,222,.90), rgba(90,40,122,.90));
+        linear-gradient(180deg, rgba(175,82,222,.92), rgba(90,32,125,.92));
     }
 
     .legend{
@@ -831,7 +817,7 @@
               <div class="meter-value" id="countSeries">—</div>
             </div>
             <div class="meter">
-              <div class="meter-label">NÃO BAIXADOS</div>
+              <div class="meter-label">PRECISA BAIXAR</div>
               <div class="meter-value" id="countNeed">—</div>
             </div>
             <div class="meter">
@@ -860,6 +846,7 @@
                 <button class="seg-btn" data-status="downloaded" type="button">✅ Baixado</button>
                 <button class="seg-btn" data-status="streaming" type="button">🟠 Streaming</button>
                 <button class="seg-btn" data-status="waiting" type="button">⏳ Aguardando</button>
+                <button class="seg-btn" data-status="watched" type="button">🟣 Assistido</button>
               </div>
             </div>
 
@@ -867,9 +854,9 @@
             <div class="filter">
               <label class="label" for="q">Buscar</label>
               <div class="searchbox">
-                <input id="q" class="input" type="search" placeholder="Título, tag, S02E07..." autocomplete="off" />
+                <input id="q" class="input" type="search" placeholder="Título, tag, S02E07, 22/JAN..." autocomplete="off" />
               </div>
-              <p class="hint">Dica: “S02E07”, “#drama”, “downloaded”, “22/jan”, “waiting”.</p>
+              <p class="hint">Dica: “S03E04”, “#drama”, “waiting”, “watched”.</p>
             </div>
 
             <!-- Tags -->
@@ -930,7 +917,7 @@
     </section>
   </main>
 
-  <!-- Dados externos -->
+  <!-- Dados externos (IMPORTANTE: caminho relativo) -->
   <script src="./watchlist.js?v=20260215"></script>
 
   <script>
@@ -942,7 +929,7 @@
 
       const state = {
         type: "all",       // all | movie | series
-        status: "all",     // all | need | downloaded | streaming | waiting
+        status: "all",     // all | need | downloaded | streaming | waiting | watched
         q: "",
         tags: new Set(),   // tags selecionadas
       };
@@ -992,23 +979,13 @@
         return String(s).replaceAll('"','\\"').replaceAll("\\","\\\\");
       }
 
-      function startOfDay(d){
-        const x = new Date(d);
-        x.setHours(0,0,0,0);
-        return x;
-      }
-
-      function formatSEFrom(season, episode){
-        const s = Number(season ?? 0);
-        const e = Number(episode ?? 0);
+      function formatSE(item) {
+        if (item.type !== "series") return "";
+        const s = Number(item.season ?? 0);
+        const e = Number(item.episode ?? 0);
         const ss = String(s).padStart(2, "0");
         const ee = String(e).padStart(2, "0");
         return `S${ss}E${ee}`;
-      }
-
-      function formatSE(item) {
-        if (item.type !== "series") return "";
-        return formatSEFrom(item.season, item.episode);
       }
 
       function uniqueTagsFromItems(items) {
@@ -1032,39 +1009,33 @@
         return { total, movies, series, need, progress };
       }
 
-      /* ====== Datas / lançamentos ====== */
+      /* ====== lançamentos: nextRelease e/ou calendário WATCHLIST_RELEASES ====== */
       const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
 
-      function parseDDMM(value){
+      function parseNextRelease(value){
+        if (!value) return null;
+
+        if (value instanceof Date && Number.isFinite(value.getTime())) {
+          const d = new Date(value);
+          d.setHours(0,0,0,0);
+          return d;
+        }
+
         const s = String(value).trim();
         const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
         if (!m) return null;
+
         const dd = Number(m[1]);
         const mm = Number(m[2]);
         let yy = Number(m[3]);
+
         if (!Number.isFinite(dd) || !Number.isFinite(mm) || !Number.isFinite(yy)) return null;
         if (yy < 100) yy = 2000 + yy;
+
         const d = new Date(yy, mm - 1, dd);
         if (Number.isNaN(d.getTime())) return null;
-        return startOfDay(d);
-      }
-
-      function parseISO(value){
-        const s = String(value).trim();
-        const m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-        if (!m) return null;
-        const yy = Number(m[1]);
-        const mm = Number(m[2]);
-        const dd = Number(m[3]);
-        const d = new Date(yy, mm - 1, dd);
-        if (Number.isNaN(d.getTime())) return null;
-        return startOfDay(d);
-      }
-
-      function parseDateAny(value){
-        if (!value) return null;
-        if (value instanceof Date && Number.isFinite(value.getTime())) return startOfDay(value);
-        return parseISO(value) || parseDDMM(value);
+        d.setHours(0,0,0,0);
+        return d;
       }
 
       function shortDatePT(date){
@@ -1074,140 +1045,94 @@
       }
 
       function daysDiffFromToday(date){
-        const today = startOfDay(new Date());
-        const ms = startOfDay(date).getTime() - today.getTime();
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const ms = date.getTime() - today.getTime();
         return Math.round(ms / 86400000);
       }
 
-      /**
-       * Você alimenta o watchlist.js com:
-       * window.WATCHLIST_RELEASES = {
-       *   "Nome Canônico da Série": {
-       *     3: { 1:"2026-01-09", 2:"2026-01-09", ... },
-       *     15: { 1:"2025-12-04", ... }
-       *   }
-       * }
-       */
-      function getReleaseEntriesForSeries(seriesTitle){
-        const db = window.WATCHLIST_RELEASES;
-        if (!db || typeof db !== "object") return [];
+      // calendário por título (opcional):
+      // window.WATCHLIST_RELEASES = { "Jujutsu Kaisen": [ {season:3, episode:4, date:"23/01/26"}, ... ] }
+      function getReleaseScheduleForTitle(title){
+        const src = window.WATCHLIST_RELEASES;
+        if (!src) return null;
 
-        const raw = db[seriesTitle];
-        if (!raw || typeof raw !== "object") return [];
-
-        const out = [];
-        // raw = { 15: { 1:"2025-12-04", ... }, 3: {...} }
-        for (const seasonKey of Object.keys(raw)) {
-          const seasonNum = Number(seasonKey);
-          const seasonMap = raw[seasonKey];
-          if (!seasonMap || typeof seasonMap !== "object") continue;
-
-          for (const epKey of Object.keys(seasonMap)) {
-            const epNum = Number(epKey);
-            const d = parseDateAny(seasonMap[epKey]);
-            if (!Number.isFinite(seasonNum) || !Number.isFinite(epNum) || !d) continue;
-            out.push({ season: seasonNum, episode: epNum, date: d });
-          }
-        }
-        return out;
-      }
-
-      function computeReleaseInfo(item){
-        if (item.type !== "series") return null;
-
-        const season = Number(item.season);
-        const entriesAll = getReleaseEntriesForSeries(item.title);
-
-        const entries = (Number.isFinite(season) && entriesAll.length)
-          ? entriesAll.filter(e => e.season === season)
-          : entriesAll;
-
-        const today = startOfDay(new Date());
-
-        if (entries.length) {
-          const released = entries
-            .filter(e => e.date.getTime() <= today.getTime())
-            .sort((a,b) => (a.date - b.date) || (a.episode - b.episode));
-
-          const future = entries
-            .filter(e => e.date.getTime() > today.getTime())
-            .sort((a,b) => (a.date - b.date) || (a.episode - b.episode));
-
-          const lastReleased = released.length ? released[released.length - 1] : null;
-          const nextRelease = future.length ? future[0] : null;
-
-          return { lastReleased, nextRelease, hasSchedule: true };
+        if (Array.isArray(src)) {
+          // formato alternativo: [{title, season, episode, date}, ...]
+          return src.filter(x => x && x.title === title);
         }
 
-        // fallback: usa item.nextRelease (se você ainda não alimentou o schedule)
-        const fallbackNext = parseDateAny(item.nextRelease);
-        return { lastReleased: null, nextRelease: fallbackNext ? { season, episode: null, date: fallbackNext } : null, hasSchedule: false };
+        if (typeof src === "object") {
+          const arr = src[title];
+          if (Array.isArray(arr)) return arr;
+        }
+
+        return null;
       }
 
-      function releaseBadgeFromEntry(entry){
-        if (!entry || !entry.date) return "";
-        const diff = daysDiffFromToday(entry.date);
-        const dateLabel = shortDatePT(entry.date);
+      function getReleaseInfo(item){
+        if (item.type !== "series") return { last: null, next: null };
 
-        const seLabel = (Number.isFinite(entry.season) && Number.isFinite(entry.episode))
-          ? formatSEFrom(entry.season, entry.episode)
+        const schedule = getReleaseScheduleForTitle(item.title);
+        if (!schedule) {
+          // fallback: usa nextRelease do item
+          const d = parseNextRelease(item.nextRelease);
+          return { last: null, next: d ? { date: d, season: null, episode: null } : null };
+        }
+
+        const today = new Date(); today.setHours(0,0,0,0);
+
+        const normalized = schedule
+          .map(x => {
+            const d = parseNextRelease(x.date);
+            if (!d) return null;
+            return {
+              season: Number(x.season ?? item.season ?? 0),
+              episode: Number(x.episode ?? 0),
+              date: d
+            };
+          })
+          .filter(Boolean)
+          .sort((a,b) => a.date.getTime() - b.date.getTime());
+
+        let last = null;
+        let next = null;
+
+        for (const ep of normalized) {
+          if (ep.date.getTime() <= today.getTime()) last = ep;
+          if (!next && ep.date.getTime() >= today.getTime()) next = ep;
+        }
+
+        return { last, next };
+      }
+
+      function nextReleaseBadge(item){
+        const info = getReleaseInfo(item);
+        const next = info.next;
+        if (!next || !(next.date instanceof Date)) return "";
+
+        const diff = daysDiffFromToday(next.date);
+        const dateLabel = shortDatePT(next.date);
+        const epLabel = (Number.isFinite(next.season) && Number.isFinite(next.episode))
+          ? ` • S${String(next.season).padStart(2,"0")}E${String(next.episode).padStart(2,"0")}`
           : "";
-
-        const seHtml = seLabel ? `<span class="release-se">• ${seLabel}</span>` : "";
 
         if (diff > 0) {
           const txt = diff === 1 ? "daqui a 1 dia" : `daqui a ${diff} dias`;
-          return `<span class="mini release future"><span class="release-date">${dateLabel}</span>${seHtml}<span class="release-text">• ${txt}</span></span>`;
+          return `<span class="mini release future"><span class="release-date">${dateLabel}</span><span class="release-text">${epLabel} • ${txt}</span></span>`;
         }
         if (diff === 0) {
-          return `<span class="mini release today"><span class="release-date">${dateLabel}</span>${seHtml}<span class="release-text">• LANÇA HOJE</span></span>`;
+          return `<span class="mini release today"><span class="release-date">${dateLabel}</span><span class="release-text">${epLabel} • LANÇA HOJE</span></span>`;
         }
-        return `<span class="mini release past"><span class="release-date">${dateLabel}</span>${seHtml}<span class="release-text">• Já lançou!</span></span>`;
+        return `<span class="mini release past"><span class="release-date">${dateLabel}</span><span class="release-text">${epLabel} • Já lançou!</span></span>`;
       }
 
-      function availabilityMeta(item){
-        if (item.type !== "series") return { lastHtml:"", nextHtml:"", backlogHtml:"", searchTokens:"" };
-
-        const info = computeReleaseInfo(item);
-        const season = Number(item.season);
-        const lastSeenEp = Number(item.episode);
-
-        let lastHtml = "";
-        let nextHtml = "";
-        let backlogHtml = "";
-        const tokens = [];
-
-        if (info?.lastReleased && Number.isFinite(info.lastReleased.episode)) {
-          const lastSE = formatSEFrom(info.lastReleased.season, info.lastReleased.episode);
-          lastHtml = `<span class="mini avail">Liberado: <strong>${escapeHtml(lastSE)}</strong></span>`;
-          tokens.push(lastSE, "liberado", "released");
-        }
-
-        if (info?.nextRelease && info.nextRelease.date) {
-          nextHtml = releaseBadgeFromEntry(info.nextRelease);
-          tokens.push(shortDatePT(info.nextRelease.date));
-          if (Number.isFinite(info.nextRelease.episode)) tokens.push(formatSEFrom(info.nextRelease.season, info.nextRelease.episode));
-        } else if (info?.hasSchedule) {
-          // schedule existe, mas não tem próximo (acabou a season)
-          nextHtml = `<span class="mini release done"><span class="release-text">Temporada completa</span></span>`;
-          tokens.push("temporada completa");
-        }
-
-        if (info?.lastReleased && Number.isFinite(lastSeenEp) && Number.isFinite(info.lastReleased.episode)) {
-          const gap = info.lastReleased.episode - lastSeenEp;
-          if (gap > 0) {
-            backlogHtml = `<span class="mini backlog">⏩ faltam <strong>${gap}</strong> eps</span>`;
-            tokens.push(`faltam ${gap}`, "atrasado");
-          }
-        }
-
-        // fallback de busca caso você ainda use nextRelease manual
-        if (!tokens.length && item.nextRelease) {
-          const d = parseDateAny(item.nextRelease);
-          if (d) tokens.push(shortDatePT(d));
-        }
-
-        return { lastHtml, nextHtml, backlogHtml, searchTokens: tokens.join(" ") };
+      function lastReleasedChip(item){
+        const info = getReleaseInfo(item);
+        const last = info.last;
+        if (!last || !Number.isFinite(last.season) || !Number.isFinite(last.episode)) return "";
+        const se = `S${String(last.season).padStart(2,"0")}E${String(last.episode).padStart(2,"0")}`;
+        return `<span class="mini">Lançado até: <strong>${se}</strong></span>`;
       }
 
       function applyFilters(items) {
@@ -1229,16 +1154,23 @@
           }
 
           if (q) {
-            const a = availabilityMeta(it);
+            const ri = getReleaseInfo(it);
+            const releaseDate = ri?.next?.date ? shortDatePT(ri.next.date) : "";
+            const releaseSE = (ri?.next?.season && ri?.next?.episode)
+              ? `S${String(ri.next.season).padStart(2,"0")}E${String(ri.next.episode).padStart(2,"0")}`
+              : "";
+
             const hay = [
               it.title,
               it.displayTitle,
               it.type,
               it.status,
               formatSE(it),
-              a.searchTokens,
+              releaseDate,
+              releaseSE,
               ...(it.tags ?? []).map((t) => `#${t}`),
             ].map(norm).join(" ");
+
             if (!hay.includes(q)) return false;
           }
 
@@ -1311,7 +1243,8 @@
         switch (status) {
           case "downloaded": return "✅ baixado";
           case "streaming": return "🟠 streaming";
-          case "waiting": return "⏳ aguardando episódio";
+          case "waiting": return "⏳ aguardando";
+          case "watched": return "🟣 assistido";
           default: return "⬚ precisa baixar";
         }
       }
@@ -1329,19 +1262,15 @@
           const icon = it.type === "movie" ? "🍿" : "🎬";
           const orbClass = it.type === "movie" ? "movie" : "series";
           const status = it.status ?? "need";
-
-          const display = it.displayTitle ?? it.title ?? "";
-
-          const avail = availabilityMeta(it);
+          const titleDisplay = it.displayTitle ?? it.title ?? "";
 
           const seMeta = it.type === "series"
             ? `
               <span class="mini">Season: <strong>${Number(it.season ?? 0)}</strong></span>
-              <span class="mini">Episode (visto): <strong>${Number(it.episode ?? 0)}</strong></span>
+              <span class="mini">Episode: <strong>${Number(it.episode ?? 0)}</strong></span>
               <span class="mini">${escapeHtml(formatSE(it))}</span>
-              ${avail.lastHtml}
-              ${avail.backlogHtml}
-              ${avail.nextHtml}
+              ${lastReleasedChip(it)}
+              ${nextReleaseBadge(it)}
             `
             : `<span class="mini">Filme</span>`;
 
@@ -1369,17 +1298,18 @@
               <div class="sticker">
                 <div class="orb ${orbClass}" aria-hidden="true">${icon}</div>
                 <div class="titleline">
-                  <h3 class="card-title" title="${escapeHtml(display)}">${escapeHtml(display)}</h3>
+                  <h3 class="card-title" title="${escapeHtml(titleDisplay)}">${escapeHtml(titleDisplay)}</h3>
                   <div class="card-meta">${seMeta}</div>
                 </div>
               </div>
 
-              <div class="status" aria-label="Status">
+              <div class="status" aria-label="Status de obtenção">
                 <div class="ledrow" role="group" aria-label="Selecionar status">
                   <button class="led" data-state="need" type="button" title="Precisa baixar"><span class="glyph">⬚</span></button>
                   <button class="led" data-state="downloaded" type="button" title="Baixado"><span class="glyph">✓</span></button>
                   <button class="led" data-state="streaming" type="button" title="Streaming"><span class="glyph">▶</span></button>
                   <button class="led" data-state="waiting" type="button" title="Aguardando"><span class="glyph">⏳</span></button>
+                  <button class="led" data-state="watched" type="button" title="Assistido"><span class="glyph">👁</span></button>
                 </div>
                 <div class="legend">${statusLegend(status)}</div>
               </div>
@@ -1389,12 +1319,14 @@
             ${progressHtml}
           `;
 
+          // LED ativo
           const leds = Array.from(card.querySelectorAll(".led"));
           leds.forEach((b) => {
             const st = b.getAttribute("data-state");
-            b.classList.toggle("is-on", st === status);
+            b.classList.toggle("is-on", st === status && status !== "need");
           });
 
+          // Interação local (runtime)
           leds.forEach((b) => {
             b.addEventListener("click", () => {
               it.status = b.getAttribute("data-state");
@@ -1496,5 +1428,6 @@
       render();
     });
   </script>
+
 </body>
 </html>
