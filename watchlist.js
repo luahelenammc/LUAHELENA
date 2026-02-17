@@ -35,7 +35,7 @@
       type: "series",
       title: "Severance",
       season: 2,
-      episode: 0,
+      episode: 9,
       tags: ["ficção científica", "thriller", "comecei"],
       status: "waiting",
       progress: 0,
