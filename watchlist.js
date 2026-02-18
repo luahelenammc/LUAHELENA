@@ -33,15 +33,6 @@
     },
     {
       type: "series",
-      title: "Severance",
-      season: 2,
-      episode: 9,
-      tags: ["ficção científica", "thriller", "comecei"],
-      status: "waiting",
-      progress: 0,
-    },
-    {
-      type: "series",
       title: "Normal People",
       season: 1,
       episode: 9,
