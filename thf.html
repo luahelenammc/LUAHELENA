@@ -15,6 +15,7 @@
       --orange: #ffcc80;
       --red: #ff8a80;
       --green: #c5e1a5;
+      --purple: #d1c4e9;
     }
     * { box-sizing: border-box; }
     body {
@@ -142,8 +143,70 @@
       font-size: .9rem;
       color: #666;
     }
+
+    /* “Gráfico” comparativo */
+    .chart-container {
+      margin-top: 1rem;
+      border-radius: 12px;
+      background: #f7f3ff;
+      padding: 1rem;
+      border: 1px solid #e0d7ff;
+    }
+    .chart-row {
+      margin-bottom: .9rem;
+    }
+    .chart-row:last-child {
+      margin-bottom: 0;
+    }
+    .chart-label {
+      font-weight: 600;
+      margin-bottom: .2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .9rem;
+    }
+    .chart-label span.small {
+      font-weight: 400;
+      font-size: .8rem;
+      opacity: .8;
+    }
+    .chart-bars {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .3rem;
+      font-size: .75rem;
+    }
+    .chart-bar {
+      background: #fff;
+      border-radius: 999px;
+      padding: .2rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e0d7ff;
+    }
+    .chart-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 999px;
+      opacity: .35;
+    }
+    .chart-bar-label {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .c-oral   { background: linear-gradient(90deg, var(--blue), var(--pink)); }
+    .c-sub    { background: linear-gradient(90deg, var(--pink), var(--blue)); }
+    .c-trans  { background: linear-gradient(90deg, var(--green), var(--blue)); }
+    .c-inj    { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+
     @media (max-width:600px){
       header h1{font-size:1.7rem;}
+      .chart-bars { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -172,10 +235,10 @@
         <div class="alert alert-smoking">
           <span class="alert-icon">🚬</span>
           <div>
-            <strong>Se você fuma cigarro:</strong> esquemas mais intensos de THF (doses altas de estradiol,
-            principalmente oral) aumentam muito o risco de trombose, AVC e infarto em quem fuma,
-            especialmente acima de 35 anos. Se você fuma, o médico provavelmente vai precisar de doses menores,
-            vias mais seguras (como transdérmica) e um plano mais conservador.
+            <strong>Se você fuma cigarro:</strong> esquemas mais intensos de THF (doses mais altas de estradiol,
+            principalmente via oral engolida) aumentam muito o risco de trombose, AVC e infarto em quem fuma,
+            especialmente acima de 35 anos ou com outros fatores de risco. Se você fuma, o médico provavelmente
+            vai precisar de doses menores, vias mais seguras (como transdérmica) e um plano mais conservador.
           </div>
         </div>
 
@@ -215,19 +278,22 @@
 
         <section class="accordion">
           <div class="accordion-header">
-            👅 Via sublingual x via oral engolida
+            👅 Via sublingual, via oral engolida e primeira passagem hepática
             <span class="toggle-icon">▶</span>
           </div>
           <div class="accordion-content">
             <p>
               <strong>Via sublingual (preferida neste modelo)</strong>
-              <span class="badge">mais eficiente</span>
+              <span class="badge">mais eficaz</span>
             </p>
             <ul>
               <li>Comprimido fica alguns minutos debaixo da língua, sem engolir logo de cara.</li>
               <li>Parte maior do estradiol entra direto na circulação, evitando boa parte da
                   <strong>primeira passagem hepática</strong> (quando o fígado converte uma parcela grande em estrona / E1).</li>
               <li>Em geral, gera níveis melhores de estradiol no sangue com a mesma dose, e com impacto metabólico menor.</li>
+              <li>Por ter absorção rápida, causa <strong>picos rápidos e quedas rápidas</strong>:
+                por isso costuma ser melhor <strong>fracionar em 2 doses ao dia</strong> (manhã e fim de tarde),
+                em vez de uma dose única.</li>
               <li>Na prática, exige <strong>prescrição médica</strong> para manipulação em farmácia especializada.</li>
             </ul>
 
@@ -240,8 +306,59 @@
               <li>Isso significa: <strong>menos estradiol ativo circulando</strong> e <strong>maior carga no fígado</strong>.</li>
               <li>Por outro lado, comprimidos orais de estradiol costumam ser
                   <strong>bem mais fáceis de encontrar em farmácias comuns</strong>, às vezes até com pouca exigência de receita.</li>
-              <li>Podem ser uma opção de acesso inicial, mas a via sublingual tende a ser superior quando viável.</li>
+              <li>Por ser mais acessível, muita gente consegue comprar comprimidos orais mesmo com pouca estrutura de atendimento,
+                  enquanto o sublingual costuma depender de receita e manipulação.</li>
             </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            💧 Formas transdérmicas (gel / adesivo)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Gel e adesivo de estradiol são, em muitos protocolos, o <strong>padrão-ouro em termos de segurança vascular</strong>,
+              porque:
+            </p>
+            <ul>
+              <li>também evitam boa parte da primeira passagem hepática,</li>
+              <li>geram níveis mais estáveis, sem picos tão agressivos,</li>
+              <li>tendem a ter <strong>risco tromboembólico menor</strong> que estradiol oral engolido.</li>
+            </ul>
+            <p>
+              Em compensação, costumam ser <strong>bem mais fracos em eficácia feminilizante</strong> em comparação
+              a bons esquemas sublinguais ou injetáveis. Na prática:
+            </p>
+            <ul>
+              <li>podem ser ideais para pessoas com <strong>contraindicações médicas importantes</strong> (fumantes de cigarro,
+                  histórico de trombose, risco trombótico elevado),</li>
+              <li>mas, para quem tem risco baixo e busca feminilização mais robusta, muitas vezes não entregam o efeito desejado sozinhos.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            💉 Formas injetáveis e “TPH” (TPM hormonal)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Esquemas injetáveis de estradiol podem ser muito eficazes em termos de nível hormonal e feminilização,
+              mas vêm com um custo: são os campeões em <strong>“TPH” (TPM hormonal)</strong>.
+            </p>
+            <ul>
+              <li>No começo do ciclo, logo após a aplicação, o estradiol fica alto, com sintomas de pico (euforia, sensibilidade, etc.).</li>
+              <li>À medida que os dias passam, o nível cai e o corpo entra em algo semelhante a “abstinência de hormônio”:
+                  irritabilidade, queda de humor, fadiga, piora da disforia em algumas pessoas.</li>
+              <li>Quanto mais longo o intervalo entre aplicações, maior tende a ser o sobe-e-desce.</li>
+            </ul>
+            <p>
+              Por isso, injecionais podem ser uma boa opção em mãos experientes, mas exigem cuidado no
+              intervalo entre doses e na avaliação do impacto emocional desses ciclos.
+            </p>
           </div>
         </section>
 
@@ -261,16 +378,16 @@
               <li><strong>Ajuste:</strong> subir gradualmente com base em:
                 <ul>
                   <li>exames de estradiol (objetivo: faixa feminina),</li>
-                  <li>supressão da testosterona (junto com bloqueador),</li>
+                  <li>supressão da testosterona (junto com bloqueador, se houver),</li>
                   <li>efeitos clínicos e tolerância.</li>
                 </ul>
               </li>
-              <li><strong>Faixa superior:</strong em muitos casos, algo entre <strong>8 mg/dia</strong> de estradiol
+              <li><strong>Faixa superior:</strong> em muitos casos, algo entre <strong>8–12 mg/dia</strong> de estradiol
                   sublingual é suficiente, mas isso é decidido caso a caso pelo médico.</li>
             </ul>
             <p>
               <em>Ideia central:</em> usar a menor dose que entregue boa feminização com exames seguros,
-              sem “empilhar” riscos desnecessários.
+              sem empilhar riscos desnecessários.
             </p>
           </div>
         </section>
@@ -280,7 +397,7 @@
     <!-- Bloqueio de testosterona -->
     <section class="group">
       <div class="group-header">
-        <span>🧬 Bloqueio de testosterona</span>
+        <span>🧬 Bloqueio de testosterona & monoterapia</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
@@ -295,7 +412,7 @@
               Um modelo possível:
             </p>
             <ul>
-              <li><strong>Acetato de ciproterona ≈ 12,5 mg/dia</strong>.</li>
+              <li><strong>Acetato de ciproterona ≈ 12 mg/dia</strong>, em 1 ou 2 tomadas.</li>
               <li>Usar junto com estradiol, sempre com exames regulares.</li>
               <li>Monitorar:
                 <ul>
@@ -334,6 +451,36 @@
               <li>haja <strong>monitorização de enzimas hepáticas</strong>,</li>
               <li>e o restante do protocolo (estradiol, exames, pressão, etc.) esteja bem controlado.</li>
             </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🌗 Monoterapia com estradiol (sem bloqueador)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Algumas meninas preferem tentar <strong>monoterapia com estradiol</strong>, sem bloqueador de testosterona,
+              principalmente quem:
+            </p>
+            <ul>
+              <li>não quer lidar com <strong>disfunção erétil intensa</strong> ou queda muito grande de libido associada ao bloqueio,</li>
+              <li>precisa manter um certo grau de função erétil por razões pessoais / relacionais.</li>
+            </ul>
+            <p>
+              Isso pode ser uma escolha válida, mas é importante entender o preço:
+            </p>
+            <ul>
+              <li>sem bloqueador, a testosterona continua circulando e <strong>competindo com o estradiol</strong> nos tecidos;</li>
+              <li>a feminilização tende a ser <strong>muito mais lenta e limitada</strong>;</li>
+              <li>a sensação subjetiva pode ser de “<strong>um passo pra frente, um passo pra trás</strong>”: melhora um pouco, volta, melhora um pouco, volta.</li>
+            </ul>
+            <p>
+              Em resumo: monoterapia é uma opção para quem realmente não quer mexer tanto na função erétil, mas,
+              comparada a uma <strong>hormonização completa (estradiol + bloqueador bem conduzido)</strong>, costuma ser
+              <strong>bem menos eficaz</strong> em termos de feminilização. Vale discutir isso com o médico sem ilusão.
+            </p>
           </div>
         </section>
       </div>
@@ -376,7 +523,7 @@
             <p><strong>Metas aproximadas (definidas pelo médico):</strong></p>
             <ul>
               <li>Estradiol em faixa feminina fisiológica.</li>
-              <li>Testosterona suprimida para valores típicos de mulher cis.</li>
+              <li>Testosterona suprimida para valores típicos de mulher cis (quando há bloqueador).</li>
               <li>Função hepática, renal e perfil lipídico dentro de limites aceitáveis.</li>
               <li>Pressão arterial monitorada, especialmente se houver histórico familiar.</li>
             </ul>
@@ -408,7 +555,7 @@
               <li>a dose fixa dificulta ajustes finos de estradiol e bloqueio separados.</li>
             </ul>
             <p>
-              Por isso, sempre que houver acesso a valerato / 17β-estradiol, vale discutir com o médico a
+              Sempre que houver acesso a valerato / 17β-estradiol, vale discutir com o médico a
               preferência por esses, em vez de etinilestradiol.
             </p>
           </div>
@@ -474,13 +621,122 @@
           <div class="accordion-content">
             <ul>
               <li>Preferência por <strong>17β-estradiol / valerato de estradiol</strong>, idealmente em via sublingual.</li>
-              <li>Faixa de dose para discutir: ~4 mg/dia (início) até algo como 8 mg/dia, conforme exames.</li>
+              <li>Faixa de dose para discutir: ~4 mg/dia (início) até algo como 8–12 mg/dia, conforme exames.</li>
               <li>Uso de <strong>ciproterona</strong> em dose baixa e por tempo limitado, com eventual troca para <strong>bicalutamida 25 mg/dia</strong>.</li>
+              <li>Monoterapia com estradiol pode ser opção, mas com feminilização mais lenta/limitada.</li>
               <li>Evitar etinilestradiol e injetáveis mensais como base fixa da THF, se houver alternativas.</li>
               <li>Exames regulares guiando tudo, especialmente se houver tabagismo ou fatores de risco cardiovascular.</li>
             </ul>
           </div>
         </section>
+      </div>
+    </section>
+
+    <!-- Gráfico comparativo -->
+    <section class="group">
+      <div class="group-header">
+        <span>📊 Comparação das vias de administração</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <p>
+          Comparação simplificada entre <strong>oral engolida</strong>, <strong>sublingual</strong>,
+          <strong>transdérmica (gel/adesivo)</strong> e <strong>injetável</strong>, pensando em:
+          eficácia feminilizante, segurança vascular e estabilidade de humor.
+        </p>
+        <div class="chart-container">
+          <!-- Oral -->
+          <div class="chart-row">
+            <div class="chart-label">
+              <span>💊 Oral engolida</span>
+              <span class="small">acesso fácil, primeira passagem hepática forte</span>
+            </div>
+            <div class="chart-bars">
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-oral" style="width:70%;"></div>
+                <div class="chart-bar-label">Eficácia</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-oral" style="width:40%;"></div>
+                <div class="chart-bar-label">Segurança vascular</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-oral" style="width:60%;"></div>
+                <div class="chart-bar-label">Estabilidade</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sublingual -->
+          <div class="chart-row">
+            <div class="chart-label">
+              <span>👅 Sublingual</span>
+              <span class="small">mais eficaz, picos rápidos (ideal 2x/dia)</span>
+            </div>
+            <div class="chart-bars">
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-sub" style="width:90%;"></div>
+                <div class="chart-bar-label">Eficácia</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-sub" style="width:65%;"></div>
+                <div class="chart-bar-label">Segurança vascular</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-sub" style="width:55%;"></div>
+                <div class="chart-bar-label">Estabilidade</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transdérmica -->
+          <div class="chart-row">
+            <div class="chart-label">
+              <span>💧 Gel / adesivo</span>
+              <span class="small">padrão-ouro de segurança, efeito suave</span>
+            </div>
+            <div class="chart-bars">
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-trans" style="width:55%;"></div>
+                <div class="chart-bar-label">Eficácia</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-trans" style="width:90%;"></div>
+                <div class="chart-bar-label">Segurança vascular</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-trans" style="width:80%;"></div>
+                <div class="chart-bar-label">Estabilidade</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Injetável -->
+          <div class="chart-row">
+            <div class="chart-label">
+              <span>💉 Injetável</span>
+              <span class="small">efeito forte, maior risco de “TPH”</span>
+            </div>
+            <div class="chart-bars">
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-inj" style="width:95%;"></div>
+                <div class="chart-bar-label">Eficácia</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-inj" style="width:70%;"></div>
+                <div class="chart-bar-label">Segurança vascular</div>
+              </div>
+              <div class="chart-bar">
+                <div class="chart-bar-fill c-inj" style="width:45%;"></div>
+                <div class="chart-bar-label">Estabilidade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:0.8rem;font-size:.85rem;opacity:.85;">
+          Os “percentuais” são ilustrativos, não números científicos. Servem só para visualizar tendências:
+          cada corpo responde de um jeito, e é o médico que decide o que faz sentido para você.
+        </p>
       </div>
     </section>
   </main>
