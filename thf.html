@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Guia de THF Feminilizante 🌈</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #5AB3FF;
+      --pink: #FF9BCD;
+      --lav: #f5e9ff;
+      --gray: #333;
+      --orange: #ffcc80;
+      --red: #ff8a80;
+      --green: #c5e1a5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--lav);
+      color: var(--gray);
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--blue) 0 20%,
+        #fff 20% 40%,
+        var(--pink) 40% 60%,
+        #fff 60% 80%,
+        var(--blue) 80% 100%
+      );
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin-top: .5rem;
+      font-size: 1rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .group {
+      margin-bottom: 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .group-content {
+      display: none;
+      padding: 1rem;
+    }
+    .group-content.open {
+      display: block;
+    }
+    .accordion {
+      margin: 1rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #f0d6e6;
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8rem 1rem;
+      background: var(--pink);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background: #f6f1f7;
+    }
+    .accordion-content.open {
+      display: block;
+    }
+    .toggle-icon {
+      transition: transform .3s;
+    }
+    .toggle-icon.rotate {
+      transform: rotate(90deg);
+    }
+    .alert {
+      border-radius: 10px;
+      padding: .8rem 1rem;
+      margin-bottom: .8rem;
+      font-size: .9rem;
+      display: flex;
+      gap: .5rem;
+      align-items: flex-start;
+    }
+    .alert-icon {
+      font-size: 1.2rem;
+      margin-top: .1rem;
+    }
+    .alert-general {
+      background: #fff3e0;
+      border: 1px solid var(--orange);
+    }
+    .alert-smoking {
+      background: #ffebee;
+      border: 1px solid var(--red);
+    }
+    .badge {
+      display: inline-block;
+      padding: .2rem .5rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      background: rgba(0,0,0,0.05);
+      margin-left: .3rem;
+    }
+    ul, ol {
+      margin: .5rem 0 .5rem 1.2rem;
+      padding: 0;
+    }
+    li { margin-bottom: .3rem; }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: .9rem;
+      color: #666;
+    }
+    @media (max-width:600px){
+      header h1{font-size:1.7rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 Guia de THF Feminilizante 🌈</h1>
+    <p>modelo de protocolo para conversar com o médico, não para se automedicar</p>
+  </header>
+
+  <main>
+    <!-- Visão geral & avisos -->
+    <section class="group">
+      <div class="group-header">
+        <span>📌 Visão geral & avisos</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content open">
+        <div class="alert alert-general">
+          <span class="alert-icon">⚠️</span>
+          <div>
+            <strong>Aviso geral:</strong> este guia é apenas material educativo para você levar ao seu médico.
+            Não é receita, não substitui consulta e não autoriza automedicação. Qualquer dose e combinação
+            deve ser avaliada por endocrino / médico que entenda de saúde trans.
+          </div>
+        </div>
+        <div class="alert alert-smoking">
+          <span class="alert-icon">🚬</span>
+          <div>
+            <strong>Se você fuma cigarro:</strong> esquemas mais intensos de THF (doses altas de estradiol,
+            principalmente oral) aumentam muito o risco de trombose, AVC e infarto em quem fuma,
+            especialmente acima de 35 anos. Se você fuma, o médico provavelmente vai precisar de doses menores,
+            vias mais seguras (como transdérmica) e um plano mais conservador.
+          </div>
+        </div>
+
+        <p>
+          A ideia deste guia é simples: organizar, em linguagem clara, um
+          <strong>modelo de protocolo</strong> baseado em estradiol bioidêntico (valerato / 17β-estradiol)
+          + bloqueio de testosterona, com exames regulares. A forma exata, dose e ajustes
+          SEMPRE dependem da sua saúde, idade, histórico familiar e avaliação médica.
+        </p>
+      </div>
+    </section>
+
+    <!-- Estradiol -->
+    <section class="group">
+      <div class="group-header">
+        <span>💊 Estradiol: base do protocolo</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            ⚗️ Princípio geral
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              O objetivo é usar <strong>estradiol bioidêntico</strong> (17β-estradiol ou valerato de estradiol),
+              que é o hormônio mais próximo do produzido pelo corpo, em uma dose que:
+            </p>
+            <ul>
+              <li>favoreça feminização (pele, gordura, mamas, libido, humor),</li>
+              <li>mantenha estradiol em faixa feminina nos exames,</li>
+              <li>fique dentro de um risco aceitável, considerando seu histórico clínico.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            👅 Via sublingual x via oral engolida
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              <strong>Via sublingual (preferida neste modelo)</strong>
+              <span class="badge">mais eficiente</span>
+            </p>
+            <ul>
+              <li>Comprimido fica alguns minutos debaixo da língua, sem engolir logo de cara.</li>
+              <li>Parte maior do estradiol entra direto na circulação, evitando boa parte da
+                  <strong>primeira passagem hepática</strong> (quando o fígado converte uma parcela grande em estrona / E1).</li>
+              <li>Em geral, gera níveis melhores de estradiol no sangue com a mesma dose, e com impacto metabólico menor.</li>
+              <li>Na prática, exige <strong>prescrição médica</strong> para manipulação em farmácia especializada.</li>
+            </ul>
+
+            <p>
+              <strong>Via oral engolida (comprimido tomado e engolido)</strong>
+              <span class="badge">mais acessível</span>
+            </p>
+            <ul>
+              <li>Passa primeiro pelo fígado, que converte uma parte relevante do estradiol em estrona.</li>
+              <li>Isso significa: <strong>menos estradiol ativo circulando</strong> e <strong>maior carga no fígado</strong>.</li>
+              <li>Por outro lado, comprimidos orais de estradiol costumam ser
+                  <strong>bem mais fáceis de encontrar em farmácias comuns</strong>, às vezes até com pouca exigência de receita.</li>
+              <li>Podem ser uma opção de acesso inicial, mas a via sublingual tende a ser superior quando viável.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            📈 Faixa de dose sugerida (para o médico ajustar)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              A faixa abaixo é apenas um <strong>exemplo de janela de dose</strong> usada em prática clínica,
+              para ser discutida com o médico:
+            </p>
+            <ul>
+              <li><strong>Início:</strong> cerca de <strong>4 mg/dia</strong> de estradiol (preferencialmente sublingual),
+                  divididos em 2 tomadas (manhã e fim de tarde).</li>
+              <li><strong>Ajuste:</strong> subir gradualmente com base em:
+                <ul>
+                  <li>exames de estradiol (objetivo: faixa feminina),</li>
+                  <li>supressão da testosterona (junto com bloqueador),</li>
+                  <li>efeitos clínicos e tolerância.</li>
+                </ul>
+              </li>
+              <li><strong>Faixa superior:</strong em muitos casos, algo entre <strong>8–12 mg/dia</strong> de estradiol
+                  sublingual é suficiente, mas isso é decidido caso a caso pelo médico.</li>
+            </ul>
+            <p>
+              <em>Ideia central:</em> usar a menor dose que entregue boa feminização com exames seguros,
+              sem “empilhar” riscos desnecessários.
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Bloqueio de testosterona -->
+    <section class="group">
+      <div class="group-header">
+        <span>🧬 Bloqueio de testosterona</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            ⏱️ Fase 1 – Ciproterona (curto prazo)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Na fase inicial, o objetivo é reduzir a testosterona rápido para aliviar disforia e facilitar a feminização.
+              Um modelo possível:
+            </p>
+            <ul>
+              <li><strong>Acetato de ciproterona ≈ 12 mg/dia</strong>, em 1 ou 2 tomadas.</li>
+              <li>Usar junto com estradiol, sempre com exames regulares.</li>
+              <li>Monitorar:
+                <ul>
+                  <li>testosterona total,</li>
+                  <li>humor, energia, libido,</li>
+                  <li>função hepática e perfil metabólico.</li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              A ciproterona é eficaz, mas <strong>não é para uso prolongado em alta dose</strong>, por associação
+              com maior risco de meningioma e impacto em coagulação e humor.
+            </p>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🔁 Fase 2 – Troca para bloqueador de manutenção
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Quando a testosterona estiver <strong>consistentemente baixa</strong> (por exemplo, abaixo de ~50 ng/dL),
+              faz sentido discutir com o médico:
+            </p>
+            <ul>
+              <li>reduzir a dose de ciproterona gradualmente,</li>
+              <li>e <strong>substituir por Bicalutamida 25 mg/dia</strong>, se clinicamente adequado.</li>
+            </ul>
+            <p>
+              A bicalutamida age principalmente como bloqueador periférico do receptor androgênico e costuma ser vista
+              como opção mais estável para uso prolongado, desde que:
+            </p>
+            <ul>
+              <li>haja <strong>monitorização de enzimas hepáticas</strong>,</li>
+              <li>e o restante do protocolo (estradiol, exames, pressão, etc.) esteja bem controlado.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Exames -->
+    <section class="group">
+      <div class="group-header">
+        <span>🧪 Exames & monitorização</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            📊 Antes de começar
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Hemograma completo.</li>
+              <li>Função hepática (TGO, TGP, GGT), função renal (ureia, creatinina).</li>
+              <li>Perfil lipídico (colesterol total, frações, triglicérides).</li>
+              <li>Glicemia de jejum / HbA1c, se indicado.</li>
+              <li>Estradiol, testosterona total, prolactina.</li>
+              <li>História familiar de trombose, AVC, infarto, enxaqueca com aura.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🔁 Durante a THF
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              No início, é razoável repetir exames a cada <strong>3–6 meses</strong> (ou com a frequência
+              que o médico orientar). Depois, se tudo estiver estável, o intervalo pode ser ampliado.
+            </p>
+            <p><strong>Metas aproximadas (definidas pelo médico):</strong></p>
+            <ul>
+              <li>Estradiol em faixa feminina fisiológica.</li>
+              <li>Testosterona suprimida para valores típicos de mulher cis.</li>
+              <li>Função hepática, renal e perfil lipídico dentro de limites aceitáveis.</li>
+              <li>Pressão arterial monitorada, especialmente se houver histórico familiar.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- O que evitar -->
+    <section class="group">
+      <div class="group-header">
+        <span>🚫 O que evitar (etinilestradiol, Perlutan, etc.)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            ❌ Etinilestradiol (Diane, Selene e similares)
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Muitos anticoncepcionais combinados em farmácia (como Diane 35 e Selene) usam
+              <strong>etinilestradiol</strong> + acetato de ciproterona. Para THF de longo prazo, em geral:
+            </p>
+            <ul>
+              <li>têm <strong>risco trombótico maior</strong> do que estradiol bioidêntico,</li>
+              <li>foram desenhados para <strong>contracepção em mulheres cis</strong>, não para feminilização contínua em mulheres trans,</li>
+              <li>a dose fixa dificulta ajustes finos de estradiol e bloqueio separados.</li>
+            </ul>
+            <p>
+              Por isso, sempre que houver acesso a valerato / 17β-estradiol, vale discutir com o médico a
+              preferência por esses, em vez de etinilestradiol.
+            </p>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🩸 Injetáveis tipo Perlutan
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Alguns injetáveis mensais (como Perlutan) combinam <strong>estrógeno + progestagênio</strong> em dose fixa,
+              feitos para contracepção. Em THF:
+            </p>
+            <ul>
+              <li>produzem picos de hormônio difíceis de controlar,</li>
+              <li>têm meia-vida longa (se der errado, “fica no corpo” por semanas),</li>
+              <li>e costumam ter <strong>perfil de risco pior</strong> do que protocolos baseados em estradiol bioidêntico ajustado.</li>
+            </ul>
+            <p>
+              Em geral, faz mais sentido usar esses esquemas apenas se o médico julgar que é a
+              única opção viável em determinado contexto, e ainda assim de forma provisória.
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Plano B de farmácia comum -->
+    <section class="group">
+      <div class="group-header">
+        <span>🛒 Plano B: o que existe na farmácia comum</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            💊 Climene e outros com valerato de estradiol
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Em algumas situações, o médico pode optar por usar produtos prontos como
+              <strong>Climene®</strong>, que contém <strong>valerato de estradiol + acetato de ciproterona</strong>.
+            </p>
+            <ul>
+              <li>Foi desenhado para terapia hormonal de menopausa, não exatamente para THF.</li>
+              <li>Pode servir como <strong>ponte provisória</strong> até ser possível montar um esquema mais ajustado com estradiol manipulado.</li>
+            </ul>
+            <p>
+              Mesmo assim, a decisão de usar ou não esse tipo de produto é sempre médica, e deve vir
+              junto com monitorização adequada.
+            </p>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🧾 Resumo para levar ao médico
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Preferência por <strong>17β-estradiol / valerato de estradiol</strong>, idealmente em via sublingual.</li>
+              <li>Faixa de dose para discutir: ~4 mg/dia (início) até algo como 8–12 mg/dia, conforme exames.</li>
+              <li>Uso de <strong>ciproterona</strong> em dose baixa e por tempo limitado, com eventual troca para <strong>bicalutamida 25 mg/dia</strong>.</li>
+              <li>Evitar etinilestradiol e injetáveis mensais como base fixa da THF, se houver alternativas.</li>
+              <li>Exames regulares guiando tudo, especialmente se houver tabagismo ou fatores de risco cardiovascular.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Feito para ser lido com calma, levado ao médico e adaptado à sua realidade clínica.
+    <br>
+    <span id="date">Atualizado automaticamente</span>
+  </footer>
+
+  <script>
+    // Toggle grupos
+    document.querySelectorAll('.group-header').forEach(h => {
+      h.addEventListener('click', () => {
+        const content = h.nextElementSibling;
+        const icon = h.querySelector('.toggle-icon');
+        content.classList.toggle('open');
+        icon.classList.toggle('rotate');
+      });
+    });
+
+    // Toggle accordions
+    document.querySelectorAll('.accordion-header').forEach(h => {
+      h.addEventListener('click', () => {
+        const content = h.nextElementSibling;
+        const icon = h.querySelector('.toggle-icon');
+        content.classList.toggle('open');
+        icon.classList.toggle('rotate');
+      });
+    });
+
+    // Data no rodapé
+    const d = new Date();
+    const dateSpan = document.getElementById('date');
+    if (dateSpan) {
+      dateSpan.textContent = 'Última atualização: ' +
+        d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+  </script>
+</body>
+</html>
