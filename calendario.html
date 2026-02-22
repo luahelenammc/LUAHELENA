@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -7,9 +6,6 @@
   <title>Calendário Countdown ✨</title>
 
   <style>
-    /* =========================
-       SKEUO MODERNO: dark + neon
-       ========================= */
     :root{
       --bg0:#07070b;
       --bg1:#0b0b16;
@@ -217,6 +213,7 @@
       text-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
 
+    /* -------- Calendar -------- */
     .calendar{ padding: 0 18px 18px; position: relative; z-index: 1; }
 
     .monthBar{
@@ -337,43 +334,8 @@
         inset 0 -16px 34px rgba(0,0,0,.42);
     }
 
+    /* -------- List -------- */
     .list{ padding: 0 18px 18px; position: relative; z-index: 1; }
-
-    .spotlight{
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 58%),
-        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06) 55%, rgba(0,0,0,.26));
-      box-shadow:
-        0 26px 50px rgba(0,0,0,.62),
-        inset 0 1px 0 rgba(255,255,255,.18),
-        inset 0 -18px 40px rgba(0,0,0,.40);
-      padding: 14px 14px 12px;
-      margin-bottom: 12px;
-      overflow:hidden;
-      position: relative;
-    }
-    .spotlight::after{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,.20), rgba(255,255,255,0) 32%),
-        radial-gradient(700px 220px at 20% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
-        radial-gradient(700px 220px at 90% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
-      mix-blend-mode: screen;
-      opacity:.7;
-      pointer-events:none;
-    }
-    .spotTop{ display:flex; align-items:center; justify-content:space-between; gap: 10px; position: relative; z-index: 1; }
-    .tag{
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 900;
-      opacity:.95;
-    }
 
     .eventCard{
       position: relative;
@@ -476,30 +438,6 @@
       white-space: nowrap;
     }
 
-    .tube{
-      height: 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(255,255,255,.06));
-      box-shadow:
-        inset 0 2px 8px rgba(0,0,0,.75),
-        0 14px 24px rgba(0,0,0,.35);
-      overflow:hidden;
-    }
-    .tube > i{
-      display:block;
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background:
-        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.40), rgba(255,255,255,0) 55%),
-        linear-gradient(180deg, color-mix(in srgb, var(--c) 70%, #fff 8%), color-mix(in srgb, var(--c) 55%, #000 25%));
-      box-shadow:
-        0 0 18px color-mix(in srgb, var(--c) 60%, transparent),
-        inset 0 1px 0 rgba(255,255,255,.22);
-      transition: width .55s cubic-bezier(.22,.61,.36,1);
-    }
-
     .cardsFooter{
       margin-top: 14px;
       padding-top: 10px;
@@ -546,6 +484,14 @@
       align-items:center;
       justify-content:space-between;
       gap: 10px;
+    }
+    .tag{
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 900;
+      opacity:.95;
     }
     .xBtn{
       border:0;
@@ -621,7 +567,7 @@
     <header class="top" aria-label="Cabeçalho">
       <div class="brand">
         <h1>Calendário Countdown ✨</h1>
-        <p>Um painel fofo, dark e fluorescente pra você ver <b>quantos dias faltam</b> pros seus eventos.</p>
+        <p>Um painel fofo, dark e fluorescente pra ver <b>quantos dias faltam</b> (sem barra esquisita 👀).</p>
       </div>
 
       <div class="todayChip" title="Data de hoje">
@@ -638,7 +584,7 @@
             <span aria-hidden="true">🗓️</span>
             <div>
               <div>Calendário</div>
-              <small>clique em um evento pra abrir o detalhe</small>
+              <small>se tiver evento no dia, aparece o emoji</small>
             </div>
           </div>
 
@@ -667,31 +613,23 @@
         </div>
       </div>
 
-      <!-- LISTA -->
+      <!-- LISTA (sem destaque pra não duplicar) -->
       <div class="panel" aria-label="Eventos e contagens">
         <div class="panelHead">
           <div class="panelTitle">
             <span aria-hidden="true">⏳</span>
             <div>
               <div>Contagens</div>
-              <small>faltam tantos dias</small>
+              <small>cada evento aparece só uma vez</small>
             </div>
           </div>
         </div>
 
         <div class="list">
-          <div class="spotlight" aria-label="Destaque do próximo evento">
-            <div class="spotTop">
-              <div class="tag">Próximo em destaque</div>
-              <div class="orb" id="spotOrb" aria-hidden="true"></div>
-            </div>
-            <div id="spotContent" style="position:relative; z-index:1; margin-top:10px;"></div>
-          </div>
-
           <div id="eventsList" aria-label="Lista de eventos"></div>
 
           <div class="cardsFooter" id="footerHint">
-            Dica: quando um evento estiver bem perto, eu solto uns confetes de emoji ✨
+            Dica: clique em um evento pra abrir o detalhe ✨
           </div>
         </div>
       </div>
@@ -702,9 +640,10 @@
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhe do evento">
     <div class="sheet" id="sheet" style="--c: var(--accent);">
       <div class="sheetTop">
-        <div class="tag" id="modalTag">DETALHE</div>
+        <div class="tag">DETALHE</div>
         <button class="xBtn" id="closeModal" aria-label="Fechar">✕</button>
       </div>
+
       <div class="sheetBody">
         <div class="hero" id="hero" style="--c: var(--accent);">
           <div class="sticker" id="heroEmoji" aria-hidden="true">✨</div>
@@ -721,55 +660,57 @@
               <p class="title" id="heroSubTitle" style="margin:0;">—</p>
               <div class="date" id="heroDate">—</div>
             </div>
+
             <div class="countRow">
-              <div class="bigCount" aria-label="Dias restantes">
+              <div class="bigCount" aria-label="Dias">
                 <span class="n" id="heroDays">—</span>
                 <span class="u" id="heroUnit">DIAS</span>
               </div>
               <div class="hint" id="heroHint">—</div>
             </div>
-            <div class="tube" aria-hidden="true"><i id="heroFill"></i></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 1) banco de dados externo -->
+  <!-- banco de dados externo -->
   <script src="events.js"></script>
 
-  <!-- 2) lógica inline (substitui o antigo app.js externo) -->
+  <!-- lógica inline -->
   <script>
     (() => {
       const events = Array.isArray(window.COUNTDOWN_EVENTS) ? window.COUNTDOWN_EVENTS.slice() : [];
 
+      // dias por calendário (sem treta de fuso/DST)
       const MS_DAY = 86400000;
-
-      function ymdToUTCIndex(ymd){
+      const ymdToUTCIndex = (ymd) => {
         const [y,m,d] = ymd.split("-").map(Number);
         return Math.floor(Date.UTC(y, m-1, d) / MS_DAY);
-      }
-      function dateToUTCIndex(dateObj){
-        return Math.floor(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate()) / MS_DAY);
-      }
-      function fmtPt(ymd){
+      };
+      const dateToUTCIndex = (dt) =>
+        Math.floor(Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate()) / MS_DAY);
+
+      const fmtPt = (ymd) => {
         const [y,m,d] = ymd.split("-").map(Number);
-        const dt = new Date(y, m-1, d);
-        return dt.toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
-      }
-      function fmtMonthYear(y, mIndex){
+        return new Date(y, m-1, d).toLocaleDateString("pt-BR", { day:"2-digit", month:"short", year:"numeric" });
+      };
+      const fmtMonthYear = (y, mIndex) => {
         const dt = new Date(y, mIndex, 1);
-        const month = dt.toLocaleDateString("pt-BR", { month: "long" });
-        return { month: month, year: String(y) };
-      }
-      function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-      function daysLabel(deltaDays){
-        if (deltaDays === 0) return "É hoje 💖";
-        if (deltaDays === 1) return "Amanhã 🌙";
-        if (deltaDays > 1) return `Faltam ${deltaDays} dias`;
-        if (deltaDays === -1) return "Foi ontem ✨";
-        return `Foi há ${Math.abs(deltaDays)} dias`;
-      }
+        return {
+          month: dt.toLocaleDateString("pt-BR", { month: "long" }),
+          year: String(y)
+        };
+      };
+
+      const clamp = (n,a,b)=> Math.max(a, Math.min(b,n));
+      const daysLabel = (delta) => {
+        if (delta === 0) return "É hoje 💖";
+        if (delta === 1) return "Amanhã 🌙";
+        if (delta > 1) return `Faltam ${delta} dias`;
+        if (delta === -1) return "Foi ontem ✨";
+        return `Foi há ${Math.abs(delta)} dias`;
+      };
 
       const $ = (s) => document.querySelector(s);
 
@@ -782,8 +723,6 @@
       const nextMonth = $("#nextMonth");
 
       const listEl = $("#eventsList");
-      const spotEl = $("#spotContent");
-      const spotOrb = $("#spotOrb");
 
       const filterAllBtn  = $("#filterAll");
       const filterUpBtn   = $("#filterUp");
@@ -804,11 +743,11 @@
       const heroDays = $("#heroDays");
       const heroUnit = $("#heroUnit");
       const heroHint = $("#heroHint");
-      const heroFill = $("#heroFill");
 
-      let filterMode = "all";
+      let filterMode = "all"; // all | up | past
       let selectedId = null;
 
+      // começa no mês do próximo evento (se houver)
       const now = new Date();
       let viewYear  = now.getFullYear();
       let viewMonth = now.getMonth();
@@ -827,6 +766,7 @@
         }
       }
 
+      // confete fofo
       function spawnFloatEmojis(list, intensity = 10){
         const pool = Array.isArray(list) && list.length ? list : ["✨","💖","🌙","⭐"];
         const count = clamp(intensity, 6, 14);
@@ -849,45 +789,12 @@
         }
       }
 
-      function renderSpotlight(enriched){
-        const nextUp = enriched.filter(e => e.delta >= 0).sort((a,b)=> a.delta - b.delta)[0];
-        if (!nextUp){
-          spotOrb.style.setProperty("--accent", "#7df9ff");
-          spotEl.innerHTML = `
-            <div style="opacity:.9; font-weight:900; letter-spacing:.02em;">
-              Nada futuro cadastrado ainda 😌
-            </div>
-            <div style="color:rgba(255,255,255,.72); margin-top:6px;">
-              Edite o <b>events.js</b> e recarregue.
-            </div>
-          `;
-          return;
-        }
-
-        spotOrb.style.setProperty("--accent", nextUp.color);
-        spotEl.innerHTML = `
-          <div class="eventCard" data-id="${nextUp.id}" style="--c:${nextUp.color}; margin-top:0;">
-            <div class="sticker" aria-hidden="true" style="--c:${nextUp.color};">${escapeHTML(nextUp.emoji)}</div>
-            <div class="meta">
-              <div class="metaTop">
-                <p class="title" style="margin:0;">${escapeHTML(nextUp.title)}</p>
-                <div class="date">${escapeHTML(fmtPt(nextUp.date))}</div>
-              </div>
-              <div class="countRow">
-                <div class="bigCount">
-                  <span class="n" style="--c:${nextUp.color};">${Math.max(0, nextUp.delta)}</span>
-                  <span class="u">DIAS</span>
-                </div>
-                <div class="hint">${escapeHTML(daysLabel(nextUp.delta))}</div>
-              </div>
-              <div class="tube" aria-hidden="true"><i style="--c:${nextUp.color}; width:${nextUp.fillPct}%;"></i></div>
-            </div>
-          </div>
-        `;
-
-        if (nextUp.delta >= 0 && nextUp.delta <= 3) {
-          spawnFloatEmojis([nextUp.emoji, "✨", "💖", "🌙"], 12);
-        }
+      function enrichEvents(){
+        const todayIdx = dateToUTCIndex(new Date());
+        return events.map(e => {
+          const idx = ymdToUTCIndex(e.date);
+          return { ...e, idx, delta: idx - todayIdx };
+        });
       }
 
       function renderList(enriched){
@@ -919,18 +826,12 @@
                   </div>
                   <div class="hint">${escapeHTML(daysLabel(e.delta))}</div>
                 </div>
-
-                <div class="tube" aria-hidden="true"><i style="--c:${e.color}; width:${e.fillPct}%;"></i></div>
               </div>
             </div>
           `;
         }).join("");
 
         listEl.querySelectorAll(".eventCard").forEach(card => {
-          card.addEventListener("click", () => openEvent(card.getAttribute("data-id")));
-        });
-
-        spotEl.querySelectorAll(".eventCard").forEach(card => {
           card.addEventListener("click", () => openEvent(card.getAttribute("data-id")));
         });
       }
@@ -943,18 +844,17 @@
         const first = new Date(viewYear, viewMonth, 1);
         const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
+        // semana começa na segunda
         const offset = (first.getDay() + 6) % 7;
 
-        const today = new Date();
-        const todayIdx = dateToUTCIndex(today);
+        const todayIdx = dateToUTCIndex(new Date());
 
         const map = new Map();
         enriched.forEach(e => {
           const [y,m,d] = e.date.split("-").map(Number);
           if (y === viewYear && (m - 1) === viewMonth){
-            const key = d;
-            if (!map.has(key)) map.set(key, []);
-            map.get(key).push(e);
+            if (!map.has(d)) map.set(d, []);
+            map.get(d).push(e);
           }
         });
 
@@ -966,8 +866,8 @@
         for (let day=1; day<=daysInMonth; day++){
           const cellDateIdx = Math.floor(Date.UTC(viewYear, viewMonth, day)/MS_DAY);
           const isToday = cellDateIdx === todayIdx;
-          const evs = map.get(day) || [];
 
+          const evs = map.get(day) || [];
           const dayAccent = evs.length ? evs[0].color : "#7df9ff";
           const classEvent = evs.length ? "isEvent" : "";
 
@@ -995,10 +895,12 @@
 
         daysGrid.innerHTML = cells.join("");
 
+        // clique no dia com evento -> abre o primeiro evento filtrado do dia
         daysGrid.querySelectorAll(".day").forEach(btn => {
           btn.addEventListener("click", () => {
             const day = Number(btn.getAttribute("data-day"));
             if (!day) return;
+
             const evs = map.get(day) || [];
             const filtered = evs.filter(e => {
               if (filterMode === "all") return true;
@@ -1006,9 +908,8 @@
               if (filterMode === "past") return e.delta < 0;
               return true;
             });
-            if (filtered.length){
-              openEvent(filtered[0].id);
-            }
+
+            if (filtered.length) openEvent(filtered[0].id);
           });
         });
       }
@@ -1038,12 +939,13 @@
         heroDays.textContent = nDays;
         heroUnit.textContent = "DIAS";
         heroHint.textContent = isPast ? "Evento já passou ✨" : "Evento chegando 💖";
-        heroFill.style.width = `${e.fillPct}%`;
 
         modal.classList.add("show");
 
+        // confete quando abre (e mais forte quando tá perto)
+        const intensity = (!isPast && e.delta <= 3) ? 14 : 10;
         const extra = isPast ? ["✨", e.emoji, "🌙"] : [e.emoji, "✨", "💖"];
-        spawnFloatEmojis(extra, isPast ? 8 : (e.delta <= 3 ? 14 : 10));
+        spawnFloatEmojis(extra, intensity);
 
         renderAll();
       }
@@ -1088,23 +990,6 @@
         renderAll();
       });
 
-      function enrichEvents(){
-        const today = new Date();
-        const todayIdx = dateToUTCIndex(today);
-
-        return events.map(e => {
-          const idx = ymdToUTCIndex(e.date);
-          const delta = idx - todayIdx;
-
-          const horizon = 30;
-          let fill = 0;
-          if (delta <= 0) fill = 100;
-          else fill = clamp((1 - (delta / horizon)) * 100, 0, 100);
-
-          return { ...e, idx, delta, fillPct: Math.round(fill) };
-        });
-      }
-
       function renderAll(){
         const dt = new Date();
         todayText.textContent = dt.toLocaleDateString("pt-BR", {
@@ -1116,11 +1001,10 @@
 
         const enriched = enrichEvents();
 
+        // accent = cor do próximo evento (pra “tintar” o mundo)
         const nextUp = enriched.filter(e => e.delta >= 0).sort((a,b)=> a.delta - b.delta)[0];
-        const accent = nextUp ? nextUp.color : "#7df9ff";
-        document.documentElement.style.setProperty("--accent", accent);
+        document.documentElement.style.setProperty("--accent", nextUp ? nextUp.color : "#7df9ff");
 
-        renderSpotlight(enriched);
         renderList(enriched);
         renderCalendar(enriched);
 
@@ -1146,4 +1030,4 @@
     })();
   </script>
 </body>
-</html>
+  </html>
