@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calendário Countdown ✨</title>
+
+  <style>
+    /* =========================
+       SKEUO MODERNO: dark + neon
+       ========================= */
+    :root{
+      --bg0:#07070b;
+      --bg1:#0b0b16;
+      --bg2:#0a1320;
+      --ink:#f4f6ff;
+      --muted:#c5c9e6;
+
+      --panelTop: rgba(255,255,255,.10);
+      --panelMid: rgba(255,255,255,.06);
+      --panelBot: rgba(0,0,0,.30);
+
+      --glassHi: rgba(255,255,255,.22);
+      --glassLo: rgba(255,255,255,.06);
+
+      --stroke: rgba(255,255,255,.10);
+      --stroke2: rgba(0,0,0,.55);
+
+      --shadow: rgba(0,0,0,.65);
+      --shadow2: rgba(0,0,0,.35);
+
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+
+      --accent: #7df9ff; /* fallback */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 18% -10%, rgba(125,249,255,.20), transparent 55%),
+        radial-gradient(1000px 650px at 88% 0%, rgba(255,87,186,.20), transparent 55%),
+        radial-gradient(1000px 750px at 50% 120%, rgba(255,230,109,.12), transparent 60%),
+        radial-gradient(900px 700px at 10% 80%, rgba(179,136,255,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg0) 100%);
+      overflow-x: hidden;
+    }
+
+    /* Textura sutil (grão + linhas) */
+    body::before{
+      content:"";
+      position: fixed; inset: 0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, rgba(255,255,255,0) 1px 5px),
+        radial-gradient(1200px 900px at 40% 20%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 700px at 70% 70%, rgba(0,0,0,.25), transparent 55%);
+      mix-blend-mode: overlay;
+      opacity: .35;
+    }
+
+    .wrap{
+      width: min(1120px, 92vw);
+      margin: 28px auto 44px;
+      display: grid;
+      gap: 18px;
+    }
+
+    header.top{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 22px 22px 16px;
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow:hidden;
+
+      background:
+        radial-gradient(140% 120% at 40% -10%, rgba(255,255,255,.10), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04) 45%, rgba(0,0,0,.20));
+      border: 1px solid var(--stroke);
+      box-shadow:
+        0 26px 60px var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.15),
+        inset 0 -18px 40px rgba(0,0,0,.38);
+    }
+    header.top::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.18), rgba(255,255,255,0) 28%),
+        radial-gradient(900px 240px at 20% 0%, rgba(125,249,255,.18), transparent 60%),
+        radial-gradient(900px 240px at 85% 0%, rgba(255,87,186,.16), transparent 60%);
+      mix-blend-mode: screen;
+      opacity:.65;
+      pointer-events:none;
+    }
+
+    .brand{
+      position: relative;
+      z-index: 1;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+    .brand h1{
+      margin:0;
+      font-size: clamp(22px, 2.4vw, 34px);
+      letter-spacing: .01em;
+      text-shadow: 0 2px 18px rgba(0,0,0,.45);
+    }
+    .brand p{
+      margin:0;
+      color: var(--muted);
+      letter-spacing: .03em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    .todayChip{
+      z-index: 1;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.06) 55%, rgba(0,0,0,.20));
+      box-shadow:
+        0 16px 34px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.18);
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .orb{
+      width: 14px; height: 14px; border-radius: 999px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.95), rgba(255,255,255,0) 58%),
+        radial-gradient(circle at 50% 60%, rgba(255,255,255,.25), rgba(255,255,255,0) 65%),
+        radial-gradient(circle at 50% 50%, var(--accent), rgba(0,0,0,.25));
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.55),
+        0 0 16px color-mix(in srgb, var(--accent) 85%, transparent);
+      filter: saturate(1.2);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .todayChip{ align-self:flex-start; }
+    }
+
+    .panel{
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--stroke);
+      background:
+        radial-gradient(140% 120% at 40% -10%, var(--panelTop), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, var(--panelTop), var(--panelMid) 45%, var(--panelBot));
+      box-shadow:
+        0 26px 60px var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.14),
+        inset 0 -22px 50px rgba(0,0,0,.45);
+      overflow:hidden;
+      position: relative;
+    }
+    .panel::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(115deg, rgba(255,255,255,.14), rgba(255,255,255,0) 26%);
+      opacity:.55;
+      pointer-events:none;
+    }
+
+    .panelHead{
+      padding: 16px 18px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .panelTitle{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 950;
+      letter-spacing: .02em;
+    }
+    .panelTitle small{
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing:.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .pillRow{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      border:0;
+      cursor:pointer;
+      padding: 9px 10px;
+      border-radius: 999px;
+      color: rgba(10,12,18,.98);
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-size: 11px;
+
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(235,240,255,.84));
+      box-shadow:
+        0 16px 30px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.75),
+        inset 0 -1px 0 rgba(0,0,0,.16);
+      transition: transform .08s ease, filter .12s ease;
+      user-select: none;
+    }
+    .pill:active{ transform: translateY(1px); filter: brightness(.97); }
+    .pill.isOn{
+      color: rgba(255,255,255,.96);
+      background:
+        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.25), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, color-mix(in srgb, var(--accent) 75%, #fff 0%), color-mix(in srgb, var(--accent) 55%, #000 35%));
+      box-shadow:
+        0 20px 44px rgba(0,0,0,.65),
+        0 0 24px color-mix(in srgb, var(--accent) 70%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.22);
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+
+    /* -------- Calendar -------- */
+    .calendar{
+      padding: 0 18px 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .monthBar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 12px 0 10px;
+    }
+    .monthLabel{
+      display:flex; align-items:baseline; gap: 10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06) 55%, rgba(0,0,0,.20));
+      box-shadow:
+        0 18px 36px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.16);
+    }
+    .monthLabel strong{
+      font-size: 16px;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+    }
+    .monthLabel span{
+      color: var(--muted);
+      font-weight: 900;
+      letter-spacing: .14em;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .navBtn{
+      border:0;
+      cursor:pointer;
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      color: rgba(255,255,255,.95);
+      font-weight: 950;
+      font-size: 16px;
+      background:
+        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06) 55%, rgba(0,0,0,.28));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 18px 36px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 0 -10px 24px rgba(0,0,0,.35);
+      transition: transform .08s ease, filter .12s ease;
+      user-select: none;
+    }
+    .navBtn:active{ transform: translateY(1px) scale(.99); filter: brightness(.98); }
+
+    .weekHead{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      padding: 8px 2px 10px;
+      color: var(--muted);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 10px;
+      opacity: .98;
+    }
+    .daysGrid{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .day{
+      position: relative;
+      min-height: 74px;
+      border-radius: 18px;
+      padding: 10px 10px 8px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.08), rgba(255,255,255,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05) 55%, rgba(0,0,0,.28));
+      box-shadow:
+        0 18px 34px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 -16px 34px rgba(0,0,0,.42);
+      transform: translateZ(0);
+      transition: transform .10s ease, filter .12s ease;
+      overflow:hidden;
+    }
+    .day:hover{ transform: translateY(-1px); }
+    .day:active{ transform: translateY(0px); filter: brightness(.98); }
+
+    .day.isBlank{
+      opacity:.28;
+      pointer-events:none;
+      filter: saturate(.75);
+    }
+    .dayNum{
+      font-weight: 950;
+      letter-spacing: .02em;
+      text-shadow: 0 2px 14px rgba(0,0,0,.45);
+      font-size: 14px;
+    }
+
+    .todayBadge{
+      position:absolute; top: 10px; right: 10px;
+      width: 12px; height: 12px; border-radius: 999px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.95), rgba(255,255,255,0) 55%),
+        radial-gradient(circle at 50% 50%, #ffe66d, rgba(0,0,0,.25));
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.55),
+        0 0 18px rgba(255,230,109,.55);
+    }
+
+    .eventStack{
+      margin-top: 8px;
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .eventDot{
+      width: 22px; height: 22px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      font-size: 14px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.92), rgba(255,255,255,0) 58%),
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--c) 85%, #000 15%), rgba(0,0,0,.35));
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.55),
+        0 0 16px color-mix(in srgb, var(--c) 70%, transparent);
+      filter: saturate(1.15);
+    }
+
+    .day.isEvent{
+      border-color: color-mix(in srgb, var(--accent) 38%, rgba(255,255,255,.10));
+      box-shadow:
+        0 22px 44px rgba(0,0,0,.62),
+        0 0 0 2px color-mix(in srgb, var(--accent) 22%, transparent),
+        0 0 22px color-mix(in srgb, var(--accent) 55%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.14),
+        inset 0 -16px 34px rgba(0,0,0,.42);
+    }
+
+    /* -------- Events list -------- */
+    .list{
+      padding: 0 18px 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .spotlight{
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06) 55%, rgba(0,0,0,.26));
+      box-shadow:
+        0 26px 50px rgba(0,0,0,.62),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -18px 40px rgba(0,0,0,.40);
+      padding: 14px 14px 12px;
+      margin-bottom: 12px;
+      overflow:hidden;
+      position: relative;
+    }
+    .spotlight::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.20), rgba(255,255,255,0) 32%),
+        radial-gradient(700px 220px at 20% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+        radial-gradient(700px 220px at 90% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+      mix-blend-mode: screen;
+      opacity:.7;
+      pointer-events:none;
+    }
+    .spotTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .tag{
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 900;
+      opacity:.95;
+    }
+
+    .eventCard{
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.10), rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05) 55%, rgba(0,0,0,.28));
+      box-shadow:
+        0 22px 44px rgba(0,0,0,.60),
+        inset 0 1px 0 rgba(255,255,255,.14),
+        inset 0 -18px 38px rgba(0,0,0,.42);
+      padding: 12px 12px 12px 12px;
+      display:grid;
+      grid-template-columns: 56px 1fr;
+      gap: 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: transform .12s ease, filter .12s ease;
+      overflow:hidden;
+    }
+    .eventCard:hover{ transform: translateY(-1px); }
+    .eventCard:active{ transform: translateY(0px); filter: brightness(.98); }
+    .eventCard.isPast{
+      opacity: .62;
+      filter: saturate(.85);
+    }
+    .eventCard.isSelected{
+      border-color: color-mix(in srgb, var(--c) 40%, rgba(255,255,255,.12));
+      box-shadow:
+        0 26px 56px rgba(0,0,0,.66),
+        0 0 0 2px color-mix(in srgb, var(--c) 25%, transparent),
+        0 0 24px color-mix(in srgb, var(--c) 58%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.14),
+        inset 0 -18px 38px rgba(0,0,0,.42);
+    }
+
+    .sticker{
+      width: 56px; height: 56px;
+      border-radius: 18px;
+      display:grid;
+      place-items:center;
+      font-size: 30px;
+      background:
+        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.40), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg,
+          color-mix(in srgb, var(--c) 65%, #fff 8%),
+          color-mix(in srgb, var(--c) 40%, #000 26%));
+      box-shadow:
+        0 18px 36px rgba(0,0,0,.60),
+        0 0 22px color-mix(in srgb, var(--c) 55%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.22),
+        inset 0 -14px 24px rgba(0,0,0,.26);
+      filter: saturate(1.15);
+      user-select:none;
+    }
+
+    .meta{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .metaTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .title{
+      font-weight: 950;
+      letter-spacing: .01em;
+      line-height: 1.05;
+      margin:0;
+      font-size: 15px;
+      text-shadow: 0 2px 14px rgba(0,0,0,.45);
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .date{
+      color: var(--muted);
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .countRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .bigCount{
+      display:flex;
+      align-items:baseline;
+      gap: 8px;
+      line-height: 1;
+      user-select:none;
+    }
+    .bigCount .n{
+      font-weight: 980;
+      font-size: 34px;
+      letter-spacing: -.02em;
+      text-shadow:
+        0 2px 18px rgba(0,0,0,.55),
+        0 0 22px color-mix(in srgb, var(--c) 40%, transparent);
+    }
+    .bigCount .u{
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: var(--muted);
+      transform: translateY(-3px);
+    }
+    .hint{
+      font-size: 12px;
+      color: color-mix(in srgb, var(--muted) 88%, #fff 0%);
+      font-weight: 750;
+      opacity: .95;
+      white-space: nowrap;
+    }
+
+    /* Tubo de progresso (físico + glow) */
+    .tube{
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(255,255,255,.06));
+      box-shadow:
+        inset 0 2px 8px rgba(0,0,0,.75),
+        0 14px 24px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .tube > i{
+      display:block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background:
+        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.40), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, color-mix(in srgb, var(--c) 70%, #fff 8%), color-mix(in srgb, var(--c) 55%, #000 25%));
+      box-shadow:
+        0 0 18px color-mix(in srgb, var(--c) 60%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.22);
+      transition: width .55s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .cardsFooter{
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255,255,255,.14);
+      color: rgba(255,255,255,.70);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    /* -------- Modal (fofo + vidro) -------- */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(10px);
+      z-index: 40;
+    }
+    .modal.show{ display:grid; }
+
+    .sheet{
+      width: min(620px, 94vw);
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05) 55%, rgba(0,0,0,.35));
+      box-shadow:
+        0 46px 110px rgba(0,0,0,.78),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -24px 56px rgba(0,0,0,.45);
+      overflow:hidden;
+      position: relative;
+      transform: translateY(10px) scale(.985);
+      animation: pop .22s ease forwards;
+    }
+    @keyframes pop{ to { transform: translateY(0) scale(1); } }
+
+    .sheetTop{
+      padding: 16px 18px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .xBtn{
+      border:0;
+      cursor:pointer;
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      color: rgba(255,255,255,.92);
+      font-weight: 950;
+      background:
+        radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06) 55%, rgba(0,0,0,.28));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 18px 36px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 0 -10px 24px rgba(0,0,0,.35);
+    }
+    .xBtn:active{ transform: translateY(1px); filter: brightness(.98); }
+
+    .sheetBody{
+      padding: 0 18px 18px;
+      display:grid;
+      gap: 14px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 86px 1fr;
+      gap: 14px;
+      align-items:center;
+      padding: 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(140% 120% at 40% 0%, rgba(255,255,255,.12), rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05) 55%, rgba(0,0,0,.26));
+      box-shadow:
+        0 20px 44px rgba(0,0,0,.60),
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 0 -18px 38px rgba(0,0,0,.40);
+      overflow:hidden;
+      position: relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.18), rgba(255,255,255,0) 32%),
+        radial-gradient(900px 260px at 20% 0%, color-mix(in srgb, var(--c) 18%, transparent), transparent 70%);
+      mix-blend-mode: screen;
+      opacity:.7;
+      pointer-events:none;
+    }
+
+    .hero .sticker{ width: 86px; height: 86px; font-size: 44px; border-radius: 26px; }
+    .hero h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .01em;
+      text-shadow: 0 2px 16px rgba(0,0,0,.48);
+      position: relative;
+      z-index: 1;
+    }
+    .hero p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 750;
+      line-height: 1.25;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Stickers flutuantes (confete) */
+    .floatEmoji{
+      position: fixed;
+      font-size: clamp(46px, 8vw, 120px);
+      pointer-events:none;
+      z-index: 25;
+      animation: floatUp linear forwards;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.55));
+      opacity: .96;
+    }
+    @keyframes floatUp{
+      from { transform: translateY(0) translateX(0) rotate(0); }
+      to { transform: translateY(-120vh) translateX(var(--dx, 70px)) rotate(var(--rot, 18deg)); opacity: 0; }
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top" aria-label="Cabeçalho">
+      <div class="brand">
+        <h1>Calendário Countdown ✨</h1>
+        <p>Um painel fofo, dark e fluorescente pra você ver <b>quantos dias faltam</b> pros seus eventos.</p>
+      </div>
+
+      <div class="todayChip" title="Data de hoje">
+        <span class="orb" aria-hidden="true"></span>
+        <span id="todayText">HOJE</span>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Painéis">
+      <!-- CALENDÁRIO -->
+      <div class="panel" aria-label="Calendário">
+        <div class="panelHead">
+          <div class="panelTitle">
+            <span aria-hidden="true">🗓️</span>
+            <div>
+              <div>Calendário</div>
+              <small>clique em um evento pra abrir o detalhe</small>
+            </div>
+          </div>
+
+          <div class="pillRow" role="tablist" aria-label="Filtros">
+            <button class="pill isOn" id="filterAll" role="tab" aria-selected="true">Tudo</button>
+            <button class="pill" id="filterUp" role="tab" aria-selected="false">Próximos</button>
+            <button class="pill" id="filterPast" role="tab" aria-selected="false">Passados</button>
+          </div>
+        </div>
+
+        <div class="calendar">
+          <div class="monthBar">
+            <button class="navBtn" id="prevMonth" aria-label="Mês anterior">‹</button>
+            <div class="monthLabel" aria-live="polite">
+              <strong id="monthName">—</strong>
+              <span id="yearNum">—</span>
+            </div>
+            <button class="navBtn" id="nextMonth" aria-label="Próximo mês">›</button>
+          </div>
+
+          <div class="weekHead" aria-hidden="true">
+            <div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div><div>Dom</div>
+          </div>
+
+          <div class="daysGrid" id="daysGrid" aria-label="Dias do mês"></div>
+        </div>
+      </div>
+
+      <!-- LISTA -->
+      <div class="panel" aria-label="Eventos e contagens">
+        <div class="panelHead">
+          <div class="panelTitle">
+            <span aria-hidden="true">⏳</span>
+            <div>
+              <div>Contagens</div>
+              <small>faltam tantos dias</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="spotlight" aria-label="Destaque do próximo evento">
+            <div class="spotTop">
+              <div class="tag">Próximo em destaque</div>
+              <div class="orb" id="spotOrb" aria-hidden="true"></div>
+            </div>
+            <div id="spotContent" style="position:relative; z-index:1; margin-top:10px;"></div>
+          </div>
+
+          <div id="eventsList" aria-label="Lista de eventos"></div>
+
+          <div class="cardsFooter" id="footerHint">
+            Dica: quando um evento estiver bem perto, eu solto uns confetes de emoji ✨
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhe do evento">
+    <div class="sheet" id="sheet" style="--c: var(--accent);">
+      <div class="sheetTop">
+        <div class="tag" id="modalTag">DETALHE</div>
+        <button class="xBtn" id="closeModal" aria-label="Fechar">✕</button>
+      </div>
+      <div class="sheetBody">
+        <div class="hero" id="hero" style="--c: var(--accent);">
+          <div class="sticker" id="heroEmoji" aria-hidden="true">✨</div>
+          <div>
+            <h2 id="heroTitle">—</h2>
+            <p id="heroLine">—</p>
+          </div>
+        </div>
+
+        <div class="eventCard" id="heroCard" style="--c: var(--accent); cursor:default;">
+          <div class="sticker" id="heroSticker" aria-hidden="true">🗓️</div>
+          <div class="meta">
+            <div class="metaTop">
+              <p class="title" id="heroSubTitle" style="margin:0;">—</p>
+              <div class="date" id="heroDate">—</div>
+            </div>
+            <div class="countRow">
+              <div class="bigCount" aria-label="Dias restantes">
+                <span class="n" id="heroDays">—</span>
+                <span class="u" id="heroUnit">DIAS</span>
+              </div>
+              <div class="hint" id="heroHint">—</div>
+            </div>
+            <div class="tube" aria-hidden="true"><i id="heroFill"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1) dados -->
+  <script src="events.js"></script>
+  <!-- 2) lógica -->
+  <script src="app.js" defer></script>
+</body>
+</html>
