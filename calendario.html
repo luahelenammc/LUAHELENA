@@ -606,7 +606,7 @@
           </div>
 
           <div class="weekHead" aria-hidden="true">
-            <div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div><div>Dom</div>
+  <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
           </div>
 
           <div class="daysGrid" id="daysGrid" aria-label="Dias do mês"></div>
@@ -844,8 +844,7 @@
         const first = new Date(viewYear, viewMonth, 1);
         const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
-        // semana começa na segunda
-        const offset = (first.getDay() + 6) % 7;
+        const offset = first.getDay(); // 0=Dom, 1=Seg, ... 6=Sáb
 
         const todayIdx = dateToUTCIndex(new Date());
 
