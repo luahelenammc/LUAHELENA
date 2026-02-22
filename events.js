@@ -43,5 +43,19 @@ window.COUNTDOWN_EVENTS = [
     date: "2026-03-16",
     emoji: "👁️",
     color: "#00ff6a"
+  }, 
+  {
+    id: "fim-ferias",
+    title: "Fim das férias",
+    date: "2026-03-17",
+    emoji: "🌅",
+    color: "#ff7ad9"
+  },
+  {
+    id: "viagem-sp",
+    title: "Viagem para SP",
+    date: "2026-03-18",
+    emoji: "🧳",
+    color: "#7df9ff"
   }
 ];
