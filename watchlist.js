@@ -13,7 +13,7 @@
       type: "series",
       title: "The Real Housewives of Beverly Hills",
       season: 15,
-      episode: 9, // último episódio que VOCÊ viu
+      episode: 10, // último episódio que VOCÊ viu
       tags: ["reality show", "comecei"],
       status: "watched", // pode ser: need | downloaded | streaming | waiting | watched
       progress: 0,
