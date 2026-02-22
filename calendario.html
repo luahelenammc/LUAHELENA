@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -20,18 +21,11 @@
       --panelMid: rgba(255,255,255,.06);
       --panelBot: rgba(0,0,0,.30);
 
-      --glassHi: rgba(255,255,255,.22);
-      --glassLo: rgba(255,255,255,.06);
-
       --stroke: rgba(255,255,255,.10);
-      --stroke2: rgba(0,0,0,.55);
-
       --shadow: rgba(0,0,0,.65);
-      --shadow2: rgba(0,0,0,.35);
 
       --radius-xl: 28px;
       --radius-lg: 22px;
-      --radius-md: 16px;
 
       --accent: #7df9ff; /* fallback */
     }
@@ -51,7 +45,7 @@
       overflow-x: hidden;
     }
 
-    /* Textura sutil (grão + linhas) */
+    /* Textura sutil */
     body::before{
       content:"";
       position: fixed; inset: 0;
@@ -102,26 +96,14 @@
       pointer-events:none;
     }
 
-    .brand{
-      position: relative;
-      z-index: 1;
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
-    }
+    .brand{ position: relative; z-index: 1; display:flex; flex-direction:column; gap: 6px; }
     .brand h1{
       margin:0;
       font-size: clamp(22px, 2.4vw, 34px);
       letter-spacing: .01em;
       text-shadow: 0 2px 18px rgba(0,0,0,.45);
     }
-    .brand p{
-      margin:0;
-      color: var(--muted);
-      letter-spacing: .03em;
-      line-height: 1.2;
-      text-wrap: balance;
-    }
+    .brand p{ margin:0; color: var(--muted); letter-spacing: .03em; line-height: 1.2; text-wrap: balance; }
 
     .todayChip{
       z-index: 1;
@@ -195,11 +177,7 @@
       position: relative;
       z-index: 1;
     }
-    .panelTitle{
-      display:flex; align-items:center; gap: 10px;
-      font-weight: 950;
-      letter-spacing: .02em;
-    }
+    .panelTitle{ display:flex; align-items:center; gap: 10px; font-weight: 950; letter-spacing: .02em; }
     .panelTitle small{
       font-weight: 800;
       color: var(--muted);
@@ -208,15 +186,9 @@
       font-size: 12px;
     }
 
-    .pillRow{
-      display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-    }
+    .pillRow{ display:flex; gap: 8px; flex-wrap: wrap; justify-content:flex-end; }
     .pill{
-      border:0;
-      cursor:pointer;
+      border:0; cursor:pointer;
       padding: 9px 10px;
       border-radius: 999px;
       color: rgba(10,12,18,.98);
@@ -224,7 +196,6 @@
       letter-spacing:.06em;
       text-transform: uppercase;
       font-size: 11px;
-
       background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(235,240,255,.84));
       box-shadow:
         0 16px 30px rgba(0,0,0,.55),
@@ -246,19 +217,11 @@
       text-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
 
-    /* -------- Calendar -------- */
-    .calendar{
-      padding: 0 18px 18px;
-      position: relative;
-      z-index: 1;
-    }
+    .calendar{ padding: 0 18px 18px; position: relative; z-index: 1; }
 
     .monthBar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding: 12px 0 10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px; padding: 12px 0 10px;
     }
     .monthLabel{
       display:flex; align-items:baseline; gap: 10px;
@@ -271,11 +234,7 @@
         0 18px 36px rgba(0,0,0,.55),
         inset 0 1px 0 rgba(255,255,255,.16);
     }
-    .monthLabel strong{
-      font-size: 16px;
-      letter-spacing:.04em;
-      text-transform: uppercase;
-    }
+    .monthLabel strong{ font-size: 16px; letter-spacing:.04em; text-transform: uppercase; }
     .monthLabel span{
       color: var(--muted);
       font-weight: 900;
@@ -285,8 +244,7 @@
     }
 
     .navBtn{
-      border:0;
-      cursor:pointer;
+      border:0; cursor:pointer;
       width: 44px; height: 44px;
       border-radius: 14px;
       color: rgba(255,255,255,.95);
@@ -317,11 +275,7 @@
       font-size: 10px;
       opacity: .98;
     }
-    .daysGrid{
-      display:grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-    }
+    .daysGrid{ display:grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
 
     .day{
       position: relative;
@@ -336,24 +290,15 @@
         0 18px 34px rgba(0,0,0,.55),
         inset 0 1px 0 rgba(255,255,255,.12),
         inset 0 -16px 34px rgba(0,0,0,.42);
-      transform: translateZ(0);
       transition: transform .10s ease, filter .12s ease;
       overflow:hidden;
+      cursor: pointer;
     }
     .day:hover{ transform: translateY(-1px); }
     .day:active{ transform: translateY(0px); filter: brightness(.98); }
 
-    .day.isBlank{
-      opacity:.28;
-      pointer-events:none;
-      filter: saturate(.75);
-    }
-    .dayNum{
-      font-weight: 950;
-      letter-spacing: .02em;
-      text-shadow: 0 2px 14px rgba(0,0,0,.45);
-      font-size: 14px;
-    }
+    .day.isBlank{ opacity:.28; pointer-events:none; filter: saturate(.75); cursor: default; }
+    .dayNum{ font-weight: 950; letter-spacing: .02em; text-shadow: 0 2px 14px rgba(0,0,0,.45); font-size: 14px; }
 
     .todayBadge{
       position:absolute; top: 10px; right: 10px;
@@ -366,13 +311,7 @@
         0 0 18px rgba(255,230,109,.55);
     }
 
-    .eventStack{
-      margin-top: 8px;
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
+    .eventStack{ margin-top: 8px; display:flex; gap: 6px; flex-wrap: wrap; align-items:center; }
     .eventDot{
       width: 22px; height: 22px;
       border-radius: 999px;
@@ -398,12 +337,7 @@
         inset 0 -16px 34px rgba(0,0,0,.42);
     }
 
-    /* -------- Events list -------- */
-    .list{
-      padding: 0 18px 18px;
-      position: relative;
-      z-index: 1;
-    }
+    .list{ padding: 0 18px 18px; position: relative; z-index: 1; }
 
     .spotlight{
       border-radius: var(--radius-lg);
@@ -431,14 +365,7 @@
       opacity:.7;
       pointer-events:none;
     }
-    .spotTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
+    .spotTop{ display:flex; align-items:center; justify-content:space-between; gap: 10px; position: relative; z-index: 1; }
     .tag{
       font-size: 10px;
       letter-spacing: .16em;
@@ -459,7 +386,7 @@
         0 22px 44px rgba(0,0,0,.60),
         inset 0 1px 0 rgba(255,255,255,.14),
         inset 0 -18px 38px rgba(0,0,0,.42);
-      padding: 12px 12px 12px 12px;
+      padding: 12px;
       display:grid;
       grid-template-columns: 56px 1fr;
       gap: 12px;
@@ -470,10 +397,7 @@
     }
     .eventCard:hover{ transform: translateY(-1px); }
     .eventCard:active{ transform: translateY(0px); filter: brightness(.98); }
-    .eventCard.isPast{
-      opacity: .62;
-      filter: saturate(.85);
-    }
+    .eventCard.isPast{ opacity: .62; filter: saturate(.85); }
     .eventCard.isSelected{
       border-color: color-mix(in srgb, var(--c) 40%, rgba(255,255,255,.12));
       box-shadow:
@@ -504,18 +428,8 @@
       user-select:none;
     }
 
-    .meta{
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
-      min-width: 0;
-    }
-    .metaTop{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-    }
+    .meta{ display:flex; flex-direction:column; gap: 6px; min-width: 0; }
+    .metaTop{ display:flex; align-items:flex-start; justify-content:space-between; gap: 10px; }
     .title{
       font-weight: 950;
       letter-spacing: .01em;
@@ -536,19 +450,8 @@
       white-space: nowrap;
     }
 
-    .countRow{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 10px;
-    }
-    .bigCount{
-      display:flex;
-      align-items:baseline;
-      gap: 8px;
-      line-height: 1;
-      user-select:none;
-    }
+    .countRow{ display:flex; align-items:flex-end; justify-content:space-between; gap: 10px; }
+    .bigCount{ display:flex; align-items:baseline; gap: 8px; line-height: 1; user-select:none; }
     .bigCount .n{
       font-weight: 980;
       font-size: 34px;
@@ -573,13 +476,11 @@
       white-space: nowrap;
     }
 
-    /* Tubo de progresso (físico + glow) */
     .tube{
       height: 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(255,255,255,.06));
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(255,255,255,.06));
       box-shadow:
         inset 0 2px 8px rgba(0,0,0,.75),
         0 14px 24px rgba(0,0,0,.35);
@@ -608,7 +509,7 @@
       line-height: 1.25;
     }
 
-    /* -------- Modal (fofo + vidro) -------- */
+    /* -------- Modal -------- */
     .modal{
       position: fixed;
       inset: 0;
@@ -664,11 +565,7 @@
     }
     .xBtn:active{ transform: translateY(1px); filter: brightness(.98); }
 
-    .sheetBody{
-      padding: 0 18px 18px;
-      display:grid;
-      gap: 14px;
-    }
+    .sheetBody{ padding: 0 18px 18px; display:grid; gap: 14px; }
 
     .hero{
       display:grid;
@@ -698,26 +595,11 @@
       opacity:.7;
       pointer-events:none;
     }
-
     .hero .sticker{ width: 86px; height: 86px; font-size: 44px; border-radius: 26px; }
-    .hero h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: .01em;
-      text-shadow: 0 2px 16px rgba(0,0,0,.48);
-      position: relative;
-      z-index: 1;
-    }
-    .hero p{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-weight: 750;
-      line-height: 1.25;
-      position: relative;
-      z-index: 1;
-    }
+    .hero h2{ margin:0; font-size: 18px; letter-spacing: .01em; text-shadow: 0 2px 16px rgba(0,0,0,.48); position: relative; z-index: 1; }
+    .hero p{ margin: 6px 0 0; color: var(--muted); font-weight: 750; line-height: 1.25; position: relative; z-index: 1; }
 
-    /* Stickers flutuantes (confete) */
+    /* confete */
     .floatEmoji{
       position: fixed;
       font-size: clamp(46px, 8vw, 120px);
@@ -730,14 +612,6 @@
     @keyframes floatUp{
       from { transform: translateY(0) translateX(0) rotate(0); }
       to { transform: translateY(-120vh) translateX(var(--dx, 70px)) rotate(var(--rot, 18deg)); opacity: 0; }
-    }
-
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);
-      white-space:nowrap;border:0;
     }
   </style>
 </head>
@@ -861,9 +735,415 @@
     </div>
   </div>
 
-  <!-- 1) dados -->
+  <!-- 1) banco de dados externo -->
   <script src="events.js"></script>
-  <!-- 2) lógica -->
-  <script src="app.js" defer></script>
+
+  <!-- 2) lógica inline (substitui o antigo app.js externo) -->
+  <script>
+    (() => {
+      const events = Array.isArray(window.COUNTDOWN_EVENTS) ? window.COUNTDOWN_EVENTS.slice() : [];
+
+      const MS_DAY = 86400000;
+
+      function ymdToUTCIndex(ymd){
+        const [y,m,d] = ymd.split("-").map(Number);
+        return Math.floor(Date.UTC(y, m-1, d) / MS_DAY);
+      }
+      function dateToUTCIndex(dateObj){
+        return Math.floor(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate()) / MS_DAY);
+      }
+      function fmtPt(ymd){
+        const [y,m,d] = ymd.split("-").map(Number);
+        const dt = new Date(y, m-1, d);
+        return dt.toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
+      }
+      function fmtMonthYear(y, mIndex){
+        const dt = new Date(y, mIndex, 1);
+        const month = dt.toLocaleDateString("pt-BR", { month: "long" });
+        return { month: month, year: String(y) };
+      }
+      function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+      function daysLabel(deltaDays){
+        if (deltaDays === 0) return "É hoje 💖";
+        if (deltaDays === 1) return "Amanhã 🌙";
+        if (deltaDays > 1) return `Faltam ${deltaDays} dias`;
+        if (deltaDays === -1) return "Foi ontem ✨";
+        return `Foi há ${Math.abs(deltaDays)} dias`;
+      }
+
+      const $ = (s) => document.querySelector(s);
+
+      const todayText = $("#todayText");
+      const daysGrid  = $("#daysGrid");
+      const monthName = $("#monthName");
+      const yearNum   = $("#yearNum");
+
+      const prevMonth = $("#prevMonth");
+      const nextMonth = $("#nextMonth");
+
+      const listEl = $("#eventsList");
+      const spotEl = $("#spotContent");
+      const spotOrb = $("#spotOrb");
+
+      const filterAllBtn  = $("#filterAll");
+      const filterUpBtn   = $("#filterUp");
+      const filterPastBtn = $("#filterPast");
+
+      const modal = $("#modal");
+      const closeModal = $("#closeModal");
+
+      const hero = $("#hero");
+      const heroEmoji = $("#heroEmoji");
+      const heroTitle = $("#heroTitle");
+      const heroLine  = $("#heroLine");
+
+      const heroCard = $("#heroCard");
+      const heroSticker = $("#heroSticker");
+      const heroSubTitle = $("#heroSubTitle");
+      const heroDate = $("#heroDate");
+      const heroDays = $("#heroDays");
+      const heroUnit = $("#heroUnit");
+      const heroHint = $("#heroHint");
+      const heroFill = $("#heroFill");
+
+      let filterMode = "all";
+      let selectedId = null;
+
+      const now = new Date();
+      let viewYear  = now.getFullYear();
+      let viewMonth = now.getMonth();
+
+      if (events.length) {
+        const todayIdx = dateToUTCIndex(new Date());
+        const soon = events
+          .map(e => ({...e, idx: ymdToUTCIndex(e.date), d: ymdToUTCIndex(e.date) - todayIdx}))
+          .filter(e => e.d >= 0)
+          .sort((a,b) => a.d - b.d)[0];
+
+        if (soon) {
+          const [y,m] = soon.date.split("-").map(Number);
+          viewYear = y;
+          viewMonth = m - 1;
+        }
+      }
+
+      function spawnFloatEmojis(list, intensity = 10){
+        const pool = Array.isArray(list) && list.length ? list : ["✨","💖","🌙","⭐"];
+        const count = clamp(intensity, 6, 14);
+        for (let i=0; i<count; i++){
+          const el = document.createElement("div");
+          el.className = "floatEmoji";
+          el.textContent = pool[Math.floor(Math.random()*pool.length)];
+
+          const x = Math.random()*100;
+          const dur = 4.8 + Math.random()*3.2;
+
+          el.style.left = `calc(${x}vw - 12px)`;
+          el.style.bottom = `-70px`;
+          el.style.animationDuration = `${dur}s`;
+          el.style.setProperty("--dx", `${(Math.random()*170 - 85)}px`);
+          el.style.setProperty("--rot", `${(Math.random()*60 - 30)}deg`);
+
+          document.body.appendChild(el);
+          setTimeout(() => el.remove(), dur*1000);
+        }
+      }
+
+      function renderSpotlight(enriched){
+        const nextUp = enriched.filter(e => e.delta >= 0).sort((a,b)=> a.delta - b.delta)[0];
+        if (!nextUp){
+          spotOrb.style.setProperty("--accent", "#7df9ff");
+          spotEl.innerHTML = `
+            <div style="opacity:.9; font-weight:900; letter-spacing:.02em;">
+              Nada futuro cadastrado ainda 😌
+            </div>
+            <div style="color:rgba(255,255,255,.72); margin-top:6px;">
+              Edite o <b>events.js</b> e recarregue.
+            </div>
+          `;
+          return;
+        }
+
+        spotOrb.style.setProperty("--accent", nextUp.color);
+        spotEl.innerHTML = `
+          <div class="eventCard" data-id="${nextUp.id}" style="--c:${nextUp.color}; margin-top:0;">
+            <div class="sticker" aria-hidden="true" style="--c:${nextUp.color};">${escapeHTML(nextUp.emoji)}</div>
+            <div class="meta">
+              <div class="metaTop">
+                <p class="title" style="margin:0;">${escapeHTML(nextUp.title)}</p>
+                <div class="date">${escapeHTML(fmtPt(nextUp.date))}</div>
+              </div>
+              <div class="countRow">
+                <div class="bigCount">
+                  <span class="n" style="--c:${nextUp.color};">${Math.max(0, nextUp.delta)}</span>
+                  <span class="u">DIAS</span>
+                </div>
+                <div class="hint">${escapeHTML(daysLabel(nextUp.delta))}</div>
+              </div>
+              <div class="tube" aria-hidden="true"><i style="--c:${nextUp.color}; width:${nextUp.fillPct}%;"></i></div>
+            </div>
+          </div>
+        `;
+
+        if (nextUp.delta >= 0 && nextUp.delta <= 3) {
+          spawnFloatEmojis([nextUp.emoji, "✨", "💖", "🌙"], 12);
+        }
+      }
+
+      function renderList(enriched){
+        let items = enriched.slice().sort((a,b)=> a.idx - b.idx);
+
+        if (filterMode === "up") items = items.filter(e => e.delta >= 0);
+        if (filterMode === "past") items = items.filter(e => e.delta < 0);
+
+        listEl.innerHTML = items.map(e => {
+          const isPast = e.delta < 0;
+          const isSelected = e.id === selectedId;
+          const nDays = isPast ? Math.abs(e.delta) : e.delta;
+
+          return `
+            <div class="eventCard ${isPast ? "isPast": ""} ${isSelected ? "isSelected": ""}"
+                 data-id="${e.id}" style="--c:${e.color};">
+              <div class="sticker" aria-hidden="true" style="--c:${e.color};">${escapeHTML(e.emoji)}</div>
+
+              <div class="meta">
+                <div class="metaTop">
+                  <p class="title" title="${escapeAttr(e.title)}">${escapeHTML(e.title)}</p>
+                  <div class="date">${escapeHTML(fmtPt(e.date))}</div>
+                </div>
+
+                <div class="countRow">
+                  <div class="bigCount" aria-label="Dias">
+                    <span class="n" style="--c:${e.color};">${nDays}</span>
+                    <span class="u">DIAS</span>
+                  </div>
+                  <div class="hint">${escapeHTML(daysLabel(e.delta))}</div>
+                </div>
+
+                <div class="tube" aria-hidden="true"><i style="--c:${e.color}; width:${e.fillPct}%;"></i></div>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        listEl.querySelectorAll(".eventCard").forEach(card => {
+          card.addEventListener("click", () => openEvent(card.getAttribute("data-id")));
+        });
+
+        spotEl.querySelectorAll(".eventCard").forEach(card => {
+          card.addEventListener("click", () => openEvent(card.getAttribute("data-id")));
+        });
+      }
+
+      function renderCalendar(enriched){
+        const { month, year } = fmtMonthYear(viewYear, viewMonth);
+        monthName.textContent = month;
+        yearNum.textContent = year;
+
+        const first = new Date(viewYear, viewMonth, 1);
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        const offset = (first.getDay() + 6) % 7;
+
+        const today = new Date();
+        const todayIdx = dateToUTCIndex(today);
+
+        const map = new Map();
+        enriched.forEach(e => {
+          const [y,m,d] = e.date.split("-").map(Number);
+          if (y === viewYear && (m - 1) === viewMonth){
+            const key = d;
+            if (!map.has(key)) map.set(key, []);
+            map.get(key).push(e);
+          }
+        });
+
+        const cells = [];
+        for (let i=0; i<offset; i++){
+          cells.push(`<div class="day isBlank" aria-hidden="true"></div>`);
+        }
+
+        for (let day=1; day<=daysInMonth; day++){
+          const cellDateIdx = Math.floor(Date.UTC(viewYear, viewMonth, day)/MS_DAY);
+          const isToday = cellDateIdx === todayIdx;
+          const evs = map.get(day) || [];
+
+          const dayAccent = evs.length ? evs[0].color : "#7df9ff";
+          const classEvent = evs.length ? "isEvent" : "";
+
+          const shownEvs = evs.filter(e => {
+            if (filterMode === "all") return true;
+            if (filterMode === "up") return e.delta >= 0;
+            if (filterMode === "past") return e.delta < 0;
+            return true;
+          });
+
+          const stack = shownEvs.slice(0, 3).map(e => (
+            `<span class="eventDot" title="${escapeAttr(e.title)}" style="--c:${e.color};">${escapeHTML(e.emoji)}</span>`
+          )).join("");
+
+          cells.push(`
+            <button class="day ${classEvent}" style="--accent:${dayAccent};" data-day="${day}" aria-label="Dia ${day}">
+              <div class="dayNum">${day}</div>
+              ${isToday ? `<span class="todayBadge" aria-hidden="true"></span>` : ""}
+              <div class="eventStack" aria-hidden="true">${stack}</div>
+            </button>
+          `);
+        }
+
+        while (cells.length % 7 !== 0) cells.push(`<div class="day isBlank" aria-hidden="true"></div>`);
+
+        daysGrid.innerHTML = cells.join("");
+
+        daysGrid.querySelectorAll(".day").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const day = Number(btn.getAttribute("data-day"));
+            if (!day) return;
+            const evs = map.get(day) || [];
+            const filtered = evs.filter(e => {
+              if (filterMode === "all") return true;
+              if (filterMode === "up") return e.delta >= 0;
+              if (filterMode === "past") return e.delta < 0;
+              return true;
+            });
+            if (filtered.length){
+              openEvent(filtered[0].id);
+            }
+          });
+        });
+      }
+
+      function openEvent(id){
+        const enriched = enrichEvents();
+        const e = enriched.find(x => x.id === id);
+        if (!e) return;
+
+        selectedId = id;
+
+        hero.style.setProperty("--c", e.color);
+        heroCard.style.setProperty("--c", e.color);
+        document.documentElement.style.setProperty("--accent", e.color);
+
+        heroEmoji.textContent = e.emoji;
+        heroTitle.textContent = e.title;
+        heroLine.textContent = `${fmtPt(e.date)} • ${daysLabel(e.delta)}`;
+
+        heroSticker.textContent = e.emoji;
+        heroSubTitle.textContent = e.title;
+        heroDate.textContent = fmtPt(e.date);
+
+        const isPast = e.delta < 0;
+        const nDays = isPast ? Math.abs(e.delta) : e.delta;
+
+        heroDays.textContent = nDays;
+        heroUnit.textContent = "DIAS";
+        heroHint.textContent = isPast ? "Evento já passou ✨" : "Evento chegando 💖";
+        heroFill.style.width = `${e.fillPct}%`;
+
+        modal.classList.add("show");
+
+        const extra = isPast ? ["✨", e.emoji, "🌙"] : [e.emoji, "✨", "💖"];
+        spawnFloatEmojis(extra, isPast ? 8 : (e.delta <= 3 ? 14 : 10));
+
+        renderAll();
+      }
+
+      function closeEvent(){
+        modal.classList.remove("show");
+        selectedId = null;
+        renderAll();
+      }
+
+      modal.addEventListener("click", (ev) => { if (ev.target === modal) closeEvent(); });
+      closeModal.addEventListener("click", closeEvent);
+      window.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeEvent(); });
+
+      function setFilter(mode){
+        filterMode = mode;
+
+        [filterAllBtn, filterUpBtn, filterPastBtn].forEach(b => b.classList.remove("isOn"));
+        filterAllBtn.setAttribute("aria-selected", "false");
+        filterUpBtn.setAttribute("aria-selected", "false");
+        filterPastBtn.setAttribute("aria-selected", "false");
+
+        if (mode === "all"){ filterAllBtn.classList.add("isOn"); filterAllBtn.setAttribute("aria-selected", "true"); }
+        if (mode === "up"){ filterUpBtn.classList.add("isOn"); filterUpBtn.setAttribute("aria-selected", "true"); }
+        if (mode === "past"){ filterPastBtn.classList.add("isOn"); filterPastBtn.setAttribute("aria-selected", "true"); }
+
+        renderAll();
+      }
+
+      filterAllBtn.addEventListener("click", () => setFilter("all"));
+      filterUpBtn.addEventListener("click", () => setFilter("up"));
+      filterPastBtn.addEventListener("click", () => setFilter("past"));
+
+      prevMonth.addEventListener("click", () => {
+        viewMonth -= 1;
+        if (viewMonth < 0){ viewMonth = 11; viewYear -= 1; }
+        renderAll();
+      });
+      nextMonth.addEventListener("click", () => {
+        viewMonth += 1;
+        if (viewMonth > 11){ viewMonth = 0; viewYear += 1; }
+        renderAll();
+      });
+
+      function enrichEvents(){
+        const today = new Date();
+        const todayIdx = dateToUTCIndex(today);
+
+        return events.map(e => {
+          const idx = ymdToUTCIndex(e.date);
+          const delta = idx - todayIdx;
+
+          const horizon = 30;
+          let fill = 0;
+          if (delta <= 0) fill = 100;
+          else fill = clamp((1 - (delta / horizon)) * 100, 0, 100);
+
+          return { ...e, idx, delta, fillPct: Math.round(fill) };
+        });
+      }
+
+      function renderAll(){
+        const dt = new Date();
+        todayText.textContent = dt.toLocaleDateString("pt-BR", {
+          weekday: "short",
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        }).toUpperCase();
+
+        const enriched = enrichEvents();
+
+        const nextUp = enriched.filter(e => e.delta >= 0).sort((a,b)=> a.delta - b.delta)[0];
+        const accent = nextUp ? nextUp.color : "#7df9ff";
+        document.documentElement.style.setProperty("--accent", accent);
+
+        renderSpotlight(enriched);
+        renderList(enriched);
+        renderCalendar(enriched);
+
+        document.title = nextUp
+          ? `Faltam ${Math.max(0, nextUp.delta)} dias • ${nextUp.title}`
+          : "Calendário Countdown ✨";
+      }
+
+      function escapeHTML(s){
+        return String(s)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+      function escapeAttr(s){
+        return escapeHTML(s).replaceAll("\n"," ");
+      }
+
+      renderAll();
+      setInterval(renderAll, 60_000);
+    })();
+  </script>
 </body>
 </html>
