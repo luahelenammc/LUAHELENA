@@ -1,4 +1,4 @@
-// events.js — só dados (arrays)
+// events.js — só dados (arrays) 
 // Você pode editar aqui sem mexer no app.js.
 
 window.COUNTDOWN_EVENTS = [
