@@ -25,7 +25,7 @@
       type: "series",
       title: "Jujutsu Kaisen",
       season: 3,
-      episode: 7,
+      episode: 8,
       tags: ["anime", "ação", "sobrenatural"],
       status: "watched",
       progress: 0,
