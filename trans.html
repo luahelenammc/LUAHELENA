@@ -1,210 +1,481 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transição Moon 🌜</title>
-  <link rel="icon" type="image/x-icon" href="/images/transb.fw.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transição Moon 🌙</title>
+  <link rel="icon" type="image/x-icon" href="/images/transb.fw.png" />
+
   <style>
-    body {
-      background: linear-gradient(180deg, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%);
-      color: #F7A8B8;
-      font-family: 'HelveticaNeue', sans-serif;
-      text-align: center;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100vh;
+    :root{
+      --blue:#55CDFC;
+      --pink:#F7A8B8;
+      --white:#FFFFFF;
+
+      --ink:#0a0a0f;
+      --cardTop:#141424;
+      --cardBot:#0f0f1b;
+      --stroke: rgba(255,255,255,.14);
+      --shadow: rgba(0,0,0,.50);
+      --glow: rgba(247,168,184,.30);
+
+      --radius: 18px;
+      --gap: 18px;
     }
-    .flip-clock {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:#fff;
+
+      /* bandeira trans como fundo, igual sua vibe, mas menos “powerpoint 2007” */
+      background:
+        linear-gradient(180deg,
+          var(--blue) 0%,
+          var(--blue) 20%,
+          var(--pink) 20%,
+          var(--pink) 40%,
+          var(--white) 40%,
+          var(--white) 60%,
+          var(--pink) 60%,
+          var(--pink) 80%,
+          var(--blue) 80%,
+          var(--blue) 100%
+        );
+      display:flex;
+      justify-content:center;
+      padding: 28px 14px 40px;
     }
-    .titulo {
-      font-size: 30px;
-      color: white;
-      background-color: black;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 20px 0;
+
+    .wrap{
+      width:min(920px, 100%);
+      display:flex;
+      flex-direction:column;
+      gap: 26px;
+      align-items:center;
     }
-    .contador {
-      font-size: 50px;
-      margin: 10px;
-      background: black;
-      color: white;
-      display: inline-block;
-      padding: 0px 20px;
-      height: 100px;
-      line-height: 100px;
-      text-align: center;
-      border-radius: 10px;
-      position: relative;
+
+    .title{
+      width:100%;
+      display:flex;
+      justify-content:center;
     }
-    .contador span {
-      display: inline-block;
-      vertical-align: middle;
+
+    .pill{
+      background: rgba(0,0,0,.80);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 50px rgba(0,0,0,.30);
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 34px;
+      letter-spacing:.2px;
+      text-align:center;
+      max-width: 92%;
     }
-    .unidade {
+
+    .section{
+      width:100%;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 18px 14px 16px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .sectionHead{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:center;
+      margin-bottom: 16px;
+    }
+
+    .sectionHead .pill{
+      font-size: 34px;
+      padding: 12px 18px;
+      border-radius: 18px;
+    }
+
+    .sub{
+      font-size: 13px;
+      color: rgba(0,0,0,.70);
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(255,255,255,.55);
+      padding: 8px 12px;
+      border-radius: 999px;
+      max-width: 96%;
+      text-align:center;
+    }
+
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: var(--gap);
+      justify-content:center;
+      padding: 8px 0 2px;
+    }
+
+    /* --- Flip Card Skeuomorphic --- */
+    .flipUnit{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 10px;
+      min-width: 170px;
+    }
+
+    .flipLabel{
       font-size: 18px;
-      position: absolute;
-      top: 80%;
-      right: 10px;
-      transform: translateY(-50%);
-      color: #F7A8B8;
+      color: rgba(0,0,0,.70);
+      text-shadow: 0 1px 0 rgba(255,255,255,.35);
     }
-    .flip-clock-hormonal {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
+
+    .flipCard{
+      position:relative;
+      width: 170px;
+      height: 120px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.10),
+        inset 0 -10px 22px rgba(0,0,0,.35);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      transform: translateZ(0);
+    }
+
+    .flipCard::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(120px 80px at 25% 18%, rgba(255,255,255,.16), transparent 60%),
+        radial-gradient(180px 90px at 75% 18%, rgba(247,168,184,.14), transparent 65%),
+        linear-gradient(180deg, rgba(255,255,255,.10), transparent 40%);
+      pointer-events:none;
+      opacity: .95;
+      z-index: 0;
+    }
+
+    .hinge{
+      position:absolute;
+      left:10px; right:10px;
+      top:50%;
+      height:1px;
+      background: rgba(255,255,255,.18);
+      box-shadow: 0 1px 0 rgba(0,0,0,.6);
+      z-index: 6;
+    }
+
+    .screws{
+      position:absolute;
+      left:12px; right:12px;
+      top:50%;
+      transform: translateY(-50%);
+      display:flex;
+      justify-content:space-between;
+      z-index: 7;
+      opacity:.95;
+      pointer-events:none;
+    }
+
+    .screw{
+      width:9px;height:9px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.10));
+      box-shadow: inset 0 -2px 3px rgba(0,0,0,.55), 0 2px 10px rgba(0,0,0,.35);
+    }
+
+    .halfTop, .halfBot, .flipTop, .flipBot{
+      position:absolute;
+      left:0;
+      width:100%;
+      height:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .2px;
+      text-shadow: 0 2px 0 rgba(0,0,0,.55);
+      user-select:none;
+      z-index: 2;
+    }
+
+    .halfTop{
+      top:0;
+      background: linear-gradient(180deg, var(--cardTop), #121226);
+    }
+
+    .halfBot{
+      bottom:0;
+      background: linear-gradient(180deg, #0f0f1b, var(--cardBot));
+    }
+
+    .halfTop span, .halfBot span, .flipTop span, .flipBot span{
+      font-size: 56px;
+      color: #fff;
+    }
+
+    .unitSmall{
+      position:absolute;
+      bottom:10px;
+      right:12px;
+      font-size: 14px;
+      color: rgba(247,168,184,.95);
+      text-shadow: 0 1px 0 rgba(0,0,0,.55);
+      z-index: 9;
+    }
+
+    .flipTop{
+      top:0;
+      transform-origin: bottom;
+      transform: rotateX(0deg);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      backface-visibility:hidden;
+      z-index: 8;
+    }
+
+    .flipBot{
+      bottom:0;
+      transform-origin: top;
+      transform: rotateX(90deg);
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.20));
+      backface-visibility:hidden;
+      z-index: 8;
+    }
+
+    .flipCard.play .flipTop{ animation: flipTop .38s ease-in forwards; }
+    .flipCard.play .flipBot{ animation: flipBot .38s ease-out .38s forwards; }
+
+    @keyframes flipTop{
+      0%{ transform: rotateX(0deg); }
+      100%{ transform: rotateX(-90deg); }
+    }
+    @keyframes flipBot{
+      0%{ transform: rotateX(90deg); }
+      100%{ transform: rotateX(0deg); }
+    }
+
+    @media (max-width: 420px){
+      .pill{ font-size: 30px; }
+      .flipUnit{ min-width: 150px; }
+      .flipCard{ width: 150px; height: 110px; }
+      .halfTop span, .halfBot span, .flipTop span, .flipBot span{ font-size: 48px; }
+      .flipLabel{ font-size: 16px; }
     }
   </style>
 </head>
+
 <body>
-  <!-- Seção da Transição Social -->
-  <div class="titulo">Transição Social</div>
-  <div class="flip-clock">
-    <div id="dias-social" class="contador"><span>0</span><span class="unidade">dias</span></div>
-    <div id="semanas-social" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-    <div id="meses-social" class="contador"><span>0</span><span class="unidade">meses</span></div>
-  </div>
+  <div class="wrap">
 
-  <!-- Seção da Transição Hormonal (total) -->
-  <div class="titulo">Transição Hormonal (total)</div>
-  <div class="flip-clock-hormonal">
-    <div class="flip-clock">
-      <div id="dias-hormonal" class="contador"><span>0</span><span class="unidade">dias</span></div>
-      <div id="semanas-hormonal" class="contador"><span>0</span><span class="unidade">semanas</span></div>
-      <div id="meses-hormonal" class="contador"><span>0</span><span class="unidade">meses</span></div>
+    <div class="section">
+      <div class="sectionHead">
+        <div class="pill">Transição Social</div>
+        <div class="sub">Início: 01/06/2024</div>
+      </div>
+
+      <div class="row">
+        <div class="flipUnit">
+          <div class="flipCard" id="dias-social" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">dias</div>
+          </div>
+          <div class="flipLabel">dias</div>
+        </div>
+
+        <div class="flipUnit">
+          <div class="flipCard" id="semanas-social" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">semanas</div>
+          </div>
+          <div class="flipLabel">semanas</div>
+        </div>
+
+        <div class="flipUnit">
+          <div class="flipCard" id="meses-social" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">meses</div>
+          </div>
+          <div class="flipLabel">meses</div>
+        </div>
+      </div>
     </div>
+
+    <div class="section">
+      <div class="sectionHead">
+        <div class="pill">Transição Hormonal (efetiva)</div>
+        <div class="sub">Início: 06/09/2024 · pausa descontada: 3 semanas em set/2025</div>
+      </div>
+
+      <div class="row">
+        <div class="flipUnit">
+          <div class="flipCard" id="dias-hormonal" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">dias</div>
+          </div>
+          <div class="flipLabel">dias</div>
+        </div>
+
+        <div class="flipUnit">
+          <div class="flipCard" id="semanas-hormonal" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">semanas</div>
+          </div>
+          <div class="flipLabel">semanas</div>
+        </div>
+
+        <div class="flipUnit">
+          <div class="flipCard" id="meses-hormonal" data-value="0">
+            <div class="halfTop"><span>0</span></div>
+            <div class="halfBot"><span>0</span></div>
+            <div class="flipTop"><span>0</span></div>
+            <div class="flipBot"><span>0</span></div>
+            <div class="hinge"></div>
+            <div class="screws"><div class="screw"></div><div class="screw"></div></div>
+            <div class="unitSmall">meses</div>
+          </div>
+          <div class="flipLabel">meses</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-<script>
-  // ---------- Helpers de data sem drama de fuso/DST ----------
-  const DAY_MS = 24 * 60 * 60 * 1000;
+  <script>
+    const DAY_MS = 24 * 60 * 60 * 1000;
 
-  function parseLocalYMD(ymd){
-    // ymd = "YYYY-MM-DD"
-    const [y,m,d] = ymd.split("-").map(Number);
-    return new Date(y, m-1, d);
-  }
-
-  function dayNumber(date){
-    // número de dias desde epoch, usando UTC em cima do componente local
-    return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / DAY_MS);
-  }
-
-  function format1Decimal(n){
-    return n.toFixed(1).replace(".", ",");
-  }
-
-  // ---------- Pausas (intervalos inclusivos) ----------
-  // Se depois você lembrar as datas reais, é SÓ ajustar start/end aqui.
-  // 3 semanas = 21 dias (inclusive): 2025-09-01 até 2025-09-21
-  const PAUSAS_HORMONAIS = [
-    { start: "2025-09-01", end: "2025-09-21" } // 21 dias
-  ];
-
-  function pausasParaDias(pausas){
-    // Converte em [startDay, endExclusiveDay]
-    return pausas.map(p => {
-      const s = parseLocalYMD(p.start);
-      const e = parseLocalYMD(p.end);
-      return {
-        startDay: dayNumber(s),
-        endExDay: dayNumber(new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1)) // end + 1 dia
-      };
-    });
-  }
-
-  const PAUSAS_HORMONAIS_DIAS = pausasParaDias(PAUSAS_HORMONAIS);
-
-  function calcularDiasEfetivos(inicioYMD, pausasDias){
-    const inicio = parseLocalYMD(inicioYMD);
-    const hoje = new Date();
-
-    const startDay = dayNumber(inicio);
-    const nowDay = dayNumber(hoje);
-
-    let total = Math.max(0, nowDay - startDay);
-    if (!pausasDias || pausasDias.length === 0) return total;
-
-    let pausados = 0;
-    for (const r of pausasDias){
-      const overlapStart = Math.max(startDay, r.startDay);
-      const overlapEndEx = Math.min(nowDay, r.endExDay);
-      const overlap = Math.max(0, overlapEndEx - overlapStart);
-      pausados += overlap;
+    function parseLocalYMD(ymd){
+      const [y,m,d] = ymd.split("-").map(Number);
+      return new Date(y, m-1, d);
     }
 
-    return Math.max(0, total - pausados);
-  }
+    function dayNumber(date){
+      return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / DAY_MS);
+    }
 
-  // ---------- Flip engine ----------
-  function setFaceText(cardEl, selector, value){
-    const el = cardEl.querySelector(selector);
-    if (el) el.textContent = value;
-  }
+    // você pode ajustar AQUI quando lembrar as datas reais
+    const PAUSAS_HORMONAIS = [
+      // 3 semanas (21 dias), inclusive
+      { start: "2025-09-01", end: "2025-09-21" }
+    ];
 
-  function playFlip(cardEl, newValue){
-    const oldValue = cardEl.dataset.value ?? "0";
-    if (String(newValue) === String(oldValue)) return;
+    function pausasParaDias(pausas){
+      return pausas.map(p => {
+        const s = parseLocalYMD(p.start);
+        const e = parseLocalYMD(p.end);
+        return {
+          startDay: dayNumber(s),
+          endExDay: dayNumber(new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1))
+        };
+      });
+    }
 
-    // prepara faces
-    setFaceText(cardEl, ".card-top span", oldValue);
-    setFaceText(cardEl, ".card-bottom span", oldValue);
-    setFaceText(cardEl, ".flip-top span", oldValue);
-    setFaceText(cardEl, ".flip-bottom span", newValue);
+    const PAUSAS_HORMONAIS_DIAS = pausasParaDias(PAUSAS_HORMONAIS);
 
-    // anima
-    cardEl.classList.remove("play"); // reset
-    void cardEl.offsetWidth;         // reflow forçando reset da animação
-    cardEl.classList.add("play");
+    function calcularDiasEfetivos(inicioYMD, pausasDias){
+      const inicio = parseLocalYMD(inicioYMD);
+      const hoje = new Date();
 
-    const flipBottom = cardEl.querySelector(".flip-bottom");
-    const onEnd = (ev) => {
-      if (ev.animationName !== "flipBottom") return;
-      // fixa novo valor
-      setFaceText(cardEl, ".card-top span", newValue);
-      setFaceText(cardEl, ".card-bottom span", newValue);
-      cardEl.dataset.value = String(newValue);
-      cardEl.classList.remove("play");
-      flipBottom.removeEventListener("animationend", onEnd);
-    };
+      const startDay = dayNumber(inicio);
+      const nowDay = dayNumber(hoje);
 
-    flipBottom.addEventListener("animationend", onEnd);
-  }
+      let total = Math.max(0, nowDay - startDay);
+      if (!pausasDias || pausasDias.length === 0) return total;
 
-  function atualizarTrio(prefixId, dias){
-    const semanas = format1Decimal(dias / 7);
-    const meses = format1Decimal(dias / 30.4375);
+      let pausados = 0;
+      for (const r of pausasDias){
+        const overlapStart = Math.max(startDay, r.startDay);
+        const overlapEndEx = Math.min(nowDay, r.endExDay);
+        pausados += Math.max(0, overlapEndEx - overlapStart);
+      }
+      return Math.max(0, total - pausados);
+    }
 
-    playFlip(document.getElementById(`dias-${prefixId}`), dias);
-    playFlip(document.getElementById(`semanas-${prefixId}`), semanas);
-    playFlip(document.getElementById(`meses-${prefixId}`), meses);
-  }
+    function setText(card, selector, value){
+      const el = card.querySelector(selector);
+      if (el) el.textContent = value;
+    }
 
-  function tick(){
-    // Transição Social (sem pausas)
-    const diasSocial = calcularDiasEfetivos("2024-06-01", []);
-    atualizarTrio("social", diasSocial);
+    function flipTo(card, newValue){
+      const oldValue = card.dataset.value ?? "0";
+      if (String(newValue) === String(oldValue)) return;
 
-    // Transição Hormonal (tempo efetivo, com pausas)
-    const diasHormonal = calcularDiasEfetivos("2024-09-06", PAUSAS_HORMONAIS_DIAS);
-    atualizarTrio("hormonal", diasHormonal);
-  }
+      // prepara faces
+      setText(card, ".halfTop span", oldValue);
+      setText(card, ".halfBot span", oldValue);
+      setText(card, ".flipTop span", oldValue);
+      setText(card, ".flipBot span", newValue);
 
-  tick();
-  setInterval(tick, 1000);
-</script>
+      // toca animação
+      card.classList.remove("play");
+      void card.offsetWidth;
+      card.classList.add("play");
 
+      const flipBot = card.querySelector(".flipBot");
+      if (!flipBot) return; // se alguém quebrar o HTML, pelo menos não mata tudo
+
+      const onEnd = (ev) => {
+        if (ev.animationName !== "flipBot") return;
+        setText(card, ".halfTop span", newValue);
+        setText(card, ".halfBot span", newValue);
+        card.dataset.value = String(newValue);
+        card.classList.remove("play");
+        flipBot.removeEventListener("animationend", onEnd);
+      };
+
+      flipBot.addEventListener("animationend", onEnd);
+    }
+
+    function updateTrio(prefix, days){
+      const weeks = Math.floor(days / 7);
+      const months = Math.floor(days / 30.4375);
+
+      flipTo(document.getElementById(`dias-${prefix}`), days);
+      flipTo(document.getElementById(`semanas-${prefix}`), weeks);
+      flipTo(document.getElementById(`meses-${prefix}`), months);
+    }
+
+    function tick(){
+      const socialDays = calcularDiasEfetivos("2024-06-01", []);
+      updateTrio("social", socialDays);
+
+      const hormonalDays = calcularDiasEfetivos("2024-09-06", PAUSAS_HORMONAIS_DIAS);
+      updateTrio("hormonal", hormonalDays);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
 </body>
-</html>
+  </html>
