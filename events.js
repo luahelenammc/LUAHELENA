@@ -1,6 +1,7 @@
 // events.js — banco de dados (arrays)
 // Edite aqui e recarregue o index.html
 
+
 window.COUNTDOWN_EVENTS = [
   // FÉRIAS
   {
