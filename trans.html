@@ -88,31 +88,122 @@
   </div>
 
 <script>
-  function atualizarFlipClock(element, newValue) {
-    element.textContent = newValue;
+  // ---------- Helpers de data sem drama de fuso/DST ----------
+  const DAY_MS = 24 * 60 * 60 * 1000;
+
+  function parseLocalYMD(ymd){
+    // ymd = "YYYY-MM-DD"
+    const [y,m,d] = ymd.split("-").map(Number);
+    return new Date(y, m-1, d);
   }
 
-  function calcularTempo(dataInicial, idDia, idSemana, idMes) {
-    const dataAtual = new Date();
-    const diffTime = dataAtual - dataInicial;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    const diffWeeks = (diffDays / 7).toFixed(1).replace('.', ',');
-    const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ',');
-    atualizarFlipClock(document.querySelector(`#${idDia} span:first-child`), diffDays);
-    atualizarFlipClock(document.querySelector(`#${idSemana} span:first-child`), diffWeeks);
-    atualizarFlipClock(document.querySelector(`#${idMes} span:first-child`), diffMonths);
+  function dayNumber(date){
+    // número de dias desde epoch, usando UTC em cima do componente local
+    return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / DAY_MS);
   }
 
-  setInterval(() => {
-    // Transição Social (a partir de 01/06/2024)
-    calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
-    // Transição Hormonal (total) (a partir de 06/09/2024)
-    calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
-  }, 1000);
+  function format1Decimal(n){
+    return n.toFixed(1).replace(".", ",");
+  }
 
-  // Inicializa os valores ao carregar a página
-  calcularTempo(new Date('2024-06-01'), 'dias-social', 'semanas-social', 'meses-social');
-  calcularTempo(new Date('2024-09-06'), 'dias-hormonal', 'semanas-hormonal', 'meses-hormonal');
+  // ---------- Pausas (intervalos inclusivos) ----------
+  // Se depois você lembrar as datas reais, é SÓ ajustar start/end aqui.
+  // 3 semanas = 21 dias (inclusive): 2025-09-01 até 2025-09-21
+  const PAUSAS_HORMONAIS = [
+    { start: "2025-09-01", end: "2025-09-21" } // 21 dias
+  ];
+
+  function pausasParaDias(pausas){
+    // Converte em [startDay, endExclusiveDay]
+    return pausas.map(p => {
+      const s = parseLocalYMD(p.start);
+      const e = parseLocalYMD(p.end);
+      return {
+        startDay: dayNumber(s),
+        endExDay: dayNumber(new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1)) // end + 1 dia
+      };
+    });
+  }
+
+  const PAUSAS_HORMONAIS_DIAS = pausasParaDias(PAUSAS_HORMONAIS);
+
+  function calcularDiasEfetivos(inicioYMD, pausasDias){
+    const inicio = parseLocalYMD(inicioYMD);
+    const hoje = new Date();
+
+    const startDay = dayNumber(inicio);
+    const nowDay = dayNumber(hoje);
+
+    let total = Math.max(0, nowDay - startDay);
+    if (!pausasDias || pausasDias.length === 0) return total;
+
+    let pausados = 0;
+    for (const r of pausasDias){
+      const overlapStart = Math.max(startDay, r.startDay);
+      const overlapEndEx = Math.min(nowDay, r.endExDay);
+      const overlap = Math.max(0, overlapEndEx - overlapStart);
+      pausados += overlap;
+    }
+
+    return Math.max(0, total - pausados);
+  }
+
+  // ---------- Flip engine ----------
+  function setFaceText(cardEl, selector, value){
+    const el = cardEl.querySelector(selector);
+    if (el) el.textContent = value;
+  }
+
+  function playFlip(cardEl, newValue){
+    const oldValue = cardEl.dataset.value ?? "0";
+    if (String(newValue) === String(oldValue)) return;
+
+    // prepara faces
+    setFaceText(cardEl, ".card-top span", oldValue);
+    setFaceText(cardEl, ".card-bottom span", oldValue);
+    setFaceText(cardEl, ".flip-top span", oldValue);
+    setFaceText(cardEl, ".flip-bottom span", newValue);
+
+    // anima
+    cardEl.classList.remove("play"); // reset
+    void cardEl.offsetWidth;         // reflow forçando reset da animação
+    cardEl.classList.add("play");
+
+    const flipBottom = cardEl.querySelector(".flip-bottom");
+    const onEnd = (ev) => {
+      if (ev.animationName !== "flipBottom") return;
+      // fixa novo valor
+      setFaceText(cardEl, ".card-top span", newValue);
+      setFaceText(cardEl, ".card-bottom span", newValue);
+      cardEl.dataset.value = String(newValue);
+      cardEl.classList.remove("play");
+      flipBottom.removeEventListener("animationend", onEnd);
+    };
+
+    flipBottom.addEventListener("animationend", onEnd);
+  }
+
+  function atualizarTrio(prefixId, dias){
+    const semanas = format1Decimal(dias / 7);
+    const meses = format1Decimal(dias / 30.4375);
+
+    playFlip(document.getElementById(`dias-${prefixId}`), dias);
+    playFlip(document.getElementById(`semanas-${prefixId}`), semanas);
+    playFlip(document.getElementById(`meses-${prefixId}`), meses);
+  }
+
+  function tick(){
+    // Transição Social (sem pausas)
+    const diasSocial = calcularDiasEfetivos("2024-06-01", []);
+    atualizarTrio("social", diasSocial);
+
+    // Transição Hormonal (tempo efetivo, com pausas)
+    const diasHormonal = calcularDiasEfetivos("2024-09-06", PAUSAS_HORMONAIS_DIAS);
+    atualizarTrio("hormonal", diasHormonal);
+  }
+
+  tick();
+  setInterval(tick, 1000);
 </script>
 
 </body>
