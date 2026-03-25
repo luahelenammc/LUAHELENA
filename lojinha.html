@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojinha da Moon</title>
+  <meta name="description" content="Achados da Moon: coisas úteis, bonitas e deliciosamente recomendáveis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+.reveal,
+.reveal.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+    :root {
+      --bg: #fffdf2;
+      --bg-2: #fff7cf;
+      --bg-3: #fff1a8;
+      --text: #20263a;
+      --muted: #5d6782;
+      --line: rgba(32, 38, 58, 0.09);
+      --white: #ffffff;
+      --ml-yellow: #fff159;
+      --ml-yellow-deep: #ffe600;
+      --ml-blue: #3483fa;
+      --ml-blue-deep: #2968c8;
+      --soft-shadow: 0 20px 60px rgba(32, 38, 58, 0.08);
+      --card-radius: 28px;
+      --pill-radius: 999px;
+      --container: 1160px;
+      --reveal-ease: cubic-bezier(.22,.61,.36,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 241, 89, 0.32), transparent 23%),
+        radial-gradient(circle at top right, rgba(52, 131, 250, 0.10), transparent 22%),
+        linear-gradient(180deg, #fffef6 0%, #fff9dc 100%);
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site {
+      padding: 28px 0 72px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 40;
+      margin-bottom: 24px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border: 1px solid rgba(32,38,58,0.08);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(32,38,58,0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--ml-yellow), var(--ml-yellow-deep));
+      color: #4c4300;
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(255, 230, 0, 0.28);
+      flex: 0 0 auto;
+    }
+
+    .brand strong {
+      display: block;
+      line-height: 1;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 160ms ease;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      border-color: rgba(32,38,58,0.08);
+      background: rgba(255, 241, 89, 0.20);
+    }
+
+    .section-card {
+      position: relative;
+      border-radius: var(--card-radius);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .section-inner {
+      padding: 28px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: var(--pill-radius);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .label-outline {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(32,38,58,0.12);
+      color: var(--text);
+    }
+
+    .label-solid-yellow {
+      background: rgba(255,255,255,0.72);
+      color: #7a6400;
+      border: 1px solid rgba(122,100,0,0.12);
+    }
+
+    .hero-card {
+      min-height: 360px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-accent {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(180deg, rgba(255,255,255,0.60), rgba(255,255,255,0.86)),
+        linear-gradient(135deg, rgba(255, 241, 89, 0.34), rgba(52, 131, 250, 0.08)),
+        url('https://images.pexels.com/photos/3943722/pexels-photo-3943722.jpeg');
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+    }
+
+    .hero-body {
+      position: relative;
+      width: 100%;
+      padding: 32px 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+      max-width: 760px;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 18px;
+      font-weight: 800;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      background: var(--ml-yellow);
+      color: #4f4500;
+      box-shadow: 0 12px 24px rgba(255, 230, 0, 0.22);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.78);
+      color: var(--text);
+      border-color: rgba(32,38,58,0.10);
+    }
+
+    .title-xl {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .featured-card {
+      background: linear-gradient(180deg, #fff9cf 0%, #fff3bb 100%);
+      border-color: rgba(122,100,0,0.12);
+    }
+
+    .featured-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 20px 0 10px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .pill-filter {
+      min-height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(122,100,0,0.14);
+      background: rgba(255,255,255,0.72);
+      color: #705d00;
+      padding: 0 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+
+    .pill-filter.active,
+    .pill-filter:hover {
+      background: #fff;
+      border-color: rgba(122,100,0,0.22);
+      box-shadow: 0 8px 18px rgba(122,100,0,0.08);
+    }
+
+    .searchbox,
+    .selectbox {
+      min-height: 46px;
+      border-radius: 16px;
+      border: 1px solid rgba(122,100,0,0.14);
+      background: rgba(255,255,255,0.86);
+      color: var(--text);
+      padding: 0 14px;
+      outline: none;
+      min-width: 220px;
+      font: inherit;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(122,100,0,0.10);
+      box-shadow: 0 16px 30px rgba(122,100,0,0.06);
+      transition: 180ms ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 42px rgba(122,100,0,0.10);
+    }
+
+    .product-media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,241,89,0.10));
+      overflow: hidden;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badges {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      backdrop-filter: blur(10px);
+    }
+
+    .badge-ranking {
+      background: rgba(255, 136, 0, 0.8);
+      color: #ffffff;
+      border: 1px solid rgba(255, 136, 0, 0.92);
+      max-width: 100%;
+      font-size: 0.60rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-discount {
+      background: rgba(52,131,250,0.12);
+      color: var(--ml-blue-deep);
+      border: 1px solid rgba(52,131,250,0.14);
+      white-space: nowrap;
+    }
+
+    .product-body {
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .product-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .product-category {
+      color: var(--ml-blue-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .product-title {
+      font-size: 1.28rem;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .price-wrap {
+      display: grid;
+      gap: 4px;
+    }
+
+    .price-old {
+      color: rgba(32,38,58,0.40);
+      font-size: 0.94rem;
+      text-decoration: line-through;
+    }
+
+    .price-current {
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      color: #1f2437;
+    }
+
+    .price-note {
+      color: rgba(32,38,58,0.56);
+      font-size: 0.86rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 241, 89, 0.18);
+      border: 1px solid rgba(122,100,0,0.08);
+      color: #716000;
+      font-size: 0.80rem;
+      font-weight: 600;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .button-buy {
+      background: var(--ml-yellow);
+      color: #4f4500;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(255, 230, 0, 0.18);
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      color: #7c6f00;
+      padding: 26px 12px 4px;
+      font-weight: 600;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .small {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+   
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 1080px) {
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site { padding-top: 18px; }
+      .topbar { position: static; }
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 26px;
+      }
+      .nav {
+        width: 100%;
+      }
+      .nav a {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .section-inner,
+      .hero-body {
+        padding: 20px;
+      }
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .toolbar-left,
+      .toolbar-right,
+      .searchbox,
+      .selectbox {
+        width: 100%;
+      }
+      .searchbox,
+      .selectbox {
+        min-width: 100%;
+      }
+      .hero-card {
+        min-height: auto;
+      }
+      .hero-copy h1 {
+        line-height: 0.98;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <div class="container">
+      <header class="topbar reveal" data-reveal>
+        <div class="topbar-inner">
+          <div class="brand">
+            <div class="brand-mark">☾</div>
+            <div>
+              <strong>Lojinha da Moon</strong>
+              <span>achados com curadoria</span>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="#achados">Achados</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+      </header>
+
+      <section id="achados" class="section-card featured-card reveal" data-reveal>
+        <div class="section-inner">
+          <div class="featured-intro">
+            <div>
+              <div class="label label-solid-yellow">Achados em destaque</div>
+              <h2 class="title-xl">Os favoritos da vez.</h2>
+            </div>
+          </div>
+
+          <div class="toolbar reveal" data-reveal>
+            <div class="toolbar-left" id="categoryFilters"></div>
+            <div class="toolbar-right">
+              <input id="searchInput" class="searchbox" type="text" placeholder="Buscar achado..." />
+              <select id="sortSelect" class="selectbox" aria-label="Ordenar produtos">
+                <option value="featured">Ordenar: destaque</option>
+                <option value="discount">Maior desconto</option>
+                <option value="lowPrice">Menor preço</option>
+                <option value="highPrice">Maior preço</option>
+                <option value="name">Nome A-Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="productsGrid" class="products-grid"></div>
+          <div id="emptyState" class="empty-state">Nenhum achado corresponde a esse filtro agora.</div>
+        </div>
+      </section>
+
+      <section class="section-card hero-card reveal" data-reveal>
+        <div class="hero-accent"></div>
+        <div class="hero-body">
+          <div class="hero-copy">
+            <div class="label label-outline">Lojinha da Moon</div>
+            <h1>Achados úteis, bonitos e com preço que chama.</h1>
+            <p>
+              Uma seleção de links do Mercado Livre para quem gosta de bater o olho, entender o valor e ir direto ao que interessa.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#achados">Ver os achados</a>
+              <a class="button button-secondary" href="#faq">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="footer-grid">
+        <article class="section-card reveal" data-reveal>
+          <div class="section-inner">
+            <div class="label label-outline">FAQ</div>
+            <h2 class="title-xl">Como funciona?</h2>
+            <p class="small">
+              Os produtos desta página levam para anúncios do Mercado Livre. Alguns links podem gerar comissão para a curadora, sem custo adicional para você.
+            </p>
+          </div>
+        </article>
+
+        <article class="section-card reveal" data-reveal>
+          <div class="section-inner">
+            <div class="label label-outline">FAQ</div>
+            <h2 class="title-xl">Os preços mudam?</h2>
+            <p class="small">
+              Sim. Valores e promoções podem variar conforme disponibilidade, vendedor e campanhas da plataforma.
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const BASE_REF_LINK = "https://meli.la/";
+
+    const products = [
+      {
+        name: "Projetor portátil HY-300",
+        currentPrice: 157.90,
+        originalPrice: 227.95,
+        code: "1LcwxYK",
+        numero_ranking: 1,
+        nome_geral: "projetor",
+        genero_palavra: "masc",
+        image: "https://tse4.mm.bing.net/th/id/OIP.YFnAH2xIFPU16fdEWti53gHaHM?rs=1&pid=ImgDetMain&o=7&rm=3",
+        category: "tech",
+        tags: ["projetor", "cinema em casa", "favorito"]
+      },
+      {
+        name: "Carregador turbo para Android (fonte + cabo)",
+        currentPrice: 24.90,
+        originalPrice: 44.90,
+        code: "1NMKWL1",
+        numero_ranking: 1,
+        nome_geral: "carregador",
+        genero_palavra: "masc",
+        image: "https://m.media-amazon.com/images/I/61kqS9hXmdL._AC_.jpg",
+        category: "utilidades",
+        tags: ["carregador", "android", "baratinho"]
+      },
+{
+  name: "Protetor térmico capilar defrizante em spray",
+  currentPrice: 20.00,
+  originalPrice: 22.00,
+  code: "1u7kxsU",
+  numero_ranking: 0,
+  nome_geral: "protetor térmico",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_755402-MLA109099006267_032026-V.webp",
+  category: "beleza",
+  tags: ["cabelo", "defrizante", "proteção térmica"]
+},
+{
+  name: "Máscara 3D blackout para dormir",
+  currentPrice: 32.99,
+  originalPrice: 49.99,
+  code: "2Wzfju2",
+  numero_ranking: 2,
+  nome_geral: "máscara de dormir",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_653616-MLB78145125815_082024-V.webp",
+  category: "casa",
+  tags: ["sono", "blackout", "conforto"]
+},
+{
+  name: "Massageador elétrico tipo travesseiro",
+  currentPrice: 129.99,
+  originalPrice: 129.99,
+  code: "2ec5aLt",
+  numero_ranking: 6,
+  nome_geral: "almofada massageadora",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_658494-MLU74871575330_032024-V.webp",
+  category: "casa",
+  tags: ["massagem", "relaxamento", "autocuidado"]
+},
+{
+  name: "Base Payot alta cobertura",
+  currentPrice: 44.07,
+  originalPrice: 56.90,
+  code: "1cT6Jgv",
+  numero_ranking: 0,
+  nome_geral: "base",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_648089-MLB89239185961_082025-V-base-matte-alta-cobertura-payot-30ml.webp",
+  category: "beleza",
+  tags: ["maquiagem", "payot", "alta cobertura"]
+},
+{
+  name: "Paleta de sombras cintilantes Ruby Rose, 8 cores",
+  currentPrice: 22.95,
+  originalPrice: 22.95,
+  code: "199tDP6",
+  numero_ranking: 0,
+  nome_geral: "paleta",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_878206-MLA107005842481_022026-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "sombras", "ruby rose"]
+},
+{
+  name: "Câmera de segurança externa com lente dupla",
+  currentPrice: 152.90,
+  originalPrice: 264.90,
+  code: "2R5wuDV",
+  numero_ranking: 0,
+  nome_geral: "câmera",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_955553-MLA100001103255_112025-V.webp",
+  category: "tech",
+  tags: ["segurança", "câmera externa", "monitoramento"]
+},
+{
+  name: "Suporte de mesa para celular com ajuste 360°",
+  currentPrice: 19.00,
+  originalPrice: 19.00,
+  code: "1CzUYCD",
+  numero_ranking: 11,
+  nome_geral: "suporte",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_678093-MLA99590215702_122025-V.webp",
+  category: "utilidades",
+  tags: ["celular", "mesa", "ajustável"]
+},
+{
+  name: "Fitas de clareamento dental com 14 unidades",
+  currentPrice: 34.99,
+  originalPrice: 37.49,
+  code: "2FXCsfq",
+  numero_ranking: 1,
+  nome_geral: "fita clareadora",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_848764-MLA107246382307_022026-V.webp",
+  category: "beleza",
+  tags: ["clareamento dental", "dentes", "autocuidado"]
+},
+{
+  name: "Secador de cabelo Philco",
+  currentPrice: 171.90,
+  originalPrice: 171.90,
+  code: "2D65QDy",
+  numero_ranking: 16,
+  nome_geral: "secador de cabelo",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_827702-MLA99503403912_112025-V.webp",
+  category: "beleza",
+  tags: ["cabelo", "secador", "philco"]
+},
+{
+  name: "Pó solto ultrafino rosa translúcido Dailus",
+  currentPrice: 34.54,
+  originalPrice: 49.99,
+  code: "2h3SrpJ",
+  numero_ranking: 0,
+  nome_geral: "pó solto",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_677536-MLA84847527505_052025-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "acabamento", "translúcido"]
+},
+{
+  name: "Bepantol Derma, creme hidratante restaurador 400ml",
+  currentPrice: 78.90,
+  originalPrice: 78.90,
+  code: "1rexY4V",
+  numero_ranking: 0,
+  nome_geral: "creme hidratante",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_617485-MLA105444561457_012026-V.webp",
+  category: "beleza",
+  tags: ["hidratação", "pele", "bepantol"]
+},
+{
+  name: "Enzima Lactase 240 cápsulas (9000 FCC)",
+  currentPrice: 61.89,
+  originalPrice: 89.90,
+  code: "1UDTE3U",
+  numero_ranking: 5,
+  nome_geral: "suplemento quantum nutrition",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_779911-MLA104918256971_012026-V.webp",
+  category: "saude",
+  tags: ["lactase", "digestão", "equaliv"]
+},
+{
+  name: "Protetor solar Neutrogena FPS 70",
+  currentPrice: 45.66,
+  originalPrice: 73.99,
+  code: "1RP3PsU",
+  numero_ranking: 0,
+  nome_geral: "protetor solar",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_952365-MLA99931801277_112025-V.webp",
+  category: "beleza",
+  tags: ["skincare", "fps 70", "neutrogena"]
+},
+{
+  name: "Batom líquido Ruby Rose, cores variadas",
+  currentPrice: 19.00,
+  originalPrice: 39.90,
+  code: "1zpbYbu",
+  numero_ranking: 2,
+  nome_geral: "batom ruby rose",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_781854-MLU70115530664_062023-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "batom", "ruby rose"]
+},
+{
+  name: "Melatonina, 120 comprimidos Essential Nutrition, sabor menta",
+  currentPrice: 64.33,
+  originalPrice: 93.75,
+  code: "2AuPN1V",
+  numero_ranking: 3,
+  nome_geral: "suplemento essential nutrition",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_849032-MLA96077185263_102025-V.webp",
+  category: "saude",
+  tags: ["melatonina", "sono", "laranja"]
+},
+{
+  name: "Tend Skin loção importaada para foliculite",
+  currentPrice: 159.00,
+  originalPrice: 159.00,
+  code: "2VLB3hN",
+  numero_ranking: 0,
+  nome_geral: "loção",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_804101-MLU75006742611_032024-V.webp",
+  category: "beleza",
+  tags: ["foliculite", "pele", "importado"]
+},
+{
+  name: "Hidratante facial Neutrogena",
+  currentPrice: 39.90,
+  originalPrice: 39.90,
+  code: "1bpRmNm",
+  numero_ranking: 0,
+  nome_geral: "hidratante facial",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_838325-MLA99622234680_122025-V.webp",
+  category: "beleza",
+  tags: ["skincare", "hidratação", "neutrogena"]
+}
+    ];
+
+    const state = {
+      activeCategory: "todos",
+      search: "",
+      sort: "featured"
+    };
+
+    const productsGrid = document.getElementById("productsGrid");
+    const emptyState = document.getElementById("emptyState");
+    const categoryFilters = document.getElementById("categoryFilters");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+
+    function formatBRL(value) {
+      return Number(value).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function extractCode(product) {
+      if (product.code && String(product.code).trim()) {
+        return String(product.code).trim().replace(/^\/+/, "");
+      }
+      if (product.link && String(product.link).trim()) {
+        const clean = String(product.link).trim();
+        const parts = clean.split("/");
+        return parts[parts.length - 1].replace(/^\/+/, "");
+      }
+      return "";
+    }
+
+    function buildProductLink(product) {
+      const code = extractCode(product);
+      return code ? `${BASE_REF_LINK}${code}` : "#";
+    }
+
+    function calcDiscount(product) {
+      const current = Number(product.currentPrice);
+      const original = Number(product.originalPrice);
+      if (!original || original <= current) return 0;
+      return Math.round(((original - current) / original) * 100);
+    }
+
+    function normalizeGender(value) {
+      const raw = String(value || "masc").trim().toLowerCase();
+      if (["fem", "feminino", "f"].includes(raw)) return "fem";
+      return "masc";
+    }
+
+    function buildRankingText(product) {
+      const numero = Number(product.numero_ranking || 0);
+      const nomeGeral = String(product.nome_geral || "").trim();
+
+      if (numero > 0 && nomeGeral) {
+        const genero = normalizeGender(product.genero_palavra);
+        const palavraVendida = genero === "fem" ? "vendida" : "vendido";
+        return `${nomeGeral} nº${numero} mais ${palavraVendida} no Mercado Livre`;
+      }
+
+      if (product.ranking && String(product.ranking).trim()) {
+        return String(product.ranking).trim();
+      }
+
+      return "";
+    }
+
+    function normalizeProduct(product, index) {
+      return {
+        ...product,
+        code: extractCode(product),
+        category: product.category ? String(product.category).trim() : "outros",
+        tags: Array.isArray(product.tags) ? product.tags : [],
+        currentPrice: Number(product.currentPrice || 0),
+        originalPrice: Number(product.originalPrice || 0),
+        discount: calcDiscount(product),
+        href: buildProductLink(product),
+        ranking_text: buildRankingText(product),
+        featuredOrder: typeof product.featuredOrder === "number" ? product.featuredOrder : index
+      };
+    }
+
+    function getCategories(items) {
+      return ["todos", ...new Set(items.map(item => item.category))];
+    }
+
+    function renderFilters(items) {
+      const categories = getCategories(items);
+      categoryFilters.innerHTML = categories.map(category => {
+        const active = state.activeCategory === category ? "active" : "";
+        const label = category === "todos"
+          ? "Todos"
+          : category.charAt(0).toUpperCase() + category.slice(1);
+        return `<button class="pill-filter" data-category="${category}" aria-pressed="${active ? 'true' : 'false'}">${label}</button>`;
+      }).join("");
+
+      categoryFilters.querySelectorAll("[data-category]").forEach(btn => {
+        if (state.activeCategory === btn.dataset.category) btn.classList.add("active");
+        btn.addEventListener("click", () => {
+          state.activeCategory = btn.dataset.category;
+          render();
+        });
+      });
+    }
+
+    function filterProducts(items) {
+      return items.filter(item => {
+        const matchesCategory = state.activeCategory === "todos" || item.category === state.activeCategory;
+        const query = state.search.trim().toLowerCase();
+        const haystack = [
+          item.name,
+          item.category,
+          item.ranking_text || "",
+          ...(item.tags || [])
+        ].join(" ").toLowerCase();
+        const matchesSearch = !query || haystack.includes(query);
+        return matchesCategory && matchesSearch;
+      });
+    }
+
+    function sortProducts(items) {
+      const sorted = [...items];
+      switch (state.sort) {
+        case "discount":
+          sorted.sort((a, b) => b.discount - a.discount || a.featuredOrder - b.featuredOrder);
+          break;
+        case "lowPrice":
+          sorted.sort((a, b) => a.currentPrice - b.currentPrice || a.featuredOrder - b.featuredOrder);
+          break;
+        case "highPrice":
+          sorted.sort((a, b) => b.currentPrice - a.currentPrice || a.featuredOrder - b.featuredOrder);
+          break;
+        case "name":
+          sorted.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+          break;
+        default:
+          sorted.sort((a, b) => a.featuredOrder - b.featuredOrder);
+      }
+      return sorted;
+    }
+
+    function renderTags(tags) {
+      if (!tags || !tags.length) return "";
+      return `<div class="tag-list">${tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>`;
+    }
+
+    function productCardHTML(item, index) {
+      const oldPrice = item.originalPrice > item.currentPrice
+        ? `<div class="price-old">${formatBRL(item.originalPrice)}</div>`
+        : "";
+
+      const discountBadge = item.discount > 0
+        ? `<span class="badge badge-discount">-${item.discount}%</span>`
+        : "";
+
+      const rankingBadge = item.ranking_text
+        ? `<span class="badge badge-ranking">${item.ranking_text}</span>`
+        : "";
+
+      return `
+       <article class="product-card" style="transition-delay:${Math.min(index * 70, 280)}ms">
+          <div class="product-media">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+            <div class="product-badges">
+              ${rankingBadge}
+              ${discountBadge}
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <span class="product-category">${item.category}</span>
+            </div>
+            <h3 class="product-title">${item.name}</h3>
+            <div class="price-wrap">
+              ${oldPrice}
+              <div class="price-current">${formatBRL(item.currentPrice)}</div>
+              <div class="price-note">Preço sujeito a alteração no anúncio</div>
+            </div>
+            ${renderTags(item.tags)}
+            <div class="product-actions">
+              <a class="button button-buy" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function revealElements(scope = document) {
+      const elements = scope.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -6% 0px'
+      });
+
+      elements.forEach((el, index) => {
+        if (!el.style.transitionDelay) {
+          el.style.transitionDelay = `${Math.min(index * 40, 240)}ms`;
+        }
+        observer.observe(el);
+      });
+    }
+
+   function renderProducts(items) {
+  if (!items.length) {
+    productsGrid.innerHTML = "";
+    emptyState.style.display = "block";
+    return;
+  }
+
+  emptyState.style.display = "none";
+  productsGrid.innerHTML = items.map((item, index) => productCardHTML(item, index)).join("");
+
+  productsGrid.querySelectorAll(".product-card").forEach((el) => {
+    el.classList.add("is-visible");
+  });
+}
+
+    function render() {
+      const normalized = products.map(normalizeProduct);
+      renderFilters(normalized);
+      const filtered = filterProducts(normalized);
+      const sorted = sortProducts(filtered);
+      renderProducts(sorted);
+    }
+
+    searchInput.addEventListener("input", (event) => {
+      state.search = event.target.value;
+      render();
+    });
+
+    sortSelect.addEventListener("change", (event) => {
+      state.sort = event.target.value;
+      render();
+    });
+
+
+    render();
+    revealElements();
+  </script>
+</body>
+</html>
