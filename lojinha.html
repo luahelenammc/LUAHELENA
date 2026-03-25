@@ -1105,9 +1105,9 @@
         <div class="product-topline">
           <span class="category-badge">${item.category || "achado"}</span>
           ${
-            item.numero_ranking && item.numero_ranking > 0
-              ? `<span class="ranking-badge">#${item.numero_ranking} em ${item.nome_geral}</span>`
-              : ""
+           item.numero_ranking && item.numero_ranking > 0
+  ? `<span class="ranking-badge">${item.numero_ranking}º MAIS VENDID${item.genero_palavra === "fem" ? "A" : "O"} NO MERCADO LIVRE</span>`
+  : ""
           }
         </div>
 
