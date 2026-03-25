@@ -9,12 +9,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-.reveal,
-.reveal.is-visible {
-  opacity: 1 !important;
-  transform: none !important;
-  filter: none !important;
-  transition: none !important;
+
+.product-card {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    filter 0.55s ease;
+  will-change: opacity, transform, filter;
+}
+
+.product-card.pre-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(4px);
+}
+
+.product-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-card.pre-reveal,
+  .product-card.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
     :root {
@@ -872,7 +899,7 @@
   tags: ["melatonina", "sono", "laranja"]
 },
 {
-  name: "Tend Skin loção importaada para foliculite",
+  name: "Tend Skin loção importada para foliculite",
   currentPrice: 159.00,
   originalPrice: 159.00,
   code: "2VLB3hN",
@@ -1042,46 +1069,45 @@
       return `<div class="tag-list">${tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>`;
     }
 
-    function productCardHTML(item, index) {
-      const oldPrice = item.originalPrice > item.currentPrice
-        ? `<div class="price-old">${formatBRL(item.originalPrice)}</div>`
-        : "";
+  function productCardHTML(item, index) {
+  return `
+    <article class="product-card" data-product-card>
+      <a class="product-image" href="https://meli.la/${item.code}" target="_blank" rel="noopener noreferrer">
+        ${
+          item.image && item.image.trim()
+            ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.remove()" />`
+            : `<div style="width:100%;height:100%;display:grid;place-items:center;color:#8a7a00;font-weight:700;padding:20px;text-align:center;">Imagem em breve</div>`
+        }
+      </a>
 
-      const discountBadge = item.discount > 0
-        ? `<span class="badge badge-discount">-${item.discount}%</span>`
-        : "";
+      <div class="product-body">
+        <div class="product-topline">
+          <span class="category-badge">${item.category || "achado"}</span>
+          ${
+            item.numero_ranking && item.numero_ranking > 0
+              ? `<span class="ranking-badge">#${item.numero_ranking} em ${item.nome_geral}</span>`
+              : ""
+          }
+        </div>
 
-      const rankingBadge = item.ranking_text
-        ? `<span class="badge badge-ranking">${item.ranking_text}</span>`
-        : "";
+        <h3 class="product-title">${item.name}</h3>
 
-      return `
-       <article class="product-card" style="transition-delay:${Math.min(index * 70, 280)}ms">
-          <div class="product-media">
-            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-            <div class="product-badges">
-              ${rankingBadge}
-              ${discountBadge}
-            </div>
-          </div>
-          <div class="product-body">
-            <div class="product-top">
-              <span class="product-category">${item.category}</span>
-            </div>
-            <h3 class="product-title">${item.name}</h3>
-            <div class="price-wrap">
-              ${oldPrice}
-              <div class="price-current">${formatBRL(item.currentPrice)}</div>
-              <div class="price-note">Preço sujeito a alteração no anúncio</div>
-            </div>
-            ${renderTags(item.tags)}
-            <div class="product-actions">
-              <a class="button button-buy" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
-            </div>
-          </div>
-        </article>
-      `;
-    }
+        <div class="price-row">
+          <span class="current-price">R$ ${item.currentPrice.toFixed(2).replace(".", ",")}</span>
+          ${
+            item.originalPrice && item.originalPrice > item.currentPrice
+              ? `<span class="original-price">R$ ${item.originalPrice.toFixed(2).replace(".", ",")}</span>`
+              : ""
+          }
+        </div>
+
+        <a class="buy-button" href="https://meli.la/${item.code}" target="_blank" rel="noopener noreferrer">
+          Ver oferta
+        </a>
+      </div>
+    </article>
+  `;
+}
 
     function revealElements(scope = document) {
       const elements = scope.querySelectorAll('[data-reveal]');
@@ -1110,7 +1136,7 @@
       });
     }
 
-   function renderProducts(items) {
+  function renderProducts(items) {
   if (!items.length) {
     productsGrid.innerHTML = "";
     emptyState.style.display = "block";
@@ -1120,9 +1146,7 @@
   emptyState.style.display = "none";
   productsGrid.innerHTML = items.map((item, index) => productCardHTML(item, index)).join("");
 
-  productsGrid.querySelectorAll(".product-card").forEach((el) => {
-    el.classList.add("is-visible");
-  });
+  setupProductReveal();
 }
 
     function render() {
@@ -1142,6 +1166,39 @@
       state.sort = event.target.value;
       render();
     });
+
+function setupProductReveal() {
+  const cards = document.querySelectorAll("[data-product-card]");
+
+  if (!cards.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => {
+      card.classList.remove("pre-reveal");
+      card.classList.add("is-visible");
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("pre-reveal");
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px"
+  });
+
+  cards.forEach((card, index) => {
+    card.classList.add("pre-reveal");
+    card.style.transitionDelay = `${Math.min(index * 45, 240)}ms`;
+    observer.observe(card);
+  });
+}
 
 
     render();
