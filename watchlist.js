@@ -13,23 +13,23 @@
       type: "series",
       title: "The Real Housewives of Beverly Hills",
       season: 15,
-      episode: 10, // último episódio que VOCÊ viu
+      episode: 12, // último episódio que VOCÊ viu
       tags: ["reality show", "comecei"],
-      status: "watched", // pode ser: need | downloaded | streaming | waiting | watched
-      progress: 0,
+      status: "downloaded", // pode ser: need | downloaded | streaming | waiting | watched
+      progress: 5,
       // nextRelease é opcional (o HTML consegue pegar do calendário),
       // mas deixar aqui não quebra nada.
-      nextRelease: "22/01/26",
+      nextRelease: "",
     },
     {
       type: "series",
       title: "Jujutsu Kaisen",
       season: 3,
-      episode: 8,
+      episode: 11,
       tags: ["anime", "ação", "sobrenatural"],
       status: "watched",
       progress: 0,
-      nextRelease: "23/01/26",
+      nextRelease: "",
     },
     {
       type: "series",
