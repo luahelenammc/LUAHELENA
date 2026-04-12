@@ -231,6 +231,62 @@
     .tone-warning { background:rgba(255,208,138,.26); color:#9c4900; border-color:rgba(255,169,84,.26); }
     .tone-dental { background:rgba(175,235,255,.34); color:#0f5f8a; border-color:rgba(92,182,218,.30); }
     .tone-care { background:rgba(255,196,214,.26); color:#9c3f67; border-color:rgba(233,135,174,.26); }
+    .product-actions { margin-top:auto; display:flex; flex-direction:column; gap:9px; }
+    .report-button {
+      min-height:36px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:0 14px; border-radius:999px; border:1px solid rgba(122,100,0,.12);
+      background:rgba(255,255,255,.86); color:#7a6400; font-size:.80rem; font-weight:800;
+      letter-spacing:.01em; box-shadow:0 10px 18px rgba(122,100,0,.06);
+      transition:transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+      text-align:center;
+    }
+    .report-button:hover {
+      transform:translateY(-1px) scale(1.01);
+      background:rgba(255,241,89,.42);
+      border-color:rgba(122,100,0,.20);
+      box-shadow:0 14px 24px rgba(255,230,0,.14);
+    }
+    .report-button:active { transform:translateY(0) scale(.99); }
+    .report-button .report-emoji { font-size:.96rem; line-height:1; }
+    .report-button-soft { min-height:34px; font-size:.76rem; color:#776400; }
+    .ml-benefits-card {
+      background:linear-gradient(180deg, rgba(255,241,89,.20), rgba(255,255,255,.92));
+      border-color:rgba(52,131,250,.10);
+    }
+    .ml-benefits-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .ml-benefit {
+      display:grid; grid-template-columns:72px 1fr; gap:14px; align-items:start;
+      padding:20px; border-radius:24px; background:rgba(255,255,255,.84);
+      border:1px solid rgba(52,131,250,.08); box-shadow:0 12px 24px rgba(52,131,250,.05);
+    }
+    .ml-benefit-icon {
+      width:72px; height:72px; border-radius:22px; display:grid; place-items:center;
+      font-size:2.1rem; background:linear-gradient(135deg, rgba(255,230,0,.72), rgba(255,255,255,.94));
+      border:1px solid rgba(52,131,250,.12); box-shadow:0 12px 22px rgba(255,230,0,.14);
+    }
+    .ml-benefit-copy h3 { font-size:1.08rem; letter-spacing:-.02em; margin-bottom:8px; }
+    .ml-benefit-copy p { color:var(--muted); line-height:1.62; font-size:.95rem; }
+    .report-section {
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,214,.88));
+      border-color:rgba(122,100,0,.12);
+    }
+    .report-section-inner { text-align:center; max-width:860px; margin:0 auto; }
+    .report-section-inner p {
+      color:var(--muted); line-height:1.7; font-size:1rem; margin-bottom:18px;
+    }
+    .report-button-large {
+      min-height:52px; padding:0 22px; font-size:.94rem;
+      background:linear-gradient(135deg, rgba(255,241,89,.96), rgba(255,255,255,.94));
+      color:#5b4d00; border-color:rgba(122,100,0,.18);
+      box-shadow:0 14px 28px rgba(255,230,0,.18);
+    }
+    .report-button-large:hover {
+      background:linear-gradient(135deg, rgba(255,230,0,.98), rgba(255,255,255,.98));
+      box-shadow:0 18px 34px rgba(255,230,0,.22);
+    }
+    .report-helper {
+      color:#7c6f00; font-size:.88rem; line-height:1.6; margin-top:12px;
+    }
     .footer-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
     .small { color:var(--muted); line-height:1.8; font-size:.95rem; }
     .pre-menu-overlay {
@@ -283,6 +339,9 @@
     }
     @media (max-width:760px) {
       .theme-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+      .ml-benefits-grid { grid-template-columns:1fr; }
+      .ml-benefit { grid-template-columns:56px 1fr; padding:16px; }
+      .ml-benefit-icon { width:56px; height:56px; border-radius:18px; font-size:1.65rem; }
       .product-card { border-radius:18px; }
       .product-body { padding:10px 10px 12px; gap:8px; }
       .product-topline { gap:6px; }
@@ -433,6 +492,56 @@
         </div>
       </section>
 
+      <section id="vantagens-ml" class="section-card ml-benefits-card">
+        <div class="section-inner">
+          <div class="label label-solid-yellow">Mercado Livre</div>
+          <h2 class="title-xl">Por que comprar por lá costuma ser uma boa.</h2>
+          <div class="ml-benefits-grid">
+            <article class="ml-benefit">
+              <div class="ml-benefit-icon">🔒</div>
+              <div class="ml-benefit-copy">
+                <h3>Compra mais protegida</h3>
+                <p>O pagamento fica dentro da plataforma. Se o pedido não chegar ou vier com problema importante, dá para abrir mediação e seguir o fluxo de proteção ao comprador conforme as regras do Mercado Livre.</p>
+              </div>
+            </article>
+            <article class="ml-benefit">
+              <div class="ml-benefit-icon">↩️</div>
+              <div class="ml-benefit-copy">
+                <h3>Devolução mais simples</h3>
+                <p>Muitos anúncios têm devolução pela própria plataforma. E, quando houver direito de arrependimento ou regra aplicável do anúncio, o processo costuma ficar mais claro e rastreável.</p>
+              </div>
+            </article>
+            <article class="ml-benefit">
+              <div class="ml-benefit-icon">🚚</div>
+              <div class="ml-benefit-copy">
+                <h3>Entrega e rastreio</h3>
+                <p>Grande parte dos pedidos usa a malha logística do Mercado Envios, com rastreio mais organizado e menos dependência exclusiva dos Correios.</p>
+              </div>
+            </article>
+            <article class="ml-benefit">
+              <div class="ml-benefit-icon">⭐</div>
+              <div class="ml-benefit-copy">
+                <h3>Reputação visível</h3>
+                <p>Antes de comprar, você consegue olhar nota do vendedor, avaliações de quem já comprou e sinais do próprio anúncio. Isso ajuda a separar achado bom de bomba maquiada.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reportar" class="section-card report-section">
+        <div class="section-inner report-section-inner">
+          <div class="label label-outline">Ajuda da comunidade</div>
+          <h2 class="title-xl">Viu algo estranho no anúncio?</h2>
+          <p>Se um produto sumiu, mudou muito, ficou com preço diferente, abriu o link errado ou começou a parecer problemático, me avise por este formulário. Isso me ajuda a manter a lojinha limpa e viva.</p>
+          <a class="report-button report-button-large" href="https://forms.gle/Tu4ChMeCW7uQKnWB8" target="_blank" rel="noopener noreferrer">
+            <span class="report-emoji">🛠️</span>
+            <span>Nos avise sobre problemas com o anúncio</span>
+          </a>
+          <div class="report-helper">Exemplos: produto indisponível, valor diferente, anúncio trocado, link quebrado ou mudança suspeita.</div>
+        </div>
+      </section>
+
       <section class="footer-grid">
         <article class="section-card">
           <div class="section-inner">
@@ -458,6 +567,7 @@
 
   <script>
     const BASE_REF_LINK = "https://meli.la/";
+    const REPORT_FORM_URL = "https://forms.gle/Tu4ChMeCW7uQKnWB8";
     const products = [
   {
     "name": "Projetor portátil HY-300",
@@ -1056,6 +1166,15 @@
       `).join("")}</div>`;
     }
 
+    function renderReportButton(item) {
+      return `
+        <a class="report-button report-button-soft" href="${REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer" aria-label="Avisar problema no anúncio de ${item.name}">
+          <span class="report-emoji">⚠️</span>
+          <span>Avisar problema</span>
+        </a>
+      `;
+    }
+
     function productCardHTML(item) {
       const isFem = String(item.genero_palavra || "").toLowerCase() === "fem";
       return `
@@ -1076,7 +1195,10 @@
               <span class="current-price">${formatBRL(item.currentPrice)}</span>
               ${item.originalPrice && item.originalPrice > item.currentPrice ? `<span class="original-price">${formatBRL(item.originalPrice)}</span>` : ""}
             </div>
-            <a class="buy-button" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver oferta</a>
+            <div class="product-actions">
+              <a class="buy-button" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver oferta</a>
+              ${renderReportButton(item)}
+            </div>
           </div>
         </article>
       `;
@@ -1201,6 +1323,9 @@
     });
 
     render();
+    document.querySelectorAll('#reportar a[href="https://forms.gle/Tu4ChMeCW7uQKnWB8"]').forEach(link => {
+      link.href = REPORT_FORM_URL;
+    });
     openPreMenu();
   </script>
 </body>
