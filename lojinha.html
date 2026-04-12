@@ -661,64 +661,170 @@
   }
 
   .macro-card {
-    border-radius: 28px;
-    border: 1px solid rgba(32, 38, 58, 0.08);
-    background: rgba(255, 255, 255, 0.54);
-    padding: 18px;
-    transition: 160ms ease;
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.28)),
+      radial-gradient(circle at top right, rgba(255, 241, 89, 0.24), transparent 42%);
+    padding: 20px;
+    transition:
+      transform 220ms cubic-bezier(.22,.61,.36,1),
+      box-shadow 220ms cubic-bezier(.22,.61,.36,1),
+      border-color 220ms cubic-bezier(.22,.61,.36,1),
+      background 220ms cubic-bezier(.22,.61,.36,1);
+    cursor: pointer;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow:
+      0 18px 32px rgba(32, 38, 58, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    overflow: hidden;
+    isolation: isolate;
+    backdrop-filter: blur(18px) saturate(150%);
+    transform-style: preserve-3d;
+  }
+
+  .macro-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255,255,255,0.48), rgba(255,255,255,0.04));
+    opacity: 0.55;
+    z-index: -2;
+  }
+
+  .macro-card::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    right: -36px;
+    top: -36px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 241, 89, 0.34), transparent 70%);
+    opacity: 0.8;
+    z-index: -1;
+    transition: transform 280ms ease, opacity 280ms ease;
+  }
+
+  .macro-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 24px 44px rgba(122, 100, 0, 0.16),
+      inset 0 1px 0 rgba(255,255,255,0.52);
+    border-color: rgba(255, 230, 0, 0.34);
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.68), rgba(255,255,255,0.34)),
+      radial-gradient(circle at top right, rgba(255, 241, 89, 0.30), transparent 42%);
+  }
+
+  .macro-card:hover::after {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+
+  .macro-card:focus-visible {
+    outline: 3px solid rgba(52, 131, 250, 0.22);
+    outline-offset: 2px;
   }
 
   .macro-card.is-selected {
-    background: rgba(255, 241, 89, 0.28);
-    border-color: rgba(122, 100, 0, 0.16);
-    box-shadow: 0 16px 32px rgba(255, 230, 0, 0.10);
+    background:
+      linear-gradient(135deg, rgba(255, 250, 214, 0.82), rgba(255, 241, 89, 0.26)),
+      radial-gradient(circle at top right, rgba(255, 230, 0, 0.34), transparent 42%);
+    border-color: rgba(255, 230, 0, 0.38);
+    box-shadow:
+      0 22px 40px rgba(255, 230, 0, 0.16),
+      inset 0 1px 0 rgba(255,255,255,0.56);
+  }
+
+  .macro-card.is-entering {
+    animation: macroCardIn 620ms cubic-bezier(.22,.61,.36,1) both;
   }
 
   .macro-card-head {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 14px;
     align-items: start;
     margin-bottom: 14px;
   }
 
-  .macro-card-head h3 {
+  .macro-emoji {
+    width: 64px;
+    height: 64px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.52);
+    border: 1px solid rgba(255,255,255,0.34);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.42),
+      0 10px 22px rgba(32, 38, 58, 0.06);
+    font-size: 2.2rem;
+    line-height: 1;
+    transform: translateZ(18px);
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  }
+
+  .macro-card:hover .macro-emoji {
+    transform: translateZ(18px) scale(1.08) rotate(-6deg);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.46),
+      0 14px 26px rgba(122,100,0,0.10);
+    background: rgba(255,255,255,0.74);
+  }
+
+  .macro-card.is-selected .macro-emoji {
+    animation: emojiPulse 2s ease-in-out infinite;
+    background: rgba(255,255,255,0.82);
+  }
+
+  .macro-copy h3 {
     font-size: 1.2rem;
     letter-spacing: -0.03em;
     margin-bottom: 6px;
   }
 
-  .macro-card-head p {
+  .macro-copy p {
     color: rgba(32, 38, 58, 0.62);
     font-size: 0.92rem;
     line-height: 1.55;
   }
 
-  .macro-pill {
-    min-height: 42px;
-    padding: 0 14px;
-    border-radius: 999px;
+  .macro-status {
+    flex: 0 0 auto;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.70);
     border: 1px solid rgba(32, 38, 58, 0.08);
-    background: rgba(255, 255, 255, 0.62);
-    color: var(--text);
-    font-weight: 700;
-    cursor: pointer;
-    transition: 160ms ease;
-    white-space: nowrap;
+    color: rgba(32, 38, 58, 0.46);
+    font-size: 1rem;
+    font-weight: 900;
+    transition: 180ms ease;
+    transform: translateZ(14px);
   }
 
-  .macro-pill:hover,
-  .macro-pill.is-selected {
-    background: rgba(255, 241, 89, 0.62);
-    border-color: rgba(122, 100, 0, 0.16);
-    color: #5c4d00;
-    box-shadow: 0 10px 24px rgba(255, 230, 0, 0.14);
+  .macro-card.is-selected .macro-status {
+    background: rgba(255, 241, 89, 0.82);
+    border-color: rgba(122, 100, 0, 0.14);
+    color: #6b5900;
+    box-shadow: 0 10px 24px rgba(255, 230, 0, 0.16);
   }
 
   .macro-preview {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    pointer-events: none;
   }
 
   .preview-chip {
@@ -732,9 +838,54 @@
     color: rgba(32, 38, 58, 0.70);
     font-size: 0.84rem;
     font-weight: 600;
+    transition: transform 200ms ease, background 200ms ease;
   }
 
-  .interest-actions {
+  .macro-card:hover .preview-chip {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .macro-ripple {
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255,255,255,0.45), rgba(255,255,255,0));
+    transform: translate(-50%, -50%) scale(0);
+    animation: macroRipple 650ms ease-out forwards;
+    z-index: 0;
+  }
+
+  @keyframes macroCardIn {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+      filter: blur(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes macroRipple {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.75;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes emojiPulse {
+    0%, 100% { transform: translateZ(18px) scale(1); }
+    50% { transform: translateZ(18px) scale(1.08) rotate(-4deg); }
+  }
+
+.interest-actions {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -859,6 +1010,41 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pre-menu-panel {
+    padding: 18px;
+    border-radius: 28px;
+  }
+
+  .pre-menu-copy h2 {
+    line-height: 1;
+  }
+
+  .macro-card {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .macro-card-head {
+    grid-template-columns: auto 1fr;
+  }
+
+  .macro-status {
+    grid-column: 2;
+    justify-self: end;
+    margin-top: -46px;
+  }
+
+  .macro-emoji {
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    border-radius: 18px;
+  }
+
+  .preview-chip {
+    font-size: 0.78rem;
   }
 }
 
@@ -1331,30 +1517,35 @@
       {
         key: "beleza",
         title: "Beleza",
+        emoji: "💄",
         subtitle: "Para cabelo, maquiagem, pele e pequenas delicinhas de autocuidado.",
         preview: ["cabelo", "maquiagem", "skincare", "clareamento dental", "hidratação"]
       },
       {
         key: "tech",
         title: "Tecnologia",
+        emoji: "📱",
         subtitle: "Itens para facilitar a vida, deixar o quarto mais interessante ou resolver pequenas obsessões utilitárias.",
         preview: ["projetores", "câmeras", "segurança", "gadgets", "acessórios"]
       },
       {
         key: "utilidades",
         title: "Utilidades",
+        emoji: "🧩",
         subtitle: "Essenciais de rotina que salvam tempo, evitam gambiarra e resolvem coisas pequenas muito bem.",
         preview: ["carregadores", "suportes", "android", "mesa", "praticidade"]
       },
       {
         key: "casa",
         title: "Casa",
+        emoji: "🛏️",
         subtitle: "Achados para deixar o espaço mais gostoso, confortável ou simplesmente mais agradável de habitar.",
         preview: ["sono", "massagem", "conforto", "relaxamento", "blackout"]
       },
       {
         key: "saude",
         title: "Saúde",
+        emoji: "🌿",
         subtitle: "Produtos ligados a bem-estar, sono, digestão e manutenção do corpo no cotidiano.",
         preview: ["sono", "digestão", "lactase", "melatonina", "bem-estar"]
       }
@@ -1370,32 +1561,86 @@
       preMenuOverlay.classList.add("hidden");
     }
 
+    function toggleMacroCategory(key) {
+      if (state.selectedCategories.has(key)) state.selectedCategories.delete(key);
+      else state.selectedCategories.add(key);
+      renderPreMenu();
+      renderInterestBanner();
+    }
+
+    function bootIntoMacroCategory(key) {
+      state.selectedCategories = new Set([key]);
+      render();
+      closePreMenu();
+      document.getElementById("achados").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function spawnMacroRipple(card, event) {
+      const rect = card.getBoundingClientRect();
+      const ripple = document.createElement("span");
+      ripple.className = "macro-ripple";
+      ripple.style.left = `${event.clientX - rect.left}px`;
+      ripple.style.top = `${event.clientY - rect.top}px`;
+      ripple.style.width = "24px";
+      ripple.style.height = "24px";
+      card.appendChild(ripple);
+      ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
+    }
+
+    function handleMacroCardTilt(event) {
+      if (window.matchMedia("(max-width: 760px)").matches) return;
+      const card = event.currentTarget;
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      const rotateY = (x - 0.5) * 8;
+      const rotateX = (0.5 - y) * 8;
+      card.style.transform = `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    function resetMacroCardTilt(event) {
+      event.currentTarget.style.transform = "";
+    }
+
     function renderPreMenu() {
-      preMenuBody.innerHTML = macroCategories.map(group => `
-        <section class="macro-card ${state.selectedCategories.has(group.key) ? "is-selected" : ""}">
+      preMenuBody.innerHTML = macroCategories.map((group, index) => `
+        <button
+          class="macro-card ${state.selectedCategories.has(group.key) ? "is-selected" : ""}"
+          type="button"
+          data-macro-card="${group.key}"
+          aria-pressed="${state.selectedCategories.has(group.key) ? "true" : "false"}"
+          style="animation-delay:${Math.min(index * 70, 280)}ms"
+        >
           <div class="macro-card-head">
-            <div>
+            <div class="macro-emoji" aria-hidden="true">${group.emoji}</div>
+            <div class="macro-copy">
               <h3>${group.title}</h3>
               <p>${group.subtitle}</p>
             </div>
-            <button class="macro-pill ${state.selectedCategories.has(group.key) ? "is-selected" : ""}" type="button" data-macro-select="${group.key}">
-              ${state.selectedCategories.has(group.key) ? "Selecionado" : "Quero ver isso"}
-            </button>
+            <span class="macro-status" aria-hidden="true">${state.selectedCategories.has(group.key) ? "✓" : "+"}</span>
           </div>
           <div class="macro-preview">
             ${group.preview.map(item => `<span class="preview-chip">${item}</span>`).join("")}
           </div>
-        </section>
+        </button>
       `).join("");
 
-      preMenuBody.querySelectorAll("[data-macro-select]").forEach(button => {
-        button.addEventListener("click", () => {
-          const key = button.dataset.macroSelect;
-          if (state.selectedCategories.has(key)) state.selectedCategories.delete(key);
-          else state.selectedCategories.add(key);
-          renderPreMenu();
-          renderInterestBanner();
+      preMenuBody.querySelectorAll("[data-macro-card]").forEach((card, index) => {
+        card.classList.add("is-entering");
+
+        const removeEnter = () => card.classList.remove("is-entering");
+        card.addEventListener("animationend", removeEnter, { once: true });
+
+        card.addEventListener("click", (event) => {
+          spawnMacroRipple(card, event);
+          const selectedKey = card.dataset.macroCard;
+          window.setTimeout(() => {
+            bootIntoMacroCategory(selectedKey);
+          }, 150);
         });
+
+        card.addEventListener("mousemove", handleMacroCardTilt);
+        card.addEventListener("mouseleave", resetMacroCardTilt);
       });
     }
 
