@@ -203,11 +203,22 @@
     .current-price { font-size:2rem; line-height:1; letter-spacing:-.05em; font-weight:900; color:#1f2437; }
     .original-price { color:rgba(32,38,58,.40); font-size:.94rem; text-decoration:line-through; }
     .buy-button {
+      position:relative; overflow:hidden; isolation:isolate;
       margin-top:auto; display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px;
-      padding:0 16px; border-radius:16px; background:var(--ml-yellow); color:#4f4500; font-weight:800;
-      box-shadow:0 10px 20px rgba(255,230,0,.18); transition:transform 160ms ease, box-shadow 160ms ease;
+      padding:0 16px; border-radius:16px; background:linear-gradient(135deg, #ffe600 0%, #fff39a 100%); color:#4f4500; font-weight:900;
+      box-shadow:0 14px 28px rgba(255,230,0,.20); transition:transform 190ms ease, box-shadow 220ms ease, filter 220ms ease;
     }
-    .buy-button:hover { transform:translateY(-1px); box-shadow:0 14px 26px rgba(255,230,0,.24); }
+    .buy-button::before {
+      content:""; position:absolute; top:-30%; bottom:-30%; left:-90%; width:55%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), transparent);
+      transform:skewX(-20deg); transition:left 680ms ease; z-index:0;
+    }
+    .buy-button > * { position:relative; z-index:1; }
+    .buy-button:hover {
+      transform:translateY(-2px) scale(1.015); box-shadow:0 20px 38px rgba(255,230,0,.28); filter:saturate(1.03);
+    }
+    .buy-button:hover::before { left:150%; }
+    .buy-button:active { transform:translateY(0) scale(.985); box-shadow:0 10px 18px rgba(255,230,0,.18); }
     .empty-state { display:none; text-align:center; color:#7c6f00; padding:26px 12px 4px; font-weight:600; }
     .notes-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
     .note-card {
@@ -231,24 +242,24 @@
     .tone-warning { background:rgba(255,208,138,.26); color:#9c4900; border-color:rgba(255,169,84,.26); }
     .tone-dental { background:rgba(175,235,255,.34); color:#0f5f8a; border-color:rgba(92,182,218,.30); }
     .tone-care { background:rgba(255,196,214,.26); color:#9c3f67; border-color:rgba(233,135,174,.26); }
-    .product-actions { margin-top:auto; display:flex; flex-direction:column; gap:9px; }
+    .product-actions { margin-top:auto; display:flex; flex-direction:column; gap:8px; }
     .report-button {
-      min-height:36px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:0 14px; border-radius:999px; border:1px solid rgba(122,100,0,.12);
-      background:rgba(255,255,255,.86); color:#7a6400; font-size:.80rem; font-weight:800;
-      letter-spacing:.01em; box-shadow:0 10px 18px rgba(122,100,0,.06);
-      transition:transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+      min-height:31px; display:inline-flex; align-items:center; justify-content:center; gap:6px;
+      padding:0 11px; border-radius:999px; border:1px solid rgba(122,100,0,.09);
+      background:rgba(255,255,255,.58); color:rgba(96,82,0,.82); font-size:.72rem; font-weight:700;
+      letter-spacing:.005em; box-shadow:none;
+      transition:transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
       text-align:center;
     }
     .report-button:hover {
-      transform:translateY(-1px) scale(1.01);
-      background:rgba(255,241,89,.42);
-      border-color:rgba(122,100,0,.20);
-      box-shadow:0 14px 24px rgba(255,230,0,.14);
+      transform:translateY(-1px);
+      background:rgba(255,248,214,.82);
+      border-color:rgba(122,100,0,.14);
+      opacity:1;
     }
-    .report-button:active { transform:translateY(0) scale(.99); }
-    .report-button .report-emoji { font-size:.96rem; line-height:1; }
-    .report-button-soft { min-height:34px; font-size:.76rem; color:#776400; }
+    .report-button:active { transform:translateY(0); }
+    .report-button .report-emoji { font-size:.82rem; line-height:1; opacity:.82; }
+    .report-button-soft { min-height:31px; font-size:.71rem; align-self:center; }
     .ml-benefits-card {
       background:linear-gradient(180deg, rgba(255,241,89,.20), rgba(255,255,255,.92));
       border-color:rgba(52,131,250,.10);
@@ -275,14 +286,14 @@
       color:var(--muted); line-height:1.7; font-size:1rem; margin-bottom:18px;
     }
     .report-button-large {
-      min-height:52px; padding:0 22px; font-size:.94rem;
-      background:linear-gradient(135deg, rgba(255,241,89,.96), rgba(255,255,255,.94));
-      color:#5b4d00; border-color:rgba(122,100,0,.18);
-      box-shadow:0 14px 28px rgba(255,230,0,.18);
+      min-height:50px; padding:0 22px; font-size:.92rem;
+      background:rgba(255,255,255,.82);
+      color:#6a5a00; border-color:rgba(122,100,0,.16);
+      box-shadow:0 10px 22px rgba(122,100,0,.08);
     }
     .report-button-large:hover {
-      background:linear-gradient(135deg, rgba(255,230,0,.98), rgba(255,255,255,.98));
-      box-shadow:0 18px 34px rgba(255,230,0,.22);
+      background:rgba(255,250,224,.95);
+      box-shadow:0 14px 26px rgba(122,100,0,.10);
     }
     .report-helper {
       color:#7c6f00; font-size:.88rem; line-height:1.6; margin-top:12px;
@@ -455,43 +466,6 @@
         </div>
       </section>
 
-      <section id="notas" class="section-card">
-        <div class="section-inner">
-          <div class="label label-outline">Notas importantes</div>
-          <h2 class="title-xl">Antes de comprar.</h2>
-          <div class="notes-grid">
-            <article class="note-card">
-              <div class="note-icon">💸</div>
-              <div class="note-copy">
-                <h3>Links de afiliada</h3>
-                <p>Se você comprar por este link, a Moon pode receber uma comissão. Para você, o preço não muda.</p>
-              </div>
-            </article>
-            <article class="note-card">
-              <div class="note-icon">📦</div>
-              <div class="note-copy">
-                <h3>Preço e anúncio</h3>
-                <p>Preço, frete, prazo, cupom, estoque, cor e parcelamento podem mudar no Mercado Livre. Sempre confira o anúncio antes de fechar.</p>
-              </div>
-            </article>
-            <article class="note-card">
-              <div class="note-icon">🛍️</div>
-              <div class="note-copy">
-                <h3>Curadoria da Moon</h3>
-                <p>A Moon seleciona os achados. A venda, a entrega, a troca e a garantia continuam sendo do vendedor e da plataforma.</p>
-              </div>
-            </article>
-            <article class="note-card">
-              <div class="note-icon">🧴</div>
-              <div class="note-copy">
-                <h3>Itens sensíveis</h3>
-                <p>Produtos de pele, dentes, suplemento ou cuidado corporal pedem leitura do rótulo, da composição e do modo de uso. Se você tem sensibilidade, alergia ou tratamento em curso, cheque antes.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="vantagens-ml" class="section-card ml-benefits-card">
         <div class="section-inner">
           <div class="label label-solid-yellow">Mercado Livre</div>
@@ -529,6 +503,43 @@
         </div>
       </section>
 
+      <section id="notas" class="section-card">
+        <div class="section-inner">
+          <div class="label label-outline">Notas importantes</div>
+          <h2 class="title-xl">Antes de comprar.</h2>
+          <div class="notes-grid">
+            <article class="note-card">
+              <div class="note-icon">💸</div>
+              <div class="note-copy">
+                <h3>Links de afiliada</h3>
+                <p>Se você comprar por este link, a Moon pode receber uma comissão. Para você, o preço não muda.</p>
+              </div>
+            </article>
+            <article class="note-card">
+              <div class="note-icon">📦</div>
+              <div class="note-copy">
+                <h3>Preço e anúncio</h3>
+                <p>Preço, frete, prazo, cupom, estoque, cor e parcelamento podem mudar no Mercado Livre. Sempre confira o anúncio antes de fechar.</p>
+              </div>
+            </article>
+            <article class="note-card">
+              <div class="note-icon">🛍️</div>
+              <div class="note-copy">
+                <h3>Curadoria da Moon</h3>
+                <p>A Moon seleciona os achados. A venda, a entrega, a troca e a garantia continuam sendo do vendedor e da plataforma.</p>
+              </div>
+            </article>
+            <article class="note-card">
+              <div class="note-icon">🧴</div>
+              <div class="note-copy">
+                <h3>Itens sensíveis</h3>
+                <p>Produtos de pele, dentes, suplemento ou cuidado corporal pedem leitura do rótulo, da composição e do modo de uso. Se você tem sensibilidade, alergia ou tratamento em curso, cheque antes.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="reportar" class="section-card report-section">
         <div class="section-inner report-section-inner">
           <div class="label label-outline">Ajuda da comunidade</div>
@@ -540,27 +551,6 @@
           </a>
           <div class="report-helper">Exemplos: produto indisponível, valor diferente, anúncio trocado, link quebrado ou mudança suspeita.</div>
         </div>
-      </section>
-
-      <section class="footer-grid">
-        <article class="section-card">
-          <div class="section-inner">
-            <div class="label label-outline">FAQ</div>
-            <h2 class="title-xl">Como a ordem funciona?</h2>
-            <p class="small">
-              A vitrine agora mostra blocos temáticos. Sem escolha prévia, os blocos aparecem pelo menor preço encontrado em cada grupo. Quando você escolhe um mood no pré-menu, esse bloco vem primeiro e puxa uma sequência temática depois.
-            </p>
-          </div>
-        </article>
-        <article class="section-card">
-          <div class="section-inner">
-            <div class="label label-outline">FAQ</div>
-            <h2 class="title-xl">E dentro de cada bloco?</h2>
-            <p class="small">
-              Dentro de cada categoria, a ordem padrão é do menor preço para o maior. Você ainda pode trocar para maior desconto, maior preço ou nome A-Z, sem quebrar a organização em blocos.
-            </p>
-          </div>
-        </article>
       </section>
     </div>
   </div>
@@ -1170,7 +1160,7 @@
       return `
         <a class="report-button report-button-soft" href="${REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer" aria-label="Avisar problema no anúncio de ${item.name}">
           <span class="report-emoji">⚠️</span>
-          <span>Avisar problema</span>
+          <span>Reportar anúncio</span>
         </a>
       `;
     }
