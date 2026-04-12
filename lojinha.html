@@ -213,9 +213,24 @@
     .note-card {
       border-radius:24px; background:rgba(255,255,255,.84); border:1px solid rgba(32,38,58,.08);
       padding:20px; box-shadow:0 12px 24px rgba(32,38,58,.05);
+      display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:start;
     }
-    .note-card h3 { font-size:1.05rem; letter-spacing:-.02em; margin-bottom:10px; }
-    .note-card p { color:var(--muted); line-height:1.65; font-size:.96rem; }
+    .note-icon {
+      width:64px; height:64px; border-radius:20px; display:grid; place-items:center;
+      font-size:2rem; background:linear-gradient(180deg, rgba(255,241,89,.52), rgba(255,255,255,.92));
+      border:1px solid rgba(122,100,0,.10); box-shadow:0 10px 20px rgba(255,230,0,.10);
+    }
+    .note-copy h3 { font-size:1.05rem; letter-spacing:-.02em; margin-bottom:8px; }
+    .note-copy p { color:var(--muted); line-height:1.65; font-size:.96rem; }
+    .product-disclaimers { display:flex; flex-wrap:wrap; gap:8px; margin-top:-2px; }
+    .disclaimer-label {
+      min-height:28px; display:inline-flex; align-items:center; gap:6px; padding:0 10px;
+      border-radius:999px; font-size:.75rem; font-weight:700; letter-spacing:.01em; border:1px solid transparent;
+    }
+    .disclaimer-label .label-emoji { font-size:.95rem; line-height:1; }
+    .tone-warning { background:rgba(255,208,138,.26); color:#9c4900; border-color:rgba(255,169,84,.26); }
+    .tone-dental { background:rgba(175,235,255,.34); color:#0f5f8a; border-color:rgba(92,182,218,.30); }
+    .tone-care { background:rgba(255,196,214,.26); color:#9c3f67; border-color:rgba(233,135,174,.26); }
     .footer-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
     .small { color:var(--muted); line-height:1.8; font-size:.95rem; }
     .pre-menu-overlay {
@@ -387,20 +402,32 @@
           <h2 class="title-xl">Antes de comprar.</h2>
           <div class="notes-grid">
             <article class="note-card">
-              <h3>Links de afiliada</h3>
-              <p>Esta página usa links de afiliada do Mercado Livre. Se você comprar por aqui, a Moon pode receber uma comissão, sem custo adicional para você.</p>
+              <div class="note-icon">💸</div>
+              <div class="note-copy">
+                <h3>Links de afiliada</h3>
+                <p>Se você comprar por este link, a Moon pode receber uma comissão. Para você, o preço não muda.</p>
+              </div>
             </article>
             <article class="note-card">
-              <h3>Preço, frete e disponibilidade</h3>
-              <p>Preço, parcelamento, cupom, frete, estoque, cores e disponibilidade podem mudar a qualquer momento no anúncio original. Vale sempre conferir antes de fechar a compra.</p>
+              <div class="note-icon">📦</div>
+              <div class="note-copy">
+                <h3>Preço e anúncio</h3>
+                <p>Preço, frete, prazo, cupom, estoque, cor e parcelamento podem mudar no Mercado Livre. Sempre confira o anúncio antes de fechar.</p>
+              </div>
             </article>
             <article class="note-card">
-              <h3>Curadoria, não garantia</h3>
-              <p>Os itens desta página são achados de curadoria. A compra, a entrega, a garantia, a troca e a descrição final do produto continuam sendo responsabilidade do anúncio e do vendedor dentro da plataforma.</p>
+              <div class="note-icon">🛍️</div>
+              <div class="note-copy">
+                <h3>Curadoria da Moon</h3>
+                <p>A Moon seleciona os achados. A venda, a entrega, a troca e a garantia continuam sendo do vendedor e da plataforma.</p>
+              </div>
             </article>
             <article class="note-card">
-              <h3>Saúde e beleza pedem leitura real</h3>
-              <p>Produtos de saúde, sono, pele, suplementação ou cuidado corporal não substituem orientação profissional. Confira composição, contraindicações, uso e compatibilidade com a sua realidade.</p>
+              <div class="note-icon">🧴</div>
+              <div class="note-copy">
+                <h3>Itens sensíveis</h3>
+                <p>Produtos de pele, dentes, suplemento ou cuidado corporal pedem leitura do rótulo, da composição e do modo de uso. Se você tem sensibilidade, alergia ou tratamento em curso, cheque antes.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -590,6 +617,18 @@
       "clareamento dental",
       "dentes",
       "autocuidado"
+    ],
+    "disclaimer_labels": [
+      {
+        "emoji": "🦷",
+        "text": "Uso dental",
+        "tone": "dental"
+      },
+      {
+        "emoji": "⚠️",
+        "text": "Use como instruído",
+        "tone": "warning"
+      }
     ]
   },
   {
@@ -718,6 +757,18 @@
       "foliculite",
       "pele",
       "importado"
+    ],
+    "disclaimer_labels": [
+      {
+        "emoji": "🧪",
+        "text": "Contém ácido",
+        "tone": "warning"
+      },
+      {
+        "emoji": "🩹",
+        "text": "Pode sensibilizar",
+        "tone": "care"
+      }
     ]
   },
   {
@@ -889,6 +940,7 @@
         originalPrice: Number(product.originalPrice || 0),
         discount: calcDiscount(product),
         href: buildProductLink(product),
+        disclaimer_labels: Array.isArray(product.disclaimer_labels) ? product.disclaimer_labels : [],
         featuredOrder: typeof product.featuredOrder === "number" ? product.featuredOrder : index
       };
     }
@@ -994,6 +1046,16 @@
       interestSummary.innerHTML = chosen ? `<span class="interest-chip">${chosen.emoji} ${chosen.title}</span>` : "";
     }
 
+    function renderDisclaimerLabels(item) {
+      if (!Array.isArray(item.disclaimer_labels) || !item.disclaimer_labels.length) return "";
+      return `<div class="product-disclaimers">${item.disclaimer_labels.map(label => `
+        <span class="disclaimer-label tone-${label.tone || "warning"}">
+          ${label.emoji ? `<span class="label-emoji">${label.emoji}</span>` : ""}
+          <span>${label.text || ""}</span>
+        </span>
+      `).join("")}</div>`;
+    }
+
     function productCardHTML(item) {
       const isFem = String(item.genero_palavra || "").toLowerCase() === "fem";
       return `
@@ -1009,6 +1071,7 @@
               ${item.numero_ranking && item.numero_ranking > 0 ? `<span class="ranking-badge">${item.numero_ranking}º MAIS VENDID${isFem ? "A" : "O"} NO MERCADO LIVRE</span>` : ""}
             </div>
             <h3 class="product-title">${item.name}</h3>
+            ${renderDisclaimerLabels(item)}
             <div class="price-row">
               <span class="current-price">${formatBRL(item.currentPrice)}</span>
               ${item.originalPrice && item.originalPrice > item.currentPrice ? `<span class="original-price">${formatBRL(item.originalPrice)}</span>` : ""}
