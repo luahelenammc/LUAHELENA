@@ -48,6 +48,10 @@
       linear-gradient(180deg, #fffef6 0%, #fff9dc 100%);
   }
 
+  body.modal-open {
+    overflow: hidden;
+  }
+
   img {
     display: block;
     max-width: 100%;
@@ -56,6 +60,12 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
   }
 
   h1, h2, h3, p {
@@ -133,16 +143,20 @@
     align-items: center;
   }
 
-  .nav a {
+  .nav a,
+  .nav button {
     color: var(--muted);
     padding: 10px 14px;
     border-radius: 999px;
     font-weight: 700;
     transition: 160ms ease;
     border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
   }
 
-  .nav a:hover {
+  .nav a:hover,
+  .nav button:hover {
     color: var(--text);
     border-color: rgba(32, 38, 58, 0.08);
     background: rgba(255, 241, 89, 0.20);
@@ -514,6 +528,239 @@
     font-size: 0.95rem;
   }
 
+
+  .interest-banner {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(122, 100, 0, 0.14);
+    background: rgba(255, 255, 255, 0.66);
+    backdrop-filter: blur(10px);
+  }
+
+  .interest-banner.active {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .interest-banner strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.94rem;
+  }
+
+  .interest-banner p {
+    color: #6f6400;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .interest-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .interest-chip {
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: rgba(255, 241, 89, 0.22);
+    border: 1px solid rgba(122, 100, 0, 0.08);
+    color: #716000;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .pre-menu-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(16, 20, 34, 0.20);
+    backdrop-filter: blur(18px);
+    z-index: 120;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 220ms ease, visibility 220ms ease;
+  }
+
+  .pre-menu-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .pre-menu-panel {
+    width: min(100%, 1080px);
+    max-height: min(88vh, 920px);
+    overflow: auto;
+    border-radius: 34px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.30));
+    backdrop-filter: blur(24px) saturate(180%);
+    box-shadow:
+      0 24px 60px rgba(32, 38, 58, 0.20),
+      inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  }
+
+  .pre-menu-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 18px;
+  }
+
+  .pre-menu-copy {
+    max-width: 720px;
+  }
+
+  .pre-menu-copy h2 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    margin-bottom: 12px;
+  }
+
+  .pre-menu-copy p {
+    color: rgba(32, 38, 58, 0.76);
+    line-height: 1.75;
+    font-size: 1rem;
+  }
+
+  .pre-menu-close {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(32, 38, 58, 0.10);
+    background: rgba(255, 255, 255, 0.60);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex: 0 0 auto;
+  }
+
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .macro-card {
+    border-radius: 28px;
+    border: 1px solid rgba(32, 38, 58, 0.08);
+    background: rgba(255, 255, 255, 0.54);
+    padding: 18px;
+    transition: 160ms ease;
+  }
+
+  .macro-card.is-selected {
+    background: rgba(255, 241, 89, 0.28);
+    border-color: rgba(122, 100, 0, 0.16);
+    box-shadow: 0 16px 32px rgba(255, 230, 0, 0.10);
+  }
+
+  .macro-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: start;
+    margin-bottom: 14px;
+  }
+
+  .macro-card-head h3 {
+    font-size: 1.2rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+
+  .macro-card-head p {
+    color: rgba(32, 38, 58, 0.62);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .macro-pill {
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(32, 38, 58, 0.08);
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 160ms ease;
+    white-space: nowrap;
+  }
+
+  .macro-pill:hover,
+  .macro-pill.is-selected {
+    background: rgba(255, 241, 89, 0.62);
+    border-color: rgba(122, 100, 0, 0.16);
+    color: #5c4d00;
+    box-shadow: 0 10px 24px rgba(255, 230, 0, 0.14);
+  }
+
+  .macro-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .preview-chip {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(32, 38, 58, 0.08);
+    background: rgba(255, 255, 255, 0.52);
+    color: rgba(32, 38, 58, 0.70);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .interest-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .interest-actions-left,
+  .interest-actions-right {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .ghost-link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #7a6400;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+
   /* ===== reveal dos blocos fixos da página ===== */
   .reveal {
     opacity: 0;
@@ -551,7 +798,8 @@
 
   @media (max-width: 1080px) {
     .products-grid,
-    .footer-grid {
+    .footer-grid,
+    .macro-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -624,6 +872,34 @@
 </style>
 </head>
 <body>
+
+  <div id="preMenuOverlay" class="pre-menu-overlay">
+    <div class="pre-menu-panel">
+      <div class="pre-menu-header">
+        <div class="pre-menu-copy">
+          <div class="label label-outline">Bem-vinda à lojinha</div>
+          <h2>O que você quer ver primeiro?</h2>
+          <p>
+            Escolha os grandes grupos que mais combinam com o seu momento. As ofertas dessas categorias vão aparecer primeiro, e o resto entra logo depois.
+          </p>
+        </div>
+        <button id="preMenuClose" class="pre-menu-close" type="button" aria-label="Fechar pré-menu">✕</button>
+      </div>
+
+      <div id="preMenuBody" class="macro-grid"></div>
+
+      <div class="interest-actions">
+        <div class="interest-actions-left">
+          <button id="clearInterests" class="ghost-link" type="button">Limpar seleção</button>
+        </div>
+        <div class="interest-actions-right">
+          <button id="showAllButton" class="button button-secondary" type="button">Ver tudo</button>
+          <button id="applyInterests" class="button button-primary" type="button">Mostrar meus achados</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="site">
     <div class="container">
       <header class="topbar reveal" data-reveal>
@@ -637,6 +913,7 @@
           </div>
           <nav class="nav">
             <a href="#achados">Achados</a>
+            <button id="reopenPreMenu" type="button">Escolher interesses</button>
             <a href="#faq">FAQ</a>
           </nav>
         </div>
@@ -649,6 +926,14 @@
               <div class="label label-solid-yellow">Achados em destaque</div>
               <h2 class="title-xl">Os favoritos da vez.</h2>
             </div>
+          </div>
+
+          <div id="interestBanner" class="interest-banner">
+            <div>
+              <strong>Mostrando primeiro o que combina com seus interesses</strong>
+              <p>Os grupos escolhidos aparecem antes. As outras ofertas continuam logo abaixo.</p>
+            </div>
+            <div id="interestSummary" class="interest-summary"></div>
           </div>
 
           <div class="toolbar reveal" data-reveal>
@@ -681,7 +966,7 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#achados">Ver os achados</a>
-              <a class="button button-secondary" href="#faq">FAQ</a>
+              <button id="heroChooseInterests" class="button button-secondary" type="button">Escolher interesses</button>
             </div>
           </div>
         </div>
@@ -948,7 +1233,8 @@
     const state = {
       activeCategory: "todos",
       search: "",
-      sort: "featured"
+      sort: "featured",
+      selectedCategories: new Set()
     };
 
     const productsGrid = document.getElementById("productsGrid");
@@ -956,6 +1242,16 @@
     const categoryFilters = document.getElementById("categoryFilters");
     const searchInput = document.getElementById("searchInput");
     const sortSelect = document.getElementById("sortSelect");
+    const interestBanner = document.getElementById("interestBanner");
+    const interestSummary = document.getElementById("interestSummary");
+    const preMenuOverlay = document.getElementById("preMenuOverlay");
+    const preMenuBody = document.getElementById("preMenuBody");
+    const applyInterests = document.getElementById("applyInterests");
+    const showAllButton = document.getElementById("showAllButton");
+    const clearInterests = document.getElementById("clearInterests");
+    const preMenuClose = document.getElementById("preMenuClose");
+    const reopenPreMenu = document.getElementById("reopenPreMenu");
+    const heroChooseInterests = document.getElementById("heroChooseInterests");
 
     function formatBRL(value) {
       return Number(value).toLocaleString("pt-BR", {
@@ -1030,6 +1326,97 @@
       return ["todos", ...new Set(items.map(item => item.category))];
     }
 
+
+    const macroCategories = [
+      {
+        key: "beleza",
+        title: "Beleza",
+        subtitle: "Para cabelo, maquiagem, pele e pequenas delicinhas de autocuidado.",
+        preview: ["cabelo", "maquiagem", "skincare", "clareamento dental", "hidratação"]
+      },
+      {
+        key: "tech",
+        title: "Tecnologia",
+        subtitle: "Itens para facilitar a vida, deixar o quarto mais interessante ou resolver pequenas obsessões utilitárias.",
+        preview: ["projetores", "câmeras", "segurança", "gadgets", "acessórios"]
+      },
+      {
+        key: "utilidades",
+        title: "Utilidades",
+        subtitle: "Essenciais de rotina que salvam tempo, evitam gambiarra e resolvem coisas pequenas muito bem.",
+        preview: ["carregadores", "suportes", "android", "mesa", "praticidade"]
+      },
+      {
+        key: "casa",
+        title: "Casa",
+        subtitle: "Achados para deixar o espaço mais gostoso, confortável ou simplesmente mais agradável de habitar.",
+        preview: ["sono", "massagem", "conforto", "relaxamento", "blackout"]
+      },
+      {
+        key: "saude",
+        title: "Saúde",
+        subtitle: "Produtos ligados a bem-estar, sono, digestão e manutenção do corpo no cotidiano.",
+        preview: ["sono", "digestão", "lactase", "melatonina", "bem-estar"]
+      }
+    ];
+
+    function openPreMenu() {
+      document.body.classList.add("modal-open");
+      preMenuOverlay.classList.remove("hidden");
+    }
+
+    function closePreMenu() {
+      document.body.classList.remove("modal-open");
+      preMenuOverlay.classList.add("hidden");
+    }
+
+    function renderPreMenu() {
+      preMenuBody.innerHTML = macroCategories.map(group => `
+        <section class="macro-card ${state.selectedCategories.has(group.key) ? "is-selected" : ""}">
+          <div class="macro-card-head">
+            <div>
+              <h3>${group.title}</h3>
+              <p>${group.subtitle}</p>
+            </div>
+            <button class="macro-pill ${state.selectedCategories.has(group.key) ? "is-selected" : ""}" type="button" data-macro-select="${group.key}">
+              ${state.selectedCategories.has(group.key) ? "Selecionado" : "Quero ver isso"}
+            </button>
+          </div>
+          <div class="macro-preview">
+            ${group.preview.map(item => `<span class="preview-chip">${item}</span>`).join("")}
+          </div>
+        </section>
+      `).join("");
+
+      preMenuBody.querySelectorAll("[data-macro-select]").forEach(button => {
+        button.addEventListener("click", () => {
+          const key = button.dataset.macroSelect;
+          if (state.selectedCategories.has(key)) state.selectedCategories.delete(key);
+          else state.selectedCategories.add(key);
+          renderPreMenu();
+          renderInterestBanner();
+        });
+      });
+    }
+
+    function renderInterestBanner() {
+      const chosen = macroCategories.filter(group => state.selectedCategories.has(group.key));
+
+      if (!chosen.length) {
+        interestBanner.classList.remove("active");
+        interestSummary.innerHTML = "";
+        return;
+      }
+
+      interestBanner.classList.add("active");
+      interestSummary.innerHTML = chosen.map(group => `<span class="interest-chip">${group.title}</span>`).join("");
+    }
+
+    function clearInterestSelections() {
+      state.selectedCategories.clear();
+      render();
+    }
+
     function renderFilters(items) {
       const categories = getCategories(items);
       categoryFilters.innerHTML = categories.map(category => {
@@ -1064,6 +1451,10 @@
       });
     }
 
+    function calculateInterestScore(item) {
+      return state.selectedCategories.has(item.category) ? 3 : 0;
+    }
+
     function sortProducts(items) {
       const sorted = [...items];
       switch (state.sort) {
@@ -1080,7 +1471,11 @@
           sorted.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
           break;
         default:
-          sorted.sort((a, b) => a.featuredOrder - b.featuredOrder);
+          sorted.sort((a, b) => {
+            const interestDelta = calculateInterestScore(b) - calculateInterestScore(a);
+            if (interestDelta !== 0) return interestDelta;
+            return a.featuredOrder - b.featuredOrder;
+          });
       }
       return sorted;
     }
@@ -1173,6 +1568,8 @@
     function render() {
       const normalized = products.map(normalizeProduct);
       renderFilters(normalized);
+      renderPreMenu();
+      renderInterestBanner();
       const filtered = filterProducts(normalized);
       const sorted = sortProducts(filtered);
       renderProducts(sorted);
@@ -1186,6 +1583,33 @@
     sortSelect.addEventListener("change", (event) => {
       state.sort = event.target.value;
       render();
+    });
+
+    applyInterests.addEventListener("click", () => {
+      closePreMenu();
+      render();
+      document.getElementById("achados").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    showAllButton.addEventListener("click", () => {
+      clearInterestSelections();
+      closePreMenu();
+    });
+
+    clearInterests.addEventListener("click", () => {
+      clearInterestSelections();
+    });
+
+    preMenuClose.addEventListener("click", closePreMenu);
+    reopenPreMenu.addEventListener("click", openPreMenu);
+    heroChooseInterests.addEventListener("click", openPreMenu);
+
+    preMenuOverlay.addEventListener("click", (event) => {
+      if (event.target === preMenuOverlay) closePreMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closePreMenu();
     });
 
 function setupProductReveal() {
@@ -1224,6 +1648,7 @@ function setupProductReveal() {
 
     render();
     revealElements();
+    openPreMenu();
   </script>
 </body>
 </html>
