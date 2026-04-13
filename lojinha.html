@@ -349,23 +349,101 @@
       .theme-grid, .footer-grid, .notes-grid, .macro-grid { grid-template-columns:1fr; }
     }
     @media (max-width:760px) {
+      .container { width:min(calc(100% - 20px), var(--container)); }
+      .site { padding:14px 0 40px; }
+
+      .topbar {
+        position:static;
+        top:auto;
+        margin-bottom:14px;
+      }
+      .topbar-inner {
+        padding:12px 14px;
+        border-radius:28px;
+        gap:12px;
+        align-items:flex-start;
+      }
+      .brand { gap:10px; }
+      .brand-mark {
+        width:30px;
+        height:30px;
+        font-size:15px;
+      }
+      .brand strong {
+        font-size:1rem;
+        line-height:.95;
+      }
+      .brand span { display:none; }
+
+      .nav { gap:2px; }
+      .nav a, .nav button {
+        padding:6px 8px;
+        font-size:.95rem;
+      }
+
+      .section-inner { padding:18px; }
+      .theme-block {
+        padding:14px;
+        border-radius:20px;
+      }
+      .theme-block-header { margin-bottom:10px; }
       .theme-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+
       .ml-benefits-grid { grid-template-columns:1fr; }
       .ml-benefit { grid-template-columns:56px 1fr; padding:16px; }
       .ml-benefit-icon { width:56px; height:56px; border-radius:18px; font-size:1.65rem; }
+
       .product-card { border-radius:18px; }
       .product-body { padding:10px 10px 12px; gap:8px; }
       .product-topline { gap:6px; }
-      .category-badge, .ranking-badge { font-size:.56rem; min-height:22px; padding:7px; letter-spacing:.02em; }
-      .product-title { font-size:1rem; line-height:1.12; letter-spacing:-.02em; }
+      .category-badge, .ranking-badge {
+        font-size:.56rem;
+        min-height:22px;
+        padding:0 8px;
+        letter-spacing:.02em;
+      }
+      .ranking-badge {
+        max-width:100%;
+        text-align:center;
+      }
+      .product-title {
+        font-size:.98rem;
+        line-height:1.08;
+        letter-spacing:-.02em;
+      }
       .price-row { gap:4px 8px; }
-      .current-price { font-size:1.4rem; line-height:1; }
+      .current-price { font-size:1.35rem; line-height:1; }
       .original-price { font-size:.9rem; }
-      .buy-button { min-height:38px; border-radius:12px; font-size:.82rem; padding:0 10px; }
+      .buy-button {
+        min-height:38px;
+        border-radius:12px;
+        font-size:.82rem;
+        padding:0 10px;
+      }
+      .report-button-soft {
+        min-height:28px;
+        font-size:.68rem;
+      }
+
       .pre-menu-panel { border-radius:26px; padding:18px; }
       .macro-card { min-height:160px; padding:16px; }
       .macro-emoji { font-size:2.4rem; }
       .macro-copy h3 { font-size:1.08rem; }
+    }
+    @media (max-width:480px) {
+      .topbar-inner {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav {
+        width:100%;
+        justify-content:space-between;
+      }
+      .nav a, .nav button {
+        padding:4px 0;
+        font-size:.92rem;
+      }
+      .theme-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -556,7 +634,7 @@
     const BASE_REF_LINK = "https://meli.la/";
     const REPORT_FORM_URL = "https://forms.gle/Tu4ChMeCW7uQKnWB8";
     const products = [
- 
+  [
   {
     "name": "Elseve Glycolic Gloss — kit shampoo 375ml + condicionador 170ml",
     "currentPrice": 29.43,
