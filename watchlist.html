@@ -26,15 +26,21 @@
       --insetHi: inset 0 1px 0 rgba(255,255,255,.14);
       --insetLo: inset 0 -1px 0 rgba(0,0,0,.35);
 
-      --movie:#FF3B30;     /* vermelho */
-      --series:#FF9500;    /* laranja */
-      --ok:#34C759;        /* verde */
+      --movie:#FF3B30;
+      --series:#FF9500;
+      --ok:#34C759;
       --cyan:#43D7FF;
-      --wait:#FF3B30;      /* aguardando (vermelho) */
-      --watched:#AF52DE;   /* assistido (roxo) */
+      --wait:#FF3B30;
+      --watched:#AF52DE;
 
       --track:#0A0F1B;
       --track2:#0D1426;
+      --episodeFillA:#43D7FF;
+      --episodeFillB:#106882;
+      --seriesFillA:#AF52DE;
+      --seriesFillB:#6E2A99;
+      --movieFillA:#43D7FF;
+      --movieFillB:#106882;
     }
 
     *{ box-sizing:border-box; }
@@ -221,6 +227,7 @@
       border-radius:12px;
       overflow:hidden;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+      flex-wrap:wrap;
     }
     .seg-btn{
       flex:1;
@@ -232,6 +239,7 @@
       font-weight:800;
       font-size:12px;
       transition: transform .12s ease, background .12s ease, color .12s ease;
+      min-width: 120px;
     }
     .seg-btn:hover{ background: rgba(255,255,255,.06); }
     .seg-btn:active{ transform: translateY(1px); }
@@ -520,8 +528,12 @@
       user-select:none;
     }
     .mini strong{ color: var(--ink); }
+    .mini-note{
+      max-width: 100%;
+      white-space: normal;
+      line-height: 1.35;
+    }
 
-    /* ====== badge lançamento ====== */
     .release{
       font-weight:950;
       letter-spacing:.02em;
@@ -687,8 +699,12 @@
       user-select:none;
     }
 
-    .progress{
+    .progress-stack{
       margin-top:12px;
+      display:grid;
+      gap:8px;
+    }
+    .progress{
       display:grid;
       gap:6px;
     }
@@ -727,12 +743,6 @@
       height:100%;
       width:0%;
       border-radius:999px;
-      background:
-        radial-gradient(circle at 18% 30%, rgba(255,255,255,.28), transparent 45%),
-        linear-gradient(180deg, rgba(67,215,255,.80), rgba(16,104,130,.85));
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.20),
-        0 0 18px rgba(67,215,255,.16);
       position:relative;
       transition: width .25s ease;
     }
@@ -744,6 +754,24 @@
       border-radius:999px;
       background: linear-gradient(180deg, rgba(255,255,255,.20), transparent);
       pointer-events:none;
+    }
+    .fill-movie{
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.28), transparent 45%),
+        linear-gradient(180deg, var(--movieFillA), var(--movieFillB));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.20), 0 0 18px rgba(67,215,255,.16);
+    }
+    .fill-episode{
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.28), transparent 45%),
+        linear-gradient(180deg, var(--episodeFillA), var(--episodeFillB));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.20), 0 0 18px rgba(67,215,255,.16);
+    }
+    .fill-series{
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.28), transparent 45%),
+        linear-gradient(180deg, var(--seriesFillA), var(--seriesFillB));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.20), 0 0 18px rgba(175,82,222,.18);
     }
 
     .empty{
@@ -801,7 +829,6 @@
       </header>
 
       <div class="content">
-        <!-- Painel de filtros -->
         <section class="panel panel-filters" aria-label="Filtros">
           <div class="panel-top">
             <div class="meter">
@@ -827,7 +854,6 @@
           </div>
 
           <div class="filters">
-            <!-- Tipo -->
             <div class="filter">
               <label class="label">Tipo</label>
               <div class="segmented" role="group" aria-label="Filtrar por tipo">
@@ -837,7 +863,6 @@
               </div>
             </div>
 
-            <!-- Status -->
             <div class="filter">
               <label class="label">Status</label>
               <div class="segmented" role="group" aria-label="Filtrar por status">
@@ -850,16 +875,14 @@
               </div>
             </div>
 
-            <!-- Busca -->
             <div class="filter">
               <label class="label" for="q">Buscar</label>
               <div class="searchbox">
-                <input id="q" class="input" type="search" placeholder="Título, tag, S02E07, 22/JAN..." autocomplete="off" />
+                <input id="q" class="input" type="search" placeholder="Título, tag, S04E05, #anime..." autocomplete="off" />
               </div>
-              <p class="hint">Dica: “S03E04”, “#drama”, “waiting”, “watched”.</p>
+              <p class="hint">Dica: “S04E05”, “#drama”, “watched”, “Shameless”.</p>
             </div>
 
-            <!-- Tags -->
             <div class="filter">
               <label class="label">Tags</label>
 
@@ -888,7 +911,6 @@
           </div>
         </section>
 
-        <!-- Lista -->
         <section class="panel panel-list" aria-label="Lista">
           <div class="list-head">
             <div class="list-title">
@@ -917,8 +939,7 @@
     </section>
   </main>
 
-  <!-- Dados externos (IMPORTANTE: caminho relativo) -->
-  <script src="./watchlist.js?v=20260215"></script>
+  <script src="./watchlist.js?v=20260412a"></script>
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
@@ -927,14 +948,16 @@
           ? window.WATCHLIST_DATA.items
           : [];
 
+      const WATCHLIST_RELEASES = window.WATCHLIST_RELEASES || {};
+      const WATCHLIST_SERIES_OVERVIEWS = window.WATCHLIST_SERIES_OVERVIEWS || {};
+
       const state = {
-        type: "all",       // all | movie | series
-        status: "all",     // all | need | downloaded | streaming | waiting | watched
+        type: "all",
+        status: "all",
         q: "",
-        tags: new Set(),   // tags selecionadas
+        tags: new Set(),
       };
 
-      // Elementos
       const $cards = document.getElementById("cards");
       const $empty = document.getElementById("emptyState");
       const $resultsMeta = document.getElementById("resultsMeta");
@@ -946,23 +969,25 @@
       const $countProgress = document.getElementById("countProgress");
 
       const $q = document.getElementById("q");
-
       const $btnTags = document.getElementById("btnTags");
       const $tagPanel = document.getElementById("tagPanel");
       const $tagGrid = document.getElementById("tagGrid");
       const $tagCount = document.getElementById("tagCount");
       const $selectedTagChips = document.getElementById("selectedTagChips");
-
       const $btnClearTags = document.getElementById("btnClearTags");
       const $btnResetFilters = document.getElementById("btnResetFilters");
 
-      // Utils
+      const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
       const norm = (s) => String(s ?? "").toLowerCase().trim();
 
-      function clamp01_100(n){
+      function clampPercent(n) {
         const x = Number(n);
         if (!Number.isFinite(x)) return 0;
-        return Math.max(0, Math.min(100, Math.round(x)));
+        return Math.max(0, Math.min(100, x));
+      }
+
+      function round1(n) {
+        return Math.round(n * 10) / 10;
       }
 
       function escapeHtml(str) {
@@ -979,13 +1004,19 @@
         return String(s).replaceAll('"','\\"').replaceAll("\\","\\\\");
       }
 
+      function getSeason(item) {
+        return Number(item.currentSeason ?? item.season ?? 0);
+      }
+
+      function getEpisode(item) {
+        return Number(item.currentEpisode ?? item.episode ?? 0);
+      }
+
       function formatSE(item) {
         if (item.type !== "series") return "";
-        const s = Number(item.season ?? 0);
-        const e = Number(item.episode ?? 0);
-        const ss = String(s).padStart(2, "0");
-        const ee = String(e).padStart(2, "0");
-        return `S${ss}E${ee}`;
+        const s = getSeason(item);
+        const e = getEpisode(item);
+        return `S${String(s).padStart(2, "0")}E${String(e).padStart(2, "0")}`;
       }
 
       function uniqueTagsFromItems(items) {
@@ -997,22 +1028,7 @@
         return Array.from(set).sort((a, b) => a.localeCompare(b, "pt-BR"));
       }
 
-      function computeCounts(items) {
-        const total = items.length;
-        let movies = 0, series = 0, need = 0, progress = 0;
-        for (const it of items) {
-          if (it.type === "movie") movies++;
-          if (it.type === "series") series++;
-          if ((it.status ?? "need") === "need") need++;
-          if (clamp01_100(it.progress ?? 0) > 0) progress++;
-        }
-        return { total, movies, series, need, progress };
-      }
-
-      /* ====== lançamentos: nextRelease e/ou calendário WATCHLIST_RELEASES ====== */
-      const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
-
-      function parseNextRelease(value){
+      function parseFlexibleDate(value) {
         if (!value) return null;
 
         if (value instanceof Date && Number.isFinite(value.getTime())) {
@@ -1022,82 +1038,70 @@
         }
 
         const s = String(value).trim();
-        const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
-        if (!m) return null;
 
-        const dd = Number(m[1]);
-        const mm = Number(m[2]);
-        let yy = Number(m[3]);
+        const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (iso) {
+          const d = new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]));
+          d.setHours(0,0,0,0);
+          return Number.isNaN(d.getTime()) ? null : d;
+        }
 
-        if (!Number.isFinite(dd) || !Number.isFinite(mm) || !Number.isFinite(yy)) return null;
-        if (yy < 100) yy = 2000 + yy;
+        const br = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
+        if (br) {
+          const dd = Number(br[1]);
+          const mm = Number(br[2]);
+          let yy = Number(br[3]);
+          if (yy < 100) yy = 2000 + yy;
+          const d = new Date(yy, mm - 1, dd);
+          d.setHours(0,0,0,0);
+          return Number.isNaN(d.getTime()) ? null : d;
+        }
 
-        const d = new Date(yy, mm - 1, dd);
-        if (Number.isNaN(d.getTime())) return null;
-        d.setHours(0,0,0,0);
-        return d;
+        return null;
       }
 
-      function shortDatePT(date){
-        const dd = String(date.getDate()).padStart(2,"0");
+      function shortDatePT(date) {
+        const dd = String(date.getDate()).padStart(2, "0");
         const mon = MONTHS_PT[date.getMonth()] || "???";
         return `${dd}/${mon}`;
       }
 
-      function daysDiffFromToday(date){
+      function daysDiffFromToday(date) {
         const today = new Date();
         today.setHours(0,0,0,0);
         const ms = date.getTime() - today.getTime();
         return Math.round(ms / 86400000);
       }
 
-      // calendário por título (opcional):
-      // window.WATCHLIST_RELEASES = { "Jujutsu Kaisen": [ {season:3, episode:4, date:"23/01/26"}, ... ] }
-      function getReleaseScheduleForTitle(title){
-        const src = window.WATCHLIST_RELEASES;
-        if (!src) return null;
-
-        if (Array.isArray(src)) {
-          // formato alternativo: [{title, season, episode, date}, ...]
-          return src.filter(x => x && x.title === title);
-        }
-
-        if (typeof src === "object") {
-          const arr = src[title];
-          if (Array.isArray(arr)) return arr;
-        }
-
-        return null;
+      function getReleaseScheduleForItem(item) {
+        return WATCHLIST_RELEASES[item.id] || WATCHLIST_RELEASES[item.title] || null;
       }
 
-      function getReleaseInfo(item){
+      function getReleaseInfo(item) {
         if (item.type !== "series") return { last: null, next: null };
 
-        const schedule = getReleaseScheduleForTitle(item.title);
-        if (!schedule) {
-          // fallback: usa nextRelease do item
-          const d = parseNextRelease(item.nextRelease);
-          return { last: null, next: d ? { date: d, season: null, episode: null } : null };
-        }
+        const schedule = getReleaseScheduleForItem(item);
+        if (!Array.isArray(schedule) || schedule.length === 0) return { last: null, next: null };
 
-        const today = new Date(); today.setHours(0,0,0,0);
+        const today = new Date();
+        today.setHours(0,0,0,0);
 
         const normalized = schedule
-          .map(x => {
-            const d = parseNextRelease(x.date);
+          .map((x) => {
+            const d = parseFlexibleDate(x.date);
             if (!d) return null;
             return {
-              season: Number(x.season ?? item.season ?? 0),
+              season: Number(x.season ?? getSeason(item) ?? 0),
               episode: Number(x.episode ?? 0),
-              date: d
+              title: x.title || "",
+              date: d,
             };
           })
           .filter(Boolean)
-          .sort((a,b) => a.date.getTime() - b.date.getTime());
+          .sort((a, b) => a.date.getTime() - b.date.getTime());
 
         let last = null;
         let next = null;
-
         for (const ep of normalized) {
           if (ep.date.getTime() <= today.getTime()) last = ep;
           if (!next && ep.date.getTime() >= today.getTime()) next = ep;
@@ -1106,7 +1110,7 @@
         return { last, next };
       }
 
-      function nextReleaseBadge(item){
+      function nextReleaseBadge(item) {
         const info = getReleaseInfo(item);
         const next = info.next;
         if (!next || !(next.date instanceof Date)) return "";
@@ -1127,12 +1131,107 @@
         return `<span class="mini release past"><span class="release-date">${dateLabel}</span><span class="release-text">${epLabel} • Já lançou!</span></span>`;
       }
 
-      function lastReleasedChip(item){
+      function lastReleasedChip(item) {
         const info = getReleaseInfo(item);
         const last = info.last;
         if (!last || !Number.isFinite(last.season) || !Number.isFinite(last.episode)) return "";
         const se = `S${String(last.season).padStart(2,"0")}E${String(last.episode).padStart(2,"0")}`;
         return `<span class="mini">Lançado até: <strong>${se}</strong></span>`;
+      }
+
+      function getSeriesOverview(item) {
+        return WATCHLIST_SERIES_OVERVIEWS[item.id] || WATCHLIST_SERIES_OVERVIEWS[item.title] || null;
+      }
+
+      function getTotalEpisodes(item) {
+        if (item.type !== "series") return null;
+
+        if (Number.isFinite(Number(item.totalEpisodes))) {
+          return Number(item.totalEpisodes);
+        }
+
+        const overview = getSeriesOverview(item);
+        if (Array.isArray(overview) && overview.length > 0) {
+          return overview.reduce((acc, row) => acc + Number(row.episodes || 0), 0);
+        }
+
+        const releases = getReleaseScheduleForItem(item);
+        if (Array.isArray(releases) && releases.length > 0) {
+          return releases.length;
+        }
+
+        return null;
+      }
+
+      function getWatchedEquivalentEpisodes(item) {
+        if (item.type !== "series") return null;
+
+        const season = getSeason(item);
+        const episode = getEpisode(item);
+        const epProgress = clampPercent(item.currentEpisodeProgress ?? item.progress ?? 0);
+        const overview = getSeriesOverview(item);
+
+        let completedPreviousSeasons = 0;
+        if (Array.isArray(overview) && overview.length > 0) {
+          for (const row of overview) {
+            if (Number(row.season) < season) {
+              completedPreviousSeasons += Number(row.episodes || 0);
+            }
+          }
+        }
+
+        const watchedInCurrentSeason = Math.max(0, episode - 1) + (epProgress / 100);
+        return completedPreviousSeasons + watchedInCurrentSeason;
+      }
+
+      function deriveSeriesProgress(item) {
+        if (item.type !== "series") return null;
+
+        const explicit = Number(item.seriesProgress);
+        if (Number.isFinite(explicit)) return clampPercent(explicit);
+
+        const totalEpisodes = getTotalEpisodes(item);
+        const watchedEquivalent = getWatchedEquivalentEpisodes(item);
+
+        if (!Number.isFinite(totalEpisodes) || totalEpisodes <= 0) return null;
+        if (!Number.isFinite(watchedEquivalent)) return null;
+
+        return clampPercent((watchedEquivalent / totalEpisodes) * 100);
+      }
+
+      function getMovieProgress(item) {
+        if (item.type !== "movie") return null;
+        return clampPercent(item.progress ?? 0);
+      }
+
+      function getEpisodeProgress(item) {
+        if (item.type !== "series") return null;
+        return clampPercent(item.currentEpisodeProgress ?? item.progress ?? 0);
+      }
+
+      function isInProgress(item) {
+        if (item.type === "movie") {
+          const p = getMovieProgress(item);
+          return p > 0 && p < 100;
+        }
+
+        const ep = getEpisodeProgress(item);
+        const whole = deriveSeriesProgress(item);
+        return (ep > 0 && ep < 100) || (whole > 0 && whole < 100) || (ep === 100 && item.status !== "watched");
+      }
+
+      function computeCounts(items) {
+        const total = items.length;
+        let movies = 0, series = 0, need = 0, progress = 0;
+
+        for (const it of items) {
+          if (it.type === "movie") movies++;
+          if (it.type === "series") series++;
+          if ((it.status ?? "need") === "need") need++;
+          if (isInProgress(it)) progress++;
+        }
+
+        return { total, movies, series, need, progress };
       }
 
       function applyFilters(items) {
@@ -1154,20 +1253,19 @@
           }
 
           if (q) {
-            const ri = getReleaseInfo(it);
-            const releaseDate = ri?.next?.date ? shortDatePT(ri.next.date) : "";
-            const releaseSE = (ri?.next?.season && ri?.next?.episode)
-              ? `S${String(ri.next.season).padStart(2,"0")}E${String(ri.next.episode).padStart(2,"0")}`
-              : "";
-
+            const totalEpisodes = getTotalEpisodes(it);
+            const episodeProgress = getEpisodeProgress(it);
+            const seriesProgress = deriveSeriesProgress(it);
             const hay = [
+              it.id,
               it.title,
-              it.displayTitle,
               it.type,
               it.status,
               formatSE(it),
-              releaseDate,
-              releaseSE,
+              it.note,
+              totalEpisodes,
+              episodeProgress,
+              seriesProgress,
               ...(it.tags ?? []).map((t) => `#${t}`),
             ].map(norm).join(" ");
 
@@ -1185,14 +1283,12 @@
         });
       }
 
-      // Tags UI
       function renderTagFilters() {
         const tags = uniqueTagsFromItems(watchlistItems);
-
         $tagGrid.innerHTML = "";
+
         for (const t of tags) {
           const id = `tag-${encodeURIComponent(t).replaceAll("%","_")}`;
-
           const wrap = document.createElement("label");
           wrap.className = "tag-item";
           wrap.innerHTML = `
@@ -1218,8 +1314,8 @@
       function renderSelectedTagChips() {
         const arr = Array.from(state.tags);
         $tagCount.textContent = String(arr.length);
-
         $selectedTagChips.innerHTML = "";
+
         for (const t of arr) {
           const chip = document.createElement("span");
           chip.className = "chip";
@@ -1238,7 +1334,6 @@
         }
       }
 
-      // Cards
       function statusLegend(status) {
         switch (status) {
           case "downloaded": return "✅ baixado";
@@ -1249,12 +1344,26 @@
         }
       }
 
+      function renderProgressBlock(label, value, fillClass) {
+        const pct = round1(clampPercent(value));
+        return `
+          <div class="progress" aria-label="${escapeHtml(label)}">
+            <div class="progress-top">
+              <div class="progress-title">${escapeHtml(label)}</div>
+              <div class="progress-value">${pct}%</div>
+            </div>
+            <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}">
+              <div class="fill ${fillClass}" style="width:${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }
+
       function renderCards(items) {
         $cards.innerHTML = "";
 
         for (let idx = 0; idx < items.length; idx++) {
           const it = items[idx];
-
           const card = document.createElement("article");
           card.className = "card";
           card.setAttribute("data-key", it.id ?? `${it.type}:${it.title}:${formatSE(it)}:${idx}`);
@@ -1262,44 +1371,52 @@
           const icon = it.type === "movie" ? "🍿" : "🎬";
           const orbClass = it.type === "movie" ? "movie" : "series";
           const status = it.status ?? "need";
-          const titleDisplay = it.displayTitle ?? it.title ?? "";
 
-          const seMeta = it.type === "series"
-            ? `
-              <span class="mini">Season: <strong>${Number(it.season ?? 0)}</strong></span>
-              <span class="mini">Episode: <strong>${Number(it.episode ?? 0)}</strong></span>
-              <span class="mini">${escapeHtml(formatSE(it))}</span>
-              ${lastReleasedChip(it)}
-              ${nextReleaseBadge(it)}
-            `
-            : `<span class="mini">Filme</span>`;
+          let metaBits = [];
+          let progressBits = [];
+
+          if (it.type === "series") {
+            const se = formatSE(it);
+            const totalEpisodes = getTotalEpisodes(it);
+            const epProgress = getEpisodeProgress(it);
+            const wholeSeriesProgress = deriveSeriesProgress(it);
+
+            metaBits.push(`<span class="mini">Atual: <strong>${escapeHtml(se)}</strong></span>`);
+            if (Number.isFinite(totalEpisodes)) {
+              metaBits.push(`<span class="mini">Total: <strong>${totalEpisodes} eps</strong></span>`);
+            }
+            metaBits.push(lastReleasedChip(it));
+            metaBits.push(nextReleaseBadge(it));
+
+            if (Number.isFinite(epProgress)) {
+              progressBits.push(renderProgressBlock("EPISÓDIO ATUAL", epProgress, "fill-episode"));
+            }
+            if (Number.isFinite(wholeSeriesProgress)) {
+              progressBits.push(renderProgressBlock("SÉRIE INTEIRA", wholeSeriesProgress, "fill-series"));
+            }
+          } else {
+            metaBits.push(`<span class="mini">Filme</span>`);
+            const movieProgress = getMovieProgress(it);
+            if (Number.isFinite(movieProgress)) {
+              progressBits.push(renderProgressBlock("PROGRESSO", movieProgress, "fill-movie"));
+            }
+          }
+
+          if (it.note) {
+            metaBits.push(`<span class="mini mini-note">${escapeHtml(it.note)}</span>`);
+          }
 
           const tagsHtml = (it.tags ?? [])
             .map((t) => `<span class="tag">#${escapeHtml(t)}</span>`)
             .join("");
-
-          const prog = clamp01_100(it.progress ?? 0);
-          const progressHtml = (prog > 0)
-            ? `
-              <div class="progress" aria-label="Progresso assistido">
-                <div class="progress-top">
-                  <div class="progress-title">PROGRESSO</div>
-                  <div class="progress-value">${prog}%</div>
-                </div>
-                <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${prog}">
-                  <div class="fill" style="width:${prog}%;"></div>
-                </div>
-              </div>
-            `
-            : "";
 
           card.innerHTML = `
             <div class="card-top">
               <div class="sticker">
                 <div class="orb ${orbClass}" aria-hidden="true">${icon}</div>
                 <div class="titleline">
-                  <h3 class="card-title" title="${escapeHtml(titleDisplay)}">${escapeHtml(titleDisplay)}</h3>
-                  <div class="card-meta">${seMeta}</div>
+                  <h3 class="card-title" title="${escapeHtml(it.title)}">${escapeHtml(it.title)}</h3>
+                  <div class="card-meta">${metaBits.filter(Boolean).join("")}</div>
                 </div>
               </div>
 
@@ -1316,17 +1433,15 @@
             </div>
 
             <div class="tags">${tagsHtml || `<span class="tag">#sem-tag</span>`}</div>
-            ${progressHtml}
+            ${progressBits.length ? `<div class="progress-stack">${progressBits.join("")}</div>` : ""}
           `;
 
-          // LED ativo
           const leds = Array.from(card.querySelectorAll(".led"));
           leds.forEach((b) => {
             const st = b.getAttribute("data-state");
             b.classList.toggle("is-on", st === status && status !== "need");
           });
 
-          // Interação local (runtime)
           leds.forEach((b) => {
             b.addEventListener("click", () => {
               it.status = b.getAttribute("data-state");
@@ -1347,14 +1462,11 @@
         $countProgress.textContent = String(c.progress);
 
         const filtered = applyFilters(watchlistItems);
-
         $resultsMeta.textContent = `${filtered.length} resultado(s) com os filtros atuais`;
         $empty.hidden = filtered.length !== 0;
-
         renderCards(filtered);
       }
 
-      // Eventos: tipo/status
       document.querySelectorAll("[data-type]").forEach((btn) => {
         btn.addEventListener("click", () => {
           state.type = btn.getAttribute("data-type");
@@ -1371,13 +1483,11 @@
         });
       });
 
-      // Busca
       $q.addEventListener("input", () => {
         state.q = $q.value;
         render();
       });
 
-      // Tags dropdown
       $btnTags.addEventListener("click", () => {
         const open = !$tagPanel.hasAttribute("hidden");
         if (open) {
@@ -1389,7 +1499,6 @@
         }
       });
 
-      // Limpar tags
       $btnClearTags.addEventListener("click", () => {
         state.tags.clear();
         $tagGrid.querySelectorAll("input[type=checkbox]").forEach((cb) => (cb.checked = false));
@@ -1397,7 +1506,6 @@
         render();
       });
 
-      // Reset geral
       $btnResetFilters.addEventListener("click", () => {
         state.type = "all";
         state.status = "all";
@@ -1413,7 +1521,6 @@
         render();
       });
 
-      // Fechar painel de tags ao clicar fora
       document.addEventListener("click", (ev) => {
         const t = ev.target;
         const clickedInside = $tagPanel.contains(t) || $btnTags.contains(t);
@@ -1423,11 +1530,9 @@
         }
       });
 
-      // Boot
       renderTagFilters();
       render();
     });
   </script>
-
 </body>
 </html>
