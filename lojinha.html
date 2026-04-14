@@ -202,6 +202,11 @@
     .price-row { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; }
     .current-price { font-size:2rem; line-height:1; letter-spacing:-.05em; font-weight:900; color:#1f2437; }
     .original-price { color:rgba(32,38,58,.40); font-size:.94rem; text-decoration:line-through; }
+    .discount-badge {
+      display:inline-flex; align-items:center; min-height:26px; padding:0 10px;
+      border-radius:999px; background:rgba(34,139,94,.08); border:1px solid rgba(34,139,94,.16);
+      color:#1f7a55; font-size:.74rem; font-weight:800; letter-spacing:.01em; white-space:nowrap;
+    }
     .buy-button {
       position:relative; overflow:hidden; isolation:isolate;
       margin-top:auto; display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px;
@@ -414,6 +419,11 @@
       .price-row { gap:4px 8px; }
       .current-price { font-size:1.35rem; line-height:1; }
       .original-price { font-size:.9rem; }
+      .discount-badge {
+        min-height:22px;
+        padding:0 8px;
+        font-size:.64rem;
+      }
       .buy-button {
         min-height:38px;
         border-radius:12px;
@@ -501,7 +511,7 @@
           <div id="interestBanner" class="interest-banner">
             <div>
               <strong>Mostrando primeiro o que combina com o seu mood</strong>
-          
+
             </div>
             <div id="interestSummary" class="interest-summary"></div>
           </div>
@@ -809,7 +819,7 @@
       "favorito"
     ]
   },
- 
+
   {
     "name": "Máscara 3D blackout para dormir",
     "currentPrice": 32.00,
@@ -1363,6 +1373,7 @@
             <div class="price-row">
               <span class="current-price">${formatBRL(item.currentPrice)}</span>
               ${item.originalPrice && item.originalPrice > item.currentPrice ? `<span class="original-price">${formatBRL(item.originalPrice)}</span>` : ""}
+              ${item.discount > 0 ? `<span class="discount-badge">${item.discount}% de desconto</span>` : ""}
             </div>
             <div class="product-actions">
               <a class="buy-button" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver oferta</a>
