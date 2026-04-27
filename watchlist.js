@@ -26,6 +26,17 @@
     // =========================
     // SÉRIES
     // =========================
+     {
+      id: "theboys",
+      type: "series",
+      title: "The Boys",
+      currentSeason: 5,
+      currentEpisode: 4,
+      currentEpisodeProgress: 100,
+      tags: ["super herói", "violência", "comecei"],
+      status: "watched",
+      note: "",
+    },
     {
       id: "rhobh",
       type: "series",
@@ -35,29 +46,18 @@
       currentEpisodeProgress: 100,
       tags: ["reality show", "comecei"],
       status: "downloaded",
-      note: "Até S15E12 assistido. Calendário episódico completo da season 15.",
-    },
-    {
-      id: "jujutsu_kaisen",
-      type: "series",
-      title: "Jujutsu Kaisen",
-      currentSeason: 3,
-      currentEpisode: 12,
-      currentEpisodeProgress: 100,
-      tags: ["anime", "ação", "sobrenatural"],
-      status: "watched",
-      note: "Todos os episódios da season 3 já assistidos.",
+      note: "",
     },
     {
       id: "shameless",
       type: "series",
       title: "Shameless",
-      currentSeason: 4,
-      currentEpisode: 5,
-      currentEpisodeProgress: 40,
+      currentSeason: 5,
+      currentEpisode: 4,
+      currentEpisodeProgress: 100,
       tags: ["drama", "comédia dramática"],
-      status: "downloaded",
-      note: "Progresso duplo: episódio atual + série inteira.",
+      status: "watched",
+      note: "",
     },
     {
       id: "serial_experiments_lain",
@@ -169,6 +169,16 @@
       { season: 15, episode: 20, date: "2026-04-30", title: "Reunion Part 2" },
       { season: 15, episode: 21, date: "2026-05-07", title: "Reunion Part 3" },
     ],
+    theboys: [
+  { season: 5, episode: 1, date: "2026-04-08", title: "Fifteen Inches of Sheer Dynamite" },
+  { season: 5, episode: 2, date: "2026-04-08", title: "Teenage Kix" },
+  { season: 5, episode: 3, date: "2026-04-15", title: "Every One of You Sons of Bitches" },
+  { season: 5, episode: 4, date: "2026-04-22", title: "King of Hell" },
+  { season: 5, episode: 5, date: "2026-04-29", title: "One-Shots" },
+  { season: 5, episode: 6, date: "2026-05-06", title: "TBA" },
+  { season: 5, episode: 7, date: "2026-05-13", title: "TBA" },
+  { season: 5, episode: 8, date: "2026-05-20", title: "TBA" },
+],
   };
 
   // =========================
