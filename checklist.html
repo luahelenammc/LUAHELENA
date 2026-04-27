@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist Moon XP/Vista Black — Padrão Ouro v12</title>
+  <style>
+    :root {
+      --xp-blue: #245edb;
+      --xp-blue-dark: #0a246a;
+      --xp-green: #36b030;
+      --xp-silver: #ece9d8;
+      --xp-cream: #fffef7;
+      --xp-border: #003c74;
+      --pending: #fbf7df;
+      --done: #dff5d8;
+      --inactive: #e6e8ef;
+      --inactive-border: #8a92a6;
+      --text: #111;
+      --muted: #475569;
+      --font-ui: Tahoma, Verdana, Segoe UI, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-ui);
+      background: linear-gradient(180deg, #7db9ff 0%, #4b93f3 38%, #63bd58 39%, #44a845 66%, #2f8f35 100%);
+      overflow-x: hidden;
+      scroll-behavior: auto;
+    }
+
+    .desktop {
+      min-height: 100%;
+      padding: 28px 18px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .window {
+      width: min(1040px, 100%);
+      border: 2px solid var(--xp-border);
+      border-radius: 12px 12px 8px 8px;
+      background: var(--xp-silver);
+      box-shadow: 5px 6px 0 rgba(0,0,0,.20), inset 0 0 0 1px rgba(255,255,255,.65);
+      overflow: hidden;
+    }
+
+    .titlebar {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 8px 7px 12px;
+      color: #fff;
+      background: linear-gradient(180deg, #4e9dff 0%, #1c6ee9 14%, #0f49b7 58%, #083a9a 100%);
+      border-bottom: 1px solid #012d74;
+      text-shadow: 1px 1px 0 #06296d;
+    }
+
+    .title-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+
+    .app-icon {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #fff 0%, #cde6ff 45%, #7cbc27 46%, #2f8a20 100%);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.25);
+      font-size: 16px;
+    }
+
+    .titlebar h1 {
+      margin: 0;
+      font-size: clamp(14px, 2.4vw, 18px);
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .window-buttons { display: flex; gap: 4px; flex: 0 0 auto; }
+
+    .win-btn {
+      width: 28px;
+      height: 26px;
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1;
+      color: #fff;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.55), inset -1px -1px 0 rgba(0,0,0,.25);
+      user-select: none;
+    }
+    .min { background: linear-gradient(#7ab2ff, #2356ce); }
+    .max { background: linear-gradient(#86bdff, #245edb); }
+    .close { background: linear-gradient(#ffb199, #db2f18 55%, #a71107); }
+
+    .menubar {
+      display: flex;
+      gap: 18px;
+      padding: 6px 12px;
+      background: #f7f3df;
+      border-bottom: 1px solid #c8c2a8;
+      font-size: 13px;
+      color: #222;
+    }
+    .menubar span::first-letter { text-decoration: underline; }
+
+    .content { padding: 14px; background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.28)), var(--xp-silver); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .panel {
+      border: 1px solid #8b8673;
+      border-radius: 7px;
+      background: var(--xp-cream);
+      box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #d4cfbc;
+      overflow: hidden;
+      contain: paint;
+    }
+
+    .panel-header {
+      padding: 8px 10px;
+      color: #123a85;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 1px solid #d7d0bb;
+      background: linear-gradient(180deg, #fff 0%, #ece6c9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-body { padding: 12px; }
+
+    .date-display { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .date-badge {
+      width: 70px;
+      min-height: 74px;
+      border: 1px solid #245edb;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 2px 2px 0 rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.7);
+      overflow: hidden;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    .date-badge .month { padding: 4px 3px; color: #fff; font-weight: 700; font-size: 12px; background: linear-gradient(180deg, #ed5142, #bd160c); text-transform: uppercase; }
+    .date-badge .daynum { font-size: 34px; line-height: 1.08; font-weight: 700; color: #123a85; padding-top: 5px; }
+    .date-words h2 { margin: 0 0 4px; font-size: clamp(20px, 3vw, 30px); color: #123a85; letter-spacing: -.3px; }
+    .date-words p { margin: 0 0 5px; font-size: 13px; color: #334155; line-height: 1.45; }
+
+    .legend { display: grid; gap: 8px; font-size: 13px; }
+    .legend-row { display: flex; align-items: center; gap: 8px; min-height: 26px; }
+    .legend-swatch { width: 30px; height: 22px; border-radius: 5px; border: 1px solid #9a927d; box-shadow: inset 1px 1px 0 rgba(255,255,255,.85); }
+    .sw-pending { background: var(--pending); }
+    .sw-done { background: var(--done); border-color: #62a34d; }
+    .sw-inactive { background: var(--inactive); border-color: var(--inactive-border); }
+
+    .progress-wrap {
+      margin-top: 9px;
+      border: 1px solid #6b7280;
+      background: #fff;
+      height: 22px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.25);
+    }
+    .progress-bar { height: 100%; width: 0%; background: repeating-linear-gradient(45deg, #3cc43a 0 10px, #2fb12d 10px 20px); transition: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.55); }
+    .progress-bar.free { background: repeating-linear-gradient(45deg, #9d6cff 0 10px, #7c3aed 10px 20px); }
+    .progress-bar.evolution { background: repeating-linear-gradient(45deg, #fff266 0 10px, #f5c542 10px 20px); }
+    .progress-bar.general { background: repeating-linear-gradient(45deg, #9d6cff 0 10px, #7c3aed 10px 20px); }
+    .progress-text { margin-top: 5px; font-size: 12px; color: #334155; line-height: 1.35; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 -1px; padding: 0 8px; border-bottom: 1px solid #8b8673; }
+    .tab-btn {
+      appearance: none;
+      border: 1px solid #8b8673;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      padding: 8px 14px;
+      min-height: 34px;
+      background: linear-gradient(180deg, #fff 0%, #e8e4cf 100%);
+      color: #123a85;
+      font: 700 13px var(--font-ui);
+      cursor: pointer;
+      box-shadow: inset 1px 1px 0 #fff;
+    }
+    .tab-btn.active { position: relative; top: 1px; background: var(--xp-cream); color: #0a246a; }
+
+    .tab-panel {
+      display: none;
+      border: 1px solid #8b8673;
+      border-radius: 7px;
+      background: var(--xp-cream);
+      padding: 12px;
+      box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #d4cfbc;
+    }
+    .tab-panel.active { display: block; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .section { min-height: 100%; }
+    .section .panel-header,
+    .free-list-panel .panel-header,
+    .evo-list-panel .panel-header { color: white; text-shadow: 1px 1px 0 rgba(0,0,0,.35); background: linear-gradient(180deg, #62a4ff 0%, #245edb 52%, #1646b2 100%); border-bottom-color: #0a2c7d; }
+    .section.care .panel-header { background: linear-gradient(180deg, #6bd56a 0%, #36a936 48%, #1d7f20 100%); }
+    .section.meals .panel-header { background: linear-gradient(180deg, #ffcc70 0%, #f59f00 48%, #c66f00 100%); }
+    .free-list-panel .panel-header { background: linear-gradient(180deg, #c69bff 0%, #7c3aed 52%, #5621a8 100%); }
+    .evo-list-panel .panel-header { color: #111; text-shadow: 1px 1px 0 rgba(255,255,255,.7); background: linear-gradient(180deg, #fffaa7 0%, #ffff00 48%, #d6b900 100%); border-bottom-color: #9d8500; }
+
+    .items { list-style: none; padding: 10px; margin: 0; display: grid; gap: 8px; min-height: 54px; }
+    .items.drag-over { outline: 2px dashed #245edb; outline-offset: -5px; background: rgba(36, 94, 219, .08); }
+    .subgroup-title { margin: 12px 10px 2px; padding: 6px 8px; color: #123a85; font-size: 12px; font-weight: 700; background: linear-gradient(180deg, #fefefe, #e8e4cf); border: 1px solid #c9c1a8; border-radius: 6px; box-shadow: inset 1px 1px 0 #fff; }
+
+    .check-item {
+      position: relative;
+      display: grid;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      border: 1px solid #b6ae93;
+      border-radius: 7px;
+      background: var(--pending);
+      cursor: pointer;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.08), 1px 1px 0 rgba(255,255,255,.7);
+      transition: none;
+      user-select: none;
+      outline: none;
+    }
+    .fixed-item { grid-template-columns: 28px 1fr auto; padding: 8px 8px; }
+    .free-item { --item-color: #b46cff; grid-template-columns: 6px 24px 42px 1fr auto 28px 34px auto; min-height: 46px; padding: 8px 8px 8px 0; overflow: hidden; }
+    .color-rail { align-self: stretch; background: var(--item-color); box-shadow: inset 1px 0 0 rgba(255,255,255,.35); }
+    .drag-handle { width: 24px; height: 28px; display: grid; place-items: center; color: #475569; cursor: grab; border: 1px solid #c8c2a8; border-radius: 4px; background: linear-gradient(180deg, #fff, #e8e4cf); box-shadow: inset 1px 1px 0 #fff; font-size: 13px; }
+    .drag-handle:active { cursor: grabbing; }
+    .free-item.dragging { opacity: .46; border-style: dashed; animation: none !important; }
+    .check-item:hover { border-color: #6b8ec9; }
+    .check-item:focus-visible { box-shadow: 0 0 0 3px rgba(36,94,219,.35), inset 1px 1px 0 rgba(255,255,255,.95); }
+    .check-item .emoji { font-size: 20px; display: grid; place-items: center; min-width: 26px; }
+    .emoji-edit { width: 38px; height: 26px; padding: 2px 3px; border: 1px solid #9a927d; border-radius: 4px; background: linear-gradient(180deg, #fff, #e8e4cf); text-align: center; font: 18px var(--font-ui); box-shadow: inset 1px 1px 0 #fff; }
+    .emoji-edit:focus { outline: 2px solid rgba(36,94,219,.35); outline-offset: 1px; }
+    .check-item .label { font-size: 13px; line-height: 1.25; word-break: break-word; }
+    .check-item .status-pill { font-size: 11px; color: #475569; border: 1px solid #c8c2a8; background: #fffdf1; padding: 3px 6px; border-radius: 99px; white-space: nowrap; }
+    .check-item.done { background: var(--done); border-color: #62a34d; }
+    .check-item.done .label { text-decoration: line-through; color: #31552e; }
+    .check-item.done .status-pill { color: #126016; border-color: #7fbd74; background: #f1ffee; }
+    .check-item.inactive { background: var(--inactive); border-color: var(--inactive-border); opacity: .74; }
+    .check-item.inactive .label { color: #5b6478; }
+    .check-item.inactive .status-pill { color: #3f4656; border-color: #8a92a6; background: #f7f8fb; }
+    .free-item.important:not(.done):not(.inactive) { border-color: #d21f1f; animation: importantPulse 1.45s ease-in-out infinite; }
+    .free-item.important .label::before { content: "🚨 "; font-size: 12px; }
+    .fixed-item.nudge-orange:not(.done):not(.inactive) { border-color: #f59f00; animation: orangePulse 1.45s ease-in-out infinite; }
+    @keyframes importantPulse {
+      0%, 100% { box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.08), 0 0 0 rgba(255,0,0,0); }
+      50% { box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.08), 0 0 12px rgba(255,0,0,.75); }
+    }
+    @keyframes orangePulse {
+      0%, 100% { box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.08), 0 0 0 rgba(245,159,0,0); }
+      50% { box-shadow: inset 1px 1px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(0,0,0,.08), 0 0 12px rgba(245,159,0,.78); }
+    }
+    .check-item.disabled { opacity: .52; cursor: not-allowed; animation: none; }
+
+    .color-edit { width: 26px; height: 24px; padding: 2px; border: 1px solid #9a927d; border-radius: 4px; background: linear-gradient(180deg, #fff, #e8e4cf); cursor: pointer; box-shadow: inset 1px 1px 0 #fff; }
+    .color-edit:hover { border-color: #245edb; }
+    .color-edit::-webkit-color-swatch-wrapper { padding: 0; }
+    .color-edit::-webkit-color-swatch { border: 1px solid rgba(0,0,0,.25); border-radius: 3px; }
+    .remove-btn { width: 26px; height: 24px; border: 1px solid #9a927d; border-radius: 4px; background: linear-gradient(180deg, #fff, #e8e4cf); color: #7a170f; font-weight: 700; cursor: pointer; box-shadow: inset 1px 1px 0 #fff; }
+    .remove-btn:hover { border-color: #8f2318; }
+
+    .creator-panel { margin-bottom: 14px; }
+    .kind-switch { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 10px; }
+    .kind-btn { appearance: none; min-height: 32px; padding: 6px 10px; border: 1px solid #8b8673; border-radius: 6px; background: linear-gradient(180deg, #fff, #e8e4cf); color: #123a85; font: 700 12px var(--font-ui); box-shadow: inset 1px 1px 0 #fff; cursor: pointer; }
+    .kind-btn.active { border-color: #245edb; background: linear-gradient(180deg, #fefefe, #cde0ff); color: #0a246a; }
+    .kind-btn[data-kind="evolution"].active { border-color: #9d8500; background: linear-gradient(180deg, #fffec5, #ffff00 52%, #f5df4d); color: #111; }
+    .creator-grid { display: grid; grid-template-columns: 120px 1fr 120px 46px auto; gap: 10px; align-items: end; }
+    .creator-panel.evolution-mode .creator-grid { grid-template-columns: 110px 1fr 1.35fr 120px 46px auto; }
+    label { display: grid; gap: 4px; font-size: 12px; color: #123a85; font-weight: 700; }
+    .general-only { display: grid; }
+    .evolution-only { display: none; }
+    .creator-panel.evolution-mode .general-only { display: none; }
+    .creator-panel.evolution-mode .evolution-only { display: grid; }
+    .xp-input, .xp-color { width: 100%; min-height: 34px; border: 1px solid #7f9db9; border-radius: 4px; background: #fff; color: #111; padding: 7px 8px; font: 13px var(--font-ui); box-shadow: inset 1px 1px 2px rgba(0,0,0,.18); }
+    .xp-color { padding: 3px; cursor: pointer; }
+    .xp-input:focus, .xp-color:focus { outline: 2px solid rgba(36,94,219,.35); outline-offset: 1px; }
+    .evolution-mode #colorInput { background: #fffde4; }
+    .prefields { margin-top: 10px; display: flex; gap: 7px; flex-wrap: wrap; align-items: center; font-size: 12px; color: #475569; }
+    .prefield-btn { appearance: none; border: 1px solid #9d8500; border-radius: 999px; background: linear-gradient(180deg, #fff, #fff58b); color: #111; padding: 5px 9px; font: 700 12px var(--font-ui); cursor: pointer; box-shadow: inset 1px 1px 0 #fff; }
+    .color-presets { margin-top: 10px; display: flex; gap: 7px; flex-wrap: wrap; align-items: center; font-size: 12px; color: #475569; }
+    .color-dot { width: 24px; height: 24px; border: 1px solid #7b7565; border-radius: 999px; box-shadow: inset 1px 1px 0 rgba(255,255,255,.75), 1px 1px 0 rgba(0,0,0,.12); cursor: pointer; }
+    .free-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+    .empty-state { margin: 0; padding: 18px 12px; color: #475569; font-size: 13px; line-height: 1.45; background: #fffef7; }
+
+    .footer-actions { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border: 1px solid #b6ae93; border-radius: 7px; padding: 10px; background: #f7f3df; box-shadow: inset 1px 1px 0 #fff; }
+    .tiny { font-size: 12px; color: #475569; line-height: 1.4; }
+    .xp-button { appearance: none; border: 1px solid #31559c; border-radius: 5px; background: linear-gradient(180deg, #fff 0%, #e4ecff 43%, #b7cafc 45%, #d9e5ff 100%); color: #123a85; padding: 7px 12px; min-height: 34px; font: 700 12px var(--font-ui); cursor: pointer; box-shadow: inset 1px 1px 0 rgba(255,255,255,.9), 1px 1px 0 rgba(0,0,0,.12); white-space: nowrap; }
+    .xp-button:hover { border-color: #0a246a; }
+    .xp-button:active { background: linear-gradient(180deg, #c6d6ff 0%, #eef3ff 100%); }
+    .xp-button.danger { border-color: #8f2318; color: #7a170f; background: linear-gradient(180deg, #fff 0%, #ffe5e0 45%, #ffc1b7 46%, #ffe2de 100%); }
+    .important-toggle { width: 42px; min-width: 42px; height: 34px; padding: 0; font-size: 16px; border-color: #8f2318; color: #8f2318; background: linear-gradient(180deg, #fff 0%, #fff0ed 43%, #ffc7bd 45%, #ffe4df 100%); }
+    .important-toggle.active { color: #fff; border-color: #6f140d; background: linear-gradient(180deg, #ff9c8d 0%, #e33124 48%, #ad140b 100%); text-shadow: 1px 1px 0 rgba(0,0,0,.35); box-shadow: inset 1px 1px 0 rgba(255,255,255,.45), 0 0 8px rgba(255,0,0,.55); }
+
+    .taskbar { position: relative; width: min(1040px, calc(100% - 36px)); margin: -10px auto 18px; height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 5px 10px; background: linear-gradient(180deg, #245edb, #0b3ca5 60%, #082f83); box-shadow: 4px 4px 0 rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.3); color: #fff; z-index: 10; }
+    .start { display: flex; align-items: center; gap: 8px; padding: 7px 16px 8px 12px; border-radius: 999px 10px 10px 999px; background: linear-gradient(180deg, #59d453, #168d16 60%, #0b6711); box-shadow: inset 1px 1px 0 rgba(255,255,255,.45), inset -1px -1px 0 rgba(0,0,0,.35), 1px 1px 2px rgba(0,0,0,.3); font-weight: 700; text-shadow: 1px 1px 0 rgba(0,0,0,.35); white-space: nowrap; }
+    .task-item { flex: 1; max-width: 540px; padding: 7px 12px; border-radius: 6px; background: linear-gradient(180deg, #4f8dff, #1b56cb); box-shadow: inset 1px 1px 0 rgba(255,255,255,.35), inset -1px -1px 0 rgba(0,0,0,.25); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .clock { padding: 7px 10px; min-width: 88px; text-align: center; border-radius: 6px; background: rgba(0,0,0,.12); box-shadow: inset 1px 1px 1px rgba(0,0,0,.35), inset -1px -1px 0 rgba(255,255,255,.18); font-size: 13px; }
+    .toast { position: fixed; right: 16px; bottom: 58px; max-width: min(360px, calc(100vw - 32px)); padding: 10px 12px; border: 1px solid #003c74; border-radius: 8px; color: #123a85; background: #fffef7; box-shadow: 0 10px 25px rgba(0,0,0,.25), inset 1px 1px 0 #fff; opacity: 0; transition: none; pointer-events: none; font-size: 12px; z-index: 20; }
+    .toast.show { opacity: 1; }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+    @media (max-width: 900px) { .hero, .grid, .free-columns { grid-template-columns: 1fr; } .creator-grid, .creator-panel.evolution-mode .creator-grid { grid-template-columns: 92px 1fr; } .creator-grid .xp-button[type="submit"] { grid-column: 1 / -1; } .important-toggle { grid-column: 1 / -1; justify-self: start; } }
+    @media (max-width: 540px) { .desktop { padding: 10px 8px 18px; } .content { padding: 10px; } .menubar { overflow-x: auto; gap: 14px; } .fixed-item { grid-template-columns: 24px 1fr; } .fixed-item .status-pill { grid-column: 2; justify-self: start; } .free-item { grid-template-columns: 6px 24px 40px 1fr; } .free-item .status-pill, .free-item .color-edit, .free-item .emoji-edit, .free-item .remove-btn { grid-column: 4; justify-self: start; } .task-item { display: none; } .start { padding-right: 12px; } .tab-btn { flex: 1; padding-inline: 8px; } }
+
+    /* ===== THEME SWITCH · XP ↔ VISTA ===================================== */
+    .theme-switch {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 999px;
+      padding: 4px 7px;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #fff;
+      font: 700 11px var(--font-ui);
+      cursor: pointer;
+      background: linear-gradient(180deg, #77b2ff 0%, #285fd3 55%, #143e9c 100%);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.45), inset -1px -1px 0 rgba(0,0,0,.25), 1px 1px 0 rgba(0,0,0,.18);
+      text-shadow: 1px 1px 0 rgba(0,0,0,.35);
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .theme-switch:hover { filter: brightness(1.06); }
+    .switch-track {
+      width: 38px;
+      height: 17px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.35);
+      display: block;
+      position: relative;
+      background: linear-gradient(180deg, #fff 0%, #bcd4ff 48%, #6693e8 100%);
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.22);
+    }
+    .switch-thumb {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 1px;
+      background: radial-gradient(circle at 35% 30%, #fff 0%, #e8f2ff 35%, #2f80ed 78%, #0b3ca5 100%);
+      box-shadow: 1px 1px 2px rgba(0,0,0,.35), inset 1px 1px 0 rgba(255,255,255,.85);
+    }
+
+    body[data-theme="vista"] {
+      --xp-blue: #0e1118;
+      --xp-blue-dark: #05070b;
+      --xp-green: #23d7a1;
+      --xp-silver: #11151c;
+      --xp-cream: #151a23;
+      --xp-border: #05070b;
+      --pending: #181d26;
+      --done: #102a21;
+      --inactive: #252a33;
+      --inactive-border: #545b68;
+      --text: #eef4ff;
+      --muted: #aab4c4;
+      background: linear-gradient(135deg, #030407 0%, #090d14 42%, #111827 72%, #05060a 100%);
+      color: var(--text);
+    }
+
+    /* Vista Black / Gorilla Glass — sem blur/backdrop-filter para manter o scroll leve. */
+    body[data-theme="vista"] .desktop {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0) 28%),
+        linear-gradient(90deg, rgba(105,232,255,.045), transparent 26%, transparent 72%, rgba(170,90,255,.04));
+    }
+
+    body[data-theme="vista"] .window {
+      border-color: #020307;
+      border-radius: 13px 13px 9px 9px;
+      background: #0c1017;
+      box-shadow: 0 10px 22px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+
+    body[data-theme="vista"] .titlebar {
+      min-height: 46px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,.06) 15%, rgba(13,17,26,.94) 16%, #080b12 70%, #030407 100%);
+      border-bottom-color: #000;
+      color: #f4fbff;
+      text-shadow: 0 1px 2px rgba(0,0,0,.9);
+    }
+
+    body[data-theme="vista"] .app-icon {
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 25%, #ffffff 0 8%, #7ef9ff 9% 20%, #2458ff 43%, #151a30 72%, #05060a 100%);
+      box-shadow: 0 0 7px rgba(105,232,255,.55), inset 1px 1px 0 rgba(255,255,255,.75), inset -1px -1px 0 rgba(0,0,0,.65);
+    }
+
+    body[data-theme="vista"] .theme-switch {
+      border-color: rgba(170, 226, 255, .55);
+      color: #eaf8ff;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(25,32,45,.96) 48%, rgba(3,5,9,1));
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.22), inset -1px -1px 0 rgba(0,0,0,.7), 0 0 7px rgba(105,232,255,.18);
+    }
+    body[data-theme="vista"] .switch-track {
+      background: linear-gradient(180deg, #020307, #151b28 48%, #283247 100%);
+      border-color: rgba(150, 205, 255, .36);
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.85);
+    }
+    body[data-theme="vista"] .switch-thumb {
+      left: 20px;
+      background: radial-gradient(circle at 35% 28%, #fff 0%, #c9fbff 20%, #5fc8ff 48%, #2a3150 82%, #07080d 100%);
+      box-shadow: 0 0 6px rgba(105,232,255,.6), 1px 1px 2px rgba(0,0,0,.55), inset 1px 1px 0 rgba(255,255,255,.75);
+    }
+    body[data-theme="vista"] .theme-label { color: #eaf8ff; }
+
+    body[data-theme="vista"] .win-btn {
+      border-color: rgba(255,255,255,.42);
+      border-radius: 4px;
+      color: #f8fbff;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.22), inset -1px -1px 0 rgba(0,0,0,.55);
+    }
+    body[data-theme="vista"] .min,
+    body[data-theme="vista"] .max { background: linear-gradient(180deg, #465064, #151b26 48%, #05070b); }
+    body[data-theme="vista"] .close { background: linear-gradient(180deg, #ff8c7e, #9e1c14 55%, #330604); }
+
+    body[data-theme="vista"] .menubar { background: linear-gradient(180deg, #161b24, #0c1017); border-bottom-color: #020307; color: #cfd8e8; }
+    body[data-theme="vista"] .content { background: linear-gradient(180deg, #111722, #0b0f17); }
+
+    body[data-theme="vista"] .panel,
+    body[data-theme="vista"] .tab-panel {
+      border-color: #303846;
+      background: #151a23;
+      color: #eef4ff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.55);
+    }
+    body[data-theme="vista"] .panel-header {
+      color: #eaf8ff;
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(35,43,58,.96) 48%, rgba(14,18,26,.98));
+      border-bottom-color: #05070b;
+      text-shadow: 0 1px 2px rgba(0,0,0,.8);
+    }
+
+    body[data-theme="vista"] .section .panel-header,
+    body[data-theme="vista"] .free-list-panel .panel-header { color: #f4fbff; background: linear-gradient(180deg, rgba(255,255,255,.18), #202838 48%, #080b12 100%); border-bottom-color: #000; text-shadow: 0 1px 2px rgba(0,0,0,.9); }
+    body[data-theme="vista"] .section.care .panel-header { background: linear-gradient(180deg, rgba(255,255,255,.16), #164232 48%, #07150f); }
+    body[data-theme="vista"] .section.meals .panel-header { background: linear-gradient(180deg, rgba(255,255,255,.18), #513615 48%, #160d04); }
+    body[data-theme="vista"] .free-list-panel .panel-header { background: linear-gradient(180deg, rgba(255,255,255,.18), #33284d 48%, #0b0715); }
+    body[data-theme="vista"] .evo-list-panel .panel-header { color: #fff9bf; background: linear-gradient(180deg, rgba(255,255,255,.16), #5a5015 48%, #191503 100%); border-bottom-color: #050400; text-shadow: 0 1px 2px rgba(0,0,0,.85); }
+
+    body[data-theme="vista"] .date-badge,
+    body[data-theme="vista"] .legend-swatch,
+    body[data-theme="vista"] .progress-wrap { border-color: #3d4657; background: #090d14; box-shadow: inset 1px 1px 2px rgba(0,0,0,.55); }
+    body[data-theme="vista"] .date-badge .month { background: linear-gradient(180deg, #ff6b5c, #78130d); }
+    body[data-theme="vista"] .date-badge .daynum,
+    body[data-theme="vista"] .date-words h2,
+    body[data-theme="vista"] label { color: #dff8ff; }
+    body[data-theme="vista"] .date-words p,
+    body[data-theme="vista"] .progress-text,
+    body[data-theme="vista"] .tiny,
+    body[data-theme="vista"] .color-presets,
+    body[data-theme="vista"] .prefields { color: #aab4c4; }
+
+    body[data-theme="vista"] .tabs { border-bottom-color: #303846; }
+    body[data-theme="vista"] .tab-btn { background: linear-gradient(180deg, #202838, #111722); border-color: #303846; color: #b9c8dc; box-shadow: inset 1px 1px 0 rgba(255,255,255,.08); }
+    body[data-theme="vista"] .tab-btn.active { background: #151a23; color: #eff8ff; border-color: #4a5568; }
+
+    body[data-theme="vista"] .check-item { border-color: #343d4c; background: var(--pending); color: #eef4ff; box-shadow: inset 1px 1px 0 rgba(255,255,255,.08), inset -1px -1px 0 rgba(0,0,0,.32); }
+    body[data-theme="vista"] .check-item:hover { border-color: #5b6b84; }
+    body[data-theme="vista"] .check-item .status-pill { color: #c8d2e2; border-color: #3d4657; background: #0d121b; }
+    body[data-theme="vista"] .check-item.done { background: var(--done); border-color: #247d5e; }
+    body[data-theme="vista"] .check-item.done .label { color: #aef2d2; }
+    body[data-theme="vista"] .check-item.done .status-pill { color: #bdf7dd; border-color: #247d5e; background: #0b1b15; }
+    body[data-theme="vista"] .check-item.inactive { background: var(--inactive); border-color: var(--inactive-border); }
+    body[data-theme="vista"] .check-item.inactive .label { color: #aab0bd; }
+    body[data-theme="vista"] .check-item.inactive .status-pill { color: #c7ceda; border-color: #545b68; background: #151923; }
+
+    body[data-theme="vista"] .subgroup-title,
+    body[data-theme="vista"] .drag-handle,
+    body[data-theme="vista"] .remove-btn,
+    body[data-theme="vista"] .color-edit,
+    body[data-theme="vista"] .emoji-edit,
+    body[data-theme="vista"] .kind-btn,
+    body[data-theme="vista"] .xp-button,
+    body[data-theme="vista"] .prefield-btn { border-color: #3d4657; background: linear-gradient(180deg, #252c3a, #121821); color: #eaf3ff; box-shadow: inset 1px 1px 0 rgba(255,255,255,.08); }
+    body[data-theme="vista"] .kind-btn.active { border-color: #6ae8ff; background: linear-gradient(180deg, #25384a, #111923); color: #e8fcff; }
+    body[data-theme="vista"] .kind-btn[data-kind="evolution"].active { border-color: #a89112; background: linear-gradient(180deg, #4b4314, #171404); color: #fff8a8; }
+    body[data-theme="vista"] .xp-input,
+    body[data-theme="vista"] .xp-color { border-color: #465268; background: #080c12; color: #eef4ff; box-shadow: inset 1px 1px 2px rgba(0,0,0,.7); }
+    body[data-theme="vista"] .xp-input::placeholder { color: #7f8b9d; }
+    body[data-theme="vista"] .evolution-mode #colorInput { background: #151302; }
+    body[data-theme="vista"] .empty-state,
+    body[data-theme="vista"] .footer-actions { border-color: #303846; background: #111722; color: #aab4c4; box-shadow: inset 1px 1px 0 rgba(255,255,255,.06); }
+    body[data-theme="vista"] .important-toggle.active { border-color: #ff4f43; background: linear-gradient(180deg, #ff9d90, #b52017 48%, #430806); color: #fff; box-shadow: inset 1px 1px 0 rgba(255,255,255,.20), 0 0 8px rgba(255,0,0,.36); }
+
+    body[data-theme="vista"] .taskbar { background: linear-gradient(180deg, #171d27, #090d14 60%, #030407); box-shadow: 0 6px 14px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.12); }
+    body[data-theme="vista"] .start { border-radius: 999px; background: radial-gradient(circle at 31% 25%, #ffffff 0 7%, #7ef9ff 8% 18%, #2358ff 45%, #171d27 74%, #05060a 100%); box-shadow: 0 0 8px rgba(105,232,255,.35), inset 1px 1px 0 rgba(255,255,255,.20), inset -1px -1px 0 rgba(0,0,0,.65); }
+    body[data-theme="vista"] .task-item,
+    body[data-theme="vista"] .clock { background: #121821; border: 1px solid #303846; color: #eaf3ff; box-shadow: inset 1px 1px 0 rgba(255,255,255,.06); }
+    body[data-theme="vista"] .toast { border-color: #465268; color: #eaf3ff; background: #111722; box-shadow: 0 8px 18px rgba(0,0,0,.36), inset 1px 1px 0 rgba(255,255,255,.08); }
+
+
+    @media (max-width: 620px) {
+      .theme-switch .theme-label { display: none; }
+      .theme-switch { padding-inline: 5px; }
+    }
+
+  </style>
+</head>
+<body data-theme="xp">
+  <main class="desktop">
+    <section class="window" aria-label="Checklist Moon XP unificada">
+      <header class="titlebar">
+        <div class="title-left">
+          <div class="app-icon" aria-hidden="true">🌙</div>
+          <h1 id="appTitle">Checklist Moon XP.exe</h1>
+        </div>
+        <button class="theme-switch" id="themeSwitch" type="button" aria-pressed="false" title="Alternar para Windows Vista Black" aria-label="Alternar tema Windows XP/Vista Black"><span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span><span class="theme-label">XP</span></button>
+        <div class="window-buttons" aria-hidden="true"><div class="win-btn min">_</div><div class="win-btn max">□</div><div class="win-btn close">×</div></div>
+      </header>
+      <nav class="menubar" aria-label="Menu decorativo estilo Windows XP"><span>Arquivo</span><span>Rotina</span><span>Checklist livre</span><span>Ajuda</span></nav>
+      <div class="content">
+        <section class="hero">
+          <article class="panel">
+            <div class="panel-header"><span>📅 Hoje</span><span id="todayIso" aria-label="Data ISO"></span></div>
+            <div class="panel-body date-display">
+              <div class="date-badge" aria-hidden="true"><div class="month" id="monthShort">---</div><div class="daynum" id="dayNumber">--</div></div>
+              <div class="date-words"><h2 id="weekdayText">Carregando...</h2><p id="fullDateText">A data será atualizada automaticamente pelo navegador.</p><p>Clique normal conclui/desmarca. Dois cliques deixam “inativa hoje”. Arraste as tarefas livres para reorganizar. ✨</p></div>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-header">🧭 Legenda & progresso</div>
+            <div class="panel-body">
+              <div class="legend"><div class="legend-row"><span class="legend-swatch sw-pending"></span><span>pendente normal</span></div><div class="legend-row"><span class="legend-swatch sw-done"></span><span>concluído</span></div><div class="legend-row"><span class="legend-swatch sw-inactive"></span><span>inativa hoje</span></div></div>
+              <div class="progress-wrap" aria-label="Barra de progresso da rotina fixa"><div class="progress-bar" id="fixedProgressBar"></div></div><div class="progress-text" id="fixedProgressText">Rotina fixa: calculando...</div>
+              <div class="progress-wrap" aria-label="Barra de progresso das evoluções"><div class="progress-bar evolution" id="evolutionProgressBar"></div></div><div class="progress-text" id="evolutionProgressText">Evoluções: calculando...</div>
+              <div class="progress-wrap" aria-label="Barra de progresso das tarefas gerais"><div class="progress-bar general" id="generalProgressBar"></div></div><div class="progress-text" id="generalProgressText">Tarefas gerais: calculando...</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="tabs" role="tablist" aria-label="Áreas da checklist">
+          <button class="tab-btn active" id="tab-fixed" type="button" role="tab" aria-selected="true" aria-controls="panel-fixed" data-tab="fixed">🌞 Rotina fixa</button>
+          <button class="tab-btn" id="tab-free" type="button" role="tab" aria-selected="false" aria-controls="panel-free" data-tab="free">📝 Checklist livre</button>
+        </section>
+
+        <section class="tab-panel active" id="panel-fixed" role="tabpanel" aria-labelledby="tab-fixed">
+          <section class="grid" id="fixedGrid"></section>
+          <section class="footer-actions"><div class="tiny">💾 A rotina fixa salva neste navegador com a chave do dia. Amanhã ela nasce limpa, sem carregar o drama de ontem.</div><button class="xp-button" type="button" id="resetFixed">🔄 Resetar rotina fixa</button></section>
+        </section>
+
+        <section class="tab-panel" id="panel-free" role="tabpanel" aria-labelledby="tab-free">
+          <article class="panel creator-panel" id="creatorPanel">
+            <div class="panel-header">✨ Criar tarefa livre</div>
+            <div class="panel-body">
+              <div class="kind-switch" aria-label="Tipo de tarefa livre">
+                <button class="kind-btn active" type="button" data-kind="general" id="kindGeneral">✨ Tarefa geral</button>
+                <button class="kind-btn" type="button" data-kind="evolution" id="kindEvolution">📝 Evolução</button>
+              </div>
+              <form id="taskForm" class="creator-grid" autocomplete="off">
+                <label id="emojiLabel" class="general-only">Emoji<input id="emojiInput" class="xp-input" type="text" inputmode="text" maxlength="4" placeholder="☾" aria-label="Emoji da tarefa" /></label>
+                <label id="generalNameLabel" class="general-only">Nome da tarefa<input id="nameInput" class="xp-input" type="text" maxlength="110" placeholder="ex.: responder e-mail, lavar pincéis, pagar conta..." aria-label="Nome da tarefa" /></label>
+                <label id="qtltLabel" class="evolution-only">QT/LT<input id="qtltInput" class="xp-input" type="text" inputmode="numeric" maxlength="3" placeholder="ex.: 5, 12, 103" aria-label="Número QT ou LT" /></label>
+                <label id="patientLabel" class="evolution-only">Paciente <span style="font-weight:400">(opcional)</span><input id="patientInput" class="xp-input" type="text" maxlength="80" placeholder="nome do paciente" aria-label="Nome do paciente" /></label>
+                <label id="contextLabel" class="evolution-only">Contexto <span style="font-weight:400">(opcional)</span><input id="contextInput" class="xp-input" type="text" maxlength="120" placeholder="ex.: acolhimento, visita, familiar..." aria-label="Contexto do atendimento" /></label>
+                <label id="colorLabel">Cor<input id="colorInput" class="xp-color" type="color" value="#b46cff" aria-label="Cor da tarefa" /></label>
+                <button class="xp-button important-toggle" id="importantInput" type="button" aria-pressed="false" title="Marcar como importante" aria-label="Marcar tarefa como importante">🚨</button>
+                <button class="xp-button" type="submit">➕ Adicionar</button>
+              </form>
+              <div class="prefields" id="prefields" style="display:none"><span>Regra das evoluções:</span><strong>1 dígito = LT</strong><span>•</span><strong>2–3 dígitos = QT</strong></div>
+              <div class="color-presets" id="colorPresets" aria-label="Cores rápidas"><span>Cores rápidas:</span><button class="color-dot" style="background:#b46cff" data-color="#b46cff" title="lilás" aria-label="lilás"></button><button class="color-dot" style="background:#ff7ab6" data-color="#ff7ab6" title="rosa" aria-label="rosa"></button><button class="color-dot" style="background:#42b883" data-color="#42b883" title="verde" aria-label="verde"></button><button class="color-dot" style="background:#2f80ed" data-color="#2f80ed" title="azul" aria-label="azul"></button><button class="color-dot" style="background:#f59f00" data-color="#f59f00" title="dourado" aria-label="dourado"></button><button class="color-dot" style="background:#ef4444" data-color="#ef4444" title="vermelho" aria-label="vermelho"></button><button class="color-dot" style="background:#7c3aed" data-color="#7c3aed" title="violeta" aria-label="violeta"></button></div>
+            </div>
+          </article>
+
+          <section class="free-columns">
+            <article class="panel evo-list-panel">
+              <div class="panel-header"><span>📝 Evoluções</span><span id="evolutionCount">0 itens</span></div>
+              <ul class="items droplist" id="evolutionList" data-category="evolution"></ul>
+              <p class="empty-state" id="emptyEvolution">Nenhuma evolução criada ainda. Ative “Evolução” acima, preencha QT/LT e, se quiser, paciente e contexto. 📝</p>
+            </article>
+            <article class="panel free-list-panel">
+              <div class="panel-header"><span>✨ Tarefas gerais</span><span id="generalCount">0 itens</span></div>
+              <ul class="items droplist" id="generalList" data-category="general"></ul>
+              <p class="empty-state" id="emptyGeneral">Nenhuma tarefa geral ainda. Crie uma mini-missão do dia ali em cima, tipo uma quest secundária de RPG doméstico. 🌙</p>
+            </article>
+          </section>
+
+          <section class="footer-actions"><div class="tiny">↕️ Arraste as tarefas livres pelo puxador para reordenar. Use o quadradinho de cor e o campo de emoji em cada item para editar depois de criado. Evoluções criadas pelo formulário nascem com 📝 e amarelo por padrão, mas cores diferentes e itens arrastados preservam a própria cor.</div><button class="xp-button danger" type="button" id="clearFree">🗑️ Apagar livres de hoje</button></section>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="taskbar" aria-hidden="true"><div class="start" id="startLabel">🌿 iniciar</div><div class="task-item" id="taskbarText">Checklist Moon XP.exe — rotina fixa + checklist livre</div><div class="clock" id="clock">--:--</div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const STATUS = { PENDING: 0, DONE: 1, INACTIVE: 2 };
+    const statusMeta = { [STATUS.PENDING]: { cls: "", label: "pendente", icon: "○" }, [STATUS.DONE]: { cls: "done", label: "concluído", icon: "✓" }, [STATUS.INACTIVE]: { cls: "inactive", label: "inativa hoje", icon: "–" } };
+    const EVOLUTION_COLOR = "#ffff00";
+    const EVOLUTION_EMOJI = "📝";
+    const DEFAULT_GENERAL_BTN = { id: "default_general_btn", emoji: "👛", label: "B.T.N.", color: "#188648", category: "general", defaultTask: "btn" };
+    const DEFAULT_EVOLUTION_FOLDERS = { id: "default_evolution_colocar_prontuarios", emoji: "🗂", label: "COLOCAR PRONTUÁRIOS NAS PASTAS", color: "#ffa200", category: "evolution", defaultTask: "colocar_prontuarios", fixedAboveDiary: true };
+    const DEFAULT_EVOLUTION_LOG = { id: "default_evolution_diario_bordo", emoji: "🔴", label: "DIÁRIO DE BORDO", color: "#70fffd", category: "evolution", defaultTask: "diario_bordo", fixedBottom: true };
+
+    const fixedSections = [
+      { id: "remedios", title: "REMÉDIOS", icon: "💊", kind: "meds", groups: [{ title: null, items: [
+        { id: "escitalopram", label: "Escitalopram", emoji: "🧠" }, { id: "estradiol", label: "Estradiol", emoji: "🌸" }, { id: "lactase", label: "Lactase", emoji: "🥛" }, { id: "vitaminas", label: "Vitaminas D + B12", emoji: "☀️" }, { id: "ciprofibrato", label: "Ciprofibrato — após o almoço", emoji: "🍽️" }, { id: "metformina", label: "Metformina — após o almoço", emoji: "💊" }
+      ]}]},
+      { id: "refeicoes", title: "REFEIÇÕES", icon: "🍽️", kind: "meals", groups: [{ title: null, items: [
+        { id: "cafe_manha", label: "Café da manhã", emoji: "☕" }, { id: "almoco", label: "Almoço", emoji: "🍛" }, { id: "cafe_tarde", label: "Café da tarde — opcional", emoji: "☕", optional: true }
+      ]}]},
+      { id: "cuidados", title: "CUIDADOS", icon: "🪞", kind: "care", groups: [
+        { title: "🌅 Pós café da manhã", items: [
+          { id: "pos_cafe_dentes", label: "Escovar os dentes", emoji: "☻" }, { id: "pos_cafe_hidratante", label: "Hidratante", emoji: "🧴" }, { id: "pos_cafe_banheiro", label: "Banheiro", emoji: "🚽" }, { id: "pos_cafe_maquiagem", label: "Maquiagem", emoji: "💄" }, { id: "pos_cafe_cabelo", label: "Pentear cabelo", emoji: "💇‍♀️" }, { id: "pos_cafe_desodorante", label: "Desodorante", emoji: "💨" }, { id: "pos_cafe_perfume", label: "Perfume", emoji: "🌹" }, { id: "pos_cafe_talco", label: "Talco", emoji: "☁️" }
+        ]},
+        { title: "🌞 Pós almoço", items: [{ id: "pos_almoco_dentes", label: "Escovar os dentes", emoji: "☻" }]},
+        { title: "🌙 Pós café da tarde", items: [{ id: "pos_cafe_tarde_dentes", label: "Escovar os dentes", emoji: "☻", dependsOn: "cafe_tarde" }]}
+      ]}
+    ];
+    const fixedItems = fixedSections.flatMap(section => section.groups.flatMap(group => group.items.map(item => ({ ...item, sectionId: section.id }))));
+
+    const els = {
+      fixedGrid: document.getElementById("fixedGrid"), fixedProgressBar: document.getElementById("fixedProgressBar"), fixedProgressText: document.getElementById("fixedProgressText"), evolutionProgressBar: document.getElementById("evolutionProgressBar"), evolutionProgressText: document.getElementById("evolutionProgressText"), generalProgressBar: document.getElementById("generalProgressBar"), generalProgressText: document.getElementById("generalProgressText"), resetFixed: document.getElementById("resetFixed"), clearFree: document.getElementById("clearFree"), toast: document.getElementById("toast"), clock: document.getElementById("clock"), weekdayText: document.getElementById("weekdayText"), fullDateText: document.getElementById("fullDateText"), monthShort: document.getElementById("monthShort"), dayNumber: document.getElementById("dayNumber"), todayIso: document.getElementById("todayIso"), taskbarText: document.getElementById("taskbarText"), form: document.getElementById("taskForm"), emoji: document.getElementById("emojiInput"), name: document.getElementById("nameInput"), color: document.getElementById("colorInput"), important: document.getElementById("importantInput"), qtlt: document.getElementById("qtltInput"), patient: document.getElementById("patientInput"), context: document.getElementById("contextInput"), evolutionList: document.getElementById("evolutionList"), generalList: document.getElementById("generalList"), emptyEvolution: document.getElementById("emptyEvolution"), emptyGeneral: document.getElementById("emptyGeneral"), evolutionCount: document.getElementById("evolutionCount"), generalCount: document.getElementById("generalCount"), creatorPanel: document.getElementById("creatorPanel"), kindGeneral: document.getElementById("kindGeneral"), kindEvolution: document.getElementById("kindEvolution"), prefields: document.getElementById("prefields"), colorPresets: document.getElementById("colorPresets"), themeSwitch: document.getElementById("themeSwitch"), appTitle: document.getElementById("appTitle"), startLabel: document.getElementById("startLabel")
+    };
+
+    const dateKey = getLocalDateKey();
+    const fixedKey = `moon-xp-daily-checklist:${dateKey}`;
+    const freeKey = `moon-xp-free-checklist:${dateKey}`;
+    const activeTabKey = "moon-xp-unified-active-tab";
+    const themeKey = "moon-xp-vista-theme";
+    let currentTheme = localStorage.getItem(themeKey) === "vista" ? "vista" : "xp";
+    let fixedState = loadJSON(fixedKey, {});
+    let freeTasks = ensureDefaultFreeTasks(normalizeTasks(loadJSON(freeKey, [])));
+    let currentKind = "general";
+    let clickTimers = new Map();
+    let draggedId = null;
+    let dragJustEnded = false;
+
+    init();
+
+    function init() {
+      applyTheme(currentTheme, false); renderDate(); renderFixedChecklist(); renderFreeTasks(); updateFixedUI(); updateFreeUI(); updateClock(); window.setInterval(updateClock, 30000);
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab))); activateTab(localStorage.getItem(activeTabKey) || "fixed", false);
+      els.themeSwitch.addEventListener("click", () => toggleTheme());
+      els.resetFixed.addEventListener("click", () => { if (confirm("Resetar a rotina fixa de hoje?")) { fixedState = {}; saveJSON(fixedKey, fixedState); updateFixedUI(); toast("Rotina fixa resetada. 🌿"); } });
+      els.clearFree.addEventListener("click", () => { if (confirm("Apagar todas as tarefas livres de hoje?")) { freeTasks = ensureDefaultFreeTasks([]); saveJSON(freeKey, freeTasks); renderFreeTasks(); updateFreeUI(); toast("Checklist livre resetada com os padrões do dia. 🗑️"); } });
+      els.form.addEventListener("submit", addFreeTask); els.important.addEventListener("click", toggleImportantDraft); els.qtlt.addEventListener("input", () => { els.qtlt.value = els.qtlt.value.replace(/\D/g, "").slice(0, 3); });
+      els.kindGeneral.addEventListener("click", () => setTaskKind("general")); els.kindEvolution.addEventListener("click", () => setTaskKind("evolution"));
+      document.querySelectorAll(".color-dot").forEach(btn => btn.addEventListener("click", () => { els.color.value = btn.dataset.color; els.color.focus(); }));
+      document.querySelectorAll(".prefield-btn").forEach(btn => btn.addEventListener("click", () => insertPrefield(btn.dataset.template)));
+      setupDropList(els.evolutionList); setupDropList(els.generalList); setTaskKind("general"); saveJSON(freeKey, freeTasks);
+    }
+
+    function activateTab(tab, persist = true) {
+      const chosen = tab === "free" ? "free" : "fixed";
+      document.querySelectorAll(".tab-btn").forEach(btn => { const active = btn.dataset.tab === chosen; btn.classList.toggle("active", active); btn.setAttribute("aria-selected", active ? "true" : "false"); });
+      document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `panel-${chosen}`));
+      els.taskbarText.textContent = chosen === "free" ? `${appExecutableName()} — evoluções + tarefas gerais` : `${appExecutableName()} — rotina fixa diária`;
+      if (persist) localStorage.setItem(activeTabKey, chosen);
+    }
+
+
+    function appExecutableName() { return currentTheme === "vista" ? "Checklist Moon Vista.exe" : "Checklist Moon XP.exe"; }
+    function toggleTheme() { applyTheme(currentTheme === "vista" ? "xp" : "vista", true); }
+    function applyTheme(theme, persist = true) {
+      currentTheme = theme === "vista" ? "vista" : "xp";
+      document.body.dataset.theme = currentTheme;
+      if (persist) localStorage.setItem(themeKey, currentTheme);
+      const isVista = currentTheme === "vista";
+      els.themeSwitch.classList.toggle("active", isVista);
+      els.themeSwitch.setAttribute("aria-pressed", isVista ? "true" : "false");
+      els.themeSwitch.title = isVista ? "Voltar para Windows XP" : "Alternar para Windows Vista Black";
+      const label = els.themeSwitch.querySelector(".theme-label");
+      if (label) label.textContent = isVista ? "Vista Black" : "XP";
+      els.appTitle.textContent = appExecutableName();
+      els.startLabel.textContent = isVista ? "◉ orb" : "🌿 iniciar";
+      const freeActive = document.getElementById("panel-free")?.classList.contains("active");
+      els.taskbarText.textContent = freeActive ? `${appExecutableName()} — evoluções + tarefas gerais` : `${appExecutableName()} — rotina fixa diária`;
+      toast(isVista ? "Tema Windows Vista Black ativado. 🖤" : "Tema Windows XP restaurado. 🌿");
+    }
+
+    function setTaskKind(kind) {
+      currentKind = kind === "evolution" ? "evolution" : "general";
+      els.kindGeneral.classList.toggle("active", currentKind === "general"); els.kindEvolution.classList.toggle("active", currentKind === "evolution");
+      els.creatorPanel.classList.toggle("evolution-mode", currentKind === "evolution");
+      els.prefields.style.display = currentKind === "evolution" ? "flex" : "none"; els.colorPresets.style.display = "flex";
+      if (currentKind === "evolution") { els.color.value = EVOLUTION_COLOR; els.qtlt.focus(); }
+      else { if (els.color.value.toLowerCase() === EVOLUTION_COLOR) els.color.value = "#b46cff"; els.name.placeholder = "ex.: responder e-mail, lavar pincéis, pagar conta..."; els.name.focus(); }
+
+    }
+
+    function insertPrefield(template) {
+      const current = els.name.value.trim();
+      els.name.value = current ? `${template} — ${current}` : template;
+      els.name.focus();
+    }
+
+    function getLocalDateKey() { const now = new Date(); const y = now.getFullYear(); const m = String(now.getMonth() + 1).padStart(2, "0"); const d = String(now.getDate()).padStart(2, "0"); return `${y}-${m}-${d}`; }
+    function renderDate() { const now = new Date(); const weekday = new Intl.DateTimeFormat("pt-BR", { weekday: "long" }).format(now); const full = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "long", year: "numeric" }).format(now); const month = new Intl.DateTimeFormat("pt-BR", { month: "short" }).format(now).replace(".", ""); els.weekdayText.textContent = capitalize(weekday); els.fullDateText.textContent = full; els.monthShort.textContent = month; els.dayNumber.textContent = String(now.getDate()).padStart(2, "0"); els.todayIso.textContent = dateKey; }
+    function updateClock() { els.clock.textContent = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit" }).format(new Date()); }
+
+    function renderFixedChecklist() {
+      els.fixedGrid.innerHTML = "";
+      for (const section of fixedSections) {
+        const article = document.createElement("article"); article.className = `panel section ${section.kind || ""}`; article.innerHTML = `<div class="panel-header"><span>${section.icon} ${section.title}</span></div>`;
+        for (const group of section.groups) {
+          if (group.title) { const title = document.createElement("div"); title.className = "subgroup-title"; title.textContent = group.title; article.appendChild(title); }
+          const list = document.createElement("ul"); list.className = "items";
+          for (const item of group.items) {
+            const li = document.createElement("li"); li.className = "check-item fixed-item"; li.tabIndex = 0; li.dataset.kind = "fixed"; li.dataset.id = item.id; li.dataset.dependsOn = item.dependsOn || ""; li.setAttribute("role", "button"); li.setAttribute("aria-pressed", "false"); li.innerHTML = `<span class="emoji" aria-hidden="true">${item.emoji}</span><span class="label">${escapeHTML(item.label)}</span><span class="status-pill">pendente</span>`;
+            li.addEventListener("click", event => handleFixedClick(event, item.id)); li.addEventListener("dblclick", event => { event.preventDefault(); setFixedStatus(item.id, STATUS.INACTIVE, true); }); li.addEventListener("keydown", event => handleKeyCycle(event, () => cycleFixedByKeyboard(item.id))); list.appendChild(li);
+          }
+          article.appendChild(list);
+        }
+        els.fixedGrid.appendChild(article);
+      }
+    }
+
+    function handleFixedClick(event, itemId) { const el = event.currentTarget; if (el.classList.contains("disabled")) { toast("Esse cuidado só entra quando o café da tarde for marcado. ☕"); return; } singleOrDouble(`fixed:${itemId}`, () => setFixedStatus(itemId, nextFixedSingleClickStatus(itemId), true), () => setFixedStatus(itemId, STATUS.INACTIVE, true)); }
+    function nextFixedSingleClickStatus(itemId) { const current = fixedState[itemId] ?? STATUS.PENDING; return current === STATUS.DONE ? STATUS.PENDING : STATUS.DONE; }
+    function cycleFixedByKeyboard(itemId) { const current = fixedState[itemId] ?? STATUS.PENDING; const next = current === STATUS.PENDING ? STATUS.DONE : current === STATUS.DONE ? STATUS.INACTIVE : STATUS.PENDING; setFixedStatus(itemId, next, true); }
+    function setFixedStatus(itemId, status, shouldToast = false) { if (status === STATUS.PENDING) delete fixedState[itemId]; else fixedState[itemId] = status; saveJSON(fixedKey, fixedState); updateFixedUI(); if (shouldToast) { const item = fixedItems.find(i => i.id === itemId); toast(`${item?.emoji || "✨"} ${item?.label || "Item"}: ${statusMeta[status].label}`); } }
+    function updateFixedUI() {
+      document.querySelectorAll('.fixed-item').forEach(el => {
+        const id = el.dataset.id;
+        const dependsOn = el.dataset.dependsOn;
+        const dependencyMet = !dependsOn || fixedState[dependsOn] === STATUS.DONE;
+        if (!dependencyMet) {
+          if (fixedState[id] !== undefined) delete fixedState[id];
+          el.className = "check-item fixed-item disabled";
+          el.setAttribute("aria-disabled", "true");
+          el.setAttribute("aria-pressed", "false");
+          el.querySelector(".status-pill").textContent = "aguardando";
+          return;
+        }
+        el.setAttribute("aria-disabled", "false");
+        const status = fixedState[id] ?? STATUS.PENDING;
+        const meta = statusMeta[status];
+        const mealBrushNudge = status === STATUS.PENDING && (
+          (id === "pos_almoco_dentes" && fixedState.almoco === STATUS.DONE) ||
+          (id === "pos_cafe_tarde_dentes" && fixedState.cafe_tarde === STATUS.DONE)
+        );
+        el.className = `check-item fixed-item ${meta.cls} ${mealBrushNudge ? "nudge-orange" : ""}`.trim();
+        el.setAttribute("aria-pressed", status === STATUS.DONE ? "true" : "false");
+        el.querySelector(".status-pill").textContent = `${meta.icon} ${meta.label}`;
+      });
+      saveJSON(fixedKey, fixedState);
+      updateFixedProgress();
+    }
+    function updateFixedProgress() { const activeItems = fixedItems.filter(item => { if (fixedState[item.id] === STATUS.INACTIVE) return false; if (!item.dependsOn) return true; return fixedState[item.dependsOn] === STATUS.DONE; }); const total = activeItems.length; const done = activeItems.filter(item => fixedState[item.id] === STATUS.DONE).length; const inactive = fixedItems.filter(item => fixedState[item.id] === STATUS.INACTIVE).length; const percent = total ? Math.round((done / total) * 100) : 0; els.fixedProgressBar.style.width = `${percent}%`; els.fixedProgressText.textContent = `Rotina fixa: ${done}/${total} concluídos • ${inactive} inativas • ${percent}%`; }
+
+    function toggleImportantDraft() { const active = !els.important.classList.contains("active"); els.important.classList.toggle("active", active); els.important.setAttribute("aria-pressed", active ? "true" : "false"); els.important.title = active ? "Importante ativado" : "Marcar como importante"; }
+    function resetImportantDraft() { els.important.classList.remove("active"); els.important.setAttribute("aria-pressed", "false"); els.important.title = "Marcar como importante"; }
+
+    function addFreeTask(event) {
+      event.preventDefault();
+      const category = currentKind;
+      const isImportant = els.important.classList.contains("active");
+      let task;
+
+      if (category === "evolution") {
+        const rawDigits = (els.qtlt.value || "").replace(/\D/g, "").slice(0, 3);
+        const qtlt = rawDigits ? (rawDigits.length === 1 ? `LT: ${rawDigits}` : `QT: ${rawDigits}`) : "QT/LT:___";
+        const patient = els.patient.value.trim();
+        const context = els.context.value.trim();
+        const label = [qtlt, patient, context].filter(Boolean).join(" — ");
+        task = { id: `free_${Date.now()}_${Math.random().toString(16).slice(2)}`, emoji: EVOLUTION_EMOJI, label, color: els.color.value || EVOLUTION_COLOR, status: STATUS.PENDING, important: isImportant, category };
+      } else {
+        const label = els.name.value.trim();
+        if (!label) return;
+        task = { id: `free_${Date.now()}_${Math.random().toString(16).slice(2)}`, emoji: sanitizeEmoji(els.emoji.value) || "☾", label, color: els.color.value || "#b46cff", status: STATUS.PENDING, important: isImportant, category };
+      }
+
+      insertFreeTask(task);
+      saveJSON(freeKey, freeTasks); renderFreeTasks(); updateFreeUI();
+      if (category === "evolution") { els.qtlt.value = ""; els.patient.value = ""; els.context.value = ""; els.color.value = EVOLUTION_COLOR; els.qtlt.focus(); }
+      else { els.name.value = ""; els.emoji.value = ""; els.name.focus(); }
+      resetImportantDraft(); toast(`${task.important ? "🚨 " : ""}${task.emoji} ${category === "evolution" ? "Evolução" : "Tarefa"} criada${task.important ? " como importante." : "."}`);
+    }
+
+    function renderFreeTasks() {
+      freeTasks = ensureDefaultFreeTasks(freeTasks);
+      els.evolutionList.innerHTML = ""; els.generalList.innerHTML = "";
+      for (const task of freeTasks) renderOneTask(task, (task.category || "general") === "evolution" ? els.evolutionList : els.generalList);
+    }
+    function renderOneTask(task, list) {
+      const li = document.createElement("li");
+      li.className = `check-item free-item ${task.important ? "important" : ""}`.trim();
+      li.style.setProperty("--item-color", task.color || "#b46cff");
+      li.tabIndex = 0; li.draggable = true; li.dataset.kind = "free"; li.dataset.id = task.id; li.setAttribute("role", "button"); li.setAttribute("aria-pressed", "false");
+      li.innerHTML = `<span class="color-rail" aria-hidden="true"></span><span class="drag-handle" title="Arrastar para reordenar" aria-hidden="true">↕</span><input class="emoji-edit" type="text" maxlength="4" value="${escapeAttr(task.emoji || "☾")}" title="Editar emoji" aria-label="Editar emoji da tarefa" /><span class="label">${escapeHTML(task.label)}</span><span class="status-pill">pendente</span><input class="color-edit" type="color" value="${safeColor(task.color || "#b46cff")}" title="Editar cor" aria-label="Editar cor da tarefa" /><button class="remove-btn" type="button" title="Remover tarefa" aria-label="Remover tarefa">×</button>`;
+      li.addEventListener("click", event => handleFreeClick(event, task.id));
+      li.addEventListener("dblclick", event => { if (event.target.closest(".color-edit") || event.target.closest(".emoji-edit")) return; event.preventDefault(); setFreeStatus(task.id, STATUS.INACTIVE, true); });
+      li.addEventListener("keydown", event => handleKeyCycle(event, () => cycleFreeByKeyboard(task.id)));
+      li.querySelector(".remove-btn").addEventListener("click", event => { event.stopPropagation(); removeFreeTask(task.id); });
+      const colorEdit = li.querySelector(".color-edit");
+      const emojiEdit = li.querySelector(".emoji-edit");
+      [colorEdit, emojiEdit].forEach(input => ["click", "dblclick", "pointerdown"].forEach(type => input.addEventListener(type, event => event.stopPropagation())));
+      colorEdit.addEventListener("input", event => { event.stopPropagation(); setFreeColor(task.id, event.target.value, false); });
+      colorEdit.addEventListener("change", event => { event.stopPropagation(); setFreeColor(task.id, event.target.value, true); });
+      emojiEdit.addEventListener("input", event => { event.stopPropagation(); setFreeEmoji(task.id, event.target.value, false); });
+      emojiEdit.addEventListener("change", event => { event.stopPropagation(); setFreeEmoji(task.id, event.target.value, true); });
+      li.addEventListener("dragstart", handleDragStart); li.addEventListener("dragend", handleDragEnd); list.appendChild(li);
+    }
+
+    function setupDropList(list) {
+      list.addEventListener("dragover", event => { event.preventDefault(); const dragging = document.querySelector(".free-item.dragging"); if (!dragging) return; list.classList.add("drag-over"); const after = getDragAfterElement(list, event.clientY); if (after == null) list.appendChild(dragging); else list.insertBefore(dragging, after); });
+      list.addEventListener("dragleave", event => { if (!list.contains(event.relatedTarget)) list.classList.remove("drag-over"); });
+      list.addEventListener("drop", event => { event.preventDefault(); list.classList.remove("drag-over"); persistDraggedOrder(); });
+    }
+    function handleDragStart(event) { draggedId = event.currentTarget.dataset.id; event.currentTarget.classList.add("dragging"); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", draggedId); }
+    function handleDragEnd(event) { event.currentTarget.classList.remove("dragging"); document.querySelectorAll(".droplist").forEach(list => list.classList.remove("drag-over")); persistDraggedOrder(); draggedId = null; dragJustEnded = true; setTimeout(() => { dragJustEnded = false; }, 180); }
+    function getDragAfterElement(container, y) { const elements = [...container.querySelectorAll(".free-item:not(.dragging)")]; return elements.reduce((closest, child) => { const box = child.getBoundingClientRect(); const offset = y - box.top - box.height / 2; if (offset < 0 && offset > closest.offset) return { offset, element: child }; return closest; }, { offset: Number.NEGATIVE_INFINITY, element: null }).element; }
+    function persistDraggedOrder() {
+      const ids = [...els.evolutionList.querySelectorAll(".free-item")].map(el => ({ id: el.dataset.id, category: "evolution" })).concat([...els.generalList.querySelectorAll(".free-item")].map(el => ({ id: el.dataset.id, category: "general" })));
+      if (!ids.length) return;
+      const byId = new Map(freeTasks.map(task => [task.id, task]));
+      freeTasks = ensureDefaultFreeTasks(ids.map(({ id, category }) => { const task = byId.get(id); task.category = category; return task; }).filter(Boolean));
+      saveJSON(freeKey, freeTasks); renderFreeTasks(); updateFreeUI();
+    }
+
+    function handleFreeClick(event, taskId) { if (dragJustEnded || event.target.closest(".remove-btn") || event.target.closest(".color-edit") || event.target.closest(".emoji-edit") || event.target.closest(".drag-handle")) return; singleOrDouble(`free:${taskId}`, () => setFreeStatus(taskId, nextFreeSingleClickStatus(taskId), true), () => setFreeStatus(taskId, STATUS.INACTIVE, true)); }
+    function nextFreeSingleClickStatus(taskId) { const task = freeTasks.find(t => t.id === taskId); const current = task?.status ?? STATUS.PENDING; return current === STATUS.DONE ? STATUS.PENDING : STATUS.DONE; }
+    function cycleFreeByKeyboard(taskId) { const task = freeTasks.find(t => t.id === taskId); const current = task?.status ?? STATUS.PENDING; const next = current === STATUS.PENDING ? STATUS.DONE : current === STATUS.DONE ? STATUS.INACTIVE : STATUS.PENDING; setFreeStatus(taskId, next, true); }
+    function setFreeColor(taskId, color, shouldToast = false) { const task = freeTasks.find(t => t.id === taskId); if (!task) return; task.color = safeColor(color); saveJSON(freeKey, freeTasks); const el = document.querySelector(`.free-item[data-id="${CSS.escape(taskId)}"]`); if (el) { el.style.setProperty("--item-color", task.color); const input = el.querySelector(".color-edit"); if (input) input.value = task.color; } if (shouldToast) toast(`${task.emoji || "☾"} Cor atualizada.`); }
+    function setFreeEmoji(taskId, emoji, shouldToast = false) { const task = freeTasks.find(t => t.id === taskId); if (!task) return; task.emoji = sanitizeEmoji(emoji) || "☾"; saveJSON(freeKey, freeTasks); const el = document.querySelector(`.free-item[data-id="${CSS.escape(taskId)}"]`); if (el) { const input = el.querySelector(".emoji-edit"); if (input) input.value = task.emoji; } if (shouldToast) toast(`${task.emoji || "☾"} Emoji atualizado.`); }
+    function setFreeStatus(taskId, status, shouldToast = false) { const task = freeTasks.find(t => t.id === taskId); if (!task) return; task.status = status; saveJSON(freeKey, freeTasks); updateFreeUI(); if (shouldToast) toast(`${task.emoji || "☾"} ${task.label}: ${statusMeta[status].label}`); }
+    function removeFreeTask(taskId) { const task = freeTasks.find(t => t.id === taskId); freeTasks = freeTasks.filter(t => t.id !== taskId); saveJSON(freeKey, freeTasks); renderFreeTasks(); updateFreeUI(); toast(`${task?.emoji || "🗑️"} Tarefa removida.`); }
+    function updateFreeUI() {
+      freeTasks = ensureDefaultFreeTasks(freeTasks);
+      document.querySelectorAll('.free-item').forEach(el => { const task = freeTasks.find(t => t.id === el.dataset.id); if (!task) return; const status = task.status ?? STATUS.PENDING; const meta = statusMeta[status]; el.className = `check-item free-item ${task.important ? "important" : ""} ${meta.cls}`.trim(); el.style.setProperty("--item-color", task.color || "#b46cff"); const colorEdit = el.querySelector(".color-edit"); if (colorEdit) colorEdit.value = safeColor(task.color || "#b46cff"); const emojiEdit = el.querySelector(".emoji-edit"); if (emojiEdit) emojiEdit.value = task.emoji || "☾"; el.setAttribute("aria-pressed", status === STATUS.DONE ? "true" : "false"); el.querySelector(".status-pill").textContent = `${meta.icon} ${meta.label}`; });
+      const evoCount = freeTasks.filter(t => (t.category || "general") === "evolution").length; const genCount = freeTasks.filter(t => (t.category || "general") === "general").length; els.evolutionCount.textContent = `${evoCount} ${evoCount === 1 ? "item" : "itens"}`; els.generalCount.textContent = `${genCount} ${genCount === 1 ? "item" : "itens"}`; els.emptyEvolution.style.display = evoCount ? "none" : "block"; els.emptyGeneral.style.display = genCount ? "none" : "block"; updateFreeProgress();
+    }
+    function updateFreeProgress() {
+      updateCategoryProgress("evolution", els.evolutionProgressBar, els.evolutionProgressText, "Evoluções");
+      updateCategoryProgress("general", els.generalProgressBar, els.generalProgressText, "Tarefas gerais");
+    }
+    function updateCategoryProgress(category, barEl, textEl, label) {
+      const all = freeTasks.filter(t => (t.category || "general") === category);
+      const active = all.filter(t => t.status !== STATUS.INACTIVE);
+      const total = active.length;
+      const done = active.filter(t => t.status === STATUS.DONE).length;
+      const inactive = all.filter(t => t.status === STATUS.INACTIVE).length;
+      const percent = total ? Math.round((done / total) * 100) : 0;
+      barEl.style.width = `${percent}%`;
+      textEl.textContent = `${label}: ${done}/${total} concluídos • ${inactive} inativas • ${percent}%`;
+    }
+
+
+
+    function insertFreeTask(task) {
+      const category = task.category === "evolution" ? "evolution" : "general";
+      const same = freeTasks.map((t, i) => ({ t, i })).filter(({ t }) => (t.category || "general") === category);
+      if (!same.length) { freeTasks.push(task); freeTasks = ensureDefaultFreeTasks(freeTasks); return; }
+      if (task.important) { freeTasks.splice(same[0].i, 0, task); freeTasks = ensureDefaultFreeTasks(freeTasks); return; }
+      if (category === "evolution") {
+        const foldersIndex = freeTasks.findIndex(t => t.id === DEFAULT_EVOLUTION_FOLDERS.id);
+        const diaryIndex = freeTasks.findIndex(t => t.id === DEFAULT_EVOLUTION_LOG.id);
+        const anchorIndex = foldersIndex >= 0 ? foldersIndex : diaryIndex;
+        if (anchorIndex >= 0) freeTasks.splice(anchorIndex, 0, task);
+        else freeTasks.splice(same[same.length - 1].i + 1, 0, task);
+      } else {
+        freeTasks.splice(same[same.length - 1].i + 1, 0, task);
+      }
+      freeTasks = ensureDefaultFreeTasks(freeTasks);
+    }
+
+    function ensureDefaultFreeTasks(tasks) {
+      const normalized = normalizeTasks(tasks);
+      const btnLike = normalized.find(t => t.id === DEFAULT_GENERAL_BTN.id || ((t.label || "").trim().toUpperCase() === "B.T.N." && (t.category || "general") === "general"));
+      if (btnLike) btnLike.id = DEFAULT_GENERAL_BTN.id;
+      else {
+        const firstGeneral = normalized.findIndex(t => (t.category || "general") === "general");
+        const defaultBtn = { ...DEFAULT_GENERAL_BTN, status: STATUS.PENDING, important: false };
+        normalized.splice(firstGeneral >= 0 ? firstGeneral : normalized.length, 0, defaultBtn);
+      }
+
+      const foldersLike = normalized.find(t => t.id === DEFAULT_EVOLUTION_FOLDERS.id || ((t.label || "").trim().toUpperCase() === "COLOCAR PRONTUÁRIOS NAS PASTAS" && (t.category || "general") === "evolution"));
+      if (foldersLike) foldersLike.id = DEFAULT_EVOLUTION_FOLDERS.id;
+      else normalized.push({ ...DEFAULT_EVOLUTION_FOLDERS, status: STATUS.PENDING, important: false });
+
+      const diaryLike = normalized.find(t => t.id === DEFAULT_EVOLUTION_LOG.id || ((t.label || "").trim().toUpperCase() === "DIÁRIO DE BORDO" && (t.category || "general") === "evolution"));
+      if (diaryLike) diaryLike.id = DEFAULT_EVOLUTION_LOG.id;
+      else normalized.push({ ...DEFAULT_EVOLUTION_LOG, status: STATUS.PENDING, important: false });
+
+      for (const task of normalized) {
+        if (task.id === DEFAULT_GENERAL_BTN.id) { task.category = "general"; task.defaultTask = "btn"; }
+        if (task.id === DEFAULT_EVOLUTION_FOLDERS.id) { task.category = "evolution"; task.defaultTask = "colocar_prontuarios"; task.fixedAboveDiary = true; }
+        if (task.id === DEFAULT_EVOLUTION_LOG.id) { task.category = "evolution"; task.defaultTask = "diario_bordo"; task.fixedBottom = true; }
+      }
+      const folders = normalized.find(t => t.id === DEFAULT_EVOLUTION_FOLDERS.id);
+      const diary = normalized.find(t => t.id === DEFAULT_EVOLUTION_LOG.id);
+      const withoutFixedEvolutionBottom = normalized.filter(t => t.id !== DEFAULT_EVOLUTION_FOLDERS.id && t.id !== DEFAULT_EVOLUTION_LOG.id);
+      const firstGeneral = withoutFixedEvolutionBottom.findIndex(t => (t.category || "general") === "general");
+      const insertAt = firstGeneral >= 0 ? firstGeneral : withoutFixedEvolutionBottom.length;
+      const bottomStack = [];
+      if (folders) bottomStack.push(folders);
+      if (diary) bottomStack.push(diary);
+      withoutFixedEvolutionBottom.splice(insertAt, 0, ...bottomStack);
+      return withoutFixedEvolutionBottom;
+    }
+
+    function singleOrDouble(key, singleAction, doubleAction) { if (clickTimers.has(key)) { clearTimeout(clickTimers.get(key)); clickTimers.delete(key); doubleAction(); return; } const timer = setTimeout(() => { clickTimers.delete(key); singleAction(); }, 235); clickTimers.set(key, timer); }
+    function handleKeyCycle(event, action) { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); action(); } }
+    function normalizeTasks(tasks) { return Array.isArray(tasks) ? tasks.map(t => ({ ...t, emoji: sanitizeEmoji(t.emoji) || "☾", color: safeColor(t.color || "#b46cff"), category: t.category === "evolution" ? "evolution" : "general", status: Number.isInteger(t.status) ? t.status : STATUS.PENDING, important: !!t.important })) : []; }
+    function loadJSON(key, fallback) { try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; } catch (error) { console.warn("Não foi possível carregar dados.", error); return fallback; } }
+    function saveJSON(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (error) { console.warn("Não foi possível salvar dados.", error); } }
+    function toast(message) { els.toast.textContent = message; els.toast.classList.add("show"); clearTimeout(els.toast._timer); els.toast._timer = setTimeout(() => els.toast.classList.remove("show"), 1800); }
+    function capitalize(text) { return text.charAt(0).toUpperCase() + text.slice(1); }
+    function sanitizeEmoji(value) { return String(value || "").trim().slice(0, 4); }
+    function safeColor(value) { const color = String(value || "").trim(); return /^#[0-9a-fA-F]{6}$/.test(color) ? color.toLowerCase() : "#b46cff"; }
+    function escapeHTML(value) { return String(value).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch])); }
+    function escapeAttr(value) { return escapeHTML(value).replace(/'/g, "&#39;"); }
+  </script>
+</body>
+</html>
