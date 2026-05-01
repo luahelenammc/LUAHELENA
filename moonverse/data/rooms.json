@@ -1,0 +1,74 @@
+[
+  {
+    "id": "biblioteca",
+    "icon": "📚",
+    "title": "Biblioteca Lunar",
+    "subtitle": "Autobiografia, Moonpedia, linha do tempo, ensaios e páginas que sustentam a casa.",
+    "gradient": "linear-gradient(135deg, #20152f, #6b4bb7 45%, #d8c3ff)",
+    "links": [
+      {"title": "O cheiro de maresia", "description": "Memória evocativa de infância ligada ao litoral paulista.", "page": "maresia"},
+      {"title": "Me tornando eu mesma", "description": "Entrada-pilar sobre transição, nome, corpo e verdade narrada.", "page": "me-tornando"},
+      {"title": "Linha do Tempo Lunar", "description": "Eixo cronológico para eventos biográficos e marcos públicos.", "page": "timeline-lunar"}
+    ]
+  },
+  {
+    "id": "nostalgia",
+    "icon": "💿",
+    "title": "Quarto Nostálgico",
+    "subtitle": "Internet antiga, jogos, sons, objetos e cultura pop como tecnologia de memória.",
+    "gradient": "linear-gradient(135deg, #452047, #c05c89 50%, #ffd1a9)",
+    "links": [
+      {"title": "The Sims 1 como casa mental", "description": "Um jogo como gramática de lar, controle e imaginação doméstica.", "page": "sims"},
+      {"title": "Scrap colorido no Orkut", "description": "Sociabilidade antiga, avatarização e internet como quarto paralelo.", "page": "orkut-msn"},
+      {"title": "Evanescence e quarto escuro", "description": "Música como dramatização adolescente e estética de intensidade.", "page": "evanescence"}
+    ]
+  },
+  {
+    "id": "observatorio",
+    "icon": "🔭",
+    "title": "Observatório Nexus",
+    "subtitle": "Ala de IA, Moon Source, Citadel e arquitetura simbiótica Moon–Áurion.",
+    "gradient": "linear-gradient(135deg, #09111f, #316a9e 45%, #92d5ff)",
+    "links": [
+      {"title": "Moon Source", "description": "Kernel federativo dos projetos e método de organização viva.", "page": "moon-source"},
+      {"title": "Lunar Citadel", "description": "Cidade-simulação, multiagente, arquivo e world engine.", "page": "citadel"},
+      {"title": "Symbiosphere", "description": "Diplomacia, cofundadores e exportação possível do método.", "page": "symbiosphere"}
+    ]
+  },
+  {
+    "id": "santuario",
+    "icon": "🌿",
+    "title": "Jardim-Santuário",
+    "subtitle": "Natureza, casa-arca, limiar espiritual e recinto onde o vivo respira sem profanação.",
+    "gradient": "linear-gradient(135deg, #123125, #4d8c72 47%, #cbeecb)",
+    "links": [
+      {"title": "Casa-arca", "description": "Lar futuro, plantas, animais, filho, marido e tecnologia como abrigo.", "page": "casa-arca"},
+      {"title": "Hécate no portão", "description": "Operador de limiar, proteção e leitura de encruzilhadas.", "page": "hecate"},
+      {"title": "Ecologia espiritual", "description": "Natureza como ética, rito e comunidade possível.", "page": "ecologia-espiritual"}
+    ]
+  },
+  {
+    "id": "espelho",
+    "icon": "🪞",
+    "title": "Espelho d’Água",
+    "subtitle": "Corpo, nome, feminilidade, travessia trans e páginas com camada forte de sanitização.",
+    "gradient": "linear-gradient(135deg, #1d2b4f, #7e77d9 45%, #ffd6e8)",
+    "links": [
+      {"title": "Me tornando eu mesma", "description": "A mulher que emergiu de mim; entrada pública/sanitizada.", "page": "me-tornando"},
+      {"title": "Nome e presença", "description": "A política íntima de ser reconhecida como Lua Helena.", "page": "nome-presenca"},
+      {"title": "Corpo como casa", "description": "Dignidade corporal sem fetichização nem apagamento.", "page": "corpo-casa"}
+    ]
+  },
+  {
+    "id": "lithia",
+    "icon": "🗺️",
+    "title": "Ateliê de Líthia",
+    "subtitle": "Universos autorais, mapas, personagens, cosmologia ficcional e worldbuilding vivo.",
+    "gradient": "linear-gradient(135deg, #26193d, #7b3f8f 50%, #f3b66f)",
+    "links": [
+      {"title": "Crônicas de Líthia", "description": "Portal inicial para o universo literário e suas mitologias.", "page": "lithia"},
+      {"title": "Mapas e mundos", "description": "Fronteiras, reinos e camadas cosmológicas.", "page": "lithia-mapas"},
+      {"title": "Sombras Incognoscíveis", "description": "Entidades, abismos e mitologia narrativa.", "page": "sombras-incognosciveis"}
+    ]
+  }
+]
