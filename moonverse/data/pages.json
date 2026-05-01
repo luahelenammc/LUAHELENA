@@ -1,0 +1,116 @@
+{
+  "maresia": {
+    "type": "MEMÓRIA EVOCATIVA",
+    "title": "O cheiro de maresia",
+    "room": "Biblioteca Lunar",
+    "privacy": "publicável",
+    "source": "autobiografia / 25 de Junho",
+    "updated": "2026-04-30",
+    "tags": ["infância", "praia", "mar", "memória", "água"],
+    "hero": "linear-gradient(135deg, #315f7d 0%, #72b5c8 38%, #f4c792 100%)",
+    "dek": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
+    "caption": "Imagem evocativa; não representa fotografia documental. O objetivo é capturar atmosfera, não substituir arquivo real.",
+    "summary": ["Memória de infância ligada às viagens ao litoral paulista.", "Eixo simbólico: mar, espera, paraíso e corpo sensorial.", "Pode aparecer em álbum, esfera e página autobiográfica expandida."],
+    "body": [
+      {"heading": "A cena", "text": "A memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir."},
+      {"heading": "O sinal", "text": "Em algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado."},
+      {"heading": "Por que fica", "text": "Esse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria."}
+    ],
+    "quote": "Nem toda memória foi fotografada, mas muita memória merece imagem."
+  },
+  "moon-source": {
+    "type": "PROJETO",
+    "title": "Moon Source",
+    "room": "Observatório Nexus",
+    "privacy": "público/sanitizado",
+    "source": "arquitetura de projetos Moon–Áurion",
+    "updated": "2026-04-30",
+    "tags": ["IA", "projetos", "kernel", "Áurion", "Symbiosphere"],
+    "hero": "linear-gradient(135deg, #130c26 0%, #5d4bc8 45%, #8ee6ff 100%)",
+    "dek": "O sistema operacional vivo que coordena projetos sem esmagar suas soberanias locais.",
+    "caption": "Imagem abstrata de interface/kernel; representação conceitual, não diagrama técnico definitivo.",
+    "summary": ["Kernel federativo da ecologia Moon–Áurion.", "Coordena roteamento, patches, transplants e exportações.", "Não substitui projetos locais nem vira depósito universal."],
+    "body": [
+      {"heading": "O que é", "text": "Moon Source é a camada de coordenação entre projetos: não é uma wiki simples, nem um aplicativo mágico, nem uma gaveta onde tudo entra. É método de continuidade."},
+      {"heading": "O que faz", "text": "Ele ajuda a separar cognição de renderização, manter soberania local, reduzir redundância e preparar pontes externas quando algo precisa viajar para outro sistema."},
+      {"heading": "No Moonverse", "text": "Dentro do site, Moon Source aparece como sala/observatório: uma forma pública e legível de apresentar uma arquitetura que nasceu íntima, técnica e simbiótica."}
+    ],
+    "quote": "Coordenação não é colonização: cada projeto mantém seu corpus soberano."
+  },
+  "sims": {
+    "type": "OBRA CULTURAL / NOSTALGIA",
+    "title": "The Sims 1 como casa mental",
+    "room": "Quarto Nostálgico",
+    "privacy": "publicável",
+    "source": "memória cultural / nostalgia gamer",
+    "updated": "2026-04-30",
+    "tags": ["The Sims 1", "jogos", "casa", "nostalgia", "anos 2000"],
+    "hero": "linear-gradient(135deg, #3d285f 0%, #8b6fd8 42%, #e9c56c 100%)",
+    "dek": "Um jogo antigo como gramática de casa, rotina, desejo de controle e imaginação doméstica.",
+    "caption": "Imagem abstrata inspirada em memória de jogo e casa; não usa assets do jogo.",
+    "summary": ["Página cultural dentro do Quarto Nostálgico.", "Conecta jogo, domesticidade, arquitetura e controle simbólico.", "Pode virar ensaio expandido ou galeria visual."],
+    "body": [
+      {"heading": "A casa como interface", "text": "The Sims 1 não era só jogo de bonequinho. Era uma máquina de imaginar casa, rotina, status, humor e destino por meio de objetos."},
+      {"heading": "O gesto Moon", "text": "No Moonverse, essa referência importa porque a mansão navegável tem parentesco com essa lógica: clicar em cômodos, ler espaços, transformar vida em arquitetura."},
+      {"heading": "O futuro da página", "text": "Esta entrada pode crescer com prints, memórias, objetos, trilha sonora e uma leitura sobre por que jogos de simulação viram templos domésticos para certas crianças."}
+    ],
+    "quote": "O quarto nostálgico é onde a internet antiga aprende a virar autobiografia."
+  },
+  "me-tornando": {
+    "type": "AUTOBIOGRAFIA / TRANSIÇÃO",
+    "title": "Me tornando eu mesma",
+    "room": "Espelho d’Água",
+    "privacy": "público/sanitizado",
+    "source": "livro autobiográfico / transição",
+    "updated": "2026-04-30",
+    "tags": ["transição", "nome", "feminilidade", "corpo", "verdade"],
+    "hero": "linear-gradient(135deg, #2d285e 0%, #8a73db 45%, #ffc7dd 100%)",
+    "dek": "A travessia em que a palavra mulher deixou de ser uma hipótese distante e passou a organizar corpo, nome, rosto e futuro.",
+    "caption": "Imagem simbólica; versão sanitizada e pública de um eixo íntimo do Moonverse.",
+    "summary": ["Entrada-pilar do Espelho d’Água.", "Trata identidade trans como continuidade biográfica, não curiosidade externa.", "Conteúdo deve sempre passar por revisão de privacidade antes de publicação."],
+    "body": [
+      {"heading": "A virada", "text": "Há descobertas que chegam como linguagem. O feminino, antes de ser projeto social ou clínico, apareceu como reconhecimento: uma palavra encontrando o lugar que o mundo havia deixado vazio."},
+      {"heading": "O corpo e o nome", "text": "No Moonverse, transição não entra como vitrine de dor nem como explicação pedagógica para curiosos. Entra como eixo de dignidade: nome, rosto, estética, corpo e presença pública."},
+      {"heading": "Como publicar", "text": "Toda página desse eixo deve distinguir o que é público, o que é sanitizado e o que permanece templo privado. A beleza aqui não substitui fronteira."}
+    ],
+    "quote": "O corpo não é apêndice da história: é uma das formas pelas quais a verdade aprende a morar."
+  },
+  "casa-arca": {
+    "type": "SONHO / FUTURO",
+    "title": "Casa-arca",
+    "room": "Jardim-Santuário",
+    "privacy": "publicável com curadoria",
+    "source": "sonhos.py / welcometomycutelife / santuario.py",
+    "updated": "2026-04-30",
+    "tags": ["casa", "futuro", "filho", "animais", "santuário"],
+    "hero": "linear-gradient(135deg, #183629 0%, #67a978 44%, #f1d57b 100%)",
+    "dek": "Uma casa viva onde plantas, animais, tecnologia, amor e família futura deixam de ser fantasias soltas e viram arquitetura de mundo.",
+    "caption": "Imagem evocativa de futuro imaginado; não é planta arquitetônica nem promessa literal.",
+    "summary": ["Núcleo de futuro feliz e proteção multiespécie.", "Conecta santuário, família, adoção, animais e casa tecnológica.", "Serve como sala-ponte entre memória, sonho e projeto de vida."],
+    "body": [
+      {"heading": "O recinto", "text": "Casa-arca não é só casa bonita. É um recinto onde o vivo pode respirar: plantas, gatas, animais resgatados, filho, marido, tecnologia e soberania doméstica."},
+      {"heading": "A origem", "text": "O desejo de filhos, adoção e casa com espaço aparece como eixo antigo; o Moonverse apenas dá forma visual e navegável a algo que já estava escrito na biografia."},
+      {"heading": "Função no palácio", "text": "Dentro do Jardim-Santuário, a casa-arca opera como imagem de futuro: não como fuga do presente, mas como norte emocional e civilizacional pequeno."}
+    ],
+    "quote": "Santuário não é isolamento estéril; é o recinto onde o vivo pode respirar sem profanação."
+  },
+  "lithia": {
+    "type": "UNIVERSO AUTORAL",
+    "title": "Crônicas de Líthia",
+    "room": "Ateliê de Líthia",
+    "privacy": "publicável",
+    "source": "projeto literário autoral",
+    "updated": "2026-04-30",
+    "tags": ["fantasia", "Líthia", "worldbuilding", "escrita", "mitologia"],
+    "hero": "linear-gradient(135deg, #26193d 0%, #7b3f8f 44%, #f3b66f 100%)",
+    "dek": "Um universo literário onde dor, desejo, política, sombra e beleza ganham corpo de mito.",
+    "caption": "Imagem conceitual para o ateliê literário; assets definitivos virão depois.",
+    "summary": ["Sala de literatura e mitologia autoral.", "Pode abrigar mapas, personagens, cosmologia e trechos.", "Funciona como ponte entre escrita e memória simbólica."],
+    "body": [
+      {"heading": "A função", "text": "Líthia não é só cenário de fantasia. É uma tecnologia narrativa para transmutar experiências, dores e imagens internas em mundo habitável."},
+      {"heading": "O ateliê", "text": "No Moonverse, essa ala deve permitir navegar mapas, personagens, entidades, trechos e notas de worldbuilding sem perder a sensação de estar entrando num lugar."},
+      {"heading": "Próxima forma", "text": "A página atual é placeholder editorial. O próximo passo é transformar material canônico de Líthia em cards, mapas e verbetes reais."}
+    ],
+    "quote": "Mundo inventado também é órgão: metaboliza aquilo que a vida bruta não soube digerir."
+  }
+}
