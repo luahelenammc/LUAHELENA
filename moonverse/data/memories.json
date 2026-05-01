@@ -1,0 +1,62 @@
+[
+  {
+    "id": "maresia",
+    "title": "O cheiro de maresia",
+    "tags": ["infância", "praia", "mar", "nostalgia"],
+    "affect": "nostalgia doce",
+    "type": "memória evocativa",
+    "description": "A chegada ao litoral como prova sensorial de paraíso: depois de horas de estrada, o mar aparecia e o mundo mudava de densidade.",
+    "color": "linear-gradient(135deg, #3b79a1, #f5bf8e)",
+    "page": "maresia"
+  },
+  {
+    "id": "tv-tubo",
+    "title": "A TV de tubo acesa",
+    "tags": ["infância", "nostalgia", "jogos"],
+    "affect": "aconchego eletrônico",
+    "type": "memória recriada",
+    "description": "A sala como caverna luminosa: desenho, videogame, espera e a sensação de que a infância cabia inteira numa tela pesada.",
+    "color": "linear-gradient(135deg, #4a3b80, #e98fb5)",
+    "page": "sims"
+  },
+  {
+    "id": "orkut",
+    "title": "Scrap colorido no Orkut",
+    "tags": ["nostalgia", "internet", "adolescência"],
+    "affect": "internet antiga",
+    "type": "memória cultural",
+    "description": "Quando existir online ainda parecia uma sala rosa, azul, piscante, meio brega e estranhamente sagrada.",
+    "color": "linear-gradient(135deg, #c05c89, #8fd3ff)",
+    "page": "orkut-msn"
+  },
+  {
+    "id": "casa-arca",
+    "title": "A casa-arca",
+    "tags": ["sonho", "futuro", "santuário"],
+    "affect": "refúgio vivo",
+    "type": "memória futura",
+    "description": "Uma casa bonita, cheia de plantas, animais, tecnologia, marido, filho e a promessa de que o vivo pode ser protegido.",
+    "color": "linear-gradient(135deg, #2f795a, #e7cf86)",
+    "page": "casa-arca"
+  },
+  {
+    "id": "franjinha-espelho",
+    "title": "O espelho da feminilidade possível",
+    "tags": ["transição", "corpo", "espelho"],
+    "affect": "reconhecimento",
+    "type": "memória simbólica",
+    "description": "O rosto como campo de negociação entre disforia, estética, nome e a alegria concreta de se reconhecer.",
+    "color": "linear-gradient(135deg, #6c5b9d, #ffc0da)",
+    "page": "me-tornando"
+  },
+  {
+    "id": "lithia-mapa",
+    "title": "O mapa de um mundo que insiste",
+    "tags": ["Líthia", "escrita", "fantasia"],
+    "affect": "cosmologia autoral",
+    "type": "memória criativa",
+    "description": "A sensação de que mundos inventados não são fuga: são órgãos narrativos que metabolizam dor, beleza e destino.",
+    "color": "linear-gradient(135deg, #4a235a, #f0a65d)",
+    "page": "lithia"
+  }
+]
