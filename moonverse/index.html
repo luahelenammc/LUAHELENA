@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>True Moonverse · Palácio mental navegável</title>
-  <meta name="description" content="Protótipo inicial do True Moonverse: portal-palácio, Moonpedia editorial, álbuns e Máquina Mnésica." />
+  <meta name="description" content="Protótipo do True Moonverse: portal-palácio, Moonpedia editorial, álbuns e Máquina Mnésica." />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -21,6 +21,7 @@
 
     <nav class="topnav" aria-label="Navegação principal">
       <a href="#palace">Mansão</a>
+      <a href="#atlas">Atlas</a>
       <a href="#devices">Memórias</a>
       <a href="#article-lab">Página</a>
       <a href="#patch-notes">Patch</a>
@@ -46,48 +47,52 @@
         <div class="orb"></div>
         <h2>Estado do protótipo</h2>
         <ul>
-          <li>Hall + mapa de salas</li>
+          <li>Dados separados em <code>data/*.json</code></li>
+          <li>Mansão com salas expansíveis</li>
+          <li>Atlas/Busca Moonpedia</li>
           <li>Página editorial estilo Lunar Editorial Wiki</li>
-          <li>Álbum físico simulado</li>
-          <li>Máquina Mnésica com sorteio</li>
+          <li>Álbum físico simulado + Máquina Mnésica</li>
         </ul>
       </aside>
     </section>
 
     <section id="palace" class="section-pad palace-section">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Camada navegável</p>
+          <h2>A mansão como mapa de jurisdição</h2>
+          <p>
+            Cada sala é uma porta semântica: ela não precisa conter tudo, mas precisa orientar o visitante
+            para os arquivos, páginas, memórias e projetos certos.
+          </p>
+        </div>
+        <div class="mini-ledger">
+          <strong>Regra do palácio</strong>
+          <span>Espaço = jurisdição + fluxo + atmosfera.</span>
+        </div>
+      </div>
+
+      <div id="palace-grid" class="palace-grid" aria-label="Salas iniciais do Moonverse"></div>
+      <div id="room-display" class="room-display" aria-live="polite"></div>
+    </section>
+
+    <section id="atlas" class="section-pad atlas-section">
       <div class="section-heading">
-        <p class="eyebrow">Camada navegável</p>
-        <h2>A mansão como mapa de jurisdição</h2>
+        <p class="eyebrow">Moonpedia navegável</p>
+        <h2>Atlas de páginas</h2>
         <p>
-          Cada sala é uma porta semântica: ela não precisa conter tudo, mas precisa orientar o visitante
-          para os arquivos, páginas, memórias e projetos certos.
+          Uma camada mais prática para quando o visitante não quer passear pela mansão: busca, filtros e cartões editoriais.
         </p>
       </div>
 
-      <div class="palace-grid" aria-label="Salas iniciais do Moonverse">
-        <button class="room-card active" data-room="biblioteca">
-          <span>📚</span>
-          <strong>Biblioteca Lunar</strong>
-          <small>autobiografia, Moonpedia, timeline, ensaios</small>
-        </button>
-        <button class="room-card" data-room="nostalgia">
-          <span>💿</span>
-          <strong>Quarto Nostálgico</strong>
-          <small>The Sims 1, Orkut, MSN, Evanescence, internet antiga</small>
-        </button>
-        <button class="room-card" data-room="observatorio">
-          <span>🔭</span>
-          <strong>Observatório Nexus</strong>
-          <small>Moon Source, Citadel, Symbiosphere, IA</small>
-        </button>
-        <button class="room-card" data-room="santuario">
-          <span>🌿</span>
-          <strong>Jardim-Santuário</strong>
-          <small>Hécate, casa-arca, natureza, limiares</small>
-        </button>
+      <div class="atlas-controls">
+        <label class="searchbox">
+          <span>Buscar</span>
+          <input id="atlas-search" type="search" placeholder="maresia, transição, IA, casa, Líthia..." />
+        </label>
+        <div id="atlas-filters" class="filter-row" aria-label="Filtros do atlas"></div>
       </div>
-
-      <div id="room-display" class="room-display" aria-live="polite"></div>
+      <div id="atlas-grid" class="atlas-grid" aria-live="polite"></div>
     </section>
 
     <section id="devices" class="section-pad devices-section">
@@ -121,12 +126,7 @@
           </div>
           <h3>Máquina Mnésica</h3>
           <p>Sortear uma cápsula de memória publicável, com título, descrição, tags e portal relacionado.</p>
-          <div class="filter-row" aria-label="Filtros de memória">
-            <button class="chip active" data-memory-filter="all">todas</button>
-            <button class="chip" data-memory-filter="infância">infância</button>
-            <button class="chip" data-memory-filter="nostalgia">nostalgia</button>
-            <button class="chip" data-memory-filter="sonho">sonho</button>
-          </div>
+          <div id="memory-filters" class="filter-row" aria-label="Filtros de memória"></div>
           <button class="button primary" id="random-memory">Sortear memória</button>
           <div id="memory-result" class="memory-result" aria-live="polite"></div>
         </article>
@@ -134,21 +134,23 @@
     </section>
 
     <section id="article-lab" class="section-pad article-lab">
-      <div class="section-heading">
-        <p class="eyebrow">Página elementar</p>
-        <h2>Lunar Editorial Wiki</h2>
-        <p>
-          A página do Moonverse lê como revista, orienta como wiki moderna e retorna sempre ao palácio.
-        </p>
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Página elementar</p>
+          <h2>Lunar Editorial Wiki</h2>
+          <p>
+            A página do Moonverse lê como revista, orienta como wiki moderna e retorna sempre ao palácio.
+          </p>
+        </div>
+        <div class="reading-toggle" aria-label="Modo de leitura">
+          <button class="chip active" id="knowledge-mode">modo conhecimento</button>
+          <button class="chip" id="reading-mode">modo leitura</button>
+        </div>
       </div>
 
-      <div class="article-picker" aria-label="Escolher página piloto">
-        <button class="chip active" data-open-page="maresia">Memória · Maresia</button>
-        <button class="chip" data-open-page="moon-source">Projeto · Moon Source</button>
-        <button class="chip" data-open-page="sims">Cultura · The Sims 1</button>
-      </div>
+      <div id="article-picker" class="article-picker" aria-label="Escolher página piloto"></div>
 
-      <div class="article-shell">
+      <div id="article-shell" class="article-shell">
         <nav class="left-rail" aria-label="Índice da página">
           <strong>Índice</strong>
           <ol id="toc"></ol>
