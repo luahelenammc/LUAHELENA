@@ -1,4 +1,4 @@
-# True Moonverse · Prototype v0.3
+# True Moonverse · Prototype v0.4
 
 Este diretório abriga o protótipo estático do **True Moonverse**: um site-palácio navegável para transformar Moonpedia, memórias, projetos, álbuns e esferas em experiência web.
 
@@ -12,7 +12,9 @@ Este diretório abriga o protótipo estático do **True Moonverse**: um site-pal
 - **Página elementar**: `Lunar Editorial Wiki`, combinando leitura editorial e navegação contextual.
 - **Modo leitura / modo conhecimento**: alterna entre foco textual e leitura com trilhos laterais nas páginas físicas.
 - **Camada de dados**: conteúdo separado em `data/*.json`, preparando integração futura com Moonpedia/Notion.
-- **Recursos compartilhados**: todas as páginas usam `styles.css` e `page.js`, evitando duplicação de layout.
+- **Recursos compartilhados**: home usa `styles.css` + `app.js`; páginas usam `styles.css` + `privacy.css` + `page.js`.
+- **Estados de privacidade**: páginas físicas exibem selo/ficha de publicável, sanitizado, curadoria, restrito ou rascunho.
+- **Wrappers geráveis**: `scripts/create-page-wrapper.mjs` cria invólucros físicos para novos IDs em `data/pages.json`.
 
 ## Regra arquitetônica atual
 
@@ -24,12 +26,14 @@ A home (`index.html`) não deve embutir verbetes completos. Ela deve orientar, b
 
 - `index.html` — portal do Moonverse: Hall, Mansão, Atlas, Álbuns e Máquina Mnésica.
 - `styles.css` — estética lunar/editorial/wiki, responsividade, Atlas, modo leitura e páginas físicas.
+- `privacy.css` — estados visuais de privacidade das páginas físicas.
 - `app.js` — carregamento dos dados e renderização da home/portal.
 - `page.js` — renderizador compartilhado das páginas físicas.
 - `data/rooms.json` — salas da mansão e links semânticos.
 - `data/memories.json` — cápsulas de memória usadas no álbum e na Máquina Mnésica.
 - `data/pages.json` — conteúdo das páginas do modelo Lunar Editorial Wiki.
 - `pages/*.html` — invólucros físicos das páginas, cada um com `data-page-id`.
+- `scripts/create-page-wrapper.mjs` — gerador de novos wrappers físicos.
 
 ## Páginas físicas criadas
 
@@ -39,6 +43,17 @@ A home (`index.html`) não deve embutir verbetes completos. Ela deve orientar, b
 - `pages/me-tornando.html`
 - `pages/casa-arca.html`
 - `pages/lithia.html`
+- `pages/timeline-lunar.html`
+- `pages/orkut-msn.html`
+- `pages/evanescence.html`
+- `pages/citadel.html`
+- `pages/symbiosphere.html`
+- `pages/hecate.html`
+- `pages/ecologia-espiritual.html`
+- `pages/nome-presenca.html`
+- `pages/corpo-casa.html`
+- `pages/lithia-mapas.html`
+- `pages/sombras-incognosciveis.html`
 
 ## Como abrir
 
@@ -54,8 +69,8 @@ O True Moonverse não deve ser apenas uma interface bonita. Ele precisa ser expl
 
 1. Criar assets reais/gerados para hero images, álbuns e esferas.
 2. Refinar mobile em dispositivos reais.
-3. Transformar páginas-piloto em conteúdo mais próximo do Moonpedia/Notion.
-4. Automatizar criação de wrappers `pages/*.html` para novos IDs em `data/pages.json`.
-5. Acrescentar estados de privacidade visual: público, sanitizado, privado-referencial, não publicável.
-6. Criar coleção de álbuns, não apenas um álbum da infância.
-7. Integrar um pipeline semi-manual Notion/Moonpedia → JSON.
+3. Transformar placeholders em conteúdo mais próximo do Moonpedia/Notion.
+4. Criar coleção de álbuns, não apenas um álbum da infância.
+5. Integrar um pipeline semi-manual Notion/Moonpedia → JSON.
+6. Criar links internos entre páginas relacionadas a partir de metadados.
+7. Adicionar Open Graph estático por wrapper quando as páginas tiverem conteúdo final.
