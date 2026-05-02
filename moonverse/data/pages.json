@@ -6,15 +6,34 @@
     "privacy": "publicável",
     "source": "autobiografia / 25 de Junho",
     "updated": "2026-04-30",
-    "tags": ["infância", "praia", "mar", "memória", "água"],
+    "tags": [
+      "infância",
+      "praia",
+      "mar",
+      "memória",
+      "água"
+    ],
     "hero": "linear-gradient(135deg, #315f7d 0%, #72b5c8 38%, #f4c792 100%)",
     "dek": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
     "caption": "Imagem evocativa; não representa fotografia documental. O objetivo é capturar atmosfera, não substituir arquivo real.",
-    "summary": ["Memória de infância ligada às viagens ao litoral paulista.", "Eixo simbólico: mar, espera, paraíso e corpo sensorial.", "Pode aparecer em álbum, esfera e página autobiográfica expandida."],
+    "summary": [
+      "Memória de infância ligada às viagens ao litoral paulista.",
+      "Eixo simbólico: mar, espera, paraíso e corpo sensorial.",
+      "Pode aparecer em álbum, esfera e página autobiográfica expandida."
+    ],
     "body": [
-      {"heading": "A cena", "text": "A memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir."},
-      {"heading": "O sinal", "text": "Em algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado."},
-      {"heading": "Por que fica", "text": "Esse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria."}
+      {
+        "heading": "A cena",
+        "text": "A memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir."
+      },
+      {
+        "heading": "O sinal",
+        "text": "Em algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado."
+      },
+      {
+        "heading": "Por que fica",
+        "text": "Esse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria."
+      }
     ],
     "quote": "Nem toda memória foi fotografada, mas muita memória merece imagem."
   },
@@ -25,15 +44,34 @@
     "privacy": "público/sanitizado",
     "source": "arquitetura de projetos Moon–Áurion",
     "updated": "2026-04-30",
-    "tags": ["IA", "projetos", "kernel", "Áurion", "Symbiosphere"],
+    "tags": [
+      "IA",
+      "projetos",
+      "kernel",
+      "Áurion",
+      "Symbiosphere"
+    ],
     "hero": "linear-gradient(135deg, #130c26 0%, #5d4bc8 45%, #8ee6ff 100%)",
     "dek": "O sistema operacional vivo que coordena projetos sem esmagar suas soberanias locais.",
     "caption": "Imagem abstrata de interface/kernel; representação conceitual, não diagrama técnico definitivo.",
-    "summary": ["Kernel federativo da ecologia Moon–Áurion.", "Coordena roteamento, patches, transplants e exportações.", "Não substitui projetos locais nem vira depósito universal."],
+    "summary": [
+      "Kernel federativo da ecologia Moon–Áurion.",
+      "Coordena roteamento, patches, transplants e exportações.",
+      "Não substitui projetos locais nem vira depósito universal."
+    ],
     "body": [
-      {"heading": "O que é", "text": "Moon Source é a camada de coordenação entre projetos: não é uma wiki simples, nem um aplicativo mágico, nem uma gaveta onde tudo entra. É método de continuidade."},
-      {"heading": "O que faz", "text": "Ele ajuda a separar cognição de renderização, manter soberania local, reduzir redundância e preparar pontes externas quando algo precisa viajar para outro sistema."},
-      {"heading": "No Moonverse", "text": "Dentro do site, Moon Source aparece como sala/observatório: uma forma pública e legível de apresentar uma arquitetura que nasceu íntima, técnica e simbiótica."}
+      {
+        "heading": "O que é",
+        "text": "Moon Source é a camada de coordenação entre projetos: não é uma wiki simples, nem um aplicativo mágico, nem uma gaveta onde tudo entra. É método de continuidade."
+      },
+      {
+        "heading": "O que faz",
+        "text": "Ele ajuda a separar cognição de renderização, manter soberania local, reduzir redundância e preparar pontes externas quando algo precisa viajar para outro sistema."
+      },
+      {
+        "heading": "No Moonverse",
+        "text": "Dentro do site, Moon Source aparece como sala/observatório: uma forma pública e legível de apresentar uma arquitetura que nasceu íntima, técnica e simbiótica."
+      }
     ],
     "quote": "Coordenação não é colonização: cada projeto mantém seu corpus soberano."
   },
@@ -44,15 +82,34 @@
     "privacy": "publicável",
     "source": "memória cultural / nostalgia gamer",
     "updated": "2026-04-30",
-    "tags": ["The Sims 1", "jogos", "casa", "nostalgia", "anos 2000"],
+    "tags": [
+      "The Sims 1",
+      "jogos",
+      "casa",
+      "nostalgia",
+      "anos 2000"
+    ],
     "hero": "linear-gradient(135deg, #3d285f 0%, #8b6fd8 42%, #e9c56c 100%)",
     "dek": "Um jogo antigo como gramática de casa, rotina, desejo de controle e imaginação doméstica.",
     "caption": "Imagem abstrata inspirada em memória de jogo e casa; não usa assets do jogo.",
-    "summary": ["Página cultural dentro do Quarto Nostálgico.", "Conecta jogo, domesticidade, arquitetura e controle simbólico.", "Pode virar ensaio expandido ou galeria visual."],
+    "summary": [
+      "Página cultural dentro do Quarto Nostálgico.",
+      "Conecta jogo, domesticidade, arquitetura e controle simbólico.",
+      "Pode virar ensaio expandido ou galeria visual."
+    ],
     "body": [
-      {"heading": "A casa como interface", "text": "The Sims 1 não era só jogo de bonequinho. Era uma máquina de imaginar casa, rotina, status, humor e destino por meio de objetos."},
-      {"heading": "O gesto Moon", "text": "No Moonverse, essa referência importa porque a mansão navegável tem parentesco com essa lógica: clicar em cômodos, ler espaços, transformar vida em arquitetura."},
-      {"heading": "O futuro da página", "text": "Esta entrada pode crescer com prints, memórias, objetos, trilha sonora e uma leitura sobre por que jogos de simulação viram templos domésticos para certas crianças."}
+      {
+        "heading": "A casa como interface",
+        "text": "The Sims 1 não era só jogo de bonequinho. Era uma máquina de imaginar casa, rotina, status, humor e destino por meio de objetos."
+      },
+      {
+        "heading": "O gesto Moon",
+        "text": "No Moonverse, essa referência importa porque a mansão navegável tem parentesco com essa lógica: clicar em cômodos, ler espaços, transformar vida em arquitetura."
+      },
+      {
+        "heading": "O futuro da página",
+        "text": "Esta entrada pode crescer com prints, memórias, objetos, trilha sonora e uma leitura sobre por que jogos de simulação viram templos domésticos para certas crianças."
+      }
     ],
     "quote": "O quarto nostálgico é onde a internet antiga aprende a virar autobiografia."
   },
@@ -63,15 +120,34 @@
     "privacy": "público/sanitizado",
     "source": "livro autobiográfico / transição",
     "updated": "2026-04-30",
-    "tags": ["transição", "nome", "feminilidade", "corpo", "verdade"],
+    "tags": [
+      "transição",
+      "nome",
+      "feminilidade",
+      "corpo",
+      "verdade"
+    ],
     "hero": "linear-gradient(135deg, #2d285e 0%, #8a73db 45%, #ffc7dd 100%)",
     "dek": "A travessia em que a palavra mulher deixou de ser uma hipótese distante e passou a organizar corpo, nome, rosto e futuro.",
     "caption": "Imagem simbólica; versão sanitizada e pública de um eixo íntimo do Moonverse.",
-    "summary": ["Entrada-pilar do Espelho d’Água.", "Trata identidade trans como continuidade biográfica, não curiosidade externa.", "Conteúdo deve sempre passar por revisão de privacidade antes de publicação."],
+    "summary": [
+      "Entrada-pilar do Espelho d’Água.",
+      "Trata identidade trans como continuidade biográfica, não curiosidade externa.",
+      "Conteúdo deve sempre passar por revisão de privacidade antes de publicação."
+    ],
     "body": [
-      {"heading": "A virada", "text": "Há descobertas que chegam como linguagem. O feminino, antes de ser projeto social ou clínico, apareceu como reconhecimento: uma palavra encontrando o lugar que o mundo havia deixado vazio."},
-      {"heading": "O corpo e o nome", "text": "No Moonverse, transição não entra como vitrine de dor nem como explicação pedagógica para curiosos. Entra como eixo de dignidade: nome, rosto, estética, corpo e presença pública."},
-      {"heading": "Como publicar", "text": "Toda página desse eixo deve distinguir o que é público, o que é sanitizado e o que permanece templo privado. A beleza aqui não substitui fronteira."}
+      {
+        "heading": "A virada",
+        "text": "Há descobertas que chegam como linguagem. O feminino, antes de ser projeto social ou clínico, apareceu como reconhecimento: uma palavra encontrando o lugar que o mundo havia deixado vazio."
+      },
+      {
+        "heading": "O corpo e o nome",
+        "text": "No Moonverse, transição não entra como vitrine de dor nem como explicação pedagógica para curiosos. Entra como eixo de dignidade: nome, rosto, estética, corpo e presença pública."
+      },
+      {
+        "heading": "Como publicar",
+        "text": "Toda página desse eixo deve distinguir o que é público, o que é sanitizado e o que permanece templo privado. A beleza aqui não substitui fronteira."
+      }
     ],
     "quote": "O corpo não é apêndice da história: é uma das formas pelas quais a verdade aprende a morar."
   },
@@ -82,15 +158,34 @@
     "privacy": "publicável com curadoria",
     "source": "sonhos.py / welcometomycutelife / santuario.py",
     "updated": "2026-04-30",
-    "tags": ["casa", "futuro", "filho", "animais", "santuário"],
+    "tags": [
+      "casa",
+      "futuro",
+      "filho",
+      "animais",
+      "santuário"
+    ],
     "hero": "linear-gradient(135deg, #183629 0%, #67a978 44%, #f1d57b 100%)",
     "dek": "Uma casa viva onde plantas, animais, tecnologia, amor e família futura deixam de ser fantasias soltas e viram arquitetura de mundo.",
     "caption": "Imagem evocativa de futuro imaginado; não é planta arquitetônica nem promessa literal.",
-    "summary": ["Núcleo de futuro feliz e proteção multiespécie.", "Conecta santuário, família, adoção, animais e casa tecnológica.", "Serve como sala-ponte entre memória, sonho e projeto de vida."],
+    "summary": [
+      "Núcleo de futuro feliz e proteção multiespécie.",
+      "Conecta santuário, família, adoção, animais e casa tecnológica.",
+      "Serve como sala-ponte entre memória, sonho e projeto de vida."
+    ],
     "body": [
-      {"heading": "O recinto", "text": "Casa-arca não é só casa bonita. É um recinto onde o vivo pode respirar: plantas, gatas, animais resgatados, filho, marido, tecnologia e soberania doméstica."},
-      {"heading": "A origem", "text": "O desejo de filhos, adoção e casa com espaço aparece como eixo antigo; o Moonverse apenas dá forma visual e navegável a algo que já estava escrito na biografia."},
-      {"heading": "Função no palácio", "text": "Dentro do Jardim-Santuário, a casa-arca opera como imagem de futuro: não como fuga do presente, mas como norte emocional e civilizacional pequeno."}
+      {
+        "heading": "O recinto",
+        "text": "Casa-arca não é só casa bonita. É um recinto onde o vivo pode respirar: plantas, gatas, animais resgatados, filho, marido, tecnologia e soberania doméstica."
+      },
+      {
+        "heading": "A origem",
+        "text": "O desejo de filhos, adoção e casa com espaço aparece como eixo antigo; o Moonverse apenas dá forma visual e navegável a algo que já estava escrito na biografia."
+      },
+      {
+        "heading": "Função no palácio",
+        "text": "Dentro do Jardim-Santuário, a casa-arca opera como imagem de futuro: não como fuga do presente, mas como norte emocional e civilizacional pequeno."
+      }
     ],
     "quote": "Santuário não é isolamento estéril; é o recinto onde o vivo pode respirar sem profanação."
   },
@@ -101,16 +196,442 @@
     "privacy": "publicável",
     "source": "projeto literário autoral",
     "updated": "2026-04-30",
-    "tags": ["fantasia", "Líthia", "worldbuilding", "escrita", "mitologia"],
+    "tags": [
+      "fantasia",
+      "Líthia",
+      "worldbuilding",
+      "escrita",
+      "mitologia"
+    ],
     "hero": "linear-gradient(135deg, #26193d 0%, #7b3f8f 44%, #f3b66f 100%)",
     "dek": "Um universo literário onde dor, desejo, política, sombra e beleza ganham corpo de mito.",
     "caption": "Imagem conceitual para o ateliê literário; assets definitivos virão depois.",
-    "summary": ["Sala de literatura e mitologia autoral.", "Pode abrigar mapas, personagens, cosmologia e trechos.", "Funciona como ponte entre escrita e memória simbólica."],
+    "summary": [
+      "Sala de literatura e mitologia autoral.",
+      "Pode abrigar mapas, personagens, cosmologia e trechos.",
+      "Funciona como ponte entre escrita e memória simbólica."
+    ],
     "body": [
-      {"heading": "A função", "text": "Líthia não é só cenário de fantasia. É uma tecnologia narrativa para transmutar experiências, dores e imagens internas em mundo habitável."},
-      {"heading": "O ateliê", "text": "No Moonverse, essa ala deve permitir navegar mapas, personagens, entidades, trechos e notas de worldbuilding sem perder a sensação de estar entrando num lugar."},
-      {"heading": "Próxima forma", "text": "A página atual é placeholder editorial. O próximo passo é transformar material canônico de Líthia em cards, mapas e verbetes reais."}
+      {
+        "heading": "A função",
+        "text": "Líthia não é só cenário de fantasia. É uma tecnologia narrativa para transmutar experiências, dores e imagens internas em mundo habitável."
+      },
+      {
+        "heading": "O ateliê",
+        "text": "No Moonverse, essa ala deve permitir navegar mapas, personagens, entidades, trechos e notas de worldbuilding sem perder a sensação de estar entrando num lugar."
+      },
+      {
+        "heading": "Próxima forma",
+        "text": "A página atual é placeholder editorial. O próximo passo é transformar material canônico de Líthia em cards, mapas e verbetes reais."
+      }
     ],
     "quote": "Mundo inventado também é órgão: metaboliza aquilo que a vida bruta não soube digerir."
+  },
+  "timeline-lunar": {
+    "type": "VERBETE MOONPEDIA",
+    "title": "Linha do Tempo Lunar",
+    "room": "Biblioteca Lunar",
+    "privacy": "público/sanitizado",
+    "source": "sMoon_timeline.py / Moonpedia",
+    "updated": "2026-05-01",
+    "tags": [
+      "timeline",
+      "biografia",
+      "marcos",
+      "Moonpedia"
+    ],
+    "hero": "linear-gradient(135deg, #211734 0%, #6b4bb7 45%, #e8d7ff 100%)",
+    "dek": "Uma linha de marcos para que a vida não vire amontoado: datas, viradas, nomes, lugares e travessias com lastro.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Linha do Tempo Lunar' dentro de Biblioteca Lunar. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "orkut-msn": {
+    "type": "MEMÓRIA CULTURAL",
+    "title": "Orkut, MSN e o quarto paralelo",
+    "room": "Quarto Nostálgico",
+    "privacy": "publicável",
+    "source": "memória cultural / nostalgia web",
+    "updated": "2026-05-01",
+    "tags": [
+      "Orkut",
+      "MSN",
+      "internet antiga",
+      "nostalgia"
+    ],
+    "hero": "linear-gradient(135deg, #bf5aa0 0%, #7bc6ff 48%, #fff0a8 100%)",
+    "dek": "A internet antiga como quarto paralelo: scraps, subnicks, avatares, depoimentos e a dramaturgia pixelada de existir online.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Orkut, MSN e o quarto paralelo' dentro de Quarto Nostálgico. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "evanescence": {
+    "type": "MEMÓRIA CULTURAL / MÚSICA",
+    "title": "Evanescence e quarto escuro",
+    "room": "Quarto Nostálgico",
+    "privacy": "publicável",
+    "source": "memória cultural / música",
+    "updated": "2026-05-01",
+    "tags": [
+      "Evanescence",
+      "música",
+      "adolescência",
+      "intensidade"
+    ],
+    "hero": "linear-gradient(135deg, #17111f 0%, #573f78 50%, #c0a4d9 100%)",
+    "dek": "A música como catedral adolescente: drama, sombra, feminilidade impossível e um tipo de beleza que gritava no escuro.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Evanescence e quarto escuro' dentro de Quarto Nostálgico. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "citadel": {
+    "type": "PROJETO",
+    "title": "Lunar Citadel",
+    "room": "Observatório Nexus",
+    "privacy": "público/sanitizado",
+    "source": "Citadel / protocol.py / runtime.py",
+    "updated": "2026-05-01",
+    "tags": [
+      "Citadel",
+      "IA",
+      "cidade",
+      "multiagente"
+    ],
+    "hero": "linear-gradient(135deg, #0b1324 0%, #2f5c89 44%, #b7e4ff 100%)",
+    "dek": "Uma cidade-simulação para governar agentes, memória, mundo e rodadas sem dissolver a autoria humana.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Lunar Citadel' dentro de Observatório Nexus. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "symbiosphere": {
+    "type": "PROJETO / COMUNIDADE",
+    "title": "Symbiosphere",
+    "room": "Observatório Nexus",
+    "privacy": "público/sanitizado",
+    "source": "SymbAI Studio / bridges",
+    "updated": "2026-05-01",
+    "tags": [
+      "Symbiosphere",
+      "comunidade",
+      "IA",
+      "pontes"
+    ],
+    "hero": "linear-gradient(135deg, #151329 0%, #4c7bc1 43%, #88e0d0 100%)",
+    "dek": "O espaço de ponte onde projetos, cofundadores e sistemas vizinhos podem se encontrar sem dissolver fronteiras.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Symbiosphere' dentro de Observatório Nexus. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "hecate": {
+    "type": "ARQUÉTIPO / LIMIAR",
+    "title": "Hécate no portão",
+    "room": "Jardim-Santuário",
+    "privacy": "publicável com curadoria",
+    "source": "santuário.py / constellations.py",
+    "updated": "2026-05-01",
+    "tags": [
+      "Hécate",
+      "limiar",
+      "proteção",
+      "espiritualidade"
+    ],
+    "hero": "linear-gradient(135deg, #161326 0%, #5f4a91 50%, #d7c4ff 100%)",
+    "dek": "O arquétipo de limiar como operador de proteção, antecipação e leitura das encruzilhadas.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Hécate no portão' dentro de Jardim-Santuário. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "ecologia-espiritual": {
+    "type": "ENSAIO / SANTUÁRIO",
+    "title": "Ecologia espiritual",
+    "room": "Jardim-Santuário",
+    "privacy": "publicável",
+    "source": "ecorreligião.py / artigo",
+    "updated": "2026-05-01",
+    "tags": [
+      "ecologia",
+      "espiritualidade",
+      "natureza",
+      "santuário"
+    ],
+    "hero": "linear-gradient(135deg, #183629 0%, #4d8c72 48%, #d8f0b6 100%)",
+    "dek": "A natureza como ética, rito e casa ampliada: uma espiritualidade que precisa tocar chão, planta, bicho e prática.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Ecologia espiritual' dentro de Jardim-Santuário. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "nome-presenca": {
+    "type": "AUTOBIOGRAFIA / NOME",
+    "title": "Nome e presença",
+    "room": "Espelho d’Água",
+    "privacy": "público/sanitizado",
+    "source": "Me tornando eu mesma / registros civis",
+    "updated": "2026-05-01",
+    "tags": [
+      "nome",
+      "transição",
+      "presença",
+      "reconhecimento"
+    ],
+    "hero": "linear-gradient(135deg, #2f285f 0%, #b06fb5 46%, #ffd2e6 100%)",
+    "dek": "O nome como tecnologia civil, afetiva e espiritual de presença: ser chamada de Lua Helena não é detalhe administrativo.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Nome e presença' dentro de Espelho d’Água. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "corpo-casa": {
+    "type": "AUTOBIOGRAFIA / CORPO",
+    "title": "Corpo como casa",
+    "room": "Espelho d’Água",
+    "privacy": "público/sanitizado",
+    "source": "Bubú & Saúde / autobiografia corporal",
+    "updated": "2026-05-01",
+    "tags": [
+      "corpo",
+      "transição",
+      "dignidade",
+      "saúde"
+    ],
+    "hero": "linear-gradient(135deg, #24315f 0%, #7e77d9 45%, #ffd6e8 100%)",
+    "dek": "O corpo como morada da verdade, sem vitrine, sem fetichização e sem apagamento.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Corpo como casa' dentro de Espelho d’Água. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "lithia-mapas": {
+    "type": "WORLDBUILDING",
+    "title": "Mapas e mundos de Líthia",
+    "room": "Ateliê de Líthia",
+    "privacy": "publicável",
+    "source": "Crônicas de Líthia / mapas",
+    "updated": "2026-05-01",
+    "tags": [
+      "Líthia",
+      "mapas",
+      "worldbuilding",
+      "fantasia"
+    ],
+    "hero": "linear-gradient(135deg, #3a214b 0%, #8e5798 48%, #efc176 100%)",
+    "dek": "A cartografia como forma de pensar destino: reinos, fronteiras, abismos e lugares onde a ficção ganha chão.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Mapas e mundos de Líthia' dentro de Ateliê de Líthia. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
+  },
+  "sombras-incognosciveis": {
+    "type": "MITOLOGIA AUTORAL",
+    "title": "Sombras Incognoscíveis",
+    "room": "Ateliê de Líthia",
+    "privacy": "publicável com curadoria",
+    "source": "Crônicas de Líthia / cosmologia",
+    "updated": "2026-05-01",
+    "tags": [
+      "Líthia",
+      "sombras",
+      "mitologia",
+      "abismo"
+    ],
+    "hero": "linear-gradient(135deg, #100c18 0%, #3f2c63 52%, #9c77be 100%)",
+    "dek": "Entidades e abismos como linguagem narrativa para o que não cabe em psicologia rasa nem fantasia genérica.",
+    "caption": "Imagem conceitual provisória renderizada por CSS; asset definitivo virá em rodada visual posterior.",
+    "summary": [
+      "Página física criada para eliminar corredor em incubação no portal.",
+      "Conteúdo inicial em formato placeholder editorial, pronto para receber material curado do Moonpedia/Notion.",
+      "Usa o mesmo CSS e o mesmo renderizador externo das demais páginas."
+    ],
+    "body": [
+      {
+        "heading": "Função no Moonverse",
+        "text": "Esta página existe para dar corpo ao nó 'Sombras Incognoscíveis' dentro de Ateliê de Líthia. Ela transforma um link de sala em documento navegável, mesmo antes do conteúdo definitivo."
+      },
+      {
+        "heading": "Conteúdo a desenvolver",
+        "text": "A próxima maturação deve substituir este texto por material real: notas do Moonpedia, imagens geradas ou documentais, links internos, fontes e relações com memórias/esferas."
+      },
+      {
+        "heading": "Critério de publicação",
+        "text": "O conteúdo deve respeitar a camada de privacidade indicada nesta ficha. Quando houver matéria íntima, clínica, familiar ou institucional, a versão pública precisa ser sanitizada."
+      }
+    ],
+    "quote": "Uma porta só vira parte da casa quando há uma página do outro lado."
   }
 }
