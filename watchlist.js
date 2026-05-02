@@ -341,7 +341,7 @@
     }
 
     if (!nextEpisode) {
-      return `Você assistiu até ${current}. Não há próximo episódio cadastrado.`;
+      return `Você assistiu até ${current}. Sem próximo episódio cadastrado.`;
     }
 
     const next = epLabel(nextEpisode.season, nextEpisode.episode);
@@ -349,18 +349,18 @@
     const releaseState = getReleaseState(nextEpisode);
 
     if (releaseState === "future") {
-      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, lança em ${formatDate(nextEpisode.date)}.`;
+      return `Você assistiu até ${current}. Próximo: ${next}${title} • ${formatDate(nextEpisode.date)}.`;
     }
 
     if (releaseState === "today") {
-      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, lança hoje.`;
+      return `Você assistiu até ${current}. Próximo: ${next}${title} • hoje.`;
     }
 
     if (releaseState === "past") {
-      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, já está disponível desde ${formatDate(nextEpisode.date)}.`;
+      return `Você assistiu até ${current}. Próximo: ${next}${title} • disponível desde ${formatDate(nextEpisode.date)}.`;
     }
 
-    return `Você assistiu até ${current}. O próximo episódio é ${next}${title}.`;
+    return `Você assistiu até ${current}. Próximo: ${next}${title}.`;
   }
 
   function deriveLegacyStatus(item, nextEpisode) {
@@ -429,6 +429,164 @@
     };
   }
 
+  function injectMobileChipLayoutPatch() {
+    if (typeof document === "undefined") return;
+    if (document.getElementById("watchlist-mobile-chip-layout-patch")) return;
+
+    const css = `
+      @media (max-width: 640px) {
+        .desk {
+          padding: 18px 6px !important;
+          place-items: start center !important;
+        }
+
+        .window {
+          width: min(100%, 100vw) !important;
+        }
+
+        .content,
+        .panel-list,
+        .panel-filters {
+          padding: 10px !important;
+        }
+
+        .list-head {
+          align-items: flex-start !important;
+          flex-direction: column !important;
+        }
+
+        .card {
+          padding: 12px 10px !important;
+        }
+
+        .card-top {
+          display: grid !important;
+          grid-template-columns: 1fr !important;
+          gap: 10px !important;
+        }
+
+        .sticker {
+          width: 100% !important;
+          min-width: 0 !important;
+        }
+
+        .titleline {
+          min-width: 0 !important;
+          flex: 1 1 auto !important;
+        }
+
+        .card-title {
+          white-space: normal !important;
+          overflow: visible !important;
+          text-overflow: clip !important;
+          line-height: 1.15 !important;
+          max-width: 100% !important;
+        }
+
+        .status {
+          width: 100% !important;
+          align-items: stretch !important;
+        }
+
+        .ledrow {
+          display: grid !important;
+          grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+          gap: 8px !important;
+          max-width: none !important;
+          width: 100% !important;
+        }
+
+        .led {
+          width: 100% !important;
+          height: 30px !important;
+        }
+
+        .legend {
+          text-align: left !important;
+          font-size: 12px !important;
+          padding: 0 2px !important;
+        }
+
+        .card-meta {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 8px !important;
+          align-items: stretch !important;
+          width: 100% !important;
+        }
+
+        .mini {
+          width: 100% !important;
+          min-width: 0 !important;
+          justify-content: center !important;
+          min-height: 36px !important;
+          border-radius: 18px !important;
+          white-space: normal !important;
+          text-align: center !important;
+          line-height: 1.2 !important;
+        }
+
+        .mini-note {
+          grid-column: 1 / -1 !important;
+          justify-content: flex-start !important;
+          text-align: left !important;
+          border-radius: 16px !important;
+          padding: 10px 12px !important;
+          line-height: 1.35 !important;
+        }
+
+        .release {
+          grid-column: 1 / -1 !important;
+          justify-content: center !important;
+          border-radius: 999px !important;
+          padding: 9px 12px !important;
+        }
+
+        .release .release-date,
+        .release .release-text {
+          white-space: nowrap !important;
+        }
+
+        .tags {
+          gap: 8px !important;
+        }
+
+        .tag {
+          flex: 1 1 auto !important;
+          min-width: max-content !important;
+          text-align: center !important;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .mini {
+          font-size: 11px !important;
+          padding: 7px 8px !important;
+        }
+
+        .mini-note {
+          font-size: 12px !important;
+        }
+
+        .release {
+          font-size: 12px !important;
+        }
+
+        .tag {
+          font-size: 11px !important;
+          padding: 6px 8px !important;
+        }
+      }
+    `;
+
+    const style = document.createElement("style");
+    style.id = "watchlist-mobile-chip-layout-patch";
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  injectMobileChipLayoutPatch();
+
   const items = rawItems.map(normalizeItem);
 
   // =========================
@@ -454,6 +612,6 @@
     "| overviews:",
     window.WATCHLIST_SERIES_OVERVIEWS ? "OK" : "N/A",
     "| schema:",
-    "progress_driven_v2"
+    "progress_driven_v2_mobile_patch"
   );
 })();
