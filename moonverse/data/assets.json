@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "id": "moonverse_assets_v1",
+    "purpose": "Inventário de assets visuais curados para hero images, salas, memórias, álbuns, ícones e texturas.",
+    "rule": "Nenhuma imagem entra sem alt, tags, source, status, privacy_state e vínculo semântico."
+  },
+  "assets": {
+    "hero_maresia_placeholder": {
+      "kind": "hero",
+      "src": null,
+      "fallback_theme": "lunar_sea",
+      "alt": "Imagem evocativa de maresia, infância e litoral, ainda não definida.",
+      "tags": ["infância", "praia", "mar", "nostalgia"],
+      "source": "pending",
+      "status": "placeholder",
+      "privacy_state": "public",
+      "page_ids": ["maresia"],
+      "memory_ids": ["maresia"]
+    },
+    "hero_moon_source_placeholder": {
+      "kind": "hero",
+      "src": null,
+      "fallback_theme": "observatory_blue",
+      "alt": "Imagem abstrata de arquivo vivo, IA e observatório, ainda não definida.",
+      "tags": ["IA", "arquivo", "sistema", "observatório"],
+      "source": "pending",
+      "status": "placeholder",
+      "privacy_state": "sanitized",
+      "page_ids": ["moon-source"],
+      "memory_ids": []
+    },
+    "room_biblioteca_placeholder": {
+      "kind": "room",
+      "src": null,
+      "fallback_theme": "placeholder_lunar",
+      "alt": "Imagem provisória da Biblioteca Lunar.",
+      "tags": ["biblioteca", "arquivo", "Moonpedia"],
+      "source": "pending",
+      "status": "placeholder",
+      "privacy_state": "public",
+      "page_ids": [],
+      "memory_ids": []
+    }
+  }
+}
