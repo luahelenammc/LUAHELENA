@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "id": "moonverse_image_sources_v1",
+    "purpose": "Definir fontes permitidas para imagens do True Moonverse antes da fase visual pesada.",
+    "rule": "Imagem no Moonverse não é decoração: é portal semântico curado."
+  },
+  "sources": {
+    "local_archive": {
+      "type": "local",
+      "policy": "preferred_when_available",
+      "requires_credit": false,
+      "requires_review": true,
+      "description": "Imagens próprias, arquivos pessoais e assets criados especificamente para Moonverse."
+    },
+    "ai_generated": {
+      "type": "generated",
+      "policy": "allowed_after_review",
+      "requires_credit": false,
+      "requires_review": true,
+      "description": "Imagens geradas por IA a partir dos image prompts aprovados do Moonverse."
+    },
+    "public_domain": {
+      "type": "external_manual",
+      "policy": "allowed_preferred_for_archival_or_historical_context",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Imagem externa de domínio público, com fonte registrada."
+    },
+    "licensed_manual": {
+      "type": "external_manual",
+      "policy": "allowed_only_with_license_and_credit",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Imagem externa selecionada manualmente, nunca por hotlink cego, com licença e crédito."
+    },
+    "random_live_web": {
+      "type": "external_live",
+      "policy": "forbidden_in_production",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Busca aleatória ao vivo por tag não deve alimentar a UI final sem curadoria humana."
+    }
+  }
+}
