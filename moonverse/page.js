@@ -86,6 +86,9 @@ function applyPageStockImages(page) {
 }
 
 function renderPage(page, meta = {}, vocab = {}, theme = {}) {
+  const legacyIndex = document.querySelector('.left-rail');
+  if (legacyIndex) legacyIndex.remove();
+
   const article = document.querySelector('#article-view');
   const infobox = document.querySelector('#infobox');
   if (!article || !infobox) return;
