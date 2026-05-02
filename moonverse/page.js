@@ -129,17 +129,6 @@ function renderPage(page, meta = {}, vocab = {}, theme = {}) {
   `;
 }
 
-function setReadingMode(mode) {
-  const shell = document.querySelector('#article-shell');
-  if (!shell) return;
-  shell.classList.toggle('reading-only', mode === 'reading');
-  document.querySelector('#knowledge-mode')?.classList.toggle('active', mode !== 'reading');
-  document.querySelector('#reading-mode')?.classList.toggle('active', mode === 'reading');
-}
-
-document.querySelector('#knowledge-mode')?.addEventListener('click', () => setReadingMode('knowledge'));
-document.querySelector('#reading-mode')?.addEventListener('click', () => setReadingMode('reading'));
-
 async function initPage() {
   const [pages, manifest, privacyStates, themes] = await Promise.all([
     loadJson('../data/pages.json', {}),
