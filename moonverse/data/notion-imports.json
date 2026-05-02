@@ -1,9 +1,38 @@
 {
   "meta": {
-    "id": "moonverse_notion_imports_v1",
-    "purpose": "Registro de páginas importadas ou pilotadas a partir da Moonwiki/Notion antes da integração em lote com pages.json.",
+    "id": "moonverse_notion_imports_v2",
+    "purpose": "Registro da ponte operacional GPT ↔ Notion ↔ GitHub para importar Moonwiki/Notion para o True Moonverse antes da integração em lote com pages.json.",
     "source": "Notion Moonwiki Biography",
-    "created": "2026-05-02"
+    "created": "2026-05-02",
+    "updated": "2026-05-02",
+    "bridge_status": "gpt_notion_connector_active_and_github_write_confirmed",
+    "bridge_summary": "Moon conectou o Notion ao GPT; Áurion conseguiu recuperar páginas/databases da Moonwiki via conector Notion e escrever página-piloto no GitHub em /moonverse.",
+    "verified_flow": [
+      "Notion Moonwiki retrieve via GPT connector",
+      "schema inspection of Moonwiki databases",
+      "content fetch of a concrete Notion page",
+      "manual conversion to Moonverse page format",
+      "GitHub write to moonverse/pages/descoberta-trans.html",
+      "GitHub write to moonverse/data/notion-imports.json"
+    ],
+    "notion_sources_seen": {
+      "moonwiki_biography": {
+        "kind": "database/wiki",
+        "observed_properties": ["Página", "Última edição"],
+        "data_source": "collection://2f5330bf-7340-804f-b5d1-000bf078c17d"
+      },
+      "linha_do_tempo_lunar": {
+        "kind": "page_with_inline_database",
+        "observed_properties": ["Nome", "Data", "Tipo de evento", "Fase da vida"],
+        "data_source": "collection://2f5330bf-7340-8092-b02a-000be6296c6e"
+      },
+      "verbetes_do_moonverse": {
+        "kind": "page_with_inline_database",
+        "observed_properties": ["Nome", "Tipo", "Tags", "Fase da vida"],
+        "data_source": "collection://2f5330bf-7340-8045-b475-000b35b20ddd"
+      }
+    },
+    "pipeline_implication": "A Moonwiki pode funcionar como fonte-mãe de conteúdo; o Moonverse/GitHub pode funcionar como camada pública/editorial/renderizada."
   },
   "imports": {
     "descoberta-trans": {
@@ -19,11 +48,17 @@
       "theme_id": "mirror_water",
       "tags": ["transição", "trans", "corpo", "verdade", "nome", "THF pré-CRS"],
       "target_page": "pages/descoberta-trans.html",
+      "conversion_notes": [
+        "conteúdo recuperado do Notion via GPT connector",
+        "página criada como piloto estático independente antes de promover para pages.json/manifest.json",
+        "foco do piloto: validar Notion → Moonverse → GitHub como fluxo real antes de automação em lote"
+      ],
       "next_integration": [
         "promover entrada para data/pages.json",
         "adicionar entrada correspondente em data/manifest.json",
         "gerar wrapper via build-pages.mjs quando pipeline estiver estável",
-        "adicionar link em timeline-lunar ou Atlas após validação"
+        "adicionar link em timeline-lunar ou Atlas após validação",
+        "criar importer semi-automatizado para Notion → Moonverse em lotes"
       ]
     }
   }
