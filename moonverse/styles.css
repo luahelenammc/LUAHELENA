@@ -112,6 +112,8 @@ code { font-size: .9em; }
   margin: 0 auto;
 }
 
+.page-main { max-width: 1320px; }
+
 .hero-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(290px, 430px);
@@ -165,6 +167,12 @@ h1 { max-width: 880px; font-size: clamp(3.4rem, 8vw, 7.4rem); }
 }
 .button.ghost { background: rgba(255, 250, 242, .62); }
 .button.small { padding: 0.65rem .9rem; }
+
+.disabled-link {
+  opacity: .62;
+  cursor: not-allowed;
+  filter: saturate(.55);
+}
 
 .moon-orb-card, .room-display, .album-device, .memory-machine, .note-grid article, .article-shell, .left-rail, .right-rail, .article-view, .atlas-card, .mini-ledger {
   background: var(--paper);
@@ -318,6 +326,7 @@ h1 { max-width: 880px; font-size: clamp(3.4rem, 8vw, 7.4rem); }
   border-radius: var(--radius-lg);
   border: 1px solid rgba(80,60,60,.12);
 }
+.memory-photo-link { display: block; text-decoration: none; }
 .memory-photo {
   width: 100%;
   border: 0;
@@ -402,6 +411,7 @@ h1 { max-width: 880px; font-size: clamp(3.4rem, 8vw, 7.4rem); }
 .left-rail a:hover { color: var(--lunar-deep); }
 .article-view { padding: clamp(1.1rem, 4vw, 2.8rem); box-shadow: none; }
 .breadcrumb { font-size: .88rem; color: var(--muted); margin-bottom: 1rem; }
+.breadcrumb a { text-decoration: none; color: var(--lunar-deep); }
 .article-view h1 { font-size: clamp(2.6rem, 5.5vw, 5rem); margin-top: .7rem; }
 .article-dek { margin: 1rem 0 1.2rem; }
 .metadata { display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .9rem; margin: 1rem 0 1.5rem; }
