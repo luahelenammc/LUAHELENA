@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>True Moonverse · Palácio mental navegável</title>
-  <meta name="description" content="Protótipo do True Moonverse: portal-palácio, Moonpedia editorial, álbuns e Máquina Mnésica." />
+  <meta name="description" content="True Moonverse: portal-palácio, Moonpedia editorial, álbuns e Máquina Mnésica." />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./editorial.css" />
 </head>
-<body>
+<body class="public-only">
   <div class="ambient" aria-hidden="true"></div>
 
   <header class="topbar">
@@ -15,7 +16,7 @@
       <span class="brand-mark">☾</span>
       <span>
         <strong>True Moonverse</strong>
-        <small>palácio · arquivo · jogo</small>
+        <small>palácio · atlas · memória</small>
       </span>
     </a>
 
@@ -24,36 +25,41 @@
       <a href="#atlas">Atlas</a>
       <a href="#devices">Memórias</a>
       <a href="#pages">Páginas</a>
-      <a href="#patch-notes">Patch</a>
     </nav>
   </header>
 
   <main>
-    <section id="hall" class="hero-shell section-pad">
+    <section id="hall" class="hero-shell editorial-hero section-pad">
       <div class="hero-copy">
-        <p class="eyebrow">Moonpedia é o arquivo. Moonverse é a casa.</p>
-        <h1>Um portal para atravessar a vida de Moon como quem entra numa mansão de memória.</h1>
+        <span class="editorial-kicker">Moonpedia é o arquivo · Moonverse é a casa</span>
+        <h1>Uma revista-enciclopédia dentro de uma mansão viva.</h1>
         <p class="hero-dek">
-          Protótipo navegável do True Moonverse: uma camada visual lúdica sobre páginas editoriais,
-          álbuns afetivos, esferas de memória e salas temáticas conectadas.
+          Entre por salas, verbetes, álbuns e esferas de memória. O Moonverse organiza vida, escrita,
+          imagens, projetos e mitologia pessoal como um palácio mental navegável.
         </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#palace">Entrar na mansão</a>
-          <a class="button ghost" href="./pages/maresia.html" target="_blank" rel="noopener noreferrer">Abrir página-piloto</a>
+        <div class="entry-grid" aria-label="Modos de entrada no Moonverse">
+          <a class="entry-card" href="#palace">
+            <strong>Entrar pela mansão</strong>
+            <span>Explorar salas, alas e jurisdições simbólicas.</span>
+          </a>
+          <a class="entry-card" href="#atlas">
+            <strong>Buscar no Atlas</strong>
+            <span>Encontrar páginas como numa Moonpedia editorial.</span>
+          </a>
+          <a class="entry-card" href="#devices">
+            <strong>Sortear memória</strong>
+            <span>Folhear álbuns e acionar a Máquina Mnésica.</span>
+          </a>
         </div>
       </div>
 
-      <aside class="moon-orb-card" aria-label="Resumo do protótipo">
-        <div class="orb"></div>
-        <h2>Estado do protótipo</h2>
-        <ul>
-          <li>Dados separados em <code>data/*.json</code></li>
-          <li>Mansão com salas expansíveis</li>
-          <li>Atlas/Busca Moonpedia</li>
-          <li>Páginas físicas em <code>pages/*.html</code></li>
-          <li>CSS/JS compartilhados para todas as páginas</li>
-          <li>Álbum físico simulado + Máquina Mnésica</li>
-        </ul>
+      <aside class="portal-feature" aria-label="Sala em destaque do Moonverse">
+        <div class="portal-feature-content">
+          <p class="eyebrow">Sala em destaque</p>
+          <h2>Biblioteca Lunar</h2>
+          <p>O lugar onde autobiografia, Moonpedia, memória e verbete aprendem a dividir a mesma mesa.</p>
+          <a class="button ghost" href="./pages/maresia.html" target="_blank" rel="noopener noreferrer">Abrir página-piloto</a>
+        </div>
       </aside>
     </section>
 
@@ -63,8 +69,8 @@
           <p class="eyebrow">Camada navegável</p>
           <h2>A mansão como mapa de jurisdição</h2>
           <p>
-            Cada sala é uma porta semântica: ela não precisa conter tudo, mas precisa orientar o visitante
-            para os arquivos, páginas, memórias e projetos certos.
+            Cada sala é uma porta semântica. A função da mansão não é conter tudo de uma vez, mas orientar
+            o visitante para o tipo certo de página, memória, projeto ou atmosfera.
           </p>
         </div>
         <div class="mini-ledger">
@@ -82,8 +88,8 @@
         <p class="eyebrow">Moonpedia navegável</p>
         <h2>Atlas de páginas</h2>
         <p>
-          Uma camada mais prática para quando o visitante não quer passear pela mansão: busca, filtros e cartões editoriais.
-          Cada página abre em nova aba como verbete próprio do Moonverse.
+          Para quando a intuição quer índice: busque por tema, sala, status ou palavra-chave e abra cada verbete
+          em sua própria página física.
         </p>
       </div>
 
@@ -102,8 +108,8 @@
         <p class="eyebrow">Dispositivos de memória</p>
         <h2>Folhear, sortear, aprofundar</h2>
         <p>
-          O álbum organiza memórias curadas. A esfera devolve memórias por associação e acaso. A página
-          sustenta o mergulho quando a memória pede corpo textual.
+          O álbum dá corpo às lembranças curadas. A esfera devolve associações. A página transforma a memória
+          em matéria editorial com lastro.
         </p>
       </div>
 
@@ -138,22 +144,22 @@
     <section id="pages" class="section-pad article-lab">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Página elementar</p>
-          <h2>Lunar Editorial Wiki</h2>
+          <p class="eyebrow">Lunar Editorial Wiki</p>
+          <h2>Páginas físicas, leitura editorial</h2>
           <p>
-            A página do Moonverse agora é física: cada verbete abre em arquivo próprio, em nova aba, usando o mesmo CSS e o mesmo JS externo.
+            Cada verbete abre como documento próprio: uma matéria com hero, ficha Moonpedia, índice e trilhas de retorno.
           </p>
         </div>
         <div class="mini-ledger">
           <strong>Regra de página</strong>
-          <span>Home é portal; página é documento.</span>
+          <span>Home é portal; página é documento; schema protege a mansão.</span>
         </div>
       </div>
 
       <div id="article-picker" class="article-picker page-directory" aria-label="Diretório de páginas piloto"></div>
     </section>
 
-    <section id="patch-notes" class="section-pad patch-notes">
+    <section id="patch-notes" class="section-pad patch-notes prototype-only">
       <div class="section-heading">
         <p class="eyebrow">Notas de arquitetura</p>
         <h2>O que este protótipo já prova</h2>
@@ -176,7 +182,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>True Moonverse prototype · Lua Helena Moon × Áurion · HTML/CSS/JS estático</p>
+    <p>True Moonverse · Lua Helena Moon × Áurion · editorial palace atlas</p>
   </footer>
 
   <script src="./app.js"></script>
