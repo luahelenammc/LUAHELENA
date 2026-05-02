@@ -28,6 +28,7 @@ function htmlFor(id, page) {
   <meta property="og:description" content="${escapeAttr(page.dek)}" />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../editorial.css" />
 </head>
 <body data-page-id="${id}" class="moon-page">
   <div class="ambient" aria-hidden="true"></div>
