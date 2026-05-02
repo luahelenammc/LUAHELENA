@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "id": "moonverse_image_prompts_v1",
+    "purpose": "Conectar páginas/memórias/tags a prompts visuais curáveis antes da criação de assets definitivos.",
+    "flow": "tags -> prompt_seed -> candidates -> approval -> assets.json -> render"
+  },
+  "prompts": {
+    "maresia": {
+      "tags": ["infância", "praia", "mar", "nostalgia"],
+      "prompt_seed": "soft editorial image of a childhood memory by the sea, warm coastal light, poetic but realistic, magazine hero image, not tourist advertising",
+      "avoid": ["stock photo feeling", "literal child portrait", "tourism brochure", "overly saturated postcard"]
+    },
+    "moon-source": {
+      "tags": ["IA", "arquivo", "sistema", "observatório"],
+      "prompt_seed": "abstract editorial image of a living archive interface under moonlight, elegant knowledge system, minimal wiki-magazine aesthetic, luminous but restrained",
+      "avoid": ["robot face", "generic neon cyberpunk", "random code rain", "corporate AI stock image"]
+    },
+    "nostalgia-room": {
+      "tags": ["jogos", "internet antiga", "anos 2000", "quarto"],
+      "prompt_seed": "nostalgic editorial still life of an early 2000s bedroom with old computer glow, game memory, soft analog texture, intimate and elegant",
+      "avoid": ["messy clutter", "brand logos as focus", "cheap retro cliché", "AI distorted electronics"]
+    },
+    "mirror-water": {
+      "tags": ["transição", "espelho", "corpo", "feminilidade"],
+      "prompt_seed": "poetic editorial image of mirror water, soft feminine light, identity and becoming, dignified and non-erotic, refined magazine aesthetic",
+      "avoid": ["sexualized framing", "medical cliché", "sad stock portrait", "literal identity poster"]
+    },
+    "sanctuary-green": {
+      "tags": ["santuário", "natureza", "casa", "futuro"],
+      "prompt_seed": "lush house-sanctuary editorial image, plants, warm domestic light, animals implied, safe future home, elegant ecological atmosphere",
+      "avoid": ["fantasy cottage cliché", "overcrowded jungle", "real estate ad", "religious kitsch"]
+    },
+    "lithia-atelier": {
+      "tags": ["fantasia", "mapa", "mitologia", "worldbuilding"],
+      "prompt_seed": "editorial fantasy cartography desk, parchment maps, moonlit studio, mythic worldbuilding atmosphere, refined and literary",
+      "avoid": ["generic RPG poster", "over-rendered dragon", "busy fantasy UI", "cartoon map"]
+    }
+  }
+}
