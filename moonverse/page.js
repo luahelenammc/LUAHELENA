@@ -82,7 +82,6 @@ function applyPageStockImages(page) {
   const tags = page.tags || [];
   stock()?.applyStockImage(hero, tags, { width: 1200, height: 820 });
   stock()?.attachStockButton(hero, hero, tags, 'Trocar imagem');
-  stock()?.attachPinterestButton(hero, tags, 'Pinterest');
 }
 
 function renderPage(page, meta = {}, vocab = {}, theme = {}) {
