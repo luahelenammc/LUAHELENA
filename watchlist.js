@@ -31,7 +31,7 @@
       type: "series",
       title: "The Boys",
       currentSeason: 5,
-      currentEpisode: 4,
+      currentEpisode: 5,
       currentEpisodeProgress: 100,
       tags: ["super herói", "violência", "comecei"],
       status: "watched",
