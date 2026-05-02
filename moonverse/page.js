@@ -25,6 +25,7 @@ function loadSharedStylesheet(href) {
 }
 
 loadSharedStylesheet('../privacy.css');
+loadSharedStylesheet('../editorial.css');
 
 async function loadJson(path, fallback = {}) {
   try {
