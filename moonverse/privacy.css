@@ -69,3 +69,55 @@
   background: rgba(111, 98, 121, .10);
   border-color: rgba(111, 98, 121, .22);
 }
+
+.status-tag,
+.status-badge {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.status-published .status-tag,
+.status-published .status-badge,
+.status-tag.status-published,
+.status-badge.status-published {
+  color: #234f38;
+  background: rgba(77, 140, 114, .14);
+  border-color: rgba(77, 140, 114, .26);
+}
+
+.status-draft .status-tag,
+.status-draft .status-badge,
+.status-tag.status-draft,
+.status-badge.status-draft {
+  color: #284f7a;
+  background: rgba(49, 106, 158, .12);
+  border-color: rgba(49, 106, 158, .24);
+}
+
+.status-placeholder .status-tag,
+.status-placeholder .status-badge,
+.status-tag.status-placeholder,
+.status-badge.status-placeholder {
+  color: #6b4c13;
+  background: rgba(200, 154, 66, .14);
+  border-color: rgba(200, 154, 66, .28);
+}
+
+.status-review .status-tag,
+.status-review .status-badge,
+.status-tag.status-review,
+.status-badge.status-review {
+  color: #5c357a;
+  background: rgba(107, 75, 183, .12);
+  border-color: rgba(107, 75, 183, .24);
+}
+
+.status-archived .status-tag,
+.status-archived .status-badge,
+.status-tag.status-archived,
+.status-badge.status-archived {
+  color: #5b5361;
+  background: rgba(111, 98, 121, .10);
+  border-color: rgba(111, 98, 121, .22);
+}
