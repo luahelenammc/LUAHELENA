@@ -39,6 +39,21 @@ const fallbackPages = {
   },
 };
 
+function stock() {
+  return window.MoonverseStockImages;
+}
+
+function parseTags(value = '') {
+  return String(value).split(',').map((tag) => tag.trim()).filter(Boolean);
+}
+
+function applyInitialStockImages() {
+  document.querySelectorAll('.stock-surface').forEach((surface) => {
+    stock()?.applyStockImage(surface, parseTags(surface.dataset.stockTags));
+    stock()?.attachStockButton(surface, surface, parseTags(surface.dataset.stockTags));
+  });
+}
+
 function pageMeta(pageId) {
   return manifest.pages?.[pageId] || {};
 }
@@ -93,9 +108,11 @@ function renderRoom(roomId = rooms[0]?.id) {
     card.classList.toggle('active', card.dataset.room === room.id);
   });
 
+  const roomTags = [room.title, room.id, ...(room.links || []).map((link) => pages[link.page]?.tags || []).flat()].filter(Boolean);
+
   display.innerHTML = `
     <div class="room-display-inner">
-      <div class="room-art" style="--room-bg:${room.gradient}">
+      <div class="room-art stock-surface" data-stock-tags="${roomTags.join(', ')}" style="--room-bg:${room.gradient}">
         <span class="portal-dot"></span><span class="portal-dot"></span><span class="portal-dot"></span>
       </div>
       <div class="room-content">
@@ -111,6 +128,10 @@ function renderRoom(roomId = rooms[0]?.id) {
       </div>
     </div>
   `;
+
+  const surface = display.querySelector('.room-art.stock-surface');
+  stock()?.applyStockImage(surface, roomTags);
+  stock()?.attachStockButton(surface, surface, roomTags);
 }
 
 function albumPages() {
@@ -125,10 +146,10 @@ function renderAlbum() {
   const pagesChunk = albumPages();
   currentAlbumPage = Math.min(currentAlbumPage, pagesChunk.length - 1);
 
-  spread.innerHTML = pagesChunk[currentAlbumPage].map((memory) => {
+  spread.innerHTML = pagesChunk[currentAlbumPage].map((memory, index) => {
     const href = pageHref(memory.page);
     const photo = `
-      <span class="memory-photo" style="--memory-bg:${memory.color}">
+      <span class="memory-photo stock-surface" data-stock-tags="${memory.tags.join(', ')}" style="--memory-bg:${memory.color}">
         <strong>${memory.title}</strong>
       </span>
     `;
@@ -140,6 +161,12 @@ function renderAlbum() {
       </div>
     `;
   }).join('');
+
+  spread.querySelectorAll('.memory-photo.stock-surface').forEach((surface) => {
+    stock()?.applyStockImage(surface, parseTags(surface.dataset.stockTags), { width: 700, height: 520 });
+    const container = surface.closest('.memory-photo-link') || surface;
+    stock()?.attachStockButton(container, surface, parseTags(surface.dataset.stockTags), 'Trocar imagem');
+  });
 }
 
 function renderMemoryFilters() {
@@ -157,6 +184,7 @@ function drawMemory() {
   if (!result || !selected) return;
 
   result.innerHTML = `
+    <div class="memory-result-image stock-surface" data-stock-tags="${selected.tags.join(', ')}"></div>
     <span class="badge">${selected.type}</span>
     ${statusLabel(selected.page)}
     <h4>${selected.title}</h4>
@@ -165,6 +193,10 @@ function drawMemory() {
     <div class="tags">${selected.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
     <p>${pageLink(selected.page, 'Abrir portal relacionado', 'Ler em página física do Moonverse')}</p>
   `;
+
+  const surface = result.querySelector('.memory-result-image.stock-surface');
+  stock()?.applyStockImage(surface, selected.tags, { width: 900, height: 520 });
+  stock()?.attachStockButton(surface, surface, selected.tags, 'Trocar imagem');
 }
 
 function renderArticlePicker() {
@@ -201,6 +233,7 @@ function renderAtlas() {
 
   grid.innerHTML = results.length ? results.map(([id, page]) => `
     <article class="atlas-card status-${pageMeta(id).status || 'draft'}">
+      <div class="atlas-thumb stock-surface" data-stock-tags="${page.tags.join(', ')}"></div>
       <span class="badge">${page.type}</span>
       ${statusLabel(id)}
       <h3>${page.title}</h3>
@@ -209,6 +242,11 @@ function renderAtlas() {
       ${pageLink(id, 'Abrir página', page.room)}
     </article>
   `).join('') : `<p class="empty-state">Nenhuma página encontrada nesse filtro. O arquivo ainda está nascendo.</p>`;
+
+  grid.querySelectorAll('.atlas-thumb.stock-surface').forEach((surface) => {
+    stock()?.applyStockImage(surface, parseTags(surface.dataset.stockTags), { width: 700, height: 420 });
+    stock()?.attachStockButton(surface, surface, parseTags(surface.dataset.stockTags), 'Trocar');
+  });
 }
 
 document.addEventListener('click', (event) => {
@@ -264,6 +302,7 @@ async function init() {
   renderArticlePicker();
   renderAtlasFilters();
   renderAtlas();
+  applyInitialStockImages();
 }
 
 init();
