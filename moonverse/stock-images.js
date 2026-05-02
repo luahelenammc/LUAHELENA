@@ -9,6 +9,17 @@ const stockPools = {
   moon: ['moon,night', 'stars', 'night,window', 'dreamy,light', 'purple,sky'],
 };
 
+const pinterestPools = {
+  sea: ['nostalgic beach editorial', 'childhood beach memory aesthetic', 'coastal nostalgia photography'],
+  nostalgia: ['early 2000s bedroom aesthetic', 'retro internet room aesthetic', 'nostalgic computer bedroom'],
+  archive: ['dark academia library aesthetic', 'editorial library photography', 'archive room aesthetic'],
+  ai: ['abstract technology editorial aesthetic', 'digital archive aesthetic', 'futuristic interface editorial'],
+  sanctuary: ['indoor garden sanctuary aesthetic', 'plant filled home aesthetic', 'greenhouse home editorial'],
+  mirror: ['mirror water editorial aesthetic', 'soft feminine reflection aesthetic', 'pastel identity editorial'],
+  fantasy: ['fantasy cartography desk aesthetic', 'worldbuilding map aesthetic', 'mythic forest editorial'],
+  moon: ['moonlit room aesthetic', 'purple moon aesthetic', 'dreamy night editorial'],
+};
+
 const tagMap = {
   'praia': 'sea',
   'mar': 'sea',
@@ -63,6 +74,12 @@ function stockUrl(tags = [], width = 1200, height = 820) {
   return `https://loremflickr.com/${width}/${height}/${encodeURIComponent(query)}?lock=${lock}`;
 }
 
+function pinterestSearchUrl(tags = []) {
+  const pool = poolForTags(tags);
+  const query = pick(pinterestPools[pool] || pinterestPools.moon);
+  return `https://www.pinterest.com/search/pins/?q=${encodeURIComponent(query)}`;
+}
+
 function applyStockImage(element, tags = [], options = {}) {
   if (!element) return null;
   const width = options.width || 1200;
@@ -90,9 +107,27 @@ function attachStockButton(container, target, tags, label = 'Sortear imagem') {
   container.appendChild(button);
 }
 
+function attachPinterestButton(container, tags, label = 'Pinterest') {
+  if (!container) return;
+  if (container.querySelector('.pinterest-search')) return;
+
+  const link = document.createElement('a');
+  link.className = 'pinterest-search';
+  link.href = pinterestSearchUrl(tags);
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = label;
+  link.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+  container.appendChild(link);
+}
+
 window.MoonverseStockImages = {
   stockUrl,
+  pinterestSearchUrl,
   applyStockImage,
   attachStockButton,
+  attachPinterestButton,
   poolForTags,
 };
