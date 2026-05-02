@@ -1,0 +1,71 @@
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.privacy-pill,
+.privacy-card {
+  border: 1px solid var(--line);
+}
+
+.privacy-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: .35rem .65rem;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.privacy-card {
+  border-radius: var(--radius-md);
+  padding: .85rem;
+  margin: .85rem 0 1rem;
+}
+
+.privacy-card strong,
+.privacy-card span {
+  display: block;
+}
+
+.privacy-card span {
+  margin-top: .3rem;
+  line-height: 1.45;
+}
+
+.privacy-pill.privacy-public,
+.privacy-card.privacy-public {
+  color: #234f38;
+  background: rgba(77, 140, 114, .12);
+  border-color: rgba(77, 140, 114, .25);
+}
+
+.privacy-pill.privacy-sanitized,
+.privacy-card.privacy-sanitized {
+  color: #284f7a;
+  background: rgba(49, 106, 158, .12);
+  border-color: rgba(49, 106, 158, .25);
+}
+
+.privacy-pill.privacy-curated,
+.privacy-card.privacy-curated {
+  color: #6b4c13;
+  background: rgba(200, 154, 66, .14);
+  border-color: rgba(200, 154, 66, .28);
+}
+
+.privacy-pill.privacy-private,
+.privacy-card.privacy-private {
+  color: #6b213c;
+  background: rgba(192, 92, 137, .12);
+  border-color: rgba(192, 92, 137, .28);
+}
+
+.privacy-pill.privacy-draft,
+.privacy-card.privacy-draft {
+  color: #5b5361;
+  background: rgba(111, 98, 121, .10);
+  border-color: rgba(111, 98, 121, .22);
+}
