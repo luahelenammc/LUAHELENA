@@ -6,8 +6,6 @@ let currentFilter = 'all';
 let atlasFilter = 'all';
 let atlasSearch = '';
 
-const physicalPageIds = new Set(['maresia', 'moon-source', 'sims', 'me-tornando', 'casa-arca', 'lithia']);
-
 async function loadJson(path, fallback) {
   try {
     const response = await fetch(path);
@@ -45,13 +43,13 @@ function pageEntries() {
 }
 
 function pageHref(pageId) {
-  return physicalPageIds.has(pageId) ? `./pages/${pageId}.html` : null;
+  return pages[pageId] ? `./pages/${pageId}.html` : null;
 }
 
 function pageLink(pageId, title = 'Abrir página', description = 'Ler em página física do Moonverse') {
   const href = pageHref(pageId);
   if (!href) {
-    return `<span class="link-card disabled-link"><strong>${title}</strong><small>${description}<br />Em incubação: página física ainda não criada.</small></span>`;
+    return `<span class="link-card disabled-link"><strong>${title}</strong><small>${description}<br />Em incubação: página ainda não registrada.</small></span>`;
   }
   return `<a class="link-card" href="${href}" target="_blank" rel="noopener noreferrer"><strong>${title}</strong><small>${description}</small></a>`;
 }
