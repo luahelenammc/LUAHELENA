@@ -1,0 +1,13 @@
+{
+  "name": "true-moonverse",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "validate": "node scripts/validate-data.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "check:pages": "node scripts/build-pages.mjs --check",
+    "build": "npm run validate && npm run build:pages"
+  }
+}
