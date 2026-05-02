@@ -1,0 +1,24 @@
+{
+  "page_status": ["placeholder", "draft", "review", "published", "archived"],
+  "page_types": {
+    "memory_evocative": "Memória evocativa",
+    "memory_cultural": "Memória cultural",
+    "essay": "Ensaio",
+    "project": "Projeto",
+    "community_project": "Projeto / comunidade",
+    "moonpedia_entry": "Verbete Moonpedia",
+    "autobiography_transition": "Autobiografia / transição",
+    "autobiography_name": "Autobiografia / nome",
+    "autobiography_body": "Autobiografia / corpo",
+    "dream_future": "Sonho / futuro",
+    "authorial_universe": "Universo autoral",
+    "worldbuilding": "Worldbuilding",
+    "authorial_mythology": "Mitologia autoral",
+    "archetype_liminal": "Arquétipo / limiar",
+    "culture_nostalgia": "Obra cultural / nostalgia",
+    "culture_music": "Memória cultural / música"
+  },
+  "room_ids": ["biblioteca", "nostalgia", "observatorio", "santuario", "espelho", "lithia"],
+  "relation_types": ["continues", "contextualizes", "mirrors", "belongs_to", "opens", "contrasts", "source_for", "symbolic_neighbor"],
+  "visibility": ["home", "atlas", "room", "memory_machine", "album", "hidden"]
+}
