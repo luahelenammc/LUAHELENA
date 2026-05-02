@@ -1,6 +1,7 @@
 let rooms = [];
 let memories = [];
 let pages = {};
+let manifest = { pages: {} };
 let currentAlbumPage = 0;
 let currentFilter = 'all';
 let atlasFilter = 'all';
@@ -38,12 +39,21 @@ const fallbackPages = {
   },
 };
 
+function pageMeta(pageId) {
+  return manifest.pages?.[pageId] || {};
+}
+
 function pageEntries() {
-  return Object.entries(pages);
+  return Object.entries(pages).filter(([id]) => pageMeta(id).atlas_visible !== false);
 }
 
 function pageHref(pageId) {
   return pages[pageId] ? `./pages/${pageId}.html` : null;
+}
+
+function statusLabel(pageId) {
+  const status = pageMeta(pageId).status || 'draft';
+  return `<span class="tag status-tag status-${status}">${status}</span>`;
 }
 
 function pageLink(pageId, title = 'Abrir página', description = 'Ler em página física do Moonverse') {
@@ -93,7 +103,10 @@ function renderRoom(roomId = rooms[0]?.id) {
         <h3>${room.title}</h3>
         <p>${room.subtitle}</p>
         <div class="room-links">
-          ${room.links.map((link) => pageLink(link.page, link.title, link.description)).join('')}
+          ${room.links
+            .filter((link) => pageMeta(link.page).room_visible !== false)
+            .map((link) => pageLink(link.page, link.title, `${link.description} · ${pageMeta(link.page).status || 'draft'}`))
+            .join('')}
         </div>
       </div>
     </div>
@@ -123,7 +136,7 @@ function renderAlbum() {
       <div>
         ${href ? `<a class="memory-photo-link" href="${href}" target="_blank" rel="noopener noreferrer">${photo}</a>` : photo}
         <p class="memory-caption">${memory.description}</p>
-        <div class="tags">${memory.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
+        <div class="tags">${memory.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')} ${statusLabel(memory.page)}</div>
       </div>
     `;
   }).join('');
@@ -145,6 +158,7 @@ function drawMemory() {
 
   result.innerHTML = `
     <span class="badge">${selected.type}</span>
+    ${statusLabel(selected.page)}
     <h4>${selected.title}</h4>
     <p>${selected.description}</p>
     <small>Afeto dominante: ${selected.affect}</small>
@@ -160,7 +174,7 @@ function renderArticlePicker() {
     const href = pageHref(id);
     const label = `${page.type.split('/')[0].trim()} · ${page.title}`;
     if (!href) return `<span class="chip disabled-link">${label} · incubação</span>`;
-    return `<a class="chip" href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    return `<a class="chip" href="${href}" target="_blank" rel="noopener noreferrer">${label} · ${pageMeta(id).status || 'draft'}</a>`;
   }).join('');
 }
 
@@ -177,16 +191,18 @@ function renderAtlas() {
   if (!grid) return;
   const query = atlasSearch.trim().toLowerCase();
 
-  const results = pageEntries().filter(([, page]) => {
+  const results = pageEntries().filter(([id, page]) => {
+    const meta = pageMeta(id);
     const matchesType = atlasFilter === 'all' || page.type === atlasFilter;
-    const haystack = `${page.title} ${page.type} ${page.room} ${page.tags.join(' ')} ${page.dek}`.toLowerCase();
+    const haystack = `${page.title} ${page.type} ${page.room} ${page.tags.join(' ')} ${page.dek} ${meta.status || ''} ${meta.privacy_state || ''}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesType && matchesQuery;
   });
 
   grid.innerHTML = results.length ? results.map(([id, page]) => `
-    <article class="atlas-card">
+    <article class="atlas-card status-${pageMeta(id).status || 'draft'}">
       <span class="badge">${page.type}</span>
+      ${statusLabel(id)}
       <h3>${page.title}</h3>
       <p>${page.dek}</p>
       <div class="tags">${page.tags.slice(0, 5).map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
@@ -233,10 +249,11 @@ document.querySelector('#atlas-search')?.addEventListener('input', (event) => {
 });
 
 async function init() {
-  [rooms, memories, pages] = await Promise.all([
+  [rooms, memories, pages, manifest] = await Promise.all([
     loadJson('./data/rooms.json', fallbackRooms),
     loadJson('./data/memories.json', fallbackMemories),
     loadJson('./data/pages.json', fallbackPages),
+    loadJson('./data/manifest.json', { pages: {} }),
   ]);
 
   renderPalaceGrid();
