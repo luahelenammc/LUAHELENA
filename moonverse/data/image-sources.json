@@ -1,7 +1,7 @@
 {
   "meta": {
-    "id": "moonverse_image_sources_v1",
-    "purpose": "Definir fontes permitidas para imagens do True Moonverse antes da fase visual pesada.",
+    "id": "moonverse_image_sources_v2",
+    "purpose": "Definir fontes permitidas para imagens do True Moonverse, incluindo preview vivo por tags e curadoria para produção.",
     "rule": "Imagem no Moonverse não é decoração: é portal semântico curado."
   },
   "sources": {
@@ -19,6 +19,27 @@
       "requires_review": true,
       "description": "Imagens geradas por IA a partir dos image prompts aprovados do Moonverse."
     },
+    "loremflickr_preview": {
+      "type": "external_live_preview",
+      "policy": "allowed_for_preview_not_final_publication",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Provider sem chave para prototipar sorteio visual por tags. Deve ser substituído por asset curado antes de publicação madura."
+    },
+    "openverse_candidate": {
+      "type": "external_api_candidate",
+      "policy": "allowed_as_candidate_source_with_license_review",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Fonte potencial para buscar imagens CC por tags; resultados precisam de revisão de licença, qualidade e hotlink antes de entrarem como asset."
+    },
+    "unsplash_or_pexels_proxy": {
+      "type": "external_api_via_proxy",
+      "policy": "allowed_only_with_server_proxy_and_terms_review",
+      "requires_credit": true,
+      "requires_review": true,
+      "description": "Unsplash/Pexels/Pixabay exigem chave/API/termos; não expor chave no front-end estático. Usar proxy/serverless se adotado."
+    },
     "public_domain": {
       "type": "external_manual",
       "policy": "allowed_preferred_for_archival_or_historical_context",
@@ -33,12 +54,12 @@
       "requires_review": true,
       "description": "Imagem externa selecionada manualmente, nunca por hotlink cego, com licença e crédito."
     },
-    "random_live_web": {
+    "random_live_web_unreviewed": {
       "type": "external_live",
       "policy": "forbidden_in_production",
       "requires_credit": true,
       "requires_review": true,
-      "description": "Busca aleatória ao vivo por tag não deve alimentar a UI final sem curadoria humana."
+      "description": "Busca aleatória ao vivo por tag não deve virar publicação final sem curadoria humana, licença e registro em assets.json."
     }
   }
 }
