@@ -23,7 +23,7 @@
       <a href="#palace">Mansão</a>
       <a href="#atlas">Atlas</a>
       <a href="#devices">Memórias</a>
-      <a href="#article-lab">Página</a>
+      <a href="#pages">Páginas</a>
       <a href="#patch-notes">Patch</a>
     </nav>
   </header>
@@ -39,7 +39,7 @@
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#palace">Entrar na mansão</a>
-          <button class="button ghost" data-open-page="maresia">Abrir página-piloto</button>
+          <a class="button ghost" href="./pages/maresia.html" target="_blank" rel="noopener noreferrer">Abrir página-piloto</a>
         </div>
       </div>
 
@@ -50,7 +50,8 @@
           <li>Dados separados em <code>data/*.json</code></li>
           <li>Mansão com salas expansíveis</li>
           <li>Atlas/Busca Moonpedia</li>
-          <li>Página editorial estilo Lunar Editorial Wiki</li>
+          <li>Páginas físicas em <code>pages/*.html</code></li>
+          <li>CSS/JS compartilhados para todas as páginas</li>
           <li>Álbum físico simulado + Máquina Mnésica</li>
         </ul>
       </aside>
@@ -82,6 +83,7 @@
         <h2>Atlas de páginas</h2>
         <p>
           Uma camada mais prática para quando o visitante não quer passear pela mansão: busca, filtros e cartões editoriais.
+          Cada página abre em nova aba como verbete próprio do Moonverse.
         </p>
       </div>
 
@@ -133,33 +135,22 @@
       </div>
     </section>
 
-    <section id="article-lab" class="section-pad article-lab">
+    <section id="pages" class="section-pad article-lab">
       <div class="section-heading split-heading">
         <div>
           <p class="eyebrow">Página elementar</p>
           <h2>Lunar Editorial Wiki</h2>
           <p>
-            A página do Moonverse lê como revista, orienta como wiki moderna e retorna sempre ao palácio.
+            A página do Moonverse agora é física: cada verbete abre em arquivo próprio, em nova aba, usando o mesmo CSS e o mesmo JS externo.
           </p>
         </div>
-        <div class="reading-toggle" aria-label="Modo de leitura">
-          <button class="chip active" id="knowledge-mode">modo conhecimento</button>
-          <button class="chip" id="reading-mode">modo leitura</button>
+        <div class="mini-ledger">
+          <strong>Regra de página</strong>
+          <span>Home é portal; página é documento.</span>
         </div>
       </div>
 
-      <div id="article-picker" class="article-picker" aria-label="Escolher página piloto"></div>
-
-      <div id="article-shell" class="article-shell">
-        <nav class="left-rail" aria-label="Índice da página">
-          <strong>Índice</strong>
-          <ol id="toc"></ol>
-        </nav>
-
-        <article id="article-view" class="article-view" aria-live="polite"></article>
-
-        <aside id="infobox" class="right-rail" aria-label="Ficha Moonpedia"></aside>
-      </div>
+      <div id="article-picker" class="article-picker page-directory" aria-label="Diretório de páginas piloto"></div>
     </section>
 
     <section id="patch-notes" class="section-pad patch-notes">
@@ -174,7 +165,7 @@
         </article>
         <article>
           <h3>2. A página sustenta o encanto</h3>
-          <p>Sem página legível, o portal vira cenário. Com página, vira arquivo habitável.</p>
+          <p>Sem página legível, o portal vira cenário. Com página física, vira arquivo habitável e compartilhável.</p>
         </article>
         <article>
           <h3>3. Memória é componente</h3>
