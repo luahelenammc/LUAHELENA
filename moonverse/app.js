@@ -6,6 +6,8 @@ let currentFilter = 'all';
 let atlasFilter = 'all';
 let atlasSearch = '';
 
+const physicalPageIds = new Set(['maresia', 'moon-source', 'sims', 'me-tornando', 'casa-arca', 'lithia']);
+
 async function loadJson(path, fallback) {
   try {
     const response = await fetch(path);
@@ -40,6 +42,18 @@ const fallbackPages = {
 
 function pageEntries() {
   return Object.entries(pages);
+}
+
+function pageHref(pageId) {
+  return physicalPageIds.has(pageId) ? `./pages/${pageId}.html` : null;
+}
+
+function pageLink(pageId, title = 'Abrir página', description = 'Ler em página física do Moonverse') {
+  const href = pageHref(pageId);
+  if (!href) {
+    return `<span class="link-card disabled-link"><strong>${title}</strong><small>${description}<br />Em incubação: página física ainda não criada.</small></span>`;
+  }
+  return `<a class="link-card" href="${href}" target="_blank" rel="noopener noreferrer"><strong>${title}</strong><small>${description}</small></a>`;
 }
 
 function allPageTypes() {
@@ -81,12 +95,7 @@ function renderRoom(roomId = rooms[0]?.id) {
         <h3>${room.title}</h3>
         <p>${room.subtitle}</p>
         <div class="room-links">
-          ${room.links.map((link) => `
-            <a class="link-card" href="#article-lab" data-open-page="${link.page}">
-              <strong>${link.title}</strong>
-              <small>${link.description}</small>
-            </a>
-          `).join('')}
+          ${room.links.map((link) => pageLink(link.page, link.title, link.description)).join('')}
         </div>
       </div>
     </div>
@@ -105,15 +114,21 @@ function renderAlbum() {
   const pagesChunk = albumPages();
   currentAlbumPage = Math.min(currentAlbumPage, pagesChunk.length - 1);
 
-  spread.innerHTML = pagesChunk[currentAlbumPage].map((memory) => `
-    <div>
-      <button class="memory-photo" style="--memory-bg:${memory.color}" data-open-page="${memory.page}">
+  spread.innerHTML = pagesChunk[currentAlbumPage].map((memory) => {
+    const href = pageHref(memory.page);
+    const photo = `
+      <span class="memory-photo" style="--memory-bg:${memory.color}">
         <strong>${memory.title}</strong>
-      </button>
-      <p class="memory-caption">${memory.description}</p>
-      <div class="tags">${memory.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
-    </div>
-  `).join('');
+      </span>
+    `;
+    return `
+      <div>
+        ${href ? `<a class="memory-photo-link" href="${href}" target="_blank" rel="noopener noreferrer">${photo}</a>` : photo}
+        <p class="memory-caption">${memory.description}</p>
+        <div class="tags">${memory.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
+      </div>
+    `;
+  }).join('');
 }
 
 function renderMemoryFilters() {
@@ -136,16 +151,19 @@ function drawMemory() {
     <p>${selected.description}</p>
     <small>Afeto dominante: ${selected.affect}</small>
     <div class="tags">${selected.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
-    <p><a class="link-card" href="#article-lab" data-open-page="${selected.page}"><strong>Abrir portal relacionado</strong><small>Ler na página editorial/wiki</small></a></p>
+    <p>${pageLink(selected.page, 'Abrir portal relacionado', 'Ler em página física do Moonverse')}</p>
   `;
 }
 
 function renderArticlePicker() {
   const picker = document.querySelector('#article-picker');
   if (!picker) return;
-  picker.innerHTML = pageEntries().slice(0, 8).map(([id, page], index) => `
-    <button class="chip ${index === 0 ? 'active' : ''}" data-open-page="${id}">${page.type.split('/')[0].trim()} · ${page.title}</button>
-  `).join('');
+  picker.innerHTML = pageEntries().map(([id, page]) => {
+    const href = pageHref(id);
+    const label = `${page.type.split('/')[0].trim()} · ${page.title}`;
+    if (!href) return `<span class="chip disabled-link">${label} · incubação</span>`;
+    return `<a class="chip" href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+  }).join('');
 }
 
 function renderAtlasFilters() {
@@ -174,82 +192,14 @@ function renderAtlas() {
       <h3>${page.title}</h3>
       <p>${page.dek}</p>
       <div class="tags">${page.tags.slice(0, 5).map((tag) => `<span class="tag">${tag}</span>`).join('')}</div>
-      <a class="link-card" href="#article-lab" data-open-page="${id}"><strong>Abrir página</strong><small>${page.room}</small></a>
+      ${pageLink(id, 'Abrir página', page.room)}
     </article>
   `).join('') : `<p class="empty-state">Nenhuma página encontrada nesse filtro. O arquivo ainda está nascendo.</p>`;
-}
-
-function renderArticle(pageId = pageEntries()[0]?.[0]) {
-  const page = pages[pageId] || pages.maresia || Object.values(pages)[0];
-  const article = document.querySelector('#article-view');
-  const toc = document.querySelector('#toc');
-  const infobox = document.querySelector('#infobox');
-  if (!article || !toc || !infobox || !page) return;
-
-  toc.innerHTML = page.body.map((section, index) => `<li><a href="#section-${index}">${section.heading}</a></li>`).join('');
-
-  article.innerHTML = `
-    <header>
-      <div class="breadcrumb">☾ Hall · ${page.room} · ${page.type.toLowerCase()}</div>
-      <span class="badge">${page.type}</span>
-      <h1>${page.title}</h1>
-      <p class="article-dek">${page.dek}</p>
-      <div class="metadata"><span>${page.updated}</span><span>${page.room}</span><span>${page.privacy}</span></div>
-      <figure>
-        <div class="hero-image" style="--hero-bg:${page.hero}"></div>
-        <figcaption class="caption">${page.caption}</figcaption>
-      </figure>
-      <div class="summary-box"><strong>Nesta página</strong><ul>${page.summary.map((item) => `<li>${item}</li>`).join('')}</ul></div>
-    </header>
-    <div class="article-body">
-      ${page.body.map((section, index) => `
-        <section id="section-${index}">
-          <h2>${section.heading}</h2>
-          <p>${section.text}</p>
-        </section>
-      `).join('')}
-      <blockquote>${page.quote}</blockquote>
-    </div>
-    <footer class="related-footer">
-      <strong>Portas relacionadas</strong>
-      <div class="room-links">
-        <a class="link-card" href="#palace"><strong>Voltar à mansão</strong><small>Retornar ao mapa de salas.</small></a>
-        <a class="link-card" href="#devices"><strong>Sortear outra memória</strong><small>Usar a Máquina Mnésica.</small></a>
-      </div>
-    </footer>
-  `;
-
-  infobox.innerHTML = `
-    <h3>Ficha Moonpedia</h3>
-    <dl>
-      <div><dt>Tipo</dt><dd>${page.type}</dd></div>
-      <div><dt>Sala</dt><dd>${page.room}</dd></div>
-      <div><dt>Privacidade</dt><dd>${page.privacy}</dd></div>
-      <div><dt>Fonte</dt><dd>${page.source}</dd></div>
-      <div><dt>Atualização</dt><dd>${page.updated}</dd></div>
-      <div><dt>Tags</dt><dd><div class="tags">${page.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div></dd></div>
-    </dl>
-  `;
-
-  document.querySelectorAll('[data-open-page]').forEach((button) => {
-    button.classList.toggle('active', button.dataset.openPage === pageId && button.classList.contains('chip'));
-  });
-}
-
-function setReadingMode(mode) {
-  const shell = document.querySelector('#article-shell');
-  if (!shell) return;
-  shell.classList.toggle('reading-only', mode === 'reading');
-  document.querySelector('#knowledge-mode')?.classList.toggle('active', mode !== 'reading');
-  document.querySelector('#reading-mode')?.classList.toggle('active', mode === 'reading');
 }
 
 document.addEventListener('click', (event) => {
   const roomButton = event.target.closest('[data-room]');
   if (roomButton) renderRoom(roomButton.dataset.room);
-
-  const pageButton = event.target.closest('[data-open-page]');
-  if (pageButton) renderArticle(pageButton.dataset.openPage);
 
   const filterButton = event.target.closest('[data-memory-filter]');
   if (filterButton) {
@@ -260,7 +210,7 @@ document.addEventListener('click', (event) => {
 
   const atlasButton = event.target.closest('[data-atlas-filter]');
   if (atlasButton) {
-    atlasFilter = atlasButton.dataset.atlasFilter;
+    atlasFilter = atlasButton.datasetAtlasFilter;
     renderAtlasFilters();
     renderAtlas();
   }
@@ -279,8 +229,6 @@ document.querySelector('#album-next')?.addEventListener('click', () => {
 });
 
 document.querySelector('#random-memory')?.addEventListener('click', drawMemory);
-document.querySelector('#knowledge-mode')?.addEventListener('click', () => setReadingMode('knowledge'));
-document.querySelector('#reading-mode')?.addEventListener('click', () => setReadingMode('reading'));
 document.querySelector('#atlas-search')?.addEventListener('input', (event) => {
   atlasSearch = event.target.value;
   renderAtlas();
@@ -301,7 +249,6 @@ async function init() {
   renderArticlePicker();
   renderAtlasFilters();
   renderAtlas();
-  renderArticle('maresia');
 }
 
 init();
