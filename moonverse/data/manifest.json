@@ -1,0 +1,27 @@
+{
+  "site": {
+    "id": "true_moonverse",
+    "version": "0.5-engine-hygiene",
+    "rule": "Home é portal; página é documento; schema protege a mansão.",
+    "entry": "index.html"
+  },
+  "pages": {
+    "maresia": {"status": "published", "privacy_state": "public", "theme_id": "lunar_sea", "atlas_visible": true, "room_visible": true, "wrapper": "pages/maresia.html"},
+    "moon-source": {"status": "draft", "privacy_state": "sanitized", "theme_id": "observatory_blue", "atlas_visible": true, "room_visible": true, "wrapper": "pages/moon-source.html"},
+    "sims": {"status": "draft", "privacy_state": "public", "theme_id": "nostalgia_room", "atlas_visible": true, "room_visible": true, "wrapper": "pages/sims.html"},
+    "me-tornando": {"status": "draft", "privacy_state": "sanitized", "theme_id": "mirror_water", "atlas_visible": true, "room_visible": true, "wrapper": "pages/me-tornando.html"},
+    "casa-arca": {"status": "draft", "privacy_state": "curated", "theme_id": "sanctuary_green", "atlas_visible": true, "room_visible": true, "wrapper": "pages/casa-arca.html"},
+    "lithia": {"status": "draft", "privacy_state": "public", "theme_id": "lithia_atelier", "atlas_visible": true, "room_visible": true, "wrapper": "pages/lithia.html"},
+    "timeline-lunar": {"status": "placeholder", "privacy_state": "sanitized", "theme_id": "placeholder_lunar", "atlas_visible": true, "room_visible": true, "wrapper": "pages/timeline-lunar.html"},
+    "orkut-msn": {"status": "placeholder", "privacy_state": "public", "theme_id": "nostalgia_room", "atlas_visible": true, "room_visible": true, "wrapper": "pages/orkut-msn.html"},
+    "evanescence": {"status": "placeholder", "privacy_state": "public", "theme_id": "nostalgia_room", "atlas_visible": true, "room_visible": true, "wrapper": "pages/evanescence.html"},
+    "citadel": {"status": "placeholder", "privacy_state": "sanitized", "theme_id": "observatory_blue", "atlas_visible": true, "room_visible": true, "wrapper": "pages/citadel.html"},
+    "symbiosphere": {"status": "placeholder", "privacy_state": "sanitized", "theme_id": "observatory_blue", "atlas_visible": true, "room_visible": true, "wrapper": "pages/symbiosphere.html"},
+    "hecate": {"status": "placeholder", "privacy_state": "curated", "theme_id": "placeholder_lunar", "atlas_visible": true, "room_visible": true, "wrapper": "pages/hecate.html"},
+    "ecologia-espiritual": {"status": "placeholder", "privacy_state": "public", "theme_id": "sanctuary_green", "atlas_visible": true, "room_visible": true, "wrapper": "pages/ecologia-espiritual.html"},
+    "nome-presenca": {"status": "placeholder", "privacy_state": "sanitized", "theme_id": "mirror_water", "atlas_visible": true, "room_visible": true, "wrapper": "pages/nome-presenca.html"},
+    "corpo-casa": {"status": "placeholder", "privacy_state": "sanitized", "theme_id": "mirror_water", "atlas_visible": true, "room_visible": true, "wrapper": "pages/corpo-casa.html"},
+    "lithia-mapas": {"status": "placeholder", "privacy_state": "public", "theme_id": "lithia_atelier", "atlas_visible": true, "room_visible": true, "wrapper": "pages/lithia-mapas.html"},
+    "sombras-incognosciveis": {"status": "placeholder", "privacy_state": "curated", "theme_id": "lithia_atelier", "atlas_visible": true, "room_visible": true, "wrapper": "pages/sombras-incognosciveis.html"}
+  }
+}
