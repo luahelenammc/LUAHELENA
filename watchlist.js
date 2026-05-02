@@ -3,112 +3,107 @@
 
 (function () {
   // =========================
-  // 1) SUA WATCHLIST
-  // Schema novo (compatível com o painel atualizado):
-  //
-  // Movies:
-  // {
-  //   id, type: "movie", title, tags, status,
-  //   progress
-  // }
-  //
-  // Series:
-  // {
-  //   id, type: "series", title, tags, status,
-  //   currentSeason, currentEpisode,
-  //   currentEpisodeProgress,
-  //   seriesProgress,         // opcional; se vazio, o HTML tenta derivar
-  //   totalEpisodes,          // opcional; útil para séries fechadas curtas
-  //   note                    // opcional
-  // }
+  // WATCHLIST — fonte de verdade simples
   // =========================
-  const items = [
+  // Regra-mãe:
+  // - Você NÃO precisa preencher status manualmente.
+  // - Para séries, edite só: season, episode, progress e access.
+  // - Se progress === 100, o painel entende: episódio assistido até ali.
+  // - O próximo episódio e o próximo lançamento são calculados pelo calendário.
+  //
+  // access = estado logístico, não estado de progresso:
+  // - "downloaded" = já baixado / já disponível para você
+  // - "streaming"   = disponível em streaming
+  // - "need"        = precisa baixar/encontrar
+  // =========================
+
+  const rawItems = [
     // =========================
     // SÉRIES
     // =========================
-     {
+    {
       id: "theboys",
       type: "series",
       title: "The Boys",
-      currentSeason: 5,
-      currentEpisode: 5,
-      currentEpisodeProgress: 100,
+      season: 5,
+      episode: 5,
+      progress: 100,
+      access: "streaming",
       tags: ["super herói", "violência", "comecei"],
-      status: "watched",
       note: "",
     },
     {
       id: "rhobh",
       type: "series",
       title: "The Real Housewives of Beverly Hills",
-      currentSeason: 15,
-      currentEpisode: 12,
-      currentEpisodeProgress: 100,
+      season: 15,
+      episode: 12,
+      progress: 100,
+      access: "downloaded",
       tags: ["reality show", "comecei"],
-      status: "downloaded",
       note: "",
     },
     {
       id: "shameless",
       type: "series",
       title: "Shameless",
-      currentSeason: 5,
-      currentEpisode: 4,
-      currentEpisodeProgress: 100,
+      season: 5,
+      episode: 4,
+      progress: 100,
+      access: "downloaded",
       tags: ["drama", "comédia dramática"],
-      status: "watched",
       note: "",
     },
     {
       id: "serial_experiments_lain",
       type: "series",
       title: "Serial Experiments Lain",
-      currentSeason: 1,
-      currentEpisode: 1,
-      currentEpisodeProgress: 20,
+      season: 1,
+      episode: 1,
+      progress: 20,
+      access: "downloaded",
       totalEpisodes: 13,
       tags: ["anime", "cyber", "psicológico"],
-      status: "downloaded",
     },
     {
       id: "normal_people",
       type: "series",
       title: "Normal People",
-      currentSeason: 1,
-      currentEpisode: 9,
-      currentEpisodeProgress: 100,
+      season: 1,
+      episode: 9,
+      progress: 100,
+      access: "downloaded",
       tags: ["drama", "romance"],
-      status: "downloaded",
     },
     {
       id: "chainsaw_man",
       type: "series",
       title: "Chainsaw Man",
-      currentSeason: 1,
-      currentEpisode: 1,
-      currentEpisodeProgress: 0,
+      season: 1,
+      episode: 1,
+      progress: 0,
+      access: "downloaded",
       tags: ["anime", "ação", "sombrio"],
-      status: "downloaded",
     },
     {
       id: "silent_witch",
       type: "series",
       title: "Silent Witch",
-      currentSeason: 1,
-      currentEpisode: 1,
-      currentEpisodeProgress: 0,
+      season: 1,
+      episode: 1,
+      progress: 0,
+      access: "downloaded",
       tags: ["anime", "fantasia", "magia"],
-      status: "downloaded",
     },
     {
       id: "orange",
       type: "series",
       title: "Orange",
-      currentSeason: 1,
-      currentEpisode: 1,
-      currentEpisodeProgress: 0,
+      season: 1,
+      episode: 1,
+      progress: 0,
+      access: "downloaded",
       tags: ["anime"],
-      status: "downloaded",
     },
 
     // =========================
@@ -119,7 +114,7 @@
       type: "movie",
       title: "Caligula",
       tags: ["clássico", "ano-1979", "comecei"],
-      status: "downloaded",
+      access: "downloaded",
       progress: 60,
     },
     {
@@ -127,7 +122,7 @@
       type: "movie",
       title: "Everything Everywhere All at Once",
       tags: ["ano-2022"],
-      status: "downloaded",
+      access: "downloaded",
       progress: 0,
     },
     {
@@ -135,13 +130,13 @@
       type: "movie",
       title: "The Florida Project",
       tags: ["ano-2017", "drama", "independente"],
-      status: "downloaded",
+      access: "downloaded",
       progress: 0,
     },
   ];
 
   // =========================
-  // 2) CALENDÁRIO DE LANÇAMENTOS
+  // CALENDÁRIO DE LANÇAMENTOS
   // Pode usar chave por id ou por título exato.
   // Datas aceitas: YYYY-MM-DD ou DD/MM/YY(YY)
   // =========================
@@ -170,20 +165,20 @@
       { season: 15, episode: 21, date: "2026-05-07", title: "Reunion Part 3" },
     ],
     theboys: [
-  { season: 5, episode: 1, date: "2026-04-08", title: "Fifteen Inches of Sheer Dynamite" },
-  { season: 5, episode: 2, date: "2026-04-08", title: "Teenage Kix" },
-  { season: 5, episode: 3, date: "2026-04-15", title: "Every One of You Sons of Bitches" },
-  { season: 5, episode: 4, date: "2026-04-22", title: "King of Hell" },
-  { season: 5, episode: 5, date: "2026-04-29", title: "One-Shots" },
-  { season: 5, episode: 6, date: "2026-05-06", title: "TBA" },
-  { season: 5, episode: 7, date: "2026-05-13", title: "TBA" },
-  { season: 5, episode: 8, date: "2026-05-20", title: "TBA" },
-],
+      { season: 5, episode: 1, date: "2026-04-08", title: "Fifteen Inches of Sheer Dynamite" },
+      { season: 5, episode: 2, date: "2026-04-08", title: "Teenage Kix" },
+      { season: 5, episode: 3, date: "2026-04-15", title: "Every One of You Sons of Bitches" },
+      { season: 5, episode: 4, date: "2026-04-22", title: "King of Hell" },
+      { season: 5, episode: 5, date: "2026-04-29", title: "One-Shots" },
+      { season: 5, episode: 6, date: "2026-05-06", title: "TBA" },
+      { season: 5, episode: 7, date: "2026-05-13", title: "TBA" },
+      { season: 5, episode: 8, date: "2026-05-20", title: "TBA" },
+    ],
   };
 
   // =========================
-  // 3) OVERVIEWS DE SÉRIE
-  // Útil para calcular progresso da série inteira.
+  // OVERVIEWS DE SÉRIE
+  // Útil para calcular progresso da série inteira e próximo episódio quando não há calendário detalhado.
   // =========================
   const seriesOverviews = {
     shameless: [
@@ -199,14 +194,255 @@
       { season: 10, episodes: 12, firstRelease: "2019-11-10", lastRelease: "2020-01-26" },
       { season: 11, episodes: 12, firstRelease: "2020-12-06", lastRelease: "2021-04-11" },
     ],
+    normal_people: [
+      { season: 1, episodes: 12, firstRelease: "2020-04-26", lastRelease: "2020-04-26" },
+    ],
+    serial_experiments_lain: [
+      { season: 1, episodes: 13, firstRelease: "1998-07-06", lastRelease: "1998-09-28" },
+    ],
+    chainsaw_man: [
+      { season: 1, episodes: 12, firstRelease: "2022-10-12", lastRelease: "2022-12-28" },
+    ],
+    orange: [
+      { season: 1, episodes: 13, firstRelease: "2016-07-04", lastRelease: "2016-09-26" },
+    ],
   };
 
   // =========================
-  // 4) EXPORTA EM window
+  // NORMALIZAÇÃO / INTELIGÊNCIA DO PAINEL
+  // =========================
+
+  function clampProgress(value) {
+    const n = Number(value ?? 0);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.min(100, Math.round(n)));
+  }
+
+  function pad2(n) {
+    return String(n).padStart(2, "0");
+  }
+
+  function parseDateOnly(input) {
+    if (!input) return null;
+    const raw = String(input).trim();
+
+    const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T00:00:00`);
+
+    const br = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
+    if (br) {
+      const day = pad2(br[1]);
+      const month = pad2(br[2]);
+      const year = br[3].length === 2 ? `20${br[3]}` : br[3];
+      return new Date(`${year}-${month}-${day}T00:00:00`);
+    }
+
+    const fallback = new Date(raw);
+    return Number.isNaN(fallback.getTime()) ? null : fallback;
+  }
+
+  function todayStart() {
+    const d = new Date();
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function dateKey(date) {
+    if (!date) return "";
+    return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+  }
+
+  function formatDate(input) {
+    const d = input instanceof Date ? input : parseDateOnly(input);
+    if (!d) return "data não informada";
+    return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+  }
+
+  function epLabel(season, episode) {
+    if (!season || !episode) return "episódio atual";
+    return `T${season}E${episode}`;
+  }
+
+  function compareEpisode(a, b) {
+    const seasonDiff = Number(a.season ?? 0) - Number(b.season ?? 0);
+    if (seasonDiff !== 0) return seasonDiff;
+    return Number(a.episode ?? 0) - Number(b.episode ?? 0);
+  }
+
+  function getReleaseList(item) {
+    return releases[item.id] || releases[item.title] || [];
+  }
+
+  function findNextCalendarEpisode(item) {
+    const list = getReleaseList(item)
+      .map((entry) => ({ ...entry, parsedDate: parseDateOnly(entry.date) }))
+      .filter((entry) => Number.isFinite(Number(entry.season)) && Number.isFinite(Number(entry.episode)))
+      .sort(compareEpisode);
+
+    return list.find((entry) => compareEpisode(entry, item) > 0) || null;
+  }
+
+  function findNextOverviewEpisode(item) {
+    const overview = seriesOverviews[item.id] || [];
+    const seasonInfo = overview.find((s) => Number(s.season) === Number(item.season));
+
+    if (seasonInfo && Number(item.episode) < Number(seasonInfo.episodes)) {
+      return {
+        season: Number(item.season),
+        episode: Number(item.episode) + 1,
+        date: seasonInfo.lastRelease,
+        title: "",
+        source: "overview",
+      };
+    }
+
+    const nextSeason = overview.find((s) => Number(s.season) > Number(item.season));
+    if (nextSeason) {
+      return {
+        season: Number(nextSeason.season),
+        episode: 1,
+        date: nextSeason.firstRelease,
+        title: "",
+        source: "overview",
+      };
+    }
+
+    return null;
+  }
+
+  function getNextEpisode(item) {
+    return findNextCalendarEpisode(item) || findNextOverviewEpisode(item);
+  }
+
+  function getReleaseState(release) {
+    const d = parseDateOnly(release?.date);
+    if (!d) return "unknown";
+    const today = todayStart();
+    if (dateKey(d) === dateKey(today)) return "today";
+    return d > today ? "future" : "past";
+  }
+
+  function makeHumanSummary(item, nextEpisode) {
+    const progress = clampProgress(item.progress);
+
+    if (item.type === "movie") {
+      if (progress >= 100) return "Você já assistiu este filme.";
+      if (progress > 0) return `Você está assistindo este filme — ${progress}%.`;
+      return "Você ainda não começou este filme.";
+    }
+
+    const current = epLabel(item.season, item.episode);
+
+    if (progress > 0 && progress < 100) {
+      return `Você está assistindo ${current} — ${progress}%.`;
+    }
+
+    if (progress <= 0) {
+      return `Você ainda vai começar ${current}.`;
+    }
+
+    if (!nextEpisode) {
+      return `Você assistiu até ${current}. Não há próximo episódio cadastrado.`;
+    }
+
+    const next = epLabel(nextEpisode.season, nextEpisode.episode);
+    const title = nextEpisode.title && nextEpisode.title !== "TBA" ? ` (${nextEpisode.title})` : "";
+    const releaseState = getReleaseState(nextEpisode);
+
+    if (releaseState === "future") {
+      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, lança em ${formatDate(nextEpisode.date)}.`;
+    }
+
+    if (releaseState === "today") {
+      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, lança hoje.`;
+    }
+
+    if (releaseState === "past") {
+      return `Você assistiu até ${current}. O próximo episódio, ${next}${title}, já está disponível desde ${formatDate(nextEpisode.date)}.`;
+    }
+
+    return `Você assistiu até ${current}. O próximo episódio é ${next}${title}.`;
+  }
+
+  function deriveLegacyStatus(item, nextEpisode) {
+    const progress = clampProgress(item.progress);
+    const access = item.access || "need";
+
+    if (item.type === "movie") {
+      if (progress >= 100) return "watched";
+      return access;
+    }
+
+    if (progress > 0 && progress < 100) return access;
+    if (progress <= 0) return access;
+
+    const releaseState = getReleaseState(nextEpisode);
+    if (releaseState === "future" || releaseState === "today") return "waiting";
+    if (releaseState === "past") return access;
+    return "watched";
+  }
+
+  function deriveSeriesProgress(item) {
+    const overview = seriesOverviews[item.id] || [];
+    if (!overview.length) return item.seriesProgress;
+
+    const total = overview.reduce((sum, s) => sum + Number(s.episodes || 0), 0);
+    if (!total) return item.seriesProgress;
+
+    let completedBefore = 0;
+    for (const s of overview) {
+      if (Number(s.season) < Number(item.season)) completedBefore += Number(s.episodes || 0);
+    }
+
+    const currentEpisodeCredit = Math.max(0, Number(item.episode || 0) - 1) + clampProgress(item.progress) / 100;
+    return Math.round(((completedBefore + currentEpisodeCredit) / total) * 100);
+  }
+
+  function normalizeItem(raw) {
+    const progress = clampProgress(raw.progress ?? raw.currentEpisodeProgress ?? 0);
+    const base = { ...raw, progress };
+    const nextEpisode = raw.type === "series" ? getNextEpisode(base) : null;
+    const watchSummary = makeHumanSummary(base, nextEpisode);
+    const status = deriveLegacyStatus(base, nextEpisode);
+
+    if (raw.type === "movie") {
+      return {
+        ...base,
+        status,
+        watchSummary,
+        note: raw.note || watchSummary,
+      };
+    }
+
+    return {
+      ...base,
+      status,
+      nextEpisode,
+      nextRelease: nextEpisode?.date || "",
+      watchSummary,
+      note: raw.note || watchSummary,
+
+      // Compatibilidade com o HTML atual:
+      currentSeason: raw.currentSeason ?? raw.season,
+      currentEpisode: raw.currentEpisode ?? raw.episode,
+      currentEpisodeProgress: progress,
+      seriesProgress: raw.seriesProgress ?? deriveSeriesProgress(base),
+    };
+  }
+
+  const items = rawItems.map(normalizeItem);
+
+  // =========================
+  // EXPORTA EM window
   // =========================
   window.WATCHLIST_DATA = { items };
   window.WATCHLIST_RELEASES = releases;
   window.WATCHLIST_SERIES_OVERVIEWS = seriesOverviews;
+  window.WATCHLIST_RAW_ITEMS = rawItems;
+
+  // Helper público para debug rápido no console:
+  window.getWatchState = function getWatchState(id) {
+    return items.find((item) => item.id === id || item.title === id) || null;
+  };
 
   // flags de debug
   window.__WATCHLIST_JS_LOADED__ = true;
@@ -216,6 +452,8 @@
     "| releases:",
     window.WATCHLIST_RELEASES ? "OK" : "N/A",
     "| overviews:",
-    window.WATCHLIST_SERIES_OVERVIEWS ? "OK" : "N/A"
+    window.WATCHLIST_SERIES_OVERVIEWS ? "OK" : "N/A",
+    "| schema:",
+    "progress_driven_v2"
   );
 })();
