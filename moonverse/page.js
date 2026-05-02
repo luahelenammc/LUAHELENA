@@ -31,20 +31,45 @@ function getPageId() {
   return document.body.dataset.pageId || new URLSearchParams(window.location.search).get('id') || 'maresia';
 }
 
+function privacyState(privacy = '') {
+  const value = privacy.toLowerCase();
+  if (value.includes('sanitizado')) return { className: 'privacy-sanitized', label: 'sanitizado', note: 'Conteúdo preparado para leitura pública sem expor bastidores íntimos.' };
+  if (value.includes('curadoria')) return { className: 'privacy-curated', label: 'curadoria', note: 'Conteúdo publicável com seleção cuidadosa de forma e contexto.' };
+  if (value.includes('privado') || value.includes('não publicável')) return { className: 'privacy-private', label: 'restrito', note: 'Conteúdo sensível; esta página deve funcionar apenas como referência segura.' };
+  if (value.includes('rascunho')) return { className: 'privacy-draft', label: 'rascunho', note: 'Página estruturalmente pronta, ainda em elaboração.' };
+  return { className: 'privacy-public', label: 'publicável', note: 'Conteúdo apto para leitura pública dentro do Moonverse.' };
+}
+
+function setMetaTag(name, content, attr = 'name') {
+  let tag = document.querySelector(`meta[${attr}="${name}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute(attr, name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
 function renderPage(page) {
   const article = document.querySelector('#article-view');
   const toc = document.querySelector('#toc');
   const infobox = document.querySelector('#infobox');
   if (!article || !toc || !infobox) return;
 
+  const privacy = privacyState(page.privacy);
   document.title = `${page.title} · True Moonverse`;
+  document.body.classList.add(privacy.className);
+  setMetaTag('description', page.dek);
+  setMetaTag('og:title', `${page.title} · True Moonverse`, 'property');
+  setMetaTag('og:description', page.dek, 'property');
+  setMetaTag('og:type', 'article', 'property');
 
   toc.innerHTML = page.body.map((section, index) => `<li><a href="#section-${index}">${section.heading}</a></li>`).join('');
 
   article.innerHTML = `
     <header>
       <div class="breadcrumb"><a href="../index.html">☾ Hall</a> · ${page.room} · ${page.type.toLowerCase()}</div>
-      <span class="badge">${page.type}</span>
+      <div class="badge-row"><span class="badge">${page.type}</span><span class="privacy-pill ${privacy.className}">${privacy.label}</span></div>
       <h1>${page.title}</h1>
       <p class="article-dek">${page.dek}</p>
       <div class="metadata"><span>${page.updated}</span><span>${page.room}</span><span>${page.privacy}</span></div>
@@ -75,6 +100,7 @@ function renderPage(page) {
 
   infobox.innerHTML = `
     <h3>Ficha Moonpedia</h3>
+    <div class="privacy-card ${privacy.className}"><strong>${privacy.label}</strong><span>${privacy.note}</span></div>
     <dl>
       <div><dt>Tipo</dt><dd>${page.type}</dd></div>
       <div><dt>Sala</dt><dd>${page.room}</dd></div>
