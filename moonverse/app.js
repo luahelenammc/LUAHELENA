@@ -210,7 +210,7 @@ document.addEventListener('click', (event) => {
 
   const atlasButton = event.target.closest('[data-atlas-filter]');
   if (atlasButton) {
-    atlasFilter = atlasButton.datasetAtlasFilter;
+    atlasFilter = atlasButton.dataset.atlasFilter;
     renderAtlasFilters();
     renderAtlas();
   }
