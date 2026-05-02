@@ -1,0 +1,32 @@
+{
+  "public": {
+    "label": "publicável",
+    "className": "privacy-public",
+    "description": "Conteúdo apto para leitura pública dentro do Moonverse."
+  },
+  "sanitized": {
+    "label": "sanitizado",
+    "className": "privacy-sanitized",
+    "description": "Conteúdo preparado para leitura pública sem expor bastidores íntimos, clínicos, familiares, amorosos ou institucionais."
+  },
+  "curated": {
+    "label": "curadoria",
+    "className": "privacy-curated",
+    "description": "Conteúdo publicável com seleção cuidadosa de forma, contexto, imagem e exposição."
+  },
+  "restricted": {
+    "label": "restrito",
+    "className": "privacy-private",
+    "description": "Conteúdo sensível; deve funcionar apenas como referência segura, teaser simbólico ou página não indexada."
+  },
+  "draft": {
+    "label": "rascunho",
+    "className": "privacy-draft",
+    "description": "Página estruturalmente pronta, ainda em elaboração editorial."
+  },
+  "do_not_publish": {
+    "label": "não publicar",
+    "className": "privacy-private",
+    "description": "Conteúdo não publicável; não deve aparecer em build pública sem revisão explícita."
+  }
+}
