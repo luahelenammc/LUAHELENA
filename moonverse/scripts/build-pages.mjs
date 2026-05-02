@@ -46,7 +46,6 @@ function htmlFor(id, page) {
   <main class="section-pad page-main">
     <div class="section-heading split-heading">
       <div><p class="eyebrow">Lunar Editorial Wiki</p><h2>Página Moonverse</h2></div>
-      <div class="reading-toggle" aria-label="Modo de leitura"><button class="chip active" id="knowledge-mode">modo conhecimento</button><button class="chip" id="reading-mode">modo leitura</button></div>
     </div>
     <div id="article-shell" class="article-shell">
       <nav class="left-rail" aria-label="Índice da página"><strong>Índice</strong><ol id="toc"></ol></nav>
