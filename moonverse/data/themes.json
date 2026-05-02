@@ -1,0 +1,44 @@
+{
+  "lunar_sea": {
+    "label": "Lunar Sea",
+    "gradient": "linear-gradient(135deg, #315f7d 0%, #72b5c8 38%, #f4c792 100%)",
+    "accent": "#316a9e",
+    "mood": ["água", "infância", "maresia", "nostalgia"]
+  },
+  "observatory_blue": {
+    "label": "Observatory Blue",
+    "gradient": "linear-gradient(135deg, #130c26 0%, #5d4bc8 45%, #8ee6ff 100%)",
+    "accent": "#316a9e",
+    "mood": ["IA", "observatório", "sistema", "noite"]
+  },
+  "nostalgia_room": {
+    "label": "Nostalgia Room",
+    "gradient": "linear-gradient(135deg, #3d285f 0%, #8b6fd8 42%, #e9c56c 100%)",
+    "accent": "#c05c89",
+    "mood": ["jogos", "internet antiga", "quarto", "anos 2000"]
+  },
+  "mirror_water": {
+    "label": "Mirror Water",
+    "gradient": "linear-gradient(135deg, #2d285e 0%, #8a73db 45%, #ffc7dd 100%)",
+    "accent": "#c05c89",
+    "mood": ["transição", "espelho", "corpo", "feminilidade"]
+  },
+  "sanctuary_green": {
+    "label": "Sanctuary Green",
+    "gradient": "linear-gradient(135deg, #183629 0%, #67a978 44%, #f1d57b 100%)",
+    "accent": "#4d8c72",
+    "mood": ["santuário", "natureza", "futuro", "casa-arca"]
+  },
+  "lithia_atelier": {
+    "label": "Líthia Atelier",
+    "gradient": "linear-gradient(135deg, #26193d 0%, #7b3f8f 44%, #f3b66f 100%)",
+    "accent": "#7b3f8f",
+    "mood": ["fantasia", "worldbuilding", "mapa", "mitologia"]
+  },
+  "placeholder_lunar": {
+    "label": "Placeholder Lunar",
+    "gradient": "linear-gradient(135deg, #291a48, #6b4bb7, #f7c8dc)",
+    "accent": "#6b4bb7",
+    "mood": ["rascunho", "incubação", "estrutura"]
+  }
+}
