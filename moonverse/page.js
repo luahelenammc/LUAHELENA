@@ -82,13 +82,13 @@ function applyPageStockImages(page) {
   const tags = page.tags || [];
   stock()?.applyStockImage(hero, tags, { width: 1200, height: 820 });
   stock()?.attachStockButton(hero, hero, tags, 'Trocar imagem');
+  stock()?.attachPinterestButton(hero, tags, 'Pinterest');
 }
 
 function renderPage(page, meta = {}, vocab = {}, theme = {}) {
   const article = document.querySelector('#article-view');
-  const toc = document.querySelector('#toc');
   const infobox = document.querySelector('#infobox');
-  if (!article || !toc || !infobox) return;
+  if (!article || !infobox) return;
 
   const privacyStateId = meta.privacy_state || fallbackPrivacyState(page.privacy);
   const privacy = vocab[privacyStateId] || vocab.public || { label: 'publicável', className: 'privacy-public', description: 'Conteúdo apto para leitura pública dentro do Moonverse.' };
@@ -101,8 +101,6 @@ function renderPage(page, meta = {}, vocab = {}, theme = {}) {
   setMetaTag('og:title', `${page.title} · True Moonverse`, 'property');
   setMetaTag('og:description', page.dek, 'property');
   setMetaTag('og:type', 'article', 'property');
-
-  toc.innerHTML = page.body.map((section, index) => `<li><a href="#section-${index}">${section.heading}</a></li>`).join('');
 
   article.innerHTML = `
     <header>
