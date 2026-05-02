@@ -24,6 +24,17 @@ function loadSharedStylesheet(href) {
   document.head.appendChild(link);
 }
 
+function loadSharedScript(src) {
+  if (window.MoonverseStockImages || document.querySelector(`script[src="${src}"]`)) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
 loadSharedStylesheet('../privacy.css');
 loadSharedStylesheet('../editorial.css');
 
@@ -61,6 +72,18 @@ function setMetaTag(name, content, attr = 'name') {
   tag.setAttribute('content', content);
 }
 
+function stock() {
+  return window.MoonverseStockImages;
+}
+
+function applyPageStockImages(page) {
+  const hero = document.querySelector('.hero-image.stock-surface');
+  if (!hero) return;
+  const tags = page.tags || [];
+  stock()?.applyStockImage(hero, tags, { width: 1200, height: 820 });
+  stock()?.attachStockButton(hero, hero, tags, 'Trocar imagem');
+}
+
 function renderPage(page, meta = {}, vocab = {}, theme = {}) {
   const article = document.querySelector('#article-view');
   const toc = document.querySelector('#toc');
@@ -89,7 +112,7 @@ function renderPage(page, meta = {}, vocab = {}, theme = {}) {
       <p class="article-dek">${page.dek}</p>
       <div class="metadata"><span>${page.updated}</span><span>${page.room}</span><span>${page.privacy}</span></div>
       <figure>
-        <div class="hero-image" style="--hero-bg:${heroBackground}"></div>
+        <div class="hero-image stock-surface" data-stock-tags="${page.tags.join(', ')}" style="--hero-bg:${heroBackground}"></div>
         <figcaption class="caption">${page.caption}</figcaption>
       </figure>
       <div class="summary-box"><strong>Nesta página</strong><ul>${page.summary.map((item) => `<li>${item}</li>`).join('')}</ul></div>
@@ -127,9 +150,13 @@ function renderPage(page, meta = {}, vocab = {}, theme = {}) {
       <div><dt>Tags</dt><dd><div class="tags">${page.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div></dd></div>
     </dl>
   `;
+
+  applyPageStockImages(page);
 }
 
 async function initPage() {
+  await loadSharedScript('../stock-images.js').catch((error) => console.warn(error));
+
   const [pages, manifest, privacyStates, themes] = await Promise.all([
     loadJson('../data/pages.json', {}),
     loadJson('../data/manifest.json', { pages: {} }),
