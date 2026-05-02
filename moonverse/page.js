@@ -26,14 +26,14 @@ function loadSharedStylesheet(href) {
 
 loadSharedStylesheet('../privacy.css');
 
-async function loadPages() {
+async function loadJson(path, fallback = {}) {
   try {
-    const response = await fetch('../data/pages.json');
-    if (!response.ok) throw new Error('Could not load pages.json');
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`Could not load ${path}`);
     return await response.json();
   } catch (error) {
     console.warn(error);
-    return {};
+    return fallback;
   }
 }
 
@@ -41,13 +41,13 @@ function getPageId() {
   return document.body.dataset.pageId || new URLSearchParams(window.location.search).get('id') || 'maresia';
 }
 
-function privacyState(privacy = '') {
+function fallbackPrivacyState(privacy = '') {
   const value = privacy.toLowerCase();
-  if (value.includes('sanitizado')) return { className: 'privacy-sanitized', label: 'sanitizado', note: 'Conteúdo preparado para leitura pública sem expor bastidores íntimos.' };
-  if (value.includes('curadoria')) return { className: 'privacy-curated', label: 'curadoria', note: 'Conteúdo publicável com seleção cuidadosa de forma e contexto.' };
-  if (value.includes('privado') || value.includes('não publicável')) return { className: 'privacy-private', label: 'restrito', note: 'Conteúdo sensível; esta página deve funcionar apenas como referência segura.' };
-  if (value.includes('rascunho')) return { className: 'privacy-draft', label: 'rascunho', note: 'Página estruturalmente pronta, ainda em elaboração.' };
-  return { className: 'privacy-public', label: 'publicável', note: 'Conteúdo apto para leitura pública dentro do Moonverse.' };
+  if (value.includes('sanitizado')) return 'sanitized';
+  if (value.includes('curadoria')) return 'curated';
+  if (value.includes('privado') || value.includes('não publicável')) return 'restricted';
+  if (value.includes('rascunho')) return 'draft';
+  return 'public';
 }
 
 function setMetaTag(name, content, attr = 'name') {
@@ -60,15 +60,19 @@ function setMetaTag(name, content, attr = 'name') {
   tag.setAttribute('content', content);
 }
 
-function renderPage(page) {
+function renderPage(page, meta = {}, vocab = {}, theme = {}) {
   const article = document.querySelector('#article-view');
   const toc = document.querySelector('#toc');
   const infobox = document.querySelector('#infobox');
   if (!article || !toc || !infobox) return;
 
-  const privacy = privacyState(page.privacy);
+  const privacyStateId = meta.privacy_state || fallbackPrivacyState(page.privacy);
+  const privacy = vocab[privacyStateId] || vocab.public || { label: 'publicável', className: 'privacy-public', description: 'Conteúdo apto para leitura pública dentro do Moonverse.' };
+  const pageStatus = meta.status || 'draft';
+  const heroBackground = theme.gradient || page.hero || fallbackPage.hero;
+
   document.title = `${page.title} · True Moonverse`;
-  document.body.classList.add(privacy.className);
+  document.body.classList.add(privacy.className, `status-${pageStatus}`);
   setMetaTag('description', page.dek);
   setMetaTag('og:title', `${page.title} · True Moonverse`, 'property');
   setMetaTag('og:description', page.dek, 'property');
@@ -79,12 +83,12 @@ function renderPage(page) {
   article.innerHTML = `
     <header>
       <div class="breadcrumb"><a href="../index.html">☾ Hall</a> · ${page.room} · ${page.type.toLowerCase()}</div>
-      <div class="badge-row"><span class="badge">${page.type}</span><span class="privacy-pill ${privacy.className}">${privacy.label}</span></div>
+      <div class="badge-row"><span class="badge">${page.type}</span><span class="privacy-pill ${privacy.className}">${privacy.label}</span><span class="badge status-badge">${pageStatus}</span></div>
       <h1>${page.title}</h1>
       <p class="article-dek">${page.dek}</p>
       <div class="metadata"><span>${page.updated}</span><span>${page.room}</span><span>${page.privacy}</span></div>
       <figure>
-        <div class="hero-image" style="--hero-bg:${page.hero}"></div>
+        <div class="hero-image" style="--hero-bg:${heroBackground}"></div>
         <figcaption class="caption">${page.caption}</figcaption>
       </figure>
       <div class="summary-box"><strong>Nesta página</strong><ul>${page.summary.map((item) => `<li>${item}</li>`).join('')}</ul></div>
@@ -110,11 +114,13 @@ function renderPage(page) {
 
   infobox.innerHTML = `
     <h3>Ficha Moonpedia</h3>
-    <div class="privacy-card ${privacy.className}"><strong>${privacy.label}</strong><span>${privacy.note}</span></div>
+    <div class="privacy-card ${privacy.className}"><strong>${privacy.label}</strong><span>${privacy.description}</span></div>
     <dl>
+      <div><dt>Status</dt><dd>${pageStatus}</dd></div>
       <div><dt>Tipo</dt><dd>${page.type}</dd></div>
       <div><dt>Sala</dt><dd>${page.room}</dd></div>
       <div><dt>Privacidade</dt><dd>${page.privacy}</dd></div>
+      <div><dt>Tema</dt><dd>${theme.label || meta.theme_id || 'tema local'}</dd></div>
       <div><dt>Fonte</dt><dd>${page.source}</dd></div>
       <div><dt>Atualização</dt><dd>${page.updated}</dd></div>
       <div><dt>Tags</dt><dd><div class="tags">${page.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}</div></dd></div>
@@ -134,9 +140,18 @@ document.querySelector('#knowledge-mode')?.addEventListener('click', () => setRe
 document.querySelector('#reading-mode')?.addEventListener('click', () => setReadingMode('reading'));
 
 async function initPage() {
-  const pages = await loadPages();
-  const page = pages[getPageId()] || fallbackPage;
-  renderPage(page);
+  const [pages, manifest, privacyStates, themes] = await Promise.all([
+    loadJson('../data/pages.json', {}),
+    loadJson('../data/manifest.json', { pages: {} }),
+    loadJson('../data/privacy-states.json', {}),
+    loadJson('../data/themes.json', {}),
+  ]);
+
+  const id = getPageId();
+  const page = pages[id] || fallbackPage;
+  const meta = manifest.pages?.[id] || {};
+  const theme = themes[meta.theme_id] || {};
+  renderPage(page, meta, privacyStates, theme);
 }
 
 initPage();
