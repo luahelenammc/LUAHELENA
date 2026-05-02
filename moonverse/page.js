@@ -16,6 +16,16 @@ const fallbackPage = {
   quote: 'Home é portal; página é documento.',
 };
 
+function loadSharedStylesheet(href) {
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+  document.head.appendChild(link);
+}
+
+loadSharedStylesheet('../privacy.css');
+
 async function loadPages() {
   try {
     const response = await fetch('../data/pages.json');
