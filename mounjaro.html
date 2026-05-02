@@ -329,8 +329,8 @@
         subtitle: "Snapshot reformulado para facilitar manutenção manual, sujeito a mudanças futuras."
       },
 
-      // Deixe fixo para screenshots históricas; troque para null se quiser usar a data real do computador.
-      todayISO: "2026-04-13",
+      // Deixe fixo para screenshots históricas; deixe null para usar a data real do computador.
+      todayISO: null,
 
       conversions: {
         mgPerUi: 5 / 17,        // ≈ 0,294117647...
@@ -369,16 +369,18 @@
         { key:"18", section:"Histórico tomado", status:"TAKEN", date:"2026-04-07", ui:8,    note:"8 UI" },
 
         // =========================
-        // PLANEJAMENTO 13/04/26
+        // PONTE E RETOMADA
         // =========================
-        { key:"19", section:"", status:"TAKEN", date:"2026-04-15", ui:10, note:"Ponte com a sobra do frasco atual" },
-        { key:"20", section:"", status:"TAKEN", date:"2026-04-21", intervalDays:7, ui:17 },
-{ key:"21", section:"", status:"TAKEN", date:"2026-04-27", intervalDays:6, ui:10 },
-        
-        { key:"22", section:"", status:"TAKEN", date:"2026-05-02", intervalDays:5, ui:15, note:"" },
-        { key:"23", section:"", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"" },
+        { key:"19", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-15", ui:10, note:"Ponte com a sobra do frasco atual" },
+        { key:"20", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-21", intervalDays:7, ui:17, note:"Retomada plena bem tolerada" },
+        { key:"21", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-27", intervalDays:6, ui:10, note:"Chorinho/sobra do frasco; ponte parcial" },
+        { key:"22", section:"Ponte e retomada", status:"TAKEN", date:"2026-05-02", intervalDays:5, ui:15, note:"Retomada quase plena; sem compensar os 2 UI faltantes" },
+        { key:"23", section:"Ponte e retomada", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Próxima dose semanal a partir da nova âncora de 02/05" },
 
-        { key:"24", section:"Dose plena", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"" },
+        // =========================
+        // DOSE PLENA
+        // =========================
+        { key:"24", section:"Dose plena", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Manter dose plena semanal se tolerância estiver boa" },
         { key:"25", section:"Dose plena", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"" },
         { key:"26", section:"Dose plena", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"" },
       ]
