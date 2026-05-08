@@ -26,7 +26,7 @@
       type: "series",
       title: "The Boys",
       season: 5,
-      episode: 5,
+      episode: 6,
       progress: 100,
       access: "streaming",
       tags: ["super herói", "violência", "comecei"],
