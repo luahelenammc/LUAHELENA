@@ -1,34 +1,45 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🌸 Guia de THF Feminilizante 🌈</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --blue: #5AB3FF;
+      --blue-deep: #2f8fe8;
       --pink: #FF9BCD;
+      --pink-deep: #ff62b2;
       --lav: #f5e9ff;
+      --lav-2: #fbf6ff;
       --gray: #333;
+      --muted: #666;
       --orange: #ffcc80;
       --red: #ff8a80;
       --green: #c5e1a5;
       --purple: #d1c4e9;
+      --line: #ecd8ef;
+      --shadow: 0 8px 22px rgba(70, 28, 90, .10);
     }
+
     * { box-sizing: border-box; }
-    
- 
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: var(--lav);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(90,179,255,.25), transparent 32%),
+        radial-gradient(circle at 100% 12%, rgba(255,155,205,.28), transparent 34%),
+        var(--lav);
       color: var(--gray);
+      line-height: 1.62;
     }
+
     header {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 3.2rem 1rem 2.8rem;
       background: repeating-linear-gradient(
         90deg,
         var(--blue) 0 20%,
@@ -37,155 +48,243 @@
         #fff 60% 80%,
         var(--blue) 80% 100%
       );
+      border-bottom: 5px solid rgba(255,255,255,.65);
     }
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: -0.03em;
+      text-shadow: 0 2px 0 rgba(255,255,255,.35);
     }
     header p {
-      margin-top: .5rem;
+      max-width: 760px;
+      margin: .6rem auto 0;
       font-size: 1rem;
+      font-weight: 600;
+      background: rgba(255,255,255,.72);
+      display: inline-block;
+      padding: .4rem .75rem;
+      border-radius: 999px;
     }
+
     main {
-      max-width: 900px;
+      max-width: 980px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
+    a { color: #a50075; font-weight: 700; }
+
     .group {
       margin-bottom: 1.5rem;
       background: #fff;
-      border-radius: 12px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.8);
     }
     .group-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
       background: linear-gradient(90deg, var(--blue), var(--pink));
       color: #fff;
-      font-weight: 600;
+      font-weight: 800;
       cursor: pointer;
+      letter-spacing: -.01em;
     }
     .group-content {
       display: none;
-      padding: 1rem;
+      padding: 1.1rem;
     }
-    .group-content.open {
-      display: block;
-    }
+    .group-content.open { display: block; }
+
     .accordion {
       margin: 1rem 0;
-      border-radius: 8px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid #f0d6e6;
+      border: 1px solid var(--line);
+      background: #fff;
     }
     .accordion-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .8rem 1rem;
-      background: var(--pink);
+      gap: .8rem;
+      padding: .85rem 1rem;
+      background: linear-gradient(90deg, rgba(255,155,205,.95), rgba(90,179,255,.82));
       color: #fff;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 700;
     }
     .accordion-content {
       display: none;
       padding: 1rem;
-      background: #f6f1f7;
+      background: var(--lav-2);
     }
-    .accordion-content.open {
-      display: block;
-    }
-    .toggle-icon {
-      transition: transform .3s;
-    }
-    .toggle-icon.rotate {
-      transform: rotate(90deg);
-    }
+    .accordion-content.open { display: block; }
+
+    .toggle-icon { transition: transform .25s ease; }
+    .toggle-icon.rotate { transform: rotate(90deg); }
+
     .alert {
-      border-radius: 10px;
-      padding: .8rem 1rem;
-      margin-bottom: .8rem;
-      font-size: .9rem;
+      border-radius: 14px;
+      padding: .85rem 1rem;
+      margin: .75rem 0;
+      font-size: .93rem;
       display: flex;
-      gap: .5rem;
+      gap: .65rem;
       align-items: flex-start;
+      border: 1px solid transparent;
     }
-    .alert-icon {
-      font-size: 1.2rem;
-      margin-top: .1rem;
-    }
-    .alert-general {
-      background: #fff3e0;
-      border: 1px solid var(--orange);
-    }
-    .alert-smoking {
-      background: #ffebee;
-      border: 1px solid var(--red);
-    }
+    .alert-icon { font-size: 1.25rem; margin-top: .05rem; }
+    .alert-general { background: #fff7e8; border-color: var(--orange); }
+    .alert-smoking { background: #fff0f2; border-color: var(--red); }
+    .alert-good { background: #f4ffe9; border-color: var(--green); }
+    .alert-blue { background: #eef8ff; border-color: #9bd6ff; }
+    .alert-purple { background: #f4eeff; border-color: var(--purple); }
+
     .badge {
       display: inline-block;
-      padding: .2rem .5rem;
+      padding: .18rem .55rem;
       border-radius: 999px;
-      font-size: .75rem;
-      background: rgba(0,0,0,0.05);
-      margin-left: .3rem;
-    }
-    ul, ol {
-      margin: .5rem 0 .5rem 1.2rem;
-      padding: 0;
-    }
-    li { margin-bottom: .3rem; }
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: .9rem;
-      color: #666;
+      font-size: .72rem;
+      background: rgba(255,255,255,.25);
+      border: 1px solid rgba(255,255,255,.45);
+      margin-left: .25rem;
+      white-space: nowrap;
     }
 
-    /* “Gráfico” comparativo */
+    .mini-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+    .mini-nav a {
+      display: block;
+      text-decoration: none;
+      color: var(--gray);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: .75rem .85rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.04);
+    }
+    .mini-nav a:hover { transform: translateY(-1px); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: .85rem;
+      margin: 1rem 0;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: .9rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,.04);
+    }
+    .card h3, .card h4 {
+      margin: 0 0 .45rem;
+      line-height: 1.25;
+    }
+    .card p { margin: .35rem 0; }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      margin: 1rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      font-size: .92rem;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: .75rem .8rem;
+      border-bottom: 1px solid #f0e2f2;
+    }
+    th {
+      background: linear-gradient(90deg, #f6eaff, #fff0f8);
+      font-weight: 800;
+    }
+    tr:last-child td { border-bottom: 0; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: .65rem 0;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      border-radius: 999px;
+      padding: .24rem .62rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    ul, ol { margin: .55rem 0 .55rem 1.2rem; padding: 0; }
+    li { margin-bottom: .35rem; }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .strong-note { font-weight: 800; color: #8c0066; }
+
+    .source-list li { margin-bottom: .55rem; }
+
     .chart-container {
       margin-top: 1rem;
-      border-radius: 12px;
+      border-radius: 16px;
       background: #f7f3ff;
       padding: 1rem;
       border: 1px solid #e0d7ff;
     }
-    .chart-row {
-      margin-bottom: .9rem;
-    }
-    .chart-row:last-child {
-      margin-bottom: 0;
-    }
+    .chart-row { margin-bottom: .95rem; }
+    .chart-row:last-child { margin-bottom: 0; }
     .chart-label {
-      font-weight: 600;
-      margin-bottom: .2rem;
+      font-weight: 800;
+      margin-bottom: .25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: .9rem;
+      gap: .75rem;
+      font-size: .92rem;
     }
     .chart-label span.small {
-      font-weight: 400;
-      font-size: .8rem;
-      opacity: .8;
+      font-weight: 500;
+      font-size: .78rem;
+      opacity: .85;
+      text-align: right;
     }
     .chart-bars {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: .3rem;
-      font-size: .75rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .35rem;
+      font-size: .74rem;
     }
     .chart-bar {
       background: #fff;
       border-radius: 999px;
-      padding: .2rem;
+      padding: .24rem;
       position: relative;
       overflow: hidden;
       border: 1px solid #e0d7ff;
+      min-height: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .chart-bar-fill {
       position: absolute;
@@ -199,118 +298,129 @@
       position: relative;
       text-align: center;
       z-index: 1;
+      padding: 0 .25rem;
     }
 
-    .c-oral   { background: linear-gradient(90deg, var(--blue), var(--pink)); }
-    .c-sub    { background: linear-gradient(90deg, var(--pink), var(--blue)); }
-    .c-trans  { background: linear-gradient(90deg, var(--green), var(--blue)); }
-    .c-inj    { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    footer {
+      text-align: center;
+      padding: 1.7rem 1rem 2.2rem;
+      font-size: .9rem;
+      color: #666;
+    }
 
-    @media (max-width:600px){
-      header h1{font-size:1.7rem;}
+    @media (max-width: 720px) {
+      header { padding: 2.4rem .8rem 2.1rem; }
       .chart-bars { grid-template-columns: 1fr; }
+      .group-content { padding: .9rem; }
+      table { min-width: 620px; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>🌸 Guia de THF Feminilizante 🌈</h1>
-    <p>modelo de protocolo para conversar com o médico, não para se automedicar</p>
+    <p>material educativo para conversar com profissionais de saúde — não é receita e não autoriza automedicação</p>
   </header>
 
   <main>
-    <!-- Visão geral & avisos -->
-    <section class="group">
+    <section class="group" id="visao-geral">
       <div class="group-header">
-        <span>📌 Visão geral & avisos</span>
+        <span>📌 Visão geral & como usar este guia</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content open">
         <div class="alert alert-general">
           <span class="alert-icon">⚠️</span>
           <div>
-            <strong>Aviso geral:</strong> este guia é apenas material educativo para você levar ao seu médico.
-            Não é receita, não substitui consulta e não autoriza automedicação. Qualquer dose e combinação
-            deve ser avaliada por endocrino / médico que entenda de saúde trans.
+            <strong>Aviso central:</strong> este guia é material educativo para ser lido com calma e levado ao médico.
+            Ele não substitui consulta, exame físico, avaliação de risco, prescrição, acompanhamento ou decisão clínica individual.
+            Qualquer dose, combinação ou troca de medicação precisa ser discutida com profissional que entenda de saúde trans.
           </div>
         </div>
+
         <div class="alert alert-smoking">
           <span class="alert-icon">🚬</span>
           <div>
-            <strong>Se você fuma cigarro:</strong> esquemas mais intensos de THF (doses mais altas de estradiol,
-            principalmente via oral engolida) aumentam muito o risco de trombose, AVC e infarto em quem fuma,
-            especialmente acima de 35 anos ou com outros fatores de risco. Se você fuma, o médico provavelmente
-            vai precisar de doses menores, vias mais seguras (como transdérmica) e um plano mais conservador.
+            <strong>Se você fuma cigarro:</strong> o risco vascular pesa mais. Esquemas com dose alta, via oral engolida ou picos hormonais
+            devem ser discutidos com cuidado, especialmente acima dos 35 anos, com enxaqueca com aura, histórico familiar de trombose,
+            AVC, infarto, imobilização frequente ou outros fatores de risco. Nesses cenários, vias transdérmicas costumam ser uma
+            conversa mais segura com o médico.
           </div>
         </div>
 
         <p>
-          A ideia deste guia é simples: organizar, em linguagem clara, um
-          <strong>modelo de protocolo</strong> baseado em estradiol bioidêntico (valerato / 17β-estradiol)
-          + bloqueio de testosterona, com exames regulares. A forma exata, dose e ajustes
-          SEMPRE dependem da sua saúde, idade, histórico familiar e avaliação médica.
+          A ideia deste guia é organizar, em linguagem clara, um <strong>mapa de conversa clínica</strong> sobre terapia hormonal
+          feminilizante: estradiol bioidêntico, bloqueio androgênico, exames, sinais de alerta e perguntas boas para levar à consulta.
+          A dose “certa” não nasce de print de comunidade: nasce de <strong>objetivo clínico + exames + sintomas + risco individual</strong>.
         </p>
+
+        <div class="mini-nav" aria-label="atalhos do guia">
+          <a href="#estradiol">💊 Estradiol e vias</a>
+          <a href="#bloqueadores">🧬 Bloqueadores</a>
+          <a href="#exames">🧪 Exames explicados</a>
+          <a href="#evitar">🚫 O que evitar</a>
+          <a href="#resumo-medico">🧾 Resumo para consulta</a>
+          <a href="#fontes">📚 Fontes</a>
+        </div>
       </div>
     </section>
 
-        <!-- Por que hormonizar & o que esperar -->
-    <section class="group">
+    <section class="group" id="efeitos">
       <div class="group-header">
         <span>💖 Por que hormonizar & o que esperar da THF</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
         <p>
-          A <strong>Terapia Hormonal Feminilizante (THF)</strong> existe, principalmente, para
-          <strong>aliviar disforia de gênero</strong> e aproximar o corpo da identidade interna. Não é
-          obrigatória para ser mulher trans, mas, para muita gente, é o que faz a vida ficar minimamente suportável.
+          A <strong>Terapia Hormonal Feminilizante (THF)</strong> pode aliviar disforia de gênero e aproximar o corpo da identidade interna.
+          Não é obrigatória para ser mulher trans, mas, para muitas pessoas, muda a qualidade da própria existência: corpo, pele, cheiro,
+          gordura, libido, humor e relação com o espelho.
         </p>
 
-        <p>
-          Disforia aqui significa um <strong>desconforto profundo e persistente</strong> com o gênero atribuído,
-          que pode afetar humor, sono, libido e vontade de existir. A THF tenta abrir espaço para
-          <strong>euforia de gênero</strong> ✨ (sensação de “agora combina comigo”).
-        </p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>🌸 Mudanças físicas</h3>
+            <ul>
+              <li>redistribuição de gordura, em grau variável;</li>
+              <li>crescimento mamário dependente de genética, tempo e idade de início;</li>
+              <li>pele mais fina e macia;</li>
+              <li>redução gradual de pelos corporais, sem substituir depilação a laser;</li>
+              <li>queda de fertilidade, às vezes irreversível;</li>
+              <li>mudanças em ereção, libido, orgasmo e fluido seminal.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🧠 Mudanças subjetivas</h3>
+            <ul>
+              <li>menos irritabilidade ou “ruído interno” em muitas pessoas;</li>
+              <li>sensibilidade emocional diferente;</li>
+              <li>oscilações no início, especialmente quando há picos e vales hormonais;</li>
+              <li>euforia de gênero quando corpo e identidade começam a conversar melhor.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🚫 O que não faz</h3>
+            <ul>
+              <li>não afina a voz;</li>
+              <li>não remove pelos faciais já estabelecidos;</li>
+              <li>não muda ossos da face ou quadril depois da puberdade;</li>
+              <li>não deve ser usada como experimento sem exames.</li>
+            </ul>
+          </div>
+        </div>
 
-        <p><strong>🌸 Efeitos físicos mais comuns (meses–anos):</strong></p>
-        <ul>
-          <li>redistribuição de gordura <span style="color:#FF9BCD;">(mais quadril/coxa/glúteo em muitas pessoas)</span>;</li>
-          <li>crescimento de mamas <span style="color:#FF9BCD;">(grau variável a depender da genética individual)</span>;</li>
-          <li>pele mais fina e macia;</li>
-           <li>redução gradual e sutil de pelos corporais <span style="color:#FF9BCD;">(depende do bloqueio da testosterona e não dispensa depilação a laser)</span>;</li>
-          <li>queda de testosterona, queda de fertilidade e possível <strong>infertilidade definitiva</strong> ao longo do tempo;</li>
-          <li>mudanças de ereção e libido <span style="color:#FF9BCD;">(menos ereções espontâneas, desejo mais “emocional” em muitas)</span>.</li>
-        </ul>
-
-        <p><strong>🧠 Efeitos na mente & emoções:</strong></p>
-        <ul>
-          <li>para muitas, menos irritabilidade e “ruído interno”;</li>
-          <li>choro mais fácil, sensibilidade afetiva aumentada 🥺;</li>
-          <li>fase inicial às vezes com oscilações de humor até ajustar dose/forma de uso.</li>
-        </ul>
-
-        <p><strong>🚫 O que a THF NÃO faz:</strong></p>
-        <ul>
-          <li>
-            <strong>Não afina a voz</strong>: estradiol não muda cordas vocais. Para isso, só
-            <strong>fonoaudiologia</strong> e/ou cirurgia específica, quando indicado. 🎙️
-          </li>
-          <li>
-            Não é botão mágico de orientação sexual: pode mexer na forma de sentir desejo, mas não “programa” atração.
-          </li>
-        </ul>
-
-        <p>
-          Em resumo: THF é ferramenta potente para <strong>reduzir disforia</strong> e alinhar corpo e identidade 💫.
-          Justamente por isso, deve ser tratada como <strong>tratamento médico sério</strong>, com exames, ajuste de dose
-          e avaliação individual de riscos, não como experiência isolada.
-        </p>
+        <div class="alert alert-blue">
+          <span class="alert-icon">💡</span>
+          <div>
+            <strong>Régua realista:</strong> mais estradiol não significa automaticamente mais feminização. Depois que testosterona está bem controlada
+            e estradiol está em faixa fisiológica, aumentar dose pode aumentar mais risco do que resultado. A feminização depende também de genética,
+            idade, tempo, saúde metabólica e consistência.
+          </div>
+        </div>
       </div>
     </section>
 
-
-    <!-- Estradiol -->
-    <section class="group">
+    <section class="group" id="estradiol">
       <div class="group-header">
         <span>💊 Estradiol: base do protocolo</span>
         <span class="toggle-icon">▶</span>
@@ -321,271 +431,271 @@
             ⚗️ Princípio geral
             <span class="toggle-icon">▶</span>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content open">
             <p>
-              O objetivo é usar <strong>estradiol bioidêntico</strong> (17β-estradiol ou valerato de estradiol),
-              que é o hormônio mais próximo do produzido pelo corpo, em uma dose que:
+              O estradiol preferencial em THF moderna costuma ser o <strong>17β-estradiol</strong> ou o <strong>valerato de estradiol</strong>,
+              por serem formas bioidênticas/mais próximas do hormônio humano. A meta não é “entupir o corpo de hormônio”, e sim encontrar uma
+              faixa em que a pessoa tenha feminização, bem-estar e exames seguros.
             </p>
             <ul>
-              <li>favoreça feminização (pele, gordura, mamas, libido, humor),</li>
-              <li>mantenha estradiol em faixa feminina nos exames,</li>
-              <li>fique dentro de um risco aceitável, considerando seu histórico clínico.</li>
-            </ul>
-          </div>
-        </section>
-
-       <section class="accordion">
-  <div class="accordion-header">
-    👅 Via sublingual  <span class="badge">mais recomendada</span>
-    <span class="toggle-icon">▶</span>
-  </div>
-  <div class="accordion-content">
-     <ul>
-      <li>O comprimido fica alguns minutos <strong>debaixo da língua</strong> (sem engolir logo de cara).</li>
-      <li>Mais estradiol entra direto na circulação, evitando boa parte da <strong>primeira passagem hepática</strong>
-        (quando o fígado converte uma parcela grande em estrona/E1).</li>
-      <li>Em geral, dá <strong>níveis melhores</strong> com a mesma dose e tende a ter <strong>menos carga hepática</strong>.</li>
-      <li>Como absorve rápido, faz <strong>picos e quedas</strong> mais rápidos: costuma funcionar melhor em
-        <strong>2 doses/dia</strong> (manhã + fim da tarde).</li>
-      <li>Na prática, normalmente exige <strong>prescrição</strong> para manipulação.</li>
-    </ul>
-
-    <div style="background:rgba(0,255,255,.10);border:2px solid #00E5FF;border-left:10px solid #FF00C8;border-radius:14px;padding:.7rem .85rem;margin:.9rem 0;box-shadow:0 10px 22px rgba(0,0,0,.10);">
-      <div style="font-weight:800;margin-bottom:.2rem;">👅 Sublingual (referência prática)</div>
-      <p style="margin:.25rem 0;line-height:1.35;">
-        Faixa usada pela Moon: <strong>mínimo 4 mg</strong> a <strong>máximo 8 mg por dia</strong>.
-      </p>
-      <p style="margin:.25rem 0;line-height:1.35;">
-        Lembre: é <strong>2x ao dia</strong>, fracionado pela metade. Então, na manipulação, você pede
-        <strong>metade da dose por cápsula</strong> e <strong>o dobro de quantidade</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="accordion">
-  <div class="accordion-header">
-    💊 Via oral engolida <span class="badge">mais acessível</span>
-    <span class="toggle-icon">▶</span>
-  </div>
-  <div class="accordion-content">
-  
-    <ul>
-      <li>Passa primeiro pelo fígado: boa parte vira <strong>estrona/E1</strong> (menos estradiol ativo circulando).</li>
-      <li>Isso tende a significar <strong>perda de eficácia</strong> e <strong>maior carga hepática</strong> do que sublingual/transdérmico.</li>
-      <li>Por outro lado, costuma ser <strong>muito mais fácil de achar em farmácia comum</strong>, às vezes com exigência menor de receita.</li>
-      <li>Na vida real, acaba sendo a porta de entrada de quem ainda não consegue manipular sublingual com acompanhamento regular.</li>
-    </ul>
-  </div>
-</section>
-
-        <section class="accordion">
-          <div class="accordion-header">
-            💧 Formas transdérmicas (gel / adesivo) <span class="badge">mais segura</span>
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              Gel e adesivo de estradiol são, em muitos protocolos, o <strong>padrão-ouro em termos de segurança vascular</strong>,
-              porque:
-            </p>
-            <ul>
-              <li>também evitam boa parte da primeira passagem hepática,</li>
-              <li>geram níveis mais estáveis, sem picos tão agressivos,</li>
-              <li>tendem a ter <strong>risco tromboembólico menor</strong> que estradiol oral engolido.</li>
-            </ul>
-            <p>
-              Em compensação, costumam ser <strong>bem mais fracos em eficácia feminilizante</strong> em comparação
-              a bons esquemas sublinguais ou injetáveis. Na prática:
-            </p>
-            <ul>
-              <li>podem ser ideais para pessoas com <strong>contraindicações médicas importantes</strong> (fumantes de cigarro,
-                  histórico de trombose, risco trombótico elevado),</li>
-              <li>mas, para quem tem risco baixo e busca feminilização mais robusta, muitas vezes não entregam o efeito desejado sozinhos.</li>
+              <li><strong>Objetivo hormonal:</strong> manter estradiol em faixa fisiológica feminina e reduzir/neutralizar ação androgênica.</li>
+              <li><strong>Objetivo clínico:</strong> aliviar disforia e produzir mudanças corporais feminilizantes com segurança.</li>
+              <li><strong>Objetivo prático:</strong> escolher uma via que a pessoa consiga manter sem pânico, sem picos ruins e sem risco desnecessário.</li>
             </ul>
           </div>
         </section>
 
         <section class="accordion">
           <div class="accordion-header">
-            💉 Formas injetáveis <span class="badge">mais eficaz</span>
+            👅 Via sublingual <span class="badge">útil, potente e oscilante</span>
             <span class="toggle-icon">▶</span>
           </div>
           <div class="accordion-content">
             <p>
-              Esquemas injetáveis de estradiol podem ser muito eficazes em termos de nível hormonal e feminilização,
-              mas vêm com um custo: são os campeões em <strong>“TPH” (TPM hormonal)</strong>.
+              Na via sublingual, o comprimido fica debaixo da língua ou na mucosa oral até dissolver. Parte do estradiol entra direto na circulação,
+              evitando uma parcela da primeira passagem hepática. Por isso, a mesma dose pode gerar níveis mais altos do que a via oral engolida.
             </p>
             <ul>
-              <li>No começo do ciclo, logo após a aplicação, o estradiol fica alto, com sintomas de pico (euforia, sensibilidade, etc.).</li>
-              <li>À medida que os dias passam, o nível cai e o corpo entra em algo semelhante a “abstinência de hormônio”:
-                  irritabilidade, queda de humor, fadiga, piora da disforia em algumas pessoas.</li>
-              <li>Quanto mais longo o intervalo entre aplicações, maior tende a ser o sobe-e-desce.</li>
+              <li><strong>Vantagem:</strong> maior biodisponibilidade e possível menor carga hepática que a via oral engolida.</li>
+              <li><strong>Limite:</strong> sobe rápido e cai rápido. Isso pode gerar picos, vales e exames confusos se o horário da coleta não for pensado.</li>
+              <li><strong>Praticidade:</strong> costuma funcionar melhor fracionada. 2x/dia é o mínimo prático; 3–4x/dia pode suavizar oscilações, mas nem toda pessoa consegue manter.</li>
+              <li><strong>Coleta de exame:</strong> evitar colher logo após a dose, porque pode pegar pico artificial. O horário precisa ser combinado com o médico.</li>
             </ul>
-            <p>
-              Por isso, injecionais podem ser uma boa opção em mãos experientes, mas exigem cuidado no
-              intervalo entre doses e na avaliação do impacto emocional desses ciclos.
+
+            <div class="alert alert-purple">
+              <span class="alert-icon">🧭</span>
+              <div>
+                <strong>Correção importante desta versão:</strong> 4–8 mg/dia sublingual não deve aparecer como “faixa padrão”. Pela literatura de equivalência,
+                sublingual costuma ser classificado aproximadamente como 0,5–1 mg/dia baixo, 1–2 mg/dia moderado, 2–4 mg/dia alto e 3–6 mg/dia muito alto
+                para estradiol; para valerato sublingual, as faixas são um pouco diferentes. Acima disso, a conversa precisa ser ainda mais cuidadosa.
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Faixa aproximada</th>
+                    <th>Estradiol sublingual</th>
+                    <th>Valerato de estradiol sublingual</th>
+                    <th>Como ler isso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Baixa</td>
+                    <td>0,5–1 mg/dia</td>
+                    <td>0,75–1,5 mg/dia</td>
+                    <td>pode ser início, manutenção baixa ou cenário pós-gonadectomia, conforme caso</td>
+                  </tr>
+                  <tr>
+                    <td>Moderada</td>
+                    <td>1–2 mg/dia</td>
+                    <td>1,5–3 mg/dia</td>
+                    <td>faixa que já pode ser suficiente para muita gente, dependendo de exames e bloqueio</td>
+                  </tr>
+                  <tr>
+                    <td>Alta</td>
+                    <td>2–4 mg/dia</td>
+                    <td>2,5–5 mg/dia</td>
+                    <td>exige acompanhamento mais atento; não é “quanto mais, melhor”</td>
+                  </tr>
+                  <tr>
+                    <td>Muito alta</td>
+                    <td>2,5–5 mg/dia</td>
+                    <td>3–6 mg/dia</td>
+                    <td>mais típica de estratégias agressivas/monoterapia; precisa de justificativa clínica</td>
+                  </tr>
+                  <tr>
+                    <td>Acima disso</td>
+                    <td colspan="2">ex.: 6–8 mg/dia ou mais</td>
+                    <td>tratar como excepcional, não como régua de comunidade</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="muted">
+              Essas faixas são aproximações farmacocinéticas, não prescrição individual. O corpo real manda: exame, sintoma, risco e objetivo.
             </p>
           </div>
         </section>
 
         <section class="accordion">
           <div class="accordion-header">
-            📈 Faixa de dose sugerida (para o médico ajustar)
+            💊 Via oral engolida <span class="badge">acessível, mas com primeira passagem hepática</span>
             <span class="toggle-icon">▶</span>
           </div>
           <div class="accordion-content">
             <p>
-              A faixa abaixo é apenas um <strong>exemplo de janela de dose</strong> usada em prática clínica,
-              para ser discutida com o médico:
+              Na via oral engolida, o estradiol passa primeiro pelo fígado. Isso pode aumentar conversão para estrona e exigir doses maiores para atingir
+              o mesmo efeito sistêmico de outras vias. Ainda assim, pode ser a via mais acessível para muita gente no Brasil.
             </p>
             <ul>
-              <li><strong>Início:</strong> cerca de <strong>4 mg/dia</strong> de estradiol (preferencialmente sublingual),
-                  divididos em 2 tomadas (manhã e fim de tarde).</li>
-              <li><strong>Ajuste:</strong> subir gradualmente com base em:
-                <ul>
-                  <li>exames de estradiol (objetivo: faixa feminina),</li>
-                  <li>supressão da testosterona (junto com bloqueador, se houver),</li>
-                  <li>efeitos clínicos e tolerância.</li>
-                </ul>
-              </li>
-              <li><strong>Faixa superior:</strong> em muitos casos, algo até <strong>8 mg/dia</strong> de estradiol
-                  sublingual é suficiente, mas isso é decidido caso a caso pelo médico.</li>
-            </ul>
-            <p>
-              <em>Ideia central:</em> usar a menor dose que entregue boa feminização com exames seguros,
-              sem empilhar riscos desnecessários.
-            </p>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <!-- Bloqueio de testosterona -->
-    <section class="group">
-      <div class="group-header">
-        <span>🧬 Bloqueio de testosterona & monoterapia</span>
-        <span class="toggle-icon">▶</span>
-      </div>
-      <div class="group-content">
-        <section class="accordion">
-          <div class="accordion-header">
-            ⏱️ Fase 1 – Ciproterona (curto prazo)
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              Na fase inicial, o objetivo é reduzir a testosterona rápido para aliviar disforia e facilitar a feminização.
-              Um modelo possível:
-            </p>
-            <ul>
-              <li><strong>Acetato de ciproterona = 12,5 mg/dia</strong>.</li>
-              <li>Usar junto com estradiol, sempre com exames regulares.</li>
-              <li>Monitorar:
-                <ul>
-                  <li>testosterona total,</li>
-                  <li>humor, energia, libido,</li>
-                  <li>função hepática e perfil metabólico.</li>
-                </ul>
-              </li>
-            </ul>
-            <p>
-              A ciproterona é eficaz, mas <strong>não é para uso prolongado em alta dose</strong>, por associação
-              com maior risco de meningioma e impacto em coagulação e humor.
-            </p>
-           <div class="alert alert-general" style="margin-top:10px;">
-  <span class="alert-icon">⚠️</span>
-  <div>
-    <strong>Sobre a ESPIRONOLACTONA:</strong> é muito comum médicos receitarem <strong>espironolactona</strong> como “bloqueador”
-    (especialmente nos EUA), mas muitas vezes <strong>não é a escolha mais inteligente</strong> na THF.
-    Ela tende a agir mais como <strong>bloqueio de receptor</strong> (efeito no tecido) do que como “derrubar” testosterona
-    no exame de forma consistente.
-    <br>E como é um <strong>diurético</strong>, pode trazer efeito colateral “de graça” (mais xixi, queda de pressão, tontura)
-    e <strong>risco de potássio alto</strong>. Se usar, faz sentido monitorar <strong>potássio</strong> e <strong>função renal</strong>.
-  </div>
-</div>
-          </div>
-        </section>
-
-       
-
-        <section class="accordion">
-          <div class="accordion-header">
-            🔁 Fase 2 – Troca para bloqueador de manutenção
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              Quando a testosterona estiver <strong>consistentemente baixa</strong> (por exemplo, abaixo de ~50 ng/dL),
-              faz sentido discutir com o médico:
-            </p>
-            <ul>
-              <li>reduzir a dose de ciproterona gradualmente,</li>
-              <li>e <strong>substituir por Bicalutamida 25 mg/dia</strong>, se clinicamente adequado.</li>
-            </ul>
-            <p>
-              A bicalutamida age principalmente como bloqueador periférico do receptor androgênico e costuma ser vista
-              como opção mais estável para uso prolongado, desde que:
-            </p>
-            <ul>
-              <li>haja <strong>monitorização de enzimas hepáticas</strong>,</li>
-              <li>e o restante do protocolo (estradiol, exames, pressão, etc.) esteja bem controlado.</li>
+              <li><strong>Ponto forte:</strong> disponibilidade e simplicidade.</li>
+              <li><strong>Ponto fraco:</strong> maior primeira passagem hepática e potencial perfil vascular menos interessante que transdérmico.</li>
+              <li><strong>Uso prudente:</strong> dose dividida quando maior que baixa dose, avaliação de risco e exames.</li>
             </ul>
           </div>
         </section>
 
         <section class="accordion">
           <div class="accordion-header">
-            🌗 Monoterapia com estradiol (sem bloqueador)
+            💧 Transdérmico: gel / adesivo <span class="badge">mais estável e vascularmente amigável</span>
             <span class="toggle-icon">▶</span>
           </div>
           <div class="accordion-content">
             <p>
-              Algumas meninas preferem tentar <strong>monoterapia com estradiol</strong>, sem bloqueador de testosterona,
-              principalmente quem:
+              Gel e adesivo evitam grande parte da primeira passagem hepática e tendem a produzir níveis mais estáveis. Não devem ser tratados como “fracos”
+              por definição: em algumas pessoas atingem níveis adequados; em outras, a absorção pode ser insuficiente ou variável.
             </p>
             <ul>
-              <li>não quer lidar com <strong>disfunção erétil intensa</strong> ou queda muito grande de libido associada ao bloqueio,</li>
-              <li>precisa manter um certo grau de função erétil por razões pessoais / relacionais.</li>
+              <li><strong>Melhor conversa quando há risco vascular:</strong> tabagismo, idade maior, histórico de trombose, enxaqueca com aura ou risco cardiovascular.</li>
+              <li><strong>Limite prático:</strong> preço, adesão da pele, irritação local, disponibilidade e absorção individual.</li>
+              <li><strong>Leitura correta:</strong> não é “transdérmico feminiza menos”; é “precisa ver se entrega nível adequado no seu corpo”.</li>
             </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            💉 Injetáveis de estradiol <span class="badge">eficazes, mas dependem de intervalo e curva</span>
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
             <p>
-              Isso pode ser uma escolha válida, mas é importante entender o preço:
+              Esquemas injetáveis podem ser eficazes, mas precisam ser pensados pela curva: pico, queda, intervalo e sintomas. O problema não é “injeção” em si,
+              e sim dose alta com intervalo longo, sem exame, sem ajuste fino e com montanha-russa de humor/disforia.
             </p>
             <ul>
-              <li>sem bloqueador, a testosterona continua circulando e <strong>competindo com o estradiol</strong> nos tecidos;</li>
-              <li>a feminilização tende a ser <strong>muito mais lenta e limitada</strong>;</li>
-              <li>a sensação subjetiva pode ser de “<strong>um passo pra frente, um passo pra trás</strong>”: melhora um pouco, volta, melhora um pouco, volta.</li>
+              <li><strong>Pico:</strong> logo após aplicação, pode haver estradiol alto e efeitos de pico.</li>
+              <li><strong>Vale:</strong> perto da próxima dose, pode haver irritabilidade, fadiga, queda de humor ou piora de disforia.</li>
+              <li><strong>Boa prática:</strong> ajustar dose e intervalo com profissional experiente, evitando injetáveis contraceptivos de dose fixa como base crônica.</li>
             </ul>
-            <p>
-              Em resumo: monoterapia é uma opção para quem realmente não quer mexer tanto na função erétil, mas,
-              comparada a uma <strong>hormonização completa (estradiol + bloqueador bem conduzido)</strong>, costuma ser
-              <strong>bem menos eficaz</strong> em termos de feminilização. Vale discutir isso com o médico sem ilusão.
-            </p>
           </div>
         </section>
       </div>
     </section>
 
-    <!-- Exames -->
-    <section class="group">
+    <section class="group" id="bloqueadores">
       <div class="group-header">
-        <span>🧪 Exames & monitorização</span>
+        <span>🧬 Bloqueio de testosterona & estratégias antiandrogênicas</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
+        <p>
+          Bloqueio androgênico não é uma única coisa. Algumas medicações reduzem produção de testosterona; outras bloqueiam o receptor;
+          outras agem em vias específicas como DHT. Por isso, é essencial entender <strong>o que o exame mostra</strong> e <strong>o que a medicação faz no tecido</strong>.
+        </p>
+
         <section class="accordion">
           <div class="accordion-header">
-            📊 Antes de começar
+            ⏱️ Ciproterona <span class="badge">eficaz, mas pede cautela de longo prazo</span>
             <span class="toggle-icon">▶</span>
           </div>
           <div class="accordion-content">
+            <p>
+              O acetato de ciproterona pode reduzir testosterona de forma potente. Em muitos protocolos, quando usado, faz mais sentido em dose baixa e pelo
+              menor tempo necessário, com acompanhamento de humor, libido, prolactina, função hepática e risco individual.
+            </p>
+            <ul>
+              <li><strong>Serve para:</strong> reduzir produção/atividade androgênica e facilitar feminização inicial.</li>
+              <li><strong>Monitorar:</strong> humor, energia, libido, prolactina, TGO/AST, TGP/ALT, GGT e perfil metabólico conforme caso.</li>
+              <li><strong>Cautela:</strong> uso prolongado e doses altas são menos desejáveis.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🛡️ Bicalutamida <span class="badge">bloqueia receptor; fígado precisa entrar no mapa</span>
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              A bicalutamida é um antiandrogênio não esteroidal que bloqueia o receptor androgênico. Um detalhe crucial: ela pode <strong>não derrubar testosterona no exame</strong>
+              como a ciproterona. Então, uma testosterona total “alta” em quem usa bicalutamida não significa automaticamente falha — mas precisa ser interpretada pelo médico.
+            </p>
+            <ul>
+              <li><strong>Serve para:</strong> bloquear ação da testosterona/DHT nos tecidos.</li>
+              <li><strong>Não serve para:</strong> ser usada no escuro sem monitorização hepática.</li>
+              <li><strong>Exames essenciais:</strong> TGO/AST, TGP/ALT, GGT e bilirrubinas antes e durante o uso.</li>
+              <li><strong>Janela de maior atenção:</strong> primeiros meses, especialmente se surgirem sintomas.</li>
+            </ul>
+
+            <div class="alert alert-smoking">
+              <span class="alert-icon">🚨</span>
+              <div>
+                <strong>Sinais de alerta hepático:</strong> pele/olhos amarelados, urina muito escura, coceira intensa, dor do lado direito do abdome,
+                náusea persistente, vômitos, fadiga fora do normal, febre sem explicação ou sensação de “gripe” após iniciar a medicação. Isso pede avaliação médica.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            💧 Espironolactona <span class="badge">diurético antiandrogênico</span>
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              A espironolactona é comum em alguns protocolos, especialmente nos EUA, mas não é “bloqueador mágico”. Tem efeito antiandrogênico e também é diurética.
+              Pode causar mais urina, tontura, queda de pressão e alteração de potássio.
+            </p>
+            <ul>
+              <li><strong>Monitorar:</strong> potássio, creatinina, ureia, pressão arterial, tontura e sintomas de desidratação.</li>
+              <li><strong>Cautela:</strong> doença renal, uso de medicamentos que aumentam potássio, hipotensão ou desidratação.</li>
+              <li><strong>Exame de testosterona:</strong> pode não cair tanto quanto a pessoa espera; avaliar efeito clínico e contexto.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🌗 Monoterapia com estradiol <span class="badge">possível em casos selecionados</span>
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Monoterapia significa usar estradiol sem bloqueador. Pode fazer sentido em alguns casos, especialmente após gonadectomia/CRS ou quando há contraindicação
+              a bloqueadores. Em pessoas com testículos, geralmente exige doses mais altas para suprimir testosterona, o que pode aumentar risco e oscilação.
+            </p>
+            <ul>
+              <li><strong>Boa candidata:</strong> pessoa pós-orquiectomia/CRS, ou caso em que bloqueadores são mal tolerados.</li>
+              <li><strong>Mais difícil:</strong> pessoa com produção testicular ativa e testosterona alta.</li>
+              <li><strong>Risco de ilusão:</strong> “sem bloqueador” pode preservar função sexual, mas também pode limitar feminização se testosterona seguir muito ativa.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="group" id="exames">
+      <div class="group-header">
+        <span>🧪 Exames & monitorização: o que cada um responde</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <p>
+          A crítica mais útil da comunidade foi esta: não basta listar exame. A pessoa precisa entender <strong>qual pergunta clínica cada exame responde</strong>.
+          Isso melhora a conversa com o médico e reduz aquela sensação de “pediram um monte de sigla e eu só aceitei”.
+        </p>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            📊 Antes de começar ou ao organizar acompanhamento
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content open">
             <ul>
               <li>Hemograma completo.</li>
-              <li>Função hepática (TGO, TGP, GGT), função renal (ureia, creatinina).</li>
-              <li>Perfil lipídico (colesterol total, frações, triglicérides).</li>
-              <li>Glicemia de jejum / HbA1c, se indicado.</li>
-              <li>Estradiol, testosterona total, prolactina.</li>
-              <li>História familiar de trombose, AVC, infarto, enxaqueca com aura.</li>
+              <li>Estradiol, testosterona total e, se necessário, SHBG/albumina para cálculo de testosterona livre/bio disponível.</li>
+              <li>Prolactina, especialmente se houver sintomas ou uso de ciproterona.</li>
+              <li>Função hepática: <strong>TGO/AST, TGP/ALT, GGT, bilirrubinas</strong>.</li>
+              <li>Função renal e eletrólitos: ureia, creatinina, potássio, sódio — principalmente se houver espironolactona.</li>
+              <li>Perfil lipídico: colesterol total, HDL, LDL, triglicérides.</li>
+              <li>Glicemia de jejum e/ou HbA1c conforme risco metabólico.</li>
+              <li>Pressão arterial, peso, tabagismo, histórico familiar de trombose/AVC/infarto e enxaqueca com aura.</li>
             </ul>
           </div>
         </section>
@@ -597,345 +707,312 @@
           </div>
           <div class="accordion-content">
             <p>
-              No início, é razoável repetir exames a cada <strong>3–6 meses</strong> (ou com a frequência
-              que o médico orientar). Depois, se tudo estiver estável, o intervalo pode ser ampliado.
+              Em geral, diretrizes sugerem acompanhamento mais frequente no primeiro ano e depois espaçamento quando tudo estabiliza. Na prática, muitos médicos repetem
+              exames em 3–6 meses no início ou após mudanças de dose/via, e depois individualizam.
             </p>
-            <p><strong>Metas aproximadas (definidas pelo médico):</strong></p>
             <ul>
-              <li>Estradiol em faixa feminina fisiológica.</li>
-              <li>Testosterona suprimida para valores típicos de mulher cis (quando há bloqueador).</li>
-              <li>Função hepática, renal e perfil lipídico dentro de limites aceitáveis.</li>
-              <li>Pressão arterial monitorada, especialmente se houver histórico familiar.</li>
+              <li>Após iniciar ou mudar dose/via: estradiol, testosterona e segurança conforme medicação usada.</li>
+              <li>Com espironolactona: potássio e função renal.</li>
+              <li>Com bicalutamida/ciproterona: função hepática, com TGO/AST e TGP/ALT explícitos.</li>
+              <li>Com sintomas novos: exame guiado pelo sintoma, não só “painel padrão”.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🧾 Dicionário prático dos exames
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Exame</th>
+                    <th>Para que serve na THF</th>
+                    <th>Quando fica mais importante</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Estradiol (E2)</td>
+                    <td>Ver se a dose/via está entregando nível adequado sem excesso.</td>
+                    <td>início, troca de via, sintomas de pico/vale, ajuste de dose</td>
+                  </tr>
+                  <tr>
+                    <td>Testosterona total</td>
+                    <td>Ver supressão androgênica, especialmente com ciproterona, GnRH ou monoterapia.</td>
+                    <td>quando feminização trava ou bloqueio parece insuficiente</td>
+                  </tr>
+                  <tr>
+                    <td>SHBG / albumina</td>
+                    <td>Ajudar a calcular testosterona livre/bio disponível em casos complexos.</td>
+                    <td>quando testosterona total não combina com sintomas/efeitos</td>
+                  </tr>
+                  <tr>
+                    <td>Prolactina</td>
+                    <td>Rastrear elevação relevante, especialmente com ciproterona ou sintomas compatíveis.</td>
+                    <td>galactorreia, cefaleia persistente, alterações visuais, uso prolongado de ciproterona</td>
+                  </tr>
+                  <tr>
+                    <td>TGO/AST e TGP/ALT</td>
+                    <td>Rastrear sofrimento hepático/hepatocelular.</td>
+                    <td>bicalutamida, ciproterona, alteração clínica, álcool, hepatites, medicações combinadas</td>
+                  </tr>
+                  <tr>
+                    <td>GGT e bilirrubinas</td>
+                    <td>Complementar leitura hepatobiliar e investigar padrão de alteração.</td>
+                    <td>icterícia, urina escura, coceira, náuseas persistentes, alteração de TGO/TGP</td>
+                  </tr>
+                  <tr>
+                    <td>Creatinina, ureia e potássio</td>
+                    <td>Avaliar rim e eletrólitos; potássio é central com espironolactona.</td>
+                    <td>uso de espironolactona, doença renal, tontura, desidratação, uso de anti-hipertensivos</td>
+                  </tr>
+                  <tr>
+                    <td>Lipidograma</td>
+                    <td>Avaliar risco cardiometabólico.</td>
+                    <td>risco familiar, obesidade, diabetes, tabagismo, idade, uso prolongado</td>
+                  </tr>
+                  <tr>
+                    <td>Glicemia / HbA1c</td>
+                    <td>Rastrear diabetes/resistência insulínica e risco metabólico.</td>
+                    <td>histórico familiar, ganho de peso, GLP-1, sintomas metabólicos, risco cardiovascular</td>
+                  </tr>
+                  <tr>
+                    <td>Pressão arterial</td>
+                    <td>Parte da segurança cardiovascular, não é “exame de sangue”, mas importa muito.</td>
+                    <td>espironolactona, cefaleia, tontura, risco cardiovascular, tabagismo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="group" id="evitar">
+      <div class="group-header">
+        <span>🚫 O que evitar ou tratar como plano provisório</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <section class="accordion">
+          <div class="accordion-header">
+            ❌ Etinilestradiol / anticoncepcionais como base de THF
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content open">
+            <p>
+              Etinilestradiol aparece em anticoncepcionais combinados e não é a base preferida para THF de longo prazo. Tem perfil trombótico menos desejável,
+              não é medido como estradiol comum no exame e dificulta ajuste fino.
+            </p>
+            <ul>
+              <li>Evitar como base crônica se houver acesso a estradiol bioidêntico.</li>
+              <li>Redobrar cautela em fumantes, risco familiar, enxaqueca com aura, imobilização ou histórico vascular.</li>
+              <li>Não confundir “muito usado na vida real” com “melhor opção clínica”.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🩸 Injetáveis contraceptivos tipo Perlutan® e similares
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Produtos contraceptivos mensais combinam hormônios em dose fixa e foram pensados para outro público e outro objetivo. Em THF, o problema é que a pessoa
+              perde controle fino sobre estradiol, progestagênio, pico, queda e risco.
+            </p>
+            <ul>
+              <li>Se aparecem como única ponte possível, devem ser vistos como provisórios e discutidos com profissional.</li>
+              <li>Não são bons para ajuste fino de estradiol e bloqueio.</li>
+              <li>Quanto maior o tempo de uso sem acompanhamento, pior a blindagem clínica.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="accordion">
+          <div class="accordion-header">
+            🧯 Doses altas sem exame não são “protocolo avançado”
+            <span class="toggle-icon">▶</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Dose alta sem exame, sem controle de risco e sem objetivo clínico claro é só aposta corporal. Comunidade pode salvar vidas quando traduz informação,
+              mas também pode normalizar régua agressiva como se fosse padrão.
+            </p>
+            <ul>
+              <li>Não aumentar dose só porque “não sentiu nada” em poucos dias.</li>
+              <li>Não comparar corpo, peito, pele ou libido com outra pessoa como se fosse tabela universal.</li>
+              <li>Não perseguir estradiol alto se testosterona já está adequada e sintomas estão bons.</li>
             </ul>
           </div>
         </section>
       </div>
     </section>
 
-     <!-- O que evitar -->
-    <section class="group">
+    <section class="group" id="acesso">
       <div class="group-header">
-        <span>🚫 O que evitar (etinilestradiol, Perlutan, etc.)</span>
+        <span>🛒 Acesso por farmácia comum: ponte não é destino</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
-        <section class="accordion">
-          <div class="accordion-header">
-            ❌ Etinilestradiol (Diane, Selene e similares)
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              Muitos anticoncepcionais combinados de farmácia (como Diane 35®, Selene® e outros)
-              usam <strong>etinilestradiol</strong> + progestagênio (com ou sem acetato de ciproterona).
-              Para <strong>THF de longo prazo em mulheres trans</strong>, em geral:
-            </p>
-            <ul>
-              <li>
-                têm <strong>risco trombótico bem maior</strong> do que protocolos baseados em
-                estradiol bioidêntico (valerato / 17β-estradiol);
-              </li>
-              <li>
-                foram desenhados para <strong>contracepção em mulheres cis</strong>, nas doses e
-                contextos de uso delas; mesmo assim, já carregam risco aumentado de trombose, AVC, etc.;
-              </li>
-              <li>
-                em mulheres trans, o uso prolongado e/ou em doses altas <strong>amplifica esses riscos</strong>
-                e está associado, em diretrizes modernas, a um <strong>perfil de segurança considerado ruim</strong>;
-              </li>
-              <li>
-                a dose fixa dificulta <strong>ajustar separadamente</strong> estradiol e bloqueio,
-                o que é central em protocolos mais atuais.
-              </li>
-            </ul>
-            <p>
-              O consenso das diretrizes mais recentes é: <strong>evitar etinilestradiol em THF</strong>,
-              especialmente em uso crônico. Há relatos de eventos graves, inclusive óbito, em
-              contextos de doses altas e uso prolongado. Médicos que ainda prescrevem etinilestradiol
-              para feminização costumam estar <strong>desatualizados em relação aos protocolos mais seguros</strong>.
-            </p>
-            <p>
-              Sempre que houver acesso a <strong>valerato / 17β-estradiol bioidêntico</strong>,
-              vale discutir com o médico a preferência por esses, em vez de etinilestradiol.
-            </p>
-          </div>
-        </section>
+        <p>
+          Em muitos lugares do Brasil, pessoas trans acabam usando produtos disponíveis em farmácia comum como ponte até conseguir acompanhamento melhor.
+          Este guia não recomenda automedicação; ele apenas nomeia a realidade para que a conversa seja menos clandestina e mais segura.
+        </p>
 
-        <section class="accordion">
-          <div class="accordion-header">
-            🩸 Injetáveis tipo Perlutan
-            <span class="toggle-icon">▶</span>
+        <div class="card-grid">
+          <div class="card">
+            <h3>💊 Produtos com valerato/estradiol</h3>
+            <p>Podem ser discutidos como acesso provisório quando contêm estradiol bioidêntico, mas continuam exigindo exames e ajuste individual.</p>
           </div>
-          <div class="accordion-content">
-            <p>
-              Alguns injetáveis mensais (como Perlutan® e similares) combinam
-              <strong>estrógeno sintético + progestagênio</strong> em dose fixa,
-              feitos para contracepção em mulheres cis.
-            </p>
-            <ul>
-              <li>
-                produzem <strong>picos altos de hormônio</strong> seguidos de queda gradual, difíceis de
-                ajustar em termos de dose fina;
-              </li>
-              <li>
-                têm <strong>meia-vida longa</strong>: se a dose for excessiva ou o corpo reagir mal,
-                o efeito “fica no corpo” por semanas;
-              </li>
-              <li>
-                em THF, costumam ter <strong>perfil de risco cardiovascular pior</strong> do que
-                esquemas baseados em estradiol bioidêntico (oral/sublingual/transdérmico/injetável) bem ajustado;
-              </li>
-              <li>
-                uso repetido, por anos, <strong>aumenta a carga de risco</strong>, especialmente em quem
-                tem outros fatores (tabagismo, histórico familiar, obesidade, imobilização, etc.).
-              </li>
-            </ul>
-            <p>
-              Embora sejam muito usados “na prática real” entre mulheres trans, isso não significa que
-              sejam seguros. Em geral, diretrizes preferem <strong>estradiol bioidêntico</strong> em
-              formas mais controláveis. Profissionais que baseiam toda a THF em injetáveis tipo Perlutan®
-              tendem a estar <strong>desalinhados com práticas mais modernas de redução de risco</strong>.
-            </p>
-            <p>
-              Se o médico considerar esse tipo de injetável como única opção viável em determinado
-              contexto, faz mais sentido que seja <strong>provisório</strong>, com monitorização rigorosa
-              e plano de migração para um esquema mais seguro assim que possível.
-            </p>
+          <div class="card">
+            <h3>🧩 Combinações fixas</h3>
+            <p>São menos flexíveis: se vem estradiol + antiandrogênio/progestagênio na mesma cartela, não dá para ajustar cada parte separadamente.</p>
           </div>
-        </section>
+          <div class="card">
+            <h3>🗺️ Caminho melhor</h3>
+            <p>Transformar ponte em plano: levar histórico, dose usada, sintomas e exames para um médico montar esquema mais limpo.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-      <!-- Plano B: acesso por farmácia comum -->
-    <section class="group">
+    <section class="group" id="comparacao">
       <div class="group-header">
-        <span>🛒 Plano B: acesso por farmácia comum</span>
+        <span>📊 Comparação simplificada das vias</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
         <p>
-          Em muitos lugares do Brasil, é possível comprar alguns produtos prontos em farmácia comum,
-          sem receita retida, que usam <strong>estradiol bioidêntico</strong>. Eles não são feitos
-          especificamente para FHT/THF em mulheres trans, mas acabam sendo usados na prática real
-          como <strong>primeiro passo temporário</strong> enquanto a pessoa ainda não tem acesso
-          a acompanhamento especializado.
+          Comparação visual aproximada. As barras não são dados matemáticos; são uma forma de lembrar tendências práticas: potência laboratorial,
+          segurança vascular e estabilidade subjetiva.
         </p>
-        <p>
-          Este guia <strong>não recomenda automedicação</strong>. A ideia aqui é apenas descrever
-          caminhos de acesso que costumam aparecer na vida real, para que sejam discutidos com
-          um <strong>profissional de saúde</strong> sempre que possível.
-        </p>
-
-        <!-- Climene -->
-        <section class="accordion">
-          <div class="accordion-header">
-            💊 Climene® (valerato de estradiol + ciproterona)
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              O <strong>Climene®</strong> contém <strong>valerato de estradiol + acetato de ciproterona</strong>
-              em dose fixa. Foi desenhado para <strong>terapia hormonal de menopausa em mulheres cis</strong>,
-              mas muitas meninas trans usam como <strong>ponte provisória</strong> porque:
-            </p>
-            <ul>
-              <li>usa <strong>estradiol bioidêntico</strong> (não etinilestradiol);</li>
-              <li>é relativamente fácil de encontrar em farmácias comuns;</li>
-              <li>oferece, na prática, uma combinação “E2 + bloqueador” numa cartela só.</li>
-            </ul>
-            <p>
-              Limitações importantes:
-            </p>
-            <ul>
-              <li>a dose é fixa (não dá para ajustar <strong>estradiol e bloqueio separadamente</strong>);</li>
-              <li>não substitui um protocolo individualizado com exames e ajuste fino;</li>
-              <li>o uso ideal é <strong>limitado no tempo</strong>, até o médico montar um esquema mais ajustado
-                  (manipulado, injetável, transdérmico, etc.).</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Prymogina -->
-        <section class="accordion">
-          <div class="accordion-header">
-            💊 Prymogina® (apenas estradiol)
-            <span class="toggle-icon">▶</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              Produtos como <strong>Prymogina®</strong> contêm apenas
-              <strong>valerato de estradiol</strong> (sem bloqueador). Funcionam, na prática, como um
-              “<strong>Climene sem ciproterona</strong>”, ou seja:
-            </p>
-            <ul>
-              <li>são formas de <strong>monoterapia de estradiol</strong> em dose fixa;</li>
-              <li>podem ser opção discutida com o médico para:
-                <ul>
-                  <li>meninas que querem <strong>evitar disfunção erétil</strong> associada a bloqueadores fortes;</li>
-                  <li>mulheres trans <strong>já operadas (CRS)</strong>, que não precisam mais de bloqueio de testosterona;</li>
-                </ul>
-              </li>
-              <li>por não incluírem bloqueador, tendem a ter
-                  <strong>feminilização mais lenta e limitada</strong> em quem ainda tem testículos
-                  produzindo testosterona.</li>
-            </ul>
-            <p>
-              Mesmo usando apenas estradiol, continuam valendo as mesmas regras:
-              acompanhamento médico, exames periódicos e avaliação de risco individual
-              (histórico cardiovascular, tabagismo, IMC, etc.).
-            </p>
-          </div>
-        </section>
-      </div>
-    </section>
-
-
-
-           <!-- Gráfico comparativo -->
-    <section class="group">
-      <div class="group-header">
-        <span>📊 Comparação das vias de administração</span>
-        <span class="toggle-icon">▶</span>
-      </div>
-      <div class="group-content">
-        <p>
-          Comparação simplificada entre <strong>oral engolida</strong>, <strong>sublingual</strong>,
-          <strong>transdérmica (gel/adesivo)</strong> e <strong>injetável</strong>, pensando em:
-          eficácia feminilizante, segurança vascular e estabilidade de humor.
-        </p>
-        <p style="font-size:.85rem; opacity:.9; margin-top:.4rem;">
-          Cores usadas:
-          <strong style="color:#ff1744;">vermelho = baixo</strong>,
-          <strong style="color:#00b0ff;">azul = bom</strong>,
-          <strong style="color:#00e676;">verde = excelente</strong>.
+        <p class="muted">
+          Vermelho = mais frágil/menos favorável; azul = intermediário/bom; verde = mais favorável. O resultado real depende do corpo, dose, intervalo e exames.
         </p>
 
         <div class="chart-container">
-          <!-- Oral -->
           <div class="chart-row">
             <div class="chart-label">
               <span>💊 Oral engolida</span>
-              <span class="small">acesso fácil, primeira passagem hepática forte</span>
+              <span class="small">simples, mas passa mais pelo fígado</span>
             </div>
             <div class="chart-bars">
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:25%; background-color:#ff1744;"></div>
-                <div class="chart-bar-label">Eficácia (ruim)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:25%; background-color:#ff1744;"></div>
-                <div class="chart-bar-label">Segurança vascular (ruim)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:100%; background-color:#00e676;"></div>
-                <div class="chart-bar-label">Estabilidade (excelente)</div>
-              </div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:55%; background-color:#00b0ff;"></div><div class="chart-bar-label">Potência: moderada/variável</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:45%; background-color:#ffb300;"></div><div class="chart-bar-label">Segurança vascular: menor</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:85%; background-color:#00e676;"></div><div class="chart-bar-label">Estabilidade: boa</div></div>
             </div>
           </div>
 
-          <!-- Sublingual -->
           <div class="chart-row">
             <div class="chart-label">
               <span>👅 Sublingual</span>
-              <span class="small">mais eficaz, picos rápidos (ideal 2x/dia)</span>
+              <span class="small">potente, mas com picos e vales</span>
             </div>
             <div class="chart-bars">
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:100%; background-color:#00e676;"></div>
-                <div class="chart-bar-label">Eficácia (excelente)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:75%; background-color:#00b0ff;"></div>
-                <div class="chart-bar-label">Segurança vascular (boa)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:25%; background-color:#ff1744;"></div>
-                <div class="chart-bar-label">Estabilidade (ruim)</div>
-              </div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:85%; background-color:#00e676;"></div><div class="chart-bar-label">Potência: alta</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:70%; background-color:#00b0ff;"></div><div class="chart-bar-label">Segurança vascular: boa</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:40%; background-color:#ff1744;"></div><div class="chart-bar-label">Estabilidade: menor</div></div>
             </div>
           </div>
 
-          <!-- Transdérmica -->
           <div class="chart-row">
             <div class="chart-label">
               <span>💧 Gel / adesivo</span>
-              <span class="small">padrão-ouro de segurança, efeito suave</span>
+              <span class="small">muito interessante quando risco vascular importa</span>
             </div>
             <div class="chart-bars">
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:25%; background-color:#ff1744;"></div>
-                <div class="chart-bar-label">Eficácia (ruim)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:100%; background-color:#00e676;"></div>
-                <div class="chart-bar-label">Segurança vascular (excelente)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:75%; background-color:#00b0ff;"></div>
-                <div class="chart-bar-label">Estabilidade (boa)</div>
-              </div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:65%; background-color:#00b0ff;"></div><div class="chart-bar-label">Potência: variável</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:95%; background-color:#00e676;"></div><div class="chart-bar-label">Segurança vascular: excelente</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:90%; background-color:#00e676;"></div><div class="chart-bar-label">Estabilidade: excelente</div></div>
             </div>
           </div>
 
-          <!-- Injetável -->
           <div class="chart-row">
             <div class="chart-label">
-              <span>💉 Injetável</span>
-              <span class="small">efeito forte, maior risco de “TPH”</span>
+              <span>💉 Injetável de estradiol</span>
+              <span class="small">depende muito da curva e do intervalo</span>
             </div>
             <div class="chart-bars">
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:100%; background-color:#00e676;"></div>
-                <div class="chart-bar-label">Eficácia (excelente)</div>
-              </div>
-              <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:25%; background-color:#ff1744;"></div>
-                <div class="chart-bar-label">Segurança vascular (ruim)</div>
-              </div>
-             <div class="chart-bar">
-                <div class="chart-bar-fill" style="width:75%; background-color:#00b0ff;"></div>
-                <div class="chart-bar-label">Estabilidade (boa)</div>
-              </div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:90%; background-color:#00e676;"></div><div class="chart-bar-label">Potência: alta</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:70%; background-color:#00b0ff;"></div><div class="chart-bar-label">Segurança: depende</div></div>
+              <div class="chart-bar"><div class="chart-bar-fill" style="width:55%; background-color:#00b0ff;"></div><div class="chart-bar-label">Estabilidade: depende do intervalo</div></div>
+            </div>
           </div>
         </div>
-
-        <p style="margin-top:0.8rem;font-size:.85rem;opacity:.85;">
-          As cores e “proporções” são ilustrativas, não dados científicos. Servem para visualizar tendências gerais:
-          cada corpo responde de um jeito, e é o médico que decide o que faz sentido para você.
-        </p>
       </div>
     </section>
 
-
-
-
-    <!-- Resumo para levar ao médico (grupo final) -->
-    <section class="group">
+    <section class="group" id="resumo-medico">
       <div class="group-header">
         <span>🧾 Resumo para levar ao médico</span>
         <span class="toggle-icon">▶</span>
       </div>
       <div class="group-content">
+        <div class="alert alert-good">
+          <span class="alert-icon">🌿</span>
+          <div>
+            <strong>Objetivo da consulta:</strong> montar ou revisar uma THF feminilizante baseada em estradiol bioidêntico, com menor risco possível,
+            exames periódicos, escolha consciente de bloqueador e explicação clara sobre dose, via e metas laboratoriais.
+          </div>
+        </div>
+
         <ul>
-          <li>Preferência por <strong>17β-estradiol / valerato de estradiol</strong>, idealmente em via sublingual.</li>
-          <li>Faixa de dose para discutir: ~4 mg/dia (início) até algo como 8 mg/dia, conforme exames.</li>
-          <li>Uso de <strong>ciproterona</strong> em dose baixa (12,5 mg/dia) e por tempo limitado, com eventual troca para <strong>bicalutamida 25 mg/dia</strong>.</li>
-          <li>Monoterapia com estradiol pode ser opção, mas com feminilização mais lenta/limitada.</li>
-          <li>Evitar etinilestradiol e injetáveis mensais como base fixa da THF, se houver alternativas.</li>
-          <li>Exames regulares guiando tudo, especialmente se houver tabagismo ou fatores de risco cardiovascular.</li>
+          <li>Discutir 17β-estradiol / valerato de estradiol como base, escolhendo via conforme risco, acesso e resposta.</li>
+          <li>Não tratar sublingual 4–8 mg/dia como padrão: começar/ajustar por exame, sintomas e risco; doses altas precisam de justificativa.</li>
+          <li>Se usar ciproterona: preferir menor dose efetiva e evitar uso prolongado sem revisão.</li>
+          <li>Se considerar bicalutamida: lembrar que ela bloqueia receptor e exige TGO/AST, TGP/ALT, GGT e bilirrubinas.</li>
+          <li>Se usar espironolactona: monitorar potássio, creatinina, ureia e pressão.</li>
+          <li>Evitar etinilestradiol e injetáveis contraceptivos mensais como base fixa de THF quando houver alternativas.</li>
+          <li>Definir quando colher exames em relação à dose, especialmente em via sublingual ou injetável.</li>
+        </ul>
+
+        <p><strong>Perguntas boas:</strong></p>
+        <ul>
+          <li>Qual é minha meta de estradiol e testosterona neste momento?</li>
+          <li>Minha via atual é a melhor para meu risco vascular?</li>
+          <li>Com esse bloqueador, o exame de testosterona deve cair ou posso precisar interpretar receptor/sintomas?</li>
+          <li>Quais exames são obrigatórios para a medicação que estou usando?</li>
+          <li>Quando devo procurar atendimento antes da próxima consulta?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="group" id="fontes">
+      <div class="group-header">
+        <span>📚 Fontes & transparência</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="group-content">
+        <p>
+          Esta versão passa a separar três camadas: diretrizes clínicas, literatura farmacocinética/comunitária técnica e informações de segurança medicamentosa.
+          Quando uma informação vem de comunidade, ela deve ser tratada como pista — não como lei clínica.
+        </p>
+        <ul class="source-list">
+          <li><a href="https://www.endocrine.org/clinical-practice-guidelines/gender-dysphoria-gender-incongruence" target="_blank" rel="noopener">Endocrine Society — Gender Dysphoria/Gender Incongruence Guideline Resources</a>: metas gerais, acompanhamento e monitorização.</li>
+          <li><a href="https://academic.oup.com/jcem/article/102/11/3869/4157558" target="_blank" rel="noopener">Endocrine Society / JCEM 2017 — Clinical Practice Guideline</a>: monitorização de estradiol, testosterona, riscos e acompanhamento.</li>
+          <li><a href="https://transcare.ucsf.edu/guidelines/feminizing-hormone-therapy" target="_blank" rel="noopener">UCSF Transgender Care — Feminizing Hormone Therapy</a>: visão prática de vias, doses, monitorização e segurança.</li>
+          <li><a href="https://transfemscience.org/articles/sublingual-e2-transfem/" target="_blank" rel="noopener">Transfeminine Science — Sublingual Estradiol</a>: farmacocinética, picos/quedas, múltiplas tomadas e limitações da evidência.</li>
+          <li><a href="https://transfemscience.org/articles/e2-equivalent-doses/" target="_blank" rel="noopener">Transfeminine Science — Comparable Estradiol Dosages</a>: faixas comparáveis aproximadas entre vias.</li>
+          <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK547970/" target="_blank" rel="noopener">LiverTox / NCBI — Bicalutamide</a>: risco hepático raro, elevação de enzimas e recomendação de monitorar testes hepáticos.</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer>
-    Feito para ser lido com calma, levado ao médico e adaptado à sua realidade clínica.
+    Feito para ser lido com calma, levado ao médico e adaptado à realidade clínica de cada pessoa.
     <br>
-    <span id="date">Atualizado automaticamente</span>
+    <span id="date">V1.23 - Atualizado automaticamente</span>
   </footer>
 
   <script>
-    // Toggle grupos
     document.querySelectorAll('.group-header').forEach(h => {
       h.addEventListener('click', () => {
         const content = h.nextElementSibling;
@@ -945,7 +1022,6 @@
       });
     });
 
-    // Toggle accordions
     document.querySelectorAll('.accordion-header').forEach(h => {
       h.addEventListener('click', () => {
         const content = h.nextElementSibling;
@@ -955,11 +1031,10 @@
       });
     });
 
-    // Data no rodapé
     const d = new Date();
     const dateSpan = document.getElementById('date');
     if (dateSpan) {
-      dateSpan.textContent = 'V1.22 - Última atualização: ' +
+      dateSpan.textContent = 'V1.23 - Última atualização: ' +
         d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
     }
   </script>
