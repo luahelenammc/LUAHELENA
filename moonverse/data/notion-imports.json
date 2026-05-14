@@ -1,19 +1,21 @@
 {
   "meta": {
-    "id": "moonverse_notion_imports_v2",
+    "id": "moonverse_notion_imports_v3",
     "purpose": "Registro da ponte operacional GPT ↔ Notion ↔ GitHub para importar Moonwiki/Notion para o True Moonverse antes da integração em lote com pages.json.",
     "source": "Notion Moonwiki Biography",
     "created": "2026-05-02",
-    "updated": "2026-05-02",
-    "bridge_status": "gpt_notion_connector_active_and_github_write_confirmed",
-    "bridge_summary": "Moon conectou o Notion ao GPT; Áurion conseguiu recuperar páginas/databases da Moonwiki via conector Notion e escrever página-piloto no GitHub em /moonverse.",
+    "updated": "2026-05-14",
+    "bridge_status": "gpt_notion_connector_active_and_github_write_confirmed_and_data_snapshot_started",
+    "bridge_summary": "Moon conectou o Notion ao GPT; Áurion conseguiu recuperar páginas/databases da Moonwiki via conector Notion, escrever página-piloto no GitHub em /moonverse e iniciar importação em arquivos-dados sob moonverse/data/notion/.",
     "verified_flow": [
       "Notion Moonwiki retrieve via GPT connector",
       "schema inspection of Moonwiki databases",
-      "content fetch of a concrete Notion page",
+      "content fetch of concrete Notion pages",
       "manual conversion to Moonverse page format",
       "GitHub write to moonverse/pages/descoberta-trans.html",
-      "GitHub write to moonverse/data/notion-imports.json"
+      "GitHub write to moonverse/data/notion-imports.json",
+      "GitHub write to moonverse/data/notion/moonwiki-biography-index.json",
+      "GitHub write to moonverse/data/notion/moonwiki-biography-full-pages.json"
     ],
     "notion_sources_seen": {
       "moonwiki_biography": {
@@ -32,11 +34,25 @@
         "data_source": "collection://2f5330bf-7340-8045-b475-000b35b20ddd"
       }
     },
-    "pipeline_implication": "A Moonwiki pode funcionar como fonte-mãe de conteúdo; o Moonverse/GitHub pode funcionar como camada pública/editorial/renderizada."
+    "pipeline_implication": "A Moonwiki pode funcionar como fonte-mãe de conteúdo; o Moonverse/GitHub pode funcionar como camada pública/editorial/renderizada.",
+    "current_data_import": {
+      "status": "staging_snapshot_started",
+      "target_dir": "moonverse/data/notion/",
+      "index_file": "moonverse/data/notion/moonwiki-biography-index.json",
+      "full_pages_file": "moonverse/data/notion/moonwiki-biography-full-pages.json",
+      "indexed_entries": 24,
+      "full_fetched_entries": ["Nascimento", "Descoberta trans"],
+      "reason_for_staging_not_publication": "importar como dados preserva rastreabilidade e evita publicar automaticamente conteúdo biográfico sem curadoria de privacidade, tema visual e schema editorial."
+    },
+    "connector_limitations_seen": [
+      "A ferramenta SQL/query-data-source do Notion falhou nesta sessão apesar de aparecer listada no conector.",
+      "Por isso, o primeiro lote foi feito por busca semântica + fetch individual seletivo.",
+      "Para lote completo, ainda será necessário repetir fetch por página ou usar uma query tabular funcional quando o conector permitir."
+    ]
   },
   "imports": {
     "descoberta-trans": {
-      "status": "pilot_static_page_created",
+      "status": "pilot_static_page_created_and_full_data_imported",
       "source_url": "https://app.notion.com/p/302330bf73408005b12bf26fffe66d1f",
       "source_database": "Linha do Tempo Lunar",
       "source_data_source": "collection://2f5330bf-7340-8092-b02a-000be6296c6e",
@@ -48,18 +64,43 @@
       "theme_id": "mirror_water",
       "tags": ["transição", "trans", "corpo", "verdade", "nome", "THF pré-CRS"],
       "target_page": "pages/descoberta-trans.html",
+      "data_snapshot": "data/notion/moonwiki-biography-full-pages.json#pages.descoberta-trans",
       "conversion_notes": [
         "conteúdo recuperado do Notion via GPT connector",
         "página criada como piloto estático independente antes de promover para pages.json/manifest.json",
+        "conteúdo integral agora também preservado em arquivo-dado de staging",
         "foco do piloto: validar Notion → Moonverse → GitHub como fluxo real antes de automação em lote"
       ],
       "next_integration": [
-        "promover entrada para data/pages.json",
+        "confirmar política de privacidade/publicação",
+        "promover entrada para data/pages.json se aprovado",
         "adicionar entrada correspondente em data/manifest.json",
         "gerar wrapper via build-pages.mjs quando pipeline estiver estável",
-        "adicionar link em timeline-lunar ou Atlas após validação",
-        "criar importer semi-automatizado para Notion → Moonverse em lotes"
+        "adicionar link em timeline-lunar ou Atlas após validação"
       ]
+    },
+    "nascimento": {
+      "status": "full_data_imported_staging_only",
+      "source_url": "https://www.notion.so/2f5330bf734080af97a4fe5b18de0a31",
+      "source_database": "Linha do Tempo Lunar",
+      "source_data_source": "collection://2f5330bf-7340-8092-b02a-000be6296c6e",
+      "title": "Nascimento",
+      "date": "1996-06-25T21:15:00.000Z",
+      "type": "LINHA DO TEMPO / SAÚDE / NASCIMENTO",
+      "privacy_state": "needs_review",
+      "data_snapshot": "data/notion/moonwiki-biography-full-pages.json#pages.nascimento",
+      "next_integration": [
+        "avaliar se nomes e detalhes familiares entram publicamente ou precisam sanitização",
+        "definir sala/tema visual",
+        "converter para schema de data/pages.json se aprovado",
+        "adicionar manifest e wrapper apenas depois da curadoria"
+      ]
+    },
+    "moonwiki-biography-index": {
+      "status": "index_snapshot_created",
+      "target_file": "data/notion/moonwiki-biography-index.json",
+      "indexed_entries": 24,
+      "role": "inventário rastreável de páginas Notion candidatas à importação completa"
     }
   }
 }
