@@ -370,7 +370,7 @@ document.addEventListener('click', (event) => {
 
   const filterButton = event.target.closest('[data-memory-filter]');
   if (filterButton) {
-    currentFilter = filterButton.datasetMemoryFilter;
+    currentFilter = filterButton.dataset.memoryFilter;
     renderMemoryFilters();
     drawMemory();
   }
