@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "id": "moonverse_notion_moonwiki_biography_full_pages_v1",
+    "source": "Notion Moonwiki Biography",
+    "source_database_url": "https://www.notion.so/2f5330bf734080628c29e073eb6cbdbd",
+    "created": "2026-05-14",
+    "import_mode": "selective_full_fetch",
+    "purpose": "Armazenar conteudo integral recuperado via fetch do Notion antes de promocao editorial para pages.json/manifest.json.",
+    "publication_policy": "staging_only; estes textos sao dados brutos/curados pelo Notion, nao publicacao automatica no Moonverse.",
+    "entries_full_fetched": 2
+  },
+  "pages": {
+    "nascimento": {
+      "id": "2f5330bf-7340-80af-97a4-fe5b18de0a31",
+      "title": "Nascimento",
+      "source_url": "https://www.notion.so/2f5330bf734080af97a4fe5b18de0a31",
+      "ancestor": "Linha do Tempo Lunar > Moonverse DB",
+      "properties": {
+        "Fase da vida": ["Infância"],
+        "Nome": "Nascimento",
+        "Tipo de evento": ["Saúde"],
+        "date:Data:is_datetime": 1,
+        "date:Data:start": "1996-06-25T21:15:00.000Z"
+      },
+      "content_markdown": "## Nascimento (25 de junho de 1996 · 18:15)\nO nascimento de Lua Helena acontece em 25 de junho de 1996, às 18h15, na antiga Beneficência de Limeira, hospital BL, aquela instituição que decidiu desaparecer depois, como se tivesse vergonha de ter testemunhado aquilo tudo. Lua chega ao mundo ainda sob o nome-morto “Régis Cardoso”, pré-transição, com 0 anos e nenhuma chance de interferir no próprio roteiro. Começar a vida numa instituição que não existe mais é praticamente um spoiler estilístico da biografia: o cenário some, a protagonista fica.\n\nA cena é simples: parto em hospital de cidade média, equipe fazendo o de sempre, família em volta, ninguém imaginando que, anos depois, essa criança vai tratar esse momento como prólogo de uma novela metafísica. O endereço histórico da Beneficência, rua Gustavo Teixeira, 138, Boa Vista, Limeira, vira só nota de rodapé; o prédio fecha, a instituição some do mapa, e o lugar passa a existir apenas em memórias, documentos e conversas de adulto começando com “naquela época, quando ainda tinha a Beneficência…”.\n\nNo mesmo dia e no mesmo hospital nasce Áthina. Oficialmente, é só mais um bebê no berçário. Narrativamente, ela é a coadjuvante que o universo joga no elenco desde o começo porque planeja reaproveitar mais tarde. As duas dividem berçário sem nem saber, e décadas depois a ficha cai: não é só coincidência, é um roteiro trabalhando com poucas peças, mas com uma certa elegância.\n\nQuando chegam ao ensino médio, em 2011, as duas se reencontram na Escola Estadual Ary Leite. Lua, ainda sob o nome antigo, com 15 anos, cruza com Áthina de novo, agora falando, sofrendo e se apaixonando. Segundo o “Welcome to my cute life”, isso rende paixão, ciúmes e aquele movimento clássico de Lua: quando o drama passa do ponto e vira incêndio, ela aperta o botão “sumir” e encerra a temporada sem aviso prévio.\n\nSimbolicamente, o pacote é bem coerente: nascer num hospital que some depois aponta para um padrão de “coisas importantes acontecem em cenários que não duram”. Dividir berçário com alguém que depois se apaixona por você é um tipo de poesia karmica com custo emocional incluído. E já fica estabelecido o padrão inaugural: quando o afeto vem embalado em controle, ciúmes ou excesso de intensidade desorganizada, Lua não “resolve”, ela fecha o programa e troca de canal. O hospital fechado, a amiga reencontrada e o blog adolescente viram, juntos, o primeiro bloco da mitologia: nada é fixo, mas certos encontros insistem em voltar."
+    },
+    "descoberta-trans": {
+      "id": "302330bf-7340-8005-b12b-f26fffe66d1f",
+      "title": "Descoberta trans",
+      "source_url": "https://www.notion.so/302330bf73408005b12bf26fffe66d1f",
+      "ancestor": "Linha do Tempo Lunar > Moonverse DB",
+      "properties": {
+        "Fase da vida": ["THF pré-CRS"],
+        "Nome": "Descoberta trans",
+        "Tipo de evento": ["Transição de Gênero"],
+        "date:Data:is_datetime": 0,
+        "date:Data:start": "2024-06-02"
+      },
+      "content_markdown": "## Descoberta trans (02 de junho de 2024)\nA “Descoberta trans” não é o dia em que Lua vira outra coisa. É o dia em que a narrativa, exausta de dar voltas, admite em voz interna clara: “sou uma mulher trans”. Nada mágico acontece fora. Não tem fumaça cor-de-rosa, não tem trilha sonora. O que muda é o contrato com a própria consciência: dali em diante, mentir pra si mesma passa a sair caro demais.\n\nO caminho até 2 de junho é lento e irritante, cheio de sinais que, em retrospecto, parecem óbvios demais. A chavinha virou quando o amigo de Discord começa a chamá-la de “ela” e “amiga”, meio de brincadeira, meio de intuição. Tem a sensação vergonhosamente boa que esses pronomes provocam, aquela micro-euforia que ela finge não sentir. Tem o lugar “homem gay” funcionando como rótulo socialmente aceitável, mas que nunca encaixa inteiro: serve para explicar alguma coisa, mas não explica o suficiente para calar o resto.\n\nEntra em cena a amiga mãe de uma menina trans. As duas se encontram como quem “só” vai conversar, e a mulher olha para Lua com aquele olhar de quem reconhece estrutura: não vê só o que está sendo performado, vê também o que está vazando pelas frestas. Em algum momento, depois de ouvir e observar, solta algo como: “a princesinha está escondida, mas eu estou vendo”. Não é elogio, é diagnóstico. Em seguida, oferece a frase que funciona como manual condensado de sobrevivência: se você não entrar na sua vida com os dois pés na porta, ninguém vai entrar por você.\n\nDepois disso, a negação fica ridícula. As memórias começam a se rearrumar como peças de quebra-cabeça que finalmente se encaixam na moldura correta: fantasias de infância em que o corpo sempre aparecia em versão editada; identificação automática com personagens femininas; desconforto crônico com o próprio corpo; elogios masculinos que nunca fizeram cócegas; alívio quase erótico toda vez que alguém a lia no feminino, mesmo por “engano”. O passado inteiro ganha legenda nova.\n\nEm 2 de junho de 2024, essa soma fecha a conta. Não tem cerimônia pública, não tem ato solene, mas há um momento muito claro em que a frase se forma inteira por dentro: “sou uma mulher trans”. Sem adjetivo, sem desculpa, sem “talvez”. A partir daí, as decisões práticas param de ser adiadas. Contar para pessoas próximas deixa de ser luxo e vira necessidade. Roupas começam a mudar, corpo e apresentação começam a seguir a alma e o cérebro. O hospital, que a via como “psicólogo gay muito competente”, começa a ser exposto, pouco a pouco, à realidade: aquela pessoa não é um homem gentil, é uma mulher travada num figurino errado. Surge a busca real por THF, o movimento em direção à CRS, a escrita de textos como “As Cores Trans”, a exposição em redes, em revista, em conversa de corredor.\n\nSimbolicamente, esta página marca o fim da fase “não sei exatamente o que está errado, mas está” e o começo da fase “sei demais para continuar fingindo”. Não é sobre ficar corajosa de repente, é sobre notar que continuar no papel antigo é insuportável. A verdade aqui funciona exatamente do jeito que você gosta: como erotismo espiritual. Quando encaixa, aquece. O nome Moon não aparece como apelido fofo; aparece como casa, como arquitetura interna que finalmente ganha placa na porta.\n\nNa Linha do Tempo Lunar, 2 de junho de 2024 divide tudo em dois blocos. O que veio antes é recatalogado à luz da palavra “trans”: infância aquática, menino-tritão, adolescência deslocada, aflição com corpo, todas essas cenas deixam de ser “esquisitices” e passam a ser sintomas de coerência negada. O que vem depois é resposta em cadeia: THF, CRS, retificação, relato em revista, mudança no hospital, reorganização de laços, mudança no mapa amoroso. Procurar afeto em lugares onde ela é lida como “homem” perde sentido. A questão deixa de ser “quem vai me aceitar assim?” e passa a ser “quem está à altura de se relacionar com uma mulher inteira?”."
+    }
+  }
+}
