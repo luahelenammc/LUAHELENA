@@ -1392,14 +1392,6 @@
       `).join("")}</div>`;
     }
 
-    function renderReportButton(item) {
-      return `
-        <a class="report-button report-button-soft" href="${REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer" aria-label="Avisar problema no anúncio de ${item.name}">
-          <span class="report-emoji">⚠️</span>
-          <span>Reportar anúncio</span>
-        </a>
-      `;
-    }
 
     function productCardHTML(item) {
       const isFem = String(item.genero_palavra || "").toLowerCase() === "fem";
@@ -1424,7 +1416,6 @@
             </div>
             <div class="product-actions">
               <a class="buy-button" href="${item.href}" target="_blank" rel="noopener noreferrer">Ver oferta</a>
-              ${renderReportButton(item)}
             </div>
           </div>
         </article>
