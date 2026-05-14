@@ -360,7 +360,7 @@ function renderAtlas() {
 
   grid.querySelectorAll('.atlas-thumb.stock-surface').forEach((surface) => {
     stock()?.applyStockImage(surface, parseTags(surface.dataset.stockTags), { width: 700, height: 420 });
-    stock()?.attachStockButton(surface, surface, parseTags(surface.datasetStockTags), 'Trocar');
+    stock()?.attachStockButton(surface, surface, parseTags(surface.dataset.stockTags), 'Trocar');
   });
 }
 
@@ -370,7 +370,7 @@ document.addEventListener('click', (event) => {
 
   const filterButton = event.target.closest('[data-memory-filter]');
   if (filterButton) {
-    currentFilter = filterButton.dataset.memoryFilter;
+    currentFilter = filterButton.datasetMemoryFilter;
     renderMemoryFilters();
     drawMemory();
   }
