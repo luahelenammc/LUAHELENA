@@ -76,6 +76,46 @@ function stock() {
   return window.MoonverseStockImages;
 }
 
+function plainFromMarkdown(markdown = '') {
+  return String(markdown)
+    .replace(/^#+\s*/gm, '')
+    .replace(/\n{2,}/g, ' ')
+    .trim();
+}
+
+function roomForNotionEntry(entry = {}) {
+  const title = (entry.title || '').toLowerCase();
+  if (title.includes('trans') || title.includes('nome') || title.includes('thf') || title.includes('crs')) return 'Espelho d’Água';
+  if (title.includes('hospital') || title.includes('crispim')) return 'Observatório Nexus';
+  return 'Biblioteca Lunar';
+}
+
+function pageFromFullNotionEntry(slug, entry = {}) {
+  const plain = plainFromMarkdown(entry.content_markdown || '');
+  return {
+    type: 'MOONWIKI / IMPORTADO DO NOTION',
+    title: entry.title || slug,
+    room: roomForNotionEntry(entry),
+    privacy: 'staging / precisa de curadoria',
+    source: 'Notion Moonwiki Biography',
+    updated: '2026-05-14',
+    tags: [...new Set(['Notion', 'Moonwiki', ...(entry.properties?.['Fase da vida'] || []), ...(entry.properties?.['Tipo de evento'] || [])])],
+    hero: 'linear-gradient(135deg, #211734 0%, #6b4bb7 45%, #e8d7ff 100%)',
+    dek: plain.slice(0, 220) + (plain.length > 220 ? '…' : ''),
+    caption: 'Conteúdo integral extraído do Notion; ainda em staging editorial.',
+    summary: [
+      'Conteúdo integral já importado do Notion.',
+      'Entrada visível para conferência no Moonverse.',
+      'Publicação plena depende de curadoria de privacidade e acabamento visual.'
+    ],
+    body: [
+      { heading: 'Texto importado do Notion', text: plain },
+      { heading: 'Fonte', text: entry.source_url || 'URL não registrada.' }
+    ],
+    quote: 'O arquivo chega primeiro como dado; só depois vira sala habitável.',
+  };
+}
+
 function applyPageStockImages(page) {
   const hero = document.querySelector('.hero-image.stock-surface');
   if (!hero) return;
@@ -157,16 +197,20 @@ function renderPage(page, meta = {}, vocab = {}, theme = {}) {
 async function initPage() {
   await loadSharedScript('../stock-images.js').catch((error) => console.warn(error));
 
-  const [pages, manifest, privacyStates, themes] = await Promise.all([
+  const [pages, manifest, privacyStates, themes, notionFull] = await Promise.all([
     loadJson('../data/pages.json', {}),
     loadJson('../data/manifest.json', { pages: {} }),
     loadJson('../data/privacy-states.json', {}),
     loadJson('../data/themes.json', {}),
+    loadJson('../data/notion/moonwiki-biography-full-pages.json', { pages: {} }),
   ]);
 
   const id = getPageId();
-  const page = pages[id] || fallbackPage;
-  const meta = manifest.pages?.[id] || {};
+  const notionEntry = notionFull.pages?.[id];
+  const page = notionEntry ? pageFromFullNotionEntry(id, notionEntry) : (pages[id] || fallbackPage);
+  const meta = notionEntry
+    ? { status: 'notion-imported', privacy_state: 'curated', theme_id: 'placeholder_lunar' }
+    : (manifest.pages?.[id] || {});
   const theme = themes[meta.theme_id] || {};
   renderPage(page, meta, privacyStates, theme);
 }
