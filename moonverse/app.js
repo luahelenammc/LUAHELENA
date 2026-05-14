@@ -63,6 +63,9 @@ function pageEntries() {
 }
 
 function pageHref(pageId) {
+  const meta = pageMeta(pageId);
+  if (meta.wrapper) return `./${meta.wrapper}`;
+  if (meta.status === 'notion-indexed') return null;
   return pages[pageId] ? `./pages/${pageId}.html` : null;
 }
 
@@ -74,7 +77,7 @@ function statusLabel(pageId) {
 function pageLink(pageId, title = 'Abrir página', description = 'Ler em página física do Moonverse') {
   const href = pageHref(pageId);
   if (!href) {
-    return `<span class="link-card disabled-link"><strong>${title}</strong><small>${description}<br />Em incubação: página ainda não registrada.</small></span>`;
+    return `<span class="link-card disabled-link"><strong>${title}</strong><small>${description}<br />Em staging: importado do Notion, ainda sem página física pública.</small></span>`;
   }
   return `<a class="link-card" href="${href}" target="_blank" rel="noopener noreferrer"><strong>${title}</strong><small>${description}</small></a>`;
 }
@@ -85,6 +88,118 @@ function allPageTypes() {
 
 function allMemoryTags() {
   return ['all', ...new Set(memories.flatMap((memory) => memory.tags))];
+}
+
+function plainFromMarkdown(markdown = '') {
+  return String(markdown)
+    .replace(/^#+\s*/gm, '')
+    .replace(/\n{2,}/g, ' ')
+    .trim();
+}
+
+function tagsForNotionEntry(entry = {}) {
+  const tags = ['Notion', 'Moonwiki'];
+  if (entry.source_kind) tags.push(entry.source_kind);
+  if (entry.title?.toLowerCase().includes('trans')) tags.push('transição');
+  if (entry.title?.toLowerCase().includes('hospital')) tags.push('hospital');
+  if (entry.title?.toLowerCase().includes('ufpr')) tags.push('UFPR');
+  return [...new Set(tags)];
+}
+
+function typeForNotionEntry(entry = {}) {
+  if (entry.source_kind === 'timeline') return 'MOONWIKI / LINHA DO TEMPO';
+  if (entry.source_kind === 'database_page') return 'MOONWIKI / DATABASE';
+  return 'MOONWIKI / VERBETE IMPORTADO';
+}
+
+function roomForNotionEntry(entry = {}) {
+  const title = (entry.title || '').toLowerCase();
+  if (title.includes('trans') || title.includes('nome') || title.includes('thf') || title.includes('crs')) return 'Espelho d’Água';
+  if (title.includes('hospital') || title.includes('crispim')) return 'Observatório Nexus';
+  return 'Biblioteca Lunar';
+}
+
+function pageFromNotionIndexEntry(entry = {}) {
+  return {
+    type: typeForNotionEntry(entry),
+    title: entry.title,
+    room: roomForNotionEntry(entry),
+    privacy: 'staging / precisa de curadoria',
+    source: 'Notion Moonwiki Biography',
+    updated: entry.notion_last_seen || '2026-05-14',
+    tags: tagsForNotionEntry(entry),
+    hero: 'linear-gradient(135deg, #211734 0%, #6b4bb7 45%, #e8d7ff 100%)',
+    dek: entry.highlight || 'Verbete importado do Notion para staging do Moonverse.',
+    caption: 'Entrada importada do Notion; visual e publicação dependem de curadoria posterior.',
+    summary: [
+      'Entrada recuperada do Notion Moonwiki Biography.',
+      'Aparece no Atlas como staging para revisão editorial.',
+      'Só vira página pública completa depois de curadoria de privacidade, tema e wrapper.'
+    ],
+    body: [
+      { heading: 'Estado da importação', text: `Este verbete foi indexado a partir do Notion. Status: ${entry.import_status || 'indexed_only'}.` },
+      { heading: 'Fonte', text: entry.url || 'URL não registrada.' }
+    ],
+    quote: 'Notion é fonte; Moonverse é renderização curada.'
+  };
+}
+
+function pageFromFullNotionEntry(slug, entry = {}) {
+  const plain = plainFromMarkdown(entry.content_markdown || '');
+  return {
+    type: 'MOONWIKI / IMPORTADO DO NOTION',
+    title: entry.title || slug,
+    room: roomForNotionEntry(entry),
+    privacy: 'staging / precisa de curadoria',
+    source: 'Notion Moonwiki Biography',
+    updated: '2026-05-14',
+    tags: [...new Set(['Notion', 'Moonwiki', ...(entry.properties?.['Fase da vida'] || []), ...(entry.properties?.['Tipo de evento'] || [])])],
+    hero: 'linear-gradient(135deg, #211734 0%, #6b4bb7 45%, #e8d7ff 100%)',
+    dek: plain.slice(0, 220) + (plain.length > 220 ? '…' : ''),
+    caption: 'Conteúdo integral extraído do Notion; ainda em staging editorial.',
+    summary: [
+      'Conteúdo integral já importado do Notion.',
+      'Entrada visível no Atlas para conferência.',
+      'Publicação plena depende de curadoria de privacidade e acabamento visual.'
+    ],
+    body: [
+      { heading: 'Texto importado do Notion', text: plain },
+      { heading: 'Fonte', text: entry.source_url || 'URL não registrada.' }
+    ],
+    quote: 'O arquivo chega primeiro como dado; só depois vira sala habitável.'
+  };
+}
+
+function mergeNotionImports(notionIndex = {}, notionFull = {}) {
+  const entries = Array.isArray(notionIndex.entries) ? notionIndex.entries : [];
+  for (const entry of entries) {
+    if (!entry.slug || pages[entry.slug]) continue;
+    pages[entry.slug] = pageFromNotionIndexEntry(entry);
+    manifest.pages = manifest.pages || {};
+    manifest.pages[entry.slug] = manifest.pages[entry.slug] || {
+      status: entry.import_status === 'full_fetched' ? 'notion-imported' : 'notion-indexed',
+      privacy_state: 'curated',
+      theme_id: 'placeholder_lunar',
+      atlas_visible: true,
+      room_visible: false,
+      wrapper: null
+    };
+  }
+
+  const fullPages = notionFull.pages || {};
+  for (const [slug, entry] of Object.entries(fullPages)) {
+    pages[slug] = pageFromFullNotionEntry(slug, entry);
+    manifest.pages = manifest.pages || {};
+    manifest.pages[slug] = {
+      ...(manifest.pages[slug] || {}),
+      status: 'notion-imported',
+      privacy_state: 'curated',
+      theme_id: 'placeholder_lunar',
+      atlas_visible: true,
+      room_visible: true,
+      wrapper: `pages/${slug}.html`
+    };
+  }
 }
 
 function renderPalaceGrid() {
@@ -205,7 +320,7 @@ function renderArticlePicker() {
   picker.innerHTML = pageEntries().map(([id, page]) => {
     const href = pageHref(id);
     const label = `${page.type.split('/')[0].trim()} · ${page.title}`;
-    if (!href) return `<span class="chip disabled-link">${label} · incubação</span>`;
+    if (!href) return `<span class="chip disabled-link">${label} · staging</span>`;
     return `<a class="chip" href="${href}" target="_blank" rel="noopener noreferrer">${label} · ${pageMeta(id).status || 'draft'}</a>`;
   }).join('');
 }
@@ -245,7 +360,7 @@ function renderAtlas() {
 
   grid.querySelectorAll('.atlas-thumb.stock-surface').forEach((surface) => {
     stock()?.applyStockImage(surface, parseTags(surface.dataset.stockTags), { width: 700, height: 420 });
-    stock()?.attachStockButton(surface, surface, parseTags(surface.dataset.stockTags), 'Trocar');
+    stock()?.attachStockButton(surface, surface, parseTags(surface.datasetStockTags), 'Trocar');
   });
 }
 
@@ -287,12 +402,20 @@ document.querySelector('#atlas-search')?.addEventListener('input', (event) => {
 });
 
 async function init() {
-  [rooms, memories, pages, manifest] = await Promise.all([
+  const [loadedRooms, loadedMemories, loadedPages, loadedManifest, notionIndex, notionFull] = await Promise.all([
     loadJson('./data/rooms.json', fallbackRooms),
     loadJson('./data/memories.json', fallbackMemories),
     loadJson('./data/pages.json', fallbackPages),
     loadJson('./data/manifest.json', { pages: {} }),
+    loadJson('./data/notion/moonwiki-biography-index.json', { entries: [] }),
+    loadJson('./data/notion/moonwiki-biography-full-pages.json', { pages: {} }),
   ]);
+
+  rooms = loadedRooms;
+  memories = loadedMemories;
+  pages = loadedPages;
+  manifest = loadedManifest;
+  mergeNotionImports(notionIndex, notionFull);
 
   renderPalaceGrid();
   renderRoom(rooms[0]?.id);
