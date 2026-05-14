@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "id": "moonverse_notion_moonwiki_biography_index_v1",
+    "source": "Notion Moonwiki Biography",
+    "source_database_url": "https://www.notion.so/2f5330bf734080628c29e073eb6cbdbd",
+    "source_data_source": "collection://2f5330bf-7340-804f-b5d1-000bf078c17d",
+    "target_repo": "luahelenammc/LUAHELENA",
+    "target_dir": "moonverse/data/notion/",
+    "created": "2026-05-14",
+    "import_mode": "notion_search_snapshot_index",
+    "publication_policy": "dados importados nao sao publicados automaticamente; promocao para pages.json e manifest.json exige curadoria posterior",
+    "limitations": [
+      "A query tabular/SQL do Notion falhou nesta sessao apesar de aparecer listada no conector.",
+      "Este arquivo registra o primeiro lote recuperado via busca semantica e deve ser tratado como snapshot de staging.",
+      "Páginas com import_status indexed_only precisam de fetch individual antes de virar pagina publica renderizada."
+    ],
+    "source_schema_seen": {
+      "Pagina": "title",
+      "Ultima edicao": "last_edited_time"
+    }
+  },
+  "stats": {
+    "entries_indexed": 24,
+    "entries_full_fetched_elsewhere": 2
+  },
+  "entries": [
+    {"id":"2f5330bf-7340-80af-97a4-fe5b18de0a31","title":"Nascimento","slug":"nascimento","url":"https://www.notion.so/2f5330bf734080af97a4fe5b18de0a31","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"full_fetched","highlight":"Nascimento (25 de junho de 1996 · 18:15)"},
+    {"id":"302330bf-7340-8005-b12b-f26fffe66d1f","title":"Descoberta trans","slug":"descoberta-trans","url":"https://www.notion.so/302330bf73408005b12bf26fffe66d1f","notion_last_seen":"2026-02-23","source_kind":"timeline","import_status":"full_fetched","highlight":"Verdade como erotismo espiritual; 2 de junho de 2024 divide a Linha do Tempo Lunar."},
+    {"id":"302330bf-7340-802a-acd0-e882a7940d07","title":"Direito UFPR","slug":"direito-ufpr","url":"https://www.notion.so/302330bf7340802aacd0e882a7940d07","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Direito abre a porta e prepara o terreno para a pergunta que a Psicologia responderia melhor."},
+    {"id":"2f5330bf-7340-8078-8fef-d14bd4aa3231","title":"Cirurgia CRS","slug":"cirurgia-crs","url":"https://www.notion.so/2f5330bf734080788fefd14bd4aa3231","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Dossie, indicacao cirurgica, estabilidade emocional e marco corporal."},
+    {"id":"302330bf-7340-8085-af72-c1fdf160fa17","title":"Braço quebrado","slug":"braco-quebrado","url":"https://www.notion.so/302330bf73408085af72c1fdf160fa17","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Acidente na quadra; corpo falhando e pronto-socorro como cena inaugural de fragilidade."},
+    {"id":"302330bf-7340-80a2-98c3-c3f8c20aab54","title":"Psicologia UFPR","slug":"psicologia-ufpr","url":"https://www.notion.so/302330bf734080a298c3c3f8c20aab54","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Formacao, bar de estudante, restos de energia e caminho para o hospital."},
+    {"id":"302330bf-7340-8020-956e-e47c670a111f","title":"Retificação de nome e gênero","slug":"retificacao-de-nome-e-genero","url":"https://www.notion.so/302330bf73408020956ee47c670a111f","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Nome social, sistema oficial, listas, prontuarios e apresentacoes."},
+    {"id":"302330bf-7340-8076-b6e8-f65810e47957","title":"Caroço na lombar","slug":"caroco-na-lombar","url":"https://www.notion.so/302330bf73408076b6e8f65810e47957","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Hospital, monitores, luz fria de madrugada e perda de controle corporal."},
+    {"id":"302330bf-7340-80e9-b44a-d56cdd597a91","title":"Era Crispim & o inferno do aplicativo","slug":"era-crispim-e-o-inferno-do-aplicativo","url":"https://www.notion.so/302330bf734080e9b44ad56cdd597a91","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Crispim, aplicativo, Bar do Pimenta e subtexto institucional."},
+    {"id":"302330bf-7340-8080-af8f-d03c5fe5de34","title":"Pontos na testa","slug":"pontos-na-testa","url":"https://www.notion.so/302330bf73408080af8fd03c5fe5de34","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Evento grande, pouca supervisao e pronto-socorro como estatistica interna."},
+    {"id":"2f5330bf-7340-803c-a882-e0f075b9f58b","title":"Início THF (Hormonização)","slug":"inicio-thf-hormonizacao","url":"https://www.notion.so/2f5330bf7340803ca882e0f075b9f58b","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Luiza, leitura bioquimica responsavel e inicio real da THF."},
+    {"id":"302330bf-7340-807f-b5e0-cfddf4e12247","title":"Pandemia de COVID-19","slug":"pandemia-de-covid-19","url":"https://www.notion.so/302330bf7340807fb5e0cfddf4e12247","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Preludio climatico entre universidade, hospital e portaria do Santa Elisa."},
+    {"id":"2f5330bf-7340-8072-b5df-e7fc860a5b21","title":"Contratação como Psicóloga Hospitalar","slug":"contratacao-como-psicologa-hospitalar","url":"https://www.notion.so/2f5330bf73408072b5dfe7fc860a5b21","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Contrato, milagre do Uber e entrada no Hospital Medical."},
+    {"id":"2f5330bf-7340-80fd-9cdd-d9a176672810","title":"Moon","slug":"moon","url":"https://www.notion.so/2f5330bf734080fd9cddd9a176672810","notion_last_seen":"2026-01-27","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete central de identidade."},
+    {"id":"302330bf-7340-8045-a4b1-eb433c021146","title":"Portaria do Santa Elisa: 12x36 noturno","slug":"portaria-do-santa-elisa-12x36-noturno","url":"https://www.notion.so/302330bf73408045a4b1eb433c021146","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Corredor escuro entre universidade e hospital."},
+    {"id":"2f5330bf-7340-8070-9e00-fc1343775b86","title":"Verbetes do Moonverse","slug":"verbetes-do-moonverse","url":"https://www.notion.so/2f5330bf734080709e00fc1343775b86","notion_last_seen":"2026-01-27","source_kind":"database_page","import_status":"indexed_only","highlight":"Pagina/db auxiliar de verbetes."},
+    {"id":"302330bf-7340-806e-b95e-fa85794925e4","title":"Viagens à praia e o menino-tritão","slug":"viagens-a-praia-e-o-menino-tritao","url":"https://www.notion.so/302330bf7340806eb95efa85794925e4","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Agua como elemento-mae da biografia."},
+    {"id":"302330bf-7340-804b-8879-ecbfc354e987","title":"Tecnologia, SNES e Olympus D395: a infância digital","slug":"tecnologia-snes-e-olympus-d395-a-infancia-digital","url":"https://www.notion.so/302330bf7340804b8879ecbfc354e987","notion_last_seen":"2026-02-11","source_kind":"timeline","import_status":"indexed_only","highlight":"Infancia como tecnologia do olhar e impulso de arquivo."},
+    {"id":"2f5330bf-7340-807e-bc1b-cbb67fcdf03c","title":"Simbiosfera","slug":"simbiosfera","url":"https://www.notion.so/2f5330bf7340807ebc1bcbb67fcdf03c","notion_last_seen":"2026-01-27","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete de ecossistema/simbiose."},
+    {"id":"2f5330bf-7340-8047-adef-f034e352cf38","title":"Dra. Tati","slug":"dra-tati","url":"https://www.notion.so/2f5330bf73408047adeff034e352cf38","notion_last_seen":"2026-01-27","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete relacional."},
+    {"id":"2f5330bf-7340-80fd-892e-dfcb6cbcf104","title":"Hospital Medical","slug":"hospital-medical","url":"https://www.notion.so/2f5330bf734080fd892edfcb6cbcf104","notion_last_seen":"2026-01-27","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete institucional."},
+    {"id":"2f5330bf-7340-8063-98ea-f5c7881a9ecd","title":"CRS (Cirurgia de redesignação)","slug":"crs-cirurgia-de-redesignacao","url":"https://www.notion.so/2f5330bf7340806398eaf5c7881a9ecd","notion_last_seen":"2026-01-27","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete de CRS."},
+    {"id":"302330bf-7340-80fb-af8d-ef540c95198f","title":"As cores trans","slug":"as-cores-trans","url":"https://www.notion.so/302330bf734080fbaf8def540c95198f","notion_last_seen":"2026-02-09","source_kind":"verbete","import_status":"indexed_only","highlight":"Texto/eixo trans."},
+    {"id":"302330bf-7340-80bb-86ca-c5ff4959d9ce","title":"Terapia Hormonal Feminilizante da Lua","slug":"terapia-hormonal-feminizante-da-lua","url":"https://www.notion.so/302330bf734080bb86cac5ff4959d9ce","notion_last_seen":"2026-02-09","source_kind":"verbete","import_status":"indexed_only","highlight":"Verbete tecnico-biografico de THF."}
+  ]
+}
