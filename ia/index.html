@@ -94,6 +94,24 @@
       border-color: rgba(255,255,255,.28);
     }
 
+    .action-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-link.whatsapp {
+      border-color: rgba(170,242,209,.28);
+      background: rgba(170,242,209,.08);
+    }
+
+    .pill-link.whatsapp:hover {
+      border-color: rgba(170,242,209,.46);
+      background: rgba(170,242,209,.13);
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
@@ -363,6 +381,28 @@
 
     .contact-card h2 { margin-bottom: 6px; }
 
+    .contact-details {
+      display: grid;
+      gap: 7px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .contact-details a {
+      color: var(--text);
+      text-decoration-color: rgba(255,255,255,.32);
+      text-underline-offset: 3px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      min-width: min(100%, 320px);
+    }
+
     footer {
       color: var(--soft);
       font-size: .87rem;
@@ -373,6 +413,7 @@
     @media (max-width: 900px) {
       .signal-strip, .grid, .projects { grid-template-columns: 1fr; }
       .topbar, .contact-card { align-items: flex-start; flex-direction: column; }
+      .action-row, .contact-actions { justify-content: flex-start; }
       h1 { letter-spacing: -.06em; }
     }
 
@@ -398,7 +439,10 @@
   <div class="page">
     <header class="topbar" aria-label="Topo da página">
       <div class="brand"><span class="moon-dot" aria-hidden="true"></span><span>Lua Helena Moon</span></div>
-      <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="action-row" aria-label="Links de contato principais">
+        <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">Abrir LinkedIn</a>
+        <a class="pill-link whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">Enviar mensagem no WhatsApp</a>
+      </div>
     </header>
 
     <main>
@@ -409,7 +453,7 @@
           Eu organizo conhecimento humano, linguagem, memória, limites e rotas de uso para que sistemas de IA deixem de ser genéricos e passem a funcionar com aderência real a pessoas, equipes e projetos.
         </p>
         <p class="profile-line">
-          Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, arquitetura de contexto, documentação viva e colaboração humano–IA.
+          Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, arquitetura de contexto, documentação viva e colaboração humano–IA.
         </p>
         <div class="identity" aria-label="Resumo profissional">
           <span class="chip">Psicologia hospitalar</span>
@@ -523,13 +567,22 @@
           <p class="label">Contato</p>
           <h2>Aberta a conversas sobre IA, contexto, adoção e conhecimento vivo.</h2>
           <p>Especialmente com pessoas e organizações trabalhando em AI literacy, people analytics, responsible AI, enterprise intelligence, saúde, educação e times de builders. Busca atual: 100% home office.</p>
+          <div class="contact-details" aria-label="Informações de contato">
+            <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">@luahelena</a></span>
+            <span><b>WhatsApp:</b> <a href="https://wa.me/5541992228411" target="_blank" rel="noopener">(41) 9 9222-8411</a></span>
+            <span><b>Email:</b> <a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span>
+          </div>
         </div>
-        <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">Abrir LinkedIn</a>
+        <div class="contact-actions" aria-label="Ações de contato">
+          <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">Abrir LinkedIn</a>
+          <a class="pill-link whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">Enviar mensagem no WhatsApp</a>
+        </div>
       </section>
     </main>
 
     <footer>
-      Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% home office
+      Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% home office<br />
+      LinkedIn: @luahelena · WhatsApp: (41) 9 9222-8411 · Email: luahelenammc@gmail.com
     </footer>
   </div>
 
