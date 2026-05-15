@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lua Helena Moon — Arquitetura de Contexto Humano–IA</title>
+  <meta name="description" content="Uma apresentação concisa das competências de Lua Helena Moon em arquitetura de contexto humano–IA, adoção institucional, memória operacional e organização de conhecimento." />
+  <style>
+    :root {
+      --bg: #090712;
+      --bg-2: #120f21;
+      --card: rgba(255,255,255,.075);
+      --card-2: rgba(255,255,255,.105);
+      --text: #f7f2ff;
+      --muted: #c9bfda;
+      --soft: #9e91b8;
+      --line: rgba(255,255,255,.16);
+      --violet: #b58cff;
+      --pink: #ff9bd2;
+      --blue: #8fd6ff;
+      --green: #a9f5d0;
+      --gold: #ffe0a3;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(181,140,255,.28), transparent 32rem),
+        radial-gradient(circle at 88% 8%, rgba(255,155,210,.22), transparent 30rem),
+        radial-gradient(circle at 65% 90%, rgba(143,214,255,.15), transparent 34rem),
+        linear-gradient(145deg, var(--bg), #05040a 62%, #0c0716);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 42px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: .02em;
+    }
+
+    .moon-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff, #d9c4ff 38%, #7b55d9 72%, #2a164e);
+      box-shadow: 0 0 34px rgba(181,140,255,.55);
+      flex: 0 0 auto;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    button, .ghost-link {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      text-decoration: none;
+    }
+
+    button:hover, .ghost-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.32);
+      background: rgba(255,255,255,.11);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.14fr .86fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 30px;
+    }
+
+    .hero-card, .side-card, .panel, .quote-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.055));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      padding: clamp(28px, 5vw, 56px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,155,210,.23), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 7vw, 5.4rem);
+      line-height: .94;
+      letter-spacing: -.07em;
+      max-width: 860px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(92deg, #fff 0%, var(--violet) 42%, var(--pink) 73%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .side-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 100%;
+    }
+
+    .identity {
+      display: grid;
+      gap: 12px;
+    }
+
+    .identity h2, .panel h2, .quote-card h2 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    .identity strong {
+      display: block;
+      font-size: 1.48rem;
+      line-height: 1.12;
+      letter-spacing: -.03em;
+    }
+
+    .identity p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: #efe8ff;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: .88rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .panel {
+      padding: 24px;
+      min-height: 100%;
+    }
+
+    .panel h3 {
+      margin: 12px 0 10px;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.14);
+      font-size: 1.2rem;
+    }
+
+    .wide {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .quote-card {
+      padding: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      right: 20px;
+      top: -36px;
+      color: rgba(255,255,255,.08);
+      font-size: 12rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .quote {
+      font-size: clamp(1.45rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      margin: 10px 0 0;
+      max-width: 780px;
+    }
+
+    .split-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .list-card {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(0,0,0,.13);
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    li { margin: 8px 0; }
+
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .use-case {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.055);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .use-case strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .use-case span {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .proof {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .proof-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,.11);
+    }
+
+    .proof-item:first-child { border-top: 0; }
+    .proof-item b { color: var(--text); }
+    .proof-item span { color: var(--muted); }
+
+    .num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(181,140,255,.42), rgba(255,155,210,.28));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .85rem;
+    }
+
+    .cta {
+      margin-top: 18px;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.18);
+      background: linear-gradient(135deg, rgba(181,140,255,.22), rgba(255,155,210,.14), rgba(143,214,255,.10));
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .contact-card {
+      border-radius: 22px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 20px;
+      color: var(--muted);
+    }
+
+    .contact-card strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.16rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-card a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(143,214,255,.35);
+    }
+
+    .footnote {
+      color: var(--soft);
+      font-size: .88rem;
+      margin: 24px 2px 0;
+    }
+
+    .details-hidden .optional-detail { display: none; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(12,9,24,.92);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 99;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero, .wide, .cta { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .split-list, .use-cases { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .nav-actions { justify-content: flex-start; }
+    }
+
+    @media print {
+      body { background: white; color: #171321; }
+      .page { width: 100%; padding: 0; }
+      .topbar, button, .ghost-link, .toast { display: none !important; }
+      .hero-card, .side-card, .panel, .quote-card, .cta, .contact-card, .list-card, .use-case {
+        box-shadow: none;
+        background: white;
+        border-color: #ddd;
+        color: #171321;
+      }
+      .lead, .identity p, .panel p, ul, .use-case span, .proof-item span, .cta p, .contact-card, .footnote { color: #4c465a; }
+      .gradient-text { color: #171321; background: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="page">
+    <header class="topbar" aria-label="Topo">
+      <div class="brand">
+        <span class="moon-dot" aria-hidden="true"></span>
+        <span>Lua Helena Moon · arquitetura de contexto humano–IA</span>
+      </div>
+      <div class="nav-actions">
+        <button type="button" id="toggleDetails">Versão concisa</button>
+        <button type="button" id="copySummary">Copiar resumo</button>
+        <a class="ghost-link" href="javascript:window.print()">Salvar em PDF</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Apresentação principal">
+      <article class="hero-card">
+        <div class="eyebrow">✦ Human-AI Context Architecture</div>
+        <h1>IA só vira valor quando entende <span class="gradient-text">contexto humano real.</span></h1>
+        <p class="lead">
+          Sou Lua Helena Moon: psicóloga hospitalar, escritora e arquiteta de contexto humano–IA. Meu trabalho é transformar conhecimento disperso, linguagem, decisões, vínculos, fluxos e memória em estrutura utilizável por pessoas, equipes e sistemas de IA.
+        </p>
+      </article>
+
+      <aside class="side-card" aria-label="Identidade profissional">
+        <div class="identity">
+          <h2>Posicionamento</h2>
+          <strong>Não sou engenheira de modelos. Sou a ponte entre IA, pessoas, linguagem, memória e uso institucional.</strong>
+          <p>
+            Minha força está onde a tecnologia encontra o chão humano: adoção, clareza, documentação, confiança, governança leve e continuidade.
+          </p>
+        </div>
+        <div class="chips" aria-label="Competências-chave">
+          <span class="chip">AI adoption</span>
+          <span class="chip">context engineering</span>
+          <span class="chip">knowledge governance</span>
+          <span class="chip">network intelligence</span>
+          <span class="chip">AI literacy</span>
+          <span class="chip">human-in-the-loop</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid" aria-label="Três formas de valor">
+      <article class="panel">
+        <div class="icon">🧭</div>
+        <h3>Traduzo complexidade em mapa.</h3>
+        <p>Organizo contexto, objetivos, limites, atores, decisões e histórico para que uma IA — ou uma equipe — não precise começar do zero a cada conversa.</p>
+      </article>
+      <article class="panel">
+        <div class="icon">🫀</div>
+        <h3>Leio o fator humano sem romantizar.</h3>
+        <p>Uso repertório clínico, institucional e narrativo para identificar fricções, ruídos, riscos de adoção e necessidades reais por trás de pedidos mal formulados.</p>
+      </article>
+      <article class="panel">
+        <div class="icon">🛠️</div>
+        <h3>Transformo uso em sistema.</h3>
+        <p>Crio playbooks, perfis de contexto, rotas de decisão, templates, taxonomias e documentos vivos que tornam o uso de IA mais repetível, seguro e útil.</p>
+      </article>
+    </section>
+
+    <section class="wide" aria-label="Síntese e limites">
+      <article class="quote-card">
+        <h2>Síntese</h2>
+        <p class="quote">O problema não é ensinar humanos a apertar botões de IA. É ensinar a organização a oferecer contexto suficiente para a IA trabalhar com inteligência.</p>
+      </article>
+      <article class="panel">
+        <h2>O que isso pode resolver</h2>
+        <div class="use-cases">
+          <div class="use-case"><strong>Adoção de IA</strong><span>reduzir uso genérico, medo, ruído e expectativas mágicas.</span></div>
+          <div class="use-case"><strong>Company brain</strong><span>organizar memória, decisões, papéis, projetos e aprendizados.</span></div>
+          <div class="use-case"><strong>AI literacy</strong><span>ensinar pessoas não técnicas a usar IA com contexto, finalidade e critério.</span></div>
+          <div class="use-case"><strong>People & network intelligence</strong><span>mapear habilidades, colaboração, fricções e fluxos humanos sem reduzir tudo a dashboard.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid optional-detail" aria-label="Onde posso contribuir">
+      <article class="panel">
+        <h2>Para times de IA</h2>
+        <h3>Contexto, avaliação e uso real</h3>
+        <p>Ajudo a formular casos de uso, testar linguagem, desenhar fluxos human-in-the-loop, documentar aprendizados e detectar onde a ferramenta encontra resistência humana ou institucional.</p>
+      </article>
+      <article class="panel">
+        <h2>Para educação corporativa</h2>
+        <h3>Letramento de IA sem espuma</h3>
+        <p>Traduzo IA generativa para pessoas reais: como formular contexto, preservar autoria, avaliar respostas, criar rotinas úteis e evitar dependência cega ou prompt decorativo.</p>
+      </article>
+      <article class="panel">
+        <h2>Para RH e cultura</h2>
+        <h3>Inteligência de rede</h3>
+        <p>Crio mapas qualitativos de habilidades, interesses, estilos de trabalho, zonas de colaboração e riscos de ruído entre pessoas, equipes e sistemas.</p>
+      </article>
+    </section>
+
+    <section class="wide optional-detail" aria-label="Prova de trabalho">
+      <article class="panel">
+        <h2>Prova de trabalho</h2>
+        <div class="proof">
+          <div class="proof-item"><div class="num">1</div><span><b>Moon Source:</b> método próprio para criar perfis de contexto e memória externa para IA pessoal e projetos complexos.</span></div>
+          <div class="proof-item"><div class="num">2</div><span><b>SymbAI Studio:</b> laboratório coletivo em formação para produtos, métodos e comunidades de colaboração humano–IA.</span></div>
+          <div class="proof-item"><div class="num">3</div><span><b>Hospital:</b> experiência direta com cuidado, fluxo institucional, comunicação delicada, fricção operacional e tradução de demandas humanas.</span></div>
+          <div class="proof-item"><div class="num">4</div><span><b>Escrita e documentação:</b> habilidade de transformar material ambíguo em linguagem clara, estrutura reaproveitável e memória consultável.</span></div>
+        </div>
+      </article>
+      <article class="panel">
+        <h2>Limites claros</h2>
+        <div class="split-list">
+          <div class="list-card">
+            <strong>Eu entrego bem</strong>
+            <ul>
+              <li>arquitetura de contexto</li>
+              <li>playbooks e documentação viva</li>
+              <li>diagnóstico de adoção e fricção</li>
+              <li>tradução entre áreas técnicas e humanas</li>
+              <li>estratégia de uso de IA generativa</li>
+            </ul>
+          </div>
+          <div class="list-card">
+            <strong>Eu não finjo ser</strong>
+            <ul>
+              <li>engenheira de machine learning</li>
+              <li>desenvolvedora full-stack</li>
+              <li>data scientist</li>
+              <li>solução mágica de automação</li>
+              <li>consultora que promete IA sem entender o problema</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta" aria-label="Chamada para conversa">
+      <div>
+        <h2>O convite é simples.</h2>
+        <p>
+          Se sua equipe está tentando fazer IA sair do demo e entrar na vida real — com pessoas, contexto, memória, risco, linguagem e decisão — talvez exista uma conversa útil aqui.
+        </p>
+      </div>
+      <div class="contact-card">
+        <strong>Lua Helena Moon Martins Cardoso</strong>
+        Psicóloga hospitalar · escritora · arquiteta de contexto humano–IA<br />
+        Limeira/SP · Brasil<br /><br />
+        Portfólio público: <a href="https://www.mooon.com.br/moonsource/" target="_blank" rel="noopener">Moon Source Public Portable</a><br />
+        LinkedIn/contato: <span style="color:#f7f2ff">inserir link preferido</span>
+      </div>
+    </section>
+
+    <p class="footnote">
+      Esta página é uma apresentação sintética. Ela não substitui currículo, proposta comercial ou escopo de projeto; serve como porta de entrada para conversas sobre IA, contexto humano, adoção, conhecimento e organização.
+    </p>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Resumo copiado.</div>
+
+  <script>
+    const page = document.getElementById('page');
+    const toggle = document.getElementById('toggleDetails');
+    const copy = document.getElementById('copySummary');
+    const toast = document.getElementById('toast');
+
+    const summary = `Lua Helena Moon é psicóloga hospitalar, escritora e arquiteta de contexto humano–IA. Seu trabalho é transformar conhecimento disperso, linguagem, decisões, vínculos, fluxos e memória em estrutura utilizável por pessoas, equipes e sistemas de IA. Ela não se posiciona como engenheira de modelos, mas como ponte entre IA, adoção humana, documentação, governança de conhecimento, network intelligence e uso institucional real.`;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    toggle.addEventListener('click', () => {
+      page.classList.toggle('details-hidden');
+      const concise = page.classList.contains('details-hidden');
+      toggle.textContent = concise ? 'Versão completa' : 'Versão concisa';
+      showToast(concise ? 'Detalhes ocultos.' : 'Detalhes exibidos.');
+    });
+
+    copy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(summary);
+        showToast('Resumo copiado.');
+      } catch (error) {
+        const area = document.createElement('textarea');
+        area.value = summary;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+        showToast('Resumo copiado.');
+      }
+    });
+  </script>
+</body>
+</html>
