@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>IA pela Vida · Lua Helena Moon</title>
+  <meta name="description" content="Uma proposta de inteligência pública socioambiental para clima, florestas, biodiversidade, fiscalização ambiental e proteção animal." />
+  <meta property="og:title" content="IA pela Vida" />
+  <meta property="og:description" content="Rede pública de inteligência socioambiental para proteger clima, florestas, biodiversidade e animais." />
+  <meta property="og:type" content="article" />
+  <link rel="icon" type="image/x-icon" href="/images/photoios6.png" />
+  <style>
+    :root {
+      --bg: #07110d;
+      --bg2: #0e1f18;
+      --panel: rgba(255,255,255,.075);
+      --panel2: rgba(255,255,255,.105);
+      --line: rgba(255,255,255,.16);
+      --text: #f5fff8;
+      --muted: #cfe1d5;
+      --soft: #98b8a4;
+      --green: #49d17f;
+      --mint: #8af0bf;
+      --gold: #f0ce84;
+      --rose: #ef8bb1;
+      --teal: #5be0d0;
+      --shadow: 0 22px 80px rgba(0,0,0,.38);
+      --radius: 24px;
+      --max: 1080px;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(73,209,127,.22), transparent 28rem),
+        radial-gradient(circle at 85% 8%, rgba(91,224,208,.16), transparent 24rem),
+        radial-gradient(circle at 70% 62%, rgba(239,139,177,.09), transparent 26rem),
+        linear-gradient(160deg, #06100c 0%, #0e1d17 45%, #050706 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), transparent 76%);
+      z-index: -1;
+    }
+
+    a { color: var(--mint); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .progress {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, var(--green), var(--teal), var(--gold));
+      box-shadow: 0 0 22px rgba(73,209,127,.55);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 14, 10, .72);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: .8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: conic-gradient(from 210deg, var(--green), var(--teal), var(--rose), var(--gold), var(--green));
+      box-shadow: 0 0 22px rgba(73,209,127,.35);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .45rem;
+      font-size: .88rem;
+    }
+
+    .nav-links a, .nav-links button, .pill-button {
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      padding: .42rem .72rem;
+      border-radius: 999px;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover, .nav-links button:hover, .pill-button:hover {
+      background: rgba(255,255,255,.13);
+      text-decoration: none;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.2rem; }
+
+    header.hero {
+      padding: 5.6rem 0 3.2rem;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.045)),
+        radial-gradient(circle at 82% 18%, rgba(73,209,127,.2), transparent 18rem),
+        radial-gradient(circle at 10% 90%, rgba(240,206,132,.12), transparent 16rem);
+      padding: clamp(1.4rem, 4vw, 3rem);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -45% -10%;
+      height: 240px;
+      background: radial-gradient(ellipse at center, rgba(138,240,191,.13), transparent 68%);
+      filter: blur(8px);
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center;
+      padding: .36rem .72rem;
+      border-radius: 999px;
+      background: rgba(73,209,127,.14);
+      color: var(--mint);
+      border: 1px solid rgba(138,240,191,.22);
+      font-size: .88rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      font-weight: 750;
+    }
+
+    h1, h2, h3 { line-height: 1.12; margin: 0; }
+    h1 {
+      margin-top: 1.15rem;
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      letter-spacing: -.075em;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 1rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2.4vw, 2rem);
+      color: #edf9ef;
+      line-height: 1.35;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.3rem;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .hero-meta span {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(0,0,0,.16);
+      border-radius: 999px;
+      padding: .45rem .78rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.6rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: .85rem 1.05rem;
+      font-weight: 800;
+      color: #07110d;
+      background: linear-gradient(135deg, var(--mint), var(--gold));
+      box-shadow: 0 14px 35px rgba(73,209,127,.18);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cta.secondary { background: rgba(255,255,255,.08); color: var(--text); border: 1px solid rgba(255,255,255,.16); box-shadow: none; }
+    .cta:hover { text-decoration: none; filter: brightness(1.05); }
+
+    main { padding-bottom: 5rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,.16);
+    }
+
+    .card strong { color: #fff; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    section.section {
+      margin-top: 1.4rem;
+      padding: clamp(1.2rem, 3vw, 2.2rem);
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 30px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.18);
+      scroll-margin-top: 86px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    section.section.visible { opacity: 1; transform: translateY(0); }
+
+    section.section h2 {
+      font-size: clamp(1.65rem, 3vw, 2.65rem);
+      letter-spacing: -.045em;
+      margin-bottom: .7rem;
+    }
+
+    section.section h3 {
+      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+      color: var(--mint);
+      margin: 1.2rem 0 .45rem;
+      letter-spacing: -.02em;
+    }
+
+    .lead {
+      font-family: var(--serif);
+      font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+      color: #eaf8ef;
+      line-height: 1.55;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .quote {
+      border-left: 4px solid var(--green);
+      padding: .65rem 0 .65rem 1rem;
+      margin: 1rem 0;
+      color: #f7fff9;
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      background: linear-gradient(90deg, rgba(73,209,127,.08), transparent);
+      border-radius: 0 18px 18px 0;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: .85rem 0; }
+    .chip {
+      padding: .42rem .68rem;
+      border-radius: 999px;
+      background: rgba(138,240,191,.09);
+      color: #dff9e8;
+      border: 1px solid rgba(138,240,191,.16);
+      font-size: .9rem;
+    }
+
+    .toc-box {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: .7rem;
+      margin-top: 1.2rem;
+    }
+
+    .toc-box a {
+      display: block;
+      padding: .85rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-box a:hover { background: rgba(255,255,255,.11); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .7rem;
+      margin-top: 1rem;
+    }
+
+    .flow .step {
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: .9rem;
+      min-height: 120px;
+    }
+    .step .num { color: var(--gold); font-weight: 900; font-size: .86rem; text-transform: uppercase; letter-spacing: .04em; }
+    .step b { display: block; margin-top: .25rem; }
+
+    .usecase {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    .usecase:first-of-type { border-top: 0; padding-top: 0; }
+
+    .callout {
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(73,209,127,.14), rgba(91,224,208,.08));
+      border: 1px solid rgba(138,240,191,.23);
+    }
+
+    details {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: .85rem 1rem;
+      margin: .7rem 0;
+      background: rgba(0,0,0,.14);
+    }
+    summary { cursor: pointer; font-weight: 800; color: #fff; }
+    details p { margin-bottom: 0; }
+
+    sup a {
+      color: var(--gold);
+      font-weight: 800;
+      text-decoration: none;
+      padding: 0 .08rem;
+    }
+
+    ol.refs {
+      padding-left: 1.2rem;
+    }
+    ol.refs li {
+      margin: .8rem 0;
+      color: var(--muted);
+    }
+    ol.refs strong { color: var(--text); }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(18px);
+      background: rgba(3, 9, 6, .9);
+      border: 1px solid rgba(255,255,255,.16);
+      color: var(--text);
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      z-index: 60;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .print-only { display: none; }
+
+    @media (max-width: 850px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; }
+      .toc-box { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      header.hero { padding-top: 2.5rem; }
+    }
+
+    @media print {
+      body { background: white; color: #111; }
+      .site-nav, .progress, .cta-row, .toast { display: none; }
+      section.section, .hero-card, .card { box-shadow: none; background: white; border-color: #ccc; }
+      a { color: #111; text-decoration: underline; }
+      .print-only { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <nav class="site-nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Voltar ao topo"><span class="brand-mark"></span><span>IA pela Vida</span></a>
+      <div class="nav-links">
+        <a href="#tese">Tese</a>
+        <a href="#marina">Linguagem Marina</a>
+        <a href="#moon-skills">Autoria</a>
+        <a href="#proposta">Proposta</a>
+        <a href="#frentes">Frentes</a>
+        <a href="#governanca">Governança</a>
+        <a href="#referencias">Fontes</a>
+        <button type="button" id="copyLink">Copiar link</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-card">
+        <span class="kicker">versão expandida · QR code do policy brief</span>
+        <h1>IA pela Vida</h1>
+        <p class="subtitle">Uma rede pública de inteligência socioambiental para proteger clima, florestas, biodiversidade e animais.</p>
+        <div class="hero-meta">
+          <span>Lua Helena Moon Martins Cardoso</span>
+          <span>maio de 2026</span>
+          <span>nota técnica cidadã</span>
+          <span>política ambiental + IA pública</span>
+        </div>
+        <div class="cta-row">
+          <a class="cta" href="#proposta">Ler a proposta</a>
+          <a class="cta secondary" href="#moon-skills">Sobre a autora</a>
+          <button class="cta secondary" type="button" onclick="window.print()">Imprimir / salvar em PDF</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section visible" id="tese">
+      <h2>1. Tese central</h2>
+      <p class="lead">A inteligência artificial não deve ser tratada como fetiche tecnológico nem como ameaça abstrata. A pergunta política real é outra: quem controla essa tecnologia, com quais finalidades, sob quais regras e a serviço de quais vidas?</p>
+      <div class="grid">
+        <div class="card span-4"><strong>Não é</strong><br/>IA substituindo servidores, fiscais, cientistas, comunidades tradicionais ou gestores públicos.</div>
+        <div class="card span-4"><strong>É</strong><br/>capacidade pública para cruzar sinais, antecipar riscos, priorizar ações e prevenir danos.</div>
+        <div class="card span-4"><strong>Precisa ser</strong><br/>auditável, supervisionada por humanos, transparente, contestável e orientada à justiça socioambiental.</div>
+      </div>
+      <p>O Brasil já possui satélites, alertas de desmatamento, sistemas de queimadas, cadastros ambientais, autos de infração, embargos, bases florestais, políticas climáticas, órgãos técnicos e ciência pública acumulada. O salto estratégico não é começar do zero: é integrar inteligências hoje fragmentadas em uma rede pública capaz de apoiar decisões responsáveis.</p>
+      <p class="quote">A IA que interessa à democracia não é a que substitui pessoas. É a que ajuda o Estado a enxergar mais rápido onde a vida está sendo ameaçada.</p>
+    </section>
+
+    <section class="section" id="marina">
+      <h2>2. Uma formulação pensada para a trajetória de Marina Silva</h2>
+      <p class="lead">Esta proposta dialoga com a tradição socioambiental brasileira associada a Marina Silva: floresta como território vivo, desenvolvimento sustentável com inclusão, fortalecimento institucional, ciência pública, direitos dos povos da floresta e ética democrática.</p>
+      <p>A luta socioambiental brasileira aprendeu cedo que proteger a natureza é proteger vidas. Dos empates dos seringueiros e da criação das reservas extrativistas à política pública de satélites e fiscalização ambiental, a questão central continua sendo a mesma: como agir antes que a destruição se torne irreversível?</p>
+      <p>Chico Mendes é reconhecido pelo ICMBio como seringueiro, sindicalista e ativista ambiental que uniu defesa da Amazônia e direitos dos povos da floresta.<sup><a href="#ref2">2</a></sup> A própria ideia de Reserva Extrativista protege meios de vida, cultura e uso sustentável dos recursos naturais.<sup><a href="#ref3">3</a></sup> A proposta de IA pela Vida deve ser lida nessa continuidade: não tecnologia contra o território, mas tecnologia pública a serviço de territórios vivos.</p>
+      <div class="callout"><strong>Tradução estratégica:</strong> em vez de “IA de ponta” como linguagem de startup, a chave é “inteligência pública socioambiental”: uma rede de ciência, Estado, dados, servidores, comunidades e tecnologia sob controle democrático.</div>
+      <p>O Manifesto da Rede Sustentabilidade também oferece uma ponte conceitual importante: defende o uso intensivo das tecnologias de informação e comunicação em favor de uma força política transformadora, criativa, empreendedora e radicalmente democrática, além de incluir a defesa dos direitos animais entre suas bandeiras.<sup><a href="#ref4">4</a></sup></p>
+    </section>
+
+    <section class="section" id="moon-skills">
+      <h2>3. De onde falo: Moon Skills</h2>
+      <p class="lead">Esta contribuição nasce de uma experiência situada: escuta clínica em ambiente hospitalar, leitura de fluxos institucionais, formação em psicologia organizacional e psicopedagogia institucional, escrita pública e pesquisa independente em arquitetura de contexto humano-IA.</p>
+      <div class="grid">
+        <div class="card span-6"><strong>Psicologia hospitalar</strong><br/>Contato cotidiano com risco, sofrimento, comunicação difícil, hierarquia, timing institucional e necessidade de traduzir experiências humanas em linguagem responsável.</div>
+        <div class="card span-6"><strong>Psicologia organizacional e psicopedagogia institucional</strong><br/>Repertório para compreender cultura, aprendizagem, processos, liderança, formação, mediação de conhecimento e desenho de intervenções em sistemas humanos.</div>
+        <div class="card span-6"><strong>Arquitetura de contexto humano-IA</strong><br/>Pesquisa independente sobre como transformar histórico, preferências, limites, projetos, dados e objetivos em estruturas legíveis para sistemas de IA e equipes humanas.</div>
+        <div class="card span-6"><strong>Governança de conhecimento</strong><br/>Atenção a onde a informação mora, qual seu status, quando envelhece, quem pode acessá-la, como circula, como é auditada e que decisões ela pode ou não sustentar.</div>
+      </div>
+      <p>Essa combinação importa porque IA pública não é apenas “escolher um modelo”. É desenhar contexto confiável: quais dados entram, de onde vêm, que peso têm, qual seu grau de incerteza, quem audita, quem responde por erros e como pessoas e comunidades afetadas podem contestar decisões.</p>
+      <p class="quote">Uma IA socioambiental pública precisa tratar informação como responsabilidade: nem todo dado tem o mesmo peso, nem todo alerta é prova, nem toda denúncia é fato, nem toda correlação autoriza intervenção.</p>
+      <p class="note">Por isso, a proposta aqui não é vendida como solução técnica fechada. É uma formulação pública, aberta ao diálogo, para aproximar tecnologia, cuidado, clima, biodiversidade, direitos animais e responsabilidade democrática.</p>
+    </section>
+
+    <section class="section" id="contexto">
+      <h2>4. Oportunidade política: clima e IA já estão na agenda brasileira</h2>
+      <p>O Plano Brasileiro de Inteligência Artificial 2024-2028 foi lançado como marco para o desenvolvimento tecnológico nacional, enquanto a Estratégia Brasileira de Inteligência Artificial orienta o uso consciente, ético e responsável de IA pelo Estado, com princípios como desenvolvimento sustentável, centralidade no ser humano, equidade, transparência, explicabilidade, robustez, segurança e responsabilização.<sup><a href="#ref5">5</a></sup><sup><a href="#ref6">6</a></sup></p>
+      <p>No campo climático, o Plano Clima 2024-2035 é o principal instrumento para orientar a resposta do Brasil à crise climática até 2035, e a nova NDC brasileira prevê redução de 59% a 67% das emissões líquidas de gases de efeito estufa em relação a 2005.<sup><a href="#ref7">7</a></sup></p>
+      <p>Ou seja: há uma janela concreta para aproximar duas agendas que ainda conversam menos do que deveriam — IA pública e política socioambiental.</p>
+      <div class="toc-box">
+        <a href="#dados"><strong>O Brasil já tem dados</strong><br/><span class="note">satélites, alertas, embargos, autos, cadastros e monitoramento.</span></a>
+        <a href="#proposta"><strong>Falta integração</strong><br/><span class="note">uma camada pública que conecte sinais e priorize riscos.</span></a>
+        <a href="#frentes"><strong>Aplicações concretas</strong><br/><span class="note">clima, crimes ambientais, fauna, biodiversidade e animais.</span></a>
+        <a href="#governanca"><strong>Com freios democráticos</strong><br/><span class="note">nada de sanção automática, vigilância social ou caixa-preta.</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="dados">
+      <h2>5. O problema: o Estado vê muito, mas ainda vê em pedaços</h2>
+      <p class="lead">O Brasil não é um país sem inteligência ambiental. O problema é a fragmentação dessa inteligência.</p>
+      <p>Sistemas como DETER, PRODES, Programa Queimadas/INPE, TerraBrasilis, MapBiomas Alerta, autos de infração, áreas embargadas, CAR/SICAR, Sinaflor/DOF, ICMBio Monitora, SALVE e políticas de proteção animal já compõem um ecossistema de dados e ações. O desafio é permitir que essas informações conversem de modo responsável, auditável e útil.</p>
+      <p>O MapBiomas Alerta, por exemplo, valida e refina alertas de desmatamento com imagens de satélite de alta resolução e disponibiliza laudos abertos e gratuitos.<sup><a href="#ref8">8</a></sup> O DETER/INPE é um sistema expedito de alerta para apoiar fiscalização ambiental.<sup><a href="#ref9">9</a></sup> Essas iniciativas mostram que o país já tem base técnico-institucional para uma camada mais integrada.</p>
+      <div class="flow" aria-label="Fluxo de inteligência socioambiental">
+        <div class="step"><span class="num">sinal</span><b>Satélites e denúncias</b><span class="note">alertas, imagens, relatos e dados territoriais.</span></div>
+        <div class="step"><span class="num">contexto</span><b>Cadastros e histórico</b><span class="note">embargos, autos, CAR, licenças e reincidência.</span></div>
+        <div class="step"><span class="num">leitura</span><b>IA supervisionada</b><span class="note">padrões, inconsistências, risco e prioridade.</span></div>
+        <div class="step"><span class="num">ação</span><b>Decisão humana</b><span class="note">órgão público responsável, processo regular e contestação.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="proposta">
+      <h2>6. Proposta: Programa IA pela Vida</h2>
+      <p class="lead">O Programa IA pela Vida seria uma missão pública socioambiental: uma rede de inteligência governada democraticamente para apoiar prevenção, fiscalização, adaptação climática, biodiversidade e proteção animal.</p>
+      <h3>6.1. Camada Nacional de IA Socioambiental</h3>
+      <p>O eixo central seria uma camada pública de integração de dados ambientais, climáticos, territoriais e animais. Essa camada não substituiria sistemas existentes: ela os conectaria. Sua função seria produzir alertas priorizados, mapas de risco, hipóteses investigativas e sinais de inconsistência para órgãos competentes.</p>
+      <div class="chips">
+        <span class="chip">DETER / PRODES</span><span class="chip">Queimadas</span><span class="chip">MapBiomas Alerta</span><span class="chip">Embargos</span><span class="chip">Autos de infração</span><span class="chip">CAR / SICAR</span><span class="chip">Sinaflor / DOF</span><span class="chip">Licenciamento</span><span class="chip">Cemaden</span><span class="chip">ICMBio</span><span class="chip">ProPatinhas</span><span class="chip">SinPatinhas</span>
+      </div>
+      <h3>6.2. Laboratório Público de IA Ambiental e Proteção Animal</h3>
+      <p>Um laboratório público poderia testar modelos, avaliar riscos, criar padrões de interoperabilidade, publicar relatórios de impacto e evitar que cada órgão compre soluções fechadas sem governança comum.</p>
+      <h3>6.3. Sandbox de IA Socioambiental</h3>
+      <p>Antes de qualquer uso em ambiente real, modelos de alto impacto deveriam passar por testes controlados, com participação de MMA, MCTI, MGI, ANPD, INPE, Cemaden, Ibama, ICMBio, universidades públicas, sociedade civil, povos indígenas, comunidades tradicionais e organizações de defesa animal.</p>
+    </section>
+
+    <section class="section" id="frentes">
+      <h2>7. Cinco frentes de aplicação</h2>
+      <div class="usecase">
+        <h3>7.1. Crimes ambientais complexos</h3>
+        <p>Crimes ambientais modernos são crimes de cadeia: terra, fogo, financiamento, documento, logística, mercado, violência territorial e tentativa de regularização posterior. A IA pode ajudar a sinalizar combinações suspeitas entre desmatamento recente, embargo, autorização florestal incompatível, movimentação de gado, garimpo ilegal, reincidência e proximidade de áreas protegidas.</p>
+        <p><strong>Guardrail:</strong> IA como triagem e inteligência. Sanção apenas com procedimento regular, autoridade humana e direito de contestação.</p>
+      </div>
+      <div class="usecase">
+        <h3>7.2. Adaptação climática e eventos extremos</h3>
+        <p>A IA pode apoiar sistemas de antecipação e priorização territorial para enchentes, secas, ondas de calor, incêndios florestais, deslizamentos e impactos sobre escolas, unidades de saúde, comunidades vulneráveis, povos tradicionais, fauna silvestre e infraestrutura essencial.</p>
+        <p><strong>Guardrail:</strong> comunicação pública simples, validação técnica e prioridade para proteção de vidas, não alarmismo algorítmico.</p>
+      </div>
+      <div class="usecase">
+        <h3>7.3. Biodiversidade e fauna silvestre</h3>
+        <p>Modelos de IA podem acelerar a triagem de imagens de câmeras de trilha, análise bioacústica, reconhecimento de espécies, detecção de caça ilegal, monitoramento de corredores ecológicos, risco de atropelamento de fauna e mudanças de distribuição associadas à crise climática.</p>
+        <p><strong>Guardrail:</strong> IA não substitui biólogos, pesquisadores, servidores, brigadistas e comunidades locais; ela reduz trabalho repetitivo e revela padrões.</p>
+      </div>
+      <div class="usecase">
+        <h3>7.4. Proteção animal com justiça social</h3>
+        <p>O ProPatinhas e o SinPatinhas criam uma base nacional inédita para políticas de cães e gatos. O SinPatinhas é uma ferramenta pública, gratuita e digital para registrar cães e gatos, com carteirinha digital e QR Code.<sup><a href="#ref10">10</a></sup> O ProPatinhas é apresentado pelo MMA como compromisso do Estado com cuidado ético, Uma Só Saúde, protetores independentes e enfrentamento da invisibilidade de animais vulneráveis.<sup><a href="#ref11">11</a></sup></p>
+        <p>A IA poderia apoiar planejamento de castração, vacinação, microchipagem, resposta a desastres, mutirões, triagem de denúncias e combate a maus-tratos. Mas não pode virar higienismo social.</p>
+        <p><strong>Guardrail:</strong> distinguir crueldade deliberada, negligência grave e vulnerabilidade social que exige apoio público.</p>
+      </div>
+      <div class="usecase">
+        <h3>7.5. Capacidade estatal e memória institucional</h3>
+        <p>Uma política pública de IA socioambiental deve preservar memória: o que foi sinalizado, por que foi priorizado, quem revisou, que decisão foi tomada, quais dados estavam disponíveis e quais incertezas permaneceram. Sem isso, a IA vira caixa-preta. Com isso, ela vira infraestrutura pública auditável.</p>
+      </div>
+    </section>
+
+    <section class="section" id="governanca">
+      <h2>8. Governança democrática: a parte que não pode ser apêndice</h2>
+      <p class="lead">Toda proposta de IA ambiental precisa começar por uma pergunta ética: quem pode ser prejudicado se o modelo errar?</p>
+      <div class="grid">
+        <div class="card span-6"><strong>Nenhuma sanção automática</strong><br/>Alertas algorítmicos não devem virar multa, embargo, responsabilização ou ação policial sem procedimento humano regular.</div>
+        <div class="card span-6"><strong>Direito de contestação</strong><br/>Pessoas e comunidades afetadas precisam entender o motivo da priorização e ter canais para corrigir erros.</div>
+        <div class="card span-6"><strong>Auditoria e explicabilidade proporcional</strong><br/>Modelos usados pelo Estado devem produzir registros, justificativas e documentação adequada ao impacto de cada uso.</div>
+        <div class="card span-6"><strong>Proteção de comunidades vulneráveis</strong><br/>Monitoramento ambiental não pode se converter em vigilância contra povos tradicionais, periferias, pequenos produtores ou tutores pobres.</div>
+        <div class="card span-6"><strong>Soberania de dados</strong><br/>O Estado não deve entregar sua inteligência ambiental a fornecedores fechados sem governança, interoperabilidade e garantias públicas.</div>
+        <div class="card span-6"><strong>Pegada ambiental da IA</strong><br/>Infraestrutura de IA deve considerar consumo de energia, água, emissões, eficiência computacional e preferência por fontes limpas.</div>
+      </div>
+      <p>O Framework de Autoavaliação de Impacto Ético em IA no Setor Público Federal foi elaborado considerando a LGPD, diretrizes do PL 2338/2023, recomendações da UNESCO, experiências internacionais e requisitos de transparência, explicabilidade e supervisão humana.<sup><a href="#ref12">12</a></sup> Essa base pode orientar um protocolo específico para IA socioambiental.</p>
+    </section>
+
+    <section class="section" id="roteiro">
+      <h2>9. Um roteiro possível de implantação</h2>
+      <div class="flow">
+        <div class="step"><span class="num">fase 1</span><b>Inventário</b><span class="note">mapear bases existentes, lacunas, qualidade, responsáveis e restrições legais.</span></div>
+        <div class="step"><span class="num">fase 2</span><b>Governança</b><span class="note">definir revisão humana, auditoria, contestação, proteção de dados e avaliação de impacto.</span></div>
+        <div class="step"><span class="num">fase 3</span><b>Pilotos</b><span class="note">testar casos controlados: fogo, embargo, fauna, proteção animal e evento extremo.</span></div>
+        <div class="step"><span class="num">fase 4</span><b>Escala</b><span class="note">expandir apenas após validação técnica, social, jurídica e ambiental.</span></div>
+      </div>
+      <p class="callout"><strong>Critério de sucesso:</strong> a IA pela Vida só funciona se aumentar a capacidade pública de prevenir dano sem reduzir direitos.</p>
+    </section>
+
+    <section class="section" id="disponibilidade">
+      <h2>10. Contribuição aberta</h2>
+      <p>Esta página acompanha uma versão impressa e mais concisa da proposta. A intenção não é apresentar um produto fechado, mas oferecer uma formulação para diálogo público, institucional e técnico.</p>
+      <p>Se esta agenda for útil, coloco-me à disposição para contribuir com pesquisa, sistematização, escrita, formulação pública e desenho de contexto institucional, especialmente na ponte entre tecnologia, governança democrática, proteção ambiental, justiça climática e direitos animais.</p>
+      <div class="card span-12">
+        <strong>Lua Helena Moon Martins Cardoso</strong><br/>
+        Psicóloga hospitalar · pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional · formação em Sociologia · pesquisa independente em arquitetura de contexto humano-IA<br/>
+        <a href="mailto:LuaHelenaMMC@gmail.com">LuaHelenaMMC@gmail.com</a> · <a href="https://www.luahelena.com.br">luahelena.com.br</a>
+      </div>
+    </section>
+
+    <section class="section" id="referencias">
+      <h2>Referências essenciais</h2>
+      <p class="note">Modelo ABNT simplificado, com links para consulta. A seleção privilegia fontes oficiais, institucionais e de referência pública.</p>
+      <ol class="refs">
+        <li id="ref1"><strong>BRASIL. Ministério do Meio Ambiente e Mudança do Clima.</strong> Quem é Quem — Gabinete do Ministro. Atualizado em 08 maio 2026. Disponível em: <a href="https://www.gov.br/mma/pt-br/composicao/gm/quem-e-quem">gov.br/mma</a>.</li>
+        <li id="ref2"><strong>BRASIL. Instituto Chico Mendes de Conservação da Biodiversidade.</strong> Quem foi Chico Mendes? Disponível em: <a href="https://www.gov.br/icmbio/pt-br/acesso-a-informacao/institucional/quem-foi-chico-mendes">gov.br/icmbio</a>.</li>
+        <li id="ref3"><strong>BRASIL. Instituto Chico Mendes de Conservação da Biodiversidade.</strong> RESEX — Reservas Extrativistas. Disponível em: <a href="https://www.gov.br/icmbio/pt-br/assuntos/unidades-de-conservacao/resex">gov.br/icmbio</a>.</li>
+        <li id="ref4"><strong>REDE SUSTENTABILIDADE.</strong> Manifesto — Diretrizes Programáticas da Rede Sustentabilidade. Disponível em: <a href="https://redesustentabilidade.org.br/manifesto/">redesustentabilidade.org.br</a>.</li>
+        <li id="ref5"><strong>BRASIL. Ministério da Ciência, Tecnologia e Inovação.</strong> Plano Brasileiro de Inteligência Artificial 2024-2028. Disponível em: <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/plano-brasileiro-de-inteligencia-artificial">gov.br/mcti</a>.</li>
+        <li id="ref6"><strong>BRASIL. Ministério da Ciência, Tecnologia e Inovação.</strong> Estratégia Brasileira de Inteligência Artificial — EBIA. Disponível em: <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/inteligencia-artificial/">gov.br/mcti</a>.</li>
+        <li id="ref7"><strong>BRASIL. Ministério do Meio Ambiente e Mudança do Clima.</strong> Plano Clima 2024-2035. Disponível em: <a href="https://www.gov.br/mma/pt-br/composicao/smc/plano-clima">gov.br/mma</a>.</li>
+        <li id="ref8"><strong>MAPBIOMAS ALERTA.</strong> Plataforma de validação e refinamento de alertas de desmatamento. Disponível em: <a href="https://alerta.mapbiomas.org/">alerta.mapbiomas.org</a>.</li>
+        <li id="ref9"><strong>BRASIL. Instituto Nacional de Pesquisas Espaciais.</strong> DETER — Sistema de Detecção do Desmatamento em Tempo Real. Disponível em: <a href="https://www.gov.br/inpe/pt-br/area-conhecimento/unidade-amazonia/projetos-e-pesquisas/deter/deter">gov.br/inpe</a>.</li>
+        <li id="ref10"><strong>BRASIL. Ministério do Meio Ambiente e Mudança do Clima.</strong> SinPatinhas — Sistema do Cadastro Nacional de Animais Domésticos. Disponível em: <a href="https://www.gov.br/mma/pt-br/composicao/sbio/dpda/programas-e-Projetos/sinpatinhas">gov.br/mma</a>.</li>
+        <li id="ref11"><strong>BRASIL. Ministério do Meio Ambiente e Mudança do Clima.</strong> ProPatinhas — Programa Nacional de Proteção e Manejo Populacional Ético de Cães e Gatos. Disponível em: <a href="https://www.gov.br/mma/pt-br/composicao/sbio/dpda/programas-e-Projetos/propatinhas">gov.br/mma</a>.</li>
+        <li id="ref12"><strong>BRASIL. Governo Digital.</strong> Framework para a Autoavaliação de Impacto Ético em Inteligência Artificial no Setor Público Federal. Disponível em: <a href="https://www.gov.br/governodigital/pt-br/infraestrutura-nacional-de-dados/inteligencia-artificial-1/publicacoes/framework-para-a-autoavaliacao-de-impacto-etico-em-inteligencia-artificial-no-setor-publico-federal">gov.br/governodigital</a>.</li>
+      </ol>
+      <div class="footer">
+        <p>Versão expandida preparada para leitura por QR code. Página estática em HTML/CSS/JS, sem coleta de dados, sem analytics e sem dependência de scripts externos.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Link copiado 🌿</div>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const toast = document.getElementById('toast');
+    const sections = [...document.querySelectorAll('section.section')];
+
+    function updateProgress(){
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      progress.style.width = pct + '%';
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .12 });
+    sections.forEach(section => observer.observe(section));
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1700);
+      } catch (e) {
+        alert('Não consegui copiar automaticamente. Link: ' + window.location.href);
+      }
+    });
+  </script>
+</body>
+</html>
