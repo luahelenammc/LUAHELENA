@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial de Maquiagem da Moon</title>
+  <meta name="description" content="Guia didático, intuitivo e bonito de maquiagem básica: o que comprar, ordem correta de aplicação e dicas para treinar sem medo." />
+  <meta property="og:title" content="Tutorial de Maquiagem da Moon" />
+  <meta property="og:description" content="Um guia simples e bonito para começar na maquiagem: compras, ordem dos produtos e dicas práticas." />
+  <meta name="theme-color" content="#8f4f76" />
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --bg-2: #fff0f8;
+      --ink: #322436;
+      --muted: #725e76;
+      --soft: rgba(255, 255, 255, 0.74);
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(126, 72, 111, 0.18);
+      --rose: #d95f9d;
+      --rose-2: #ff8dbd;
+      --plum: #7a3a68;
+      --lilac: #885fc9;
+      --peach: #ffbd9a;
+      --gold: #f6bd60;
+      --shadow: 0 22px 70px rgba(122, 58, 104, 0.16);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 16px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 141, 189, 0.35), transparent 28rem),
+        radial-gradient(circle at 88% 2%, rgba(136, 95, 201, 0.22), transparent 30rem),
+        radial-gradient(circle at 50% 95%, rgba(246, 189, 96, 0.20), transparent 28rem),
+        linear-gradient(180deg, var(--bg), #fffaf2 68%, #fff7fb);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122, 58, 104, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 58, 104, 0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 80%);
+      z-index: -1;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 247, 251, 0.74);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--rose), var(--lilac));
+      color: white;
+      box-shadow: 0 12px 30px rgba(217, 95, 157, 0.28);
+    }
+
+    nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: white;
+      color: var(--plum);
+      box-shadow: 0 8px 22px rgba(122, 58, 104, 0.10);
+    }
+
+    .hero { padding: 72px 0 34px; position: relative; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .pill {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--plum);
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 10px 28px rgba(122, 58, 104, 0.08);
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.5rem, 7vw, 5.7rem);
+      line-height: 0.91;
+      letter-spacing: -0.08em;
+      color: var(--ink);
+    }
+
+    .gradient-text {
+      background: linear-gradient(110deg, var(--plum), var(--rose), var(--lilac));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 700px;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0 0 26px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 800;
+      transition: 0.2s ease;
+      font-size: 0.96rem;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--plum), var(--rose));
+      color: white;
+      box-shadow: 0 18px 36px rgba(217, 95, 157, 0.28);
+    }
+
+    .btn.ghost {
+      background: rgba(255,255,255,0.78);
+      color: var(--plum);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover { transform: translateY(-2px); filter: saturate(1.06); }
+
+    .vanity-card {
+      position: relative;
+      min-height: 430px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.92), rgba(255,240,248,0.82)),
+        radial-gradient(circle at top left, rgba(255, 141, 189, 0.36), transparent 45%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 26px;
+    }
+
+    .mirror {
+      position: absolute;
+      inset: 34px 44px 70px;
+      border-radius: 48% 48% 42% 42%;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.62), rgba(255,255,255,0.18)),
+        radial-gradient(circle at 40% 26%, rgba(255,255,255,0.82), transparent 18%),
+        linear-gradient(160deg, rgba(136,95,201,0.16), rgba(217,95,157,0.18));
+      border: 10px solid rgba(255,255,255,0.72);
+      outline: 1px solid rgba(122, 58, 104, 0.14);
+      box-shadow: inset 0 0 60px rgba(122, 58, 104, 0.10), 0 24px 52px rgba(122, 58, 104, 0.16);
+    }
+
+    .makeup-item {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 18px 38px rgba(122, 58, 104, 0.18);
+    }
+
+    .lipstick {
+      right: 42px;
+      bottom: 40px;
+      width: 62px;
+      height: 160px;
+      border-radius: 22px 22px 16px 16px;
+      background: linear-gradient(180deg, #ef6caa 0 34%, #312135 34% 48%, #8d6487 48% 100%);
+      transform: rotate(-12deg);
+    }
+
+    .powder {
+      left: 32px;
+      bottom: 42px;
+      width: 146px;
+      height: 88px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 50% 45%, #ffdfcf 0 34%, #fff 35% 48%, #d95f9d 49% 100%);
+      color: var(--plum);
+    }
+
+    .brush {
+      left: 62px;
+      top: 44px;
+      width: 26px;
+      height: 220px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #6d4c73 0 32%, #f6bd60 32% 38%, #fbf1df 38% 100%);
+      transform: rotate(34deg);
+    }
+
+    .sparkles { position: absolute; inset: 0; pointer-events: none; }
+    .sparkles span { position: absolute; font-size: 1.4rem; animation: float 4.5s ease-in-out infinite; opacity: 0.82; }
+    .sparkles span:nth-child(1) { left: 28%; top: 18%; animation-delay: 0.1s; }
+    .sparkles span:nth-child(2) { right: 24%; top: 28%; animation-delay: 1s; }
+    .sparkles span:nth-child(3) { left: 48%; bottom: 18%; animation-delay: 2s; }
+    .sparkles span:nth-child(4) { right: 12%; bottom: 38%; animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(8deg); }
+    }
+
+    section { padding: 42px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--rose);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.85rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .section-note { max-width: 420px; color: var(--muted); line-height: 1.55; margin: 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .mini-card,
+    .panel,
+    .step,
+    .tip-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 42px rgba(122, 58, 104, 0.10);
+      backdrop-filter: blur(14px);
+    }
+
+    .mini-card { padding: 20px; border-radius: var(--radius-md); min-height: 160px; }
+
+    .mini-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(217,95,157,0.18), rgba(136,95,201,0.16));
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .mini-card h3,
+    .panel h3,
+    .tip-card h3 { margin: 0 0 8px; letter-spacing: -0.03em; }
+    .mini-card p,
+    .tip-card p { margin: 0; line-height: 1.55; color: var(--muted); }
+
+    .panel { border-radius: var(--radius-lg); padding: 24px; }
+    .shop-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 18px; align-items: stretch; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--plum);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 14px 28px rgba(122, 58, 104, 0.20);
+    }
+
+    .checklist { display: grid; gap: 10px; }
+
+    .check-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.62);
+      transition: 0.2s ease;
+    }
+
+    .check-item:hover { transform: translateX(2px); background: white; }
+
+    .check-item input {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      border: 2px solid rgba(122, 58, 104, 0.26);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: 0.2s ease;
+      background: white;
+    }
+
+    .check-item input:checked { background: linear-gradient(135deg, var(--rose), var(--lilac)); border-color: transparent; }
+    .check-item input:checked::after { content: "✓"; color: white; font-weight: 950; font-size: 0.88rem; }
+    .check-title { font-weight: 850; letter-spacing: -0.02em; }
+
+    .check-desc {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.38;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: var(--plum);
+      background: rgba(246, 189, 96, 0.27);
+      border: 1px solid rgba(246, 189, 96, 0.48);
+      border-radius: 999px;
+      padding: 6px 8px;
+      white-space: nowrap;
+    }
+
+    .tone-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 100%;
+      background:
+        linear-gradient(150deg, rgba(122, 58, 104, 0.96), rgba(217, 95, 157, 0.88)),
+        radial-gradient(circle at top right, rgba(246, 189, 96, 0.28), transparent 45%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(122, 58, 104, 0.24);
+    }
+
+    .tone-box p { margin: 0; line-height: 1.58; color: rgba(255,255,255,0.84); }
+
+    .quote {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 1.4rem;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin: 12px 0;
+    }
+
+    .progress-wrap { display: grid; gap: 10px; }
+    .progress-label { display: flex; justify-content: space-between; color: rgba(255,255,255,0.84); font-size: 0.92rem; font-weight: 750; }
+    .progress-bar { height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,0.24); }
+    .progress-bar span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, #fff, #ffe1ef, #f6bd60); border-radius: inherit; transition: width 0.35s ease; }
+
+    .steps { position: relative; display: grid; gap: 14px; counter-reset: step; }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 15px;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      transition: 0.2s ease;
+    }
+
+    .step:hover { transform: translateY(-2px); background: white; }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--rose), var(--lilac));
+      color: white;
+      box-shadow: 0 12px 24px rgba(217, 95, 157, 0.22);
+      font-weight: 950;
+    }
+
+    .step h3 { margin: 2px 0 6px; letter-spacing: -0.03em; font-size: 1.15rem; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .step .micro {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(217, 95, 157, 0.10);
+      color: var(--plum);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .routine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .tip-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tip-card::after {
+      content: "";
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      background: rgba(217, 95, 157, 0.10);
+    }
+
+    .do-dont { display: grid; gap: 10px; margin-top: 16px; }
+
+    .line {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      line-height: 1.45;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq { display: grid; gap: 12px; margin-top: 18px; }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: 0 12px 30px rgba(122, 58, 104, 0.08);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: var(--plum);
+      background: rgba(217, 95, 157, 0.12);
+      flex: 0 0 auto;
+    }
+
+    details[open] summary::after { content: "–"; }
+    details p { margin: 12px 0 0; line-height: 1.58; color: var(--muted); }
+
+    .footer-card {
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin: 38px 0 54px;
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,0.22), transparent 28%),
+        linear-gradient(135deg, #46233f, #8f4f76 52%, #d95f9d);
+      box-shadow: var(--shadow);
+    }
+
+    .footer-card h2 { color: white; margin-bottom: 10px; }
+    .footer-card p { color: rgba(255,255,255,0.82); margin: 0 auto 18px; max-width: 680px; line-height: 1.65; }
+    .hidden { display: none !important; }
+
+    .floating-reset {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 25;
+      border: 1px solid rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.88);
+      color: var(--plum);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 42px rgba(122, 58, 104, 0.16);
+      border-radius: 999px;
+      padding: 11px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .floating-reset:hover { transform: translateY(-2px); }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .shop-layout,
+      .routine-grid { grid-template-columns: 1fr; }
+      .vanity-card { min-height: 360px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      nav { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 24px, var(--max)); }
+      .hero { padding-top: 44px; }
+      h1 { font-size: clamp(2.6rem, 16vw, 4.2rem); }
+      .vanity-card { min-height: 310px; padding: 18px; }
+      .mirror { inset: 28px 34px 58px; }
+      .brush { left: 36px; height: 170px; }
+      .powder { width: 116px; height: 70px; }
+      .lipstick { width: 52px; height: 130px; }
+      .check-item { grid-template-columns: auto 1fr; }
+      .check-item .tag { grid-column: 2; width: fit-content; }
+      .step { grid-template-columns: 1fr; }
+      .topbar-inner { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Tutorial de Maquiagem da Moon">
+        <span class="brand-mark">💄</span>
+        <span>Maquiagem da Moon</span>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="#essencia">Essência</a>
+        <a href="#compras">Compras</a>
+        <a href="#ordem">Ordem</a>
+        <a href="#dicas">Dicas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="pill">✨ Guia básico, bonito e sem pânico</span>
+          <h1>Tutorial de <span class="gradient-text">Maquiagem</span> da Moon</h1>
+          <p class="lead">Uma versão visual, didática e prática do roteiro: o que comprar, em qual ordem usar e como treinar sem se cobrar perfeição logo de primeira. A prática leva à perfeição, mas ela começa com uma camada fina de hidratante e coragem suficiente para errar um pouquinho. 🌙</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#compras">Ver checklist de compras</a>
+            <a class="btn ghost" href="#ordem">Aprender a ordem certa</a>
+          </div>
+        </div>
+
+        <aside class="vanity-card" aria-label="Ilustração decorativa de penteadeira de maquiagem">
+          <div class="mirror"></div>
+          <div class="makeup-item brush" aria-hidden="true"></div>
+          <div class="makeup-item powder" aria-hidden="true">pó</div>
+          <div class="makeup-item lipstick" aria-hidden="true"></div>
+          <div class="sparkles" aria-hidden="true">
+            <span>✦</span><span>✧</span><span>♡</span><span>✦</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="essencia">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Comece por aqui</p>
+            <h2>A lógica da maquiagem básica</h2>
+          </div>
+          <p class="section-note">A ideia não é fazer uma produção impossível. É construir pele, cor e acabamento de um jeito que você consiga repetir.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="mini-card">
+            <div class="mini-icon">🛍️</div>
+            <h3>Compre o essencial certo</h3>
+            <p>Base, pó e corretivo precisam combinar com seu tom. Nesses três, pedir ajuda na loja não é vergonha: é estratégia.</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-icon">🧴</div>
+            <h3>Prepare a pele</h3>
+            <p>Hidratante primeiro, camada fina, bem espalhada. Ele protege a pele e ajuda a maquiagem a assentar melhor.</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-icon">🎯</div>
+            <h3>Pouco produto, bem espalhado</h3>
+            <p>O segredo do começo é não brigar com o rosto. Melhor construir aos poucos do que tentar resolver tudo em uma camada grossa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="compras">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">O que comprar?</p>
+            <h2>Checklist de sobrevivência glamourosa</h2>
+          </div>
+          <p class="section-note">Marque os itens enquanto compra. O progresso fica salvo neste navegador, para você não precisar lembrar tudo no caos da perfumaria.</p>
+        </div>
+
+        <div class="shop-layout">
+          <div class="panel">
+            <div class="tabs" role="tablist" aria-label="Categorias de compra">
+              <button class="tab-btn active" type="button" data-tab="essenciais" role="tab" aria-selected="true">Essenciais</button>
+              <button class="tab-btn" type="button" data-tab="opcionais" role="tab" aria-selected="false">Opcionais</button>
+              <button class="tab-btn" type="button" data-tab="ferramentas" role="tab" aria-selected="false">Ferramentas</button>
+            </div>
+
+            <div class="checklist" data-panel="essenciais">
+              <label class="check-item"><input type="checkbox" data-item="base" /><span><span class="check-title">Base</span><span class="check-desc">O elemento mais importante da pele. Precisa ser bem escolhida e bem espalhada.</span></span><span class="tag">pedir tom</span></label>
+              <label class="check-item"><input type="checkbox" data-item="po" /><span><span class="check-title">Pó</span><span class="check-desc">Ajuda a selar e tirar excesso de brilho. Use pouco, especialmente no começo.</span></span><span class="tag">pedir tom</span></label>
+              <label class="check-item"><input type="checkbox" data-item="corretivo" /><span><span class="check-title">Corretivo</span><span class="check-desc">Para áreas específicas: sombra de barba/bigode, espinhas e pontos que você quer suavizar.</span></span><span class="tag">pedir tom</span></label>
+              <label class="check-item"><input type="checkbox" data-item="blush" /><span><span class="check-title">Blush ou paleta de blushes</span><span class="check-desc">Dá vida ao rosto. O truque é aplicar alto e suave, não em rodelas marcadas.</span></span><span class="tag">cor</span></label>
+              <label class="check-item"><input type="checkbox" data-item="hidratante" /><span><span class="check-title">Hidratante facial</span><span class="check-desc">Primeiro passo da maquiagem. Uma camada fina já cumpre a missão.</span></span><span class="tag">pele</span></label>
+              <label class="check-item"><input type="checkbox" data-item="batom" /><span><span class="check-title">Batom líquido — duas cores</span><span class="check-desc">Escolha uma cor mais segura para o dia e uma mais poderosa para quando quiser presença.</span></span><span class="tag">2 cores</span></label>
+            </div>
+
+            <div class="checklist hidden" data-panel="opcionais">
+              <label class="check-item"><input type="checkbox" data-item="sombra" /><span><span class="check-title">Sombra para os olhos</span><span class="check-desc">Pode esperar um pouco. Primeiro domine a pele; depois os olhos entram como feitiço extra.</span></span><span class="tag">opcional</span></label>
+              <label class="check-item"><input type="checkbox" data-item="iluminador" /><span><span class="check-title">Iluminador</span><span class="check-desc">Para pontos de luz. Bonito, mas não é prioridade para a primeira nécessaire.</span></span><span class="tag">opcional</span></label>
+            </div>
+
+            <div class="checklist hidden" data-panel="ferramentas">
+              <label class="check-item"><input type="checkbox" data-item="pincel-po" /><span><span class="check-title">Pincel grande para o pó</span><span class="check-desc">Quanto mais fofo, mais fácil aplicar sem pesar a mão.</span></span><span class="tag">pincel</span></label>
+              <label class="check-item"><input type="checkbox" data-item="pincel-blush" /><span><span class="check-title">Pincel médio para blush</span><span class="check-desc">Ajuda a posicionar melhor a cor nas maçãs e no alto do rosto.</span></span><span class="tag">pincel</span></label>
+              <label class="check-item"><input type="checkbox" data-item="esponja" /><span><span class="check-title">Esponja pequena de maquiagem</span><span class="check-desc">Boa para dar acabamento na base e no corretivo com batidinhas leves.</span></span><span class="tag">acabamento</span></label>
+            </div>
+          </div>
+
+          <aside class="tone-box">
+            <div>
+              <h3>Frase mágica na loja</h3>
+              <div class="quote">“Qual é o meu tom?”</div>
+              <p>Base, pó e corretivo dependem muito da cor da pele e do subtom. Peça ajuda para testar. O restante também pode receber ajuda, mas esses três são os que mais pedem precisão.</p>
+            </div>
+            <div class="progress-wrap" aria-live="polite">
+              <div class="progress-label"><span>Checklist</span><span id="progressText">0%</span></div>
+              <div class="progress-bar"><span id="progressBar"></span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="ordem">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">A ordem dos fatores importa</p>
+            <h2>O roteiro para não se perder</h2>
+          </div>
+          <p class="section-note">Pense como uma escadinha: preparar, corrigir, uniformizar, selar, colorir e finalizar.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step"><div class="step-number">1</div><div><h3>Hidratante</h3><p>Espalhe bem, em camada fina. A função é proteger a pele e deixar a base assentar melhor, sem virar uma massa seca por cima do rosto.</p><span class="micro">🧴 menos é mais</span></div></article>
+          <article class="step"><div class="step-number">2</div><div><h3>Corretivo pontual</h3><p>Use apenas nas áreas que você quer suavizar: sombra de barba ou bigode, espinhas, manchas e pontos específicos. Aplique pouco e esfume com batidinhas.</p><span class="micro">🎯 foco nas áreas difíceis</span></div></article>
+          <article class="step"><div class="step-number">3</div><div><h3>Base</h3><p>É a protagonista da maquiagem. Espalhe pelo rosto todo, sem esquecer as bordas: perto do cabelo, lateral do rosto, queixo e pescoço quando necessário.</p><span class="micro">🌗 uniformizar sem pesar</span></div></article>
+          <article class="step"><div class="step-number">4</div><div><h3>Pó</h3><p>Entre com pouco produto para selar a pele, principalmente onde costuma brilhar ou transferir. O objetivo é fixar, não apagar toda a vida do rosto.</p><span class="micro">☁️ camada leve</span></div></article>
+          <article class="step"><div class="step-number">5</div><div><h3>Blush</h3><p>Evite passar na “rodela” da bochecha como uma bolinha marcada 🤡. Prefira a parte alta das maçãs, levando suavemente em direção às têmporas.</p><span class="micro">🌸 alto, suave e esfumado</span></div></article>
+          <article class="step"><div class="step-number">6</div><div><h3>Batom líquido</h3><p>Comece contornando com calma, depois preencha. Para aprender o gesto, vale procurar um tutorial rápido no YouTube e treinar sem pressa.</p><span class="micro">💋 duas cores ajudam</span></div></article>
+          <article class="step"><div class="step-number">7</div><div><h3>Sombra e iluminador</h3><p>São a camada opcional de acabamento. Deixe para depois que a pele básica estiver confortável. Quando entrar, procure tutoriais curtos e copie uma técnica por vez.</p><span class="micro">✨ fase bônus</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dicas">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Modo treino</p>
+            <h2>Pequenas regras que salvam</h2>
+          </div>
+          <p class="section-note">A maquiagem fica melhor quando vira prática, não tribunal. Treinar é parte do ritual.</p>
+        </div>
+
+        <div class="routine-grid">
+          <article class="tip-card">
+            <h3>✅ Faça</h3>
+            <div class="do-dont">
+              <div class="line"><span>🌙</span><span>Teste a base com ajuda de atendente e olhe em luz natural quando possível.</span></div>
+              <div class="line"><span>🫧</span><span>Espalhe produto aos poucos. Camada fina é mais elegante e mais fácil de corrigir.</span></div>
+              <div class="line"><span>🎥</span><span>Use tutoriais curtos para gestos específicos: blush, batom líquido, sombra e iluminador.</span></div>
+            </div>
+          </article>
+
+          <article class="tip-card">
+            <h3>🚫 Evite</h3>
+            <div class="do-dont">
+              <div class="line"><span>🎭</span><span>Comprar base, pó e corretivo no chute. Esses itens errados sabotam todo o resto.</span></div>
+              <div class="line"><span>🤡</span><span>Blush circular muito baixo ou muito forte. Esfumar é o antídoto contra o “efeito palhacinha”.</span></div>
+              <div class="line"><span>⏳</span><span>Querer dominar tudo no primeiro dia. Primeiro pele; depois cor; depois olhos e luz.</span></div>
+            </div>
+          </article>
+        </div>
+
+        <section class="faq" aria-label="Perguntas frequentes">
+          <details><summary>Por que base, pó e corretivo exigem ajuda?</summary><p>Porque eles precisam conversar com a cor real da sua pele. Um tom muito claro pode acinzentar; um tom escuro pode pesar; um subtom errado pode deixar tudo estranho mesmo quando a aplicação está boa.</p></details>
+          <details><summary>Preciso comprar sombra e iluminador logo?</summary><p>Não. Eles são bonitos, mas opcionais. Para começar, o maior ganho vem de acertar pele, blush e batom. Depois você adiciona olhos e brilho como expansão do repertório.</p></details>
+          <details><summary>Qual é o maior segredo para parecer natural?</summary><p>Usar menos produto do que a ansiedade manda e espalhar melhor do que a pressa permite. A maquiagem básica boa não grita: ela organiza o rosto.</p></details>
+        </section>
+
+        <div class="footer-card">
+          <h2>A prática leva à perfeição ✨</h2>
+          <p>O primeiro objetivo não é ficar impecável. É entender a ordem, sentir os produtos no rosto e criar intimidade com o próprio gesto. Depois disso, a beleza começa a obedecer.</p>
+          <a class="btn ghost" href="#compras">Voltar ao checklist</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="floating-reset" type="button" id="resetBtn" title="Limpar checklist">Limpar checklist</button>
+
+  <script>
+    const storageKey = "moon-makeup-checklist-v1";
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"][data-item]'));
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const resetBtn = document.getElementById("resetBtn");
+    const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+    const panels = Array.from(document.querySelectorAll("[data-panel]"));
+    const navLinks = Array.from(document.querySelectorAll("nav a"));
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
+      catch (error) { return {}; }
+    }
+
+    function saveState() {
+      const state = {};
+      checkboxes.forEach((box) => { state[box.dataset.item] = box.checked; });
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function updateProgress() {
+      const total = checkboxes.length;
+      const checked = checkboxes.filter((box) => box.checked).length;
+      const percentage = total ? Math.round((checked / total) * 100) : 0;
+      progressBar.style.width = percentage + "%";
+      progressText.textContent = percentage + "%";
+      resetBtn.style.opacity = checked ? "1" : "0.72";
+    }
+
+    function hydrate() {
+      const state = loadState();
+      checkboxes.forEach((box) => {
+        box.checked = Boolean(state[box.dataset.item]);
+        box.addEventListener("change", () => { saveState(); updateProgress(); });
+      });
+      updateProgress();
+    }
+
+    function switchTab(tabName) {
+      tabButtons.forEach((button) => {
+        const active = button.dataset.tab === tabName;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach((panel) => { panel.classList.toggle("hidden", panel.dataset.panel !== tabName); });
+    }
+
+    tabButtons.forEach((button) => { button.addEventListener("click", () => switchTab(button.dataset.tab)); });
+
+    resetBtn.addEventListener("click", () => {
+      checkboxes.forEach((box) => { box.checked = false; });
+      saveState();
+      updateProgress();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+
+    document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
+    hydrate();
+  </script>
+</body>
+</html>
