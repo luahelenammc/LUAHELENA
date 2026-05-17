@@ -1283,6 +1283,7 @@
       }
     }
 
+
     @media (max-width: 980px) {
       .topbar { align-items: flex-start; }
       .hero { grid-template-columns: 1fr; }
@@ -1322,7 +1323,193 @@
       .mini-grid { grid-template-columns: 1fr; }
       .mini-group .mini-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+.path-card .call { display:none !important; }
+
+
+    /* v23 final interaction layer: clean hover, smooth desynced pulse, hover reflection */
+    .path-card.featured,
+    .section-card.featured,
+    .mini.featured {
+      --glow-rgb: var(--accent-rgb, var(--group-rgb, var(--moon-rgb)));
+      position: relative !important;
+      isolation: isolate !important;
+      overflow: hidden !important;
+      animation-name: featuredBreathClean !important;
+      animation-duration: var(--pulse-clean, 1.52s) !important;
+      animation-timing-function: cubic-bezier(.42, 0, .22, 1) !important;
+      animation-iteration-count: infinite !important;
+      animation-delay: var(--pulse-delay-clean, 0s) !important;
+      transition:
+        transform .28s cubic-bezier(.2,.8,.2,1),
+        border-color .28s ease,
+        box-shadow .28s ease,
+        filter .28s ease,
+        background .28s ease !important;
+      will-change: transform, box-shadow, border-color, filter !important;
+    }
+
+    .path-card.featured::before {
+      content: none !important;
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      background: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .path-card.featured::after,
+    .section-card.featured::after,
+    .mini.featured::after {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      border-radius: inherit !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+      z-index: 2 !important;
+      background:
+        linear-gradient(
+          112deg,
+          transparent 0%,
+          transparent 33%,
+          rgba(255,255,255,.00) 39%,
+          rgba(255,255,255,.18) 48%,
+          rgba(var(--glow-rgb), .24) 53%,
+          rgba(255,255,255,.10) 58%,
+          transparent 70%,
+          transparent 100%
+        ) !important;
+      background-size: 260% 260% !important;
+      background-position: 170% 0% !important;
+      animation: none !important;
+    }
+
+    .path-card.featured > *,
+    .section-card.featured > *,
+    .mini.featured > * {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    .path-card.featured:hover,
+    .path-card.featured:focus-visible,
+    .section-card.featured:hover,
+    .section-card.featured:focus-visible,
+    .mini.featured:hover,
+    .mini.featured:focus-visible {
+      animation-play-state: paused !important;
+      transform: translateY(-6px) scale(1.004) !important;
+      filter: saturate(1.16) brightness(1.035) !important;
+      border-color: rgba(var(--glow-rgb), .88) !important;
+      box-shadow:
+        0 28px 78px rgba(0,0,0,.56),
+        0 0 0 1px rgba(var(--glow-rgb), .86),
+        0 0 38px rgba(var(--glow-rgb), .44),
+        0 0 102px rgba(var(--glow-rgb), .26),
+        inset 0 0 0 1px rgba(var(--glow-rgb), .30),
+        inset 0 0 28px rgba(var(--glow-rgb), .10) !important;
+    }
+
+    .path-card.featured:hover::after,
+    .path-card.featured:focus-visible::after,
+    .section-card.featured:hover::after,
+    .section-card.featured:focus-visible::after,
+    .mini.featured:hover::after,
+    .mini.featured:focus-visible::after {
+      opacity: .42 !important;
+      animation-name: hoverLightReflection !important;
+      animation-duration: 1.18s !important;
+      animation-timing-function: cubic-bezier(.18,.72,.22,1) !important;
+      animation-iteration-count: infinite !important;
+      animation-delay: 0s !important;
+    }
+
+    @keyframes featuredBreathClean {
+      0%, 100% {
+        border-color: rgba(var(--glow-rgb), .44);
+        box-shadow:
+          0 18px 46px rgba(0,0,0,.42),
+          0 0 0 1px rgba(var(--glow-rgb), .34),
+          0 0 16px rgba(var(--glow-rgb), .14),
+          0 0 38px rgba(var(--glow-rgb), .06),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .10);
+      }
+      50% {
+        border-color: rgba(var(--glow-rgb), .74);
+        box-shadow:
+          0 21px 56px rgba(0,0,0,.47),
+          0 0 0 1px rgba(var(--glow-rgb), .64),
+          0 0 27px rgba(var(--glow-rgb), .28),
+          0 0 68px rgba(var(--glow-rgb), .14),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .22),
+          inset 0 0 18px rgba(var(--glow-rgb), .07);
+      }
+    }
+
+    @keyframes hoverLightReflection {
+      0% {
+        opacity: .06;
+        background-position: 172% 0%;
+      }
+      38% {
+        opacity: .48;
+      }
+      100% {
+        opacity: .08;
+        background-position: -132% 100%;
+      }
+    }
+
+    .primary-grid .path-card.featured:nth-child(1) {
+      --pulse-clean: 1.38s;
+      --pulse-delay-clean: -.22s;
+    }
+
+    .primary-grid .path-card.featured:nth-child(2) {
+      --pulse-clean: 1.61s;
+      --pulse-delay-clean: -.82s;
+    }
+
+    .secondary-grid .section-card.featured:nth-child(1) {
+      --pulse-clean: 1.46s;
+      --pulse-delay-clean: -.38s;
+    }
+
+    .secondary-grid .section-card.featured:nth-child(2) {
+      --pulse-clean: 1.72s;
+      --pulse-delay-clean: -1.05s;
+    }
+
+    .mini-grid .mini.featured:nth-child(3n+1) {
+      --pulse-clean: 1.42s;
+      --pulse-delay-clean: -.26s;
+    }
+
+    .mini-grid .mini.featured:nth-child(3n+2) {
+      --pulse-clean: 1.64s;
+      --pulse-delay-clean: -.71s;
+    }
+
+    .mini-grid .mini.featured:nth-child(3n) {
+      --pulse-clean: 1.83s;
+      --pulse-delay-clean: -1.17s;
+    }
+
+    .path-card .call {
+      display: none !important;
+    }
+
+</style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -1351,7 +1538,7 @@
 <a aria-label="Abrir trabalho com IA" class="path-card featured" href="https://www.luahelena.com.br/ia/" rel="noopener" style="--accent: var(--theme-ai); --accent-rgb: var(--theme-ai-rgb); --pulse-delay: -0.15s; --pulse-duration: 7.40s; --sweep-duration: 11.47s; --sweep-delay: -0.85s;" target="_blank">
 <div class="path-top">
 <span aria-hidden="true" class="path-icon">✨</span>
-<span class="call">entrar</span>
+
 </div>
 <div>
 <h3>Trabalho com IA</h3>
@@ -1363,7 +1550,7 @@
 <a aria-label="Abrir atuação política" class="path-card featured" href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: var(--theme-pol); --accent-rgb: var(--theme-pol-rgb); --pulse-delay: -1.10s; --pulse-duration: 8.10s; --sweep-duration: 12.55s; --sweep-delay: -2.15s;" target="_blank">
 <div class="path-top">
 <span aria-hidden="true" class="path-icon">🗳️</span>
-<span class="call">entrar</span>
+
 </div>
 <div>
 <h3>Política, Limeira &amp; vida pública</h3>
