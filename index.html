@@ -330,8 +330,6 @@
       outline: none;
     }
 
-
-
     .primary-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -611,11 +609,123 @@
       gap: 10px;
     }
 
-
-
     .mini-groups {
       column-count: 3;
       column-gap: 13px;
+    }
+
+    /* v15: eliminate phantom square on big cards by disabling path-card pseudo layers */
+    .path-card.featured {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(var(--glow-rgb), .12), transparent 34%),
+        linear-gradient(135deg, rgba(var(--glow-rgb), .045), rgba(255,255,255,.018) 44%, rgba(0,0,0,.05));
+      background-size: 100% 100%, 180% 180%;
+      background-position: center, 0% 0%;
+      animation-name: bigCardDirectPulse;
+      animation-duration: 2.15s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      border-color: rgba(var(--glow-rgb), .58);
+      box-shadow:
+        0 20px 58px rgba(0,0,0,.46),
+        0 0 0 1px rgba(var(--glow-rgb), .50),
+        0 0 26px rgba(var(--glow-rgb), .28),
+        inset 0 0 0 1px rgba(var(--glow-rgb), .18);
+    }
+
+    .path-card.featured::before {
+      content: none !important;
+      display: none !important;
+      animation: none !important;
+      opacity: 0 !important;
+      background: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+    }
+
+    .path-card.featured::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      display: block;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: .18;
+      border: 0;
+      box-shadow: none;
+      filter: none;
+      transform: none;
+      background:
+        linear-gradient(
+          112deg,
+          transparent 0%,
+          transparent 37%,
+          rgba(255, 255, 255, .11) 48%,
+          rgba(var(--glow-rgb), .16) 53%,
+          rgba(255, 255, 255, .07) 58%,
+          transparent 70%,
+          transparent 100%
+        );
+      background-size: 260% 260%;
+      background-position: 170% 0%;
+      animation-name: bigCardSoftSweep;
+      animation-duration: 4.8s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 1;
+    }
+
+    .path-card.featured > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes bigCardSoftSweep {
+      0% {
+        opacity: .08;
+        background-position: 170% 0%;
+      }
+      18% {
+        opacity: .24;
+      }
+      50% {
+        opacity: .16;
+      }
+      100% {
+        opacity: .08;
+        background-position: -130% 100%;
+      }
+    }
+
+    @keyframes bigCardDirectPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: saturate(1);
+        border-color: rgba(var(--glow-rgb), .50);
+        background-position: center, 0% 0%;
+        box-shadow:
+          0 20px 58px rgba(0,0,0,.46),
+          0 0 0 1px rgba(var(--glow-rgb), .42),
+          0 0 20px rgba(var(--glow-rgb), .20),
+          0 0 48px rgba(var(--glow-rgb), .10),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .14);
+      }
+      50% {
+        transform: translateY(-1px) scale(1.003);
+        filter: saturate(1.17) brightness(1.025);
+        border-color: rgba(var(--glow-rgb), .92);
+        background-position: center, 100% 100%;
+        box-shadow:
+          0 26px 74px rgba(0,0,0,.55),
+          0 0 0 1px rgba(var(--glow-rgb), .88),
+          0 0 38px rgba(var(--glow-rgb), .46),
+          0 0 96px rgba(var(--glow-rgb), .26),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .30),
+          inset 0 0 32px rgba(var(--glow-rgb), .10);
+      }
     }
 
     .mini-group {
@@ -793,8 +903,6 @@
       outline: none;
     }
 
-
-
     .path-icon,
     .mini-icon,
     .search-wrap > span {
@@ -806,24 +914,25 @@
       min-height: 66px;
     }
 
-
-
     .path-card.featured,
     .section-card.featured,
     .mini.featured {
       --glow-rgb: var(--accent-rgb, var(--group-rgb, var(--moon-rgb)));
       position: relative;
       isolation: isolate;
-      overflow: visible;
-      border-color: rgba(var(--glow-rgb), .56);
-      outline: 1px solid rgba(var(--glow-rgb), .24);
-      outline-offset: 0;
-      animation: featuredPulse 2.15s ease-in-out infinite;
+      overflow: hidden;
+      border-color: rgba(var(--glow-rgb), .62);
       box-shadow:
-        0 18px 52px rgba(0,0,0,.42),
-        0 0 0 1px rgba(var(--glow-rgb), .52),
-        0 0 24px rgba(var(--glow-rgb), .32),
-        0 0 70px rgba(var(--glow-rgb), .16);
+        0 18px 48px rgba(0,0,0,.44),
+        0 0 0 1px rgba(var(--glow-rgb), .50),
+        0 0 22px rgba(var(--glow-rgb), .24),
+        inset 0 0 0 1px rgba(var(--glow-rgb), .22);
+      animation-name: borderGlowBreathe;
+      animation-duration: 2.25s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: box-shadow, border-color, filter, transform;
+      transform: translateZ(0);
     }
 
     .path-card.featured::before,
@@ -831,16 +940,19 @@
     .mini.featured::before {
       content: "";
       position: absolute;
-      inset: -2px;
+      inset: 0;
       border-radius: inherit;
       pointer-events: none;
-      opacity: .42;
-      background:
-        radial-gradient(circle at 18% 0%, rgba(var(--glow-rgb), .38), transparent 34%),
-        radial-gradient(circle at 100% 100%, rgba(var(--glow-rgb), .26), transparent 42%),
-        linear-gradient(135deg, rgba(var(--glow-rgb), .10), transparent 46%);
-      filter: blur(10px);
-      animation: featuredAura 2.15s ease-in-out infinite;
+      border: 1.5px solid rgba(var(--glow-rgb), .52);
+      box-shadow:
+        inset 0 0 18px rgba(var(--glow-rgb), .20),
+        0 0 18px rgba(var(--glow-rgb), .24);
+      opacity: .58;
+      animation-name: borderRingPulse;
+      animation-duration: 1.8s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      z-index: 2;
     }
 
     .path-card.featured::after,
@@ -848,21 +960,19 @@
     .mini.featured::after {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: 1px;
       border-radius: inherit;
       pointer-events: none;
       opacity: .20;
-      background: linear-gradient(
-        115deg,
-        transparent 0%,
-        rgba(var(--glow-rgb), .00) 32%,
-        rgba(var(--glow-rgb), .20) 49%,
-        rgba(255,255,255,.12) 52%,
-        rgba(var(--glow-rgb), .00) 68%,
-        transparent 100%
-      );
-      background-size: 230% 230%;
-      animation: featuredSweep 3.8s linear infinite;
+      background:
+        linear-gradient(115deg, transparent 0%, transparent 36%, rgba(255,255,255,.18) 49%, rgba(var(--glow-rgb), .20) 53%, transparent 68%, transparent 100%),
+        radial-gradient(circle at 12% 10%, rgba(var(--glow-rgb), .16), transparent 36%);
+      background-size: 240% 240%, 100% 100%;
+      animation-name: subtleBorderSweep;
+      animation-duration: 4.2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 1;
     }
 
     .path-card.featured:hover,
@@ -871,71 +981,62 @@
     .section-card.featured:focus-visible,
     .mini.featured:hover,
     .mini.featured:focus-visible {
-      border-color: rgba(var(--glow-rgb), .82);
-      outline-color: rgba(var(--glow-rgb), .42);
+      border-color: rgba(var(--glow-rgb), .88);
       box-shadow:
-        0 26px 72px rgba(0,0,0,.52),
+        0 24px 64px rgba(0,0,0,.54),
         0 0 0 1px rgba(var(--glow-rgb), .86),
-        0 0 34px rgba(var(--glow-rgb), .52),
-        0 0 96px rgba(var(--glow-rgb), .30);
+        0 0 34px rgba(var(--glow-rgb), .42),
+        inset 0 0 0 1px rgba(var(--glow-rgb), .34),
+        inset 0 0 28px rgba(var(--glow-rgb), .12);
     }
 
-    @keyframes featuredPulse {
+    @keyframes borderRingPulse {
+      0%, 100% {
+        opacity: .42;
+        border-color: rgba(var(--glow-rgb), .42);
+        box-shadow:
+          inset 0 0 12px rgba(var(--glow-rgb), .14),
+          0 0 12px rgba(var(--glow-rgb), .16);
+      }
+      50% {
+        opacity: .96;
+        border-color: rgba(var(--glow-rgb), .92);
+        box-shadow:
+          inset 0 0 24px rgba(var(--glow-rgb), .26),
+          0 0 30px rgba(var(--glow-rgb), .42),
+          0 0 58px rgba(var(--glow-rgb), .18);
+      }
+    }
+
+    @keyframes borderGlowBreathe {
       0%, 100% {
         transform: translateY(0) scale(1);
-        outline-color: rgba(var(--glow-rgb), .20);
         filter: saturate(1);
         box-shadow:
-          0 18px 52px rgba(0,0,0,.42),
-          0 0 0 1px rgba(var(--glow-rgb), .46),
-          0 0 18px rgba(var(--glow-rgb), .24),
-          0 0 46px rgba(var(--glow-rgb), .12);
+          0 18px 48px rgba(0,0,0,.44),
+          0 0 0 1px rgba(var(--glow-rgb), .48),
+          0 0 20px rgba(var(--glow-rgb), .20),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .18);
       }
       50% {
-        transform: translateY(-2px) scale(1.006);
-        outline-color: rgba(var(--glow-rgb), .68);
-        filter: saturate(1.18);
+        transform: translateY(-1px) scale(1.003);
+        filter: saturate(1.16) brightness(1.03);
         box-shadow:
-          0 25px 76px rgba(0,0,0,.54),
-          0 0 0 1px rgba(var(--glow-rgb), .94),
-          0 0 42px rgba(var(--glow-rgb), .62),
-          0 0 118px rgba(var(--glow-rgb), .38);
+          0 24px 68px rgba(0,0,0,.52),
+          0 0 0 1px rgba(var(--glow-rgb), .82),
+          0 0 34px rgba(var(--glow-rgb), .42),
+          0 0 72px rgba(var(--glow-rgb), .18),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .32),
+          inset 0 0 30px rgba(var(--glow-rgb), .10);
       }
     }
 
-    @keyframes featuredAura {
-      0%, 100% {
-        opacity: .30;
-        filter: blur(10px);
-        transform: scale(.992);
-      }
-      50% {
-        opacity: .86;
-        filter: blur(17px);
-        transform: scale(1.028);
-      }
-    }
-
-    @keyframes featuredSweep {
+    @keyframes subtleBorderSweep {
       0% {
-        background-position: 180% 0%;
+        background-position: 170% 0%, 0% 0%;
       }
       100% {
-        background-position: -120% 100%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .path-card.featured,
-      .section-card.featured,
-      .mini.featured,
-      .path-card.featured::before,
-      .section-card.featured::before,
-      .mini.featured::before,
-      .path-card.featured::after,
-      .section-card.featured::after,
-      .mini.featured::after {
-        animation: none !important;
+        background-position: -130% 100%, 0% 0%;
       }
     }
 
@@ -985,6 +1086,203 @@
       display: none !important;
     }
 
+    /* v21: Blog Nostalgia alinhado e motion suave/desincronizado */
+    .blog-nostalgia-secondary .section-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .blog-nostalgia-secondary h3 {
+      margin-top: 0;
+    }
+
+    .path-card.featured,
+    .section-card.featured,
+    .mini.featured {
+      animation-duration: var(--pulse-duration, 7.6s) !important;
+      animation-delay: var(--pulse-delay, 0s) !important;
+      animation-timing-function: cubic-bezier(.45, .05, .25, 1) !important;
+      will-change: box-shadow, border-color, filter, transform;
+    }
+
+    .path-card.featured {
+      animation-name: smoothBigCardGlow !important;
+    }
+
+    .path-card.featured::before {
+      content: none !important;
+      display: none !important;
+    }
+
+    .path-card.featured::after {
+      content: "" !important;
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      border-radius: inherit !important;
+      pointer-events: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+      opacity: .13;
+      background:
+        linear-gradient(
+          112deg,
+          transparent 0%,
+          transparent 39%,
+          rgba(255,255,255,.08) 48%,
+          rgba(var(--glow-rgb), .11) 54%,
+          rgba(255,255,255,.05) 60%,
+          transparent 72%,
+          transparent 100%
+        ) !important;
+      background-size: 280% 280% !important;
+      animation-name: smoothBigSweep !important;
+      animation-duration: var(--sweep-duration, 12s) !important;
+      animation-delay: var(--sweep-delay, -1.4s) !important;
+      animation-timing-function: cubic-bezier(.45, .05, .25, 1) !important;
+      animation-iteration-count: infinite !important;
+      z-index: 1 !important;
+    }
+
+    .path-card.featured > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-card.featured,
+    .mini.featured {
+      animation-name: smoothCardGlow !important;
+    }
+
+    .section-card.featured::before,
+    .mini.featured::before {
+      animation-name: smoothBorderPulse !important;
+      animation-duration: calc(var(--pulse-duration, 7.6s) * 1.04) !important;
+      animation-delay: calc(var(--pulse-delay, 0s) - .45s) !important;
+      animation-timing-function: cubic-bezier(.45, .05, .25, 1) !important;
+      animation-iteration-count: infinite !important;
+    }
+
+    .section-card.featured::after,
+    .mini.featured::after {
+      animation-name: smoothSoftSweep !important;
+      animation-duration: var(--sweep-duration, 12s) !important;
+      animation-delay: var(--sweep-delay, -1.4s) !important;
+      animation-timing-function: cubic-bezier(.45, .05, .25, 1) !important;
+      animation-iteration-count: infinite !important;
+    }
+
+    @keyframes smoothBigCardGlow {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: saturate(1) brightness(1);
+        border-color: rgba(var(--glow-rgb), .54);
+        box-shadow:
+          0 20px 58px rgba(0,0,0,.45),
+          0 0 0 1px rgba(var(--glow-rgb), .42),
+          0 0 22px rgba(var(--glow-rgb), .20),
+          0 0 58px rgba(var(--glow-rgb), .10),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .14);
+      }
+      42% {
+        transform: translateY(-.6px) scale(1.0015);
+        filter: saturate(1.08) brightness(1.012);
+        border-color: rgba(var(--glow-rgb), .78);
+        box-shadow:
+          0 23px 64px rgba(0,0,0,.49),
+          0 0 0 1px rgba(var(--glow-rgb), .68),
+          0 0 30px rgba(var(--glow-rgb), .32),
+          0 0 82px rgba(var(--glow-rgb), .18),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .22),
+          inset 0 0 24px rgba(var(--glow-rgb), .07);
+      }
+      68% {
+        transform: translateY(-.2px) scale(1.0005);
+        filter: saturate(1.04) brightness(1.006);
+        border-color: rgba(var(--glow-rgb), .64);
+      }
+    }
+
+    @keyframes smoothCardGlow {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: saturate(1) brightness(1);
+        border-color: rgba(var(--glow-rgb), .44);
+        box-shadow:
+          0 16px 42px rgba(0,0,0,.38),
+          0 0 0 1px rgba(var(--glow-rgb), .32),
+          0 0 18px rgba(var(--glow-rgb), .17),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .10);
+      }
+      48% {
+        transform: translateY(-.7px) scale(1.002);
+        filter: saturate(1.10) brightness(1.012);
+        border-color: rgba(var(--glow-rgb), .72);
+        box-shadow:
+          0 20px 54px rgba(0,0,0,.44),
+          0 0 0 1px rgba(var(--glow-rgb), .62),
+          0 0 28px rgba(var(--glow-rgb), .30),
+          0 0 66px rgba(var(--glow-rgb), .13),
+          inset 0 0 0 1px rgba(var(--glow-rgb), .20);
+      }
+    }
+
+    @keyframes smoothBorderPulse {
+      0%, 100% {
+        opacity: .34;
+        border-color: rgba(var(--glow-rgb), .34);
+        box-shadow:
+          inset 0 0 9px rgba(var(--glow-rgb), .09),
+          0 0 10px rgba(var(--glow-rgb), .10);
+      }
+      50% {
+        opacity: .62;
+        border-color: rgba(var(--glow-rgb), .64);
+        box-shadow:
+          inset 0 0 15px rgba(var(--glow-rgb), .15),
+          0 0 22px rgba(var(--glow-rgb), .24),
+          0 0 42px rgba(var(--glow-rgb), .10);
+      }
+    }
+
+    @keyframes smoothSoftSweep {
+      0% {
+        opacity: .055;
+        background-position: 170% 0%, 0% 0%;
+      }
+      35% {
+        opacity: .13;
+      }
+      70% {
+        opacity: .10;
+      }
+      100% {
+        opacity: .055;
+        background-position: -130% 100%, 0% 0%;
+      }
+    }
+
+    @keyframes smoothBigSweep {
+      0% {
+        opacity: .045;
+        background-position: 175% 0%;
+      }
+      38% {
+        opacity: .15;
+      }
+      72% {
+        opacity: .10;
+      }
+      100% {
+        opacity: .045;
+        background-position: -135% 100%;
+      }
+    }
+
     @media (max-width: 980px) {
       .topbar { align-items: flex-start; }
       .hero { grid-template-columns: 1fr; }
@@ -1024,17 +1322,8 @@
       .mini-grid { grid-template-columns: 1fr; }
       .mini-group .mini-grid { grid-template-columns: 1fr; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
   </style>
-<!-- animation-debug: v11 removes !important from animated box-shadow and uses before/after aura + sweep -->
+ animation-debug: v21 smooth desynced pulse and Blog Nostalgia alignment 
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -1049,21 +1338,18 @@
 </a>
 <nav aria-label="Atalhos" class="nav">
 <a href="https://www.luahelena.com.br/ia/" rel="noopener" target="_blank">IA</a>
-<a href="https://instagram.com/luahelena.psol" style="--accent: #ff6d8f;" rel="noopener" target="_blank">Política</a>
-<a href="https://www.luahelena.com.br/obras.html" style="--accent: #ffd98d;" rel="noopener" target="_blank">Obras</a>
+<a href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: #ff6d8f;" target="_blank">Política</a>
 </nav>
 </header>
 <section aria-label="Apresentação" class="hero">
 <div class="hero-copy">
 <div class="kicker">luahelena.com.br</div>
 <h1>Lua Helena <span class="moonword">Moon</span></h1>
-<p class="lead">
-          Psicóloga hospitalar em Limeira/SP, escritora e criadora de sistemas simbólicos; desenvolvo projetos de IA aplicada a contexto, memória, escrita, design de uso e comunicação pública, com atuação política local pela democracia, direitos e cuidado com a cidade.
-        </p>
+<p class="lead">Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Blogueira de jogos antigos, escritora e fotógrafa por hobby. Pesquisadora independente em Arquitetura de Contexto Humano-IA.</p>
 </div>
 </section>
 <section aria-label="Entradas principais" class="primary-grid">
-<a aria-label="Abrir trabalho com IA" class="path-card featured" href="https://www.luahelena.com.br/ia/" rel="noopener" style="--accent: var(--theme-ai); --accent-rgb: var(--theme-ai-rgb);" target="_blank">
+<a aria-label="Abrir trabalho com IA" class="path-card featured" href="https://www.luahelena.com.br/ia/" rel="noopener" style="--accent: var(--theme-ai); --accent-rgb: var(--theme-ai-rgb); --pulse-delay: -0.15s; --pulse-duration: 7.40s; --sweep-duration: 11.47s; --sweep-delay: -0.85s;" target="_blank">
 <div class="path-top">
 <span aria-hidden="true" class="path-icon">✨</span>
 <span class="call">entrar</span>
@@ -1074,17 +1360,8 @@
             Arquitetura de contexto humano-IA, documentação viva, adoção responsável, Moon Source, design de uso e apresentação profissional.
           </p>
 </div>
-<div class="path-foot">
-<div aria-hidden="true" class="path-list">
-<span>/ia/index.html</span>
-<span>Contexto humano-IA</span>
-<span>Moon Source</span>
-<span>IA aplicada</span>
-</div>
-<span aria-hidden="true" class="arrow">→</span>
-</div>
 </a>
-<a aria-label="Abrir atuação política" class="path-card featured" href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: var(--theme-pol); --accent-rgb: var(--theme-pol-rgb);" target="_blank">
+<a aria-label="Abrir atuação política" class="path-card featured" href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: var(--theme-pol); --accent-rgb: var(--theme-pol-rgb); --pulse-delay: -1.10s; --pulse-duration: 8.10s; --sweep-duration: 12.55s; --sweep-delay: -2.15s;" target="_blank">
 <div class="path-top">
 <span aria-hidden="true" class="path-icon">🗳️</span>
 <span class="call">entrar</span>
@@ -1095,32 +1372,16 @@
             Presença progressista em Limeira, PSOL, Sociologia, democracia, direitos, cidade e participação pública.
           </p>
 </div>
-<div class="path-foot">
-<div aria-hidden="true" class="path-list">
-<span>perfil político</span>
-<span>PSOL</span>
-<span>Limeira</span>
-<span>vida pública</span>
-</div>
-<span aria-hidden="true" class="arrow">→</span>
-</div>
 </a>
 </section>
 <section aria-label="Entradas secundárias" class="secondary-grid">
-<a aria-label="Abrir LinkedIn" class="section-card featured" style="--accent: var(--theme-psy);" href="https://www.linkedin.com/in/luahelena/" style="--accent-rgb: 183, 163, 255;" rel="noopener" target="_blank">
+<a aria-label="Abrir meu LinkedIn" class="section-card featured" href="https://www.linkedin.com/in/luahelena/" rel="noopener" style="--accent: var(--theme-psy); --accent-rgb: var(--theme-psy-rgb); --pulse-delay: -2.35s; --pulse-duration: 6.90s; --sweep-duration: 10.70s; --sweep-delay: -3.75s;" target="_blank">
 <div class="section-top">
-<span aria-hidden="true" class="mini-icon">🧠</span>
+<span aria-hidden="true" class="mini-icon">💼</span>
 </div>
-<h3>Psicologia &amp; carreira</h3>
-<p>Instagram profissional, LinkedIn, Psicologia Hospitalar, clínica, formação e trajetória institucional.</p>
-</a>
-<a aria-label="Abrir obras" class="section-card" href="https://www.luahelena.com.br/obras.html" style="--accent: #ffd98d;" rel="noopener" target="_blank">
-<div class="section-top">
-<span aria-hidden="true" class="mini-icon">✍️</span>
-</div>
-<h3>Escrita &amp; obras</h3>
-<p>Livros, blogs, ensaios, As Crônicas de Líthia e projetos autorais.</p>
-</a>
+<h3>Meu LinkedIn</h3>
+<p>Minha jornada profissional.</p>
+</a><a aria-label="Abrir Blog Nostalgia" class="section-card featured blog-nostalgia-secondary" href="https://nostalgia.mooon.com.br" rel="noopener" style="--accent: var(--theme-gamer); --accent-rgb: var(--theme-gamer-rgb); --pulse-delay: -3.20s; --pulse-duration: 7.80s; --sweep-duration: 12.09s; --sweep-delay: -4.95s;" target="_blank"><div class="section-top"><span aria-hidden="true" class="mini-icon">🎮</span></div><h3>Blog Nostalgia</h3><p>Jogos antigos, memória e cultura digital.</p></a>
 <!-- MOONVERSE CARD HIDDEN UNTIL PUBLIC LAUNCH
 <a aria-label="Abrir Moonverse" class="section-card moonverse-hidden" href="https://www.luahelena.com.br/moonverse/" rel="noopener" target="_blank">
 <span aria-hidden="true" class="mini-icon">🌙</span>
@@ -1144,11 +1405,11 @@ END MOONVERSE CARD -->
 <section aria-label="IA e tecnologia" class="mini-group">
 <h3 class="mini-group-headline">IA &amp; tecnologia</h3>
 <div class="mini-grid">
-<a class="mini featured" data-tags="ia moon source metodo portatil contexto humano inteligencia artificial" href="https://www.mooon.com.br/moonsource/" style="--accent: #8ef5d4; --accent-rgb: 142, 245, 212;" rel="noopener" target="_blank">
+<a class="mini featured" data-tags="ia moon source metodo portatil contexto humano inteligencia artificial" href="https://www.mooon.com.br/moonsource/" rel="noopener" style="--accent: #8ef5d4; --accent-rgb: 142, 245, 212; --pulse-delay: -4.55s; --pulse-duration: 8.60s; --sweep-duration: 13.33s; --sweep-delay: -5.25s;" target="_blank">
 <span aria-hidden="true" class="glyph">💻</span>
 <span><strong>Moon Source</strong><em>método, contexto, portáveis</em></span>
 </a>
-<a class="mini" data-tags="arte imagem fotografia pinterest ia visual ai art" href="https://instagram.com/aiartbymoon" style="--accent: #a5ffe9;" rel="noopener" target="_blank">
+<a class="mini" data-tags="arte imagem fotografia pinterest ia visual ai art" href="https://instagram.com/aiartbymoon" rel="noopener" style="--accent: #a5ffe9;" target="_blank">
 <span aria-hidden="true" class="glyph">🎨</span>
 <span><strong>Arte com IA</strong><em>imagens, mundos, retratos</em></span>
 </a>
@@ -1157,7 +1418,7 @@ END MOONVERSE CARD -->
 <section aria-label="Política e presença pública" class="mini-group" style="--group: var(--theme-pol); --group-rgb: var(--theme-pol-rgb);">
 <h3 class="mini-group-headline">Política &amp; presença</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="politica psol limeira instagram esquerda vida publica" href="https://instagram.com/luahelena.psol" style="--accent: #ff6d8f;" rel="noopener" target="_blank">
+<a class="mini" data-tags="politica psol limeira instagram esquerda vida publica" href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: #ff6d8f;" target="_blank">
 <span aria-hidden="true" class="glyph">🗳️</span>
 <span><strong>Instagram político</strong><em>PSOL, Limeira, vida pública</em></span>
 </a>
@@ -1166,15 +1427,11 @@ END MOONVERSE CARD -->
 <section aria-label="Psicologia e carreira" class="mini-group" style="--group: var(--theme-psy); --group-rgb: var(--theme-psy-rgb);">
 <h3 class="mini-group-headline">Psicologia &amp; carreira</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="psicologia clinica instagram esquizoanalise atendimento carreira" href="https://instagram.com/luamoon.psi" style="--accent: #b7a3ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="psicologia clinica instagram esquizoanalise atendimento carreira" href="https://instagram.com/luamoon.psi" rel="noopener" style="--accent: #b7a3ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🧠</span>
 <span><strong>Instagram Psi</strong><em>clínica e psicologia</em></span>
 </a>
-<a class="mini featured" data-tags="linkedin curriculo carreira psicologia ia profissional" href="https://www.linkedin.com/in/luahelena/" style="--accent: #c8b8ff; --accent-rgb: 200, 184, 255;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">💼</span>
-<span><strong>LinkedIn</strong><em>trajetória profissional</em></span>
-</a>
-<a class="mini" data-tags="tcc monografia freud psicologia psicanalise primeira teoria academico" href="https://drive.google.com/file/d/1frj4CxmqMajKBWR8DZBPXBambeTIkBf4/view?usp=drivesdk" style="--accent: #9f8cff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="tcc monografia freud psicologia psicanalise primeira teoria academico" href="https://drive.google.com/file/d/1frj4CxmqMajKBWR8DZBPXBambeTIkBf4/view?usp=drivesdk" rel="noopener" style="--accent: #9f8cff;" target="_blank">
 <span aria-hidden="true" class="glyph">📚</span>
 <span><strong>TCC Freud</strong><em>monografia acadêmica</em></span>
 </a>
@@ -1183,19 +1440,15 @@ END MOONVERSE CARD -->
 <section aria-label="Escrita e mundos" class="mini-group" style="--group: var(--theme-write); --group-rgb: var(--theme-write-rgb);">
 <h3 class="mini-group-headline">Escrita &amp; mundos</h3>
 <div class="mini-grid">
-<a class="mini featured" data-tags="blog escrita textos cronicas ensaios moon" href="http://blog.luahelena.com.br" style="--accent: #f2c36f; --accent-rgb: 242, 195, 111;" rel="noopener" target="_blank">
+<a class="mini featured" data-tags="blog escrita textos cronicas ensaios moon" href="http://blog.luahelena.com.br" rel="noopener" style="--accent: #f2c36f; --accent-rgb: 242, 195, 111; --pulse-delay: -5.15s; --pulse-duration: 7.10s; --sweep-duration: 11.00s; --sweep-delay: -6.20s;" target="_blank">
 <span aria-hidden="true" class="glyph">✍️</span>
 <span><strong>Blog da Moon</strong><em>textos, crônicas, ensaios</em></span>
 </a>
-<a class="mini" data-tags="obras escrita livros literatura ensaios textos" href="https://www.luahelena.com.br/obras.html" style="--accent: #ffd98d;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">📚</span>
-<span><strong>Obras</strong><em>livros, textos, projetos</em></span>
-</a>
-<a class="mini" data-tags="lithia fantasia literatura cronicas obras mundos" href="https://instagram.com/a.c.lithia" style="--accent: #e6ad61;" rel="noopener" target="_blank">
+<a class="mini" data-tags="lithia fantasia literatura cronicas obras mundos" href="https://instagram.com/a.c.lithia" rel="noopener" style="--accent: #e6ad61;" target="_blank">
 <span aria-hidden="true" class="glyph">🏰</span>
 <span><strong>Líthia</strong><em>fantasia e mundos autorais</em></span>
 </a>
-<a class="mini" data-tags="livros leitura recomendacoes literatura cultura" href="https://www.luahelena.com.br/livros.html" style="--accent: #f4d7a0;" rel="noopener" target="_blank">
+<a class="mini" data-tags="livros leitura recomendacoes literatura cultura" href="https://www.luahelena.com.br/livros.html" rel="noopener" style="--accent: #f4d7a0;" target="_blank">
 <span aria-hidden="true" class="glyph">📖</span>
 <span><strong>Livros</strong><em>leituras e recomendações</em></span>
 </a>
@@ -1224,23 +1477,19 @@ END MOONVERSE GROUP -->
 <section aria-label="Nostalgia gamer" class="mini-group" style="--group: var(--theme-gamer); --group-rgb: var(--theme-gamer-rgb);">
 <h3 class="mini-group-headline">Nostalgia gamer</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="gamer jogos nostalgia blog cultura digital" href="https://nostalgia.mooon.com.br" style="--accent: #75c7ff;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">🎮</span>
-<span><strong>Blog Nostalgia</strong><em>jogos, memória, cultura digital</em></span>
-</a>
-<a class="mini" data-tags="jogos gamer recomendacao nostalgia games" href="https://www.luahelena.com.br/jogos.html" style="--accent: #98d8ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="jogos gamer recomendacao nostalgia games" href="https://www.luahelena.com.br/jogos.html" rel="noopener" style="--accent: #98d8ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🕹️</span>
 <span><strong>Jogos</strong><em>recomendações gamer</em></span>
 </a>
-<a class="mini" data-tags="pokemon jogos gamer colecao nostalgia" href="https://www.mooon.com.br/pokemon.html" style="--accent: #ffd966;" rel="noopener" target="_blank">
+<a class="mini" data-tags="pokemon jogos gamer colecao nostalgia" href="https://www.mooon.com.br/pokemon.html" rel="noopener" style="--accent: #ffd966;" target="_blank">
 <span aria-hidden="true" class="glyph">⚡</span>
 <span><strong>Pokémon</strong><em>coleção e memória lúdica</em></span>
 </a>
-<a class="mini" data-tags="habbo nostalgia construcoes tumblr quartos" href="https://www.tumblr.com/habbonostalgiabymoon" style="--accent: #7fc8ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="habbo nostalgia construcoes tumblr quartos" href="https://www.tumblr.com/habbonostalgiabymoon" rel="noopener" style="--accent: #7fc8ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🏠</span>
 <span><strong>Habbo Nostalgia</strong><em>construções e quartos</em></span>
 </a>
-<a class="mini" data-tags="habbo trax soundcloud musicas autorais nostalgia" href="https://soundcloud.com/mooonbr/sets/projeto-trax" style="--accent: #8cd6ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="habbo trax soundcloud musicas autorais nostalgia" href="https://soundcloud.com/mooonbr/sets/projeto-trax" rel="noopener" style="--accent: #8cd6ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🎵</span>
 <span><strong>Projeto Trax</strong><em>músicas autorais de Habbo</em></span>
 </a>
@@ -1249,19 +1498,19 @@ END MOONVERSE GROUP -->
 <section aria-label="Arte e imagem" class="mini-group" style="--group: var(--theme-art); --group-rgb: var(--theme-art-rgb);">
 <h3 class="mini-group-headline">Arte &amp; imagem</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="fotografia arte imagem youpic fotos autorais" href="https://youpic.com/luahelena/?mode=latest" style="--accent: #ff9ed6;" rel="noopener" target="_blank">
+<a class="mini" data-tags="fotografia arte imagem youpic fotos autorais" href="https://youpic.com/luahelena/?mode=latest" rel="noopener" style="--accent: #ff9ed6;" target="_blank">
 <span aria-hidden="true" class="glyph">📷</span>
 <span><strong>Fotografia</strong><em>olhar autoral</em></span>
 </a>
-<a class="mini" data-tags="pinterest moodboard estetica arte imagem curadoria" href="https://br.pinterest.com/luahelenammc/_pins/" style="--accent: #ffb3df;" rel="noopener" target="_blank">
+<a class="mini featured" data-tags="pinterest moodboard estetica arte imagem curadoria" href="https://br.pinterest.com/luahelenammc/_pins/" rel="noopener" style="--accent: #ffb3df; --accent-rgb: 255, 179, 223; --pulse-delay: -0.75s; --pulse-duration: 8.30s; --sweep-duration: 12.87s; --sweep-delay: -2.15s;" target="_blank">
 <span aria-hidden="true" class="glyph">📌</span>
 <span><strong>Pinterest</strong><em>referências e moodboards</em></span>
 </a>
-<a class="mini" data-tags="blog fotografias tumblr 2019 2022 imagem arquivo" href="https://luamoon19-22.tumblr.com" style="--accent: #f58fc7;" rel="noopener" target="_blank">
+<a class="mini" data-tags="blog fotografias tumblr 2019 2022 imagem arquivo" href="https://luamoon19-22.tumblr.com" rel="noopener" style="--accent: #f58fc7;" target="_blank">
 <span aria-hidden="true" class="glyph">🖼️</span>
 <span><strong>Blog de fotografias</strong><em>arquivo 2019–2022</em></span>
 </a>
-<a class="mini" data-tags="flickr fotografia antigo arquivo fotos" href="https://flickr.com/photos/regisness/" style="--accent: #ffc0e5;" rel="noopener" target="_blank">
+<a class="mini" data-tags="flickr fotografia antigo arquivo fotos" href="https://flickr.com/photos/regisness/" rel="noopener" style="--accent: #ffc0e5;" target="_blank">
 <span aria-hidden="true" class="glyph">📸</span>
 <span><strong>Flickr</strong><em>arquivo fotográfico antigo</em></span>
 </a>
@@ -1270,23 +1519,23 @@ END MOONVERSE GROUP -->
 <section aria-label="Música e cultura" class="mini-group" style="--group: var(--theme-culture); --group-rgb: var(--theme-culture-rgb);">
 <h3 class="mini-group-headline">Música &amp; cultura</h3>
 <div class="mini-grid">
-<a class="mini featured" data-tags="musica cultura spotify playlists" href="https://open.spotify.com/user/regisness" style="--accent: #a7e58b; --accent-rgb: 167, 229, 139;" rel="noopener" target="_blank">
+<a class="mini featured" data-tags="musica cultura spotify playlists" href="https://open.spotify.com/user/regisness" rel="noopener" style="--accent: #a7e58b; --accent-rgb: 167, 229, 139; --pulse-delay: -2.85s; --pulse-duration: 7.60s; --sweep-duration: 11.78s; --sweep-delay: -4.60s;" target="_blank">
 <span aria-hidden="true" class="glyph">🎧</span>
 <span><strong>Spotify</strong><em>playlists</em></span>
 </a>
-<a class="mini" data-tags="musicas nostalgicas mooon nostalgia musica" href="https://www.mooon.com.br/musicas.html" style="--accent: #c2f39e;" rel="noopener" target="_blank">
+<a class="mini" data-tags="musicas nostalgicas mooon nostalgia musica" href="https://www.mooon.com.br/musicas.html" rel="noopener" style="--accent: #c2f39e;" target="_blank">
 <span aria-hidden="true" class="glyph">🎵</span>
 <span><strong>Músicas nostálgicas</strong><em>memória sonora</em></span>
 </a>
-<a class="mini featured" data-tags="filmow filmes series cultura avaliacoes" href="https://filmow.com/usuario/luahelena" style="--accent: #8fdc7a; --accent-rgb: 143, 220, 122;" rel="noopener" target="_blank">
+<a class="mini featured" data-tags="filmow filmes series cultura avaliacoes" href="https://filmow.com/usuario/luahelena" rel="noopener" style="--accent: #8fdc7a; --accent-rgb: 143, 220, 122; --pulse-delay: -4.05s; --pulse-duration: 9.00s; --sweep-duration: 13.95s; --sweep-delay: -4.75s;" target="_blank">
 <span aria-hidden="true" class="glyph">🎬</span>
 <span><strong>Filmow</strong><em>filmes e séries avaliados</em></span>
 </a>
-<a class="mini" data-tags="series filmes recomendacao filmow cultura tv" href="https://www.luahelena.com.br/series.html" style="--accent: #b9ed91;" rel="noopener" target="_blank">
+<a class="mini" data-tags="series filmes recomendacao filmow cultura tv" href="https://www.luahelena.com.br/series.html" rel="noopener" style="--accent: #b9ed91;" target="_blank">
 <span aria-hidden="true" class="glyph">📺</span>
 <span><strong>Séries</strong><em>recomendações e avaliações</em></span>
 </a>
-<a class="mini" data-tags="avatar lenda de aang korra resenha antiga cultura pop" href="http://antigo.luahelena.com.br/2013/04/avatar-lenda-de-aangkorra.html" style="--accent: #92e2b0;" rel="noopener" target="_blank">
+<a class="mini" data-tags="avatar lenda de aang korra resenha antiga cultura pop" href="http://antigo.luahelena.com.br/2013/04/avatar-lenda-de-aangkorra.html" rel="noopener" style="--accent: #92e2b0;" target="_blank">
 <span aria-hidden="true" class="glyph">🌀</span>
 <span><strong>Avatar</strong><em>resenha antiga</em></span>
 </a>
@@ -1295,11 +1544,11 @@ END MOONVERSE GROUP -->
 <section aria-label="Viagens e mapas" class="mini-group" style="--group: var(--theme-travel); --group-rgb: var(--theme-travel-rgb);">
 <h3 class="mini-group-headline">Viagens &amp; mapas</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="viagens mapas cidades kairos fotos memoria geografica" href="https://www.luahelena.com.br/viagens.html" style="--accent: #7ed8ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="viagens mapas cidades kairos fotos memoria geografica" href="https://www.luahelena.com.br/viagens.html" rel="noopener" style="--accent: #7ed8ff;" target="_blank">
 <span aria-hidden="true" class="glyph">✈️</span>
 <span><strong>Viagens</strong><em>lugares, Kairós, memória</em></span>
 </a>
-<a class="mini" data-tags="mapa cidades viagens lugares geografia" href="https://www.luahelena.com.br/mapa.html" style="--accent: #9ee5ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="mapa cidades viagens lugares geografia" href="https://www.luahelena.com.br/mapa.html" rel="noopener" style="--accent: #9ee5ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🗺️</span>
 <span><strong>Mapa</strong><em>cidades já visitadas</em></span>
 </a>
@@ -1308,7 +1557,7 @@ END MOONVERSE GROUP -->
 <section aria-label="Espiritualidade e símbolo" class="mini-group" style="--group: var(--theme-spirit); --group-rgb: var(--theme-spirit-rgb);">
 <h3 class="mini-group-headline">Espiritualidade &amp; símbolo</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="espiritualidade taro neopaganismo hecate santuario ecoreligiao" href="https://www.instagram.com/descomplicando.o.taro" style="--accent: #d9a3ff;" rel="noopener" target="_blank">
+<a class="mini" data-tags="espiritualidade taro neopaganismo hecate santuario ecoreligiao" href="https://www.instagram.com/descomplicando.o.taro" rel="noopener" style="--accent: #d9a3ff;" target="_blank">
 <span aria-hidden="true" class="glyph">🔮</span>
 <span><strong>Tarô</strong><em>Descomplicando o Tarô</em></span>
 </a>
@@ -1317,64 +1566,41 @@ END MOONVERSE GROUP -->
 <section aria-label="Arquivo antigo e web" class="mini-group" style="--group: var(--theme-archive); --group-rgb: var(--theme-archive-rgb);">
 <h3 class="mini-group-headline">Arquivo antigo &amp; web</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="websites interessantes internet curadoria web antiga" href="https://www.luahelena.com.br/websites.html" style="--accent: #cbbb98;" rel="noopener" target="_blank">
+<a class="mini" data-tags="websites interessantes internet curadoria web antiga" href="https://www.luahelena.com.br/websites.html" rel="noopener" style="--accent: #cbbb98;" target="_blank">
 <span aria-hidden="true" class="glyph">🔗</span>
 <span><strong>Websites interessantes</strong><em>curadoria de internet</em></span>
 </a>
-<a class="mini" data-tags="blog antigo meu mundo minhas palavras 2011 2016 arquivo" href="http://antigo.luahelena.com.br" style="--accent: #d8c7a7;" rel="noopener" target="_blank">
+<a class="mini" data-tags="blog antigo meu mundo minhas palavras 2011 2016 arquivo" href="http://antigo.luahelena.com.br" rel="noopener" style="--accent: #d8c7a7;" target="_blank">
 <span aria-hidden="true" class="glyph">📁</span>
 <span><strong>Meu Mundo, Minhas Palavras</strong><em>blog antigo 2011–2016</em></span>
 </a>
-<a class="mini" data-tags="verba speculo blog 2016 2019 arquivo" href="https://verbaspeculo.luahelena.com.br" style="--accent: #bfae8b;" rel="noopener" target="_blank">
+<a class="mini" data-tags="verba speculo blog 2016 2019 arquivo" href="https://verbaspeculo.luahelena.com.br" rel="noopener" style="--accent: #bfae8b;" target="_blank">
 <span aria-hidden="true" class="glyph">📝</span>
 <span><strong>Verba Speculo</strong><em>blog 2016–2019</em></span>
 </a>
-<a class="mini" data-tags="tumblr arquivo blog antigo" href="https://www.luahelena.com.br/tumblr" style="--accent: #d0b889;" rel="noopener" target="_blank">
+<a class="mini" data-tags="tumblr arquivo blog antigo" href="https://www.luahelena.com.br/tumblr" rel="noopener" style="--accent: #d0b889;" target="_blank">
 <span aria-hidden="true" class="glyph">🌐</span>
 <span><strong>Tumblr</strong><em>arquivo contínuo</em></span>
-</a>
-<a class="mini" data-tags="mooon instagram perfil camada social" href="https://instagram.com/mooon.br" style="--accent: #e3d2a8;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">🌙</span>
-<span><strong>Mooon</strong><em>Instagram / camada Mooon</em></span>
 </a>
 </div>
 </section>
 <section aria-label="Papers e estudos" class="mini-group" style="--group: var(--theme-papers); --group-rgb: var(--theme-papers-rgb);">
 <h3 class="mini-group-headline">Papers &amp; estudos</h3>
 <div class="mini-grid">
-<a class="mini" data-tags="solidao paper ensaio estudo" href="https://drive.google.com/file/d/1pAlqMbgBruNEOo5_6H16uzh148RR1kKB/view" style="--accent: #f4a96b;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">📄</span>
-<span><strong>Solidão</strong><em>paper</em></span>
-</a>
-<a class="mini" data-tags="psicanalise pseudociencia paper estudo psicologia" href="https://drive.google.com/file/d/1AAYMYcgngJgBGi8XdR4mG930CdG0Bgvd/view" style="--accent: #ffbd7d;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">❓</span>
-<span><strong>Psicanálise é pseudociência?</strong><em>paper</em></span>
-</a>
-
-<a class="mini" data-tags="ia pela vida paper tecnologia politica saude inteligencia artificial" href="https://www.luahelena.com.br/ia/iapelavida.html" style="--accent: #ffc187;" rel="noopener" target="_blank">
+<a class="mini" data-tags="ia pela vida paper tecnologia politica saude inteligencia artificial" href="https://www.luahelena.com.br/ia/iapelavida.html" rel="noopener" style="--accent: #ffc187;" target="_blank">
 <span aria-hidden="true" class="glyph">🤖</span>
 <span><strong>IA pela Vida</strong><em>paper</em></span>
 </a></div>
-</section>
-<section aria-label="Contato" class="mini-group" style="--group: var(--theme-contact); --group-rgb: var(--theme-contact-rgb);">
-<h3 class="mini-group-headline">Contato</h3>
-<div class="mini-grid">
-<a class="mini" data-tags="contato email mensagem redes whatsapp linkedin" href="mailto:luahelenammc@gmail.com" style="--accent: #e6ddcf;" rel="noopener" target="_blank">
-<span aria-hidden="true" class="glyph">✉️</span>
-<span><strong>E-mail</strong><em>mensagem direta</em></span>
-</a>
-</div>
 </section>
 </div>
 </section>
 <footer aria-label="Rodapé" class="footer">
 <div>luahelena.com.br</div>
 <div class="footer-links">
-<a href="https://www.linkedin.com/in/luahelena/" style="--accent: #c8b8ff; --accent-rgb: 200, 184, 255;" rel="noopener" target="_blank">LinkedIn</a>
-<a href="https://instagram.com/luamoon.psi" style="--accent: #b7a3ff;" rel="noopener" target="_blank">Psicologia</a>
+<a href="https://www.linkedin.com/in/luahelena/" rel="noopener" style="--accent: #c8b8ff; --accent-rgb: 200, 184, 255;" target="_blank">LinkedIn</a>
+<a href="https://instagram.com/luamoon.psi" rel="noopener" style="--accent: #b7a3ff;" target="_blank">Psicologia</a>
 <a href="https://www.luahelena.com.br/ia/" rel="noopener" target="_blank">IA</a>
-<a href="https://instagram.com/luahelena.psol" style="--accent: #ff6d8f;" rel="noopener" target="_blank">Política</a>
-<a href="mailto:luahelenammc@gmail.com" style="--accent: #e6ddcf;" rel="noopener" target="_blank">E-mail</a>
+<a href="https://instagram.com/luahelena.psol" rel="noopener" style="--accent: #ff6d8f;" target="_blank">Política</a>
 </div>
 </footer>
 </main>
