@@ -1,218 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lua Helena Moon — Arquitetura de Contexto Humano–IA</title>
-  <!-- V8: polish visual com termos em português e linguagem LinkedIn mais clara -->
-  <meta name="description" content="Apresentação profissional de Lua Helena Moon: psicóloga hospitalar, socióloga de formação e arquiteta de contexto humano–IA, em busca da primeira oportunidade formal em IA 100% remota." />
-  <meta name="theme-color" content="#090814" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lua Helena Moon — Arquitetura de Contexto Humano–IA</title>
+<meta content="Apresentação profissional de Lua Helena Moon: psicóloga hospitalar, socióloga de formação e arquiteta de contexto humano–IA, em busca da primeira oportunidade formal em IA 100% remota." name="description"/>
+<meta content="#080711" name="theme-color"/>
+<style>
     :root {
       color-scheme: dark;
-      --bg: #060711;
-      --bg-2: #0e0a1f;
-      --paper: #111321;
-      --paper-soft: rgba(255,255,255,.065);
-      --paper-strong: rgba(255,255,255,.105);
+      --bg: #080711;
+      --surface: rgba(255,255,255,.075);
+      --surface-2: rgba(255,255,255,.105);
       --text: #fffaf7;
-      --muted: #d8ccdf;
-      --quiet: #a998b8;
+      --muted: #d9cfdf;
+      --quiet: #aa9bb8;
       --line: rgba(255,255,255,.15);
-      --line-strong: rgba(255,255,255,.24);
+      --line-2: rgba(255,255,255,.25);
       --violet: #b98cff;
       --rose: #ff91c8;
-      --cyan: #89dcff;
+      --cyan: #8bdcff;
       --mint: #a6f3d4;
       --gold: #ffe2a0;
-      --amber: #ffbd73;
-      --danger: #ff8f8f;
-      --shadow: 0 34px 100px rgba(0,0,0,.46);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --display: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --shadow: 0 24px 78px rgba(0,0,0,.36);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: var(--font);
-      color: var(--text);
+      font-family: var(--sans);
       line-height: 1.55;
-      overflow-x: hidden;
+      color: var(--text);
       background:
-        radial-gradient(circle at 12% 4%, rgba(185,140,255,.30), transparent 28rem),
-        radial-gradient(circle at 88% 0%, rgba(255,145,200,.19), transparent 32rem),
-        radial-gradient(circle at 78% 92%, rgba(137,220,255,.13), transparent 34rem),
-        linear-gradient(145deg, #050610, #090813 52%, #120a22);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      opacity: .32;
-      background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.24) 0 1px, transparent 2px),
-        radial-gradient(circle at 70% 40%, rgba(255,255,255,.18) 0 1px, transparent 2px);
-      background-size: 72px 72px, 72px 72px, 210px 210px, 180px 180px;
-      mask-image: radial-gradient(circle at 50% 16%, #000 0 45%, transparent 82%);
-      pointer-events: none;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: -20%;
-      z-index: -1;
-      background: radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(185,140,255,.16), transparent 22rem);
-      pointer-events: none;
-      transition: opacity .25s ease;
+        radial-gradient(circle at 14% -10%, rgba(185,140,255,.22), transparent 31rem),
+        radial-gradient(circle at 95% 4%, rgba(255,145,200,.13), transparent 30rem),
+        linear-gradient(145deg, #050610 0%, #090812 55%, #120b22 100%);
     }
 
     a { color: inherit; }
-    p { margin: 0; color: var(--muted); }
-    b, strong { color: var(--text); }
-
-    .progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: var(--scroll, 0%);
-      height: 3px;
-      z-index: 20;
-      background: linear-gradient(90deg, var(--violet), var(--rose), var(--cyan), var(--mint));
-      box-shadow: 0 0 18px rgba(185,140,255,.75);
-    }
 
     .page {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 22px 0 52px;
+      padding: 24px 0 48px;
     }
 
     .topbar {
-      position: sticky;
-      top: 14px;
-      z-index: 10;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 26px;
-      padding: 10px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 999px;
-      background: rgba(8,8,18,.62);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 16px 56px rgba(0,0,0,.25);
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+      color: var(--muted);
+    }
+
+    .brand,
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      padding-left: 5px;
-      color: #f6efff;
+      text-decoration: none;
       white-space: nowrap;
-      font-weight: 720;
     }
 
-    .moon-dot {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 34% 28%, #fff 0 10%, #ffecbf 11% 18%, transparent 19%),
-        radial-gradient(circle at 36% 31%, #fff, #dac6ff 40%, #8259df 72%, #25104f);
-      box-shadow: 0 0 34px rgba(185,140,255,.56);
-      flex: 0 0 auto;
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 30%, #fff, #dfceff 38%, #8057dd 74%, #25104f);
+      box-shadow: 0 0 24px rgba(185,140,255,.38);
     }
 
-    .top-actions, .contact-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
+    .actions {
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .pill-link {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.07);
-      color: var(--text);
-      border-radius: 999px;
+      min-height: 42px;
       padding: 10px 14px;
-      font: inherit;
-      font-size: .93rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: var(--text);
       text-decoration: none;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      font-size: .93rem;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
     }
 
-    .pill-link:hover {
+    .button:hover {
       transform: translateY(-1px);
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.30);
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      background: rgba(255,255,255,.105);
+      border-color: var(--line-2);
     }
 
-    .pill-link.whatsapp {
+    .button.whatsapp {
       border-color: rgba(166,243,212,.30);
-      background: rgba(166,243,212,.08);
+      background: rgba(166,243,212,.075);
     }
 
     .hero {
-      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
-      gap: clamp(24px, 4vw, 44px);
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, .75fr);
+      gap: 18px;
       align-items: stretch;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: calc(var(--radius-xl) + 10px);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.135), rgba(255,255,255,.045)),
-        radial-gradient(circle at 18% 20%, rgba(255,226,160,.10), transparent 28rem);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
-      padding: clamp(26px, 5vw, 54px);
       margin-bottom: 18px;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      border-radius: inherit;
-      background:
-        radial-gradient(circle at 72% 24%, rgba(137,220,255,.16), transparent 24rem),
-        radial-gradient(circle at 85% 92%, rgba(255,145,200,.18), transparent 22rem);
-      pointer-events: none;
+    .surface {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(255,255,255,.092), rgba(255,255,255,.045));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
-    .hero-copy, .orbit-card { position: relative; z-index: 1; }
+    .intro {
+      padding: clamp(34px, 5vw, 58px);
+      overflow: hidden;
+      isolation: isolate;
+    }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 17px;
+    .__text_mode_custom_bg__::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--hero-mx, 74%) var(--hero-my, 22%), rgba(137,220,255,.16), transparent 24rem),
+        radial-gradient(circle at calc(var(--hero-mx, 74%) - 34%) calc(var(--hero-my, 22%) + 34%), rgba(255,226,160,.09), transparent 24rem),
+        radial-gradient(circle at calc(var(--hero-mx, 74%) + 10%) calc(var(--hero-my, 22%) + 50%), rgba(255,145,200,.13), transparent 22rem);
+      pointer-events: none;
+      opacity: .95;
+      transition: opacity .22s ease;
+    }
+
+    .__text_mode_custom_bg__ > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .summary {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .eyebrow,
+    .label {
+      margin: 0 0 10px;
       color: var(--gold);
-      font-size: .75rem;
-      font-weight: 860;
+      font-size: .74rem;
+      font-weight: 850;
       letter-spacing: .13em;
       text-transform: uppercase;
+    }
+
+    .label { color: var(--quiet); }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.05;
+      letter-spacing: -.04em;
     }
 
     h1 {
@@ -223,701 +192,768 @@
       letter-spacing: -.085em;
     }
 
-    .gradient-text {
-      background: linear-gradient(92deg, #fff 0%, var(--gold) 18%, var(--violet) 45%, var(--rose) 72%, var(--cyan) 100%);
+    h2 {
+      font-size: clamp(1.35rem, 2.35vw, 1.9rem);
+    }
+
+    h3 {
+      font-size: 1.04rem;
+      letter-spacing: -.015em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .gradient {
+      background: linear-gradient(92deg, #fffaf7 0%, var(--gold) 18%, var(--violet) 45%, var(--rose) 72%, var(--cyan) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .lead {
-      max-width: 760px;
-      font-size: clamp(1.09rem, 2vw, 1.32rem);
-      color: #e8dced;
+      max-width: 780px;
+      margin-top: 18px;
+      font-size: clamp(1.08rem, 2vw, 1.26rem);
     }
 
-    .profile-line {
+    .profile {
       max-width: 790px;
       margin-top: 18px;
-      color: #f8f1ff;
-      font-size: 1rem;
+      color: #f5effb;
     }
 
-    .identity {
+    .chips,
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 24px;
-      max-width: 860px;
+      gap: 8px;
+      margin-top: 18px;
     }
 
-    .chip {
+    .chip,
+    .tag {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.062);
-      color: #f7f1ff;
+      border: 1px solid rgba(255,255,255,.14);
       border-radius: 999px;
-      padding: 9px 12px;
-      font-size: .9rem;
+      background: rgba(255,255,255,.055);
+      color: #f4efff;
+      padding: 8px 10px;
+      font-size: .88rem;
     }
 
-    .chip.highlight {
-      border-color: rgba(255,226,160,.35);
-      background: rgba(255,226,160,.10);
+    .chip.important {
+      border-color: rgba(255,226,160,.34);
+      background: rgba(255,226,160,.095);
       color: #fff0c5;
     }
 
-    .hero-panel {
-      min-height: 100%;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--radius-xl);
-      background:
-        linear-gradient(145deg, rgba(6,7,17,.76), rgba(255,255,255,.055)),
-        radial-gradient(circle at 88% 0%, rgba(255,226,160,.10), transparent 18rem);
-      padding: 22px;
+    .mini-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini {
+      position: relative;
+      isolation: isolate;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .panel-kicker {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--quiet);
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      font-weight: 850;
-    }
-
-    .panel-kicker span:last-child {
-      color: var(--gold);
-    }
-
-    .hero-panel h2 {
-      margin: 0;
-      font-size: clamp(1.32rem, 2vw, 1.85rem);
-      line-height: 1.08;
-      letter-spacing: -.045em;
-      max-width: 360px;
-    }
-
-    .hero-panel-intro {
-      display: grid;
-      gap: 10px;
-    }
-
-    .hero-panel-intro p {
-      max-width: 380px;
-      font-size: .96rem;
-    }
-
-    .value-card-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .value-card {
       display: grid;
       grid-template-columns: 42px 1fr;
       gap: 12px;
-      align-items: start;
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 20px;
-      background: rgba(255,255,255,.055);
-      padding: 13px;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
-    }
-
-    .value-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.28);
-      background: rgba(255,255,255,.085);
-    }
-
-    .value-num {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      color: #15101e;
-      background: linear-gradient(135deg, var(--gold), var(--rose));
-      font-size: .78rem;
-      font-weight: 900;
-      box-shadow: 0 12px 28px rgba(0,0,0,.22);
-    }
-
-    .value-card:nth-child(2) .value-num { background: linear-gradient(135deg, var(--mint), var(--cyan)); }
-    .value-card:nth-child(3) .value-num { background: linear-gradient(135deg, var(--cyan), var(--violet)); }
-    .value-card:nth-child(4) .value-num { background: linear-gradient(135deg, var(--rose), var(--amber)); }
-
-    .value-card b {
-      display: block;
-      line-height: 1.15;
-      margin-bottom: 3px;
-      font-size: .98rem;
-    }
-
-    .value-card small {
-      display: block;
-      color: var(--quiet);
-      line-height: 1.35;
-      font-size: .82rem;
-    }
-
-    .panel-note {
-      border: 1px solid rgba(255,226,160,.18);
-      border-radius: 18px;
-      background: rgba(255,226,160,.075);
-      color: #f4e8ca;
-      padding: 12px 13px;
-      font-size: .9rem;
-    }
-
-    .section-nav {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin: 18px 0;
-    }
-
-    .section-nav a {
+      align-items: center;
+      padding: 12px;
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 18px;
-      padding: 12px 13px;
-      text-decoration: none;
-      color: var(--muted);
       background: rgba(255,255,255,.045);
-      transition: .18s ease;
-      font-size: .9rem;
+      margin-bottom: 0;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), margin-bottom .24s cubic-bezier(.2,.8,.2,1), border-color .22s ease, background .22s ease, box-shadow .22s ease;
+      will-change: transform, margin-bottom;
     }
 
-    .section-nav a:hover,
-    .section-nav a.active {
-      color: var(--text);
-      background: rgba(255,255,255,.095);
-      border-color: rgba(255,255,255,.26);
-      transform: translateY(-1px);
+    .mini::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(137,220,255,.11), transparent 9rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 28%) calc(var(--card-my, 18%) + 36%), rgba(255,145,200,.075), transparent 8rem);
+      opacity: .72;
+      pointer-events: none;
+      transition: opacity .22s ease;
     }
 
-    .signal-strip {
+    .mini:hover {
+      border-color: var(--line-2);
+      background: linear-gradient(145deg, var(--surface-2), rgba(255,255,255,.052));
+      transform: translateY(-5px);
+      margin-bottom: 5px;
+      box-shadow: 0 20px 48px rgba(0,0,0,.28);
+    }
+
+    .mini:hover::before {
+      opacity: 1;
+    }
+
+    .mini-icon {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 18px;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(185,140,255,.30);
+      background: rgba(185,140,255,.14);
+      font-size: 1.08rem;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
     }
 
-    .signal, .card {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .65s ease, transform .65s ease;
+    .mini:hover .mini-icon {
+      transform: translateY(-1px) scale(1.04);
+      border-color: rgba(255,255,255,.28);
+      background: rgba(185,140,255,.21);
     }
-    .signal.visible, .card.visible { opacity: 1; transform: translateY(0); }
 
-    .signal {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.055);
-      padding: 18px;
-      min-height: 128px;
+    .mini p,
+    .card p {
+      margin-top: 5px;
     }
-    .signal b { display: block; font-size: 1.03rem; margin-bottom: 7px; }
-    .signal span { display: block; color: var(--muted); font-size: .95rem; }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    .section-head p:last-child {
+      max-width: 600px;
+      text-align: right;
+    }
+
+
+    .section-head.direct {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-head.direct h2 {
+      margin: 0;
+      color: var(--gold);
+      font-size: clamp(1.02rem, 1.7vw, 1.32rem);
+      line-height: 1.15;
+      letter-spacing: .065em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 16px;
+      align-items: stretch;
     }
+
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .card {
       position: relative;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: linear-gradient(145deg, var(--paper-soft), rgba(255,255,255,.038));
-      box-shadow: 0 18px 52px rgba(0,0,0,.24);
-      padding: 24px;
-      backdrop-filter: blur(18px);
+      isolation: isolate;
       overflow: hidden;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, var(--surface), rgba(255,255,255,.043));
+      padding: 20px;
+      box-shadow: 0 14px 38px rgba(0,0,0,.22);
+      margin-bottom: 0;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), margin-bottom .24s cubic-bezier(.2,.8,.2,1), border-color .22s ease, background .22s ease, box-shadow .22s ease;
+      will-change: transform, margin-bottom;
     }
 
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 85% 0%, rgba(255,255,255,.07), transparent 12rem);
+      z-index: -1;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(137,220,255,.105), transparent 14rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 28%) calc(var(--card-my, 18%) + 36%), rgba(255,145,200,.075), transparent 13rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) + 12%) calc(var(--card-my, 18%) + 54%), rgba(255,226,160,.055), transparent 12rem);
+      opacity: .82;
       pointer-events: none;
-    }
-    .card > * { position: relative; z-index: 1; }
-    .card.wide { grid-column: 1 / -1; }
-    .card.callout { border-color: rgba(166,243,212,.25); background: linear-gradient(145deg, rgba(166,243,212,.08), rgba(137,220,255,.045)); }
-    .card.opportunity { border-color: rgba(255,226,160,.25); background: linear-gradient(145deg, rgba(255,226,160,.09), rgba(185,140,255,.055)); }
-    .card.proof { border-color: rgba(185,140,255,.25); background: linear-gradient(145deg, rgba(185,140,255,.10), rgba(255,255,255,.04)); }
-
-    .label {
-      margin: 0 0 10px;
-      color: var(--quiet);
-      font-size: .74rem;
-      font-weight: 880;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      transition: opacity .22s ease;
     }
 
-    h2 {
-      margin: 0 0 13px;
-      font-size: clamp(1.32rem, 2.15vw, 1.82rem);
-      line-height: 1.1;
-      letter-spacing: -.04em;
+    .card:hover {
+      border-color: var(--line-2);
+      background: linear-gradient(145deg, var(--surface-2), rgba(255,255,255,.052));
+      transform: translateY(-5px);
+      margin-bottom: 5px;
+      box-shadow: 0 24px 62px rgba(0,0,0,.32);
     }
 
-    .value-list { display: grid; gap: 10px; margin-top: 15px; }
-    .value {
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card.compact {
+      padding: 18px;
+    }
+
+    .card.featured {
+      border-color: rgba(166,243,212,.26);
+      background: linear-gradient(145deg, rgba(166,243,212,.08), rgba(255,255,255,.045));
+    }
+
+    .card.opportunity {
+      border-color: rgba(255,226,160,.25);
+      background: linear-gradient(145deg, rgba(255,226,160,.09), rgba(255,255,255,.045));
+    }
+
+    .line-card {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
       align-items: start;
-      color: var(--muted);
-    }
-    .mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-grid;
-      place-items: center;
-      background: rgba(185,140,255,.16);
-      border: 1px solid rgba(185,140,255,.30);
-      color: #f2e8ff;
-      font-size: .82rem;
-      margin-top: 1px;
     }
 
-    .use-cases, .tag-cloud {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-    .tag {
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.052);
-      color: #eee8fb;
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: .88rem;
-    }
-    .tag.hot { border-color: rgba(255,226,160,.28); background: rgba(255,226,160,.08); color: #fff0c5; }
-
-    .project-grid, .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .mini-grid { grid-template-columns: repeat(2, 1fr); }
-    .tile {
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(255,255,255,.11);
-      min-height: 150px;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-    }
-    .tile:hover { transform: translateY(-2px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
-    .tile strong { display: block; margin-bottom: 7px; font-size: 1.02rem; }
-    .tile a { text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
-
-    .boundary { display: grid; gap: 9px; margin-top: 14px; }
-    .boundary div {
-      padding: 12px 13px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.11);
-      background: rgba(255,255,255,.045);
-      color: var(--muted);
+    .line-card .mini-icon {
+      width: 48px;
+      height: 48px;
     }
 
-    .timeline {
-      display: grid;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .step {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 12px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.048);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .step-num {
-      width: 42px;
-      height: 42px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-family: var(--display);
-      font-weight: 800;
-      color: #120d20;
-      background: linear-gradient(135deg, var(--gold), var(--rose));
-      box-shadow: 0 10px 28px rgba(255,145,200,.18);
+    .proof-link {
+      text-decoration-color: rgba(255,255,255,.32);
+      text-underline-offset: 3px;
     }
 
-    .contact-card {
+    .dynamic-panel {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .dynamic-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(137,220,255,.11), transparent 18rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 30%) calc(var(--card-my, 18%) + 36%), rgba(255,145,200,.075), transparent 16rem);
+      pointer-events: none;
+      opacity: .78;
+      transition: opacity .22s ease;
+    }
+
+    .dynamic-panel:hover::before {
+      opacity: 1;
+    }
+
+    .dynamic-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 20px;
       align-items: center;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, rgba(185,140,255,.24), rgba(255,145,200,.13), rgba(137,220,255,.11));
-      box-shadow: var(--shadow);
+      margin-top: 28px;
       padding: 24px;
-      margin-top: 18px;
+      background: linear-gradient(135deg, rgba(185,140,255,.18), rgba(255,145,200,.10), rgba(137,220,255,.075));
     }
-    .contact-card h2 { margin-bottom: 6px; }
-    .contact-details {
+
+    .contact-links {
       display: grid;
       gap: 7px;
       margin-top: 16px;
       color: var(--muted);
+      font-style: normal;
       font-size: .96rem;
     }
-    .contact-details a { color: var(--text); text-decoration-color: rgba(255,255,255,.32); text-underline-offset: 3px; }
+
+    .contact-links a {
+      color: var(--text);
+      text-decoration-color: rgba(255,255,255,.32);
+      text-underline-offset: 3px;
+    }
 
     footer {
-      color: var(--quiet);
-      font-size: .87rem;
-      text-align: center;
       margin-top: 24px;
+      color: var(--quiet);
+      text-align: center;
+      font-size: .87rem;
+    }
+
+
+
+    /* V17: theme-aware interactive backgrounds + stronger hover lift */
+    .card,
+    .mini,
+    .dynamic-panel {
+      --theme-a: 185, 140, 255;
+      --theme-b: 137, 220, 255;
+      --theme-c: 255, 145, 200;
+      --lift-shadow: rgba(185, 140, 255, .16);
+    }
+
+    .theme-violet { --theme-a: 185, 140, 255; --theme-b: 137, 220, 255; --theme-c: 255, 226, 160; --lift-shadow: rgba(185, 140, 255, .20); }
+    .theme-cyan   { --theme-a: 137, 220, 255; --theme-b: 185, 140, 255; --theme-c: 166, 243, 212; --lift-shadow: rgba(137, 220, 255, .18); }
+    .theme-mint   { --theme-a: 166, 243, 212; --theme-b: 137, 220, 255; --theme-c: 255, 226, 160; --lift-shadow: rgba(166, 243, 212, .18); }
+    .theme-gold   { --theme-a: 255, 226, 160; --theme-b: 255, 145, 200; --theme-c: 185, 140, 255; --lift-shadow: rgba(255, 226, 160, .20); }
+    .theme-rose   { --theme-a: 255, 145, 200; --theme-b: 185, 140, 255; --theme-c: 255, 189, 115; --lift-shadow: rgba(255, 145, 200, .20); }
+
+    .theme-red    { --theme-a: 255, 112, 112; --theme-b: 255, 145, 200; --theme-c: 255, 189, 115; --lift-shadow: rgba(255, 112, 112, .22); }
+    .theme-red .label, .theme-red h2, .theme-red h3 { color: rgb(255, 196, 196); }
+    .theme-red .mini-icon { background: rgba(255, 112, 112, .16); border-color: rgba(255, 112, 112, .36); }
+
+    .organization-card {
+      padding: 24px;
+    }
+
+    .org-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .org-step {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .org-num {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(var(--theme-a), .95), rgba(var(--theme-b), .85));
+      color: #100d18;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(0,0,0,.20);
+    }
+
+    .org-step strong {
+      display: inline-block;
+      color: var(--text);
+      margin-bottom: 3px;
+      line-height: 1.2;
+    }
+
+    .org-step small {
+      color: var(--muted);
+      line-height: 1.38;
+      font-size: .88rem;
     }
 
     @media (max-width: 980px) {
-      .hero, .grid, .signal-strip, .contact-card { grid-template-columns: 1fr; }
-      .section-nav { grid-template-columns: repeat(2, 1fr); }
-      .project-grid, .mini-grid { grid-template-columns: 1fr; }
-      .topbar { align-items: flex-start; border-radius: 28px; flex-direction: column; }
-      .top-actions, .contact-actions { justify-content: flex-start; }
-      .radar { min-height: 330px; }
-      .node { width: 134px; }
-      h1 { letter-spacing: -.065em; }
+      .org-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .card::before {
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(var(--theme-a), .17), transparent 14rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 28%) calc(var(--card-my, 18%) + 36%), rgba(var(--theme-b), .095), transparent 13rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) + 12%) calc(var(--card-my, 18%) + 54%), rgba(var(--theme-c), .07), transparent 12rem);
+    }
+
+    .mini::before {
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(var(--theme-a), .18), transparent 9rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 28%) calc(var(--card-my, 18%) + 36%), rgba(var(--theme-b), .10), transparent 8rem);
+    }
+
+    .dynamic-panel::before {
+      background:
+        radial-gradient(circle at var(--card-mx, 82%) var(--card-my, 18%), rgba(var(--theme-a), .15), transparent 18rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) - 30%) calc(var(--card-my, 18%) + 36%), rgba(var(--theme-b), .09), transparent 16rem),
+        radial-gradient(circle at calc(var(--card-mx, 82%) + 10%) calc(var(--card-my, 18%) + 52%), rgba(var(--theme-c), .065), transparent 14rem);
+    }
+
+    .card,
+    .mini {
+      top: 0;
+      transform: translate3d(0, 0, 0);
+      transition:
+        transform .30s cubic-bezier(.16, 1, .3, 1),
+        box-shadow .30s ease,
+        border-color .24s ease,
+        background .24s ease;
+    }
+
+    .card:hover,
+    .mini:hover {
+      transform: translate3d(0, -9px, 0);
+      border-color: rgba(var(--theme-a), .48);
+      box-shadow:
+        0 28px 74px rgba(0, 0, 0, .38),
+        0 12px 32px var(--lift-shadow);
+    }
+
+    .card::after,
+.card:hover::after,
+.card > *,
+    .mini > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .theme-violet .label, .theme-violet h3 { color: rgb(224, 211, 255); }
+    .theme-cyan .label,   .theme-cyan h3   { color: rgb(205, 240, 255); }
+    .theme-mint .label,   .theme-mint h3   { color: rgb(212, 255, 235); }
+    .theme-gold .label,   .theme-gold h3   { color: rgb(255, 239, 199); }
+    .theme-rose .label,   .theme-rose h3   { color: rgb(255, 215, 234); }
+
+    .theme-violet .mini-icon { background: rgba(185, 140, 255, .18); border-color: rgba(185, 140, 255, .36); }
+    .theme-cyan .mini-icon   { background: rgba(137, 220, 255, .16); border-color: rgba(137, 220, 255, .34); }
+    .theme-mint .mini-icon   { background: rgba(166, 243, 212, .14); border-color: rgba(166, 243, 212, .34); }
+    .theme-gold .mini-icon   { background: rgba(255, 226, 160, .14); border-color: rgba(255, 226, 160, .34); }
+    .theme-rose .mini-icon   { background: rgba(255, 145, 200, .15); border-color: rgba(255, 145, 200, .34); }
+
+    @media (max-width: 980px) {
+      .hero,
+      .cols-2,
+      .cols-3,
+      .cols-4,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .section-head p:last-child {
+        max-width: none;
+        text-align: left;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 560px) {
-      .page { width: min(100% - 20px, 1180px); padding-top: 12px; }
-      .hero, .card, .contact-card { border-radius: 26px; padding: 20px; }
-      .section-nav { grid-template-columns: 1fr; }
-      .node { position: static; width: auto; margin: 8px; }
-      .radar { display: grid; align-content: center; gap: 2px; min-height: auto; padding: 92px 0 10px; }
-      .center-moon { top: 18px; transform: translateX(-50%); width: 90px; height: 90px; font-size: .82rem; }
+      .page {
+        width: min(100% - 22px, 1120px);
+        padding-top: 14px;
+      }
+
+      .intro,
+      .summary,
+      .card,
+      .contact {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .button,
+      .actions {
+        width: 100%;
+      }
+
+      h1 {
+        letter-spacing: -.065em;
+      }
+
+      .mini,
+      .line-card {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-icon {
+        width: 38px;
+        height: 38px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .signal, .card { opacity: 1; transform: none; }
+      *, *::before, *::after { transition: none !important; }
+      .mini:hover, .card:hover, .button:hover { transform: none; margin-bottom: 0; }
+      .card::before, .mini::before, .card::after, .mini::after, .dynamic-panel::before, .__text_mode_custom_bg__::before { transition: none !important; }
+      .card:hover, .mini:hover { box-shadow: 0 14px 38px rgba(0,0,0,.22); }
     }
 
     @media print {
-      body { background: #fff; color: #111; }
-      body::before, body::after, .progress, .topbar, .section-nav, footer { display: none !important; }
-      .page { width: 100%; padding: 0; }
-      .hero, .card, .signal, .contact-card, .tile, .step, .boundary div, .node, .radar {
+      body {
+        color: #111;
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .topbar,
+      footer {
+        display: none;
+      }
+
+      .surface,
+      .card,
+      .contact,
+      .mini {
         box-shadow: none;
         background: #fff;
         color: #111;
         border-color: #ddd;
       }
-      .signal, .card { opacity: 1; transform: none; }
-      .lead, p, .value, .signal span, .boundary div, .tile, .step { color: #333; }
-      .gradient-text { color: #111; background: none; }
-      .chip, .tag { border-color: #ddd; background: #f8f8f8; color: #111; }
-      .label { color: #666; }
+
+      .gradient {
+        background: none;
+        color: #111;
+      }
+
+      p,
+      .lead,
+      .profile,
+      .contact-links {
+        color: #333;
+      }
+
+      .chip,
+      .tag {
+        background: #f8f8f8;
+        border-color: #ddd;
+        color: #111;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="progress" aria-hidden="true"></div>
-  <div class="page">
-    <header class="topbar" aria-label="Topo da página">
-      <div class="brand"><span class="moon-dot" aria-hidden="true"></span><span>Lua Helena Moon</span></div>
-      <div class="top-actions" aria-label="Links de contato principais">
-        <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="pill-link whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" id="inicio">
-        <div class="hero-copy">
-          <div class="eyebrow">🌙 Arquitetura de Contexto Humano–IA</div>
-          <h1>A IA não falha só por falta de modelo. Ela falha por falta de <span class="gradient-text">contexto.</span></h1>
-          <p class="lead">
-            Eu transformo conhecimento humano disperso — linguagem, memória, limites, decisões, documentos e modos de trabalho — em estruturas que tornam a IA mais útil, contínua e aplicável a pessoas, equipes e projetos reais.
-          </p>
-          <p class="profile-line">
-            Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, documentação viva, sistemas humano–IA e arquitetura de uso.
-          </p>
-          <div class="identity" aria-label="Resumo profissional">
-            <span class="chip">Psicologia hospitalar</span>
-            <span class="chip">Sociologia</span>
-            <span class="chip">Psicologia Organizacional</span>
-            <span class="chip">Psicopedagogia Institucional</span>
-            <span class="chip">IA generativa desde 2022</span>
-            <span class="chip highlight">Primeira oportunidade formal em IA</span>
-            <span class="chip highlight">100% remoto • Limeira/SP</span>
-          </div>
-        </div>
-
-        <aside class="hero-panel" aria-label="Resumo objetivo de valor">
-          <div class="panel-kicker"><span>Onde eu gero valor</span><span>contexto → uso real</span></div>
-          <div class="hero-panel-intro">
-            <h2>Quatro frentes onde meu perfil encaixa melhor.</h2>
-            <p>Um resumo rápido para quem precisa entender, em poucos segundos, onde a Arquitetura de Contexto Humano–IA vira trabalho concreto.</p>
-          </div>
-          <div class="value-card-list">
-            <div class="value-card">
-              <span class="value-num">01</span>
-              <span><b>Letramento em IA</b><small>Transformar uso intuitivo de IA em método ensinável e revisável.</small></span>
-            </div>
-            <div class="value-card">
-              <span class="value-num">02</span>
-              <span><b>People Analytics</b><small>Complementar dados com contexto humano, institucional e qualitativo.</small></span>
-            </div>
-            <div class="value-card">
-              <span class="value-num">03</span>
-              <span><b>Governança do conhecimento</b><small>Organizar memória, documentação viva e continuidade de decisão.</small></span>
-            </div>
-            <div class="value-card">
-              <span class="value-num">04</span>
-              <span><b>IA responsável</b><small>Criar limites, revisão humana e separação entre fato, inferência e preferência.</small></span>
-            </div>
-          </div>
-          <div class="panel-note">Quatro frentes onde a arquitetura de contexto pode gerar valor para IA, pessoas, conhecimento e adoção tecnológica.</div>
-        </aside>
-      </section>
-
-      <nav class="section-nav" aria-label="Navegação da página">
-        <a href="#quando">Quando me chamar</a>
-        <a href="#entregas">Entregas</a>
-        <a href="#provas">Provas</a>
-        <a href="#qualidade">Qualidade</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <section class="signal-strip" aria-label="Valor principal">
-        <article class="signal">
-          <b>Contexto antes da ferramenta</b>
-          <span>Organizo informações dispersas em bases que a IA consegue ler, manter e reutilizar.</span>
-        </article>
-        <article class="signal">
-          <b>Adoção humana</b>
-          <span>Leio fricções, linguagem, confiança, limites e uso real — onde muitas iniciativas de IA travam.</span>
-        </article>
-        <article class="signal">
-          <b>Conhecimento vivo</b>
-          <span>Crio documentação, perfis-fonte, roteiros de uso e rotas de atualização para evitar perda de continuidade.</span>
-        </article>
-      </section>
-
-      <section class="grid" aria-label="Conteúdo principal">
-        <article class="card callout" id="quando">
-          <p class="label">Quando me chamar</p>
-          <h2>Quando a IA precisa entender o trabalho antes de “automatizar” qualquer coisa.</h2>
-          <div class="value-list">
-            <div class="value"><span class="mark">•</span><span>Quando sua equipe usa IA, mas perde contexto entre conversas, documentos e decisões.</span></div>
-            <div class="value"><span class="mark">•</span><span>Quando há conhecimento importante espalhado em chats, reuniões, PDFs, processos e pessoas.</span></div>
-            <div class="value"><span class="mark">•</span><span>Quando o problema não é só técnico, mas de adoção, linguagem, continuidade e confiança.</span></div>
-            <div class="value"><span class="mark">•</span><span>Quando uso intuitivo de IA precisa virar método ensinável, revisável e sustentável.</span></div>
-          </div>
-        </article>
-
-        <article class="card" id="entregas">
-          <p class="label">Como isso vira entrega</p>
-          <h2>Transformo contexto em módulos operacionais para IA.</h2>
-          <p>
-            Meu trabalho é desenhar a camada que fica entre pessoas reais e sistemas inteligentes: uma estrutura de contexto, função, fronteira e continuidade.
-          </p>
-          <div class="tag-cloud" aria-label="Entregáveis possíveis">
-            <span class="tag hot">perfis-fonte</span>
-            <span class="tag hot">repasses de contexto</span>
-            <span class="tag">pacotes de contexto</span>
-            <span class="tag">roteiros de prompt</span>
-            <span class="tag">knowledge maps</span>
-            <span class="tag">critérios de revisão</span>
-            <span class="tag">documentação viva</span>
-            <span class="tag">rotas de atualização</span>
-          </div>
-        </article>
-
-        <article class="card opportunity">
-          <p class="label">Oportunidade que procuro</p>
-          <h2>Minha primeira oportunidade formal de trabalhar com IA.</h2>
-          <p>
-            Quero levar esse hiperfoco de quatro anos para uma atuação profissional concreta. Busco oportunidades 100% remoto, porque não consigo me mudar de Limeira/SP, em frentes onde IA precise de contexto, adoção, documentação, governança de conhecimento ou tradução entre áreas.
-          </p>
-          <div class="tag-cloud" aria-label="Áreas desejadas">
-            <span class="tag hot">adoção de IA</span>
-            <span class="tag hot">letramento em IA</span>
-            <span class="tag">arquitetura de contexto</span>
-            <span class="tag">governança do conhecimento</span>
-            <span class="tag">people analytics</span>
-            <span class="tag">IA responsável</span>
-          </div>
-        </article>
-
-        <article class="card" id="qualidade">
-          <p class="label">Critérios de qualidade</p>
-          <h2>Contexto útil, não acúmulo bonito.</h2>
-          <div class="boundary">
-            <div><b>Contexto útil:</b> informação organizada por função, gatilho, destino e atualização.</div>
-            <div><b>Personalização estrutural:</b> não é trocar nome, avatar ou tom; é definir memória, limites, tarefas e critérios.</div>
-            <div><b>Governança humana:</b> separar fato, inferência, preferência, risco e decisão antes de delegar à IA.</div>
-            <div><b>Adoção real:</b> a ferramenta precisa caber na rotina, na linguagem e nos limites de quem vai usar.</div>
-          </div>
-        </article>
-
-        <article class="card wide proof" id="provas">
-          <p class="label">Provas de trabalho</p>
-          <h2>Projetos vivos onde essa prática foi construída.</h2>
-          <div class="project-grid">
-            <div class="tile">
-              <strong><a href="https://mooon.com.br/moonsource/" target="_blank" rel="noopener">Moon Source</a></strong>
-              <p>Método para criar uma camada-fonte de contexto, memória, voz, limites, projetos e operação contínua para uso avançado de IA.</p>
-            </div>
-            <div class="tile">
-              <strong>Local Moon Source</strong>
-              <p>Corpus operacional de mecanismos, protocolos, repasses de contexto, módulos, rotas de atualização e documentação viva para trabalho com IA.</p>
-            </div>
-            <div class="tile">
-              <strong>Symbiosphere</strong>
-              <p>Comunidade internacional sobre simbiose humano–IA, coautoria, experimentação responsável e colaboração de longo prazo.</p>
-            </div>
-            <div class="tile">
-              <strong>SymbAI</strong>
-              <p>Estúdio em formação com desenvolvedores e builders de IA, voltado a produtos, fluxos de trabalho e infraestruturas orientadas por contexto real.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="card wide">
-          <p class="label">Módulos que sei estruturar</p>
-          <h2>Competência modular para sistemas humano–IA.</h2>
-          <div class="mini-grid">
-            <div class="tile"><strong>Perfis-fonte</strong><p>Documentos que tornam uma pessoa, equipe ou projeto legível para IA sem despejar tudo de forma caótica.</p></div>
-            <div class="tile"><strong>Repasses de contexto</strong><p>Pontes curtas entre pessoas, IAs, equipes e projetos, com escopo, limites, contexto e próximo passo.</p></div>
-            <div class="tile"><strong>Playbooks de IA</strong><p>Instruções reutilizáveis para tarefas recorrentes: quando usar, como usar, o que evitar e como revisar.</p></div>
-            <div class="tile"><strong>Governança de contexto</strong><p>Critérios para manter memória viva, separar fatos de interpretações e evitar desvio, redundância e excesso de promessa.</p></div>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="label">Valor para organizações</p>
-          <h2>O gargalo da IA raramente é só técnico.</h2>
-          <p>
-            Muitas iniciativas perdem força porque ninguém estruturou o contexto que a IA precisa preservar: quem usa, para quê, com quais limites, em qual linguagem, com qual memória e com quais critérios de confiança.
-          </p>
-          <div class="timeline" aria-label="Onde gero valor">
-            <div class="step"><div class="step-num">1</div><div><b>Letramento em IA situada</b><br /><p>Uso de IA com contexto real, não só dicas genéricas.</p></div></div>
-            <div class="step"><div class="step-num">2</div><div><b>Company brain e documentação viva</b><br /><p>Conhecimento operacional que permanece acessível, revisável e útil.</p></div></div>
-            <div class="step"><div class="step-num">3</div><div><b>Tradução humano–sistema</b><br /><p>Complexidade humana convertida em requisitos, linguagem, limites e rotas de uso.</p></div></div>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="label">Recorte honesto</p>
-          <h2>Não sou engenheira de IA. Esse não é o ponto.</h2>
-          <div class="boundary">
-            <div><b>Não sou:</b> engenheira de aprendizado de máquina, cientista de dados ou desenvolvedora full-stack.</div>
-            <div><b>Sou:</b> uma profissional de fronteira entre psicologia institucional, linguagem, documentação, IA aplicada e arquitetura de uso.</div>
-            <div><b>Entro melhor onde:</b> o desafio envolve contexto, pessoas, adoção, conhecimento, governança, aprendizagem e sistemas que precisam funcionar na vida real.</div>
-          </div>
-        </article>
-
-        <article class="card wide">
-          <p class="label">Por que conversar comigo</p>
-          <h2>Porque eu vivo exatamente no espaço onde a IA encontra a complexidade humana.</h2>
-          <p>
-            Tenho formação em áreas humanas e institucionais, prática hospitalar em ambiente de alta complexidade e quatro anos de uso intensivo de IA generativa. Posso contribuir especialmente com pessoas e organizações trabalhando em Letramento em IA, people analytics, IA responsável, educação corporativa, produto, saúde, knowledge management e adoção real de IA.
-          </p>
-        </article>
-      </section>
-
-      <section class="contact-card" id="contato" aria-label="Contato">
-        <div>
-          <p class="label">Contato</p>
-          <h2>Aberta a conversas sobre IA, contexto, adoção e conhecimento vivo.</h2>
-          <p>Especialmente com pessoas e organizações que precisam conectar tecnologia, linguagem, documentação, cultura e uso real. Busca atual: primeira oportunidade formal em IA, 100% remoto.</p>
-          <div class="contact-details" aria-label="Informações de contato">
-            <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">@luahelena</a></span>
-            <span><b>WhatsApp:</b> <a href="https://wa.me/5541992228411" target="_blank" rel="noopener">(41) 9 9222-8411</a></span>
-            <span><b>E-mail:</b> <a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span>
-          </div>
-        </div>
-        <div class="contact-actions" aria-label="Ações de contato">
-          <a class="pill-link" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">Abrir LinkedIn</a>
-          <a class="pill-link whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">Enviar mensagem no WhatsApp</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remoto<br />
-      LinkedIn: @luahelena · WhatsApp: (41) 9 9222-8411 · E-mail: luahelenammc@gmail.com
+<main class="page" id="top">
+<header class="topbar">
+<a aria-label="Voltar ao topo" class="brand" href="#top">
+<span aria-hidden="true" class="brand-mark"></span>
+<span>Lua Helena Moon</span>
+</a>
+<nav aria-label="Contato rápido" class="actions">
+<a class="button" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 LinkedIn</a>
+<a class="button whatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 WhatsApp</a>
+</nav>
+</header>
+<section aria-labelledby="hero-title" class="hero">
+<article class="surface intro __text_mode_custom_bg__">
+<p class="eyebrow">🌙 Arquitetura de Contexto Humano–IA</p>
+<h1 id="hero-title">A IA não falha só por falta de modelo. Ela falha por falta de <span class="gradient">contexto.</span></h1>
+<p class="lead">Transformo conhecimento humano disperso — linguagem, memória, limites, decisões, documentos e modos de trabalho — em estruturas que tornam a IA mais útil, contínua e aplicável a pessoas, equipes e projetos reais.</p>
+<p class="profile">Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, documentação viva, sistemas humano–IA e arquitetura de uso.</p>
+<p aria-label="Resumo profissional" class="chips">
+<span class="chip">🏥 Psicologia hospitalar</span>
+<span class="chip">📚 Sociologia</span>
+<span class="chip">🧭 Psicologia Organizacional</span>
+<span class="chip">🧩 Psicopedagogia Institucional</span>
+<span class="chip">🤖 IA generativa desde 2022</span>
+<span class="chip important">✨ Primeira oportunidade formal em IA</span>
+<span class="chip important">🏡 100% remota • Limeira/SP</span>
+</p>
+</article>
+<aside aria-label="Onde gero valor" class="surface summary">
+<p class="label">Onde gero valor</p>
+<div class="mini-list">
+<article class="mini theme-gold">
+<span class="mini-icon">🎓</span>
+<div>
+<h3>Letramento em IA</h3>
+<p>Uso intuitivo de IA virando método ensinável.</p>
+</div>
+</article>
+<article class="mini theme-mint">
+<span class="mini-icon">🧠</span>
+<div>
+<h3>People Analytics</h3>
+<p>Dados conectados a contexto humano e leitura institucional.</p>
+</div>
+</article>
+<article class="mini theme-cyan">
+<span class="mini-icon">🗂️</span>
+<div>
+<h3>Governança do conhecimento</h3>
+<p>Memória, documentação viva e continuidade.</p>
+</div>
+</article>
+<article class="mini theme-rose">
+<span class="mini-icon">⚖️</span>
+<div>
+<h3>IA responsável</h3>
+<p>Fato, inferência, preferência, limite e decisão bem separados.</p>
+</div>
+</article>
+</div>
+</aside>
+</section>
+<section aria-label="Quando me chamar" class="section">
+<div class="section-head direct"><h2>🚦 Quando me chamar</h2></div>
+<div class="grid cols-4">
+<article class="card compact line-card theme-violet">
+<span class="mini-icon">1</span>
+<p>Sua equipe usa IA, mas perde contexto entre conversas, documentos e decisões.</p>
+</article>
+<article class="card compact line-card theme-cyan">
+<span class="mini-icon">2</span>
+<p>O conhecimento importante está espalhado em chats, reuniões, PDFs, processos e pessoas.</p>
+</article>
+<article class="card compact line-card theme-mint">
+<span class="mini-icon">3</span>
+<p>O problema envolve adoção, linguagem, continuidade e confiança — não só ferramenta.</p>
+</article>
+<article class="card compact line-card theme-gold">
+<span class="mini-icon">4</span>
+<p>Uso intuitivo de IA precisa virar método ensinável, revisável e sustentável.</p>
+</article>
+</div>
+</section>
+<section aria-label="Entrega e oportunidade" class="section grid cols-2">
+<article class="card theme-violet">
+<p class="label">🛠️ Como isso vira entrega</p>
+<h2>Contexto em módulos operacionais.</h2>
+<p>Desenho a camada entre pessoas reais e sistemas inteligentes: função, fronteira, memória, atualização e critério de uso. Na prática, isso vira materiais de trabalho que podem ser reaproveitados por pessoas, equipes e IAs.</p>
+<p aria-label="Entregáveis possíveis" class="tags">
+<span class="tag">perfis-fonte</span>
+<span class="tag">repasses de contexto</span>
+<span class="tag">pacotes de contexto</span>
+<span class="tag">roteiros de uso</span>
+<span class="tag">mapas de conhecimento</span>
+<span class="tag">governança de contexto</span>
+<span class="tag">critérios de revisão</span>
+<span class="tag">revisão humana</span>
+<span class="tag">documentação viva</span>
+<span class="tag">rotas de atualização</span>
+</p>
+</article>
+<article class="card opportunity theme-gold">
+<p class="label">✨ Oportunidade que procuro</p>
+<h2>Minha primeira oportunidade formal de trabalhar com IA.</h2>
+<p>Busco oportunidades 100% remotas em frentes onde IA precise de contexto, adoção, documentação, governança do conhecimento ou tradução entre áreas.</p>
+<p aria-label="Áreas desejadas" class="tags">
+<span class="tag">adoção de IA</span>
+<span class="tag">letramento em IA</span>
+<span class="tag">arquitetura de contexto</span>
+<span class="tag">governança do conhecimento</span>
+<span class="tag">People Analytics</span>
+<span class="tag">IA responsável</span>
+</p>
+</article>
+</section>
+<section aria-label="Valor para organizações" class="section"><article class="card theme-cyan organization-card"><p class="label">🏢 Valor para organizações</p><h2>O gargalo da IA raramente é só técnico.</h2><p>Muitas iniciativas perdem força porque ninguém estruturou o contexto que a IA precisa preservar: quem usa, para quê, com quais limites, em qual linguagem, com qual memória e com quais critérios de confiança.</p><div aria-label="Três formas de contribuição organizacional" class="org-steps"><article class="org-step"><span class="org-num">1</span><span><strong>Letramento em IA situada</strong><br/><small>Uso de IA com contexto real, não só dicas genéricas.</small></span></article><article class="org-step"><span class="org-num">2</span><span><strong>Company brain e documentação viva</strong><br/><small>Conhecimento operacional que permanece acessível, revisável e útil.</small></span></article><article class="org-step"><span class="org-num">3</span><span><strong>Tradução humano–sistema</strong><br/><small>Complexidade humana convertida em requisitos, linguagem, limites e rotas de uso.</small></span></article></div></article></section><section aria-label="Critérios e recorte" class="section">
+<div class="grid cols-4">
+<article class="card compact theme-violet">
+<p class="label">✅ Contexto útil</p>
+<p>Informação organizada por função, gatilho, destino e atualização.</p>
+</article>
+<article class="card compact theme-rose">
+<p class="label">🧬 Personalização estrutural</p>
+<p>Memória, limites, tarefas e critérios; não só tom ou estética.</p>
+</article>
+<article class="card compact theme-cyan">
+<p class="label">⚖️ Governança humana</p>
+<p>Separar fato, inferência, preferência, risco e decisão.</p>
+</article>
+<article class="card compact theme-mint">
+<p class="label">🏡 Adoção real</p>
+<p>A ferramenta precisa caber na rotina, na linguagem e nos limites de quem usa.</p>
+</article>
+</div>
+</section>
+<section aria-label="Provas de trabalho" class="section">
+<div class="section-head direct"><h2>🔎 Provas de trabalho</h2></div>
+<div class="grid cols-4">
+<article class="card theme-violet">
+<h3><a class="proof-link" href="https://mooon.com.br/moonsource/" rel="noopener" target="_blank">Moon Source</a></h3>
+<p>Método para criar uma camada-fonte de contexto, memória, voz, limites, projetos e operação contínua para uso avançado de IA.</p>
+</article>
+<article class="card theme-cyan">
+<h3>Local Moon Source</h3>
+<p>Corpus operacional de engines, protocolos, handoffs, skills, rotas de atualização e documentação viva para trabalho com IA.</p>
+</article>
+<article class="card theme-rose">
+<h3>Symbiosphere</h3>
+<p>Comunidade internacional sobre simbiose humano–IA, coautoria, experimentação responsável e colaboração de longo prazo.</p>
+</article>
+<article class="card theme-mint">
+<h3>SymbAI</h3>
+<p>Studio de AI devs e builders em formação, voltado a produtos, workflows e infraestruturas de IA orientadas por contexto real.</p>
+</article>
+</div>
+</section>
+<section aria-label="Recorte e encaixe" class="section grid cols-2"><article class="card theme-red">
+<p class="label">🎯 Recorte honesto</p>
+<h2>Não sou engenheira de IA. Esse não é o ponto.</h2>
+<p>Sou uma profissional de fronteira entre psicologia institucional, linguagem, documentação, IA aplicada e arquitetura de uso. Entro melhor onde o desafio envolve contexto, pessoas, adoção, conhecimento, governança, aprendizagem e sistemas que precisam funcionar na vida real.</p>
+</article><article class="card theme-mint"><p class="label">🌱 Onde posso contribuir</p><h2>Na camada entre pessoas, conhecimento e uso real de IA.</h2><p>Meu melhor encaixe está em frentes de letramento em IA, People Analytics, IA responsável, educação corporativa, saúde, produto, gestão do conhecimento e adoção de IA com contexto humano de verdade.</p></article></section><section aria-label="Contato" class="surface contact dynamic-panel theme-rose">
+<article>
+<p class="label">📬 Contato</p>
+<h2>Vamos conversar?</h2>
+<p>Aberta a conversas sobre IA, contexto, adoção, conhecimento vivo e oportunidades 100% remotas.</p>
+<address class="contact-links">
+<span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">@luahelena</a></span>
+<span><strong>WhatsApp:</strong> <a href="https://wa.me/5541992228411" rel="noopener" target="_blank">(41) 9 9222-8411</a></span>
+<span><strong>Email:</strong> <a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span>
+</address>
+</article>
+<nav aria-label="Ações de contato" class="actions">
+<a class="button" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 Abrir LinkedIn</a>
+<a class="button whatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 Enviar WhatsApp</a>
+</nav>
+</section>
+<footer>
+      Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota<br/>
+      LinkedIn: @luahelena · WhatsApp: (41) 9 9222-8411 · Email: luahelenammc@gmail.com
     </footer>
-  </div>
+</main>
+<script>
+    function attachDynamicBackground(selector, xVar, yVar, defaultX, defaultY) {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.addEventListener('pointermove', (event) => {
+          const rect = el.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          el.style.setProperty(xVar, x.toFixed(2) + '%');
+          el.style.setProperty(yVar, y.toFixed(2) + '%');
+        }, { passive: true });
 
-  <script>
-    const root = document.documentElement;
-    const revealTargets = document.querySelectorAll('.signal, .card');
-    const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
-    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-
-    function updateScrollProgress() {
-      const max = document.body.scrollHeight - window.innerHeight;
-      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-      root.style.setProperty('--scroll', pct + '%');
-    }
-
-    function updateActiveNav() {
-      let current = sections[0];
-      for (const section of sections) {
-        if (section.getBoundingClientRect().top <= 160) current = section;
-      }
-      navLinks.forEach(link => {
-        link.classList.toggle('active', current && link.getAttribute('href') === '#' + current.id);
+        el.addEventListener('pointerleave', () => {
+          el.style.setProperty(xVar, defaultX);
+          el.style.setProperty(yVar, defaultY);
+        }, { passive: true });
       });
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealTargets.forEach((el) => observer.observe(el));
-    updateScrollProgress();
-    updateActiveNav();
-
-    window.addEventListener('scroll', () => {
-      updateScrollProgress();
-      updateActiveNav();
-    }, { passive: true });
-
-    window.addEventListener('pointermove', (event) => {
-      root.style.setProperty('--mx', event.clientX + 'px');
-      root.style.setProperty('--my', event.clientY + 'px');
-    }, { passive: true });
+    attachDynamicBackground('.__text_mode_custom_bg__', '--hero-mx', '--hero-my', '74%', '22%');
+    attachDynamicBackground('.card, .mini, .dynamic-panel', '--card-mx', '--card-my', '82%', '18%');
   </script>
 </body>
 </html>
