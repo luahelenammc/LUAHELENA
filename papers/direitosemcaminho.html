@@ -539,10 +539,6 @@
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    body.reading-mode { background: #090512; }
-    body.reading-mode::before, body.reading-mode::after, body.reading-mode .scroll-progress { display: none; }
-    body.reading-mode .hero-main, body.reading-mode .hero-side, body.reading-mode .section, body.reading-mode .card, body.reading-mode .layer, body.reading-mode .pilot, body.reading-mode .risk, body.reading-mode .contact-card { background: rgba(255,255,255,.055); box-shadow: none; }
-
     @media (max-width: 920px) {
       .hero-grid, .source-dock { grid-template-columns: 1fr; }
       .architecture, .pilot-grid, .risk-grid { grid-template-columns: 1fr; }
@@ -590,7 +586,6 @@
         <a href="#autora">🌙 Sobre a autora</a>
         <a href="#referencias">📚 Fontes</a>
         <button type="button" id="copyLink">🔗 Copiar link</button>
-        <button type="button" id="readingMode">👁️ Modo leitura</button>
       </div>
     </div>
   </nav>
@@ -753,7 +748,10 @@
           <p class="lead">Lua Helena Moon Martins Cardoso é psicóloga hospitalar, mulher trans, filiada ao PSOL Limeira, escritora e pesquisadora autodidata em <a href="/ia/">arquitetura de contexto para inteligência artificial</a>.</p>
           <p>Formada em Psicologia, com Sociologia como segunda graduação, possui pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional. Atua na interface entre cuidado, saúde institucional, direitos humanos, comunicação pública e <a href="/ia/">sistemas de IA aplicados à organização de conhecimento, memória, linguagem e fluxos</a>.</p>
           <p>Este paper nasce da intersecção entre experiência pessoal, atuação profissional, saúde pública, direitos LGBTQIA+ e <a href="/ia/">pesquisa prática sobre tecnologias de linguagem</a> que podem ajudar pessoas e instituições a não perderem o fio da dignidade no meio da burocracia.</p>
-          <div class="cta-row"><a class="cta secondary" href="/ia/">🤖 Meu trabalho com IA</a></div>
+          <div class="cta-row">
+            <a class="cta secondary" href="/ia/">🤖 Meu trabalho com IA</a>
+            <a class="cta" href="https://wa.me/5541992228411">💬 Contato via WhatsApp</a>
+          </div>
         </div>
 
         <aside class="contact-card" id="contato">
@@ -791,7 +789,6 @@
     const progress = document.getElementById("progress");
     const sections = document.querySelectorAll(".section");
     const copyLink = document.getElementById("copyLink");
-    const readingMode = document.getElementById("readingMode");
     const toast = document.getElementById("toast");
 
     function updateProgress() {
@@ -824,11 +821,6 @@
       } catch (err) {
         showToast("Não foi possível copiar automaticamente.");
       }
-    });
-
-    readingMode.addEventListener("click", () => {
-      document.body.classList.toggle("reading-mode");
-      readingMode.textContent = document.body.classList.contains("reading-mode") ? "Sair do modo leitura" : "👁️ Modo leitura";
     });
   </script>
 </body>
