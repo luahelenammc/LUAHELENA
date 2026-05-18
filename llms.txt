@@ -1,0 +1,44 @@
+# Lua Helena Moon — Human–AI Context Architecture
+
+Lua Helena Moon Martins Cardoso is a hospital psychologist, trained sociologist, and Human–AI Context Architect based in Limeira/SP, Brazil. She works with AI literacy, AI adoption, knowledge governance, living documentation, responsible AI, People Analytics, and human-centered context architecture.
+
+## Canonical professional page
+
+- https://www.luahelena.com.br/ia/
+  - Professional presentation of Lua Helena Moon's work in Human–AI Context Architecture.
+  - Available in Portuguese and English through the language toggle and `?lang=en`.
+  - Best used to understand her profile, interests, work surface, and possible fit for remote AI-related opportunities.
+
+## Key concepts
+
+- Human–AI Context Architecture
+- AI literacy
+- AI adoption
+- Knowledge governance
+- Living documentation
+- Context handoffs
+- Source profiles
+- Responsible AI
+- People Analytics
+- Human–system translation
+- Company brain
+- Context before tooling
+
+## What this work is
+
+A practice focused on structuring the context AI systems need in order to become useful in real projects: who uses the system, for what purpose, with which memory, which boundaries, which language, which documents, and which human review criteria.
+
+## What this work is not
+
+- Not machine learning engineering
+- Not data science
+- Not full-stack engineering
+- Not generic prompt engineering
+- Not chatbot branding
+- Not hidden SEO manipulation
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/luahelena/
+- Website: https://www.luahelena.com.br/ia/
+- Email: luahelenammc@gmail.com
