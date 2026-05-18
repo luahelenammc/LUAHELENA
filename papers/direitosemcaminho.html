@@ -15,25 +15,15 @@
     :root {
       --bg-950: #090512;
       --bg-900: #12071a;
-      --bg-850: #1a0d26;
-      --violet-700: #3d1b63;
-      --violet-500: #8a4dff;
       --pink-400: #ff7abf;
       --cyan-300: #8af7ff;
       --gold-300: #f2d27a;
       --green-300: #93f2bd;
       --ink: #fff7ff;
-      --ink-soft: #eadff2;
       --muted: #cbbbd5;
-      --line: rgba(255,255,255,.16);
-      --line-strong: rgba(255,255,255,.28);
-      --panel: rgba(255,255,255,.075);
-      --panel-strong: rgba(255,255,255,.12);
       --shadow-xl: 0 30px 90px rgba(0,0,0,.45);
-      --shadow-md: 0 16px 44px rgba(0,0,0,.28);
       --radius-xl: 32px;
       --radius-lg: 22px;
-      --radius-md: 16px;
       --max: 1180px;
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -98,7 +88,6 @@
       font-weight: 850;
       transition: top .18s ease;
     }
-
     .skip-link:focus { top: 1rem; }
 
     .scroll-progress {
@@ -141,7 +130,6 @@
       text-decoration: none;
       white-space: nowrap;
     }
-
     .brand:hover { text-decoration: none; }
 
     .brand-mark {
@@ -225,7 +213,6 @@
         radial-gradient(circle at 18% 82%, rgba(242,210,122,.10), transparent 18rem);
       pointer-events: none;
     }
-
     .hero-main > * { position: relative; z-index: 1; }
 
     .kicker {
@@ -250,8 +237,8 @@
       margin-top: 1rem;
       max-width: 820px;
       font-size: clamp(3rem, 8vw, 7rem);
-      letter-spacing: -.085em;
-      font-weight: 950;
+      letter-spacing: -.065em;
+      font-weight: 820;
     }
 
     .subtitle {
@@ -279,12 +266,7 @@
       padding: .42rem .72rem;
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .7rem;
-      margin-top: 1.5rem;
-    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
 
     .cta {
       display: inline-flex;
@@ -307,7 +289,6 @@
       border: 1px solid rgba(255,255,255,.16);
       box-shadow: none;
     }
-
     .cta:hover { text-decoration: none; filter: brightness(1.04); }
 
     .hero-side {
@@ -339,10 +320,7 @@
       margin-bottom: .8rem;
     }
 
-    .signal-flow {
-      display: grid;
-      gap: .62rem;
-    }
+    .signal-flow { display: grid; gap: .62rem; }
 
     .signal-step {
       display: grid;
@@ -368,18 +346,8 @@
       font-weight: 950;
     }
 
-    .signal-step strong {
-      display: block;
-      color: #fff;
-      line-height: 1.2;
-    }
-
-    .signal-step p {
-      margin: .12rem 0 0;
-      color: var(--muted);
-      font-size: .93rem;
-      line-height: 1.38;
-    }
+    .signal-step strong { display: block; color: #fff; line-height: 1.2; }
+    .signal-step p { margin: .12rem 0 0; color: var(--muted); font-size: .93rem; line-height: 1.38; }
 
     .hero-note {
       margin-top: .9rem;
@@ -388,12 +356,7 @@
       background: rgba(0,0,0,.18);
       border: 1px solid rgba(255,255,255,.12);
     }
-
-    .hero-note strong {
-      display: block;
-      margin-bottom: .25rem;
-      color: var(--gold-300);
-    }
+    .hero-note strong { display: block; margin-bottom: .25rem; color: var(--gold-300); }
 
     main { padding-bottom: 5rem; }
 
@@ -412,11 +375,7 @@
       transform: translateY(18px);
       transition: opacity .55s ease, transform .55s ease;
     }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .section.visible { opacity: 1; transform: translateY(0); }
 
     .section::before {
       content: attr(data-section);
@@ -424,7 +383,7 @@
       right: 1.5rem;
       top: 1.3rem;
       color: rgba(242,210,122,.22);
-      font-weight: 950;
+      font-weight: 850;
       font-size: clamp(2.2rem, 7vw, 5rem);
       letter-spacing: -.08em;
       line-height: 1;
@@ -457,14 +416,7 @@
 
     .note { color: var(--muted); font-size: .98rem; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .span-3 { grid-column: span 3; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; margin: 1rem 0; }
     .span-4 { grid-column: span 4; }
     .span-6 { grid-column: span 6; }
     .span-12 { grid-column: span 12; }
@@ -480,7 +432,6 @@
         radial-gradient(circle at 14% 10%, rgba(255,122,191,.075), transparent 8rem);
       box-shadow: 0 14px 40px rgba(0,0,0,.18);
     }
-
     .card strong { color: #fff; }
 
     .quote {
@@ -495,12 +446,7 @@
       font-size: 1.14rem;
     }
 
-    .architecture {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: .75rem;
-      margin: 1.15rem 0;
-    }
+    .architecture { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 1.15rem 0; }
 
     .layer {
       position: relative;
@@ -521,40 +467,15 @@
       transform: translateY(-50%);
       z-index: 4;
       color: var(--gold-300);
-      font-weight: 950;
+      font-weight: 850;
       font-size: 1.45rem;
     }
 
-    .layer .num {
-      color: var(--gold-300);
-      font-weight: 950;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
+    .layer .num { color: var(--gold-300); font-weight: 850; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+    .layer b { display: block; margin-top: .25rem; font-size: 1.06rem; color: #fff; }
 
-    .layer b {
-      display: block;
-      margin-top: .25rem;
-      font-size: 1.06rem;
-      color: #fff;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin: .9rem 0;
-    }
-
-    .chip {
-      padding: .42rem .68rem;
-      border-radius: 999px;
-      background: rgba(138,247,255,.09);
-      border: 1px solid rgba(138,247,255,.17);
-      color: #e8fdff;
-      font-size: .9rem;
-    }
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: .9rem 0; }
+    .chip { padding: .42rem .68rem; border-radius: 999px; background: rgba(138,247,255,.09); border: 1px solid rgba(138,247,255,.17); color: #e8fdff; font-size: .9rem; }
 
     .callout {
       margin: 1rem 0;
@@ -565,12 +486,7 @@
     }
 
     .pilot-grid,
-    .risk-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .8rem;
-      margin-top: 1rem;
-    }
+    .risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: 1rem; }
 
     .pilot,
     .risk {
@@ -580,27 +496,10 @@
       background: rgba(0,0,0,.15);
     }
 
-    .risk {
-      border-color: rgba(255,122,191,.22);
-      background: linear-gradient(145deg, rgba(255,122,191,.08), rgba(255,255,255,.035));
-    }
+    .risk { border-color: rgba(255,122,191,.22); background: linear-gradient(145deg, rgba(255,122,191,.08), rgba(255,255,255,.035)); }
+    .pilot small, .risk small { display: inline-block; color: var(--gold-300); font-weight: 850; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .34rem; }
 
-    .pilot small,
-    .risk small {
-      display: inline-block;
-      color: var(--gold-300);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: .34rem;
-    }
-
-    .source-dock {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr);
-      gap: 1rem;
-      align-items: start;
-    }
+    .source-dock { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr); gap: 1rem; align-items: start; }
 
     .contact-card {
       padding: 1.2rem;
@@ -610,45 +509,16 @@
         radial-gradient(circle at 90% 20%, rgba(242,210,122,.12), transparent 10rem);
       border: 1px solid rgba(255,122,191,.22);
     }
+    .contact-card strong { display: block; font-size: 1.12rem; color: #fff; margin-bottom: .35rem; }
 
-    .contact-card strong {
-      display: block;
-      font-size: 1.12rem;
-      color: #fff;
-      margin-bottom: .35rem;
-    }
-
-    details.refs {
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 22px;
-      padding: 1rem;
-      background: rgba(0,0,0,.14);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 850;
-      color: var(--ink);
-    }
-
+    details.refs { border: 1px solid rgba(255,255,255,.13); border-radius: 22px; padding: 1rem; background: rgba(0,0,0,.14); }
+    summary { cursor: pointer; font-weight: 850; color: var(--ink); }
     ol.reference-list { padding-left: 1.2rem; }
     ol.reference-list li { margin: .82rem 0; color: var(--muted); }
     ol.reference-list strong { color: var(--ink); }
+    sup a { color: var(--gold-300); font-weight: 850; text-decoration: none; padding: 0 .08rem; }
 
-    sup a {
-      color: var(--gold-300);
-      font-weight: 850;
-      text-decoration: none;
-      padding: 0 .08rem;
-    }
-
-    .footer {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,.12);
-      color: var(--muted);
-      font-size: .95rem;
-    }
+    .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.12); color: var(--muted); font-size: .95rem; }
 
     .toast {
       position: fixed;
@@ -666,122 +536,35 @@
       padding: .82rem 1rem;
       box-shadow: var(--shadow-xl);
     }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    body.reading-mode {
-      background: #090512;
-    }
-
-    body.reading-mode::before,
-    body.reading-mode::after,
-    body.reading-mode .scroll-progress {
-      display: none;
-    }
-
-    body.reading-mode .hero-main,
-    body.reading-mode .hero-side,
-    body.reading-mode .section,
-    body.reading-mode .card,
-    body.reading-mode .layer,
-    body.reading-mode .pilot,
-    body.reading-mode .risk,
-    body.reading-mode .contact-card {
-      background: rgba(255,255,255,.055);
-      box-shadow: none;
-    }
+    body.reading-mode { background: #090512; }
+    body.reading-mode::before, body.reading-mode::after, body.reading-mode .scroll-progress { display: none; }
+    body.reading-mode .hero-main, body.reading-mode .hero-side, body.reading-mode .section, body.reading-mode .card, body.reading-mode .layer, body.reading-mode .pilot, body.reading-mode .risk, body.reading-mode .contact-card { background: rgba(255,255,255,.055); box-shadow: none; }
 
     @media (max-width: 920px) {
-      .hero-grid,
-      .source-dock {
-        grid-template-columns: 1fr;
-      }
-
-      .architecture,
-      .pilot-grid,
-      .risk-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .layer:not(:last-child)::after {
-        content: "↓";
-        right: 1rem;
-        top: auto;
-        bottom: -.95rem;
-        transform: none;
-      }
-
-      .span-3,
-      .span-4,
-      .span-6 {
-        grid-column: span 12;
-      }
+      .hero-grid, .source-dock { grid-template-columns: 1fr; }
+      .architecture, .pilot-grid, .risk-grid { grid-template-columns: 1fr; }
+      .layer:not(:last-child)::after { content: "↓"; right: 1rem; top: auto; bottom: -.95rem; transform: none; }
+      .span-4, .span-6 { grid-column: span 12; }
     }
 
     @media (max-width: 680px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
+      .nav-inner { align-items: flex-start; flex-direction: column; }
       .hero { padding-top: 3.2rem; }
       .hero-main, .hero-side { min-height: auto; border-radius: 28px; }
-      h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
+      h1 { font-size: clamp(3rem, 14vw, 4.6rem); letter-spacing: -.055em; }
       .section { border-radius: 26px; }
       .section::before { opacity: .55; }
     }
 
     @media print {
-      body {
-        background: #fff;
-        color: #111;
-      }
-
-      body::before,
-      body::after,
-      .site-nav,
-      .scroll-progress,
-      .cta-row,
-      .toast {
-        display: none !important;
-      }
-
+      body { background: #fff; color: #111; }
+      body::before, body::after, .site-nav, .scroll-progress, .cta-row, .toast { display: none !important; }
       .wrap { max-width: 900px; }
-
-      .hero,
-      .section {
-        padding: 0;
-        margin: 1.2rem 0;
-      }
-
-      .hero-grid,
-      .source-dock,
-      .grid,
-      .architecture,
-      .pilot-grid,
-      .risk-grid {
-        display: block;
-      }
-
-      .hero-main,
-      .hero-side,
-      .section,
-      .card,
-      .layer,
-      .pilot,
-      .risk,
-      .contact-card,
-      details.refs {
-        color: #111;
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-        padding: 0;
-      }
-
+      .hero, .section { padding: 0; margin: 1.2rem 0; }
+      .hero-grid, .source-dock, .grid, .architecture, .pilot-grid, .risk-grid { display: block; }
+      .hero-main, .hero-side, .section, .card, .layer, .pilot, .risk, .contact-card, details.refs { color: #111; background: transparent; border: 0; box-shadow: none; padding: 0; }
       a { color: #111; text-decoration: underline; }
       .section::before { display: none; }
     }
@@ -803,6 +586,7 @@
         <a href="#tese">Tese</a>
         <a href="#caso">Caso-sentinela</a>
         <a href="#proposta">Proposta</a>
+        <a href="#autora">Sobre a autora</a>
         <a href="#referencias">Fontes</a>
         <button type="button" id="copyLink">Copiar link</button>
         <button type="button" id="readingMode">Modo leitura</button>
@@ -817,14 +601,13 @@
           <div>
             <span class="kicker">Paper público · saúde trans · IA pública</span>
             <h1 id="titulo">Direito sem caminho não é acesso</h1>
-            <p class="subtitle">
-              IA pública, regulação em saúde e cuidado integral para pessoas trans nos municípios.
-            </p>
+            <p class="subtitle">IA pública, regulação em saúde e cuidado integral para pessoas trans nos municípios.</p>
 
             <div class="hero-meta">
               <span>Lua Helena Moon Martins Cardoso</span>
               <span>Psicóloga hospitalar</span>
               <span>Mulher trans</span>
+              <span>Filiada ao PSOL Limeira</span>
               <span>Limeira/SP · maio de 2026</span>
             </div>
 
@@ -834,47 +617,17 @@
             </div>
           </div>
 
-          <p class="note">
-            Este texto parte de um caso concreto de falha de encaminhamento para cuidado especializado em saúde trans e propõe uma camada pública de navegação de direitos, com tecnologia subordinada à ética, ao SUS e aos direitos humanos.
-          </p>
+          <p class="note">Este texto parte de um caso concreto de falha de encaminhamento para cuidado especializado em saúde trans e propõe uma camada pública de navegação de direitos, com tecnologia subordinada à ética, ao SUS e aos direitos humanos.</p>
         </section>
 
         <aside class="hero-side" aria-label="Resumo visual">
           <div class="signal-card">
             <h2>O problema não é só reconhecer o direito. É fazer o direito chegar.</h2>
-
             <div class="signal-flow">
-              <div class="signal-step">
-                <span>01</span>
-                <div>
-                  <strong>Direito formal</strong>
-                  <p>Políticas nacionais reconhecem acesso, integralidade, equidade e cuidado humanizado.</p>
-                </div>
-              </div>
-
-              <div class="signal-step">
-                <span>02</span>
-                <div>
-                  <strong>Fluxo quebrado</strong>
-                  <p>A pessoa trans chega à porta do SUS, mas o caminho institucional até o serviço especializado pode não aparecer.</p>
-                </div>
-              </div>
-
-              <div class="signal-step">
-                <span>03</span>
-                <div>
-                  <strong>Custo humano</strong>
-                  <p>O usuário vira investigador, despachante e regulador informal da própria sobrevivência.</p>
-                </div>
-              </div>
-
-              <div class="signal-step">
-                <span>04</span>
-                <div>
-                  <strong>Resposta pública</strong>
-                  <p>IA pode apoiar servidores, mapear rotas, padronizar orientação e monitorar gargalos, sem substituir cuidado humano.</p>
-                </div>
-              </div>
+              <div class="signal-step"><span>01</span><div><strong>Direito formal</strong><p>Políticas nacionais reconhecem acesso, integralidade, equidade e cuidado humanizado.</p></div></div>
+              <div class="signal-step"><span>02</span><div><strong>Fluxo quebrado</strong><p>A pessoa trans chega à porta do SUS, mas o caminho até o serviço especializado pode não aparecer.</p></div></div>
+              <div class="signal-step"><span>03</span><div><strong>Custo humano</strong><p>O usuário vira investigador, despachante e regulador informal da própria sobrevivência.</p></div></div>
+              <div class="signal-step"><span>04</span><div><strong>Resposta pública</strong><p>IA pode apoiar servidores, mapear rotas e monitorar gargalos, sem substituir cuidado humano.</p></div></div>
             </div>
           </div>
 
@@ -890,148 +643,55 @@
   <main id="conteudo" class="wrap">
     <section class="section" id="tese" data-section="01">
       <h2>Tese central</h2>
-
-      <p class="lead">
-        Para pessoas trans, acesso à saúde não é apenas a existência formal de um serviço. É a existência de um caminho real, conhecido, acolhedor, regulado e acompanhado até esse serviço.
-      </p>
-
-      <p>
-        O Brasil já possui marcos importantes para a saúde e para a cidadania LGBTQIA+. A Política Nacional dos Direitos das Pessoas LGBTQIA+, instituída pela Portaria nº 1.825/2025 e regulamentada pela Resolução nº 3/2025 do Conselho Nacional dos Direitos das Pessoas LGBTQIA+, tem como finalidade articular, implementar e monitorar políticas públicas para a cidadania plena e o enfrentamento da LGBTQIAfobia.<sup><a href="#ref1">1</a></sup>
-      </p>
-
-      <p>
-        No campo da saúde, a Política Nacional de Saúde Integral LGBT reconhece a necessidade de afastar discriminações, ampliar o acesso aos serviços, qualificar profissionais e reafirmar os princípios de universalidade, integralidade e equidade no SUS.<sup><a href="#ref2">2</a></sup> O Processo Transexualizador, por sua vez, estabelece que a linha de cuidado se inicia pela Atenção Primária e que o acesso ao componente especializado deve ser regulado por estados e municípios conforme a necessidade da pessoa usuária.<sup><a href="#ref3">3</a></sup>
-      </p>
-
-      <div class="quote">
-        O direito pode estar escrito. O serviço pode existir. A política pública pode estar desenhada. Mas, se o município não sabe encaminhar, acompanhar e responder, a pessoa continua sem acesso.
-      </div>
-
-      <p>
-        Este paper propõe que a Secretaria Nacional dos Direitos das Pessoas LGBTQIA+, em articulação com Ministério da Saúde, estados, municípios, conselhos, movimentos sociais e rede de serviços, considere a criação de uma camada pública de navegação de direitos LGBTQIA+ em saúde: uma arquitetura institucional e tecnológica para transformar direitos dispersos em caminhos concretos.
-      </p>
+      <p class="lead">Para pessoas trans, acesso à saúde não é apenas a existência formal de um serviço. É a existência de um caminho real, conhecido, acolhedor, regulado e acompanhado até esse serviço.</p>
+      <p>O Brasil já possui marcos importantes para a saúde e a cidadania LGBTQIA+. A Política Nacional dos Direitos das Pessoas LGBTQIA+ articula, implementa e monitora políticas públicas para cidadania plena e enfrentamento da LGBTQIAfobia.<sup><a href="#ref1">1</a></sup></p>
+      <p>No campo da saúde, a Política Nacional de Saúde Integral LGBT reafirma universalidade, integralidade e equidade no SUS.<sup><a href="#ref2">2</a></sup> O Processo Transexualizador estabelece que a linha de cuidado começa pela Atenção Primária e que o acesso ao componente especializado deve ser regulado por estados e municípios.<sup><a href="#ref3">3</a></sup></p>
+      <div class="quote">O direito pode estar escrito. O serviço pode existir. Mas, se o município não sabe encaminhar, acompanhar e responder, a pessoa continua sem acesso.</div>
+      <p>Este paper propõe que a Secretaria Nacional dos Direitos das Pessoas LGBTQIA+, em articulação com Ministério da Saúde, estados, municípios, conselhos e movimentos sociais, considere uma camada pública de navegação de direitos LGBTQIA+ em saúde: uma arquitetura institucional e tecnológica para transformar direitos dispersos em caminhos concretos.</p>
     </section>
 
     <section class="section" id="caso" data-section="02">
       <h2>O caso-sentinela: quando o sistema não mostra a porta</h2>
-
-      <p class="lead">
-        Em 29 de agosto de 2024, em Limeira/SP, busquei atendimento no Centro de Saúde da Família Planalto com o objetivo de obter encaminhamento para um Ambulatório Trans na região por meio do sistema CROSS, a Central de Regulação de Ofertas de Serviços de Saúde.
-      </p>
-
-      <p>
-        Na ocasião, fui informada de que seria possível emitir apenas encaminhamento para endocrinologista generalista, mas não para Ambulatório Trans. Após a busca de orientação junto à coordenação da unidade e à responsável municipal pelo sistema, a resposta recebida foi a de que não haveria possibilidade de encaminhamento para Ambulatórios Trans via CROSS. O caso foi registrado em relatório próprio à época.
-      </p>
-
-      <p>
-        A CROSS tem por finalidade operacionalizar ações de regulação da Secretaria de Estado da Saúde de São Paulo, por meio de plataforma que permite visibilidade da rede assistencial, acompanhamento de atividades, relatórios e indicadores.<sup><a href="#ref4">4</a></sup> Justamente por isso, uma falha de rota nesse ponto é mais do que um erro administrativo isolado: ela revela o lugar exato em que um direito pode se perder.
-      </p>
-
+      <p class="lead">Em 29 de agosto de 2024, em Limeira/SP, busquei atendimento no Centro de Saúde da Família Planalto para obter encaminhamento a um Ambulatório Trans por meio da CROSS, a Central de Regulação de Ofertas de Serviços de Saúde.</p>
+      <p>Na ocasião, fui informada de que seria possível emitir apenas encaminhamento para endocrinologista generalista, não para Ambulatório Trans. Após consulta à coordenação da unidade e à responsável municipal pelo sistema, a resposta recebida foi de que não haveria possibilidade de encaminhamento para Ambulatórios Trans via CROSS. O caso foi registrado em relatório próprio à época.</p>
+      <p>A CROSS operacionaliza ações de regulação da Secretaria de Estado da Saúde de São Paulo, com plataforma para visibilidade da rede assistencial, acompanhamento de atividades, relatórios e indicadores.<sup><a href="#ref4">4</a></sup> Por isso, uma falha de rota nesse ponto revela o lugar exato em que um direito pode se perder.</p>
       <div class="grid">
-        <div class="card span-4">
-          <strong>O que foi buscado</strong>
-          <p>Encaminhamento para cuidado especializado em saúde trans, com equipe preparada e linha de cuidado adequada.</p>
-        </div>
-
-        <div class="card span-4">
-          <strong>O que foi oferecido</strong>
-          <p>Encaminhamento parcial para endocrinologista generalista, solução insuficiente para demandas específicas de transição de gênero.</p>
-        </div>
-
-        <div class="card span-4">
-          <strong>O que o caso revela</strong>
-          <p>Uma ruptura entre direito formal, regulação municipal, informação assistencial e acesso real ao cuidado.</p>
-        </div>
+        <div class="card span-4"><strong>O que foi buscado</strong><p>Encaminhamento para cuidado especializado em saúde trans, com equipe preparada e linha de cuidado adequada.</p></div>
+        <div class="card span-4"><strong>O que foi oferecido</strong><p>Encaminhamento parcial para endocrinologista generalista.</p></div>
+        <div class="card span-4"><strong>O que o caso revela</strong><p>Ruptura entre direito formal, regulação municipal, informação assistencial e acesso real.</p></div>
       </div>
-
-      <p>
-        O ponto não é transformar uma experiência individual em acusação generalizada. O ponto é tratar essa experiência como caso-sentinela: um sinal pequeno, localizado e documentável de uma falha que pode se repetir com muitas outras pessoas trans, especialmente fora das capitais e dos grandes centros.
-      </p>
+      <p>O objetivo não é transformar uma experiência individual em acusação generalizada. É tratá-la como caso-sentinela: um sinal localizado de uma falha que pode se repetir com outras pessoas trans, especialmente fora das capitais.</p>
     </section>
 
     <section class="section" id="problema" data-section="03">
       <h2>Encaminhar para “qualquer endocrinologista” não é garantir saúde trans</h2>
-
-      <p class="lead">
-        O cuidado em saúde trans não se reduz à prescrição hormonal. Ele envolve acolhimento, escuta, redução de danos, saúde mental, orientação clínica atualizada, respeito ao nome social, compreensão da trajetória corporal e articulação com a rede.
-      </p>
-
-      <p>
-        Um endocrinologista generalista pode ser um profissional importante dentro da rede, mas não substitui automaticamente um ambulatório trans ou um serviço especializado. Quando a rede pública não sabe encaminhar para o cuidado adequado, empurra a pessoa trans para uma solução parcial, muitas vezes marcada por improviso, desinformação ou barreiras subjetivas.
-      </p>
-
-      <div class="quote">
-        Encaminhar uma pessoa trans para qualquer endocrinologista não é, necessariamente, garantir acesso à saúde trans.
-      </div>
-
-      <p>
-        No meu caso, após a falha de encaminhamento, busquei atendimento pelo plano de saúde e me consultei com uma endocrinologista generalista. A experiência confirmou o risco apontado no relatório: recebi prescrição de etinilestradiol, substância historicamente associada a maior risco trombótico e não recomendada como escolha segura para hormonização feminilizante em diretrizes contemporâneas. O cuidado adequado só foi alcançado depois de pesquisa própria, ao encontrar uma médica trans capacitada.
-      </p>
-
-      <p>
-        Esse é o núcleo político do problema: quando o sistema não conduz, a usuária precisa se autoconduzir. Quem tem repertório, internet, linguagem técnica, energia emocional e alguma rede talvez consiga. Quem não tem, fica para trás.
-      </p>
+      <p class="lead">O cuidado em saúde trans não se reduz à prescrição hormonal. Ele envolve acolhimento, escuta, redução de danos, saúde mental, nome social, trajetória corporal e articulação com a rede.</p>
+      <p>Um endocrinologista generalista pode ser importante, mas não substitui automaticamente um ambulatório trans ou serviço especializado. Quando a rede pública não sabe encaminhar, empurra a pessoa para uma solução parcial, muitas vezes marcada por improviso ou desinformação.</p>
+      <div class="quote">Encaminhar uma pessoa trans para qualquer endocrinologista não é, necessariamente, garantir acesso à saúde trans.</div>
+      <p>No meu caso, após a falha de encaminhamento, busquei atendimento pelo plano de saúde e recebi prescrição de etinilestradiol, substância associada a maior risco trombótico e inadequada para uma hormonização feminilizante segura em diretrizes contemporâneas. O cuidado correto só veio depois de pesquisa própria, ao encontrar uma médica trans capacitada.</p>
+      <p>Esse é o núcleo político do problema: quando o sistema não conduz, a usuária precisa se autoconduzir. Quem tem repertório, internet, linguagem técnica e energia talvez consiga. Quem não tem, fica para trás.</p>
     </section>
 
     <section class="section" id="politica" data-section="04">
       <h2>Da Política Nacional ao balcão da UBS</h2>
-
-      <p class="lead">
-        A Política Nacional LGBTQIA+ estabelece um marco de coordenação interfederativa entre União, estados, Distrito Federal, municípios e sociedade civil, com princípios de dignidade humana, equidade, interseccionalidade, transversalidade e participação social.<sup><a href="#ref1">1</a></sup>
-      </p>
-
-      <p>
-        Essa coordenação só se torna vida concreta quando chega à unidade básica, à regulação municipal, à assistência social, à escola, ao conselho, ao servidor que atende e à pessoa que precisa de uma resposta simples: “qual é o caminho correto para o meu direito?”.
-      </p>
-
-      <p>
-        Em 2024, a própria secretária Symmy Larrat esteve em Limeira para dialogar sobre políticas públicas LGBTQIA+, especialmente sobre a criação de um ambulatório especializado no atendimento a pessoas trans no município. Na ocasião, a prefeitura registrou que a pauta envolvia o planejamento desse serviço e a necessidade de informações técnicas para sua estruturação.<sup><a href="#ref5">5</a></sup>
-      </p>
-
-      <div class="callout">
-        <strong>Oportunidade para Limeira:</strong> transformar uma demanda já reconhecida politicamente em projeto-piloto de articulação entre saúde municipal, regulação, direitos humanos, movimento social e inteligência pública de navegação de acesso.
-      </div>
-
-      <p>
-        A presença de uma política nacional, por si só, não resolve o gargalo municipal. Mas ela oferece o marco institucional para que casos como este deixem de ser tratados como exceção administrativa e passem a ser lidos como indicadores de necessidade de protocolo, formação, monitoramento e responsabilização pública.
-      </p>
+      <p class="lead">A Política Nacional LGBTQIA+ oferece um marco de coordenação interfederativa entre União, estados, Distrito Federal, municípios e sociedade civil.<sup><a href="#ref1">1</a></sup></p>
+      <p>Essa coordenação só se torna vida concreta quando chega à unidade básica, à regulação municipal, à assistência social, à escola, ao conselho, ao servidor que atende e à pessoa que precisa saber: “qual é o caminho correto para o meu direito?”.</p>
+      <p>Em 2024, a secretária Symmy Larrat esteve em Limeira para dialogar sobre políticas públicas LGBTQIA+, especialmente sobre a criação de um ambulatório especializado para pessoas trans no município.<sup><a href="#ref5">5</a></sup></p>
+      <div class="callout"><strong>Oportunidade para Limeira:</strong> transformar uma demanda já reconhecida politicamente em projeto-piloto de articulação entre saúde municipal, regulação, direitos humanos, movimento social e inteligência pública de navegação de acesso.</div>
+      <p>A presença de uma política nacional não resolve sozinha o gargalo municipal. Mas oferece base para que casos como este deixem de ser tratados como exceção administrativa e passem a orientar protocolo, formação e monitoramento.</p>
     </section>
 
     <section class="section" id="proposta" data-section="05">
       <h2>Proposta: uma camada pública de navegação de direitos LGBTQIA+ em saúde</h2>
-
-      <p class="lead">
-        A inteligência artificial pode ajudar, desde que não seja tratada como substituta de atendimento humano, decisão clínica, controle social ou responsabilidade pública. Seu papel adequado é organizar, orientar, lembrar, cruzar informações, reduzir ruído e tornar o caminho mais visível.
-      </p>
-
+      <p class="lead">A inteligência artificial pode ajudar, desde que não substitua atendimento humano, decisão clínica, controle social ou responsabilidade pública. Seu papel adequado é organizar, orientar, lembrar, cruzar informações e tornar o caminho mais visível.</p>
       <div class="architecture" aria-label="Arquitetura proposta">
-        <div class="layer">
-          <span class="num">Camada 1</span>
-          <b>Mapa vivo de serviços</b>
-          <p>Ambulatórios trans, serviços LGBTQIA+, UBS de referência, fluxos de regulação, contatos e critérios de acesso.</p>
-        </div>
-
-        <div class="layer">
-          <span class="num">Camada 2</span>
-          <b>Orientação ao servidor</b>
-          <p>Guias de encaminhamento, linguagem respeitosa, documentação, nome social e condutas mínimas de acolhimento.</p>
-        </div>
-
-        <div class="layer">
-          <span class="num">Camada 3</span>
-          <b>Navegação para usuárias/os/es</b>
-          <p>Explicação simples do caminho, próximos passos, direitos, canais de denúncia e alternativas quando o fluxo trava.</p>
-        </div>
-
-        <div class="layer">
-          <span class="num">Camada 4</span>
-          <b>Monitoramento público</b>
-          <p>Dados agregados sobre gargalos, tempos de espera, rotas inexistentes, falhas recorrentes e necessidade de formação.</p>
-        </div>
+        <div class="layer"><span class="num">Camada 1</span><b>Mapa vivo de serviços</b><p>Ambulatórios trans, serviços LGBTQIA+, UBS de referência, fluxos de regulação, contatos e critérios de acesso.</p></div>
+        <div class="layer"><span class="num">Camada 2</span><b>Orientação ao servidor</b><p>Guias de encaminhamento, linguagem respeitosa, documentação, nome social e condutas mínimas de acolhimento.</p></div>
+        <div class="layer"><span class="num">Camada 3</span><b>Navegação para usuários</b><p>Explicação simples do caminho, próximos passos, direitos, canais de denúncia e alternativas quando o fluxo trava.</p></div>
+        <div class="layer"><span class="num">Camada 4</span><b>Monitoramento público</b><p>Dados agregados sobre gargalos, tempos de espera, rotas inexistentes, falhas recorrentes e necessidade de formação.</p></div>
       </div>
 
       <h3>O que essa IA deveria fazer</h3>
-
       <div class="chips">
         <span class="chip">identificar fluxo correto</span>
         <span class="chip">apoiar servidores municipais</span>
@@ -1039,165 +699,59 @@
         <span class="chip">mapear serviços próximos</span>
         <span class="chip">sugerir encaminhamentos possíveis</span>
         <span class="chip">gerar alertas de fluxo travado</span>
-        <span class="chip">produzir materiais acessíveis</span>
         <span class="chip">alimentar indicadores públicos</span>
       </div>
 
       <h3>O que essa IA não deve fazer</h3>
-
       <div class="risk-grid">
-        <div class="risk">
-          <small>Limite clínico</small>
-          <strong>Não substituir consulta, diagnóstico ou decisão médica.</strong>
-          <p>IA pode orientar fluxo e acesso; cuidado clínico exige profissional habilitado.</p>
-        </div>
-
-        <div class="risk">
-          <small>Limite ético</small>
-          <strong>Não expor dados sensíveis de pessoas LGBTQIA+.</strong>
-          <p>Identidade de gênero, orientação sexual e histórico de saúde exigem proteção reforçada.</p>
-        </div>
-
-        <div class="risk">
-          <small>Limite político</small>
-          <strong>Não virar vitrine de inovação sem serviço real.</strong>
-          <p>Tecnologia não pode maquiar ausência de ambulatório, formação ou regulação.</p>
-        </div>
-
-        <div class="risk">
-          <small>Limite democrático</small>
-          <strong>Não operar sem transparência e controle social.</strong>
-          <p>Conselhos, movimentos sociais e usuárias/os/es precisam participar do desenho e da avaliação.</p>
-        </div>
+        <div class="risk"><small>Limite clínico</small><strong>Não substituir consulta, diagnóstico ou decisão médica.</strong><p>IA pode orientar fluxo e acesso; cuidado clínico exige profissional habilitado.</p></div>
+        <div class="risk"><small>Limite ético</small><strong>Não expor dados sensíveis de pessoas LGBTQIA+.</strong><p>Identidade de gênero, orientação sexual e histórico de saúde exigem proteção reforçada.</p></div>
+        <div class="risk"><small>Limite político</small><strong>Não virar vitrine de inovação sem serviço real.</strong><p>Tecnologia não pode maquiar ausência de ambulatório, formação ou regulação.</p></div>
+        <div class="risk"><small>Limite democrático</small><strong>Não operar sem transparência e controle social.</strong><p>Conselhos, movimentos sociais e usuários precisam participar do desenho e da avaliação.</p></div>
       </div>
     </section>
 
     <section class="section" id="piloto" data-section="06">
       <h2>Um piloto possível para municípios</h2>
-
-      <p class="lead">
-        A proposta pode começar pequena, com escopo realista: um piloto intersetorial para orientar pessoas trans no acesso ao cuidado especializado e apoiar servidores municipais na identificação do fluxo correto.
-      </p>
-
+      <p class="lead">A proposta pode começar pequena: um piloto intersetorial para orientar pessoas trans no acesso ao cuidado especializado e apoiar servidores municipais na identificação do fluxo correto.</p>
       <div class="pilot-grid">
-        <div class="pilot">
-          <small>1. Diagnóstico</small>
-          <strong>Mapear onde o fluxo quebra.</strong>
-          <p>Levantar casos, rotas existentes, serviços de referência, dúvidas frequentes dos servidores e pontos de desinformação.</p>
-        </div>
-
-        <div class="pilot">
-          <small>2. Protocolo mínimo</small>
-          <strong>Criar uma matriz municipal de encaminhamento.</strong>
-          <p>Definir quando orientar UBS, especialidade, ambulatório trans, regulação estadual, assistência social ou direitos humanos.</p>
-        </div>
-
-        <div class="pilot">
-          <small>3. IA assistiva</small>
-          <strong>Construir um navegador de direitos.</strong>
-          <p>Ferramenta simples, auditável e alimentada por fontes oficiais para apoiar servidores e usuárias/os/es.</p>
-        </div>
-
-        <div class="pilot">
-          <small>4. Formação</small>
-          <strong>Treinar quem atende na ponta.</strong>
-          <p>A tecnologia só funciona se o servidor souber acolher, perguntar, registrar e encaminhar sem discriminação.</p>
-        </div>
-
-        <div class="pilot">
-          <small>5. Monitoramento</small>
-          <strong>Produzir indicadores agregados.</strong>
-          <p>Quantas pessoas buscaram acesso? Onde travou? Quanto tempo levou? Quais serviços faltam?</p>
-        </div>
-
-        <div class="pilot">
-          <small>6. Controle social</small>
-          <strong>Avaliar com movimento social e conselhos.</strong>
-          <p>Sem participação social, a solução corre risco de virar sistema bonito para um problema que continua vivo.</p>
-        </div>
+        <div class="pilot"><small>1. Diagnóstico</small><strong>Mapear onde o fluxo quebra.</strong><p>Levantar casos, rotas existentes, serviços de referência, dúvidas dos servidores e pontos de desinformação.</p></div>
+        <div class="pilot"><small>2. Protocolo mínimo</small><strong>Criar uma matriz municipal de encaminhamento.</strong><p>Definir quando orientar UBS, especialidade, ambulatório trans, regulação estadual, assistência social ou direitos humanos.</p></div>
+        <div class="pilot"><small>3. IA assistiva</small><strong>Construir um navegador de direitos.</strong><p>Ferramenta simples, auditável e alimentada por fontes oficiais.</p></div>
+        <div class="pilot"><small>4. Formação</small><strong>Treinar quem atende na ponta.</strong><p>A tecnologia só funciona se o servidor souber acolher, perguntar, registrar e encaminhar sem discriminação.</p></div>
+        <div class="pilot"><small>5. Monitoramento</small><strong>Produzir indicadores agregados.</strong><p>Quantas pessoas buscaram acesso? Onde travou? Quanto tempo levou? Quais serviços faltam?</p></div>
+        <div class="pilot"><small>6. Controle social</small><strong>Avaliar com movimento social e conselhos.</strong><p>Sem participação social, a solução corre risco de virar sistema bonito para um problema que continua vivo.</p></div>
       </div>
     </section>
 
     <section class="section" id="encaminhamentos" data-section="07">
       <h2>Encaminhamentos para a Secretaria Nacional LGBTQIA+</h2>
-
-      <p class="lead">
-        A Secretaria Nacional dos Direitos das Pessoas LGBTQIA+ já atua na coordenação de políticas, articulação institucional e fortalecimento de ações permanentes de promoção e defesa de direitos. Este paper sugere uma agenda complementar: transformar navegação de acesso em política pública.
-      </p>
-
+      <p class="lead">Este paper sugere uma agenda complementar às ações já existentes: transformar navegação de acesso em política pública.</p>
       <div class="grid">
-        <div class="card span-6">
-          <strong>1. Criar diretrizes nacionais de navegação de direitos LGBTQIA+ em saúde</strong>
-          <p>Com fluxos mínimos para pessoas trans que buscam cuidado especializado via APS, regulação municipal/estadual e rede de referência.</p>
-        </div>
-
-        <div class="card span-6">
-          <strong>2. Elaborar guia para municípios</strong>
-          <p>Material simples para UBS, regulação, assistência social e equipamentos de direitos humanos, com orientações práticas e linguagem acessível.</p>
-        </div>
-
-        <div class="card span-6">
-          <strong>3. Apoiar pilotos locais de IA pública</strong>
-          <p>Ferramentas auditáveis, de baixo custo e com governança pública, voltadas a orientar fluxos e mapear gargalos, não a substituir equipes.</p>
-        </div>
-
-        <div class="card span-6">
-          <strong>4. Integrar dados sem expor pessoas</strong>
-          <p>Produzir indicadores agregados sobre barreiras de acesso, demanda reprimida, rotas inexistentes e necessidade de novos serviços.</p>
-        </div>
-
-        <div class="card span-6">
-          <strong>5. Fortalecer a formação de trabalhadores municipais</strong>
-          <p>Especialmente na APS, regulação, recepção, assistência social e RH, onde a política pública encontra a pessoa real.</p>
-        </div>
-
-        <div class="card span-6">
-          <strong>6. Reconhecer casos-sentinela</strong>
-          <p>Usar relatos documentados como sinais de aprendizagem institucional, sem reduzir a experiência da pessoa a queixa individual.</p>
-        </div>
+        <div class="card span-6"><strong>1. Diretrizes nacionais de navegação de direitos LGBTQIA+ em saúde</strong><p>Com fluxos mínimos para pessoas trans que buscam cuidado especializado via APS, regulação municipal/estadual e rede de referência.</p></div>
+        <div class="card span-6"><strong>2. Guia prático para municípios</strong><p>Material simples para UBS, regulação, assistência social e equipamentos de direitos humanos.</p></div>
+        <div class="card span-6"><strong>3. Pilotos locais de IA pública</strong><p>Ferramentas auditáveis, de baixo custo e com governança pública, voltadas a orientar fluxos e mapear gargalos.</p></div>
+        <div class="card span-6"><strong>4. Indicadores sem exposição de pessoas</strong><p>Dados agregados sobre barreiras de acesso, demanda reprimida, rotas inexistentes e necessidade de novos serviços.</p></div>
+        <div class="card span-6"><strong>5. Formação de trabalhadores municipais</strong><p>Especialmente na APS, regulação, recepção, assistência social e RH, onde a política pública encontra a pessoa real.</p></div>
+        <div class="card span-6"><strong>6. Reconhecimento de casos-sentinela</strong><p>Relatos documentados podem orientar aprendizagem institucional, sem reduzir a experiência da pessoa a queixa individual.</p></div>
       </div>
     </section>
 
     <section class="section" id="fecho" data-section="08">
-      <h2>Fecho: tecnologia como caminho, não como espetáculo</h2>
-
-      <p class="lead">
-        A inteligência artificial só interessa à política pública LGBTQIA+ se ajudar a reduzir abandono, humilhação, peregrinação institucional e risco clínico. Fora disso, vira brilho técnico sobre uma ferida aberta.
-      </p>
-
-      <p>
-        O objetivo deste paper não é propor que a IA substitua a política. É o contrário: propor que a IA seja colocada a serviço da política pública, dos direitos humanos, da rede SUS, da gestão municipal, da participação social e da vida concreta das pessoas trans.
-      </p>
-
-      <div class="quote">
-        Para pessoas trans, um direito sem caminho pode funcionar como uma porta desenhada na parede. A tarefa do Estado é construir a passagem.
-      </div>
-
-      <p>
-        Quando a pessoa trans procura o SUS, ela não deveria precisar provar que merece cuidado, estudar sozinha a arquitetura do sistema, procurar médico por conta própria ou depender da sorte. A pergunta pública deve ser outra: como fazer com que cada município saiba acolher, orientar, encaminhar e acompanhar?
-      </p>
-
-      <p>
-        A resposta não será apenas tecnológica. Mas, se bem governada, a tecnologia pode ajudar o Estado a parar de se perder no próprio corredor.
-      </p>
+      <h2>Tecnologia como caminho, não como espetáculo</h2>
+      <p class="lead">A inteligência artificial só interessa à política pública LGBTQIA+ se ajudar a reduzir abandono, humilhação, peregrinação institucional e risco clínico.</p>
+      <p>O objetivo não é propor que a IA substitua a política. É propor que ela seja colocada a serviço da política pública, dos direitos humanos, do SUS, da gestão municipal, da participação social e da vida concreta das pessoas trans.</p>
+      <div class="quote">Para pessoas trans, um direito sem caminho pode funcionar como uma porta desenhada na parede. A tarefa do Estado é construir a passagem.</div>
+      <p>Quando a pessoa trans procura o SUS, ela não deveria precisar provar que merece cuidado, estudar sozinha a arquitetura do sistema ou depender da sorte. A pergunta pública deve ser outra: como fazer com que cada município saiba acolher, orientar, encaminhar e acompanhar?</p>
     </section>
 
     <section class="section" id="autora" data-section="09">
       <h2>Sobre a autora</h2>
-
       <div class="source-dock">
         <div>
-          <p class="lead">
-            Lua Helena Moon Martins Cardoso é psicóloga hospitalar, mulher trans, escritora e pesquisadora autodidata em arquitetura de contexto para inteligência artificial.
-          </p>
-
-          <p>
-            Formada em Psicologia, com Sociologia como segunda graduação, possui pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional. Atua na interface entre cuidado, saúde institucional, direitos humanos, comunicação pública e sistemas de IA aplicados à organização de conhecimento, memória, linguagem e fluxos.
-          </p>
-
-          <p>
-            Este paper nasce da intersecção entre experiência pessoal, atuação profissional, saúde pública, direitos LGBTQIA+ e pesquisa prática sobre como tecnologias de linguagem podem ajudar pessoas e instituições a não perderem o fio da dignidade no meio da burocracia.
-          </p>
+          <p class="lead">Lua Helena Moon Martins Cardoso é psicóloga hospitalar, mulher trans, filiada ao PSOL Limeira, escritora e pesquisadora autodidata em arquitetura de contexto para inteligência artificial.</p>
+          <p>Formada em Psicologia, com Sociologia como segunda graduação, possui pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional. Atua na interface entre cuidado, saúde institucional, direitos humanos, comunicação pública e sistemas de IA aplicados à organização de conhecimento, memória, linguagem e fluxos.</p>
+          <p>Este paper nasce da intersecção entre experiência pessoal, atuação profissional, saúde pública, direitos LGBTQIA+ e pesquisa prática sobre como tecnologias de linguagem podem ajudar pessoas e instituições a não perderem o fio da dignidade no meio da burocracia.</p>
         </div>
 
         <aside class="contact-card" id="contato">
@@ -1211,52 +765,20 @@
 
     <section class="section" id="referencias" data-section="10">
       <h2>Fontes e referências</h2>
-
       <details class="refs" open>
         <summary>Referências utilizadas neste paper</summary>
-
         <ol class="reference-list">
-          <li id="ref1">
-            <strong>Ministério dos Direitos Humanos e da Cidadania.</strong>
-            Política Nacional dos Direitos das Pessoas LGBTQIA+. Instituída pela Portaria nº 1.825/2025 e regulamentada pela Resolução nº 3/2025 do CNLGBTQIA+.
-            <a href="https://lgbtqia.mdh.gov.br/politica-nacional-lgbtqia/" target="_blank" rel="noopener">Acessar fonte</a>.
-          </li>
-
-          <li id="ref2">
-            <strong>Ministério da Saúde.</strong>
-            População LGBTQIAPN+ e Política Nacional de Saúde Integral LGBT.
-            <a href="https://www.gov.br/saude/pt-br/composicao/saps/equidade-em-saude/populacao-lgbtqiapn" target="_blank" rel="noopener">Acessar fonte</a>.
-          </li>
-
-          <li id="ref3">
-            <strong>Ministério da Saúde.</strong>
-            Como solicitar o Processo Transexualizador no SUS.
-            <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener">Acessar fonte</a>.
-          </li>
-
-          <li id="ref4">
-            <strong>Secretaria de Estado da Saúde de São Paulo.</strong>
-            Conselho Estadual de Saúde visita a Central de Regulação de Ofertas e Serviços de Saúde (CROSS).
-            <a href="https://saude.sp.gov.br/conselho-estadual-de-saude/homepage/destaques/ces-sp-visita-central-de-regulacao-de-ofertas-e-servicos-de-saude-cross" target="_blank" rel="noopener">Acessar fonte</a>.
-          </li>
-
-          <li id="ref5">
-            <strong>Prefeitura de Limeira.</strong>
-            Secretária Nacional dos Direitos das Pessoas LGBTQIA+ visita Secretaria de Saúde.
-            <a href="https://limeira.sp.gov.br/secretaria-nacional-dos-direitos-das-pessoas-lgbtqiavisita-secretaria-de-saude" target="_blank" rel="noopener">Acessar fonte</a>.
-          </li>
-
-          <li>
-            <strong>Relato da autora.</strong>
-            Relatório “Indisponibilidade de Encaminhamento via CROSS ao acesso à saúde da população trans no SUS”, elaborado por Lua Helena Moon Martins Cardoso após atendimento ocorrido em 29 de agosto de 2024, em Limeira/SP.
-          </li>
+          <li id="ref1"><strong>Ministério dos Direitos Humanos e da Cidadania.</strong> Política Nacional dos Direitos das Pessoas LGBTQIA+. Instituída pela Portaria nº 1.825/2025 e regulamentada pela Resolução nº 3/2025 do CNLGBTQIA+. <a href="https://lgbtqia.mdh.gov.br/politica-nacional-lgbtqia/" target="_blank" rel="noopener">Acessar fonte</a>.</li>
+          <li id="ref2"><strong>Ministério da Saúde.</strong> População LGBTQIAPN+ e Política Nacional de Saúde Integral LGBT. <a href="https://www.gov.br/saude/pt-br/composicao/saps/equidade-em-saude/populacao-lgbtqiapn" target="_blank" rel="noopener">Acessar fonte</a>.</li>
+          <li id="ref3"><strong>Ministério da Saúde.</strong> Como solicitar o Processo Transexualizador no SUS. <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener">Acessar fonte</a>.</li>
+          <li id="ref4"><strong>Secretaria de Estado da Saúde de São Paulo.</strong> Conselho Estadual de Saúde visita a Central de Regulação de Ofertas e Serviços de Saúde (CROSS). <a href="https://saude.sp.gov.br/conselho-estadual-de-saude/homepage/destaques/ces-sp-visita-central-de-regulacao-de-ofertas-e-servicos-de-saude-cross" target="_blank" rel="noopener">Acessar fonte</a>.</li>
+          <li id="ref5"><strong>Prefeitura de Limeira.</strong> Secretária Nacional dos Direitos das Pessoas LGBTQIA+ visita Secretaria de Saúde. <a href="https://limeira.sp.gov.br/secretaria-nacional-dos-direitos-das-pessoas-lgbtqiavisita-secretaria-de-saude" target="_blank" rel="noopener">Acessar fonte</a>.</li>
+          <li><strong>Relato da autora.</strong> Relatório “Indisponibilidade de Encaminhamento via CROSS ao acesso à saúde da população trans no SUS”, elaborado por Lua Helena Moon Martins Cardoso após atendimento ocorrido em 29 de agosto de 2024, em Limeira/SP.</li>
         </ol>
       </details>
 
       <div class="footer">
-        <p>
-          Versão inicial para circulação institucional. Texto preparado para diálogo com a Secretaria Nacional dos Direitos das Pessoas LGBTQIA+, com foco em saúde trans, regulação municipal e inteligência pública orientada por direitos humanos.
-        </p>
+        <p>Versão inicial para circulação institucional. Texto preparado para diálogo com a Secretaria Nacional dos Direitos das Pessoas LGBTQIA+, com foco em saúde trans, regulação municipal e inteligência pública orientada por direitos humanos.</p>
       </div>
     </section>
   </main>
@@ -1284,7 +806,6 @@
     }, { threshold: 0.12 });
 
     sections.forEach(section => observer.observe(section));
-
     window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
 
@@ -1305,9 +826,7 @@
 
     readingMode.addEventListener("click", () => {
       document.body.classList.toggle("reading-mode");
-      readingMode.textContent = document.body.classList.contains("reading-mode")
-        ? "Sair do modo leitura"
-        : "Modo leitura";
+      readingMode.textContent = document.body.classList.contains("reading-mode") ? "Sair do modo leitura" : "Modo leitura";
     });
   </script>
 </body>
