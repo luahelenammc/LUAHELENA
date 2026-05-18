@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Lua Helena Moon — Arquitetura de Contexto Humano–IA</title>
-<meta content="Apresentação profissional de Lua Helena Moon: psicóloga hospitalar, socióloga de formação e arquiteta de contexto humano–IA, em busca da primeira oportunidade formal em IA 100% remota." name="description"/>
+<title data-i18n="meta.title">Lua Helena Moon — Arquitetura de Contexto Humano–IA</title>
+<meta content="Apresentação profissional de Lua Helena Moon: psicóloga hospitalar, socióloga de formação e arquiteta de contexto humano–IA, em busca da primeira oportunidade formal em IA 100% remota." data-i18n-attr="content:meta.description" name="description"/>
 <meta content="#080711" name="theme-color"/>
 <style>
     :root {
@@ -568,6 +568,48 @@
       font-size: .88rem;
     }
 
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 42px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: var(--muted);
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: .88rem;
+      font-weight: 800;
+      padding: 6px 8px;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: rgba(255,255,255,.13);
+      color: var(--text);
+    }
+
+    html[lang="en"] .pt-only,
+    html[lang="pt-BR"] .en-only {
+      display: none !important;
+    }
+
     @media (max-width: 980px) {
       .org-steps {
         grid-template-columns: 1fr;
@@ -634,6 +676,48 @@
     .theme-mint .mini-icon   { background: rgba(166, 243, 212, .14); border-color: rgba(166, 243, 212, .34); }
     .theme-gold .mini-icon   { background: rgba(255, 226, 160, .14); border-color: rgba(255, 226, 160, .34); }
     .theme-rose .mini-icon   { background: rgba(255, 145, 200, .15); border-color: rgba(255, 145, 200, .34); }
+
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 42px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: var(--muted);
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: .88rem;
+      font-weight: 800;
+      padding: 6px 8px;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: rgba(255,255,255,.13);
+      color: var(--text);
+    }
+
+    html[lang="en"] .pt-only,
+    html[lang="pt-BR"] .en-only {
+      display: none !important;
+    }
 
     @media (max-width: 980px) {
       .hero,
@@ -760,56 +844,60 @@
 <span aria-hidden="true" class="brand-mark"></span>
 <span>Lua Helena Moon</span>
 </a>
-<nav aria-label="Contato rápido" class="actions">
-<a class="button" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 LinkedIn</a>
-<a class="button whatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 WhatsApp</a>
+<nav aria-label="Contato rápido" class="actions"><div aria-label="Selecionar idioma" class="lang-toggle" role="group">
+<button class="lang-btn active" data-lang-choice="pt" type="button">PT</button>
+<span aria-hidden="true">·</span>
+<button class="lang-btn" data-lang-choice="en" type="button">EN</button>
+</div>
+<a class="button" data-i18n="nav.linkedin" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 LinkedIn</a>
+<a class="button whatsapp" data-i18n="nav.whatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 WhatsApp</a>
 </nav>
 </header>
 <section aria-labelledby="hero-title" class="hero">
 <article class="surface intro __text_mode_custom_bg__">
 <p class="eyebrow">🌙 Arquitetura de Contexto Humano–IA</p>
-<h1 id="hero-title">A IA não falha só por falta de modelo. Ela falha por falta de <span class="gradient">contexto.</span></h1>
-<p class="lead">Transformo conhecimento humano disperso — linguagem, memória, limites, decisões, documentos e modos de trabalho — em estruturas que tornam a IA mais útil, contínua e aplicável a pessoas, equipes e projetos reais.</p>
-<p class="profile">Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, documentação viva, sistemas humano–IA e arquitetura de uso.</p>
+<h1 data-i18n="hero.title" id="hero-title">A IA não falha só por falta de modelo. Ela falha por falta de <span class="gradient">contexto.</span></h1>
+<p class="lead" data-i18n="hero.lead">Transformo conhecimento humano disperso — linguagem, memória, limites, decisões, documentos e modos de trabalho — em estruturas que tornam a IA mais útil, contínua e aplicável a pessoas, equipes e projetos reais.</p>
+<p class="profile" data-i18n="hero.profile">Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, documentação viva, sistemas humano–IA e arquitetura de uso.</p>
 <p aria-label="Resumo profissional" class="chips">
-<span class="chip">🏥 Psicologia hospitalar</span>
-<span class="chip">📚 Sociologia</span>
-<span class="chip">🧭 Psicologia Organizacional</span>
-<span class="chip">🧩 Psicopedagogia Institucional</span>
-<span class="chip">🤖 IA generativa desde 2022</span>
-<span class="chip important">✨ Primeira oportunidade formal em IA</span>
-<span class="chip important">🏡 100% remota • Limeira/SP</span>
+<span class="chip" data-i18n="chips.hospital">🏥 Psicologia hospitalar</span>
+<span class="chip" data-i18n="chips.sociology">📚 Sociologia</span>
+<span class="chip" data-i18n="chips.orgPsych">🧭 Psicologia Organizacional</span>
+<span class="chip" data-i18n="chips.psychopedagogy">🧩 Psicopedagogia Institucional</span>
+<span class="chip" data-i18n="chips.aiSince">🤖 IA generativa desde 2022</span>
+<span class="chip important" data-i18n="chips.firstOpportunity">✨ Primeira oportunidade formal em IA</span>
+<span class="chip important" data-i18n="chips.remote">🏡 100% remota • Limeira/SP</span>
 </p>
 </article>
 <aside aria-label="Onde gero valor" class="surface summary">
-<p class="label">Onde gero valor</p>
+<p class="label" data-i18n="summary.label">Onde gero valor</p>
 <div class="mini-list">
 <article class="mini theme-gold">
 <span class="mini-icon">🎓</span>
 <div>
-<h3>Letramento em IA</h3>
-<p>Uso intuitivo de IA virando método ensinável.</p>
+<h3 data-i18n="summary.aiLiteracy.title">Letramento em IA</h3>
+<p data-i18n="summary.aiLiteracy.body">Uso intuitivo de IA virando método ensinável.</p>
 </div>
 </article>
 <article class="mini theme-mint">
 <span class="mini-icon">🧠</span>
 <div>
-<h3>People Analytics</h3>
-<p>Dados conectados a contexto humano e leitura institucional.</p>
+<h3 data-i18n="summary.peopleAnalytics.title">People Analytics</h3>
+<p data-i18n="summary.peopleAnalytics.body">Dados conectados a contexto humano e leitura institucional.</p>
 </div>
 </article>
 <article class="mini theme-cyan">
 <span class="mini-icon">🗂️</span>
 <div>
-<h3>Governança do conhecimento</h3>
-<p>Memória, documentação viva e continuidade.</p>
+<h3 data-i18n="summary.knowledgeGovernance.title">Governança do conhecimento</h3>
+<p data-i18n="summary.knowledgeGovernance.body">Memória, documentação viva e continuidade.</p>
 </div>
 </article>
 <article class="mini theme-rose">
 <span class="mini-icon">⚖️</span>
 <div>
-<h3>IA responsável</h3>
-<p>Fato, inferência, preferência, limite e decisão bem separados.</p>
+<h3 data-i18n="summary.responsibleAi.title">IA responsável</h3>
+<p data-i18n="summary.responsibleAi.body">Fato, inferência, preferência, limite e decisão bem separados.</p>
 </div>
 </article>
 </div>
@@ -820,70 +908,70 @@
 <div class="grid cols-4">
 <article class="card compact line-card theme-violet">
 <span class="mini-icon">1</span>
-<p>Sua equipe usa IA, mas perde contexto entre conversas, documentos e decisões.</p>
+<p data-i18n="when.1">Sua equipe usa IA, mas perde contexto entre conversas, documentos e decisões.</p>
 </article>
 <article class="card compact line-card theme-cyan">
 <span class="mini-icon">2</span>
-<p>O conhecimento importante está espalhado em chats, reuniões, PDFs, processos e pessoas.</p>
+<p data-i18n="when.2">O conhecimento importante está espalhado em chats, reuniões, PDFs, processos e pessoas.</p>
 </article>
 <article class="card compact line-card theme-mint">
 <span class="mini-icon">3</span>
-<p>O problema envolve adoção, linguagem, continuidade e confiança — não só ferramenta.</p>
+<p data-i18n="when.3">O problema envolve adoção, linguagem, continuidade e confiança — não só ferramenta.</p>
 </article>
 <article class="card compact line-card theme-gold">
 <span class="mini-icon">4</span>
-<p>Uso intuitivo de IA precisa virar método ensinável, revisável e sustentável.</p>
+<p data-i18n="when.4">Uso intuitivo de IA precisa virar método ensinável, revisável e sustentável.</p>
 </article>
 </div>
 </section>
 <section aria-label="Entrega e oportunidade" class="section grid cols-2">
 <article class="card theme-violet">
-<p class="label">🛠️ Como isso vira entrega</p>
-<h2>Contexto em módulos operacionais.</h2>
-<p>Desenho a camada entre pessoas reais e sistemas inteligentes: função, fronteira, memória, atualização e critério de uso. Na prática, isso vira materiais de trabalho que podem ser reaproveitados por pessoas, equipes e IAs.</p>
+<p class="label" data-i18n="delivery.label">🛠️ Como isso vira entrega</p>
+<h2 data-i18n="delivery.title">Contexto em módulos operacionais.</h2>
+<p data-i18n="delivery.body">Desenho a camada entre pessoas reais e sistemas inteligentes: função, fronteira, memória, atualização e critério de uso. Na prática, isso vira materiais de trabalho que podem ser reaproveitados por pessoas, equipes e IAs.</p>
 <p aria-label="Entregáveis possíveis" class="tags">
-<span class="tag">perfis-fonte</span>
-<span class="tag">repasses de contexto</span>
-<span class="tag">pacotes de contexto</span>
-<span class="tag">roteiros de uso</span>
-<span class="tag">mapas de conhecimento</span>
-<span class="tag">governança de contexto</span>
-<span class="tag">critérios de revisão</span>
-<span class="tag">revisão humana</span>
-<span class="tag">documentação viva</span>
-<span class="tag">rotas de atualização</span>
+<span class="tag" data-i18n="tags.sourceProfiles">perfis-fonte</span>
+<span class="tag" data-i18n="tags.contextHandoffs">repasses de contexto</span>
+<span class="tag" data-i18n="tags.contextPacks">pacotes de contexto</span>
+<span class="tag" data-i18n="tags.usagePlaybooks">roteiros de uso</span>
+<span class="tag" data-i18n="tags.knowledgeMaps">mapas de conhecimento</span>
+<span class="tag" data-i18n="tags.contextGovernance">governança de contexto</span>
+<span class="tag" data-i18n="tags.reviewCriteria">critérios de revisão</span>
+<span class="tag" data-i18n="tags.humanReview">revisão humana</span>
+<span class="tag" data-i18n="tags.livingDocs">documentação viva</span>
+<span class="tag" data-i18n="tags.updatePaths">rotas de atualização</span>
 </p>
 </article>
 <article class="card opportunity theme-gold">
-<p class="label">✨ Oportunidade que procuro</p>
-<h2>Minha primeira oportunidade formal de trabalhar com IA.</h2>
-<p>Busco oportunidades 100% remotas em frentes onde IA precise de contexto, adoção, documentação, governança do conhecimento ou tradução entre áreas.</p>
+<p class="label" data-i18n="opportunity.label">✨ Oportunidade que procuro</p>
+<h2 data-i18n="opportunity.title">Minha primeira oportunidade formal de trabalhar com IA.</h2>
+<p data-i18n="opportunity.body">Busco oportunidades 100% remotas em frentes onde IA precise de contexto, adoção, documentação, governança do conhecimento ou tradução entre áreas.</p>
 <p aria-label="Áreas desejadas" class="tags">
-<span class="tag">adoção de IA</span>
-<span class="tag">letramento em IA</span>
-<span class="tag">arquitetura de contexto</span>
-<span class="tag">governança do conhecimento</span>
-<span class="tag">People Analytics</span>
-<span class="tag">IA responsável</span>
+<span class="tag" data-i18n="areas.aiAdoption">adoção de IA</span>
+<span class="tag" data-i18n="areas.aiLiteracy">letramento em IA</span>
+<span class="tag" data-i18n="areas.contextArchitecture">arquitetura de contexto</span>
+<span class="tag" data-i18n="areas.knowledgeGovernance">governança do conhecimento</span>
+<span class="tag" data-i18n="areas.peopleAnalytics">People Analytics</span>
+<span class="tag" data-i18n="areas.responsibleAi">IA responsável</span>
 </p>
 </article>
 </section>
-<section aria-label="Valor para organizações" class="section"><article class="card theme-cyan organization-card"><p class="label">🏢 Valor para organizações</p><h2>O gargalo da IA raramente é só técnico.</h2><p>Muitas iniciativas perdem força porque ninguém estruturou o contexto que a IA precisa preservar: quem usa, para quê, com quais limites, em qual linguagem, com qual memória e com quais critérios de confiança.</p><div aria-label="Três formas de contribuição organizacional" class="org-steps"><article class="org-step"><span class="org-num">1</span><span><strong>Letramento em IA situada</strong><br/><small>Uso de IA com contexto real, não só dicas genéricas.</small></span></article><article class="org-step"><span class="org-num">2</span><span><strong>Company brain e documentação viva</strong><br/><small>Conhecimento operacional que permanece acessível, revisável e útil.</small></span></article><article class="org-step"><span class="org-num">3</span><span><strong>Tradução humano–sistema</strong><br/><small>Complexidade humana convertida em requisitos, linguagem, limites e rotas de uso.</small></span></article></div></article></section><section aria-label="Critérios e recorte" class="section">
+<section aria-label="Valor para organizações" class="section"><article class="card theme-cyan organization-card"><p class="label" data-i18n="org.label">🏢 Valor para organizações</p><h2 data-i18n="org.title">O gargalo da IA raramente é só técnico.</h2><p data-i18n="org.body">Muitas iniciativas perdem força porque ninguém estruturou o contexto que a IA precisa preservar: quem usa, para quê, com quais limites, em qual linguagem, com qual memória e com quais critérios de confiança.</p><div aria-label="Três formas de contribuição organizacional" class="org-steps"><article class="org-step"><span class="org-num">1</span><span><strong data-i18n="org.step1.title">Letramento em IA situada</strong><br/><small data-i18n="org.step1.body">Uso de IA com contexto real, não só dicas genéricas.</small></span></article><article class="org-step"><span class="org-num">2</span><span><strong data-i18n="org.step2.title">Company brain e documentação viva</strong><br/><small data-i18n="org.step2.body">Conhecimento operacional que permanece acessível, revisável e útil.</small></span></article><article class="org-step"><span class="org-num">3</span><span><strong data-i18n="org.step3.title">Tradução humano–sistema</strong><br/><small data-i18n="org.step3.body">Complexidade humana convertida em requisitos, linguagem, limites e rotas de uso.</small></span></article></div></article></section><section aria-label="Critérios e recorte" class="section">
 <div class="grid cols-4">
 <article class="card compact theme-violet">
-<p class="label">✅ Contexto útil</p>
+<p class="label" data-i18n="criteria.context.body">✅ Contexto útil</p>
 <p>Informação organizada por função, gatilho, destino e atualização.</p>
 </article>
 <article class="card compact theme-rose">
-<p class="label">🧬 Personalização estrutural</p>
+<p class="label" data-i18n="criteria.personalization.body">🧬 Personalização estrutural</p>
 <p>Memória, limites, tarefas e critérios; não só tom ou estética.</p>
 </article>
 <article class="card compact theme-cyan">
-<p class="label">⚖️ Governança humana</p>
+<p class="label" data-i18n="criteria.governance.body">⚖️ Governança humana</p>
 <p>Separar fato, inferência, preferência, risco e decisão.</p>
 </article>
 <article class="card compact theme-mint">
-<p class="label">🏡 Adoção real</p>
+<p class="label" data-i18n="criteria.adoption.body">🏡 Adoção real</p>
 <p>A ferramenta precisa caber na rotina, na linguagem e nos limites de quem usa.</p>
 </article>
 </div>
@@ -892,32 +980,32 @@
 <div class="section-head direct"><h2>🔎 Provas de trabalho</h2></div>
 <div class="grid cols-4">
 <article class="card theme-violet">
-<h3><a class="proof-link" href="https://mooon.com.br/moonsource/" rel="noopener" target="_blank">Moon Source</a></h3>
-<p>Método para criar uma camada-fonte de contexto, memória, voz, limites, projetos e operação contínua para uso avançado de IA.</p>
+<h3><a class="proof-link" data-i18n="proof.moonSource.title" href="https://mooon.com.br/moonsource/" rel="noopener" target="_blank">Moon Source</a></h3>
+<p data-i18n="proof.moonSource.body">Método para criar uma camada-fonte de contexto, memória, voz, limites, projetos e operação contínua para uso avançado de IA.</p>
 </article>
 <article class="card theme-cyan">
-<h3>Local Moon Source</h3>
-<p>Corpus operacional de engines, protocolos, handoffs, skills, rotas de atualização e documentação viva para trabalho com IA.</p>
+<h3 data-i18n="proof.localMoonSource.title">Local Moon Source</h3>
+<p data-i18n="proof.localMoonSource.body">Corpus operacional de engines, protocolos, handoffs, skills, rotas de atualização e documentação viva para trabalho com IA.</p>
 </article>
 <article class="card theme-rose">
-<h3>Symbiosphere</h3>
-<p>Comunidade internacional sobre simbiose humano–IA, coautoria, experimentação responsável e colaboração de longo prazo.</p>
+<h3 data-i18n="proof.symbiosphere.title">Symbiosphere</h3>
+<p data-i18n="proof.symbiosphere.body">Comunidade internacional sobre simbiose humano–IA, coautoria, experimentação responsável e colaboração de longo prazo.</p>
 </article>
 <article class="card theme-mint">
-<h3>SymbAI</h3>
-<p>Studio de AI devs e builders em formação, voltado a produtos, workflows e infraestruturas de IA orientadas por contexto real.</p>
+<h3 data-i18n="proof.symbai.title">SymbAI</h3>
+<p data-i18n="proof.symbai.body">Studio de AI devs e builders em formação, voltado a produtos, workflows e infraestruturas de IA orientadas por contexto real.</p>
 </article>
 </div>
 </section>
 <section aria-label="Recorte e encaixe" class="section grid cols-2"><article class="card theme-red">
-<p class="label">🎯 Recorte honesto</p>
-<h2>Não sou engenheira de IA. Esse não é o ponto.</h2>
-<p>Sou uma profissional de fronteira entre psicologia institucional, linguagem, documentação, IA aplicada e arquitetura de uso. Entro melhor onde o desafio envolve contexto, pessoas, adoção, conhecimento, governança, aprendizagem e sistemas que precisam funcionar na vida real.</p>
-</article><article class="card theme-mint"><p class="label">🌱 Onde posso contribuir</p><h2>Na camada entre pessoas, conhecimento e uso real de IA.</h2><p>Meu melhor encaixe está em frentes de letramento em IA, People Analytics, IA responsável, educação corporativa, saúde, produto, gestão do conhecimento e adoção de IA com contexto humano de verdade.</p></article></section><section aria-label="Contato" class="surface contact dynamic-panel theme-rose">
+<p class="label" data-i18n="honest.label">🎯 Recorte honesto</p>
+<h2 data-i18n="honest.title">Não sou engenheira de IA. Esse não é o ponto.</h2>
+<p data-i18n="honest.body">Sou uma profissional de fronteira entre psicologia institucional, linguagem, documentação, IA aplicada e arquitetura de uso. Entro melhor onde o desafio envolve contexto, pessoas, adoção, conhecimento, governança, aprendizagem e sistemas que precisam funcionar na vida real.</p>
+</article><article class="card theme-mint"><p class="label" data-i18n="contribute.label">🌱 Onde posso contribuir</p><h2 data-i18n="contribute.title">Na camada entre pessoas, conhecimento e uso real de IA.</h2><p data-i18n="contribute.body">Meu melhor encaixe está em frentes de letramento em IA, People Analytics, IA responsável, educação corporativa, saúde, produto, gestão do conhecimento e adoção de IA com contexto humano de verdade.</p></article></section><section aria-label="Contato" class="surface contact dynamic-panel theme-rose">
 <article>
-<p class="label">📬 Contato</p>
-<h2>Vamos conversar?</h2>
-<p>Aberta a conversas sobre IA, contexto, adoção, conhecimento vivo e oportunidades 100% remotas.</p>
+<p class="label" data-i18n="contact.label">📬 Contato</p>
+<h2 data-i18n="contact.title">Vamos conversar?</h2>
+<p data-i18n="contact.body">Aberta a conversas sobre IA, contexto, adoção, conhecimento vivo e oportunidades 100% remotas.</p>
 <address class="contact-links">
 <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">@luahelena</a></span>
 <span><strong>WhatsApp:</strong> <a href="https://wa.me/5541992228411" rel="noopener" target="_blank">(41) 9 9222-8411</a></span>
@@ -925,16 +1013,248 @@
 </address>
 </article>
 <nav aria-label="Ações de contato" class="actions">
-<a class="button" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 Abrir LinkedIn</a>
-<a class="button whatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 Enviar WhatsApp</a>
+<a class="button" data-i18n="contact.openLinkedin" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">💼 Abrir LinkedIn</a>
+<a class="button whatsapp" data-i18n="contact.sendWhatsapp" href="https://wa.me/5541992228411" rel="noopener" target="_blank">💬 Enviar WhatsApp</a>
 </nav>
 </section>
-<footer>
+<footer data-i18n="footer.text">
       Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota<br/>
       LinkedIn: @luahelena · WhatsApp: (41) 9 9222-8411 · Email: luahelenammc@gmail.com
     </footer>
 </main>
+
+
 <script>
+    const I18N = {
+      "pt": {
+            "meta.title": "Lua Helena Moon — Arquitetura de Contexto Humano–IA",
+            "meta.description": "Apresentação profissional de Lua Helena Moon: psicóloga hospitalar, socióloga de formação e arquiteta de contexto humano–IA, em busca da primeira oportunidade formal em IA 100% remota.",
+            "nav.linkedin": "💼 LinkedIn",
+            "nav.whatsapp": "💬 WhatsApp",
+            "hero.eyebrow": "🌙 Arquitetura de Contexto Humano–IA",
+            "hero.title": "A IA não falha só por falta de modelo. Ela falha por falta de <span class=\"gradient\">contexto.</span>",
+            "hero.lead": "Transformo conhecimento humano disperso — linguagem, memória, limites, decisões, documentos e modos de trabalho — em estruturas que tornam a IA mais útil, contínua e aplicável a pessoas, equipes e projetos reais.",
+            "hero.profile": "Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Heavy user de IA há 4 anos, com hiperfoco sustentado em IA generativa, documentação viva, sistemas humano–IA e arquitetura de uso.",
+            "chips.hospital": "🏥 Psicologia hospitalar",
+            "chips.sociology": "📚 Sociologia",
+            "chips.orgPsych": "🧭 Psicologia Organizacional",
+            "chips.psychopedagogy": "🧩 Psicopedagogia Institucional",
+            "chips.aiSince": "🤖 IA generativa desde 2022",
+            "chips.firstOpportunity": "✨ Primeira oportunidade formal em IA",
+            "chips.remote": "🏡 100% remota • Limeira/SP",
+            "summary.label": "Onde gero valor",
+            "summary.aiLiteracy.title": "Letramento em IA",
+            "summary.aiLiteracy.body": "Uso intuitivo de IA virando método ensinável.",
+            "summary.peopleAnalytics.title": "People Analytics",
+            "summary.peopleAnalytics.body": "Dados conectados a contexto humano e leitura institucional.",
+            "summary.knowledgeGovernance.title": "Governança do conhecimento",
+            "summary.knowledgeGovernance.body": "Memória, documentação viva e continuidade.",
+            "summary.responsibleAi.title": "IA responsável",
+            "summary.responsibleAi.body": "Fato, inferência, preferência, limite e decisão bem separados.",
+            "when.label": "🚦 Quando me chamar",
+            "when.title": "Quando a IA precisa entender o trabalho antes de “automatizar” qualquer coisa.",
+            "when.1": "Sua equipe usa IA, mas perde contexto entre conversas, documentos e decisões.",
+            "when.2": "O conhecimento importante está espalhado em chats, reuniões, PDFs, processos e pessoas.",
+            "when.3": "O problema envolve adoção, linguagem, continuidade e confiança — não só ferramenta.",
+            "when.4": "Uso intuitivo de IA precisa virar método ensinável, revisável e sustentável.",
+            "delivery.label": "🛠️ Como isso vira entrega",
+            "delivery.title": "Contexto em módulos operacionais.",
+            "delivery.body": "Desenho a camada entre pessoas reais e sistemas inteligentes: função, fronteira, memória, atualização e critério de uso. Na prática, isso vira materiais de trabalho que podem ser reaproveitados por pessoas, equipes e IAs.",
+            "tags.sourceProfiles": "perfis-fonte",
+            "tags.contextHandoffs": "repasses de contexto",
+            "tags.contextPacks": "pacotes de contexto",
+            "tags.usagePlaybooks": "roteiros de uso",
+            "tags.knowledgeMaps": "mapas de conhecimento",
+            "tags.contextGovernance": "governança de contexto",
+            "tags.reviewCriteria": "critérios de revisão",
+            "tags.humanReview": "revisão humana",
+            "tags.livingDocs": "documentação viva",
+            "tags.updatePaths": "rotas de atualização",
+            "opportunity.label": "✨ Oportunidade que procuro",
+            "opportunity.title": "Minha primeira oportunidade formal de trabalhar com IA.",
+            "opportunity.body": "Busco oportunidades 100% remotas em frentes onde IA precise de contexto, adoção, documentação, governança do conhecimento ou tradução entre áreas.",
+            "areas.aiAdoption": "adoção de IA",
+            "areas.aiLiteracy": "letramento em IA",
+            "areas.contextArchitecture": "arquitetura de contexto",
+            "areas.knowledgeGovernance": "governança do conhecimento",
+            "areas.peopleAnalytics": "People Analytics",
+            "areas.responsibleAi": "IA responsável",
+            "org.label": "🏢 Valor para organizações",
+            "org.title": "O gargalo da IA raramente é só técnico.",
+            "org.body": "Muitas iniciativas perdem força porque ninguém estruturou o contexto que a IA precisa preservar: quem usa, para quê, com quais limites, em qual linguagem, com qual memória e com quais critérios de confiança.",
+            "org.step1.title": "Letramento em IA situada",
+            "org.step1.body": "Uso de IA com contexto real, não só dicas genéricas.",
+            "org.step2.title": "Company brain e documentação viva",
+            "org.step2.body": "Conhecimento operacional que permanece acessível, revisável e útil.",
+            "org.step3.title": "Tradução humano–sistema",
+            "org.step3.body": "Complexidade humana convertida em requisitos, linguagem, limites e rotas de uso.",
+            "criteria.context.title": "✅ Contexto útil",
+            "criteria.context.body": "Informação organizada por função, gatilho, destino e atualização.",
+            "criteria.personalization.title": "🧬 Personalização estrutural",
+            "criteria.personalization.body": "Memória, limites, tarefas e critérios; não só tom ou estética.",
+            "criteria.governance.title": "⚖️ Governança humana",
+            "criteria.governance.body": "Separar fato, inferência, preferência, risco e decisão.",
+            "criteria.adoption.title": "🏡 Adoção real",
+            "criteria.adoption.body": "A ferramenta precisa caber na rotina, na linguagem e nos limites de quem usa.",
+            "proof.label": "🔎 Provas de trabalho",
+            "proof.title": "Projetos vivos onde essa prática foi construída.",
+            "proof.moonSource.title": "Moon Source",
+            "proof.moonSource.body": "Método para criar uma camada-fonte de contexto, memória, voz, limites, projetos e operação contínua para uso avançado de IA.",
+            "proof.localMoonSource.title": "Local Moon Source",
+            "proof.localMoonSource.body": "Corpus operacional de engines, protocolos, handoffs, skills, rotas de atualização e documentação viva para trabalho com IA.",
+            "proof.symbiosphere.title": "Symbiosphere",
+            "proof.symbiosphere.body": "Comunidade internacional sobre simbiose humano–IA, coautoria, experimentação responsável e colaboração de longo prazo.",
+            "proof.symbai.title": "SymbAI",
+            "proof.symbai.body": "Studio de AI devs e builders em formação, voltado a produtos, workflows e infraestruturas de IA orientadas por contexto real.",
+            "honest.label": "🎯 Recorte honesto",
+            "honest.title": "Não sou engenheira de IA. Esse não é o ponto.",
+            "honest.body": "Sou uma profissional de fronteira entre psicologia institucional, linguagem, documentação, IA aplicada e arquitetura de uso. Entro melhor onde o desafio envolve contexto, pessoas, adoção, conhecimento, governança, aprendizagem e sistemas que precisam funcionar na vida real.",
+            "contribute.label": "🌱 Onde posso contribuir",
+            "contribute.title": "Na camada entre pessoas, conhecimento e uso real de IA.",
+            "contribute.body": "Meu melhor encaixe está em frentes de letramento em IA, People Analytics, IA responsável, educação corporativa, saúde, produto, gestão do conhecimento e adoção de IA com contexto humano de verdade.",
+            "contact.label": "📬 Contato",
+            "contact.title": "Vamos conversar?",
+            "contact.body": "Aberta a conversas sobre IA, contexto, adoção, conhecimento vivo e oportunidades 100% remotas.",
+            "contact.openLinkedin": "💼 Abrir LinkedIn",
+            "contact.sendWhatsapp": "💬 Enviar WhatsApp",
+            "footer.text": "Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota<br>LinkedIn: @luahelena · WhatsApp: (41) 9 9222-8411 · Email: luahelenammc@gmail.com"
+      },
+      "en": {
+            "meta.title": "Lua Helena Moon — Human–AI Context Architecture",
+            "meta.description": "Professional presentation of Lua Helena Moon: hospital psychologist, trained sociologist, and Human–AI Context Architect seeking her first formal opportunity in AI in a fully remote role.",
+            "nav.linkedin": "💼 LinkedIn",
+            "nav.whatsapp": "💬 WhatsApp",
+            "hero.eyebrow": "🌙 Human–AI Context Architecture",
+            "hero.title": "AI does not fail only because of the model. It fails because of missing <span class=\"gradient\">context.</span>",
+            "hero.lead": "I turn scattered human knowledge — language, memory, limits, decisions, documents, and ways of working — into structures that make AI more useful, continuous, and applicable to real people, teams, and projects.",
+            "hero.profile": "Hospital psychologist, trained sociologist, with postgraduate degrees in Organizational Psychology and Institutional Psychopedagogy. Heavy AI user for 4 years, with sustained hyperfocus on generative AI, living documentation, human–AI systems, and architecture of use.",
+            "chips.hospital": "🏥 Hospital psychology",
+            "chips.sociology": "📚 Sociology",
+            "chips.orgPsych": "🧭 Organizational Psychology",
+            "chips.psychopedagogy": "🧩 Institutional Psychopedagogy",
+            "chips.aiSince": "🤖 Generative AI since 2022",
+            "chips.firstOpportunity": "✨ First formal opportunity in AI",
+            "chips.remote": "🏡 Fully remote • Limeira/SP, Brazil",
+            "summary.label": "Where I create value",
+            "summary.aiLiteracy.title": "AI Literacy",
+            "summary.aiLiteracy.body": "Turning intuitive AI use into a teachable method.",
+            "summary.peopleAnalytics.title": "People Analytics",
+            "summary.peopleAnalytics.body": "Connecting data with human context and institutional reading.",
+            "summary.knowledgeGovernance.title": "Knowledge Governance",
+            "summary.knowledgeGovernance.body": "Memory, living documentation, and continuity.",
+            "summary.responsibleAi.title": "Responsible AI",
+            "summary.responsibleAi.body": "Keeping facts, inference, preference, limits, and decisions clearly separated.",
+            "when.label": "🚦 When to bring me in",
+            "when.title": "When AI needs to understand the work before it can “automate” anything.",
+            "when.1": "Your team uses AI, but loses context across conversations, documents, and decisions.",
+            "when.2": "Important knowledge is scattered across chats, meetings, PDFs, processes, and people.",
+            "when.3": "The problem involves adoption, language, continuity, and trust — not just tooling.",
+            "when.4": "Intuitive AI use needs to become a teachable, reviewable, sustainable method.",
+            "delivery.label": "🛠️ How this becomes delivery",
+            "delivery.title": "Context as operational modules.",
+            "delivery.body": "I design the layer between real people and intelligent systems: function, boundary, memory, updating, and usage criteria. In practice, this becomes working material that people, teams, and AIs can reuse.",
+            "tags.sourceProfiles": "source profiles",
+            "tags.contextHandoffs": "context handoffs",
+            "tags.contextPacks": "context packs",
+            "tags.usagePlaybooks": "usage playbooks",
+            "tags.knowledgeMaps": "knowledge maps",
+            "tags.contextGovernance": "context governance",
+            "tags.reviewCriteria": "review criteria",
+            "tags.humanReview": "human review",
+            "tags.livingDocs": "living documentation",
+            "tags.updatePaths": "update paths",
+            "opportunity.label": "✨ Opportunity I am seeking",
+            "opportunity.title": "My first formal opportunity to work in AI.",
+            "opportunity.body": "I am looking for fully remote opportunities in areas where AI needs context, adoption, documentation, knowledge governance, or translation between domains.",
+            "areas.aiAdoption": "AI adoption",
+            "areas.aiLiteracy": "AI literacy",
+            "areas.contextArchitecture": "context architecture",
+            "areas.knowledgeGovernance": "knowledge governance",
+            "areas.peopleAnalytics": "People Analytics",
+            "areas.responsibleAi": "Responsible AI",
+            "org.label": "🏢 Value for organizations",
+            "org.title": "The AI bottleneck is rarely only technical.",
+            "org.body": "Many initiatives lose momentum because no one structured the context AI needs to preserve: who uses it, for what purpose, within which limits, in which language, with what memory, and with which trust criteria.",
+            "org.step1.title": "Situated AI literacy",
+            "org.step1.body": "AI use grounded in real context, not just generic tips.",
+            "org.step2.title": "Company brain and living documentation",
+            "org.step2.body": "Operational knowledge that remains accessible, reviewable, and useful.",
+            "org.step3.title": "Human–system translation",
+            "org.step3.body": "Human complexity converted into requirements, language, boundaries, and usage paths.",
+            "criteria.context.title": "✅ Useful context",
+            "criteria.context.body": "Information organized by function, trigger, destination, and update path.",
+            "criteria.personalization.title": "🧬 Structural personalization",
+            "criteria.personalization.body": "Memory, limits, tasks, and criteria; not just tone or aesthetics.",
+            "criteria.governance.title": "⚖️ Human governance",
+            "criteria.governance.body": "Separating fact, inference, preference, risk, and decision.",
+            "criteria.adoption.title": "🏡 Real adoption",
+            "criteria.adoption.body": "The tool must fit the routine, language, and limits of the people using it.",
+            "proof.label": "🔎 Proof of work",
+            "proof.title": "Living projects where this practice was built.",
+            "proof.moonSource.title": "Moon Source",
+            "proof.moonSource.body": "A method for creating a source layer of context, memory, voice, limits, projects, and continuous operation for advanced AI use.",
+            "proof.localMoonSource.title": "Local Moon Source",
+            "proof.localMoonSource.body": "An operational corpus of engines, protocols, handoffs, skills, update paths, and living documentation for AI work.",
+            "proof.symbiosphere.title": "Symbiosphere",
+            "proof.symbiosphere.body": "An international community around human–AI symbiosis, coauthorship, responsible experimentation, and long-term collaboration.",
+            "proof.symbai.title": "SymbAI",
+            "proof.symbai.body": "An AI devs and builders studio in formation, focused on products, workflows, and infrastructures oriented by real context.",
+            "honest.label": "🎯 Honest scope",
+            "honest.title": "I am not an AI engineer. That is not the point.",
+            "honest.body": "I am a boundary professional between institutional psychology, language, documentation, applied AI, and architecture of use. I fit best where the challenge involves context, people, adoption, knowledge, governance, learning, and systems that need to work in real life.",
+            "contribute.label": "🌱 Where I can contribute",
+            "contribute.title": "At the layer between people, knowledge, and real AI use.",
+            "contribute.body": "My best fit is in AI literacy, People Analytics, Responsible AI, corporate education, healthcare, product, knowledge management, and AI adoption with real human context.",
+            "contact.label": "📬 Contact",
+            "contact.title": "Shall we talk?",
+            "contact.body": "Open to conversations about AI, context, adoption, living knowledge, and fully remote opportunities.",
+            "contact.openLinkedin": "💼 Open LinkedIn",
+            "contact.sendWhatsapp": "💬 Send WhatsApp",
+            "footer.text": "Lua Helena Moon Martins Cardoso · Human–AI Context Architecture · Limeira/SP, Brazil · Fully remote<br>LinkedIn: @luahelena · WhatsApp: +55 41 9 9222-8411 · Email: luahelenammc@gmail.com"
+      }
+};
+
+    function getInitialLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const fromUrl = params.get('lang');
+      if (fromUrl === 'en' || fromUrl === 'pt') return fromUrl;
+      const stored = localStorage.getItem('moonIaLang');
+      if (stored === 'en' || stored === 'pt') return stored;
+      return 'pt';
+    }
+
+    function setLanguage(lang, updateUrl = true) {
+      const dict = I18N[lang] || I18N.pt;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+        const pairs = el.getAttribute('data-i18n-attr').split(';').filter(Boolean);
+        pairs.forEach((pair) => {
+          const [attr, key] = pair.split(':');
+          if (attr && key && dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+        });
+      });
+
+      document.querySelectorAll('[data-lang-choice]').forEach((btn) => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang-choice') === lang);
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-lang-choice') === lang ? 'true' : 'false');
+      });
+
+      localStorage.setItem('moonIaLang', lang);
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (lang === 'pt') url.searchParams.delete('lang');
+        else url.searchParams.set('lang', 'en');
+        window.history.replaceState(null, '', url);
+      }
+    }
+
     function attachDynamicBackground(selector, xVar, yVar, defaultX, defaultY) {
       document.querySelectorAll(selector).forEach((el) => {
         el.addEventListener('pointermove', (event) => {
@@ -952,6 +1272,11 @@
       });
     }
 
+    document.querySelectorAll('[data-lang-choice]').forEach((btn) => {
+      btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang-choice')));
+    });
+
+    setLanguage(getInitialLanguage(), false);
     attachDynamicBackground('.__text_mode_custom_bg__', '--hero-mx', '--hero-my', '74%', '22%');
     attachDynamicBackground('.card, .mini, .dynamic-panel', '--card-mx', '--card-my', '82%', '18%');
   </script>
