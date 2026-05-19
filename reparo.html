@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Reparo Bubu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg1: #050712;
+      --bg2: #060918;
+      --bg3: #02040a;
+      --card-top: #181c26;
+      --card-mid: #10131b;
+      --card-bot: #090b11;
+      --accent: #46e0ff;
+      --accent-soft: rgba(70, 224, 255, 0.25);
+      --accent-strong: #32cd32;
+      --text-main: #f4f7ff;
+      --text-muted: #b2b8c7;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      background:
+        radial-gradient(1200px 800px at 50% -10%, #171e33, transparent),
+        radial-gradient(1200px 900px at 0% 110%, #13192e, transparent),
+        radial-gradient(1200px 900px at 100% 110%, #101524, transparent),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1.2rem 2.4rem;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, .7);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      text-wrap: balance;
+    }
+
+    /* Layout dos gráficos principais */
+    .charts-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .chart-container {
+      position: relative;
+      flex: 1 1 260px;
+      max-width: 420px;
+      padding: 1.1rem 1.2rem 1.35rem;
+      border-radius: 20px;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(255, 255, 255, 0.12), transparent 55%),
+        radial-gradient(140% 180% at 100% 0%, rgba(255, 255, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, var(--card-top), var(--card-mid) 52%, var(--card-bot) 100%);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, .75),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 14px 26px rgba(255, 255, 255, 0.02),
+        inset 0 -16px 30px rgba(0, 0, 0, 0.70);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .chart-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .chart-container h2 {
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Gráfico do tipo donut */
+    .donut-chart {
+      width: clamp(190px, 42vw, 220px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .8));
+    }
+
+    .background {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.06);
+      stroke-width: 18;
+    }
+
+    .progress {
+      fill: none;
+      stroke-width: 18;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 18px rgba(70, 224, 255, .85));
+      animation: colorPulse 2.4s infinite;
+    }
+
+    @keyframes colorPulse {
+      0%   { stroke: #32cd32; }
+      40%  { stroke: #46e0ff; }
+      70%  { stroke: #40e0d0; }
+      100% { stroke: #32cd32; }
+    }
+
+    .donut-chart text {
+      fill: var(--text-main);
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, .7);
+    }
+
+    /* Gráfico de barra horizontal */
+    .bar-chart {
+      width: 100%;
+      max-width: 360px;
+      height: 64px;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .8));
+    }
+
+    .bar-bg {
+      fill: rgba(0, 0, 0, 0.55);
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 2;
+    }
+
+    .bar-progress {
+      fill: url(#barGradient);
+    }
+
+    #bar-text {
+      font-weight: 700;
+      fill: #05070a;
+    }
+
+    /* Contadores de texto */
+    .timers-wrapper {
+      margin-top: 0.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, .8);
+    }
+
+    #countdown {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    #week-countdown {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Container para os dois painéis de quadradinhos */
+    #grids {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      max-width: 960px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    /* Painel "campo minado" (porcentagem) */
+    #minefield {
+      display: grid;
+      grid-template-columns: repeat(10, 22px);
+      grid-gap: 5px;
+      justify-content: center;
+      padding: 0.8rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 0% 0%, rgba(255, 255, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, #151924, #0c1018);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 12px 20px rgba(255, 255, 255, 0.02),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.70);
+    }
+
+    .cell {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
+        linear-gradient(180deg, #141823, #090c12);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 2px 4px rgba(0,0,0,0.85);
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .cell.lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #43ff7c, #1ea847);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 10px rgba(50,205,50,0.8),
+        0 4px 8px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
+    }
+
+    /* Container semanas */
+    #week-container {
+      text-align: center;
+      padding: 0.8rem 0.9rem 0.9rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(130% 180% at 100% 0%, rgba(255, 255, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, #151924, #0c1018);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 12px 20px rgba(255, 255, 255, 0.02),
+        inset 0 -12px 22px rgba(0, 0, 0, 0.70);
+      min-width: min(320px, 100%);
+    }
+
+    #week-container h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Painel de semanas */
+    #weekfield {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-gap: 6px;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    .week-cell {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background:
+        radial-gradient(120% 140% at 20% 0%, rgba(255,255,255,0.14), transparent 55%),
+        linear-gradient(180deg, #161b27, #090c12);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 2px 4px rgba(0,0,0,0.85);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    }
+
+    .week-cell.lit {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.24), transparent 55%),
+        linear-gradient(180deg, #43ff7c, #1ea847);
+      color: #041007;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 0 12px rgba(50,205,50,0.9),
+        0 4px 10px rgba(0,0,0,0.95);
+      transform: translateY(-1px);
+    }
+
+    .week-cell.current {
+      background:
+        radial-gradient(120% 140% at 15% 0%, rgba(255,255,255,0.28), transparent 55%),
+        linear-gradient(180deg, #40e0d0, #118b94);
+      color: #02100f;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        0 0 14px rgba(64,224,208,0.95),
+        0 4px 10px rgba(0,0,0,0.95);
+      transform: translateY(-1px) scale(1.03);
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 880px) {
+      .charts-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #minefield {
+        grid-template-columns: repeat(10, 20px);
+      }
+      .cell {
+        width: 20px;
+        height: 20px;
+      }
+      #weekfield {
+        grid-template-columns: repeat(10, 26px);
+      }
+      .week-cell {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-inline: 0.8rem;
+      }
+      .chart-container {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Reparo Bubu</h1>
+  <div class="subtitle">Visualização skeuomórfica do progresso entre duas datas-chave ✨</div>
+
+  <!-- Gráficos principais -->
+  <div class="charts-wrapper">
+    <!-- Gráfico Donut -->
+    <div class="chart-container">
+      <h2>Pizza Oca</h2>
+      <svg class="donut-chart" viewBox="0 0 200 200">
+        <circle class="background" cx="100" cy="100" r="70"></circle>
+        <circle class="progress" cx="100" cy="100" r="70"
+                stroke-dasharray="0 440"
+                stroke-dashoffset="0"
+                transform="rotate(-90 100 100)"></circle>
+        <text id="donut-text" x="100" y="105" text-anchor="middle" font-size="20"></text>
+      </svg>
+    </div>
+    
+    <!-- Gráfico de Barra Horizontal -->
+    <div class="chart-container">
+      <h2>Barra Horizontal</h2>
+      <svg class="bar-chart">
+        <defs>
+          <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#32cd32"/>
+            <stop offset="50%" stop-color="#46e0ff"/>
+            <stop offset="100%" stop-color="#40e0d0"/>
+          </linearGradient>
+        </defs>
+        <rect class="bar-bg" x="0" y="10" width="300" height="30" rx="15" ry="15"></rect>
+        <rect class="bar-progress" id="bar-progress" x="0" y="10" width="0" height="30" rx="15" ry="15"></rect>
+        <text id="bar-text" x="150" y="30" text-anchor="middle" font-size="16"></text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Timers textuais -->
+  <div class="timers-wrapper">
+    <div id="countdown">Carregando timer...</div>
+    <div id="week-countdown"></div>
+  </div>
+  
+  <!-- Container para os dois gráficos de quadradinhos -->
+  <div id="grids">
+    <!-- Painel do "campo minado" (representa a porcentagem) -->
+    <div id="minefield"></div>
+    <!-- Painel de semanas com título -->
+    <div id="week-container">
+      <h2>Semanas</h2>
+      <div id="weekfield"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      // Define as datas de início e fim:
+      const startDate = new Date("2025-09-18T00:00:00");
+      const endDate   = new Date("2026-12-18T17:00:00");
+      const totalDuration = endDate - startDate;
+      
+      // Seleção dos elementos dos gráficos e contadores
+      const donutCircle = document.querySelector('.donut-chart .progress');
+      const donutText   = document.getElementById('donut-text');
+      const barProgress = document.getElementById('bar-progress');
+      const barText     = document.getElementById('bar-text');
+      const countdownEl = document.getElementById('countdown');
+      const weekCountdownEl = document.getElementById('week-countdown');
+      const minefieldEl = document.getElementById('minefield');
+      const weekfieldEl = document.getElementById('weekfield');
+      
+      // Propriedades do gráfico donut
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius;
+      
+      // Cria o painel de "campo minado" com 100 quadradinhos (representa porcentagem)
+      const totalCells = 100;
+      for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        minefieldEl.appendChild(cell);
+      }
+      const cells = document.querySelectorAll('.cell');
+      
+      // Cria o painel de semanas com quadradinhos numerados
+      const weekDuration = 1000 * 60 * 60 * 24 * 7; // uma semana em ms
+      const totalWeeks = Math.ceil(totalDuration / weekDuration);
+      for (let i = 0; i < totalWeeks; i++) {
+        const weekCell = document.createElement('div');
+        weekCell.classList.add('week-cell');
+        // Adiciona o número ordinal dentro da célula (ex: "1ª", "2ª", etc.)
+        weekCell.textContent = (i + 1) + "ª";
+        weekfieldEl.appendChild(weekCell);
+      }
+      const weekCells = document.querySelectorAll('.week-cell');
+
+      function updateCharts(){
+        const now = new Date();
+        let elapsed = now - startDate;
+        if (elapsed < 0) elapsed = 0;
+        if (elapsed > totalDuration) elapsed = totalDuration;
+        const percent = elapsed / totalDuration;
+        const percentText = (percent * 100).toFixed(2) + '%';
+
+        // Atualiza o gráfico donut
+        const progressLength = percent * circumference;
+        const remainderLength = circumference - progressLength;
+        donutCircle.setAttribute('stroke-dasharray', progressLength + " " + remainderLength);
+        donutText.textContent = percentText;
+
+        // Atualiza o gráfico de barra
+        const barTotalWidth = 300;
+        const barWidth = percent * barTotalWidth;
+        barProgress.setAttribute('width', barWidth);
+        barProgress.setAttribute('fill', percent > 0 ? 'url(#barGradient)' : 'transparent');
+        barText.textContent = percentText;
+        
+        // Atualiza o painel "campo minado"
+        const cellsToLight = Math.floor(percent * totalCells);
+        cells.forEach((cell, index) => {
+          if(index < cellsToLight){
+            cell.classList.add('lit');
+          } else {
+            cell.classList.remove('lit');
+          }
+        });
+        
+        // Atualiza o painel de semanas
+        let elapsedTime = now - startDate;
+        if (elapsedTime < 0) elapsedTime = 0;
+        const elapsedWeeks = Math.floor(elapsedTime / weekDuration);
+        weekCells.forEach((weekCell, index) => {
+          weekCell.classList.remove('lit');
+          weekCell.classList.remove('current');
+          if(index < elapsedWeeks){
+            weekCell.classList.add('lit');
+          } else if(index === elapsedWeeks && elapsedTime < totalDuration) {
+            // Esta é a semana atual (em andamento)
+            weekCell.classList.add('current');
+          }
+        });
+      }
+
+      function updateCountdown(){
+        const now = new Date();
+        let remaining = endDate - now;
+        if(remaining < 0) remaining = 0;
+
+        // Calcula dias, horas, minutos e segundos
+        const seconds = Math.floor((remaining / 1000) % 60);
+        const minutes = Math.floor((remaining / 1000 / 60) % 60);
+        const hours   = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+        const days    = Math.floor(remaining / (1000 * 60 * 60 * 24));
+
+        countdownEl.textContent = `Faltam: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        // Calcula o tempo restante em semanas (para exibição textual)
+        const weeks = (remaining / (1000 * 60 * 60 * 24 * 7)).toFixed(2);
+        weekCountdownEl.textContent = `Faltam: ${weeks} semanas`;
+      }
+
+      // Atualiza todos os gráficos e contadores a cada 1 segundo
+      function updateAll(){
+        updateCharts();
+        updateCountdown();
+      }
+      
+      updateAll();
+      setInterval(updateAll, 1000);
+    })();
+  </script>
+</body>
+</html>
