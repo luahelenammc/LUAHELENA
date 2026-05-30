@@ -19,7 +19,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Lua Helena Moon — Human–AI Context Architecture">
-  <meta name="twitter:description" content="Human–AI context architecture applied to AI workflow / knowledge ops: operational context, living documentation, context packets, specialized AI copilots, AI image engines, human–AI interfaces, People Analytics, Responsible AI, strategic AI product validation, and AI-readable hybrid documentation.">
+  <meta name="twitter:description" content="Human–AI context architecture applied to AI workflow / knowledge ops: operational context, living documentation, context packets, specialized AI copilots, 🎨 AI image engines, human–AI interfaces, People Analytics, Responsible AI, strategic AI product validation, and AI-readable hybrid documentation.">
 
   <script type="application/ld+json">
     {
@@ -33,7 +33,7 @@
           "url": "https://www.luahelena.com.br/ia/",
           "sameAs": ["https://www.linkedin.com/in/luahelena/"],
           "jobTitle": "Human–AI Context Architect",
-          "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect working with AI workflow / knowledge ops, AI literacy, context architecture, operational memory, knowledge governance, living documentation, context packets, specialized AI copilots, AI image engines, human–AI interfaces, responsible AI, People Analytics, strategic AI product validation, and hybrid context documentation.",
+          "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect working with AI workflow / knowledge ops, AI literacy, context architecture, operational memory, knowledge governance, living documentation, context packets, specialized AI copilots, 🎨 AI image engines, human–AI interfaces, responsible AI, People Analytics, strategic AI product validation, and hybrid context documentation.",
           "knowsAbout": [
             "Human–AI Context Architecture",
             "AI workflow / knowledge ops",
@@ -47,9 +47,9 @@
             "Context profiles",
             "Human-centered AI systems",
             "Operational context architecture",
-            "Specialized AI copilots",
+            "🤖 Specialized AI copilots",
             "Human–AI interface design",
-            "AI image engines",
+            "🎨 AI image engines",
             "Strategic AI product validation",
             "AI runtime evaluation",
             "Hospital psychology",
@@ -109,6 +109,8 @@
       --radius-xl: 32px;
       --radius-lg: 22px;
       --shadow: 0 24px 78px rgba(0,0,0,.36);
+      --glow-x: 72%;
+      --glow-y: 18%;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
     }
 
@@ -117,20 +119,40 @@
     html { scroll-behavior: smooth; }
 
     body {
+      position: relative;
       margin: 0;
       min-height: 100vh;
+      overflow-x: hidden;
       font-family: var(--sans);
       line-height: 1.55;
       color: var(--text);
       background:
-        radial-gradient(circle at 14% -10%, rgba(185,140,255,.22), transparent 31rem),
-        radial-gradient(circle at 95% 4%, rgba(255,145,200,.13), transparent 30rem),
+        radial-gradient(circle at 14% -10%, rgba(185,140,255,.18), transparent 31rem),
+        radial-gradient(circle at 95% 4%, rgba(255,145,200,.1), transparent 30rem),
         linear-gradient(145deg, #050610 0%, #090812 55%, #120b22 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -18%;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(137,220,255,.16), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 32%) calc(var(--glow-y) + 34%), rgba(255,226,160,.09), transparent 25rem),
+        radial-gradient(circle at calc(var(--glow-x) + 12%) calc(var(--glow-y) + 48%), rgba(255,145,200,.13), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 8%) calc(var(--glow-y) + 68%), rgba(166,243,212,.07), transparent 22rem);
+      opacity: .9;
+      filter: blur(1px);
+      transition: opacity .22s ease;
     }
 
     a { color: inherit; }
 
     .page {
+      position: relative;
+      z-index: 1;
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
       padding: 24px 0 48px;
@@ -324,25 +346,6 @@
       isolation: isolate;
     }
 
-    .intro::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      border-radius: inherit;
-      background:
-        radial-gradient(circle at var(--hero-mx,74%) var(--hero-my,22%), rgba(137,220,255,.16), transparent 24rem),
-        radial-gradient(circle at calc(var(--hero-mx,74%) - 34%) calc(var(--hero-my,22%) + 34%), rgba(255,226,160,.09), transparent 24rem),
-        radial-gradient(circle at calc(var(--hero-mx,74%) + 10%) calc(var(--hero-my,22%) + 50%), rgba(255,145,200,.13), transparent 22rem);
-      pointer-events: none;
-      opacity: .95;
-      transition: opacity .22s ease;
-    }
-
-    .intro > * {
-      position: relative;
-      z-index: 1;
-    }
 
     .summary {
       padding: 26px;
@@ -461,29 +464,13 @@
       background: rgba(255,255,255,.045);
     }
 
-    .mini::before,
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      border-radius: inherit;
-      opacity: .82;
-      pointer-events: none;
-      transition: opacity .22s ease;
-    }
 
-    .mini::before {
-      background:
-        radial-gradient(circle at var(--card-mx,82%) var(--card-my,18%), rgba(var(--theme-a),.18), transparent 9rem),
-        radial-gradient(circle at calc(var(--card-mx,82%) - 28%) calc(var(--card-my,18%) + 36%), rgba(var(--theme-b),.1), transparent 8rem);
-    }
 
     .mini:hover,
     .card:hover {
-      transform: translate3d(0,-9px,0);
-      border-color: rgba(var(--theme-a),.48);
-      box-shadow: 0 28px 74px rgba(0,0,0,.38), 0 12px 32px var(--lift-shadow);
+      transform: translate3d(0,-5px,0);
+      border-color: rgba(255,255,255,.23);
+      box-shadow: 0 20px 54px rgba(0,0,0,.32);
     }
 
     .mini-icon {
@@ -527,12 +514,6 @@
       box-shadow: 0 14px 38px rgba(0,0,0,.22);
     }
 
-    .card::before {
-      background:
-        radial-gradient(circle at var(--card-mx,82%) var(--card-my,18%), rgba(var(--theme-a),.17), transparent 14rem),
-        radial-gradient(circle at calc(var(--card-mx,82%) - 28%) calc(var(--card-my,18%) + 36%), rgba(var(--theme-b),.095), transparent 13rem),
-        radial-gradient(circle at calc(var(--card-mx,82%) + 12%) calc(var(--card-my,18%) + 54%), rgba(var(--theme-c),.07), transparent 12rem);
-    }
 
     .card > * {
       position: relative;
@@ -546,49 +527,42 @@
       --theme-a: 185,140,255;
       --theme-b: 137,220,255;
       --theme-c: 255,145,200;
-      --lift-shadow: rgba(185,140,255,.16);
     }
 
     .theme-violet {
       --theme-a: 185,140,255;
       --theme-b: 137,220,255;
       --theme-c: 255,226,160;
-      --lift-shadow: rgba(185,140,255,.2);
     }
 
     .theme-cyan {
       --theme-a: 137,220,255;
       --theme-b: 185,140,255;
       --theme-c: 166,243,212;
-      --lift-shadow: rgba(137,220,255,.18);
     }
 
     .theme-mint {
       --theme-a: 166,243,212;
       --theme-b: 137,220,255;
       --theme-c: 255,226,160;
-      --lift-shadow: rgba(166,243,212,.18);
     }
 
     .theme-gold {
       --theme-a: 255,226,160;
       --theme-b: 255,145,200;
       --theme-c: 185,140,255;
-      --lift-shadow: rgba(255,226,160,.2);
     }
 
     .theme-rose {
       --theme-a: 255,145,200;
       --theme-b: 185,140,255;
       --theme-c: 255,189,115;
-      --lift-shadow: rgba(255,145,200,.2);
     }
 
     .theme-red {
       --theme-a: 255,112,112;
       --theme-b: 255,145,200;
       --theme-c: 255,189,115;
-      --lift-shadow: rgba(255,112,112,.22);
     }
 
     .theme-violet .label,
@@ -625,6 +599,12 @@
     .proof-link {
       text-decoration-color: rgba(255,255,255,.32);
       text-underline-offset: 3px;
+    }
+
+    .section[aria-label="Sistemas construídos"] h3 {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
     }
 
     .org-steps,
@@ -819,6 +799,10 @@
         transition: none !important;
       }
 
+      body::before {
+        opacity: .72;
+      }
+
       .mini:hover,
       .card:hover,
       .button:hover {
@@ -835,6 +819,10 @@
       body {
         color: #111;
         background: #fff;
+      }
+
+      body::before {
+        display: none;
       }
 
       .page {
@@ -1008,37 +996,37 @@
 
     <section class="section" aria-label="Sistemas construídos">
       <p class="label" data-i18n="proof.label">🧬 Sistemas e prova de trabalho</p>
-      <h2 data-i18n="proof.title">O que já construí para tornar IA mais contextual, reutilizável e governável.</h2>
-      <p class="lead" data-i18n="proof.intro" style="max-width:900px;margin-top:12px">O que construí até aqui não é uma coleção de prompts. É uma camada de método para organizar contexto, memória, comportamento, geração visual, interfaces e critérios de qualidade, fazendo modelos trabalharem com menos improviso e mais continuidade. Uma parte já está pública; outra parte permanece reservada por envolver calibração, privacidade e pesquisa em maturação.</p>
+      <h2 data-i18n="proof.title">Sistemas que tornam IA mais contextual, reutilizável e governável.</h2>
+      <p class="lead" data-i18n="proof.intro" style="max-width:900px;margin-top:12px">Não é uma coleção de prompts. É uma camada de método para organizar contexto, memória, comportamento, geração visual, interfaces e critérios de qualidade, fazendo modelos trabalharem com menos improviso e mais continuidade. Uma parte já está pública; outra parte permanece reservada por envolver calibração, privacidade e pesquisa em maturação.</p>
 
       <div class="grid cols-3" style="margin-top:16px">
         <article class="card theme-violet">
-          <h3><a class="proof-link" data-i18n="proof.publicPortable.title" href="https://mooon.com.br/moonsource/" target="_blank" rel="noopener">Kit público de contexto para IA</a></h3>
+          <h3><a class="proof-link" data-i18n="proof.publicPortable.title" href="https://mooon.com.br/moonsource/" target="_blank" rel="noopener">🧰 Kit público de contexto para IA</a></h3>
           <p data-i18n="proof.publicPortable.body">Publiquei um kit gratuito, em arquivo único, que ajuda qualquer pessoa a criar um perfil de contexto para IA: projetos, preferências, limites, regras de atualização e modos de consulta, sem depender de uma plataforma específica.</p>
         </article>
 
         <article class="card theme-cyan">
-          <h3 data-i18n="proof.operationalContext.title">Linguagem e infraestrutura de contexto</h3>
+          <h3 data-i18n="proof.operationalContext.title">🧱 Linguagem e infraestrutura de contexto</h3>
           <p data-i18n="proof.operationalContext.body">A gramática documental que uso combina a clareza navegável do Markdown, a densidade dos objetos estruturados, a simplicidade de metadados tipo YAML e a precisão de campos inspirados em Python/JSON — não como código executável, mas como linguagem para memória, decisão e continuidade.</p>
         </article>
 
         <article class="card theme-mint">
-          <h3 data-i18n="proof.copilots.title">Copilotos especializados</h3>
+          <h3 data-i18n="proof.copilots.title">🤖 Copilotos especializados</h3>
           <p data-i18n="proof.copilots.body">Modelei copilotos para domínios específicos, definindo usuário-alvo, escopo, riscos, limites, padrões de resposta e saídas esperadas. É assim que uma ideia vaga de assistente começa a virar especificação implementável.</p>
         </article>
 
         <article class="card theme-rose">
-          <h3 data-i18n="proof.visualEngines.title">Motores de imagem por IA</h3>
+          <h3 data-i18n="proof.visualEngines.title">🎨 Motores de imagem por IA</h3>
           <p data-i18n="proof.visualEngines.body">Criei image engines: sistemas que mapeiam pessoas, conceitos, histórias, referências, estética e restrições, traduzindo tudo isso em prompts, variações, orientação negativa e critérios de qualidade para imagens, interfaces e identidade visual.</p>
         </article>
 
         <article class="card theme-gold">
-          <h3 data-i18n="proof.interfaces.title">Gramática de interação e uso humano–IA</h3>
+          <h3 data-i18n="proof.interfaces.title">🗣️ Gramática de interação e uso humano–IA</h3>
           <p data-i18n="proof.interfaces.body">Desenhei regras para voz, tom, presença, onboarding, limites e comportamento conversacional, para que assistentes não virem persona solta, chatbot genérico ou automação sem critério.</p>
         </article>
 
         <article class="card theme-violet">
-          <h3 data-i18n="proof.teamSystems.title">Memória operacional de equipe</h3>
+          <h3 data-i18n="proof.teamSystems.title">🗂️ Memória operacional de equipe</h3>
           <p data-i18n="proof.teamSystems.body">Estruturei formas de converter conversas, decisões, habilidades e projetos em documentação viva: material que uma equipe e suas IAs conseguem consultar, revisar e atualizar sem depender só da memória informal.</p>
         </article>
       </div>
@@ -1313,19 +1301,19 @@
         'audit.value.topic': `Valor humano`,
         'audit.value.desc': `Verificar quem economiza tempo, entende melhor, decide melhor ou fica menos sobrecarregado.`,
         'proof.label': `🧬 Sistemas e prova de trabalho`,
-        'proof.title': `O que já construí para tornar IA mais contextual, reutilizável e governável.`,
-        'proof.intro': `O que construí até aqui não é uma coleção de prompts. É uma camada de método para organizar contexto, memória, comportamento, geração visual, interfaces e critérios de qualidade, fazendo modelos trabalharem com menos improviso e mais continuidade. Uma parte já está pública; outra parte permanece reservada por envolver calibração, privacidade e pesquisa em maturação.`,
-        'proof.publicPortable.title': `Kit público de contexto para IA`,
+        'proof.title': `Sistemas que tornam IA mais contextual, reutilizável e governável.`,
+        'proof.intro': `Não é uma coleção de prompts. É uma camada de método para organizar contexto, memória, comportamento, geração visual, interfaces e critérios de qualidade, fazendo modelos trabalharem com menos improviso e mais continuidade. Uma parte já está pública; outra parte permanece reservada por envolver calibração, privacidade e pesquisa em maturação.`,
+        'proof.publicPortable.title': `🧰 Kit público de contexto para IA`,
         'proof.publicPortable.body': `Publiquei um kit gratuito, em arquivo único, que ajuda qualquer pessoa a criar um perfil de contexto para IA: projetos, preferências, limites, regras de atualização e modos de consulta, sem depender de uma plataforma específica.`,
-        'proof.operationalContext.title': `Linguagem e infraestrutura de contexto`,
+        'proof.operationalContext.title': `🧱 Linguagem e infraestrutura de contexto`,
         'proof.operationalContext.body': `A gramática documental que uso combina a clareza navegável do Markdown, a densidade dos objetos estruturados, a simplicidade de metadados tipo YAML e a precisão de campos inspirados em Python/JSON — não como código executável, mas como linguagem para memória, decisão e continuidade.`,
-        'proof.copilots.title': `Copilotos especializados`,
+        'proof.copilots.title': `🤖 Copilotos especializados`,
         'proof.copilots.body': `Modelei copilotos para domínios específicos, definindo usuário-alvo, escopo, riscos, limites, padrões de resposta e saídas esperadas. É assim que uma ideia vaga de assistente começa a virar especificação implementável.`,
-        'proof.visualEngines.title': `Motores de imagem por IA`,
+        'proof.visualEngines.title': `🎨 Motores de imagem por IA`,
         'proof.visualEngines.body': `Criei image engines: sistemas que mapeiam pessoas, conceitos, histórias, referências, estética e restrições, traduzindo tudo isso em prompts, variações, orientação negativa e critérios de qualidade para imagens, interfaces e identidade visual.`,
-        'proof.interfaces.title': `Gramática de interação e uso humano–IA`,
+        'proof.interfaces.title': `🗣️ Gramática de interação e uso humano–IA`,
         'proof.interfaces.body': `Desenhei regras para voz, tom, presença, onboarding, limites e comportamento conversacional, para que assistentes não virem persona solta, chatbot genérico ou automação sem critério.`,
-        'proof.teamSystems.title': `Memória operacional de equipe`,
+        'proof.teamSystems.title': `🗂️ Memória operacional de equipe`,
         'proof.teamSystems.body': `Estruturei formas de converter conversas, decisões, habilidades e projetos em documentação viva: material que uma equipe e suas IAs conseguem consultar, revisar e atualizar sem depender só da memória informal.`,
         'honest.label': `🎯 Recorte honesto`,
         'honest.title': `Meu foco não é construir modelos. É fazer IA funcionar melhor em contexto real.`,
@@ -1441,19 +1429,19 @@
         'audit.value.topic': `Human value`,
         'audit.value.desc': `Check who saves time, understands better, decides better, or becomes less overloaded.`,
         'proof.label': `🧬 Built systems and proof of work`,
-        'proof.title': `What I have already built to make AI more contextual, portable, and governable.`,
-        'proof.intro': `What I have built so far is not a collection of prompts. It is a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria, making models work with more continuity and less improvisation. One part is already public; another remains reserved because it involves calibration, privacy, and ongoing research.`,
-        'proof.publicPortable.title': `Public AI context kit`,
+        'proof.title': `Systems that make AI more contextual, portable, and governable.`,
+        'proof.intro': `This is not a collection of prompts. It is a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria, making models work with more continuity and less improvisation. One part is already public; another remains reserved because it involves calibration, privacy, and ongoing research.`,
+        'proof.publicPortable.title': `🧰 Public AI context kit`,
         'proof.publicPortable.body': `I published a free, single-file kit that helps anyone create a reusable AI context profile: projects, preferences, boundaries, update rules, and consultation modes, without depending on a specific platform.`,
-        'proof.operationalContext.title': `Language and context infrastructure`,
+        'proof.operationalContext.title': `🧱 Language and context infrastructure`,
         'proof.operationalContext.body': `The documentation grammar I use combines Markdown's navigability, the density of structured objects, YAML-like metadata simplicity, and field precision inspired by Python/JSON — not as executable code, but as a language for memory, decisions, and continuity.`,
-        'proof.copilots.title': `Specialized AI copilots`,
+        'proof.copilots.title': `🤖 Specialized AI copilots`,
         'proof.copilots.body': `I have modeled copilots for specific domains, defining target users, scope, risks, boundaries, response patterns, and expected outputs. This is how a vague assistant idea starts becoming an implementable specification.`,
-        'proof.visualEngines.title': `AI image engines`,
+        'proof.visualEngines.title': `🎨 AI image engines`,
         'proof.visualEngines.body': `I created image engines: systems that map people, concepts, stories, references, aesthetics, and constraints, translating them into prompts, variations, negative guidance, and quality criteria for images, interfaces, and visual identity.`,
-        'proof.interfaces.title': `Human–AI interaction and usage grammar`,
+        'proof.interfaces.title': `🗣️ Human–AI interaction and usage grammar`,
         'proof.interfaces.body': `I designed rules for voice, tone, presence, onboarding, boundaries, and conversational behavior, so assistants do not collapse into loose personas, generic chatbots, or ungoverned automation.`,
-        'proof.teamSystems.title': `Operational team memory`,
+        'proof.teamSystems.title': `🗂️ Operational team memory`,
         'proof.teamSystems.body': `I structured ways to convert conversations, decisions, skills, and projects into living documentation: material a team and its AIs can consult, review, and update without relying only on informal memory.`,
         'honest.label': `🎯 Honest scope`,
         'honest.title': `My focus is not building models. It is helping AI work better in real context.`,
@@ -1477,7 +1465,7 @@ source meta = {
   msl version: "MSL-3 flavored Markdown"
   format: "Markdown-first, AI-readable context packet"
   source page: "https://www.luahelena.com.br/ia/"
-  last updated in page shell: "2026-05-27"
+  last updated in page shell: "2026-05-30"
   privacy level: "public professional context only"
   primary use: "paste or attach into an AI conversation so the AI can understand what Lua Helena Moon's /ia page says without relying only on a web link"
 }
@@ -1681,12 +1669,12 @@ The central question is not only whether the idea is technically interesting, bu
 
 proof of work = {
   built or organized systems around: [
-    "public AI context kit / public portable context file"
-    "language and infrastructure for context documentation"
-    "specialized AI copilots"
-    "AI image engines"
-    "human-AI interaction and usage grammar"
-    "operational team memory"
+    "🧰 public AI context kit / public portable context file"
+    "🧱 language and infrastructure for context documentation"
+    "🤖 specialized AI copilots"
+    "🎨 AI image engines"
+    "🗣️ human-AI interaction and usage grammar"
+    "🗂️ operational team memory"
   ]
   framing: "not a collection of prompts; a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria"
   purpose: "make models work with more continuity and less improvisation"
@@ -1718,8 +1706,16 @@ contact = {
       const p = new URLSearchParams(location.search);
       const u = p.get('lang');
       if (u === 'en' || u === 'pt') return u;
+
       const s = localStorage.getItem('moonIaLang');
-      return s === 'en' || s === 'pt' ? s : 'pt';
+      if (s === 'en' || s === 'pt') return s;
+
+      const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language])
+        .filter(Boolean)
+        .map(lang => lang.toLowerCase());
+
+      const prefersPortuguese = langs.some(lang => lang === 'pt' || lang.startsWith('pt-'));
+      return prefersPortuguese ? 'pt' : 'en';
     }
 
     function setLanguage(lang, updateUrl = true) {
@@ -1756,21 +1752,21 @@ contact = {
       }
     }
 
-    function attachDynamicBackground(selector, xVar, yVar, defaultX, defaultY) {
-      document.querySelectorAll(selector).forEach(el => {
-        el.addEventListener('pointermove', ev => {
-          const r = el.getBoundingClientRect();
-          const x = ((ev.clientX - r.left) / r.width) * 100;
-          const y = ((ev.clientY - r.top) / r.height) * 100;
-          el.style.setProperty(xVar, x.toFixed(2) + '%');
-          el.style.setProperty(yVar, y.toFixed(2) + '%');
-        }, { passive: true });
+    function attachAmbientGlow() {
+      const root = document.documentElement;
 
-        el.addEventListener('pointerleave', () => {
-          el.style.setProperty(xVar, defaultX);
-          el.style.setProperty(yVar, defaultY);
-        }, { passive: true });
-      });
+      const updateGlow = (clientX, clientY) => {
+        const x = Math.max(0, Math.min(100, (clientX / window.innerWidth) * 100));
+        const y = Math.max(0, Math.min(100, (clientY / window.innerHeight) * 100));
+        root.style.setProperty('--glow-x', x.toFixed(2) + '%');
+        root.style.setProperty('--glow-y', y.toFixed(2) + '%');
+      };
+
+      window.addEventListener('pointermove', ev => updateGlow(ev.clientX, ev.clientY), { passive: true });
+      window.addEventListener('pointerleave', () => {
+        root.style.setProperty('--glow-x', '72%');
+        root.style.setProperty('--glow-y', '18%');
+      }, { passive: true });
     }
 
     function downloadAiPacket() {
@@ -1794,8 +1790,7 @@ contact = {
     });
 
     setLanguage(getInitialLanguage(), false);
-    attachDynamicBackground('.intro', '--hero-mx', '--hero-my', '74%', '22%');
-    attachDynamicBackground('.card,.mini', '--card-mx', '--card-my', '82%', '18%');
+    attachAmbientGlow();
   </script>
 </body>
 </html>
