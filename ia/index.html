@@ -13,7 +13,7 @@
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://www.luahelena.com.br/ia/">
   <meta property="og:title" content="Lua Helena Moon — Human–AI Context Architecture">
-  <meta property="og:description" content="Reducing context loss in AI-assisted work through operational memory, documentação viva, handoffs, governança do conhecimento, letramento em IA, IA responsável, and strategic AI validation.">
+  <meta property="og:description" content="Reducing context loss in AI-assisted work through operational memory, living documentation, context transfer, knowledge governance, AI literacy, Responsible AI, and strategic AI validation.">
   <meta property="og:site_name" content="Lua Helena Moon">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:locale:alternate" content="en_US">
@@ -33,22 +33,22 @@
                 "https://www.linkedin.com/in/luahelena/"
             ],
             "jobTitle": "Human–AI Context Architect",
-            "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect focused on reducing context loss in AI-assisted work through operational memory, documentação viva, handoffs, governança do conhecimento, letramento em IA, IA responsável, and strategic Validação de produtos de IA.",
+            "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect focused on reducing context loss in AI-assisted work through operational memory, living documentation, context transfer, knowledge governance, AI literacy, Responsible AI, and strategic AI product validation.",
             "knowsAbout": [
                 "Human–AI Context Architecture",
                 "Context engineering",
-                "adoção de IA",
-                "habilitação em IA",
-                "desenho de fluxos com IA",
-                "letramento em IA",
+                "AI adoption",
+                "AI enablement",
+                "AI workflow design",
+                "AI literacy",
                 "Knowledge operations",
-                "Governança do conhecimento",
+                "Knowledge governance",
                 "Living documentation",
                 "Operational memory",
                 "Context profiles",
-                "Handoff packets",
-                "IA responsável",
-                "Validação de produtos de IA",
+                "Context transfer packets",
+                "Responsible AI",
+                "AI product validation",
                 "People Analytics",
                 "Healthcare AI workflows",
                 "Hospital psychology",
@@ -73,7 +73,7 @@
                 "@id": "https://www.luahelena.com.br/#lua-helena-moon"
             },
             "areaServed": "Remote / International",
-            "description": "Structuring context, operational memory, documentação viva, handoffs, governança do conhecimento, and responsible usage criteria for AI-assisted work."
+            "description": "Structuring context, operational memory, living documentation, context transfer, knowledge governance, and responsible usage criteria for AI-assisted work."
         }
     ]
 }</script>
@@ -97,10 +97,13 @@
       --radius-lg: 24px;
       --shadow: 0 28px 92px rgba(0,0,0,.36);
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+      --glow-x: 72%;
+      --glow-y: 18%;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
+      position: relative;
       margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
@@ -117,11 +120,28 @@
       content: "";
       position: fixed;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
       opacity: .32;
       background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
       background-size: 54px 54px;
       mask-image: radial-gradient(circle at 50% 25%, black, transparent 75%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -18%;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(139,220,255,.16), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 30%) calc(var(--glow-y) + 34%), rgba(255,226,160,.08), transparent 25rem),
+        radial-gradient(circle at calc(var(--glow-x) + 12%) calc(var(--glow-y) + 48%), rgba(255,145,200,.12), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 8%) calc(var(--glow-y) + 68%), rgba(166,243,212,.07), transparent 22rem);
+      opacity: .88;
+      filter: blur(1px);
+      transition: opacity .22s ease;
     }
     a { color: inherit; }
     .page {
@@ -305,11 +325,12 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
+      body::after { opacity: .66; }
       .card:hover, .button:hover { transform: none; }
     }
     @media print {
       body { background: #fff; color: #111; }
-      body::before, .topbar, .hero-actions, footer { display: none; }
+      body::before, body::after, .topbar, .hero-actions, footer { display: none; }
       .page { width: 100%; padding: 0; }
       .surface, .quick, .card, .proof-item { box-shadow: none; background: #fff; border-color: #ddd; color: #111; }
       p, .lead, .profile, .differential { color: #333; }
@@ -339,7 +360,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow" data-i18n="hero.eyebrow">🌙 Arquitetura de Contexto Humano–IA</p>
       <h1 id="hero-title" data-i18n="hero.title">Menos contexto perdido. Mais IA útil no <span>trabalho real.</span></h1>
-      <p class="lead" data-i18n="hero.lead">Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem recomeçar do zero.</p>
+      <p class="lead" data-i18n="hero.lead">Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem precisar começar do zero.</p>
       <p class="profile" data-i18n="hero.profile">Sou psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional. Trabalho na fronteira entre pessoas, linguagem, conhecimento e uso aplicado de IA.</p>
       <p class="differential" data-i18n="hero.differential">Meu diferencial é traduzir complexidade humana, institucional e documental em estruturas que preservam contexto sem transformar tudo em burocracia.</p>
       <div class="hero-actions">
@@ -402,7 +423,7 @@
       <div class="section-head">
         <p class="label" data-i18n="proof.label">Sistemas construídos</p>
         <h2 data-i18n="proof.title">Algumas provas são sistemas de linguagem, imagem e uso.</h2>
-        <p data-i18n="proof.body">Nem tudo precisa aparecer como produto lançado. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.</p>
+        <p data-i18n="proof.body">Nem toda ideia precisa virar produto para provar valor. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.</p>
       </div>
       <div class="proof-list">
         <article class="proof-item">
@@ -481,8 +502,8 @@
 source meta = {
   status: "public professional handoff"
   source page: "https://www.luahelena.com.br/ia/"
-  page version: "index v2.2 — painpoint-first, PT-BR-clean, proof-of-work reworked"
-  packet version: "v2.3 — expanded professional context for AI use"
+  page version: "index v2.2.1 — painpoint-first, PT-BR-clean, Igor Lira fixes applied"
+  packet version: "v2.3.1 — expanded professional context with copy fixes"
   privacy level: "public professional context only"
   primary use: "paste or attach into an AI conversation so the AI can understand Moon's professional profile, positioning, proof of work, fit zones, and boundaries without relying only on a web link"
   not for: ["private biography", "intimate psychological profile", "full Moon Source corpus", "technical résumé inflation"]
@@ -741,7 +762,7 @@ application zones = [
 In Brazilian Portuguese-facing materials, prefer natural PT-BR terms whenever possible:
 
 translation guide = {
-  "AI literacy": "letramento em IA",
+  "AI literacy": "AI literacy",
   "AI enablement": "capacitação e adoção de IA",
   "knowledge governance": "governança do conhecimento",
   "handoffs": "passagens de contexto" or "passagens de bastão" depending on tone,
@@ -925,7 +946,7 @@ contact = {
             "nav.whatsapp": "💬 WhatsApp",
             "hero.eyebrow": "🌙 Arquitetura de Contexto Humano–IA",
             "hero.title": "Menos contexto perdido. Mais IA útil no <span>trabalho real.</span>",
-            "hero.lead": "Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem recomeçar do zero.",
+            "hero.lead": "Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem precisar começar do zero.",
             "hero.profile": "Sou psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional. Trabalho na fronteira entre pessoas, linguagem, conhecimento e uso aplicado de IA.",
             "hero.differential": "Meu diferencial é traduzir complexidade humana, institucional e documental em estruturas que preservam contexto sem transformar tudo em burocracia.",
             "hero.ctaPrimary": "🧬 Baixar pacote para IA",
@@ -962,11 +983,11 @@ contact = {
             "apply.body": "Estas são zonas onde minha leitura humana, institucional e documental ganha função prática sem transformar a página em inventário.",
             "apply.1.title": "Letramento e habilitação em IA",
             "apply.1.body": "Transformar uso intuitivo de IA em prática ensinável, revisável e sustentada por contexto.",
-            "apply.2.title": "Governança do conhecimento",
+            "apply.2.title": "Knowledge governance",
             "apply.2.body": "Evitar que conhecimento importante evapore em reuniões, chats, PDFs soltos e memórias individuais.",
-            "apply.3.title": "IA responsável",
+            "apply.3.title": "Responsible AI",
             "apply.3.body": "Separar fato, inferência, preferência, risco, regra, decisão e promessa em usos reais de IA.",
-            "apply.4.title": "Validação de produtos de IA",
+            "apply.4.title": "AI product validation",
             "apply.4.body": "Testar se uma solução de IA resolve uma tarefa humana concreta, além da demonstração bonita.",
             "apply.5.title": "Saúde e experiência do paciente",
             "apply.5.body": "Traduzir fluxos humanos complexos, cuidado, linguagem e risco em contexto operacional.",
@@ -974,7 +995,7 @@ contact = {
             "apply.6.body": "Conectar dados, cultura, comportamento e formação sem perder a textura institucional.",
             "proof.label": "Sistemas construídos",
             "proof.title": "Algumas provas são sistemas de linguagem, imagem e uso.",
-            "proof.body": "Nem tudo precisa aparecer como produto lançado. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.",
+            "proof.body": "Nem toda ideia precisa virar produto para provar valor. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.",
             "proof.item1.title": "Gramática documental para contexto",
             "proof.item1.body": "Desenvolvi uma forma de documentação híbrida que mistura texto claro, metadados e estrutura de objeto para preservar decisões, limites, versões e atualizações de modo legível por IA e por pessoas.",
             "proof.item2.title": "Motores de imagem por IA",
@@ -988,16 +1009,16 @@ contact = {
             "fit.body": "Atuo melhor quando o desafio envolve adoção, conhecimento, documentação, pessoas, governança, aprendizagem e continuidade operacional.",
             "fit.good": "Onde faz sentido",
             "fit.no": "O que não estou vendendo",
-            "fit.tag1": "adoção de IA",
-            "fit.tag2": "habilitação em IA",
-            "fit.tag3": "desenho de fluxos com IA",
+            "fit.tag1": "AI adoption",
+            "fit.tag2": "AI enablement",
+            "fit.tag3": "AI workflow design",
             "fit.tag4": "organização do conhecimento",
             "fit.tag5": "governança do conhecimento",
             "fit.tag6": "documentação viva",
             "fit.tag7": "fluxos de IA em saúde",
-            "fit.tag8": "Validação de produtos de IA",
-            "fit.tag9": "letramento em IA",
-            "fit.tag10": "IA responsável",
+            "fit.tag8": "validação de produtos de IA",
+            "fit.tag9": "AI literacy",
+            "fit.tag10": "Responsible AI",
             "fit.tag11": "People Analytics",
             "fit.not1": "Machine Learning Engineer",
             "fit.not2": "AI Engineer",
@@ -1020,7 +1041,7 @@ contact = {
             "nav.whatsapp": "💬 WhatsApp",
             "hero.eyebrow": "🌙 Human–AI Context Architecture",
             "hero.title": "Less lost context. More useful AI in <span>real work.</span>",
-            "hero.lead": "I help teams and projects turn conversations, documents, decisions, and scattered knowledge into operational memory, living documentation, and reusable AI workflows that do not need to restart from zero.",
+            "hero.lead": "I help teams and projects turn conversations, documents, decisions, and scattered knowledge into operational memory, living documentation, and reusable AI workflows that do not need to start from zero.",
             "hero.profile": "I am a hospital psychologist and trained sociologist, with postgraduate degrees in Organizational Psychology and Institutional Psychopedagogy. I work at the boundary between people, language, knowledge, and applied AI use.",
             "hero.differential": "My edge is translating human, institutional, and documentary complexity into structures that preserve context without turning everything into bureaucracy.",
             "hero.ctaPrimary": "🧬 Download AI packet",
@@ -1069,7 +1090,7 @@ contact = {
             "apply.6.body": "Connecting data, culture, behavior, and training without losing institutional texture.",
             "proof.label": "Built systems",
             "proof.title": "Some proof lives in systems for language, image, and use.",
-            "proof.body": "Not everything needs to appear as a launched product. Part of my evidence is in the systems I have built to turn messy material into readable context, consistent images, specialized assistants, and human-AI usage criteria.",
+            "proof.body": "Not every idea needs to be a product to prove its value. Part of my evidence is in the systems I have built to turn messy material into readable context, consistent images, specialized assistants, and human-AI usage criteria.",
             "proof.item1.title": "Documentary grammar for context",
             "proof.item1.body": "I developed a hybrid documentation approach that combines clear text, metadata, and object-like structure to preserve decisions, boundaries, versions, and updates in a way both AI and people can read.",
             "proof.item2.title": "AI image engines",
@@ -1077,7 +1098,7 @@ contact = {
             "proof.item3.title": "Specialized copilots",
             "proof.item3.body": "I modeled assistants for specific domains with scope, target users, boundaries, risks, response patterns, and review criteria before any automation becomes a promise.",
             "proof.item4.title": "Human-AI interfaces and usage rules",
-            "proof.item4.body": "I designed layers of voice, guided entrada guiada, behavior, boundaries, and evaluation so AI does not become a loose character, a confused oracle, or an ungoverned tool.",
+            "proof.item4.body": "I designed layers of voice, guided input, behavior, boundaries, and evaluation so AI does not become a loose character, a confused oracle, or an ungoverned tool.",
             "fit.label": "Professional fit",
             "fit.title": "My focus is not building models. It is helping AI work better in real context.",
             "fit.body": "I fit best when the challenge involves adoption, knowledge, documentation, people, governance, learning, and operational continuity.",
@@ -1090,7 +1111,7 @@ contact = {
             "fit.tag5": "knowledge governance",
             "fit.tag6": "living documentation",
             "fit.tag7": "healthcare AI workflows",
-            "fit.tag8": "AI product validation",
+            "fit.tag8": "validação de produtos de IA",
             "fit.tag9": "AI literacy",
             "fit.tag10": "Responsible AI",
             "fit.tag11": "People Analytics",
@@ -1181,11 +1202,28 @@ contact = {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "LUA_HELENA_MOON__AI_HANDOFF_PACKET_V2_3.md";
+        a.download = "LUA_HELENA_MOON__AI_HANDOFF_PACKET_V2_3_1.md";
         document.body.appendChild(a);
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
+      }
+
+      function attachDynamicGlow() {
+        const root = document.documentElement;
+
+        const updateGlow = (clientX, clientY) => {
+          const x = Math.max(0, Math.min(100, (clientX / window.innerWidth) * 100));
+          const y = Math.max(0, Math.min(100, (clientY / window.innerHeight) * 100));
+          root.style.setProperty("--glow-x", x.toFixed(2) + "%");
+          root.style.setProperty("--glow-y", y.toFixed(2) + "%");
+        };
+
+        window.addEventListener("pointermove", ev => updateGlow(ev.clientX, ev.clientY), { passive: true });
+        window.addEventListener("pointerleave", () => {
+          root.style.setProperty("--glow-x", "72%");
+          root.style.setProperty("--glow-y", "18%");
+        }, { passive: true });
       }
 
       function initPage() {
@@ -1196,6 +1234,7 @@ contact = {
           btn.addEventListener("click", downloadAiPacket);
         });
         setLanguage(getInitialLanguage(), false);
+        attachDynamicGlow();
         window.MOON_IA_PAGE = { setLanguage, downloadAiPacket, getAiPacket };
       }
 
