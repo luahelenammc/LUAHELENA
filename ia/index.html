@@ -13,7 +13,7 @@
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://www.luahelena.com.br/ia/">
   <meta property="og:title" content="Lua Helena Moon — Human–AI Context Architecture">
-  <meta property="og:description" content="Reduzindo perda de contexto no trabalho com IA por meio de memória operacional, documentação viva, passagens de contexto, governança do conhecimento, letramento em IA, IA responsável e validação estratégica de IA.">
+  <meta property="og:description" content="Reducing context loss in AI-assisted work through operational memory, documentação viva, handoffs, governança do conhecimento, letramento em IA, IA responsável, and strategic AI validation.">
   <meta property="og:site_name" content="Lua Helena Moon">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:locale:alternate" content="en_US">
@@ -33,7 +33,7 @@
                 "https://www.linkedin.com/in/luahelena/"
             ],
             "jobTitle": "Human–AI Context Architect",
-            "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect focused on reducing context loss in AI-assisted work through operational memory, living documentation, context transfer, knowledge governance, AI literacy, Responsible AI, and strategic AI product validation.",
+            "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect focused on reducing context loss in AI-assisted work through operational memory, documentação viva, handoffs, governança do conhecimento, letramento em IA, IA responsável, and strategic Validação de produtos de IA.",
             "knowsAbout": [
                 "Human–AI Context Architecture",
                 "Context engineering",
@@ -73,7 +73,7 @@
                 "@id": "https://www.luahelena.com.br/#lua-helena-moon"
             },
             "areaServed": "Remote / International",
-            "description": "Structuring context, operational memory, living documentation, context transfer, knowledge governance, and responsible usage criteria for AI-assisted work."
+            "description": "Structuring context, operational memory, documentação viva, handoffs, governança do conhecimento, and responsible usage criteria for AI-assisted work."
         }
     ]
 }</script>
@@ -871,7 +871,13 @@ contact = {
 
       function getAiPacket() {
         const template = document.getElementById("ai-packet-template");
-        return template ? template.textContent.trim() + "\n" : "";
+        if (!template) return "";
+
+        // HTML <template> stores its real text inside template.content,
+        // so template.textContent can be empty in browsers.
+        const raw = template.content ? template.content.textContent : template.textContent;
+        const packet = (raw || "").trim();
+        return packet ? packet + "\n" : "";
       }
 
       function downloadAiPacket() {
