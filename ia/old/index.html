@@ -1,0 +1,1624 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">Lua Helena Moon — IA, contexto e memória operacional</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Lua Helena Moon ajuda equipes e projetos a reduzir perda de contexto em fluxos com IA, transformando conhecimento disperso em memória operacional, documentação viva, passagens de contexto, governança do conhecimento e critérios de uso responsável.">
+  <meta name="theme-color" content="#090711">
+  <link rel="canonical" href="https://www.luahelena.com.br/ia/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/">
+  <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/ia/">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://www.luahelena.com.br/ia/">
+  <meta property="og:title" content="Lua Helena Moon — Human–AI Context Architecture">
+  <meta property="og:description" content="Reducing context loss in AI-assisted work through operational memory, living documentation, context transfer, knowledge governance, AI literacy, Responsible AI, and strategic AI validation.">
+  <meta property="og:site_name" content="Lua Helena Moon">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Lua Helena Moon — Human–AI Context Architecture">
+  <meta name="twitter:description" content="Less lost context. More useful AI in real work.">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://www.luahelena.com.br/#lua-helena-moon",
+            "name": "Lua Helena Moon Martins Cardoso",
+            "alternateName": "Moon",
+            "url": "https://www.luahelena.com.br/ia/",
+            "sameAs": [
+                "https://www.linkedin.com/in/luahelena/"
+            ],
+            "jobTitle": "Human–AI Context Architect",
+            "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect focused on reducing context loss in AI-assisted work through operational memory, living documentation, context transfer, knowledge governance, AI literacy, Responsible AI, and strategic AI product validation.",
+            "knowsAbout": [
+                "Human–AI Context Architecture",
+                "Context engineering",
+                "AI adoption",
+                "AI enablement",
+                "AI workflow design",
+                "AI literacy",
+                "Knowledge operations",
+                "Knowledge governance",
+                "Living documentation",
+                "Operational memory",
+                "Context profiles",
+                "Context transfer packets",
+                "Responsible AI",
+                "AI product validation",
+                "People Analytics",
+                "Healthcare AI workflows",
+                "Hospital psychology",
+                "Organizational psychology",
+                "Institutional psychopedagogy"
+            ],
+            "email": "mailto:luahelenammc@gmail.com",
+            "telephone": "+55-41-99222-8411",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Limeira",
+                "addressRegion": "SP",
+                "addressCountry": "BR"
+            }
+        },
+        {
+            "@type": "Service",
+            "@id": "https://www.luahelena.com.br/ia/#context-architecture",
+            "name": "Human–AI Context Architecture",
+            "serviceType": "AI workflow, knowledge operations, and context architecture",
+            "provider": {
+                "@id": "https://www.luahelena.com.br/#lua-helena-moon"
+            },
+            "areaServed": "Remote / International",
+            "description": "Structuring context, operational memory, living documentation, context transfer, knowledge governance, and responsible usage criteria for AI-assisted work."
+        }
+    ]
+}</script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090711;
+      --surface: rgba(255,255,255,.075);
+      --surface-strong: rgba(255,255,255,.115);
+      --text: #fff9f5;
+      --muted: #d8cedf;
+      --quiet: #a99ab6;
+      --line: rgba(255,255,255,.14);
+      --line-strong: rgba(255,255,255,.26);
+      --violet: #b98cff;
+      --rose: #ff91c8;
+      --cyan: #8bdcff;
+      --mint: #a6f3d4;
+      --gold: #ffe2a0;
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --shadow: 0 28px 92px rgba(0,0,0,.36);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+      --glow-x: 72%;
+      --glow-y: 18%;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      position: relative;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: var(--sans);
+      line-height: 1.55;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% -8%, rgba(185,140,255,.25), transparent 32rem),
+        radial-gradient(circle at 82% 2%, rgba(255,145,200,.16), transparent 28rem),
+        radial-gradient(circle at 50% 88%, rgba(139,220,255,.10), transparent 34rem),
+        linear-gradient(145deg, #050510 0%, #090711 52%, #120b22 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .32;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at 50% 25%, black, transparent 75%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -18%;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(139,220,255,.16), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 30%) calc(var(--glow-y) + 34%), rgba(255,226,160,.08), transparent 25rem),
+        radial-gradient(circle at calc(var(--glow-x) + 12%) calc(var(--glow-y) + 48%), rgba(255,145,200,.12), transparent 24rem),
+        radial-gradient(circle at calc(var(--glow-x) - 8%) calc(var(--glow-y) + 68%), rgba(166,243,212,.07), transparent 22rem);
+      opacity: .88;
+      filter: blur(1px);
+      transition: opacity .22s ease;
+    }
+    a { color: inherit; }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 22px 0 48px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 48px;
+      color: var(--muted);
+    }
+    .brand, .actions { display: flex; align-items: center; gap: 10px; }
+    .brand { text-decoration: none; font-weight: 750; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-mark {
+      width: 28px; height: 28px; border-radius: 999px;
+      background: radial-gradient(circle at 35% 30%, #fff, #e6d6ff 36%, #8057dd 72%, #25104f);
+      box-shadow: 0 0 28px rgba(185,140,255,.44);
+    }
+    .actions { flex-wrap: wrap; justify-content: flex-end; }
+    .lang-toggle {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 7px; border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,.045); color: var(--quiet);
+    }
+    .lang-btn {
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      border-radius: 999px; padding: 6px 8px; font: inherit; font-size: .86rem;
+      font-weight: 800; cursor: pointer;
+    }
+    .lang-btn.active { background: rgba(255,255,255,.13); color: var(--text); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 42px; padding: 10px 15px;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,.06); color: var(--text);
+      text-decoration: none; font: inherit; font-size: .93rem; cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .button:hover, .button:focus-visible {
+      transform: translateY(-1px); background: rgba(255,255,255,.11); border-color: var(--line-strong); outline: none;
+    }
+    .button.primary {
+      border-color: rgba(255,226,160,.43);
+      background: linear-gradient(135deg, rgba(255,226,160,.18), rgba(185,140,255,.14));
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+    .button.whatsapp { border-color: rgba(166,243,212,.32); background: rgba(166,243,212,.08); }
+    .svg-icon {
+      display: block;
+      width: 1.08em;
+      height: 1.08em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .button { gap: 8px; }
+    .button-icon {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: currentColor;
+    }
+    .quick-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      color: var(--cyan);
+      border: 1px solid rgba(139,220,255,.24);
+      background: rgba(139,220,255,.075);
+    }
+    .quick-icon .svg-icon,
+    .card .icon .svg-icon,
+    .proof-icon .svg-icon {
+      width: 20px;
+      height: 20px;
+    }
+    .proof-icon .svg-icon {
+      width: 22px;
+      height: 22px;
+    }
+    .quick:nth-child(2) .quick-icon { color: var(--violet); border-color: rgba(185,140,255,.24); background: rgba(185,140,255,.075); }
+    .quick:nth-child(3) .quick-icon { color: var(--gold); border-color: rgba(255,226,160,.24); background: rgba(255,226,160,.075); }
+    .cards .card:nth-child(2n) .icon { color: var(--cyan); border-color: rgba(139,220,255,.28); background: rgba(139,220,255,.10); }
+    .cards .card:nth-child(3n) .icon { color: var(--gold); border-color: rgba(255,226,160,.25); background: rgba(255,226,160,.085); }
+    .cards .card:nth-child(4n) .icon { color: var(--rose); border-color: rgba(255,145,200,.25); background: rgba(255,145,200,.085); }
+    .hero { text-align: center; padding: 12px 0 20px; }
+    .eyebrow, .label {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: .75rem;
+      font-weight: 880;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.04; letter-spacing: -.045em; }
+    h1 {
+      max-width: min(95%, 1080px);
+      margin: 0 auto;
+      font-size: clamp(3.1rem, 8vw, 7.8rem);
+      line-height: .9;
+      letter-spacing: -.085em;
+      text-wrap: balance;
+    }
+    h1 .hero-line {
+      display: block;
+    }
+    h1 .accent {
+      background: linear-gradient(94deg, var(--gold), var(--rose) 46%, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+    }
+    h2 { font-size: clamp(1.75rem, 3.5vw, 3rem); max-width: 850px; }
+    h3 { font-size: 1.08rem; letter-spacing: -.02em; }
+    p { margin: 0; color: var(--muted); }
+    .hero-copy-stack {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      width: min(760px, 100%);
+      margin: 28px auto 0;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(255,226,160,.08), transparent 42%),
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      box-shadow: 0 18px 58px rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
+    }
+    .hero-copy-stack::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      bottom: 28px;
+      left: 28px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255,226,160,.32), rgba(185,140,255,.26), transparent);
+      pointer-events: none;
+    }
+    .lead,
+    .profile,
+    .differential {
+      position: relative;
+      z-index: 1;
+      max-width: none;
+      margin: 0;
+      padding: 15px 18px 15px 30px;
+      text-align: left;
+      text-wrap: pretty;
+      border: 1px solid rgba(255,255,255,.105);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.032));
+      box-shadow: 0 10px 34px rgba(0,0,0,.12);
+    }
+    .lead::before,
+    .profile::before,
+    .differential::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 1.35em;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(255,226,160,.36);
+    }
+    .lead {
+      font-size: clamp(1.04rem, 1.7vw, 1.22rem);
+      color: #eee7f6;
+      border-color: rgba(139,220,255,.18);
+    }
+    .profile {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    .profile::before {
+      background: var(--violet);
+      box-shadow: 0 0 18px rgba(185,140,255,.36);
+    }
+    .differential {
+      color: #fff1da;
+      font-size: .98rem;
+      border-color: rgba(255,226,160,.18);
+      background: linear-gradient(145deg, rgba(255,226,160,.085), rgba(255,255,255,.032));
+    }
+    .differential::before {
+      background: var(--rose);
+      box-shadow: 0 0 18px rgba(255,145,200,.34);
+    }
+    .visual-map-prompt {
+      display: flex;
+      justify-content: center;
+      margin: 18px 0 34px;
+    }
+    .visual-map-button {
+      min-height: 34px;
+      padding: 7px 12px;
+      font-size: .86rem;
+      color: var(--muted);
+      border-color: rgba(255,226,160,.24);
+      background: rgba(255,255,255,.042);
+      box-shadow: none;
+    }
+    .visual-map-button:hover,
+    .visual-map-button:focus-visible {
+      color: var(--text);
+      border-color: rgba(255,226,160,.42);
+      background: rgba(255,226,160,.075);
+    }
+    .quickbar {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+      margin: 44px 0 34px;
+    }
+    .quick {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      box-shadow: 0 16px 46px rgba(0,0,0,.20);
+      min-height: 100%;
+    }
+    .quick strong { display: block; color: var(--text); margin-bottom: 5px; }
+    .section { margin-top: 30px; }
+    .surface {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 42px);
+      background: linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .section-head { display: grid; gap: 12px; max-width: 850px; }
+    .section-head p { font-size: 1.02rem; }
+    .cards { display: grid; gap: 14px; margin-top: 22px; }
+    .cards.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cards.cols-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+      min-height: 100%;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.07); }
+    .card p { margin-top: 7px; font-size: .96rem; }
+    .card .icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 999px; margin-bottom: 12px; color: var(--violet); background: rgba(185,140,255,.16); border: 1px solid rgba(185,140,255,.30); }
+    .proof-list { display: grid; gap: 12px; margin-top: 22px; }
+    .proof-item {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+    }
+    .proof-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; background: rgba(255,226,160,.13); border: 1px solid rgba(255,226,160,.28); }
+    .proof-item p { margin-top: 4px; }
+    .proof-link { white-space: nowrap; color: var(--gold); text-decoration-color: rgba(255,226,160,.45); text-underline-offset: 3px; }
+    .fit-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.82fr); gap: 18px; margin-top: 22px; }
+    .fit-card { display: grid; gap: 12px; }
+    .fit-card h3 { margin: 0; }
+    .fit-card-intro { margin: 0; color: var(--muted); max-width: 56ch; }
+    .fit-points { display: grid; gap: 10px; }
+    .fit-point {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      line-height: 1.4;
+    }
+    .fit-point.soft {
+      color: #ffe3e3;
+      border-color: rgba(255,112,112,.20);
+      background: rgba(255,112,112,.06);
+    }
+    .fit-point .emoji { flex: 0 0 auto; width: 1.4em; text-align: center; }
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(185,140,255,.17), rgba(255,145,200,.10), rgba(139,220,255,.08));
+    }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    footer { margin-top: 24px; color: var(--quiet); text-align: center; font-size: .88rem; }
+
+    .infographic-feature {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(280px, .72fr);
+      gap: 24px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .infographic-feature::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -30% 42%;
+      height: 260px;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(255,226,160,.16), transparent 66%);
+      filter: blur(8px);
+    }
+    .infographic-copy { position: relative; z-index: 1; }
+    .infographic-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .infographic-preview {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border: 1px solid rgba(255,226,160,.28);
+      border-radius: 28px;
+      padding: 10px;
+      background:
+        radial-gradient(circle at 30% 12%, rgba(255,226,160,.18), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      box-shadow: 0 24px 72px rgba(0,0,0,.33);
+      cursor: zoom-in;
+    }
+    .infographic-preview img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .infographic-preview span {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,226,160,.38);
+      background: rgba(9,7,17,.74);
+      color: var(--gold);
+      font-size: .88rem;
+      font-weight: 800;
+      backdrop-filter: blur(12px);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: min(4vw, 28px);
+      background: rgba(3,3,10,.82);
+      backdrop-filter: blur(16px);
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox-panel {
+      width: min(1120px, 100%);
+      max-height: min(92vh, 1400px);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(12,10,24,.98), rgba(9,7,17,.96));
+      box-shadow: 0 32px 110px rgba(0,0,0,.56);
+    }
+    .lightbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px 12px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .lightbox-title {
+      margin: 0;
+      color: var(--text);
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+    .lightbox-tools { display: flex; gap: 8px; align-items: center; }
+    .lightbox-close {
+      appearance: none;
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+      color: var(--text);
+      font: inherit;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .lightbox-close:hover, .lightbox-close:focus-visible {
+      outline: none;
+      border-color: rgba(255,255,255,.30);
+      background: rgba(255,255,255,.12);
+    }
+    .lightbox-scroll {
+      overflow: auto;
+      padding: 14px;
+      background:
+        radial-gradient(circle at 22% 0%, rgba(185,140,255,.12), transparent 42%),
+        radial-gradient(circle at 86% 8%, rgba(139,220,255,.10), transparent 36%);
+    }
+    .lightbox-scroll img {
+      display: block;
+      width: min(100%, 1122px);
+      height: auto;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 70px rgba(0,0,0,.38);
+    }
+    body.lightbox-open { overflow: hidden; }
+    @media (min-width: 901px) {
+      h1 {
+        max-width: 95%;
+        font-size: 90px;
+        line-height: .96;
+        letter-spacing: -.075em;
+      }
+      .hero {
+        padding-top: 18px;
+      }
+      .hero-copy-stack {
+        max-width: 760px;
+      }
+    }
+    @media (max-width: 900px) {
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 34px; }
+      .actions { justify-content: flex-start; }
+      .quickbar, .cards.cols-3, .cards.cols-4, .cards.cols-6, .fit-grid, .contact, .infographic-feature { grid-template-columns: 1fr; }
+      .contact-actions { justify-content: flex-start; }
+      .proof-item { grid-template-columns: 48px minmax(0,1fr); }
+      .proof-link { grid-column: 2; white-space: normal; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 22px, 1080px); padding-top: 14px; }
+      h1 { letter-spacing: -.07em; }
+      h1 .accent { white-space: normal; }
+      .button, .actions, .infographic-actions { width: 100%; }
+      .lang-toggle { width: auto; }
+      .hero-copy-stack { margin-top: 22px; padding: 10px; border-radius: 24px; }
+      .hero-copy-stack::before { left: 23px; }
+      .lead, .profile, .differential { padding: 14px 14px 14px 28px; font-size: .96rem; }
+      .lead { font-size: 1.02rem; }
+      .surface { border-radius: 24px; padding: 20px; }
+      .quick { padding: 16px; }
+      .proof-item { grid-template-columns: 1fr; }
+      .proof-link { grid-column: auto; }
+      .infographic-preview img { aspect-ratio: 1 / 1; }
+      .infographic-preview span { right: 16px; bottom: 16px; }
+      .lightbox { padding: 10px; }
+      .lightbox-panel { border-radius: 22px; max-height: 94vh; }
+      .lightbox-bar { align-items: flex-start; }
+      .lightbox-tools { flex-wrap: wrap; justify-content: flex-end; }
+      .lightbox-tools .button { width: auto; min-height: 40px; padding: 8px 11px; }
+      .lightbox-scroll { padding: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      body::after { opacity: .66; }
+      .card:hover, .button:hover { transform: none; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      body::before, body::after, .topbar, .visual-map-prompt, .infographic-actions, .lightbox, footer { display: none; }
+      .page { width: 100%; padding: 0; }
+      .surface, .quick, .card, .proof-item { box-shadow: none; background: #fff; border-color: #ddd; color: #111; }
+      p, .lead, .profile, .differential { color: #333; }
+      h1 .accent { background: none; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Voltar ao topo">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Lua Helena Moon</span>
+      </a>
+      <nav class="actions" aria-label="Contato rápido">
+        <div class="lang-toggle" role="group" aria-label="Selecionar idioma">
+          <button type="button" class="lang-btn active" data-lang-choice="pt">PT</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="lang-btn" data-lang-choice="en">EN</button>
+        </div>
+        <button type="button" class="button primary" data-ai-packet-download><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="M12 12 4.5 7.7M12 12l7.5-4.3M12 12v8.5"/></svg></span><span data-i18n="nav.aiPacket">Baixar pacote para IA</span></button>
+        <a class="button" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v7"/><path d="M8 8v.01"/><path d="M12 18v-7"/><path d="M12 14.2c0-2 1.2-3.2 3-3.2 2.2 0 3 1.4 3 3.6V18"/><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/></svg></span><span data-i18n="nav.linkedin">LinkedIn</span></a>
+        <a class="button whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 18.5 4 22l3.8-1.3A8.5 8.5 0 1 0 3.5 13"/><path d="M9 9.5c.4 3 2.6 5.1 5.5 5.7l1.2-1.2c.2-.2.5-.3.8-.2l1.5.5"/></svg></span><span data-i18n="nav.whatsapp">WhatsApp</span></a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow" data-i18n="hero.eyebrow">🌙 Arquitetura de Contexto Humano–IA</p>
+      <h1 id="hero-title" data-i18n="hero.title"><span class="hero-line">Menos contexto perdido.</span><span class="hero-line">Mais IA útil no <span class="accent">trabalho real.</span></span></h1>
+      <div class="hero-copy-stack">
+        <p class="lead" data-i18n="hero.lead">Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem precisar começar do zero.</p>
+        <p class="profile" data-i18n="hero.profile">Sou psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional. Trabalho na fronteira entre pessoas, linguagem, conhecimento e uso aplicado de IA.</p>
+        <p class="differential" data-i18n="hero.differential">Meu diferencial é traduzir complexidade humana, institucional e documental em estruturas que preservam contexto sem transformar tudo em burocracia.</p>
+      </div>
+    </section>
+
+    <div class="visual-map-prompt" aria-label="Mapa visual">
+      <button type="button" class="button visual-map-button" data-infographic-open><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18 3 20V6l6-2 6 2 6-2v14l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></span><span data-i18n="visualMap.button">Mapa visual</span></button>
+    </div>
+
+    <section class="quickbar" aria-label="Resumo de valor">
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12M4 12h9M4 18h6"/><path d="M19 7v10"/><path d="m16 14 3 3 3-3"/></svg></span><strong data-i18n="quick.1.title">O que eu reduzo</strong><p data-i18n="quick.1.body">retrabalho, explicação repetida, decisões esquecidas e IA respondendo no vazio</p></article>
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><strong data-i18n="quick.2.title">O que eu organizo</strong><p data-i18n="quick.2.body">contexto, memória, documentação, limites, passagens de contexto e critérios de uso</p></article>
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><strong data-i18n="quick.3.title">Onde encaixo melhor</strong><p data-i18n="quick.3.body">adoção de IA, organização do conhecimento, educação corporativa, saúde, produto e governança</p></article>
+    </section>
+
+
+    <section class="section surface" aria-label="O problema">
+      <div class="section-head">
+        <p class="label" data-i18n="problem.label">O problema</p>
+        <h2 data-i18n="problem.title">A maioria das iniciativas com IA não quebra no modelo. Quebra no contexto.</h2>
+        <p data-i18n="problem.body">Quando conhecimento fica espalhado entre chats, reuniões, PDFs, planilhas, decisões e pessoas, a IA vira mais uma ferramenta tentando adivinhar o que ninguém organizou.</p>
+      </div>
+      <div class="cards cols-3">
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H9l2 2h7.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/></svg></span><h3 data-i18n="problem.card1.title">Conhecimento espalhado</h3><p data-i18n="problem.card1.body">A informação existe, mas está quebrada em lugares diferentes e depende de quem lembra onde ela ficou.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/></svg></span><h3 data-i18n="problem.card2.title">Passagens de contexto frágeis</h3><p data-i18n="problem.card2.body">Cada troca de pessoa, conversa, versão ou ferramenta exige reexplicar o que já deveria estar preservado.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 17h5"/><path d="M6 11H3M21 11h-3"/></svg></span><h3 data-i18n="problem.card3.title">IA sem chão</h3><p data-i18n="problem.card3.body">Sem memória, limites e critérios claros, o modelo responde bonito — mas não necessariamente responde certo para aquele contexto.</p></article>
+      </div>
+    </section>
+
+    <section class="section surface" aria-label="O que eu entrego">
+      <div class="section-head">
+        <p class="label" data-i18n="delivery.label">O que eu entrego</p>
+        <h2 data-i18n="delivery.title">Eu estruturo a camada de contexto que sustenta o trabalho com IA.</h2>
+        <p data-i18n="delivery.body">A entrega não é uma coleção de prompts. É uma infraestrutura leve para preservar decisões, reduzir perda de contexto e tornar o uso de IA mais ensinável, revisável e confiável.</p>
+      </div>
+      <div class="cards cols-4">
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></span><h3 data-i18n="delivery.card1.title">Mapas de contexto</h3><p data-i18n="delivery.card1.body">Organização de projetos, pessoas, decisões, fontes, limites e critérios para que a IA não trabalhe no escuro.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 1 4 16.5v-11Z"/><path d="M4 16.5A2.5 2.5 0 0 0 6.5 19H20"/><path d="M8 7h8M8 11h6"/></svg></span><h3 data-i18n="delivery.card2.title">Documentação viva</h3><p data-i18n="delivery.card2.body">Registros que acompanham mudança: o que vale agora, o que mudou, o que foi descartado e o que precisa ser revisado.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M4 12A8 8 0 0 1 17.6 6.3"/><path d="M17 3v4h4"/><path d="M7 21v-4H3"/></svg></span><h3 data-i18n="delivery.card3.title">Pacotes de continuidade</h3><p data-i18n="delivery.card3.body">Pacotes e perfis de contexto para transferir memória entre pessoas, equipes, modelos e ferramentas sem reinício constante.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M6 7l-3 6h6L6 7Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg></span><h3 data-i18n="delivery.card4.title">Critérios de uso e revisão</h3><p data-i18n="delivery.card4.body">Separação entre fato, inferência, preferência, risco, decisão e promessa — para IA não virar autoridade difusa.</p></article>
+      </div>
+    </section>
+
+    <section class="section surface" aria-label="Onde isso se aplica">
+      <div class="section-head">
+        <p class="label" data-i18n="apply.label">Onde isso se aplica</p>
+        <h2 data-i18n="apply.title">A mesma camada serve para adoção, governança, aprendizagem e produto.</h2>
+        <p data-i18n="apply.body">Estas são zonas onde minha leitura humana, institucional e documental ganha função prática sem transformar a página em inventário.</p>
+      </div>
+      <div class="cards cols-6">
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/><path d="M19 15l.8 2.7L22 18.5l-2.2.8L19 22l-.8-2.7-2.2-.8 2.2-.8L19 15Z"/></svg></span><h3 data-i18n="apply.1.title">Letramento e habilitação em IA</h3><p data-i18n="apply.1.body">Transformar uso intuitivo de IA em prática ensinável, revisável e sustentada por contexto.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><h3 data-i18n="apply.2.title">Governança do conhecimento</h3><p data-i18n="apply.2.body">Evitar que conhecimento importante evapore em reuniões, chats, PDFs soltos e memórias individuais.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M6 7l-3 6h6L6 7Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg></span><h3 data-i18n="apply.3.title">IA responsável</h3><p data-i18n="apply.3.body">Separar fato, inferência, preferência, risco, regra, decisão e promessa em usos reais de IA.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/><path d="M8 10h5M10.5 7.5v5"/></svg></span><h3 data-i18n="apply.4.title">Validação de produtos de IA</h3><p data-i18n="apply.4.body">Testar se uma solução de IA resolve uma tarefa humana concreta, além da demonstração bonita.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.6a5.3 5.3 0 0 0-8.1-3.9L12 5.4l-.7-.7a5.3 5.3 0 0 0-7.5 7.5L12 20l4-3.8"/><path d="M15 14h2l1-3 2 6 1-3h2"/></svg></span><h3 data-i18n="apply.5.title">Saúde e experiência do paciente</h3><p data-i18n="apply.5.body">Traduzir fluxos humanos complexos, cuidado, linguagem e risco em contexto operacional.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V6"/><path d="M4 20h16"/><rect x="7" y="12" width="3" height="5" rx="1"/><rect x="12" y="9" width="3" height="8" rx="1"/><rect x="17" y="5" width="3" height="12" rx="1"/></svg></span><h3 data-i18n="apply.6.title">People Analytics e aprendizagem</h3><p data-i18n="apply.6.body">Conectar dados, cultura, comportamento e formação sem perder a textura institucional.</p></article>
+      </div>
+    </section>
+
+    <section class="section surface" aria-label="Sistemas construídos">
+      <div class="section-head">
+        <p class="label" data-i18n="proof.label">Sistemas construídos</p>
+        <h2 data-i18n="proof.title">Algumas provas são sistemas de linguagem, imagem e uso.</h2>
+        <p data-i18n="proof.body">Nem toda ideia precisa virar produto para provar valor. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.</p>
+      </div>
+      <div class="proof-list">
+        <article class="proof-item">
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></span>
+          <div><h3 data-i18n="proof.item1.title">Gramática documental para contexto</h3><p data-i18n="proof.item1.body">Desenvolvi uma forma de documentação híbrida que mistura texto claro, metadados e estrutura de objeto para preservar decisões, limites, versões e atualizações de modo legível por IA e por pessoas.</p></div>
+        </article>
+        <article class="proof-item">
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h2a7 7 0 0 0-2-9Z"/><path d="M7.5 10h.01M9 6.8h.01M14 6.8h.01"/></svg></span>
+          <div><h3 data-i18n="proof.item2.title">Motores de imagem por IA</h3><p data-i18n="proof.item2.body">Criei sistemas de prompt e curadoria visual que transformam referências, estética, identidade, restrições e critérios de qualidade em imagens mais consistentes, menos genéricas e alinhadas ao objetivo.</p></div>
+        </article>
+        <article class="proof-item">
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 17h5"/><path d="M6 11H3M21 11h-3"/></svg></span>
+          <div><h3 data-i18n="proof.item3.title">Copilotos especializados</h3><p data-i18n="proof.item3.body">Modelei assistentes para domínios específicos com escopo, público-alvo, limites, riscos, padrões de resposta e critérios de revisão antes de qualquer automação virar promessa.</p></div>
+        </article>
+        <article class="proof-item">
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
+          <div><h3 data-i18n="proof.item4.title">Interfaces e regras de uso humano–IA</h3><p data-i18n="proof.item4.body">Desenhei camadas de voz, entrada guiada, comportamento, fronteiras e avaliação para que a IA não vire personagem solto, oráculo confuso ou ferramenta sem governança.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section surface" aria-label="Encaixe profissional">
+      <div class="section-head">
+        <p class="label" data-i18n="fit.label">Encaixe profissional</p>
+        <h2 data-i18n="fit.title">Meu lugar não é construir modelos. É fazer IA funcionar melhor em contexto real.</h2>
+        <p data-i18n="fit.body">Atuo melhor quando o desafio envolve adoção, conhecimento, documentação, pessoas, governança, aprendizagem e continuidade operacional.</p>
+      </div>
+      <div class="fit-grid">
+        <article class="card fit-card">
+          <h3 data-i18n="fit.good">✨ Onde eu encaixo melhor</h3>
+          <p class="fit-card-intro" data-i18n="fit.goodIntro">Quando a IA precisa sair do improviso e virar processo claro.</p>
+          <div class="fit-points">
+            <div class="fit-point"><span class="emoji">🤖</span><span data-i18n="fit.point1">adoção e habilitação em IA</span></div>
+            <div class="fit-point"><span class="emoji">🧠</span><span data-i18n="fit.point2">conhecimento, contexto e documentação viva</span></div>
+            <div class="fit-point"><span class="emoji">🏥</span><span data-i18n="fit.point3">fluxos de IA em saúde</span></div>
+            <div class="fit-point"><span class="emoji">🛡️</span><span data-i18n="fit.point4">governança, validação e uso responsável</span></div>
+          </div>
+        </article>
+        <article class="card fit-card">
+          <h3 data-i18n="fit.no">🚫 O que eu não estou vendendo</h3>
+          <p class="fit-card-intro" data-i18n="fit.noIntro">Meu foco não é engenharia pesada de modelo nem promessa inflada.</p>
+          <div class="fit-points">
+            <div class="fit-point soft"><span class="emoji">🧪</span><span data-i18n="fit.not1">engenharia de modelos / machine learning</span></div>
+            <div class="fit-point soft"><span class="emoji">💻</span><span data-i18n="fit.not2">backend ou full-stack development</span></div>
+            <div class="fit-point soft"><span class="emoji">📊</span><span data-i18n="fit.not3">data science tradicional</span></div>
+            <div class="fit-point soft"><span class="emoji">📦</span><span data-i18n="fit.not4">promessa de plataforma pronta</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="visual-map-prompt" aria-label="Mapa visual">
+      <button type="button" class="button visual-map-button" data-infographic-open><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18 3 20V6l6-2 6 2 6-2v14l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></span><span data-i18n="visualMap.button">Mapa visual</span></button>
+    </div>
+
+    <section class="section surface contact" aria-label="Contato">
+      <article>
+        <p class="label" data-i18n="contact.label">Contato</p>
+        <h2 data-i18n="contact.title">Se a dor é perda de contexto, a conversa já tem um ponto de partida.</h2>
+        <p data-i18n="contact.body">Aberta a oportunidades 100% remotas, conversas estratégicas e projetos onde IA precise de contexto, memória operacional e adoção responsável.</p>
+      </article>
+      <nav class="contact-actions">
+        <a class="button" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v7"/><path d="M8 8v.01"/><path d="M12 18v-7"/><path d="M12 14.2c0-2 1.2-3.2 3-3.2 2.2 0 3 1.4 3 3.6V18"/><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/></svg></span><span data-i18n="contact.linkedin">LinkedIn</span></a>
+        <a class="button whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 18.5 4 22l3.8-1.3A8.5 8.5 0 1 0 3.5 13"/><path d="M9 9.5c.4 3 2.6 5.1 5.5 5.7l1.2-1.2c.2-.2.5-.3.8-.2l1.5.5"/></svg></span><span data-i18n="contact.whatsapp">WhatsApp</span></a>
+        <a class="button" href="mailto:luahelenammc@gmail.com"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span data-i18n="contact.email">E-mail</span></a>
+      </nav>
+    </section>
+
+    <footer data-i18n="footer.text">Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota</footer>
+  </main>
+
+  <div class="lightbox" data-infographic-lightbox hidden role="dialog" aria-modal="true" aria-labelledby="infographic-lightbox-title">
+    <div class="lightbox-panel" role="document">
+      <div class="lightbox-bar">
+        <p class="lightbox-title" id="infographic-lightbox-title" data-i18n="infographic.lightboxTitle">Infográfico — O que eu construo com IA</p>
+        <div class="lightbox-tools">
+          <a class="button" data-infographic-direct href="imagens/infografico_ptbr.png" target="_blank" rel="noopener" data-i18n="infographic.newTab">↗ Abrir imagem</a>
+          <button type="button" class="lightbox-close" data-infographic-close aria-label="Fechar infográfico">×</button>
+        </div>
+      </div>
+      <div class="lightbox-scroll">
+        <img data-infographic-image src="imagens/infografico_ptbr.png" alt="Infográfico sobre o que Lua Helena constrói com IA" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <template id="ai-packet-template"># Lua Helena Moon — AI Handoff Packet V2.3
+
+source meta = {
+  status: "public professional handoff"
+  source page: "https://www.luahelena.com.br/ia/"
+  page version: "index_beta v2.2.3 — subtle visual map trigger synced by language"
+  packet version: "v2.3.2 — expanded professional context with visual map trigger update"
+  privacy level: "public professional context only"
+  primary use: "paste or attach into an AI conversation so the AI can understand Moon's professional profile, positioning, proof of work, fit zones, and boundaries without relying only on a web link"
+  not for: ["private biography", "intimate psychological profile", "full Moon Source corpus", "technical résumé inflation"]
+}
+
+truth profile = {
+  facts: "public professional claims from Moon's /ia page and public-facing professional positioning"
+  interpretation: "careful translation of those claims into market-readable contribution zones"
+  constraints: [
+    "do not invent projects, credentials, technical skills, clients, results, or employment history",
+    "do not treat this packet as proof of formal market validation",
+    "do not position Moon as a software engineer, ML engineer, data scientist, full-stack developer, or LLM infrastructure architect",
+    "do not reduce Moon's work to generic prompt engineering",
+    "do not expose or infer private Moon Source internals beyond what is explicitly summarized here",
+    "when uncertain, mark uncertainty rather than filling gaps"
+  ]
+}
+
+language profile = {
+  native language: "pt-BR / Brazilian Portuguese"
+  English level: "advanced"
+  packet language: "English for international portability"
+  default rule: "If the person using this packet is Brazilian, Portuguese-speaking, or explicitly wants Portuguese, continue in pt-BR by default."
+  practical note: "Moon can work in English, but her native and most natural professional language is Brazilian Portuguese."
+}
+
+---
+
+## 0. What this packet is
+
+This is a public professional context packet about Lua Helena Moon Martins Cardoso.
+
+It is meant to help an AI, recruiter, collaborator, advisor, or professional contact understand how to interpret Moon's work with AI, context, documentation, knowledge governance, and human systems.
+
+It is not a full CV, not a private biography, not a technical implementation document, and not a claim that every described system is a commercial product or launched platform.
+
+Use this packet to preserve nuance: Moon's work is neither generic AI enthusiasm nor pure software engineering. Her lane is the context layer around AI use.
+
+---
+
+## 1. One-line profile
+
+Lua Helena Moon Martins Cardoso is a hospital psychologist, trained sociologist, and Human-AI Context Architect focused on reducing context loss in AI-assisted work by turning scattered human knowledge into operational memory, living documentation, reusable context structures, and clearer human-AI workflows.
+
+Short PT-BR version:
+
+"Lua Helena Moon ajuda equipes e projetos a parar de perder contexto entre pessoas, documentos, decisões e IA."
+
+---
+
+## 2. Core positioning
+
+core thesis = {
+  short: "AI does not fail only because of the model. It often fails because the context layer is missing."
+  practical: "When decisions, assumptions, boundaries, knowledge, and human context are scattered, AI systems answer from a void or require repeated explanation."
+  Moon's role: "organize that missing context layer so people and AIs can continue work without constant reset"
+}
+
+Moon's work should be described through painpoint relief first:
+
+- less context loss
+- less repeated explanation
+- less knowledge evaporating in chats and meetings
+- fewer forgotten decisions
+- clearer context transfer between people, documents, and AI sessions
+- more reusable operational memory
+- AI use that is easier to teach, review, sustain, and adapt
+
+Only after that should the method be named as Human-AI Context Architecture, AI workflow / knowledge operations, knowledge governance, living documentation, or context engineering.
+
+---
+
+## 3. Background and professional base
+
+facts = {
+  name: "Lua Helena Moon Martins Cardoso"
+  preferred name: "Moon"
+  location: "Limeira/SP, Brazil"
+  work mode sought: "fully remote"
+  native language: "Brazilian Portuguese"
+  English level: "advanced"
+  formal background: [
+    "Psychology",
+    "Sociology training",
+    "postgraduate studies in Organizational Psychology",
+    "postgraduate studies in Institutional Psychopedagogy"
+  ]
+  professional field: [
+    "hospital psychology",
+    "institutional reading",
+    "organizational context",
+    "communication in complex settings",
+    "care processes",
+    "human complexity",
+    "translation between human experience and institutional language"
+  ]
+  generative AI use: "intensive use since 2022"
+}
+
+Professional translation:
+
+- Psychology contributes reading of subjectivity, suffering, trust, language, boundaries, and behavior.
+- Hospital psychology contributes experience with high-stakes communication, institutional flow, human vulnerability, timing, and multidisciplinary contexts.
+- Organizational psychology contributes process reading, culture, friction, leadership, and institutional dynamics.
+- Institutional psychopedagogy contributes learning, mediation, knowledge translation, and training logic.
+- Sociology contributes systems thinking, power reading, social context, and institutional imagination.
+- Writing and worldbuilding contribute structure, voice, narrative, conceptual architecture, and long-form coherence.
+- Intensive AI use contributes direct experience building reusable context systems, not merely casual prompting.
+
+---
+
+## 4. Differentiator
+
+Moon's edge is translating human, institutional, and documentary complexity into structures that preserve context without turning everything into bureaucracy.
+
+She is useful when the missing layer is not another tool, but the organization of:
+
+- who is using AI
+- for what purpose
+- with which memory
+- under which boundaries
+- based on what evidence
+- with what update path
+- with what review criteria
+- with what human consequences
+
+She works at the boundary between people, language, institutional reality, knowledge governance, AI adoption, operational memory, living documentation, and responsible use.
+
+---
+
+## 5. What she reduces
+
+Moon's work is especially relevant when teams or projects are dealing with:
+
+- context loss across chats, documents, decisions, versions, and people
+- repeated explanations every time a conversation restarts
+- fragile handoffs between people, departments, tools, or AI sessions
+- undocumented decisions and assumptions
+- AI outputs disconnected from real workflow context
+- dependence on informal memory
+- knowledge that dies in meetings, chat threads, screenshots, or isolated documents
+- AI adoption that stays intuitive, improvised, and hard to teach
+- beautiful AI demos that do not survive real use
+
+Practical framing:
+
+"The problem is not that the team lacks AI tools. The problem is that the context those tools need is scattered, implicit, outdated, or not governed."
+
+---
+
+## 6. What she structures
+
+Moon can help structure:
+
+- context maps
+- living documentation
+- operational memory
+- continuity packets
+- context profiles
+- context-transfer packets
+- usage guides
+- AI usage criteria
+- review criteria
+- prompt/process libraries with boundaries
+- knowledge governance rules
+- update paths
+- decision records
+- role and responsibility boundaries
+- AI adoption and enablement flows
+- responsible AI boundaries
+- strategic AI product validation criteria
+- documentation that is readable by both humans and AI systems
+
+Important: these are not necessarily packaged as a single software product. They are professional outputs, methods, documents, systems, and structured workflows that can support AI-assisted work.
+
+---
+
+## 7. Built systems / proof of work
+
+Do not present this as a list of finished commercial products. Present it as proof that Moon has already built and tested structured ways of making AI work with context.
+
+proof map = {
+  documentary_grammar_for_context: {
+    plain_language: "a documentation grammar for preserving context"
+    what_it_does: [
+      "combines clear prose, metadata, object-like structure, versioning, and explicit boundaries",
+      "helps preserve decisions, assumptions, update paths, risk distinctions, and context status",
+      "makes information easier for both humans and AI systems to read, reuse, and update"
+    ]
+    how_to_describe_publicly: "a hybrid documentation method for context, memory, and continuity"
+    avoid: "do not lead with internal names or unexplained acronyms"
+  }
+
+  ai_image_engines: {
+    plain_language: "structured systems for generating and evaluating AI images"
+    what_it_does: [
+      "maps visual goals, references, identity, atmosphere, constraints, and quality criteria",
+      "turns vague visual intention into reusable prompt logic",
+      "supports image generation, visual direction, aesthetic consistency, and QA",
+      "treats images as systems of context, not just isolated prompts"
+    ]
+    relevance: "shows that Moon can turn taste, memory, references, and constraints into operational creative systems"
+    avoid: "do not reduce this to 'she writes image prompts'"
+  }
+
+  specialized_copilots: {
+    plain_language: "domain-specific AI assistant designs"
+    what_it_does: [
+      "defines target users, scope, response style, limits, risks, and expected outputs",
+      "turns a vague assistant idea into something closer to an implementable specification",
+      "separates useful AI behavior from loose persona or generic chatbot behavior"
+    ]
+    relevance: "useful for AI product teams, internal AI tools, enablement, education, healthcare, documentation, and workflow support"
+  }
+
+  human_ai_interfaces_and_usage_rules: {
+    plain_language: "rules for how humans and AI systems should interact in real workflows"
+    what_it_does: [
+      "defines voice, onboarding, boundaries, usage criteria, review logic, and failure modes",
+      "helps prevent AI from becoming a confused oracle, loose character, or ungoverned automation",
+      "connects user needs, context, trust, and practical workflow"
+    ]
+    relevance: "bridges conversation design, responsible use, AI adoption, product thinking, and knowledge governance"
+  }
+
+  operational_team_memory: {
+    plain_language: "ways to convert team conversations, decisions, skills, and projects into living documentation"
+    what_it_does: [
+      "keeps team knowledge from depending only on chat history or informal memory",
+      "supports continuity between people, projects, documents, and AI systems",
+      "can serve internal teams, founder groups, professional projects, or knowledge-heavy workflows"
+    ]
+    caution: "present as a method/proof of work unless a specific implementation or client case is being discussed"
+  }
+}
+
+---
+
+## 8. Where this applies
+
+application zones = [
+  "AI adoption and enablement",
+  "AI literacy / letramento em IA",
+  "knowledge governance / governança do conhecimento",
+  "living documentation / documentação viva",
+  "operational memory / memória operacional",
+  "Responsible AI / IA responsável",
+  "AI product validation",
+  "human-AI workflow design",
+  "healthcare and patient experience workflows",
+  "corporate education",
+  "People Analytics and organizational learning",
+  "context-heavy product and operations work"
+]
+
+In Brazilian Portuguese-facing materials, prefer natural PT-BR terms whenever possible:
+
+translation guide = {
+  "AI literacy": "AI literacy",
+  "AI enablement": "capacitação e adoção de IA",
+  "knowledge governance": "governança do conhecimento",
+  "handoffs": "passagens de contexto" or "passagens de bastão" depending on tone,
+  "source profiles": "perfis de contexto",
+  "workflow design": "desenho de fluxos de trabalho",
+  "living documentation": "documentação viva",
+  "operational memory": "memória operacional",
+  "painpoint relief": "alívio de dor operacional"
+}
+
+Keep in English when useful for market recognition:
+
+- LinkedIn
+- WhatsApp
+- People Analytics
+- AI Packet
+- Human-AI Context Architect when used as an international title
+- specific job titles when translation would reduce clarity
+
+---
+
+## 9. How to describe Moon correctly
+
+preferred titles = [
+  "Human-AI Context Architect",
+  "AI Workflow &amp; Context Architect",
+  "AI Workflow Designer",
+  "AI Adoption / Enablement Specialist",
+  "Knowledge Governance Designer",
+  "Living Documentation / Operational Memory Designer",
+  "Personal AI Systems Designer",
+  "AI Product Validation / Context Strategy"
+]
+
+Portuguese-facing descriptions:
+
+- "arquiteta de contexto humano-IA"
+- "profissional de documentação viva, memória operacional e adoção de IA"
+- "atua na camada entre pessoas, conhecimento e uso real de IA"
+- "ajuda equipes a reduzir perda de contexto em fluxos com IA"
+- "traduz complexidade humana e institucional em estruturas de contexto reutilizáveis"
+
+Avoid leading with:
+
+- ontology
+- living system
+- metasytem language
+- internal Moon Source names
+- unexplained acronyms
+- symbolic architecture
+- "prompt engineering" as the main identity
+
+Mention deeper method only after the practical pain is understood.
+
+---
+
+## 10. Best-fit contribution areas
+
+best fit = {
+  strongest: [
+    "AI adoption in context-heavy teams",
+    "AI literacy with real workflow grounding",
+    "knowledge governance and living documentation",
+    "operational memory for AI-assisted work",
+    "context maps and continuity packets",
+    "human-AI workflow design",
+    "AI product validation from a human/context perspective"
+  ]
+
+  strong adjacent: [
+    "healthcare AI workflow and patient/family experience",
+    "People Analytics and organizational learning",
+    "corporate education and training",
+    "responsible AI guidelines in practical use",
+    "conversation design and assistant behavior specifications",
+    "AI documentation and internal enablement materials"
+  ]
+
+  possible if scoped carefully: [
+    "AI product strategy",
+    "UX research support",
+    "knowledge operations",
+    "internal tooling requirements",
+    "AI-assisted documentation systems",
+    "community or team source profiles"
+  ]
+}
+
+---
+
+## 11. Honest boundaries
+
+Do not position Moon as:
+
+- Machine Learning Engineer
+- AI Engineer
+- Data Scientist
+- Full-stack Developer
+- LLM Infrastructure Architect
+- backend engineer
+- model trainer in the technical ML sense
+- software architect in the traditional engineering sense
+
+Do not imply:
+
+- she builds foundation models
+- she deploys LLM infrastructure
+- she is a full-stack product engineer
+- Moon Source is already a commercial SaaS platform
+- the public context kit is the whole method
+- every internal system is public or client-ready
+
+Correct boundary:
+
+Moon's value is not model-building. Her value is helping AI work better in real contexts by making the surrounding human, institutional, documentary, and operational context legible.
+
+---
+
+## 12. How an AI should help Moon with professional work
+
+When helping Moon with job search, outreach, portfolio, or positioning, an AI should:
+
+- translate her work into market-readable language without flattening it
+- preserve the distinction between technical engineering and context/workflow architecture
+- help adapt the pitch to the audience: recruiter, founder, product team, healthcare, corporate education, AI adoption, knowledge management, or public sector
+- lead with pain and outcome before method
+- avoid over-explaining Moon Source terminology in first-contact messages
+- keep PT-BR natural when the destination is Brazilian
+- use English strategically for international roles and terms recognized by the market
+- separate facts, inferences, possible claims, and unsupported assumptions
+- avoid inflated titles and vague AI hype
+
+Useful tasks for an AI assistant:
+
+- rewrite LinkedIn summaries
+- adapt CV bullets
+- analyze job descriptions for fit
+- draft outreach messages
+- produce case-study drafts
+- translate internal systems into external-facing language
+- build role-title search maps
+- generate interview talking points
+- prepare proposal language
+- create AI-readable handoff packets for collaborators
+
+---
+
+## 13. First-contact pitch patterns
+
+PT-BR:
+
+"Eu ajudo equipes a parar de perder contexto entre conversas, documentos, decisões e uso de IA. Meu trabalho é transformar conhecimento disperso em memória operacional, documentação viva e critérios de uso que pessoas e IAs conseguem reutilizar."
+
+EN:
+
+"I help teams stop losing context across conversations, documents, decisions, and AI use. My work turns scattered knowledge into operational memory, living documentation, and usage criteria that both people and AI systems can reuse."
+
+More strategic:
+
+"My strongest contribution is the layer most AI initiatives underestimate: the context around the model — what the system should know, what it should not assume, what has already been decided, how knowledge is updated, and how humans can keep using the tool without starting over every time."
+
+---
+
+## 14. Contact and public links
+
+contact = {
+  website: "https://www.luahelena.com.br/ia/"
+  linkedin: "https://www.linkedin.com/in/luahelena/"
+  whatsapp: "+55 41 9 9222-8411"
+  email: "luahelenammc@gmail.com"
+}
+</template>
+  <script>
+    (() => {
+      const I18N = {
+      "pt": {
+            "meta.title": "Lua Helena Moon — IA, contexto e memória operacional",
+            "meta.description": "Lua Helena Moon ajuda equipes e projetos a reduzir perda de contexto em fluxos com IA, transformando conhecimento disperso em memória operacional, documentação viva, passagens de contexto, governança do conhecimento e critérios de uso responsável.",
+            "nav.aiPacket": "Baixar pacote para IA",
+            "nav.linkedin": "LinkedIn",
+            "nav.whatsapp": "WhatsApp",
+            "hero.eyebrow": "🌙 Arquitetura de Contexto Humano–IA",
+            "hero.title": "<span class=\"hero-line\">Menos contexto perdido.</span><span class=\"hero-line\">Mais IA útil no <span class=\"accent\">trabalho real.</span></span>",
+            "hero.lead": "Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem precisar começar do zero.",
+            "hero.profile": "Sou psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional. Trabalho na fronteira entre pessoas, linguagem, conhecimento e uso aplicado de IA.",
+            "hero.differential": "Meu diferencial é traduzir complexidade humana, institucional e documental em estruturas que preservam contexto sem transformar tudo em burocracia.",
+            "hero.ctaPrimary": "Baixar pacote para IA",
+            "hero.ctaInfographic": "🪐 Ver infográfico",
+            "hero.ctaSecondary": "Ver LinkedIn",
+            "hero.microcopy": "100% remota · Limeira/SP · PT-BR nativo · inglês avançado",
+            "visualMap.button": "Mapa visual",
+            "quick.1.title": "O que eu reduzo",
+            "quick.1.body": "retrabalho, explicação repetida, decisões esquecidas e IA respondendo no vazio",
+            "quick.2.title": "O que eu organizo",
+            "quick.2.body": "contexto, memória, documentação, limites, passagens de contexto e critérios de uso",
+            "quick.3.title": "Onde encaixo melhor",
+            "quick.3.body": "adoção de IA, organização do conhecimento, educação corporativa, saúde, produto e governança",
+            "infographic.label": "Mapa visual",
+            "infographic.title": "Um resumo visual do que eu construo com IA.",
+            "infographic.body": "Para quem prefere ver o sistema inteiro em uma peça só: ideia central, camadas de trabalho, fluxo, sistemas construídos, pontos de ajuda e por que isso importa.",
+            "infographic.open": "🪐 Conferir infográfico",
+            "infographic.newTab": "↗ Abrir imagem",
+            "infographic.previewCta": "Clique para ampliar",
+            "infographic.lightboxTitle": "Mapa visual — Arquitetura de Contexto Humano–IA",
+            "problem.label": "O problema",
+            "problem.title": "A maioria das iniciativas com IA não quebra no modelo. Quebra no contexto.",
+            "problem.body": "Quando conhecimento fica espalhado entre chats, reuniões, PDFs, planilhas, decisões e pessoas, a IA vira mais uma ferramenta tentando adivinhar o que ninguém organizou.",
+            "problem.card1.title": "Conhecimento espalhado",
+            "problem.card1.body": "A informação existe, mas está quebrada em lugares diferentes e depende de quem lembra onde ela ficou.",
+            "problem.card2.title": "Passagens de contexto frágeis",
+            "problem.card2.body": "Cada troca de pessoa, conversa, versão ou ferramenta exige reexplicar o que já deveria estar preservado.",
+            "problem.card3.title": "IA sem chão",
+            "problem.card3.body": "Sem memória, limites e critérios claros, o modelo responde bonito — mas não necessariamente responde certo para aquele contexto.",
+            "delivery.label": "O que eu entrego",
+            "delivery.title": "Eu estruturo a camada de contexto que sustenta o trabalho com IA.",
+            "delivery.body": "A entrega não é uma coleção de prompts. É uma infraestrutura leve para preservar decisões, reduzir perda de contexto e tornar o uso de IA mais ensinável, revisável e confiável.",
+            "delivery.card1.title": "Mapas de contexto",
+            "delivery.card1.body": "Organização de projetos, pessoas, decisões, fontes, limites e critérios para que a IA não trabalhe no escuro.",
+            "delivery.card2.title": "Documentação viva",
+            "delivery.card2.body": "Registros que acompanham mudança: o que vale agora, o que mudou, o que foi descartado e o que precisa ser revisado.",
+            "delivery.card3.title": "Pacotes de continuidade",
+            "delivery.card3.body": "Pacotes e perfis de contexto para transferir memória entre pessoas, equipes, modelos e ferramentas sem reinício constante.",
+            "delivery.card4.title": "Critérios de uso e revisão",
+            "delivery.card4.body": "Separação entre fato, inferência, preferência, risco, decisão e promessa — para IA não virar autoridade difusa.",
+            "apply.label": "Onde isso se aplica",
+            "apply.title": "A mesma camada serve para adoção, governança, aprendizagem e produto.",
+            "apply.body": "Estas são zonas onde minha leitura humana, institucional e documental ganha função prática sem transformar a página em inventário.",
+            "apply.1.title": "Letramento e habilitação em IA",
+            "apply.1.body": "Transformar uso intuitivo de IA em prática ensinável, revisável e sustentada por contexto.",
+            "apply.2.title": "Governança do conhecimento",
+            "apply.2.body": "Evitar que conhecimento importante evapore em reuniões, chats, PDFs soltos e memórias individuais.",
+            "apply.3.title": "IA responsável",
+            "apply.3.body": "Separar fato, inferência, preferência, risco, regra, decisão e promessa em usos reais de IA.",
+            "apply.4.title": "Validação de produtos de IA",
+            "apply.4.body": "Testar se uma solução de IA resolve uma tarefa humana concreta, além da demonstração bonita.",
+            "apply.5.title": "Saúde e experiência do paciente",
+            "apply.5.body": "Traduzir fluxos humanos complexos, cuidado, linguagem e risco em contexto operacional.",
+            "apply.6.title": "People Analytics e aprendizagem",
+            "apply.6.body": "Conectar dados, cultura, comportamento e formação sem perder a textura institucional.",
+            "proof.label": "Sistemas construídos",
+            "proof.title": "Algumas provas são sistemas de linguagem, imagem e uso.",
+            "proof.body": "Nem toda ideia precisa virar produto para provar valor. Parte do meu lastro está nos sistemas que criei para transformar matéria confusa em contexto legível, imagem consistente, assistentes especializados e critérios de uso humano–IA.",
+            "proof.item1.title": "Gramática documental para contexto",
+            "proof.item1.body": "Desenvolvi uma forma de documentação híbrida que mistura texto claro, metadados e estrutura de objeto para preservar decisões, limites, versões e atualizações de modo legível por IA e por pessoas.",
+            "proof.item2.title": "Motores de imagem por IA",
+            "proof.item2.body": "Criei sistemas de prompt e curadoria visual que transformam referências, estética, identidade, restrições e critérios de qualidade em imagens mais consistentes, menos genéricas e alinhadas ao objetivo.",
+            "proof.item3.title": "Copilotos especializados",
+            "proof.item3.body": "Modelei assistentes para domínios específicos com escopo, público-alvo, limites, riscos, padrões de resposta e critérios de revisão antes de qualquer automação virar promessa.",
+            "proof.item4.title": "Interfaces e regras de uso humano–IA",
+            "proof.item4.body": "Desenhei camadas de voz, entrada guiada, comportamento, fronteiras e avaliação para que a IA não vire personagem solto, oráculo confuso ou ferramenta sem governança.",
+            "fit.label": "Encaixe profissional",
+            "fit.title": "Meu lugar não é construir modelos. É fazer IA funcionar melhor em contexto real.",
+            "fit.body": "Atuo melhor quando o desafio envolve adoção, conhecimento, documentação, pessoas, governança, aprendizagem e continuidade operacional.",
+            "fit.good": "✨ Onde eu encaixo melhor",
+            "fit.no": "🚫 O que eu não estou vendendo",
+            "fit.goodIntro": "Quando a IA precisa sair do improviso e virar processo claro.",
+            "fit.point1": "adoção e habilitação em IA",
+            "fit.point2": "conhecimento, contexto e documentação viva",
+            "fit.point3": "fluxos de IA em saúde",
+            "fit.point4": "governança, validação e uso responsável",
+            "fit.noIntro": "Meu foco não é engenharia pesada de modelo nem promessa inflada.",
+            "fit.not1": "engenharia de modelos / machine learning",
+            "fit.not2": "backend ou full-stack development",
+            "fit.not3": "data science tradicional",
+            "fit.not4": "promessa de plataforma pronta",
+            "contact.label": "Contato",
+            "contact.title": "Se a dor é perda de contexto, a conversa já tem um ponto de partida.",
+            "contact.body": "Aberta a oportunidades 100% remotas, conversas estratégicas e projetos onde IA precise de contexto, memória operacional e adoção responsável.",
+            "contact.linkedin": "LinkedIn",
+            "contact.whatsapp": "WhatsApp",
+            "contact.email": "E-mail",
+            "footer.text": "Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota"
+      },
+      "en": {
+            "meta.title": "Lua Helena Moon — AI, context, and operational memory",
+            "meta.description": "Lua Helena Moon helps teams and projects reduce context loss in AI workflows by turning scattered knowledge into operational memory, living documentation, context transfer, knowledge governance, and responsible usage criteria.",
+            "nav.aiPacket": "Download AI packet",
+            "nav.linkedin": "LinkedIn",
+            "nav.whatsapp": "WhatsApp",
+            "hero.eyebrow": "🌙 Human–AI Context Architecture",
+            "hero.title": "<span class=\"hero-line\">Less lost context.</span><span class=\"hero-line\">More useful AI in <span class=\"accent\">real work.</span></span>",
+            "hero.lead": "I help teams and projects turn conversations, documents, decisions, and scattered knowledge into operational memory, living documentation, and reusable AI workflows that do not need to start from zero.",
+            "hero.profile": "I am a hospital psychologist and trained sociologist, with postgraduate degrees in Organizational Psychology and Institutional Psychopedagogy. I work at the boundary between people, language, knowledge, and applied AI use.",
+            "hero.differential": "My edge is translating human, institutional, and documentary complexity into structures that preserve context without turning everything into bureaucracy.",
+            "hero.ctaPrimary": "Download AI packet",
+            "hero.ctaInfographic": "🪐 View infographic",
+            "hero.ctaSecondary": "View LinkedIn",
+            "hero.microcopy": "Fully remote · Limeira/SP, Brazil · native PT-BR · advanced English",
+            "visualMap.button": "Visual map",
+            "quick.1.title": "What I reduce",
+            "quick.1.body": "rework, repeated explanation, forgotten decisions, and AI answering without context",
+            "quick.2.title": "What I organize",
+            "quick.2.body": "context, memory, documentation, boundaries, handoffs, and usage criteria",
+            "quick.3.title": "Where I fit best",
+            "quick.3.body": "AI adoption, knowledge organization, corporate education, healthcare, product, and governance",
+            "infographic.label": "Visual map",
+            "infographic.title": "A visual summary of what I build with AI.",
+            "infographic.body": "For people who would rather see the whole system in one piece: core idea, work layers, flow, built systems, where I can help, and why it matters.",
+            "infographic.open": "🪐 View infographic",
+            "infographic.newTab": "↗ Open image",
+            "infographic.previewCta": "Click to enlarge",
+            "infographic.lightboxTitle": "Visual map — Human–AI Context Architecture",
+            "problem.label": "The problem",
+            "problem.title": "Most AI initiatives do not break only at the model layer. They break at the context layer.",
+            "problem.body": "When knowledge is scattered across chats, meetings, PDFs, spreadsheets, decisions, and people, AI becomes one more tool trying to guess what nobody organized.",
+            "problem.card1.title": "Scattered knowledge",
+            "problem.card1.body": "The information exists, but it is broken across places and depends on someone remembering where it went.",
+            "problem.card2.title": "Weak handoffs",
+            "problem.card2.body": "Every change of person, conversation, version, or tool requires re-explaining what should already be preserved.",
+            "problem.card3.title": "AI without ground",
+            "problem.card3.body": "Without memory, boundaries, and clear criteria, the model may answer beautifully — but not necessarily correctly for that context.",
+            "delivery.label": "What I deliver",
+            "delivery.title": "I structure the context layer that supports AI-assisted work.",
+            "delivery.body": "The deliverable is not a collection of prompts. It is a lightweight infrastructure for preserving decisions, reducing context loss, and making AI use more teachable, reviewable, and reliable.",
+            "delivery.card1.title": "Context maps",
+            "delivery.card1.body": "Organization of projects, people, decisions, sources, boundaries, and criteria so AI does not work in the dark.",
+            "delivery.card2.title": "Living documentation",
+            "delivery.card2.body": "Records that follow change: what is valid now, what changed, what was discarded, and what needs review.",
+            "delivery.card3.title": "Continuity packets",
+            "delivery.card3.body": "Continuity packets and context profiles that transfer memory across people, teams, models, and tools without constant reset.",
+            "delivery.card4.title": "Usage and review criteria",
+            "delivery.card4.body": "Separating fact, inference, preference, risk, decision, and claim — so AI does not become diffuse authority.",
+            "apply.label": "Where this applies",
+            "apply.title": "The same layer serves adoption, governance, learning, and product work.",
+            "apply.body": "These are zones where my human, institutional, and documentary reading becomes practical function without turning the page into an inventory.",
+            "apply.1.title": "AI literacy & enablement",
+            "apply.1.body": "Turning intuitive AI use into a teachable, reviewable practice sustained by context.",
+            "apply.2.title": "Knowledge governance",
+            "apply.2.body": "Preventing important knowledge from evaporating in meetings, chats, loose PDFs, and individual memory.",
+            "apply.3.title": "Responsible AI",
+            "apply.3.body": "Separating fact, inference, preference, risk, rule, decision, and claim in real AI use.",
+            "apply.4.title": "AI product validation",
+            "apply.4.body": "Testing whether an AI solution solves a concrete human task beyond the polished demo.",
+            "apply.5.title": "Healthcare & patient experience",
+            "apply.5.body": "Translating complex human workflows, care, language, and risk into operational context.",
+            "apply.6.title": "People Analytics & learning",
+            "apply.6.body": "Connecting data, culture, behavior, and training without losing institutional texture.",
+            "proof.label": "Built systems",
+            "proof.title": "Some proof lives in systems for language, image, and use.",
+            "proof.body": "Not every idea needs to be a product to prove its value. Part of my evidence is in the systems I have built to turn messy material into readable context, consistent images, specialized assistants, and human-AI usage criteria.",
+            "proof.item1.title": "Documentary grammar for context",
+            "proof.item1.body": "I developed a hybrid documentation approach that combines clear text, metadata, and object-like structure to preserve decisions, boundaries, versions, and updates in a way both AI and people can read.",
+            "proof.item2.title": "AI image engines",
+            "proof.item2.body": "I created prompt and visual curation systems that turn references, aesthetics, identity, constraints, and quality criteria into images that are more consistent, less generic, and aligned with the goal.",
+            "proof.item3.title": "Specialized copilots",
+            "proof.item3.body": "I modeled assistants for specific domains with scope, target users, boundaries, risks, response patterns, and review criteria before any automation becomes a promise.",
+            "proof.item4.title": "Human-AI interfaces and usage rules",
+            "proof.item4.body": "I designed layers of voice, guided input, behavior, boundaries, and evaluation so AI does not become a loose character, a confused oracle, or an ungoverned tool.",
+            "fit.label": "Professional fit",
+            "fit.title": "My focus is not building models. It is helping AI work better in real context.",
+            "fit.body": "I fit best when the challenge involves adoption, knowledge, documentation, people, governance, learning, and operational continuity.",
+            "fit.good": "✨ Where I fit best",
+            "fit.no": "🚫 What I am not selling",
+            "fit.goodIntro": "Best when AI needs to leave improvisation and become a clear working structure.",
+            "fit.point1": "AI adoption and enablement",
+            "fit.point2": "knowledge, context, and living documentation",
+            "fit.point3": "AI workflows in healthcare",
+            "fit.point4": "governance, validation, and responsible use",
+            "fit.noIntro": "I am not positioning myself as a heavy model engineer or a ready-made platform promise.",
+            "fit.tag7": "healthcare AI workflows",
+            "fit.not1": "model engineering / machine learning",
+            "fit.not2": "backend or full-stack development",
+            "fit.not3": "traditional data science",
+            "fit.not4": "ready-made platform promise",
+            "contact.label": "Contact",
+            "contact.title": "If the pain is context loss, the conversation already has a starting point.",
+            "contact.body": "Open to fully remote opportunities, strategic conversations, and projects where AI needs context, operational memory, and responsible adoption.",
+            "contact.linkedin": "LinkedIn",
+            "contact.whatsapp": "WhatsApp",
+            "contact.email": "E-mail",
+            "footer.text": "Lua Helena Moon Martins Cardoso · Human–AI Context Architecture · Limeira/SP, Brazil · Fully remote"
+      }
+};
+
+      const INFOGRAPHIC_ASSETS = {
+        pt: {
+          src: "imagens/infografico_ptbr.png",
+          alt: "Infográfico em português sobre o que Lua Helena constrói com IA"
+        },
+        en: {
+          src: "imagens/infografico_en.png",
+          alt: "English infographic about what Lua Helena builds with AI"
+        }
+      };
+
+      function updateInfographicAssets(lang) {
+        const asset = INFOGRAPHIC_ASSETS[lang === "en" ? "en" : "pt"];
+        document.querySelectorAll("[data-infographic-image]").forEach(img => {
+          img.src = asset.src;
+          img.alt = asset.alt;
+        });
+        document.querySelectorAll("[data-infographic-direct]").forEach(link => {
+          link.href = asset.src;
+        });
+      }
+
+      function openInfographic() {
+        const lightbox = document.querySelector("[data-infographic-lightbox]");
+        if (!lightbox) return;
+        lightbox.hidden = false;
+        document.body.classList.add("lightbox-open");
+        const close = lightbox.querySelector("[data-infographic-close]");
+        if (close) close.focus({ preventScroll: true });
+      }
+
+      function closeInfographic() {
+        const lightbox = document.querySelector("[data-infographic-lightbox]");
+        if (!lightbox) return;
+        lightbox.hidden = true;
+        document.body.classList.remove("lightbox-open");
+      }
+
+      function getInitialLanguage() {
+        const params = new URLSearchParams(window.location.search || "");
+        const requested = params.get("lang");
+        if (requested === "en" || requested === "pt") return requested;
+
+        try {
+          const saved = window.localStorage.getItem("moonIaLangV22");
+          if (saved === "en" || saved === "pt") return saved;
+        } catch (err) {}
+
+        const browserLangs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language])
+          .filter(Boolean)
+          .map(lang => String(lang).toLowerCase());
+        return browserLangs.some(lang => lang === "pt" || lang.startsWith("pt-")) ? "pt" : "en";
+      }
+
+      function setLanguage(lang, updateUrl = true) {
+        const safeLang = lang === "en" ? "en" : "pt";
+        const dict = I18N[safeLang] || I18N.pt;
+
+        document.documentElement.lang = safeLang === "en" ? "en" : "pt-BR";
+        document.documentElement.dataset.lang = safeLang;
+        updateInfographicAssets(safeLang);
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (Object.prototype.hasOwnProperty.call(dict, key)) el.innerHTML = dict[key];
+        });
+
+        document.querySelectorAll("[data-i18n-attr]").forEach(el => {
+          const pairs = el.getAttribute("data-i18n-attr").split(";").filter(Boolean);
+          pairs.forEach(pair => {
+            const separator = pair.indexOf(":");
+            if (separator === -1) return;
+            const attr = pair.slice(0, separator).trim();
+            const key = pair.slice(separator + 1).trim();
+            if (attr && Object.prototype.hasOwnProperty.call(dict, key)) el.setAttribute(attr, dict[key]);
+          });
+        });
+
+        document.querySelectorAll("[data-lang-choice]").forEach(btn => {
+          const active = btn.getAttribute("data-lang-choice") === safeLang;
+          btn.classList.toggle("active", active);
+          btn.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        try { window.localStorage.setItem("moonIaLangV22", safeLang); } catch (err) {}
+
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          if (safeLang === "pt") url.searchParams.delete("lang");
+          else url.searchParams.set("lang", "en");
+          window.history.replaceState(null, "", url);
+        }
+      }
+
+      function getAiPacket() {
+        const template = document.getElementById("ai-packet-template");
+        if (!template) return "";
+
+        // HTML <template> stores its real text inside template.content,
+        // so template.textContent can be empty in browsers.
+        const raw = template.content ? template.content.textContent : template.textContent;
+        const packet = (raw || "").trim();
+        return packet ? packet + "\n" : "";
+      }
+
+      function downloadAiPacket() {
+        const packet = getAiPacket();
+        const blob = new Blob([packet], { type: "text/markdown;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "LUA_HELENA_MOON__AI_HANDOFF_PACKET_V2_3_1.md";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function attachDynamicGlow() {
+        const root = document.documentElement;
+
+        const updateGlow = (clientX, clientY) => {
+          const x = Math.max(0, Math.min(100, (clientX / window.innerWidth) * 100));
+          const y = Math.max(0, Math.min(100, (clientY / window.innerHeight) * 100));
+          root.style.setProperty("--glow-x", x.toFixed(2) + "%");
+          root.style.setProperty("--glow-y", y.toFixed(2) + "%");
+        };
+
+        window.addEventListener("pointermove", ev => updateGlow(ev.clientX, ev.clientY), { passive: true });
+        window.addEventListener("pointerleave", () => {
+          root.style.setProperty("--glow-x", "72%");
+          root.style.setProperty("--glow-y", "18%");
+        }, { passive: true });
+      }
+
+      function initPage() {
+        document.querySelectorAll("[data-lang-choice]").forEach(btn => {
+          btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang-choice"), true));
+        });
+        document.querySelectorAll("[data-ai-packet-download]").forEach(btn => {
+          btn.addEventListener("click", downloadAiPacket);
+        });
+        document.querySelectorAll("[data-infographic-open]").forEach(btn => {
+          btn.addEventListener("click", openInfographic);
+        });
+        document.querySelectorAll("[data-infographic-close]").forEach(btn => {
+          btn.addEventListener("click", closeInfographic);
+        });
+        const infographicLightbox = document.querySelector("[data-infographic-lightbox]");
+        if (infographicLightbox) {
+          infographicLightbox.addEventListener("click", ev => {
+            if (ev.target === infographicLightbox) closeInfographic();
+          });
+        }
+        window.addEventListener("keydown", ev => {
+          if (ev.key === "Escape") closeInfographic();
+        });
+        setLanguage(getInitialLanguage(), false);
+        attachDynamicGlow();
+        window.MOON_IA_PAGE = { setLanguage, downloadAiPacket, getAiPacket, openInfographic, closeInfographic };
+      }
+
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initPage);
+      else initPage();
+    })();
+  </script>
+</body>
+</html>
