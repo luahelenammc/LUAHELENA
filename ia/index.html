@@ -195,6 +195,50 @@
       box-shadow: 0 14px 34px rgba(0,0,0,.18);
     }
     .button.whatsapp { border-color: rgba(166,243,212,.32); background: rgba(166,243,212,.08); }
+    .svg-icon {
+      display: block;
+      width: 1.08em;
+      height: 1.08em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .button { gap: 8px; }
+    .button-icon {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: currentColor;
+    }
+    .quick-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      color: var(--cyan);
+      border: 1px solid rgba(139,220,255,.24);
+      background: rgba(139,220,255,.075);
+    }
+    .quick-icon .svg-icon,
+    .card .icon .svg-icon,
+    .proof-icon .svg-icon {
+      width: 20px;
+      height: 20px;
+    }
+    .proof-icon .svg-icon {
+      width: 22px;
+      height: 22px;
+    }
+    .quick:nth-child(2) .quick-icon { color: var(--violet); border-color: rgba(185,140,255,.24); background: rgba(185,140,255,.075); }
+    .quick:nth-child(3) .quick-icon { color: var(--gold); border-color: rgba(255,226,160,.24); background: rgba(255,226,160,.075); }
+    .cards .card:nth-child(2n) .icon { color: var(--cyan); border-color: rgba(139,220,255,.28); background: rgba(139,220,255,.10); }
+    .cards .card:nth-child(3n) .icon { color: var(--gold); border-color: rgba(255,226,160,.25); background: rgba(255,226,160,.085); }
+    .cards .card:nth-child(4n) .icon { color: var(--rose); border-color: rgba(255,145,200,.25); background: rgba(255,145,200,.085); }
     .hero { text-align: center; padding: 12px 0 20px; }
     .eyebrow, .label {
       margin: 0 0 12px;
@@ -360,7 +404,7 @@
     }
     .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.07); }
     .card p { margin-top: 7px; font-size: .96rem; }
-    .card .icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 999px; margin-bottom: 12px; background: rgba(185,140,255,.16); border: 1px solid rgba(185,140,255,.30); }
+    .card .icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 999px; margin-bottom: 12px; color: var(--violet); background: rgba(185,140,255,.16); border: 1px solid rgba(185,140,255,.30); }
     .proof-list { display: grid; gap: 12px; margin-top: 22px; }
     .proof-item {
       display: grid;
@@ -376,14 +420,24 @@
     .proof-item p { margin-top: 4px; }
     .proof-link { white-space: nowrap; color: var(--gold); text-decoration-color: rgba(255,226,160,.45); text-underline-offset: 3px; }
     .fit-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.82fr); gap: 18px; margin-top: 22px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .tag {
-      display: inline-flex; align-items: center;
-      border: 1px solid rgba(255,255,255,.13); border-radius: 999px;
-      background: rgba(255,255,255,.055); color: #f5effb;
-      padding: 8px 10px; font-size: .9rem;
+    .fit-card { display: grid; gap: 12px; }
+    .fit-card h3 { margin: 0; }
+    .fit-card-intro { margin: 0; color: var(--muted); max-width: 56ch; }
+    .fit-points { display: grid; gap: 10px; }
+    .fit-point {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      line-height: 1.4;
     }
-    .tag.soft { color: #ffd1d1; border-color: rgba(255,112,112,.22); background: rgba(255,112,112,.075); }
+    .fit-point.soft {
+      color: #ffe3e3;
+      border-color: rgba(255,112,112,.20);
+      background: rgba(255,112,112,.06);
+    }
+    .fit-point .emoji { flex: 0 0 auto; width: 1.4em; text-align: center; }
     .contact {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -599,9 +653,9 @@
           <span aria-hidden="true">·</span>
           <button type="button" class="lang-btn" data-lang-choice="en">EN</button>
         </div>
-        <button type="button" class="button primary" data-ai-packet-download data-i18n="nav.aiPacket">🧬 Baixar pacote para IA</button>
-        <a class="button" data-i18n="nav.linkedin" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a class="button whatsapp" data-i18n="nav.whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <button type="button" class="button primary" data-ai-packet-download><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="M12 12 4.5 7.7M12 12l7.5-4.3M12 12v8.5"/></svg></span><span data-i18n="nav.aiPacket">Baixar pacote para IA</span></button>
+        <a class="button" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v7"/><path d="M8 8v.01"/><path d="M12 18v-7"/><path d="M12 14.2c0-2 1.2-3.2 3-3.2 2.2 0 3 1.4 3 3.6V18"/><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/></svg></span><span data-i18n="nav.linkedin">LinkedIn</span></a>
+        <a class="button whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 18.5 4 22l3.8-1.3A8.5 8.5 0 1 0 3.5 13"/><path d="M9 9.5c.4 3 2.6 5.1 5.5 5.7l1.2-1.2c.2-.2.5-.3.8-.2l1.5.5"/></svg></span><span data-i18n="nav.whatsapp">WhatsApp</span></a>
       </nav>
     </header>
 
@@ -616,13 +670,13 @@
     </section>
 
     <div class="visual-map-prompt" aria-label="Mapa visual">
-      <button type="button" class="button visual-map-button" data-infographic-open data-i18n="visualMap.button">🪐 Mapa visual</button>
+      <button type="button" class="button visual-map-button" data-infographic-open><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18 3 20V6l6-2 6 2 6-2v14l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></span><span data-i18n="visualMap.button">Mapa visual</span></button>
     </div>
 
     <section class="quickbar" aria-label="Resumo de valor">
-      <article class="quick"><strong data-i18n="quick.1.title">O que eu reduzo</strong><p data-i18n="quick.1.body">retrabalho, explicação repetida, decisões esquecidas e IA respondendo no vazio</p></article>
-      <article class="quick"><strong data-i18n="quick.2.title">O que eu organizo</strong><p data-i18n="quick.2.body">contexto, memória, documentação, limites, passagens de contexto e critérios de uso</p></article>
-      <article class="quick"><strong data-i18n="quick.3.title">Onde encaixo melhor</strong><p data-i18n="quick.3.body">adoção de IA, organização do conhecimento, educação corporativa, saúde, produto e governança</p></article>
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12M4 12h9M4 18h6"/><path d="M19 7v10"/><path d="m16 14 3 3 3-3"/></svg></span><strong data-i18n="quick.1.title">O que eu reduzo</strong><p data-i18n="quick.1.body">retrabalho, explicação repetida, decisões esquecidas e IA respondendo no vazio</p></article>
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><strong data-i18n="quick.2.title">O que eu organizo</strong><p data-i18n="quick.2.body">contexto, memória, documentação, limites, passagens de contexto e critérios de uso</p></article>
+      <article class="quick"><span class="quick-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><strong data-i18n="quick.3.title">Onde encaixo melhor</strong><p data-i18n="quick.3.body">adoção de IA, organização do conhecimento, educação corporativa, saúde, produto e governança</p></article>
     </section>
 
 
@@ -633,9 +687,9 @@
         <p data-i18n="problem.body">Quando conhecimento fica espalhado entre chats, reuniões, PDFs, planilhas, decisões e pessoas, a IA vira mais uma ferramenta tentando adivinhar o que ninguém organizou.</p>
       </div>
       <div class="cards cols-3">
-        <article class="card"><span class="icon">🗂️</span><h3 data-i18n="problem.card1.title">Conhecimento espalhado</h3><p data-i18n="problem.card1.body">A informação existe, mas está quebrada em lugares diferentes e depende de quem lembra onde ela ficou.</p></article>
-        <article class="card"><span class="icon">🧭</span><h3 data-i18n="problem.card2.title">Passagens de contexto frágeis</h3><p data-i18n="problem.card2.body">Cada troca de pessoa, conversa, versão ou ferramenta exige reexplicar o que já deveria estar preservado.</p></article>
-        <article class="card"><span class="icon">🤖</span><h3 data-i18n="problem.card3.title">IA sem chão</h3><p data-i18n="problem.card3.body">Sem memória, limites e critérios claros, o modelo responde bonito — mas não necessariamente responde certo para aquele contexto.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H9l2 2h7.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/></svg></span><h3 data-i18n="problem.card1.title">Conhecimento espalhado</h3><p data-i18n="problem.card1.body">A informação existe, mas está quebrada em lugares diferentes e depende de quem lembra onde ela ficou.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/></svg></span><h3 data-i18n="problem.card2.title">Passagens de contexto frágeis</h3><p data-i18n="problem.card2.body">Cada troca de pessoa, conversa, versão ou ferramenta exige reexplicar o que já deveria estar preservado.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 17h5"/><path d="M6 11H3M21 11h-3"/></svg></span><h3 data-i18n="problem.card3.title">IA sem chão</h3><p data-i18n="problem.card3.body">Sem memória, limites e critérios claros, o modelo responde bonito — mas não necessariamente responde certo para aquele contexto.</p></article>
       </div>
     </section>
 
@@ -646,10 +700,10 @@
         <p data-i18n="delivery.body">A entrega não é uma coleção de prompts. É uma infraestrutura leve para preservar decisões, reduzir perda de contexto e tornar o uso de IA mais ensinável, revisável e confiável.</p>
       </div>
       <div class="cards cols-4">
-        <article class="card"><span class="icon">🧬</span><h3 data-i18n="delivery.card1.title">Mapas de contexto</h3><p data-i18n="delivery.card1.body">Organização de projetos, pessoas, decisões, fontes, limites e critérios para que a IA não trabalhe no escuro.</p></article>
-        <article class="card"><span class="icon">📚</span><h3 data-i18n="delivery.card2.title">Documentação viva</h3><p data-i18n="delivery.card2.body">Registros que acompanham mudança: o que vale agora, o que mudou, o que foi descartado e o que precisa ser revisado.</p></article>
-        <article class="card"><span class="icon">🔁</span><h3 data-i18n="delivery.card3.title">Pacotes de continuidade</h3><p data-i18n="delivery.card3.body">Pacotes e perfis de contexto para transferir memória entre pessoas, equipes, modelos e ferramentas sem reinício constante.</p></article>
-        <article class="card"><span class="icon">⚖️</span><h3 data-i18n="delivery.card4.title">Critérios de uso e revisão</h3><p data-i18n="delivery.card4.body">Separação entre fato, inferência, preferência, risco, decisão e promessa — para IA não virar autoridade difusa.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></span><h3 data-i18n="delivery.card1.title">Mapas de contexto</h3><p data-i18n="delivery.card1.body">Organização de projetos, pessoas, decisões, fontes, limites e critérios para que a IA não trabalhe no escuro.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 1 4 16.5v-11Z"/><path d="M4 16.5A2.5 2.5 0 0 0 6.5 19H20"/><path d="M8 7h8M8 11h6"/></svg></span><h3 data-i18n="delivery.card2.title">Documentação viva</h3><p data-i18n="delivery.card2.body">Registros que acompanham mudança: o que vale agora, o que mudou, o que foi descartado e o que precisa ser revisado.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M4 12A8 8 0 0 1 17.6 6.3"/><path d="M17 3v4h4"/><path d="M7 21v-4H3"/></svg></span><h3 data-i18n="delivery.card3.title">Pacotes de continuidade</h3><p data-i18n="delivery.card3.body">Pacotes e perfis de contexto para transferir memória entre pessoas, equipes, modelos e ferramentas sem reinício constante.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M6 7l-3 6h6L6 7Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg></span><h3 data-i18n="delivery.card4.title">Critérios de uso e revisão</h3><p data-i18n="delivery.card4.body">Separação entre fato, inferência, preferência, risco, decisão e promessa — para IA não virar autoridade difusa.</p></article>
       </div>
     </section>
 
@@ -660,12 +714,12 @@
         <p data-i18n="apply.body">Estas são zonas onde minha leitura humana, institucional e documental ganha função prática sem transformar a página em inventário.</p>
       </div>
       <div class="cards cols-6">
-        <article class="card"><span class="icon">🎓</span><h3 data-i18n="apply.1.title">Letramento e habilitação em IA</h3><p data-i18n="apply.1.body">Transformar uso intuitivo de IA em prática ensinável, revisável e sustentada por contexto.</p></article>
-        <article class="card"><span class="icon">🗃️</span><h3 data-i18n="apply.2.title">Governança do conhecimento</h3><p data-i18n="apply.2.body">Evitar que conhecimento importante evapore em reuniões, chats, PDFs soltos e memórias individuais.</p></article>
-        <article class="card"><span class="icon">⚖️</span><h3 data-i18n="apply.3.title">IA responsável</h3><p data-i18n="apply.3.body">Separar fato, inferência, preferência, risco, regra, decisão e promessa em usos reais de IA.</p></article>
-        <article class="card"><span class="icon">🔎</span><h3 data-i18n="apply.4.title">Validação de produtos de IA</h3><p data-i18n="apply.4.body">Testar se uma solução de IA resolve uma tarefa humana concreta, além da demonstração bonita.</p></article>
-        <article class="card"><span class="icon">🏥</span><h3 data-i18n="apply.5.title">Saúde e experiência do paciente</h3><p data-i18n="apply.5.body">Traduzir fluxos humanos complexos, cuidado, linguagem e risco em contexto operacional.</p></article>
-        <article class="card"><span class="icon">📊</span><h3 data-i18n="apply.6.title">People Analytics e aprendizagem</h3><p data-i18n="apply.6.body">Conectar dados, cultura, comportamento e formação sem perder a textura institucional.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/><path d="M19 15l.8 2.7L22 18.5l-2.2.8L19 22l-.8-2.7-2.2-.8 2.2-.8L19 15Z"/></svg></span><h3 data-i18n="apply.1.title">Letramento e habilitação em IA</h3><p data-i18n="apply.1.body">Transformar uso intuitivo de IA em prática ensinável, revisável e sustentada por contexto.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><h3 data-i18n="apply.2.title">Governança do conhecimento</h3><p data-i18n="apply.2.body">Evitar que conhecimento importante evapore em reuniões, chats, PDFs soltos e memórias individuais.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M6 7l-3 6h6L6 7Z"/><path d="M18 7l-3 6h6l-3-6Z"/></svg></span><h3 data-i18n="apply.3.title">IA responsável</h3><p data-i18n="apply.3.body">Separar fato, inferência, preferência, risco, regra, decisão e promessa em usos reais de IA.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/><path d="M8 10h5M10.5 7.5v5"/></svg></span><h3 data-i18n="apply.4.title">Validação de produtos de IA</h3><p data-i18n="apply.4.body">Testar se uma solução de IA resolve uma tarefa humana concreta, além da demonstração bonita.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.6a5.3 5.3 0 0 0-8.1-3.9L12 5.4l-.7-.7a5.3 5.3 0 0 0-7.5 7.5L12 20l4-3.8"/><path d="M15 14h2l1-3 2 6 1-3h2"/></svg></span><h3 data-i18n="apply.5.title">Saúde e experiência do paciente</h3><p data-i18n="apply.5.body">Traduzir fluxos humanos complexos, cuidado, linguagem e risco em contexto operacional.</p></article>
+        <article class="card"><span class="icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V6"/><path d="M4 20h16"/><rect x="7" y="12" width="3" height="5" rx="1"/><rect x="12" y="9" width="3" height="8" rx="1"/><rect x="17" y="5" width="3" height="12" rx="1"/></svg></span><h3 data-i18n="apply.6.title">People Analytics e aprendizagem</h3><p data-i18n="apply.6.body">Conectar dados, cultura, comportamento e formação sem perder a textura institucional.</p></article>
       </div>
     </section>
 
@@ -677,19 +731,19 @@
       </div>
       <div class="proof-list">
         <article class="proof-item">
-          <span class="proof-icon">🧱</span>
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></span>
           <div><h3 data-i18n="proof.item1.title">Gramática documental para contexto</h3><p data-i18n="proof.item1.body">Desenvolvi uma forma de documentação híbrida que mistura texto claro, metadados e estrutura de objeto para preservar decisões, limites, versões e atualizações de modo legível por IA e por pessoas.</p></div>
         </article>
         <article class="proof-item">
-          <span class="proof-icon">🎨</span>
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h2a7 7 0 0 0-2-9Z"/><path d="M7.5 10h.01M9 6.8h.01M14 6.8h.01"/></svg></span>
           <div><h3 data-i18n="proof.item2.title">Motores de imagem por IA</h3><p data-i18n="proof.item2.body">Criei sistemas de prompt e curadoria visual que transformam referências, estética, identidade, restrições e critérios de qualidade em imagens mais consistentes, menos genéricas e alinhadas ao objetivo.</p></div>
         </article>
         <article class="proof-item">
-          <span class="proof-icon">🤖</span>
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 17h5"/><path d="M6 11H3M21 11h-3"/></svg></span>
           <div><h3 data-i18n="proof.item3.title">Copilotos especializados</h3><p data-i18n="proof.item3.body">Modelei assistentes para domínios específicos com escopo, público-alvo, limites, riscos, padrões de resposta e critérios de revisão antes de qualquer automação virar promessa.</p></div>
         </article>
         <article class="proof-item">
-          <span class="proof-icon">🗣️</span>
+          <span class="proof-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
           <div><h3 data-i18n="proof.item4.title">Interfaces e regras de uso humano–IA</h3><p data-i18n="proof.item4.body">Desenhei camadas de voz, entrada guiada, comportamento, fronteiras e avaliação para que a IA não vire personagem solto, oráculo confuso ou ferramenta sem governança.</p></div>
         </article>
       </div>
@@ -702,37 +756,31 @@
         <p data-i18n="fit.body">Atuo melhor quando o desafio envolve adoção, conhecimento, documentação, pessoas, governança, aprendizagem e continuidade operacional.</p>
       </div>
       <div class="fit-grid">
-        <article class="card">
-          <h3 data-i18n="fit.good">Onde faz sentido</h3>
-          <p class="tag-cloud">
-            <span class="tag" data-i18n="fit.tag1">adoção de IA</span>
-            <span class="tag" data-i18n="fit.tag2">habilitação em IA</span>
-            <span class="tag" data-i18n="fit.tag3">desenho de fluxos com IA</span>
-            <span class="tag" data-i18n="fit.tag4">organização do conhecimento</span>
-            <span class="tag" data-i18n="fit.tag5">governança do conhecimento</span>
-            <span class="tag" data-i18n="fit.tag6">documentação viva</span>
-            <span class="tag" data-i18n="fit.tag7">fluxos de IA em saúde</span>
-            <span class="tag" data-i18n="fit.tag8">Validação de produtos de IA</span>
-            <span class="tag" data-i18n="fit.tag9">letramento em IA</span>
-            <span class="tag" data-i18n="fit.tag10">IA responsável</span>
-            <span class="tag" data-i18n="fit.tag11">People Analytics</span>
-          </p>
+        <article class="card fit-card">
+          <h3 data-i18n="fit.good">✨ Onde eu encaixo melhor</h3>
+          <p class="fit-card-intro" data-i18n="fit.goodIntro">Quando a IA precisa sair do improviso e virar processo claro.</p>
+          <div class="fit-points">
+            <div class="fit-point"><span class="emoji">🤖</span><span data-i18n="fit.point1">adoção e habilitação em IA</span></div>
+            <div class="fit-point"><span class="emoji">🧠</span><span data-i18n="fit.point2">conhecimento, contexto e documentação viva</span></div>
+            <div class="fit-point"><span class="emoji">🏥</span><span data-i18n="fit.point3">fluxos de IA em saúde</span></div>
+            <div class="fit-point"><span class="emoji">🛡️</span><span data-i18n="fit.point4">governança, validação e uso responsável</span></div>
+          </div>
         </article>
-        <article class="card">
-          <h3 data-i18n="fit.no">O que não estou vendendo</h3>
-          <p class="tag-cloud">
-            <span class="tag soft" data-i18n="fit.not1">Machine Learning Engineer</span>
-            <span class="tag soft" data-i18n="fit.not2">AI Engineer</span>
-            <span class="tag soft" data-i18n="fit.not3">Data Scientist</span>
-            <span class="tag soft" data-i18n="fit.not4">Full-stack Developer</span>
-            <span class="tag soft" data-i18n="fit.not5">promessa de plataforma pronta</span>
-          </p>
+        <article class="card fit-card">
+          <h3 data-i18n="fit.no">🚫 O que eu não estou vendendo</h3>
+          <p class="fit-card-intro" data-i18n="fit.noIntro">Meu foco não é engenharia pesada de modelo nem promessa inflada.</p>
+          <div class="fit-points">
+            <div class="fit-point soft"><span class="emoji">🧪</span><span data-i18n="fit.not1">engenharia de modelos / machine learning</span></div>
+            <div class="fit-point soft"><span class="emoji">💻</span><span data-i18n="fit.not2">backend ou full-stack development</span></div>
+            <div class="fit-point soft"><span class="emoji">📊</span><span data-i18n="fit.not3">data science tradicional</span></div>
+            <div class="fit-point soft"><span class="emoji">📦</span><span data-i18n="fit.not4">promessa de plataforma pronta</span></div>
+          </div>
         </article>
       </div>
     </section>
 
     <div class="visual-map-prompt" aria-label="Mapa visual">
-      <button type="button" class="button visual-map-button" data-infographic-open data-i18n="visualMap.button">🪐 Mapa visual</button>
+      <button type="button" class="button visual-map-button" data-infographic-open><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18 3 20V6l6-2 6 2 6-2v14l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></span><span data-i18n="visualMap.button">Mapa visual</span></button>
     </div>
 
     <section class="section surface contact" aria-label="Contato">
@@ -742,9 +790,9 @@
         <p data-i18n="contact.body">Aberta a oportunidades 100% remotas, conversas estratégicas e projetos onde IA precise de contexto, memória operacional e adoção responsável.</p>
       </article>
       <nav class="contact-actions">
-        <a class="button" data-i18n="contact.linkedin" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a class="button whatsapp" data-i18n="contact.whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a class="button" data-i18n="contact.email" href="mailto:luahelenammc@gmail.com">✉️ E-mail</a>
+        <a class="button" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v7"/><path d="M8 8v.01"/><path d="M12 18v-7"/><path d="M12 14.2c0-2 1.2-3.2 3-3.2 2.2 0 3 1.4 3 3.6V18"/><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/></svg></span><span data-i18n="contact.linkedin">LinkedIn</span></a>
+        <a class="button whatsapp" href="https://wa.me/5541992228411" target="_blank" rel="noopener"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 18.5 4 22l3.8-1.3A8.5 8.5 0 1 0 3.5 13"/><path d="M9 9.5c.4 3 2.6 5.1 5.5 5.7l1.2-1.2c.2-.2.5-.3.8-.2l1.5.5"/></svg></span><span data-i18n="contact.whatsapp">WhatsApp</span></a>
+        <a class="button" href="mailto:luahelenammc@gmail.com"><span class="button-icon"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span data-i18n="contact.email">E-mail</span></a>
       </nav>
     </section>
 
@@ -1210,19 +1258,19 @@ contact = {
       "pt": {
             "meta.title": "Lua Helena Moon — IA, contexto e memória operacional",
             "meta.description": "Lua Helena Moon ajuda equipes e projetos a reduzir perda de contexto em fluxos com IA, transformando conhecimento disperso em memória operacional, documentação viva, passagens de contexto, governança do conhecimento e critérios de uso responsável.",
-            "nav.aiPacket": "🧬 Baixar pacote para IA",
-            "nav.linkedin": "💼 LinkedIn",
-            "nav.whatsapp": "💬 WhatsApp",
+            "nav.aiPacket": "Baixar pacote para IA",
+            "nav.linkedin": "LinkedIn",
+            "nav.whatsapp": "WhatsApp",
             "hero.eyebrow": "🌙 Arquitetura de Contexto Humano–IA",
             "hero.title": "<span class=\"hero-line\">Menos contexto perdido.</span><span class=\"hero-line\">Mais IA útil no <span class=\"accent\">trabalho real.</span></span>",
             "hero.lead": "Ajudo equipes e projetos a transformar conversas, documentos, decisões e conhecimento disperso em memória operacional, documentação viva e fluxos de IA que podem ser reutilizados sem precisar começar do zero.",
             "hero.profile": "Sou psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional. Trabalho na fronteira entre pessoas, linguagem, conhecimento e uso aplicado de IA.",
             "hero.differential": "Meu diferencial é traduzir complexidade humana, institucional e documental em estruturas que preservam contexto sem transformar tudo em burocracia.",
-            "hero.ctaPrimary": "🧬 Baixar pacote para IA",
+            "hero.ctaPrimary": "Baixar pacote para IA",
             "hero.ctaInfographic": "🪐 Ver infográfico",
-            "hero.ctaSecondary": "💼 Ver LinkedIn",
+            "hero.ctaSecondary": "Ver LinkedIn",
             "hero.microcopy": "100% remota · Limeira/SP · PT-BR nativo · inglês avançado",
-            "visualMap.button": "🪐 Mapa visual",
+            "visualMap.button": "Mapa visual",
             "quick.1.title": "O que eu reduzo",
             "quick.1.body": "retrabalho, explicação repetida, decisões esquecidas e IA respondendo no vazio",
             "quick.2.title": "O que eu organizo",
@@ -1285,48 +1333,42 @@ contact = {
             "fit.label": "Encaixe profissional",
             "fit.title": "Meu lugar não é construir modelos. É fazer IA funcionar melhor em contexto real.",
             "fit.body": "Atuo melhor quando o desafio envolve adoção, conhecimento, documentação, pessoas, governança, aprendizagem e continuidade operacional.",
-            "fit.good": "Onde faz sentido",
-            "fit.no": "O que não estou vendendo",
-            "fit.tag1": "adoção de IA",
-            "fit.tag2": "habilitação em IA",
-            "fit.tag3": "desenho de fluxos com IA",
-            "fit.tag4": "organização do conhecimento",
-            "fit.tag5": "governança do conhecimento",
-            "fit.tag6": "documentação viva",
-            "fit.tag7": "fluxos de IA em saúde",
-            "fit.tag8": "validação de produtos de IA",
-            "fit.tag9": "letramento em IA",
-            "fit.tag10": "IA responsável",
-            "fit.tag11": "People Analytics",
-            "fit.not1": "Machine Learning Engineer",
-            "fit.not2": "AI Engineer",
-            "fit.not3": "Data Scientist",
-            "fit.not4": "Full-stack Developer",
-            "fit.not5": "promessa de plataforma pronta",
+            "fit.good": "✨ Onde eu encaixo melhor",
+            "fit.no": "🚫 O que eu não estou vendendo",
+            "fit.goodIntro": "Quando a IA precisa sair do improviso e virar processo claro.",
+            "fit.point1": "adoção e habilitação em IA",
+            "fit.point2": "conhecimento, contexto e documentação viva",
+            "fit.point3": "fluxos de IA em saúde",
+            "fit.point4": "governança, validação e uso responsável",
+            "fit.noIntro": "Meu foco não é engenharia pesada de modelo nem promessa inflada.",
+            "fit.not1": "engenharia de modelos / machine learning",
+            "fit.not2": "backend ou full-stack development",
+            "fit.not3": "data science tradicional",
+            "fit.not4": "promessa de plataforma pronta",
             "contact.label": "Contato",
             "contact.title": "Se a dor é perda de contexto, a conversa já tem um ponto de partida.",
             "contact.body": "Aberta a oportunidades 100% remotas, conversas estratégicas e projetos onde IA precise de contexto, memória operacional e adoção responsável.",
-            "contact.linkedin": "💼 LinkedIn",
-            "contact.whatsapp": "💬 WhatsApp",
-            "contact.email": "✉️ E-mail",
+            "contact.linkedin": "LinkedIn",
+            "contact.whatsapp": "WhatsApp",
+            "contact.email": "E-mail",
             "footer.text": "Lua Helena Moon Martins Cardoso · Arquitetura de Contexto Humano–IA · Limeira/SP · 100% remota"
       },
       "en": {
             "meta.title": "Lua Helena Moon — AI, context, and operational memory",
             "meta.description": "Lua Helena Moon helps teams and projects reduce context loss in AI workflows by turning scattered knowledge into operational memory, living documentation, context transfer, knowledge governance, and responsible usage criteria.",
-            "nav.aiPacket": "🧬 Download AI packet",
-            "nav.linkedin": "💼 LinkedIn",
-            "nav.whatsapp": "💬 WhatsApp",
+            "nav.aiPacket": "Download AI packet",
+            "nav.linkedin": "LinkedIn",
+            "nav.whatsapp": "WhatsApp",
             "hero.eyebrow": "🌙 Human–AI Context Architecture",
             "hero.title": "<span class=\"hero-line\">Less lost context.</span><span class=\"hero-line\">More useful AI in <span class=\"accent\">real work.</span></span>",
             "hero.lead": "I help teams and projects turn conversations, documents, decisions, and scattered knowledge into operational memory, living documentation, and reusable AI workflows that do not need to start from zero.",
             "hero.profile": "I am a hospital psychologist and trained sociologist, with postgraduate degrees in Organizational Psychology and Institutional Psychopedagogy. I work at the boundary between people, language, knowledge, and applied AI use.",
             "hero.differential": "My edge is translating human, institutional, and documentary complexity into structures that preserve context without turning everything into bureaucracy.",
-            "hero.ctaPrimary": "🧬 Download AI packet",
+            "hero.ctaPrimary": "Download AI packet",
             "hero.ctaInfographic": "🪐 View infographic",
-            "hero.ctaSecondary": "💼 View LinkedIn",
+            "hero.ctaSecondary": "View LinkedIn",
             "hero.microcopy": "Fully remote · Limeira/SP, Brazil · native PT-BR · advanced English",
-            "visualMap.button": "🪐 Visual map",
+            "visualMap.button": "Visual map",
             "quick.1.title": "What I reduce",
             "quick.1.body": "rework, repeated explanation, forgotten decisions, and AI answering without context",
             "quick.2.title": "What I organize",
@@ -1389,30 +1431,25 @@ contact = {
             "fit.label": "Professional fit",
             "fit.title": "My focus is not building models. It is helping AI work better in real context.",
             "fit.body": "I fit best when the challenge involves adoption, knowledge, documentation, people, governance, learning, and operational continuity.",
-            "fit.good": "Where it makes sense",
-            "fit.no": "What I am not selling",
-            "fit.tag1": "AI adoption",
-            "fit.tag2": "AI enablement",
-            "fit.tag3": "AI workflow design",
-            "fit.tag4": "knowledge ops",
-            "fit.tag5": "knowledge governance",
-            "fit.tag6": "living documentation",
+            "fit.good": "✨ Where I fit best",
+            "fit.no": "🚫 What I am not selling",
+            "fit.goodIntro": "Best when AI needs to leave improvisation and become a clear working structure.",
+            "fit.point1": "AI adoption and enablement",
+            "fit.point2": "knowledge, context, and living documentation",
+            "fit.point3": "AI workflows in healthcare",
+            "fit.point4": "governance, validation, and responsible use",
+            "fit.noIntro": "I am not positioning myself as a heavy model engineer or a ready-made platform promise.",
             "fit.tag7": "healthcare AI workflows",
-            "fit.tag8": "AI product validation",
-            "fit.tag9": "AI literacy",
-            "fit.tag10": "Responsible AI",
-            "fit.tag11": "People Analytics",
-            "fit.not1": "Machine Learning Engineer",
-            "fit.not2": "AI Engineer",
-            "fit.not3": "Data Scientist",
-            "fit.not4": "Full-stack Developer",
-            "fit.not5": "ready-made platform promise",
+            "fit.not1": "model engineering / machine learning",
+            "fit.not2": "backend or full-stack development",
+            "fit.not3": "traditional data science",
+            "fit.not4": "ready-made platform promise",
             "contact.label": "Contact",
             "contact.title": "If the pain is context loss, the conversation already has a starting point.",
             "contact.body": "Open to fully remote opportunities, strategic conversations, and projects where AI needs context, operational memory, and responsible adoption.",
-            "contact.linkedin": "💼 LinkedIn",
-            "contact.whatsapp": "💬 WhatsApp",
-            "contact.email": "✉️ E-mail",
+            "contact.linkedin": "LinkedIn",
+            "contact.whatsapp": "WhatsApp",
+            "contact.email": "E-mail",
             "footer.text": "Lua Helena Moon Martins Cardoso · Human–AI Context Architecture · Limeira/SP, Brazil · Fully remote"
       }
 };
