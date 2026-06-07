@@ -1,0 +1,101 @@
+PATCH_PROFESSIONAL_MOON_SOURCE__ANALOGIC_PHOTO_PROOF_MODULE__V1
+
+target_file: "02. Moon Source Method and Proof"
+insert_location: "Inserir na seção de provas/método visual do Professional Moon Source. Se houver bloco sobre Image Cortex, Moon Skills, visual engines ou proof of work, inserir logo depois. Se não houver, criar uma subseção curta chamada 'Analogic Photo / Visual Materiality Proof'."
+type: "professional_method_and_proof_patch"
+status: "ready_to_apply"
+lang: "pt-BR"
+format: "MSL-3 compact"
+as_of: "2026-06-07"
+owner: "Moon"
+coauthor: "Áurion"
+
+facts:
+  trigger:
+    - "Moon pediu converter a extração estilística de imagens geradas por IA em um módulo profissional aproveitável."
+    - "A camada surreal/uncanny/bizarra foi removida deliberadamente."
+    - "O objetivo aqui não é armazenar a engine local completa, mas transformar o caso em prova profissional da capacidade de Moon de analisar, decompor e sistematizar estética visual para IA."
+  decision:
+    - "Registrar 'Analogic Photo' no Professional Moon Source como prova de método, não apenas como estilo."
+    - "Usar o módulo como exemplo de competência transferível: reverse prompt engineering, style extraction, visual QA e transformação de referência visual em protocolo operacional."
+    - "Manter o patch profissional mais público, limpo e apresentável do que o patch local."
+  professional_relevance:
+    what_it_proves:
+      - "Moon consegue olhar para outputs visuais de IA e separar conteúdo de gramática estética."
+      - "Moon consegue remover uma camada indesejada do estilo sem perder a estrutura visual útil."
+      - "Moon consegue transformar referências soltas em módulo reaproveitável."
+      - "Moon opera não só como usuária de geradores de imagem, mas como arquiteta de prompts, critérios de qualidade e direção visual."
+      - "Moon identifica padrões que induzem outputs repetitivos e cria linguagem para recuperar controle estético."
+    transferable_skills:
+      - "reverse prompt engineering"
+      - "aesthetic decomposition"
+      - "prompt architecture"
+      - "visual direction"
+      - "style governance"
+      - "AI output QA"
+      - "anti-genericity design"
+      - "translation from moodboard to operational module"
+  module_summary:
+    name: "Analogic Photo"
+    one_line: "Módulo de direção visual para gerar imagens com aparência de fotografia analógica material, reduzindo brilho sintético de IA e aumentando coerência de luz, lente, textura, cor e composição."
+    scope:
+      - "retratos profissionais"
+      - "editoriais"
+      - "cenas institucionais humanizadas"
+      - "imagens de portfólio"
+      - "visual storytelling"
+      - "public interface imagery"
+      - "provas de estética aplicada em IA"
+    not_scope:
+      - "surrealismo por padrão"
+      - "conteúdo bizarro ou nonsense"
+      - "filtro vintage superficial"
+      - "imitação direta de fotógrafo, filme, campanha ou marca específica"
+      - "promessa de autoria técnica em fotografia tradicional"
+  extracted_visual_principles:
+    - "A imagem deve parecer capturada por uma câmera, não renderizada por software."
+    - "A estética analógica depende de luz, lente, textura e cor, não apenas de grain."
+    - "Materialidade importa: pele, tecido, vidro, metal, parede, poeira e sombra precisam parecer físicos."
+    - "A composição deve ter intenção, respiro e hierarquia visual."
+    - "O estilo vintage precisa ser contextual, não aplicado como camada bege genérica."
+    - "O prompt deve evitar acúmulo de adjetivos e preferir instruções concretas de câmera, luz e matéria."
+  professional_prompt_kernel:
+    value: "analog film photograph, realistic lens behavior, tactile materials, soft contrast, subtle film grain, believable lighting, gentle halation, period-aware styling when relevant, composed but natural scene, no glossy AI render, no CGI look, no generic surrealism"
+  quality_criteria:
+    - "O resultado parece uma fotografia plausível?"
+    - "A luz tem fonte e comportamento coerentes?"
+    - "A paleta serve ao contexto ou virou estética automática?"
+    - "A textura analógica está sutil?"
+    - "O prompt evita termos que empurrem a imagem para uncanny/bizarre/surreal?"
+    - "O output comunica intenção profissional ou só uma vibe bonita?"
+  use_in_professional_positioning:
+    portfolio_language:
+      - "Analogic Photo demonstra capacidade de transformar gosto visual em sistema."
+      - "O método separa moodboard, estética, prompt, QA e negative guidance."
+      - "A competência não está apenas em pedir uma imagem bonita, mas em diagnosticar por que certas imagens funcionam e como reproduzir o eixo útil sem copiar o conteúdo."
+    possible_public_wording:
+      - "I translate visual references into reusable AI image protocols: style extraction, prompt architecture, negative guidance and QA criteria."
+      - "The Analogic Photo module is an example of turning scattered AI-generated references into a controlled visual engine focused on photographic materiality."
+    pt_br_wording:
+      - "Eu traduzo referências visuais em protocolos reutilizáveis para IA: extração de estilo, arquitetura de prompt, negative guidance e critérios de qualidade."
+      - "O módulo Analogic Photo é um exemplo de como transformar referências dispersas em uma engine visual controlada, focada em materialidade fotográfica."
+  boundary:
+    - "Este patch não vende Moon como fotógrafa profissional nem diretora de fotografia tradicional."
+    - "A competência registrada é de arquitetura visual para IA, curadoria estética e engenharia de contexto visual."
+    - "Créditos e referências externas devem ser tratados como inspiração/moodboard, não como estilo a ser copiado literalmente."
+
+interp:
+  core_read:
+    - "O valor profissional do caso é metodológico: Moon fez uma leitura de padrão, retirou o ruído surreal e preservou a gramática visual reaproveitável."
+    - "Isso é exatamente o tipo de capacidade que diferencia uso avançado de IA de prompting decorativo."
+    - "O módulo serve como prova pequena, concreta e elegante da tese maior do Professional Moon Source: IA útil depende de contexto, linguagem, gosto, critérios e governança."
+  strategic_use:
+    - "Usar este caso em portfólio, pitch ou conversa profissional quando for necessário mostrar competência visual aplicada sem prometer desenvolvimento técnico pesado."
+    - "Pode ser citado junto de Image Cortex, Moon Skills e Visual Engines como proof of work de arquitetura de prompts e controle de estilo."
+    - "É especialmente útil para mostrar que Moon sabe reduzir genericidade visual e construir direção estética reproduzível."
+
+placement:
+  exact_instruction:
+    - "Colar este patch no Professional Moon Source, arquivo '02. Moon Source Method and Proof'."
+    - "Destino preferido: subseção de proof of work visual / Image Cortex / visual engines."
+    - "Se a seção ainda não existir, criar 'Analogic Photo / Visual Materiality Proof' e inserir este patch como primeira entrada."
