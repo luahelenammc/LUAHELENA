@@ -249,6 +249,7 @@
           <span class="pill"><span class="dot cyan"></span><span>AUTO = data calculada</span></span>
           <span class="pill"><span class="dot lime"></span><span>TAKEN = já tomou</span></span>
           <span class="pill"><span class="dot violet"></span><span>UI → mg automático</span></span>
+          <span class="pill"><span class="dot orange"></span><span>17 UI = protocolo semanal</span></span>
         </div>
       </section>
 
@@ -265,6 +266,16 @@
               <div class="label">Total aplicado</div>
               <div class="value" id="stat-total-mg">–</div>
               <div class="sub">mg acumulados</div>
+            </div>
+            <div class="card">
+              <div class="label">Saldo frasco atual</div>
+              <div class="value" id="stat-stock-ui">–</div>
+              <div class="sub" id="stat-stock-detail">–</div>
+            </div>
+            <div class="card">
+              <div class="label">Plano futuro</div>
+              <div class="value" id="stat-planned-ui">–</div>
+              <div class="sub" id="stat-planned-detail">–</div>
             </div>
             <div class="card full">
               <div class="label">Peso</div>
@@ -299,7 +310,9 @@
         1) Quando tomar uma dose planejada, troque <code>status: "PLANNED"</code> por <code>"TAKEN"</code>.<br>
         2) Se tomou em outro dia, altere a <code>date</code> dessa linha.<br>
         3) Para empurrar tudo depois dela, deixe as próximas linhas como <code>date: "AUTO"</code>.<br>
-        4) Para doses baseadas em UI, altere só <code>ui</code>; o <code>mg</code> recalcula sozinho pela régua definida em <code>mgPerUi</code>.
+        4) Para doses baseadas em UI, altere só <code>ui</code>; o <code>mg</code> recalcula sozinho pela régua definida em <code>mgPerUi</code>.<br>
+        5) Protocolo atual: <code>17 UI/semana</code>, salvo pausa por quadro agudo, baixa ingesta, náusea forte ou orientação médica.<br>
+        6) Regra de assepsia: agulha que entrou na pele nunca volta para o frasco; se precisar complementar, usar seringa/agulha nova.
       </div>
     </div>
   </div>
@@ -326,7 +339,7 @@
     const APP = {
       meta: {
         title: "Mounjaro · timeline editável",
-        subtitle: "Snapshot reformulado para facilitar manutenção manual, sujeito a mudanças futuras."
+        subtitle: "Timeline viva com estoque, protocolo 17 UI e próximas datas AUTO."
       },
 
       // Deixe fixo para screenshots históricas; deixe null para usar a data real do computador.
@@ -344,45 +357,73 @@
         usualHighKg: 94,
       },
 
+      stock: {
+        purchaseDate: "2026-04-29",
+        purchasedMg: 60,
+        countFromKey: "22",
+        protocolUi: 17,
+        surgeryDate: "2026-12-11",
+        stopBeforeDays: 15,
+      },
+
       timeline: [
         // =========================
-        // HISTÓRICO TOMADO
+        // FASE 1 · INÍCIO 2,5 MG
         // =========================
-        { key:"01", section:"Histórico tomado", status:"TAKEN", date:"2025-12-03", mg:2.5,  note:"Dose inicial · fase 2,5 mg" },
-        { key:"02", section:"Histórico tomado", status:"TAKEN", date:"2025-12-10", mg:2.5,  note:"2ª quarta de 2,5 mg" },
-        { key:"03", section:"Histórico tomado", status:"TAKEN", date:"2025-12-17", mg:2.5,  note:"3ª quarta de 2,5 mg" },
-        { key:"04", section:"Histórico tomado", status:"TAKEN", date:"2025-12-24", mg:2.5,  note:"4ª quarta de 2,5 mg" },
-
-        { key:"05", section:"Histórico tomado", status:"TAKEN", date:"2026-01-03", mg:3.75, note:"1ª dose de 3,75 mg" },
-        { key:"06", section:"Histórico tomado", status:"TAKEN", date:"2026-01-09", mg:5,    note:"1ª dose de 5 mg" },
-        { key:"07", section:"Histórico tomado", status:"TAKEN", date:"2026-01-16", mg:5,    note:"2ª dose de 5 mg" },
-        { key:"08", section:"Histórico tomado", status:"TAKEN", date:"2026-01-23", mg:5,    note:"3ª dose de 5 mg" },
-        { key:"09", section:"Histórico tomado", status:"TAKEN", date:"2026-01-30", mg:5,    note:"4ª dose de 5 mg" },
-        { key:"10", section:"Histórico tomado", status:"TAKEN", date:"2026-02-05", mg:4.41, note:"1ª dose de 4,41 mg" },
-        { key:"11", section:"Histórico tomado", status:"TAKEN", date:"2026-02-12", ui:12,   note:"12 UI" },
-        { key:"12", section:"Histórico tomado", status:"TAKEN", date:"2026-02-19", ui:12,   note:"12 UI" },
-        { key:"13", section:"Histórico tomado", status:"TAKEN", date:"2026-02-26", ui:12,   note:"12 UI" },
-        { key:"14", section:"Histórico tomado", status:"TAKEN", date:"2026-03-05", ui:12,   note:"12 UI" },
-        { key:"15", section:"Histórico tomado", status:"TAKEN", date:"2026-03-14", ui:13,   note:"13 UI" },
-        { key:"16", section:"Histórico tomado", status:"TAKEN", date:"2026-03-21", ui:10,   note:"10 UI" },
-        { key:"17", section:"Histórico tomado", status:"TAKEN", date:"2026-03-28", ui:9,    note:"9 UI" },
-        { key:"18", section:"Histórico tomado", status:"TAKEN", date:"2026-04-07", ui:8,    note:"8 UI" },
+        { key:"01", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-03", mg:2.5,  note:"Dose inicial · fase 2,5 mg" },
+        { key:"02", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-10", mg:2.5,  note:"2ª dose de 2,5 mg" },
+        { key:"03", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-17", mg:2.5,  note:"3ª dose de 2,5 mg" },
+        { key:"04", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-24", mg:2.5,  note:"4ª dose de 2,5 mg" },
 
         // =========================
-        // PONTE E RETOMADA
+        // FASE 2 · ESCALADA E 5 MG
         // =========================
-        { key:"19", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-15", ui:10, note:"Ponte com a sobra do frasco atual" },
-        { key:"20", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-21", intervalDays:7, ui:17, note:"Retomada plena bem tolerada" },
-        { key:"21", section:"Ponte e retomada", status:"TAKEN", date:"2026-04-27", intervalDays:6, ui:10, note:"Chorinho/sobra do frasco; ponte parcial" },
-        { key:"22", section:"Ponte e retomada", status:"TAKEN", date:"2026-05-02", intervalDays:5, ui:15, note:"Retomada quase plena; sem compensar os 2 UI faltantes" },
-        { key:"23", section:"Ponte e retomada", status:"TAKEN", date:"2026-05-10", intervalDays:8, ui:16, note:"" },
+        { key:"05", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-03", mg:3.75, note:"Transição para 3,75 mg" },
+        { key:"06", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-09", mg:5,    note:"1ª dose de 5 mg" },
+        { key:"07", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-16", mg:5,    note:"2ª dose de 5 mg" },
+        { key:"08", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-23", mg:5,    note:"3ª dose de 5 mg" },
+        { key:"09", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-30", mg:5,    note:"4ª dose de 5 mg" },
 
         // =========================
-        // DOSE PLENA
+        // FASE 3 · RECALIBRAGEM EM UI
         // =========================
-        { key:"24", section:"Dose plena", status:"TAKEN", date:"2026-05-19", intervalDays:9, ui:18, note:"Manter dose plena semanal se tolerância estiver boa" },
-        { key:"25", section:"Dose plena", status:"TAKEN", date:"2026-05-25", intervalDays:6, ui:10, note:"Tomei apenas 10ui por engano." },
-        { key:"26", section:"Dose plena", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"" },
+        { key:"10", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-05", mg:4.41, note:"1ª dose de 4,41 mg" },
+        { key:"11", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-12", ui:12,   note:"12 UI" },
+        { key:"12", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-19", ui:12,   note:"12 UI" },
+        { key:"13", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-26", ui:12,   note:"12 UI" },
+        { key:"14", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-05", ui:12,   note:"12 UI" },
+        { key:"15", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-14", ui:13,   note:"13 UI" },
+        { key:"16", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-21", ui:10,   note:"10 UI" },
+        { key:"17", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-28", ui:9,    note:"9 UI" },
+        { key:"18", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-04-07", ui:8,    note:"8 UI" },
+
+        // =========================
+        // FASE 4 · PONTE PRÉ-FRASCO NOVO
+        // =========================
+        { key:"19", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-15", ui:10, note:"Ponte com a sobra do frasco anterior" },
+        { key:"20", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-21", ui:17, note:"Retomada plena bem tolerada" },
+        { key:"21", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-27", ui:10, note:"Chorinho/sobra do frasco; ponte parcial" },
+
+        // =========================
+        // FASE 5 · FRASCO 60 MG COMPRADO EM 29/04
+        // =========================
+        { key:"22", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-02", ui:15, note:"Retomada quase plena; sem compensar os 2 UI faltantes" },
+        { key:"23", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-10", ui:16, note:"" },
+        { key:"24", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-19", ui:18, note:"Dose levemente acima da régua padrão de 17 UI" },
+        { key:"25", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-25", ui:10, note:"Erro de leitura da seringa: confundiu a borrachinha/êmbolo; dose parcial de 10 UI." },
+        { key:"26", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-06-08", ui:17, note:"Retomada após semana pulada por insolação/alergia solar; 2 UI + 15 UI complementares." },
+
+        // =========================
+        // PRÓXIMOS AUTO · PROTOCOLO 17 UI
+        // =========================
+        { key:"27", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Protocolo semanal ratificado: 17 UI ≈ 5 mg" },
+        { key:"28", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"29", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"30", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"31", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"32", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"33", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Última dose cheia estimada do frasco atual se o protocolo de 17 UI for mantido" },
+        { key:"34", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:9, note:"Sobra final estimada do frasco atual; não é dose cheia" },
       ]
     };
 
@@ -466,6 +507,44 @@
     function statusClass(status){ return String(status || '').toLowerCase(); }
     function statusLabel(status){ return String(status || '').toUpperCase(); }
 
+    function stopDateISO(){
+      const base = parseISO(APP.stock.surgeryDate);
+      base.setDate(base.getDate() - APP.stock.stopBeforeDays);
+      return toISO(base);
+    }
+
+    function purchasedUi(){
+      return round(APP.stock.purchasedMg / APP.conversions.mgPerUi, 0);
+    }
+
+    function rowsFromCurrentBottle(resolved){
+      return resolved.filter(x => Number(x.key) >= Number(APP.stock.countFromKey));
+    }
+
+    function stockSnapshot(resolved){
+      const bottleRows = rowsFromCurrentBottle(resolved);
+      const takenUi = bottleRows
+        .filter(x => x.status === 'TAKEN')
+        .reduce((sum, x) => sum + (x.ui || 0), 0);
+
+      const plannedUi = bottleRows
+        .filter(x => x.status === 'PLANNED')
+        .reduce((sum, x) => sum + (x.ui || 0), 0);
+
+      const totalUi = purchasedUi();
+      const remainingUi = Math.max(0, totalUi - takenUi);
+      const remainingAfterPlannedUi = remainingUi - plannedUi;
+
+      return {
+        totalUi,
+        takenUi,
+        plannedUi,
+        remainingUi,
+        remainingMg: round(remainingUi * APP.conversions.mgPerUi, APP.conversions.mgDecimals),
+        remainingAfterPlannedUi,
+      };
+    }
+
     function renderHero(){
       document.getElementById('hero-title').textContent = APP.meta.title;
       document.getElementById('hero-subtitle').textContent = APP.meta.subtitle;
@@ -499,6 +578,8 @@
       const taken = resolved.filter(x => x.status === 'TAKEN');
       const planned = resolved.filter(x => x.status === 'PLANNED');
       const totalMg = round(taken.reduce((s, x) => s + (x.mg || 0), 0), 2);
+      const stock = stockSnapshot(resolved);
+
       document.getElementById('stat-taken').textContent = String(taken.length);
       document.getElementById('stat-total-mg').textContent = formatMg(totalMg);
 
@@ -507,6 +588,18 @@
       } else {
         document.getElementById('stat-range').textContent = 'sem histórico tomado';
       }
+
+      document.getElementById('stat-stock-ui').textContent = `${stock.remainingUi} UI`;
+      document.getElementById('stat-stock-detail').textContent =
+        `≈ ${formatMg(stock.remainingMg)} restantes · frasco de ${APP.stock.purchasedMg} mg comprado em ${formatDate(APP.stock.purchaseDate)}`;
+
+      document.getElementById('stat-planned-ui').textContent = `${stock.plannedUi} UI`;
+      document.getElementById('stat-planned-detail').textContent =
+        stock.remainingAfterPlannedUi === 0
+          ? 'os próximos AUTO consomem exatamente o saldo estimado'
+          : stock.remainingAfterPlannedUi > 0
+            ? `sobrariam ${stock.remainingAfterPlannedUi} UI após os AUTO`
+            : `os AUTO excedem o saldo em ${Math.abs(stock.remainingAfterPlannedUi)} UI`;
 
       document.getElementById('stat-current-weight').textContent = formatKg(APP.weights.currentKg);
       document.getElementById('stat-weight-detail').textContent = `partiu de ${formatKg(APP.weights.startKg)} · costuma oscilar até ${formatKg(APP.weights.usualHighKg)}`;
@@ -544,7 +637,7 @@
         section.innerHTML = `
           <div class="section-head">
             <div>
-              <div class="section-title"><span class="dot ${takenCount ? 'lime' : 'cyan'}"></span>${group.section}</div>
+              <div class="section-title"><span class="dot ${plannedCount && !takenCount ? 'cyan' : takenCount ? 'lime' : 'orange'}"></span>${group.section}</div>
               <div class="section-sub">${group.rows.length} linha(s) · ${takenCount} tomada(s) · ${plannedCount} planejada(s)</div>
             </div>
           </div>
