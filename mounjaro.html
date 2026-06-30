@@ -249,7 +249,7 @@
           <span class="pill"><span class="dot cyan"></span><span>AUTO = data calculada</span></span>
           <span class="pill"><span class="dot lime"></span><span>TAKEN = já tomou</span></span>
           <span class="pill"><span class="dot violet"></span><span>UI → mg automático</span></span>
-          <span class="pill"><span class="dot orange"></span><span>17 UI = protocolo semanal</span></span>
+          <span class="pill"><span class="dot orange"></span><span>17 UI = protocolo pleno</span></span>
         </div>
       </section>
 
@@ -311,7 +311,7 @@
         2) Se tomou em outro dia, altere a <code>date</code> dessa linha.<br>
         3) Para empurrar tudo depois dela, deixe as próximas linhas como <code>date: "AUTO"</code>.<br>
         4) Para doses baseadas em UI, altere só <code>ui</code>; o <code>mg</code> recalcula sozinho pela régua definida em <code>mgPerUi</code>.<br>
-        5) Protocolo atual: <code>17 UI/semana</code>, salvo pausa por quadro agudo, baixa ingesta, náusea forte ou orientação médica.<br>
+        5) Protocolo pleno: <code>17 UI/semana</code>. Após pausa por quadro agudo, baixa ingesta ou recuperação, reescalar por tolerância antes de voltar ao pleno.<br>
         6) Regra de assepsia: agulha que entrou na pele nunca volta para o frasco; se precisar complementar, usar seringa/agulha nova.
       </div>
     </div>
@@ -339,7 +339,7 @@
     const APP = {
       meta: {
         title: "Mounjaro · timeline editável",
-        subtitle: "Timeline viva com estoque, protocolo 17 UI e próximas datas AUTO."
+        subtitle: "Timeline viva com estoque, reinício em 12 UI e próximas datas AUTO."
       },
 
       // Deixe fixo para screenshots históricas; deixe null para usar a data real do computador.
@@ -414,16 +414,20 @@
         { key:"26", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-06-08", ui:17, note:"Retomada após semana pulada por insolação/alergia solar; 2 UI + 15 UI complementares." },
 
         // =========================
-        // PRÓXIMOS AUTO · PROTOCOLO 17 UI
+        // FASE 6 · REINÍCIO PÓS-RECUPERAÇÃO
         // =========================
-        { key:"27", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Protocolo semanal ratificado: 17 UI ≈ 5 mg" },
-        { key:"28", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"29", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"30", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"31", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"32", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"33", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Última dose cheia estimada do frasco atual se o protocolo de 17 UI for mantido" },
-        { key:"34", section:"Próximos AUTO · protocolo 17 UI", status:"PLANNED", date:"AUTO", intervalDays:7, ui:9, note:"Sobra final estimada do frasco atual; não é dose cheia" },
+        { key:"27", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-06-30", ui:12, note:"Reinício após recuperação da saúde; retomada conservadora em 12 UI." },
+
+        // =========================
+        // PRÓXIMOS AUTO · REESCALADA GRADUAL
+        // =========================
+        { key:"28", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:15, note:"Reescalada gradual se bem tolerado: 15 UI ≈ 4,41 mg" },
+        { key:"29", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Retorno ao protocolo pleno se tolerância ok: 17 UI ≈ 5 mg" },
+        { key:"30", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"31", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"32", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"33", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Última dose cheia estimada do frasco atual se o protocolo de 17 UI for mantido" },
+        { key:"34", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:16, note:"Sobra final estimada do frasco atual; quase dose cheia" },
       ]
     };
 
