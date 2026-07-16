@@ -19,6 +19,94 @@
 .card:hover,.phase-card:hover,.proof-card:hover{transform:none!important}
 .card:before,.phase-card:before,.proof-card:before,
 .card:after,.phase-card:after,.proof-card:after{display:none!important;content:none!important}
+
+/* Mobile width hardening v1.
+   This fixes the source of lateral overflow instead of merely hiding it. */
+html,body{
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:clip!important;
+}
+main,section,.wrap,.nav-inner,.hero,.hero-text,.block-grid,.rail,.rail-sticky,
+.card-grid,.triple-grid,.phase-grid,.proof-grid,.contact-panel,.contact-links,
+.nav-right,.hero-meta,.hero-cta,.packet-wrap{
+  min-width:0!important;
+  max-width:100%!important;
+}
+img,svg,canvas{max-width:100%!important}
+
+@media(max-width:700px){
+  .wrap,.nav-inner{
+    width:calc(100% - 24px)!important;
+    max-width:calc(100% - 24px)!important;
+  }
+
+  /* Original bug: brand + nav-right:100% remained in the same flex row. */
+  .nav-inner{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:start!important;
+    gap:10px!important;
+    padding:10px 0!important;
+  }
+  .brand{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  .nav-right{
+    width:100%!important;
+    min-width:0!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    flex-wrap:wrap!important;
+  }
+
+  .hero,.block-grid,.contact-panel{
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+  }
+  .triple-grid,.card-grid,.phase-grid,.proof-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+  }
+
+  .v4-deco,.v4-orbital{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .v4-deco{overflow:hidden!important}
+
+  .btn,.pill,.packet-wrap,.lang-toggle{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  .btn,.pill{
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  .hero h1,.section-title,.card h3,.phase-card h3,.proof-card h3,
+  .section-lead,.card p,.phase-card p,.proof-card p,.contact p{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* Tooltip anchored near the right edge was another possible viewport expander. */
+  .packet-tip{
+    position:fixed!important;
+    left:12px!important;
+    right:12px!important;
+    top:82px!important;
+    width:auto!important;
+    max-width:none!important;
+  }
+
+  .rim{display:none!important}
+}
+
+@supports not (overflow:clip){
+  html,body{overflow-x:hidden!important}
+}
 </style>
 
 <script>
