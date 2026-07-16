@@ -1,15 +1,8 @@
-/* IA beta: vivid card-like hover language for circuit nodes without rebuilding boxes. */
+/* IA beta: golden reflective hover for every circuit node. */
 
 .entry-step{
   display:none!important;
 }
-
-/* Small extra breathing room above every circuit item. */
-.entry-node{padding:5px 24px 12px!important}
-.context-node{padding:23px 18px 16px!important}
-.output-node{padding:19px 18px 16px!important}
-.foundation-node{padding:21px 18px 18px!important}
-.cycle-node{padding:5px 14px 10px!important}
 
 .entry-node,
 .context-node,
@@ -18,22 +11,42 @@
 .cycle-node{
   position:relative;
   isolation:isolate;
-  border:1px solid rgba(255,255,255,.035)!important;
+  border:1px solid rgba(255,255,255,.055)!important;
   border-radius:24px!important;
   background:
-    linear-gradient(108deg,transparent 0 32%,rgba(232,201,122,0) 42%,rgba(232,201,122,0) 52%,transparent 62%) 155% 0 / 235% 100% no-repeat,
-    radial-gradient(circle at 84% 16%,rgba(159,135,255,.07),transparent 45%),
-    linear-gradient(145deg,rgba(255,255,255,.032),rgba(255,255,255,.009))!important;
-  box-shadow:0 10px 28px rgba(0,0,0,.08);
+    radial-gradient(circle at 84% 16%,rgba(159,135,255,.075),transparent 45%),
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
   overflow:visible!important;
-  transform:translateY(0) scale(1);
-  filter:saturate(1);
-  transition:
-    transform .68s cubic-bezier(.19,1,.22,1),
-    border-color .25s ease,
-    box-shadow .34s ease,
-    filter .28s ease,
-    background-color .25s ease;
+  transform:translateY(0);
+  transition:transform .72s cubic-bezier(.19,1,.22,1),border-color .28s ease,box-shadow .34s ease,background .28s ease;
+}
+
+.entry-node::before,
+.context-node::before,
+.output-node::before,
+.foundation-node::before,
+.cycle-node::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(
+    104deg,
+    transparent 0 30%,
+    rgba(232,201,122,0) 38%,
+    rgba(255,224,139,.14) 44%,
+    rgba(255,244,199,.82) 50%,
+    rgba(232,201,122,.26) 56%,
+    rgba(232,201,122,0) 63%,
+    transparent 72% 100%
+  );
+  background-size:230% 100%;
+  background-position:135% 0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 .entry-node>*,
@@ -45,46 +58,11 @@
   z-index:1;
 }
 
-.entry-node h3,
-.context-node h3,
-.output-node h3,
-.foundation-node h3,
-.cycle-node h3,
-.entry-node p,
-.context-node p,
-.output-node p,
-.foundation-node p,
-.cycle-node p{
-  transition:color .25s ease,text-shadow .25s ease;
-}
-
-/* Section 03: icon on the left, label/title/description on the right. */
-.cycle-node{
-  display:grid;
-  grid-template-columns:50px minmax(0,1fr);
-  grid-template-rows:auto auto 1fr;
-  column-gap:12px;
-  align-content:start;
-}
-.cycle-node-marker{
-  grid-column:1;
-  grid-row:1 / span 3;
-  align-self:start;
-  margin:0!important;
-}
-.cycle-node .mini-label,
-.cycle-node h3,
-.cycle-node p{
-  grid-column:2;
-  min-width:0;
-}
-.cycle-node .mini-label{grid-row:1}
-.cycle-node h3{grid-row:2}
-.cycle-node p{grid-row:3}
-
-@keyframes circuitNodeSheen{
-  0%{background-position:155% 0,0 0,0 0}
-  100%{background-position:-78% 0,0 0,0 0}
+@keyframes circuitGoldReflection{
+  0%{opacity:0;background-position:135% 0}
+  12%{opacity:.96}
+  70%{opacity:.82}
+  100%{opacity:0;background-position:-135% 0}
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -94,36 +72,20 @@
   .foundation-node:hover,
   .cycle-node:hover{
     z-index:5;
-    transform:translateY(-12px) scale(1.018);
-    filter:saturate(1.14) brightness(1.04);
-    border-color:rgba(232,201,122,.68)!important;
+    transform:translateY(-8px);
+    border-color:rgba(232,201,122,.46)!important;
     background:
-      linear-gradient(108deg,transparent 0 31%,rgba(232,201,122,0) 40%,rgba(255,238,186,.34) 50%,rgba(232,201,122,0) 60%,transparent 69%) 155% 0 / 235% 100% no-repeat,
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.31),transparent 45%),
-      linear-gradient(145deg,rgba(255,255,255,.145),rgba(255,255,255,.052))!important;
-    box-shadow:
-      0 38px 92px rgba(0,0,0,.46),
-      0 0 54px rgba(159,135,255,.22),
-      0 0 24px rgba(232,201,122,.13),
-      inset 0 1px 0 rgba(255,255,255,.16);
-    animation:circuitNodeSheen 1.08s ease-out both;
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.19),transparent 44%),
+      linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.04))!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 34px rgba(159,135,255,.12),0 0 20px rgba(232,201,122,.08);
   }
 
-  .entry-node:hover h3,
-  .context-node:hover h3,
-  .output-node:hover h3,
-  .foundation-node:hover h3,
-  .cycle-node:hover h3{
-    color:#fff4d4;
-    text-shadow:0 0 18px rgba(232,201,122,.16);
-  }
-
-  .entry-node:hover p,
-  .context-node:hover p,
-  .output-node:hover p,
-  .foundation-node:hover p,
-  .cycle-node:hover p{
-    color:#eee5f1;
+  .entry-node:hover::before,
+  .context-node:hover::before,
+  .output-node:hover::before,
+  .foundation-node:hover::before,
+  .cycle-node:hover::before{
+    animation:circuitGoldReflection 1.18s cubic-bezier(.22,.72,.2,1) both;
   }
 
   .entry-node:hover .ic,
@@ -131,71 +93,43 @@
   .output-node:hover .ic,
   .foundation-node:hover .ic,
   .cycle-node:hover .cycle-node-icon{
-    transform:translateY(-5px) scale(1.1);
-    color:#fff0bd;
-    border-color:rgba(232,201,122,.9);
-    background:linear-gradient(145deg,rgba(64,49,84,.98),rgba(28,23,43,.98));
-    box-shadow:
-      0 19px 42px rgba(0,0,0,.38),
-      0 0 38px rgba(159,135,255,.34),
-      0 0 22px rgba(232,201,122,.22);
+    transform:translateY(-3px) scale(1.055);
+    color:#ffe9a9;
+    border-color:rgba(232,201,122,.78);
+    background:linear-gradient(145deg,rgba(58,45,78,.98),rgba(27,23,42,.98));
+    box-shadow:0 17px 38px rgba(0,0,0,.34),0 0 28px rgba(159,135,255,.23),0 0 18px rgba(232,201,122,.16);
+  }
+
+  .entry-node:hover h3,
+  .context-node:hover h3,
+  .output-node:hover h3,
+  .foundation-node:hover h3,
+  .cycle-node:hover h3{
+    color:#fff4d5;
+    text-shadow:0 0 15px rgba(232,201,122,.14);
   }
 
   .output-node:hover .output-port,
   .foundation-node:hover .foundation-port,
   .cycle-node:hover .cycle-node-port{
-    transform:scale(1.45);
-    background:#fff0bd;
-    box-shadow:0 0 20px rgba(232,201,122,1),0 0 34px rgba(159,135,255,.45);
+    transform:scale(1.32);
+    background:#ffe9a9;
+    box-shadow:0 0 18px rgba(232,201,122,.95),0 0 28px rgba(159,135,255,.32);
   }
 
   .context-core,
   .output-core{
-    transition:transform .55s cubic-bezier(.19,1,.22,1),border-color .25s ease,box-shadow .32s ease,filter .25s ease;
+    transition:transform .55s cubic-bezier(.19,1,.22,1),border-color .28s ease,box-shadow .34s ease;
   }
   .context-core:hover,
   .output-core:hover{
-    transform:translateY(-8px) scale(1.035);
-    filter:saturate(1.14) brightness(1.05);
-    border-color:rgba(232,201,122,.78);
-    box-shadow:0 32px 78px rgba(0,0,0,.42),0 0 58px rgba(159,135,255,.34),0 0 24px rgba(232,201,122,.16);
+    transform:translateY(-5px) scale(1.018);
+    border-color:rgba(232,201,122,.6);
+    box-shadow:0 27px 66px rgba(0,0,0,.36),0 0 44px rgba(159,135,255,.24),0 0 18px rgba(232,201,122,.12);
   }
 }
 
-/* Reduce the dead space between the animated hero ornament and section 00. */
-.hero{padding-bottom:30px}
-#entrada.block{padding-top:16px}
-
-/* Touch stays compositor-safe, but keeps a clear pressed response. */
 @media (max-width:1100px), (pointer:coarse), (hover:none){
-  .hero{padding-bottom:8px!important}
-  #entrada.block{padding-top:6px!important}
-
-  .entry-node{padding:5px 0 30px 68px!important}
-  .context-node,.context-node[data-node]{padding:21px 0 20px 62px!important}
-  .output-node,.output-node[data-side],.output-node[data-node]{padding:5px 0 28px 68px!important}
-  .foundation-node{padding:5px 0 28px 66px!important}
-
-  .cycle-node{
-    display:grid!important;
-    grid-template-columns:50px minmax(0,1fr)!important;
-    grid-template-rows:auto auto 1fr!important;
-    column-gap:14px;
-    padding:5px 0 28px 0!important;
-  }
-  .cycle-node-marker{
-    position:relative!important;
-    top:auto!important;
-    left:auto!important;
-    grid-column:1!important;
-    grid-row:1 / span 3!important;
-  }
-  .cycle-node .mini-label,
-  .cycle-node h3,
-  .cycle-node p{
-    grid-column:2!important;
-  }
-
   .entry-node,
   .context-node,
   .output-node,
@@ -204,8 +138,8 @@
     transform:none!important;
     box-shadow:0 8px 24px rgba(0,0,0,.08);
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.08),transparent 45%),
-      linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012))!important;
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.075),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.038),rgba(255,255,255,.012))!important;
   }
 
   .entry-node:active,
@@ -213,10 +147,17 @@
   .output-node:active,
   .foundation-node:active,
   .cycle-node:active{
-    border-color:rgba(232,201,122,.48)!important;
-    filter:saturate(1.08) brightness(1.03);
+    border-color:rgba(232,201,122,.42)!important;
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.2),transparent 45%),
-      linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035))!important;
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.17),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.078),rgba(255,255,255,.028))!important;
+  }
+
+  .entry-node:active::before,
+  .context-node:active::before,
+  .output-node:active::before,
+  .foundation-node:active::before,
+  .cycle-node:active::before{
+    animation:circuitGoldReflection .9s ease-out both;
   }
 }
