@@ -5,28 +5,34 @@ permalink: /ia/beta.html
 {%- capture core -%}{% include_relative beta-core.html %}{%- endcapture -%}
 {%- capture integrated_style -%}
 
-    /* Standalone mobile containment v4.
-       This block is injected inside the document head before </style>. */
+    /* Beta V5 — hard viewport lock.
+       The root cannot scroll; body is the only vertical scroll container. */
     html{
+      block-size:100%;
       inline-size:100%;
-      max-inline-size:100%;
-      overflow-x:hidden!important;
+      overflow:hidden!important;
+      overscroll-behavior:none;
       background:var(--bg);
     }
     body{
-      position:relative;
-      display:flow-root;
-      inline-size:100%;
-      max-inline-size:100%;
-      min-inline-size:0;
+      position:fixed!important;
+      inset:0!important;
+      display:block!important;
+      box-sizing:border-box!important;
+      inline-size:auto!important;
+      block-size:auto!important;
+      max-inline-size:none!important;
+      min-inline-size:0!important;
+      margin:0!important;
       overflow-x:hidden!important;
-    }
-    @supports(overflow:clip){
-      html,body{overflow-x:clip!important}
+      overflow-y:auto!important;
+      overscroll-behavior-x:none!important;
+      touch-action:pan-y pinch-zoom;
+      -webkit-overflow-scrolling:touch;
     }
 
-    /* Keep every major layout inside its containing block. */
-    header,main,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
+    *,*::before,*::after{box-sizing:border-box}
+    body>*,header,main,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
     .block-grid,.rail,.rail-sticky,.card-grid,.triple-grid,.phase-grid,
     .proof-grid,.contact-panel,.contact-links,.nav-right,.hero-meta,
     .hero-cta,.packet-wrap{
@@ -36,8 +42,6 @@ permalink: /ia/beta.html
       max-inline-size:100%!important;
     }
 
-    /* Flex/grid children need an explicit zero minimum; auto can preserve
-       min-content width and force the page wider than the viewport. */
     .nav-inner>*,.nav-right>*,.hero>*,.block-grid>*,.card-grid>*,
     .triple-grid>*,.phase-grid>*,.proof-grid>*,.contact-panel>*,
     .contact-links>*,.hero-meta>*,.hero-cta>*{
@@ -53,8 +57,6 @@ permalink: /ia/beta.html
       height:auto;
     }
 
-    /* Preserve the rendering fix without allowing card descendants to
-       enlarge the document scroll area. */
     #starfield,.bg-glows{display:none!important}
     .nav,.packet-tip,.beta-flag-subtle{
       backdrop-filter:none!important;
@@ -79,14 +81,30 @@ permalink: /ia/beta.html
       content:none!important;
     }
 
-    @media(max-width:760px){
-      html,body,main{inline-size:100%;max-inline-size:100%;overflow-x:hidden!important}
-      @supports(overflow:clip){html,body,main{overflow-x:clip!important}}
+    #beta-width-telemetry{
+      position:fixed;
+      z-index:2147483647;
+      top:6px;
+      right:6px;
+      max-width:calc(100% - 12px);
+      padding:5px 7px;
+      border:1px solid rgba(255,145,200,.65);
+      border-radius:9px;
+      background:rgba(28,10,25,.94);
+      color:#ffd7e9;
+      font:700 10px/1.25 ui-monospace,SFMono-Regular,Consolas,monospace;
+      letter-spacing:0;
+      white-space:normal;
+      overflow-wrap:anywhere;
+      pointer-events:none;
+    }
 
+    @media(max-width:760px){
       .wrap,.nav-inner{
         width:auto!important;
         max-width:none!important;
-        margin-inline:12px!important;
+        margin-left:12px!important;
+        margin-right:12px!important;
       }
 
       .nav-inner{
@@ -131,11 +149,43 @@ permalink: /ia/beta.html
         word-break:normal;
       }
 
-      /* Decorative/hover-only elements are excluded from mobile layout. */
       .rim,.v4-deco,.packet-tip{display:none!important}
     }
   </style>
 {%- endcapture -%}
-{%- assign page_html = core | replace_first: '</style>', integrated_style -%}
+
+{%- capture telemetry -%}
+<div id="beta-width-telemetry" aria-live="polite">BETA V5 · medindo viewport…</div>
+<script>
+(() => {
+  const badge = document.getElementById('beta-width-telemetry');
+  const measure = () => {
+    const de = document.documentElement;
+    const b = document.body;
+    const vv = window.visualViewport;
+    const iw = Math.round(window.innerWidth || 0);
+    const cw = Math.round(de.clientWidth || 0);
+    const sw = Math.round(de.scrollWidth || 0);
+    const bw = Math.round(b.scrollWidth || 0);
+    const vw = vv ? Math.round(vv.width) : 0;
+    const sx = Math.round((vv && vv.offsetLeft) || window.scrollX || 0);
+    badge.textContent = `BETA V5 · inner:${iw} client:${cw} html:${sw} body:${bw} visual:${vw} x:${sx}`;
+  };
+  measure();
+  requestAnimationFrame(measure);
+  addEventListener('load', measure, {once:true});
+  addEventListener('resize', measure, {passive:true});
+  addEventListener('orientationchange', measure, {passive:true});
+  if (window.visualViewport) {
+    visualViewport.addEventListener('resize', measure, {passive:true});
+    visualViewport.addEventListener('scroll', measure, {passive:true});
+  }
+})();
+</script>
+{%- endcapture -%}
+
+{%- assign page_html = core | replace_first: '<meta name="viewport" content="width=device-width, initial-scale=1" />', '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />' -%}
+{%- assign page_html = page_html | replace_first: '</style>', integrated_style -%}
 {%- assign page_html = page_html | replace: 'width:min(360px,calc(100vw - 28px))', 'width:min(360px,100%)' -%}
+{%- assign page_html = page_html | replace_first: '</body>', telemetry | append: '</body>' -%}
 {{- page_html -}}
