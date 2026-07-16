@@ -4,22 +4,24 @@ layout: null
 {%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
 
 {%- assign old_toggle = '<div class="lang-toggle"><button data-lang="pt" class="active">PT</button><button data-lang="en">EN</button></div>' -%}
-{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English — United States" title="English — United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
+{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
-
-{%- comment -%}
-Canonical interaction rules for the IA surface:
-- the packet is shared with the visitor's own AI: "sua IA" / "your AI";
-- Discord displays as an identity, but its clipboard value excludes the @ prefix.
-{%- endcomment -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
+
+{%- capture language_bootstrap -%}
+<script>
+  (() => {
+    const requested = new URLSearchParams(location.search).get('lang');
+    if (requested !== 'en') {
+      localStorage.setItem('lua-ia-v65-lang', 'pt');
+    }
+  })();
+</script>
+{%- endcapture -%}
 
 {%- capture language_styles -%}
 <style>
-  /* Compact visual language selector using the site's own flag artwork. */
-  .lang-toggle{
-    gap:2px;
-  }
+  .lang-toggle{gap:2px}
   .lang-toggle button{
     width:40px;
     height:36px;
@@ -53,9 +55,6 @@ Canonical interaction rules for the IA surface:
     filter:saturate(1.1) brightness(1.05);
     transform:scale(1.07);
   }
-  .packet-tip{
-    width:min(430px,calc(100vw - 28px));
-  }
   @media (max-width:420px){
     .lang-toggle button{
       width:38px;
@@ -71,8 +70,8 @@ Canonical interaction rules for the IA surface:
 </style>
 {%- endcapture -%}
 
-{%- assign head_injection = '<link rel="stylesheet" href="/ia/production-fixes.css?v=6.3" />' | append: language_styles | append: '</head>' -%}
-{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=6.4"></script></body>' -%}
+{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: language_styles | append: '</head>' -%}
+{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script></body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {{- page_html -}}

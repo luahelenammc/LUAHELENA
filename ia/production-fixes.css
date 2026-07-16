@@ -1,4 +1,4 @@
-/* IA production containment — preserves all original visual and interactive features. */
+/* IA production containment and responsive surface rules. */
 html,body{
   width:100%;
   max-width:100%;
@@ -28,8 +28,7 @@ img,svg,canvas{
   max-inline-size:100%;
 }
 
-/* Keep the original lift and sheen, but do not permanently promote every card
-   to a compositor layer. */
+/* Keep the original lift and sheen without permanently promoting every card. */
 .card,.phase-card,.proof-card{
   transform:none;
   will-change:auto;
@@ -37,6 +36,97 @@ img,svg,canvas{
 @media (hover:hover) and (pointer:fine){
   .card:hover,.phase-card:hover,.proof-card:hover{
     transform:translateY(-8px);
+  }
+}
+
+/* Section 03: one connected operating circuit instead of isolated cards. */
+.cycle-circuit{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+  margin-top:30px;
+  padding:16px 0 4px;
+}
+.cycle-circuit::before{
+  content:"";
+  position:absolute;
+  top:41px;
+  left:7%;
+  right:7%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,201,122,.66) 10%,rgba(159,135,255,.62) 48%,rgba(139,220,255,.58) 82%,transparent);
+  box-shadow:0 0 16px rgba(159,135,255,.2);
+}
+.cycle-node{
+  position:relative;
+  min-width:0;
+  padding:0 14px 10px;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  overflow:visible;
+}
+.cycle-node-marker{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:14px;
+}
+.cycle-node-icon{
+  width:50px;
+  height:50px;
+  flex:0 0 50px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(232,201,122,.32);
+  border-radius:15px;
+  color:var(--gold);
+  background:linear-gradient(145deg,rgba(32,28,48,.98),rgba(22,20,36,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.24),0 0 24px rgba(159,135,255,.12);
+}
+.cycle-node-icon svg{
+  width:22px;
+  height:22px;
+}
+.cycle-node-port{
+  width:7px;
+  height:7px;
+  flex:0 0 7px;
+  border-radius:2px;
+  background:var(--gold);
+  box-shadow:0 0 12px rgba(232,201,122,.78);
+}
+.cycle-node .mini-label{
+  display:block;
+  color:var(--gold);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.cycle-node h3{
+  margin-top:6px;
+  font-size:1.05rem;
+  line-height:1.25;
+}
+.cycle-node p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+@media (hover:hover) and (pointer:fine){
+  .cycle-node-icon{
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+  .cycle-node:hover .cycle-node-icon{
+    transform:translateY(-3px);
+    border-color:rgba(232,201,122,.62);
+    box-shadow:0 16px 36px rgba(0,0,0,.3),0 0 28px rgba(159,135,255,.2);
   }
 }
 
@@ -48,10 +138,10 @@ img,svg,canvas{
   }
 
   .wrap,.nav-inner{
-    width:auto;
-    max-width:none;
-    margin-left:12px;
-    margin-right:12px;
+    width:calc(100% - 24px)!important;
+    max-width:calc(100% - 24px)!important;
+    margin-inline:auto!important;
+    box-sizing:border-box;
   }
 
   .nav-inner{
@@ -76,29 +166,31 @@ img,svg,canvas{
   }
 
   .hero,.block-grid,.contact-panel,
-  .card-grid,.triple-grid,.phase-grid,.proof-grid{
+  .card-grid,.triple-grid,.proof-grid{
     display:grid;
     grid-template-columns:minmax(0,1fr);
     width:100%;
     max-width:100%;
   }
 
-  .hero-text,.block-grid>div,.card,.phase-card,.proof-card,
-  .quote-card,.contact-panel>*,.contact-links>*{
-    width:auto;
+  .hero-text,.hero-text>*,.block-grid>div,.block-grid>div>*,
+  .card,.proof-card,.quote-card,.contact-panel>*,
+  .contact-links>*,.role,.tagline,.section-title,.section-lead{
+    width:100%;
     max-width:100%;
     min-width:0;
+    box-sizing:border-box;
   }
 
   .btn,.pill,.packet-wrap,.lang-toggle{
     min-width:0;
     max-width:100%;
   }
-  .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
-  .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
-  .proof-card p,.contact p,a{
-    overflow-wrap:anywhere;
-    word-break:normal;
+  .btn,.pill,.brand,.hero h1,.role,.tagline,.section-title,.section-lead,
+  .card h3,.proof-card h3,.card p,.proof-card p,.contact p,a{
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
   }
 
   /* Preserve the animated orbital as a bounded in-flow illustration. */
@@ -117,27 +209,79 @@ img,svg,canvas{
     height:auto;
   }
 
-  /* Preserve the packet explanation without creating horizontal document width. */
+  /* The packet helper is anchored below its own button. */
+  .packet-wrap{
+    position:relative;
+    overflow:visible;
+  }
   .packet-tip{
-    position:fixed;
-    left:12px;
-    right:12px;
-    top:auto;
-    bottom:14px;
-    width:auto;
-    max-width:none;
-    transform:translateY(8px);
+    position:absolute!important;
+    top:calc(100% + 10px)!important;
+    bottom:auto!important;
+    left:0;
+    right:auto;
+    width:min(430px,calc(100vw - 24px));
+    max-width:calc(100vw - 24px);
+    transform:translateY(-5px);
+  }
+  .nav-right .packet-tip{
+    left:auto;
+    right:0;
   }
   .packet-wrap:hover .packet-tip,
-  .packet-wrap:focus-within .packet-tip{transform:translateY(0)}
+  .packet-wrap:focus-within .packet-tip{
+    transform:translateY(0);
+  }
   .packet-tip:before{display:none}
 
-  /* Preserve reveal as a real fade while avoiding translated mobile layers. */
+  /* Preserve reveal as a real fade without translated mobile layers. */
   .reveal{
     transform:none;
     transition:opacity .72s ease;
   }
   .reveal.show{transform:none}
 
-  .card:hover,.phase-card:hover,.proof-card:hover{transform:none}
+  .card:hover,.proof-card:hover{transform:none}
+
+  /* The cycle becomes a vertical circuit on narrow screens. */
+  .cycle-circuit{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    width:100%;
+    max-width:100%;
+    margin-top:28px;
+    padding:0;
+  }
+  .cycle-circuit::before{
+    top:25px;
+    bottom:25px;
+    left:25px;
+    right:auto;
+    width:1px;
+    height:auto;
+    background:linear-gradient(180deg,rgba(232,201,122,.72),rgba(159,135,255,.62),rgba(139,220,255,.52),transparent);
+  }
+  .cycle-node{
+    width:100%;
+    max-width:100%;
+    min-height:64px;
+    padding:0 0 28px 70px;
+  }
+  .cycle-node:last-child{
+    padding-bottom:0;
+  }
+  .cycle-node-marker{
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0;
+  }
+  .cycle-node-port{
+    display:none;
+  }
+  .cycle-node h3,.cycle-node p{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
 }
