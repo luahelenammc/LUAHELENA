@@ -1,0 +1,207 @@
+name: Build standalone IA beta mobile fix v3
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ia-standalone-mobile-fix-v3.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Rebuild beta as one valid standalone document
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          source = Path('ia/beta-core.html')
+          target = Path('ia/beta.html')
+          html = source.read_text(encoding='utf-8')
+
+          required = {
+              '<!doctype html>': 1,
+              '<html': 1,
+              '<head>': 1,
+              '</head>': 1,
+              '<body>': 1,
+              '</body>': 1,
+              '</html>': 1,
+              '</style>': 1,
+          }
+          for token, expected in required.items():
+              found = html.lower().count(token.lower())
+              if found != expected:
+                  raise SystemExit(f'{token}: expected {expected}, found {found}')
+
+          # Avoid viewport units inside positioned descendants. They can become
+          # wider than the containing block and are unnecessary here.
+          html = html.replace('width:min(360px,calc(100vw - 28px))', 'width:min(360px,100%)')
+
+          css = r'''
+
+    /* Standalone mobile containment v3.
+       Integrated in <head>; no CSS or JS exists after </html>. */
+    html{
+      inline-size:100%;
+      max-inline-size:100%;
+      overflow-x:hidden;
+      background:var(--bg);
+    }
+    body{
+      position:relative;
+      inline-size:100%;
+      max-inline-size:100%;
+      min-inline-size:0;
+      overflow-x:hidden;
+    }
+
+    /* Flex/grid items default to an intrinsic automatic minimum size.
+       These explicit zeros allow every layout child to shrink inside the viewport. */
+    .nav-inner>*,.nav-right>*,.hero>*,.block-grid>*,.card-grid>*,.triple-grid>*,
+    .phase-grid>*,.proof-grid>*,.contact-panel>*,.contact-links>*,
+    .hero-meta>*,.hero-cta>*{
+      min-width:0;
+      min-inline-size:0;
+      max-inline-size:100%;
+    }
+
+    main,header,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
+    .block-grid,.rail,.rail-sticky,.card-grid,.triple-grid,.phase-grid,
+    .proof-grid,.contact-panel,.contact-links,.nav-right,.hero-meta,
+    .hero-cta,.packet-wrap{
+      min-width:0;
+      min-inline-size:0;
+      max-width:100%;
+      max-inline-size:100%;
+    }
+
+    img,svg,canvas{
+      display:block;
+      max-width:100%;
+      max-inline-size:100%;
+      height:auto;
+    }
+
+    /* Keep the card paint fix, but clip actual descendants locally so they
+       cannot enlarge the page's scrollable overflow area. */
+    .reveal,.reveal.show{
+      opacity:1!important;
+      transform:none!important;
+      transition:none!important;
+    }
+    .card,.phase-card,.proof-card{
+      overflow:hidden!important;
+      transform:none!important;
+      will-change:auto!important;
+      contain:none!important;
+      transition:border-color .24s ease,box-shadow .24s ease,background .24s ease!important;
+    }
+    .card:hover,.phase-card:hover,.proof-card:hover{transform:none!important}
+    .card:before,.phase-card:before,.proof-card:before,
+    .card:after,.phase-card:after,.proof-card:after{
+      display:none!important;
+      content:none!important;
+    }
+
+    @media(max-width:760px){
+      html,body{inline-size:100%;max-inline-size:100%;overflow-x:hidden!important}
+
+      .wrap,.nav-inner{
+        width:auto!important;
+        max-width:none!important;
+        margin-left:12px!important;
+        margin-right:12px!important;
+      }
+
+      .nav-inner{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr)!important;
+        align-items:start!important;
+        justify-content:stretch!important;
+        gap:10px!important;
+        padding:10px 0!important;
+      }
+      .nav-right{
+        width:auto!important;
+        display:flex!important;
+        flex-wrap:wrap!important;
+        justify-content:flex-start!important;
+        align-items:center!important;
+      }
+
+      .hero,.block-grid,.contact-panel,
+      .card-grid,.triple-grid,.phase-grid,.proof-grid{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr)!important;
+        width:100%!important;
+        max-width:100%!important;
+      }
+
+      .hero-text,.block-grid>div,.card,.phase-card,.proof-card,.quote-card,
+      .contact-panel>*,.contact-links>*{
+        width:auto!important;
+        max-width:100%!important;
+        min-width:0!important;
+      }
+
+      .btn,.pill,.packet-wrap,.lang-toggle{
+        min-width:0!important;
+        max-width:100%!important;
+      }
+      .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
+      .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
+      .proof-card p,.contact p,a{
+        overflow-wrap:anywhere;
+        word-break:normal;
+      }
+
+      /* Pure decoration and hover-only UI must not participate in mobile overflow. */
+      #starfield,.bg-glows,.rim,.v4-deco,.packet-tip{
+        display:none!important;
+      }
+    }
+'''
+
+          html = html.replace('</style>', css + '\n  </style>', 1)
+
+          # Disable geometry-sensitive visual boot. The content is immediately
+          # visible and does not need observer/transformed entry states.
+          old_boot = "const startVisuals=()=>{initDynamicGlow();initStars();initReveal()};"
+          if old_boot in html:
+              html = html.replace(
+                  old_boot,
+                  "const startVisuals=()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show'))};",
+                  1,
+              )
+
+          html = html.replace('Beta · correção mobile', 'Beta · standalone mobile v3')
+          html = html.replace('· V6.5 · Beta</title>', '· V6.5 · Beta Standalone</title>', 1)
+
+          # Final structural gate: no patch may survive outside the document.
+          if html.rstrip().lower().endswith('</html>') is False:
+              raise SystemExit('beta must end at </html>')
+          if html.lower().count('<!doctype html>') != 1 or html.lower().count('<html') != 1:
+              raise SystemExit('beta is not a single standalone document')
+          if '100vw' in html:
+              raise SystemExit('100vw remains in beta')
+
+          target.write_text(html, encoding='utf-8')
+          print(f'Wrote standalone {target} ({len(html)} chars)')
+          PY
+
+          rm .github/workflows/ia-standalone-mobile-fix-v3.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ia/beta.html .github/workflows/ia-standalone-mobile-fix-v3.yml
+          git commit -m 'fix(ia): rebuild beta as standalone mobile-contained document'
+          git push
