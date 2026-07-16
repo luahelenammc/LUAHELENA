@@ -1,0 +1,138 @@
+/* IA production containment — preserves all original visual and interactive features. */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body>*,header,main,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
+.block-grid,.rail,.rail-sticky,.card-grid,.triple-grid,.phase-grid,
+.proof-grid,.contact-panel,.contact-links,.nav-right,.hero-meta,
+.hero-cta,.packet-wrap{
+  min-width:0;
+  min-inline-size:0;
+  max-width:100%;
+  max-inline-size:100%;
+}
+
+.nav-inner>*,.nav-right>*,.hero>*,.block-grid>*,.card-grid>*,
+.triple-grid>*,.phase-grid>*,.proof-grid>*,.contact-panel>*,
+.contact-links>*,.hero-meta>*,.hero-cta>*{
+  min-width:0;
+  min-inline-size:0;
+  max-inline-size:100%;
+}
+
+img,svg,canvas{
+  max-width:100%;
+  max-inline-size:100%;
+}
+
+/* Keep the original lift and sheen, but do not permanently promote every card
+   to a compositor layer. */
+.card,.phase-card,.proof-card{
+  transform:none;
+  will-change:auto;
+}
+@media (hover:hover) and (pointer:fine){
+  .card:hover,.phase-card:hover,.proof-card:hover{
+    transform:translateY(-8px);
+  }
+}
+
+@media (max-width:1100px), (pointer:coarse), (hover:none){
+  html,body,main{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .wrap,.nav-inner{
+    width:auto;
+    max-width:none;
+    margin-left:12px;
+    margin-right:12px;
+  }
+
+  .nav-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    justify-content:stretch;
+    align-items:start;
+    gap:10px;
+    padding:10px 0;
+  }
+  .nav-right{
+    width:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items:center;
+  }
+
+  .hero,.block-grid,.contact-panel,
+  .card-grid,.triple-grid,.phase-grid,.proof-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    width:100%;
+    max-width:100%;
+  }
+
+  .hero-text,.block-grid>div,.card,.phase-card,.proof-card,
+  .quote-card,.contact-panel>*,.contact-links>*{
+    width:auto;
+    max-width:100%;
+    min-width:0;
+  }
+
+  .btn,.pill,.packet-wrap,.lang-toggle{
+    min-width:0;
+    max-width:100%;
+  }
+  .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
+  .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
+  .proof-card p,.contact p,a{
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  /* Preserve the animated orbital as a bounded in-flow illustration. */
+  .v4-deco{
+    width:100%;
+    max-width:360px;
+    min-height:300px;
+    margin:8px auto 0;
+    overflow:hidden;
+    place-items:center;
+  }
+  .v4-deco:before{width:min(330px,88%)}
+  .v4-orbital{
+    width:min(320px,100%);
+    max-width:100%;
+    height:auto;
+  }
+
+  /* Preserve the packet explanation without creating horizontal document width. */
+  .packet-tip{
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:auto;
+    bottom:14px;
+    width:auto;
+    max-width:none;
+    transform:translateY(8px);
+  }
+  .packet-wrap:hover .packet-tip,
+  .packet-wrap:focus-within .packet-tip{transform:translateY(0)}
+  .packet-tip:before{display:none}
+
+  /* Preserve reveal as a real fade while avoiding translated mobile layers. */
+  .reveal{
+    transform:none;
+    transition:opacity .72s ease;
+  }
+  .reveal.show{transform:none}
+
+  .card:hover,.phase-card:hover,.proof-card:hover{transform:none}
+}
