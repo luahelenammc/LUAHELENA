@@ -1,0 +1,101 @@
+/* IA beta: card-like hover language for every circuit node, without rebuilding card boxes. */
+
+.entry-step{
+  display:none!important;
+}
+
+.entry-node,
+.context-node,
+.output-node,
+.foundation-node,
+.cycle-node{
+  position:relative;
+  isolation:isolate;
+  border:1px solid transparent!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(108deg,transparent 0 34%,rgba(232,201,122,0) 43%,rgba(232,201,122,0) 52%,transparent 61%) 150% 0 / 230% 100% no-repeat,
+    linear-gradient(145deg,rgba(255,255,255,.018),rgba(255,255,255,.006))!important;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  overflow:hidden!important;
+  transform:translateY(0);
+  transition:
+    transform .7s cubic-bezier(.19,1,.22,1),
+    border-color .28s ease,
+    box-shadow .38s ease,
+    background-color .28s ease;
+}
+
+.entry-node>*,
+.context-node>*,
+.output-node>*,
+.foundation-node>*,
+.cycle-node>*{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes circuitNodeSheen{
+  0%{background-position:150% 0,0 0}
+  100%{background-position:-70% 0,0 0}
+}
+
+@media (hover:hover) and (pointer:fine){
+  .entry-node:hover,
+  .context-node:hover,
+  .output-node:hover,
+  .foundation-node:hover,
+  .cycle-node:hover{
+    transform:translateY(-8px);
+    border-color:rgba(232,201,122,.34)!important;
+    background:
+      linear-gradient(108deg,transparent 0 34%,rgba(232,201,122,0) 43%,rgba(232,201,122,.17) 50%,rgba(232,201,122,0) 57%,transparent 66%) 150% 0 / 230% 100% no-repeat,
+      radial-gradient(circle at 84% 18%,rgba(159,135,255,.18),transparent 43%),
+      linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.038))!important;
+    box-shadow:0 30px 78px rgba(0,0,0,.32),0 0 34px rgba(159,135,255,.10);
+    animation:circuitNodeSheen 1.25s ease-out both;
+  }
+
+  .entry-node:hover .ic,
+  .context-node:hover .ic,
+  .output-node:hover .ic,
+  .foundation-node:hover .ic,
+  .cycle-node:hover .cycle-node-icon{
+    transform:translateY(-3px) scale(1.04);
+    border-color:rgba(232,201,122,.66);
+    box-shadow:0 16px 36px rgba(0,0,0,.3),0 0 30px rgba(159,135,255,.22);
+  }
+
+  .context-core,
+  .output-core{
+    transition:transform .55s cubic-bezier(.19,1,.22,1),border-color .28s ease,box-shadow .35s ease;
+  }
+  .context-core:hover,
+  .output-core:hover{
+    transform:translateY(-5px) scale(1.015);
+    border-color:rgba(232,201,122,.58);
+    box-shadow:0 26px 64px rgba(0,0,0,.36),0 0 46px rgba(159,135,255,.24);
+  }
+}
+
+/* Touch keeps the circuit calm and avoids permanent compositor layers. */
+@media (max-width:1100px), (pointer:coarse), (hover:none){
+  .entry-node,
+  .context-node,
+  .output-node,
+  .foundation-node,
+  .cycle-node{
+    transform:none!important;
+    box-shadow:none;
+    background:linear-gradient(145deg,rgba(255,255,255,.025),rgba(255,255,255,.008))!important;
+  }
+
+  .entry-node:active,
+  .context-node:active,
+  .output-node:active,
+  .foundation-node:active,
+  .cycle-node:active{
+    border-color:rgba(232,201,122,.28)!important;
+    background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025))!important;
+  }
+}
