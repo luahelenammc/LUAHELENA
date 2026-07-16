@@ -187,5 +187,6 @@ permalink: /ia/beta.html
 {%- assign page_html = core | replace_first: '<meta name="viewport" content="width=device-width, initial-scale=1" />', '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />' -%}
 {%- assign page_html = page_html | replace_first: '</style>', integrated_style -%}
 {%- assign page_html = page_html | replace: 'width:min(360px,calc(100vw - 28px))', 'width:min(360px,100%)' -%}
-{%- assign page_html = page_html | replace_first: '</body>', telemetry | append: '</body>' -%}
+{%- assign telemetry_with_close = telemetry | append: '</body>' -%}
+{%- assign page_html = page_html | replace_first: '</body>', telemetry_with_close -%}
 {{- page_html -}}
