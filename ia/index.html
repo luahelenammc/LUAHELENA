@@ -72,7 +72,7 @@ Canonical interaction rules for the IA surface:
 {%- endcapture -%}
 
 {%- assign head_injection = '<link rel="stylesheet" href="/ia/production-fixes.css?v=6.3" />' | append: language_styles | append: '</head>' -%}
-{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=6.3"></script></body>' -%}
+{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=6.4"></script></body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {{- page_html -}}
