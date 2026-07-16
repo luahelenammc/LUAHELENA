@@ -70,8 +70,8 @@ layout: null
 </style>
 {%- endcapture -%}
 
-{%- assign head_injection = language_bootstrap | append: '<meta name="robots" content="noindex,nofollow" />' | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=2" />' | append: language_styles | append: '</head>' -%}
-{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script></body>' -%}
+{%- assign head_injection = language_bootstrap | append: '<meta name="robots" content="noindex,nofollow" />' | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=4" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: language_styles | append: '</head>' -%}
+{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script><script src="/ia/beta-touch-reflection.js?v=1"></script></body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {{- page_html -}}
