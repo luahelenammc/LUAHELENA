@@ -1,81 +1,98 @@
-/* IA beta refinement: more top breathing room, less bottom weight, structural alignment in section 03. */
-.entry-node{padding:10px 24px 7px!important}
-.context-node{padding:28px 18px 11px!important}
-.output-node{padding:24px 18px 10px!important}
-.foundation-node{padding:26px 18px 11px!important}
-.cycle-node{padding:10px 14px 6px!important}
+/* IA beta refinement: balanced vertical rhythm and structural title alignment in section 03. */
 
-/* Section 03: the phase/title block is vertically centered beside the icon. */
+/* Desktop rhythm: equal top and bottom padding within each node family. */
+.entry-node{padding:16px 24px!important}
+.context-node{padding:18px!important}
+.output-node{padding:18px!important}
+.foundation-node{padding:18px!important}
+.cycle-node{padding:14px!important}
+
+/* Section 03: phase above, title centered on the same 50px row as the icon. */
 .cycle-node{
   display:grid!important;
   grid-template-columns:50px minmax(0,1fr)!important;
-  grid-template-rows:50px auto!important;
+  grid-template-rows:auto 50px auto!important;
   column-gap:13px;
-  row-gap:7px;
+  row-gap:4px;
   align-content:start;
 }
 .cycle-node-marker{
   grid-column:1!important;
-  grid-row:1!important;
+  grid-row:2!important;
   align-self:center!important;
   margin:0!important;
 }
 .cycle-node-heading{
-  grid-column:2;
-  grid-row:1;
-  min-width:0;
-  height:50px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  gap:1px;
+  display:contents!important;
+  height:auto!important;
 }
-.cycle-node-heading .mini-label,
-.cycle-node-heading h3{
-  grid-column:auto!important;
-  grid-row:auto!important;
-  margin:0;
-  min-width:0;
+.cycle-node-heading .mini-label{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:end;
+  margin:0 0 2px!important;
+  line-height:1;
 }
 .cycle-node-heading h3{
-  line-height:1.18;
+  grid-column:2!important;
+  grid-row:2!important;
+  align-self:center!important;
+  margin:0!important;
+  line-height:1.2;
+  min-width:0;
 }
 .cycle-node>p{
   grid-column:2!important;
-  grid-row:2!important;
-  margin-top:0!important;
+  grid-row:3!important;
+  margin:0!important;
   min-width:0;
 }
 
 @media (max-width:1100px), (pointer:coarse), (hover:none){
-  .entry-node{padding:9px 0 22px 68px!important}
-  .context-node,.context-node[data-node]{padding:25px 0 14px 62px!important}
-  .output-node,.output-node[data-side],.output-node[data-node]{padding:9px 0 20px 68px!important}
-  .foundation-node{padding:9px 0 20px 66px!important}
+  /* Mobile rhythm: one consistent vertical inset across all card-like nodes. */
+  .entry-node{padding:14px 14px 14px 68px!important}
+  .context-node,.context-node[data-node]{padding:14px 14px 14px 62px!important}
+  .output-node,.output-node[data-side],.output-node[data-node]{padding:14px 14px 14px 68px!important}
+  .foundation-node{padding:14px 14px 14px 66px!important}
+
+  .entry-node .ic,
+  .context-node .ic,
+  .output-node .ic,
+  .foundation-node .ic{
+    top:14px!important;
+  }
 
   .cycle-node{
     grid-template-columns:50px minmax(0,1fr)!important;
-    grid-template-rows:50px auto!important;
+    grid-template-rows:auto 50px auto!important;
     column-gap:14px!important;
-    row-gap:6px!important;
-    padding:9px 0 20px 0!important;
+    row-gap:4px!important;
+    padding:14px!important;
   }
   .cycle-node-marker{
     position:relative!important;
     top:auto!important;
     left:auto!important;
     grid-column:1!important;
-    grid-row:1!important;
+    grid-row:2!important;
     align-self:center!important;
   }
   .cycle-node-heading{
+    display:contents!important;
+  }
+  .cycle-node-heading .mini-label{
     grid-column:2!important;
     grid-row:1!important;
-    height:50px;
+    margin:0 0 2px!important;
+  }
+  .cycle-node-heading h3{
+    grid-column:2!important;
+    grid-row:2!important;
+    align-self:center!important;
   }
   .cycle-node>p{
     grid-column:2!important;
-    grid-row:2!important;
+    grid-row:3!important;
+    margin:0!important;
   }
 }
