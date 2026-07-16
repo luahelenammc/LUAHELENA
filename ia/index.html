@@ -5,7 +5,8 @@ layout: null
 
 {%- capture production_style -%}
 
-    /* Production V6 — validated mobile containment and stable card paint. */
+    /* Production V6.1 — restore the original visual language while preserving
+       the mobile containment proven during the static diagnostic cycle. */
     html,body{
       width:100%!important;
       max-width:100%!important;
@@ -31,48 +32,34 @@ layout: null
     }
 
     img,svg,canvas{
-      display:block;
       max-width:100%!important;
       max-inline-size:100%!important;
-      height:auto;
     }
 
-    #starfield,.bg-glows{display:none!important}
-    .nav,.packet-tip{
-      backdrop-filter:none!important;
-      -webkit-backdrop-filter:none!important;
-    }
-    .reveal,.reveal.show{
-      opacity:1!important;
-      transform:none!important;
-      transition:none!important;
-    }
-    .card,.phase-card,.proof-card{
-      overflow:hidden!important;
-      transform:none!important;
-      will-change:auto!important;
-      contain:none!important;
-      transition:border-color .24s ease,box-shadow .24s ease,background .24s ease!important;
-    }
-    .card:hover,.phase-card:hover,.proof-card:hover{transform:none!important}
-    .card:before,.phase-card:before,.proof-card:before,
-    .card:after,.phase-card:after,.proof-card:after{
-      display:none!important;
-      content:none!important;
+    /* Restore the card lift removed by the static probe, but only where hover
+       is a real interaction rather than a sticky emulation on touch. */
+    @media (hover:hover) and (pointer:fine){
+      .card:hover,.phase-card:hover,.proof-card:hover{
+        transform:translateY(-8px);
+      }
     }
 
+    /* Mobile/touch composition: keep every feature, but give it a bounded,
+       single-column home instead of hiding it or letting it widen the page. */
     @media (max-width:1100px), (pointer:coarse), (hover:none){
       html,body,main{
         width:100%!important;
         max-width:100%!important;
         overflow-x:hidden!important;
       }
+
       .wrap,.nav-inner{
         width:auto!important;
         max-width:none!important;
         margin-left:12px!important;
         margin-right:12px!important;
       }
+
       .nav-inner{
         display:grid!important;
         grid-template-columns:minmax(0,1fr)!important;
@@ -81,6 +68,7 @@ layout: null
         gap:10px!important;
         padding:10px 0!important;
       }
+
       .nav-right{
         width:auto!important;
         display:flex!important;
@@ -88,6 +76,7 @@ layout: null
         justify-content:flex-start!important;
         align-items:center!important;
       }
+
       .hero,.block-grid,.contact-panel,
       .card-grid,.triple-grid,.phase-grid,.proof-grid{
         display:grid!important;
@@ -95,23 +84,71 @@ layout: null
         width:100%!important;
         max-width:100%!important;
       }
+
       .hero-text,.block-grid>div,.card,.phase-card,.proof-card,
       .quote-card,.contact-panel>*,.contact-links>*{
         width:auto!important;
         max-width:100%!important;
         min-width:0!important;
       }
+
       .btn,.pill,.packet-wrap,.lang-toggle{
         min-width:0!important;
         max-width:100%!important;
       }
+
       .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
       .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
       .proof-card p,.contact p,a{
         overflow-wrap:anywhere;
         word-break:normal;
       }
-      .rim,.v4-deco,.packet-tip{display:none!important}
+
+      /* Orbital restored as an in-flow mobile illustration. */
+      .v4-deco{
+        display:grid!important;
+        width:100%!important;
+        max-width:360px!important;
+        min-height:300px!important;
+        margin:8px auto 0!important;
+        overflow:hidden!important;
+        place-items:center!important;
+      }
+      .v4-deco:before{
+        width:min(330px,88%)!important;
+      }
+      .v4-orbital{
+        display:block!important;
+        width:min(320px,100%)!important;
+        max-width:100%!important;
+        height:auto!important;
+        overflow:visible!important;
+      }
+
+      /* Tooltip restored without 100vw or absolute overflow. */
+      .packet-tip{
+        position:fixed!important;
+        left:12px!important;
+        right:12px!important;
+        top:auto!important;
+        bottom:14px!important;
+        width:auto!important;
+        max-width:none!important;
+        transform:translateY(8px)!important;
+      }
+      .packet-wrap:hover .packet-tip,
+      .packet-wrap:focus-within .packet-tip{
+        transform:translateY(0)!important;
+      }
+      .packet-tip:before{display:none!important}
+
+      /* Keep touch painting conservative without deleting card visuals. */
+      .card,.phase-card,.proof-card{
+        will-change:auto!important;
+      }
+      .card:hover,.phase-card:hover,.proof-card:hover{
+        transform:none!important;
+      }
     }
 
     html.touch-layout,html.touch-layout body{
@@ -128,6 +165,14 @@ layout: null
     html.touch-layout .nav-inner{
       display:grid!important;
       grid-template-columns:minmax(0,1fr)!important;
+      gap:10px!important;
+      padding:10px 0!important;
+    }
+    html.touch-layout .nav-right{
+      width:auto!important;
+      display:flex!important;
+      flex-wrap:wrap!important;
+      justify-content:flex-start!important;
     }
     html.touch-layout .hero,html.touch-layout .block-grid,
     html.touch-layout .contact-panel,html.touch-layout .card-grid,
@@ -137,8 +182,32 @@ layout: null
       grid-template-columns:minmax(0,1fr)!important;
       width:100%!important;
     }
-    html.touch-layout .v4-deco,html.touch-layout .rim,
-    html.touch-layout .packet-tip{display:none!important}
+    html.touch-layout .v4-deco{
+      display:grid!important;
+      width:100%!important;
+      max-width:360px!important;
+      min-height:300px!important;
+      margin:8px auto 0!important;
+      overflow:hidden!important;
+      place-items:center!important;
+    }
+    html.touch-layout .v4-deco:before{width:min(330px,88%)!important}
+    html.touch-layout .v4-orbital{
+      display:block!important;
+      width:min(320px,100%)!important;
+      max-width:100%!important;
+      height:auto!important;
+    }
+    html.touch-layout .packet-tip{
+      position:fixed!important;
+      left:12px!important;
+      right:12px!important;
+      top:auto!important;
+      bottom:14px!important;
+      width:auto!important;
+      max-width:none!important;
+    }
+    html.touch-layout .packet-tip:before{display:none!important}
   </style>
 {%- endcapture -%}
 
