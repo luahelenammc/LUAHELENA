@@ -1,4 +1,4 @@
-/* IA beta refinement: balanced vertical rhythm and structural title alignment in section 03. */
+/* IA beta refinement: balanced rhythm, lateral insets and structural title alignment in section 03. */
 
 /* Desktop rhythm: equal top and bottom padding within each node family. */
 .entry-node{padding:16px 24px!important}
@@ -49,25 +49,42 @@
 }
 
 @media (max-width:1100px), (pointer:coarse), (hover:none){
-  /* Mobile rhythm: one consistent vertical inset across all card-like nodes. */
-  .entry-node{padding:14px 14px 14px 68px!important}
-  .context-node,.context-node[data-node]{padding:14px 14px 14px 62px!important}
-  .output-node,.output-node[data-side],.output-node[data-node]{padding:14px 14px 14px 68px!important}
-  .foundation-node{padding:14px 14px 14px 66px!important}
+  /* Every mobile node keeps a real inset on both lateral edges. */
+  .entry-node,
+  .context-node,
+  .output-node,
+  .foundation-node,
+  .cycle-node{
+    width:100%!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  .entry-node{padding:16px 16px 16px 82px!important}
+  .context-node,.context-node[data-node]{padding:16px 16px 16px 74px!important}
+  .output-node,.output-node[data-side],.output-node[data-node]{padding:16px 16px 16px 75px!important}
+  .foundation-node{padding:16px 16px 16px 75px!important}
 
   .entry-node .ic,
   .context-node .ic,
   .output-node .ic,
   .foundation-node .ic{
-    top:14px!important;
+    top:16px!important;
+    left:16px!important;
   }
+
+  /* Re-center vertical circuit traces through the newly inset icons. */
+  .entry-circuit::before{left:40px!important}
+  .output-circuit::before{left:38px!important}
+  .foundation-circuit::before{left:38px!important}
+  .cycle-circuit::before{left:41px!important}
 
   .cycle-node{
     grid-template-columns:50px minmax(0,1fr)!important;
     grid-template-rows:auto 50px auto!important;
     column-gap:14px!important;
     row-gap:4px!important;
-    padding:14px!important;
+    padding:16px!important;
   }
   .cycle-node-marker{
     position:relative!important;
