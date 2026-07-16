@@ -73,3 +73,5 @@ jobs:
           git add ia/beta.html .github/workflows/ia-card-render-safe-mode-v2.yml
           git commit -m 'fix(ia): remove compositor-sensitive card layers globally'
           git push
+
+# trigger: 2
