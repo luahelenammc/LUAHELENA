@@ -1,4 +1,4 @@
-/* IA beta: one-shot golden reflection for every circuit node. */
+/* IA beta: one soft, one-shot golden reflection for every circuit node. */
 
 .entry-step{
   display:none!important;
@@ -31,24 +31,27 @@
 .cycle-node::before{
   content:"";
   position:absolute;
-  inset:0;
+  inset:-2px;
   z-index:0;
   border-radius:inherit;
   pointer-events:none;
   opacity:0;
   background:linear-gradient(
     102deg,
-    transparent 0 41%,
-    rgba(232,201,122,0) 44%,
-    rgba(255,239,184,.3) 47%,
-    rgba(255,247,215,.92) 50%,
-    rgba(232,201,122,.34) 53%,
-    rgba(232,201,122,0) 56%,
-    transparent 59% 100%
+    transparent 0 40%,
+    rgba(232,201,122,0) 43%,
+    rgba(255,230,158,.10) 46%,
+    rgba(255,240,190,.42) 50%,
+    rgba(232,201,122,.14) 54%,
+    rgba(232,201,122,0) 57%,
+    transparent 60% 100%
   );
-  background-size:225% 100%;
-  background-position:145% 0;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+  background-size:250% 100%;
+  background-position:155% 0;
+  background-repeat:no-repeat;
+  filter:blur(6px);
+  transform:scaleX(1.025);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .entry-node>*,
@@ -61,10 +64,10 @@
 }
 
 @keyframes circuitGoldReflection{
-  0%{opacity:0;background-position:145% 0}
-  13%{opacity:1}
-  78%{opacity:.88}
-  100%{opacity:0;background-position:-145% 0}
+  0%{opacity:0;background-position:155% 0}
+  16%{opacity:.58}
+  72%{opacity:.48}
+  100%{opacity:0;background-position:-155% 0}
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -75,11 +78,11 @@
   .cycle-node:hover{
     z-index:5;
     transform:translateY(-8px);
-    border-color:rgba(232,201,122,.46)!important;
+    border-color:rgba(232,201,122,.42)!important;
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.19),transparent 44%),
-      linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.04))!important;
-    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 34px rgba(159,135,255,.12),0 0 20px rgba(232,201,122,.08);
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.17),transparent 44%),
+      linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035))!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 30px rgba(159,135,255,.1),0 0 16px rgba(232,201,122,.06);
   }
 
   .entry-node:hover::before,
@@ -95,11 +98,11 @@
   .output-node:hover .ic,
   .foundation-node:hover .ic,
   .cycle-node:hover .cycle-node-icon{
-    transform:translateY(-3px) scale(1.055);
+    transform:translateY(-3px) scale(1.045);
     color:#ffe9a9;
-    border-color:rgba(232,201,122,.78);
+    border-color:rgba(232,201,122,.7);
     background:linear-gradient(145deg,rgba(58,45,78,.98),rgba(27,23,42,.98));
-    box-shadow:0 17px 38px rgba(0,0,0,.34),0 0 28px rgba(159,135,255,.23),0 0 18px rgba(232,201,122,.16);
+    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 24px rgba(159,135,255,.2),0 0 14px rgba(232,201,122,.12);
   }
 
   .entry-node:hover h3,
@@ -108,15 +111,15 @@
   .foundation-node:hover h3,
   .cycle-node:hover h3{
     color:#fff4d5;
-    text-shadow:0 0 15px rgba(232,201,122,.14);
+    text-shadow:0 0 13px rgba(232,201,122,.11);
   }
 
   .output-node:hover .output-port,
   .foundation-node:hover .foundation-port,
   .cycle-node:hover .cycle-node-port{
-    transform:scale(1.32);
+    transform:scale(1.25);
     background:#ffe9a9;
-    box-shadow:0 0 18px rgba(232,201,122,.95),0 0 28px rgba(159,135,255,.32);
+    box-shadow:0 0 15px rgba(232,201,122,.8),0 0 23px rgba(159,135,255,.26);
   }
 
   .context-core,
@@ -126,8 +129,8 @@
   .context-core:hover,
   .output-core:hover{
     transform:translateY(-5px) scale(1.018);
-    border-color:rgba(232,201,122,.6);
-    box-shadow:0 27px 66px rgba(0,0,0,.36),0 0 44px rgba(159,135,255,.24),0 0 18px rgba(232,201,122,.12);
+    border-color:rgba(232,201,122,.55);
+    box-shadow:0 27px 66px rgba(0,0,0,.34),0 0 38px rgba(159,135,255,.2),0 0 14px rgba(232,201,122,.09);
   }
 }
 
@@ -150,11 +153,11 @@
   .output-node.is-gold-reflecting,
   .foundation-node.is-gold-reflecting,
   .cycle-node.is-gold-reflecting{
-    border-color:rgba(232,201,122,.5)!important;
+    border-color:rgba(232,201,122,.4)!important;
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.18),transparent 45%),
-      linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.03))!important;
-    box-shadow:0 16px 42px rgba(0,0,0,.22),0 0 26px rgba(159,135,255,.14),0 0 16px rgba(232,201,122,.08);
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.15),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025))!important;
+    box-shadow:0 16px 42px rgba(0,0,0,.2),0 0 22px rgba(159,135,255,.1),0 0 12px rgba(232,201,122,.05);
   }
 
   .entry-node.is-gold-reflecting::before,
@@ -171,8 +174,8 @@
   .foundation-node.is-gold-reflecting .ic,
   .cycle-node.is-gold-reflecting .cycle-node-icon{
     color:#ffe9a9;
-    border-color:rgba(232,201,122,.72);
-    box-shadow:0 13px 30px rgba(0,0,0,.28),0 0 23px rgba(159,135,255,.2),0 0 15px rgba(232,201,122,.14);
+    border-color:rgba(232,201,122,.62);
+    box-shadow:0 13px 30px rgba(0,0,0,.26),0 0 19px rgba(159,135,255,.16),0 0 11px rgba(232,201,122,.1);
   }
 
   .entry-node:active,
@@ -180,6 +183,6 @@
   .output-node:active,
   .foundation-node:active,
   .cycle-node:active{
-    border-color:rgba(232,201,122,.3)!important;
+    border-color:rgba(232,201,122,.24)!important;
   }
 }
