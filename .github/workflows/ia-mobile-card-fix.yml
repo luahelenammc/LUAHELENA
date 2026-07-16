@@ -1,0 +1,151 @@
+name: Build IA mobile card fix beta
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ia-mobile-card-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-beta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild cumulative beta and apply mobile compositor fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show 64926a467adfaec80607ba3cf800f4d1404c9a96:ia/index.html > ia/beta.html
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('ia/beta.html')
+          html = path.read_text(encoding='utf-8')
+
+          def replace_once(old: str, new: str, label: str) -> None:
+              global html
+              count = html.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly 1 match, found {count}')
+              html = html.replace(old, new, 1)
+
+          # Beta metadata: reviewable, non-indexed, visibly distinct without changing content architecture.
+          replace_once(
+              '<meta name="theme-color" content="#13121f" />',
+              '<meta name="theme-color" content="#13121f" />\n  <meta name="robots" content="noindex,nofollow" />',
+              'robots meta'
+          )
+          replace_once(
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5</title>',
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta</title>',
+              'document title'
+          )
+
+          # Stop permanently promoting every card to an independent GPU layer.
+          replace_once(
+              '.card,.phase-card,.proof-card{position:relative;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,var(--panel),rgba(255,255,255,.035));box-shadow:0 18px 52px rgba(0,0,0,.22);padding:22px;overflow:hidden;transform:translateY(0);transition-property:transform,border-color,box-shadow,background;transition-duration:1s;transition-timing-function:cubic-bezier(.19,1,.22,1),ease,ease,ease;will-change:transform}',
+              '.card,.phase-card,.proof-card{position:relative;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,var(--panel),rgba(255,255,255,.035));box-shadow:0 18px 52px rgba(0,0,0,.22);padding:22px;overflow:hidden;transition-property:transform,border-color,box-shadow,background;transition-duration:1s;transition-timing-function:cubic-bezier(.19,1,.22,1),ease,ease,ease}',
+              'card base compositor rule'
+          )
+          replace_once(
+              '.card:hover,.phase-card:hover,.proof-card:hover{transform:translateY(-8px);border-color:rgba(232,201,122,.34);box-shadow:0 30px 80px rgba(0,0,0,.34);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.042))}',
+              '.card:hover,.phase-card:hover,.proof-card:hover{border-color:rgba(232,201,122,.34);box-shadow:0 30px 80px rgba(0,0,0,.34);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.042))}',
+              'card hover transform rule'
+          )
+
+          responsive_fix = (
+              '@media(hover:hover) and (pointer:fine){'
+              '.card:hover,.phase-card:hover,.proof-card:hover{transform:translateY(-8px)}'
+              '}'
+              '@media(hover:none),(pointer:coarse){'
+              '.reveal{opacity:1;transform:none;transition:none}'
+              '.card,.phase-card,.proof-card{transform:none;will-change:auto}'
+              '.card:after,.phase-card:after,.proof-card:after{display:none}'
+              '#starfield{display:none}'
+              '.bg-glows{animation:none;filter:none}'
+              '}'
+          )
+          replace_once(
+              '    @media(max-width:980px)',
+              f'    {responsive_fix}\n    @media(max-width:980px)',
+              'responsive fix insertion point'
+          )
+
+          # Touch devices should not wait for an observer/repaint cycle to make sections visible.
+          replace_once(
+              "function initReveal(){let items=[...document.querySelectorAll('.reveal')];if(!('IntersectionObserver'in window)){items.forEach(i=>i.classList.add('show'));return}let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});items.forEach(i=>io.observe(i))}",
+              "function initReveal(){let items=[...document.querySelectorAll('.reveal')];if(matchMedia('(hover: none), (pointer: coarse)').matches||!('IntersectionObserver'in window)){items.forEach(i=>i.classList.add('show'));return}let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});items.forEach(i=>io.observe(i))}",
+              'touch reveal guard'
+          )
+          replace_once(
+              "function initDynamicGlow(){let root=document.documentElement,gx=52,gy=18,tx=52,ty=18;",
+              "function initDynamicGlow(){if(matchMedia('(hover: none), (pointer: coarse)').matches)return;let root=document.documentElement,gx=52,gy=18,tx=52,ty=18;",
+              'touch glow guard'
+          )
+
+          # Wait for font metrics before starting geometry-sensitive visual effects.
+          replace_once(
+              "document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>syncLangUrl(b.dataset.lang));document.querySelectorAll('[data-packet]').forEach(b=>b.onclick=downloadPacket);document.querySelectorAll('[data-discord]').forEach(b=>b.onclick=()=>copyDiscord(b));document.getElementById('year').textContent=new Date().getFullYear();initDynamicGlow();initStars();initReveal();applyLang(getLang());",
+              "document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>syncLangUrl(b.dataset.lang));document.querySelectorAll('[data-packet]').forEach(b=>b.onclick=downloadPacket);document.querySelectorAll('[data-discord]').forEach(b=>b.onclick=()=>copyDiscord(b));document.getElementById('year').textContent=new Date().getFullYear();applyLang(getLang());const startVisuals=()=>{initDynamicGlow();initStars();initReveal()};if(document.fonts&&document.fonts.ready)document.fonts.ready.then(startVisuals).catch(startVisuals);else startVisuals();",
+              'font-ready visual boot'
+          )
+
+          # Preserve the already-approved subtle cumulative content changes directly in the full beta.
+          replacements = {
+              'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e onde a rotina depende de memória individual.':
+                  'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e, quando há lacunas, quais pessoas ou fontes podem completar o contexto.',
+              'Linguagem estratégica': 'Pesquisa e linguagem estratégica',
+              'Tradução de complexidade em texto claro, utilizável, humano e defendível para equipes, lideranças e ferramentas de IA.':
+                  'Investigo informação fragmentada, desenvolvo fontes e transformo complexidade em briefings, textos e handoffs claros, utilizáveis e defendíveis.',
+              "'lastro.tag7':'tradução institucional'": "'lastro.tag7':'pesquisa e tradução institucional'",
+              'I understand who knows what, who decides, who executes, who owns each front, and where the routine depends on individual memory.':
+                  'I understand who knows what, who decides, who executes, who owns each front, and, when gaps remain, which people or sources can complete the context.',
+              'Strategic language': 'Research and strategic language',
+              'Translating complexity into clear, usable, human, and defensible text for teams, leadership, and AI tools.':
+                  'I investigate fragmented information, develop sources, and turn complexity into clear, usable, and defensible briefs, texts, and handoffs.',
+              "'lastro.tag7':'institutional translation'": "'lastro.tag7':'research and institutional translation'",
+          }
+          for old, new in replacements.items():
+              count = html.count(old)
+              if count < 1:
+                  raise SystemExit(f'approved content delta missing: {old[:70]!r}')
+              html = html.replace(old, new)
+
+          # Keep the beta label lightweight and outside the card composition system.
+          beta_css = (
+              '.beta-flag-subtle{position:fixed;right:16px;bottom:14px;z-index:70;'
+              'border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:6px 9px;'
+              'background:rgba(19,18,31,.82);backdrop-filter:blur(12px);color:#a99ab8;'
+              'font:700 .68rem/1 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.08em;'
+              'text-transform:uppercase;box-shadow:0 10px 28px rgba(0,0,0,.22);pointer-events:none}'
+          )
+          replace_once('</style>', beta_css + '\n  </style>', 'beta flag css')
+          replace_once(
+              '<canvas id="starfield" aria-hidden="true"></canvas><div class="bg-glows" aria-hidden="true"></div><div class="rim" aria-hidden="true"></div>',
+              '<canvas id="starfield" aria-hidden="true"></canvas><div class="bg-glows" aria-hidden="true"></div><div class="rim" aria-hidden="true"></div><div class="beta-flag-subtle" aria-hidden="true">Beta · correção mobile</div>',
+              'beta flag html'
+          )
+
+          # Language switching must preserve the Beta suffix.
+          html = html.replace("'Lua Helena Moon — AI, roles, and institutional context · V6.5'", "'Lua Helena Moon — AI, roles, and institutional context · V6.5 · Beta'")
+          html = html.replace("'Lua Helena Moon — IA, papéis e contexto institucional · V6.5'", "'Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta'")
+
+          path.write_text(html, encoding='utf-8')
+          print(f'Built {path} with {len(html)} characters')
+          PY
+
+          # One-shot workflow: remove itself after generating the review beta.
+          rm .github/workflows/ia-mobile-card-fix.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ia/beta.html .github/workflows/ia-mobile-card-fix.yml
+          git commit -m 'fix(ia): build cumulative mobile card rendering beta'
+          git push
