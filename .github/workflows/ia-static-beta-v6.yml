@@ -1,0 +1,197 @@
+name: Build static IA beta v6
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ia-static-beta-v6.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate a literal standalone beta
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          source = Path('ia/beta-core.html')
+          target = Path('ia/beta.html')
+          html = source.read_text(encoding='utf-8')
+
+          html = html.replace(
+              '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />',
+              1,
+          )
+
+          early_script = '''
+          <script>
+            (() => {
+              const coarse = matchMedia('(pointer: coarse)').matches;
+              const noHover = matchMedia('(hover: none)').matches;
+              if (coarse || noHover || navigator.maxTouchPoints > 0) {
+                document.documentElement.classList.add('touch-layout');
+              }
+            })();
+          </script>
+          '''
+          html = html.replace('</head>', early_script + '\n</head>', 1)
+
+          css = r'''
+
+            /* BETA V6 STATIC — literal HTML, no Liquid/Jekyll wrapper. */
+            html,body{max-width:100%!important;overflow-x:hidden!important}
+            body{position:relative!important;touch-action:pan-y pinch-zoom}
+            *,*::before,*::after{box-sizing:border-box}
+
+            header,main,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
+            .block-grid,.rail,.rail-sticky,.card-grid,.triple-grid,.phase-grid,
+            .proof-grid,.contact-panel,.contact-links,.nav-right,.hero-meta,
+            .hero-cta,.packet-wrap{
+              min-width:0!important;
+              min-inline-size:0!important;
+              max-width:100%!important;
+              max-inline-size:100%!important;
+            }
+
+            .nav-inner>*,.nav-right>*,.hero>*,.block-grid>*,.card-grid>*,
+            .triple-grid>*,.phase-grid>*,.proof-grid>*,.contact-panel>*,
+            .contact-links>*,.hero-meta>*,.hero-cta>*{
+              min-width:0!important;
+              min-inline-size:0!important;
+              max-width:100%!important;
+              max-inline-size:100%!important;
+            }
+
+            img,svg,canvas{display:block;max-width:100%!important;height:auto}
+
+            /* Preserve the card paint fix. */
+            #starfield,.bg-glows{display:none!important}
+            .nav,.packet-tip,.beta-flag-subtle{
+              backdrop-filter:none!important;
+              -webkit-backdrop-filter:none!important;
+            }
+            .reveal,.reveal.show{opacity:1!important;transform:none!important;transition:none!important}
+            .card,.phase-card,.proof-card{
+              overflow:hidden!important;
+              transform:none!important;
+              will-change:auto!important;
+              contain:none!important;
+              transition:border-color .24s ease,box-shadow .24s ease,background .24s ease!important;
+            }
+            .card:hover,.phase-card:hover,.proof-card:hover{transform:none!important}
+            .card:before,.phase-card:before,.proof-card:before,
+            .card:after,.phase-card:after,.proof-card:after{display:none!important;content:none!important}
+
+            /* Force the mobile composition on actual touch devices even when
+               Brave reports a desktop-sized CSS viewport. */
+            @media (max-width:1100px), (pointer:coarse), (hover:none){
+              html,body,main{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+              .wrap,.nav-inner{
+                width:auto!important;
+                max-width:none!important;
+                margin-left:12px!important;
+                margin-right:12px!important;
+              }
+              .nav-inner{
+                display:grid!important;
+                grid-template-columns:minmax(0,1fr)!important;
+                justify-content:stretch!important;
+                align-items:start!important;
+                gap:10px!important;
+                padding:10px 0!important;
+              }
+              .nav-right{
+                width:auto!important;
+                display:flex!important;
+                flex-wrap:wrap!important;
+                justify-content:flex-start!important;
+                align-items:center!important;
+              }
+              .hero,.block-grid,.contact-panel,
+              .card-grid,.triple-grid,.phase-grid,.proof-grid{
+                display:grid!important;
+                grid-template-columns:minmax(0,1fr)!important;
+                width:100%!important;
+                max-width:100%!important;
+              }
+              .hero-text,.block-grid>div,.card,.phase-card,.proof-card,
+              .quote-card,.contact-panel>*,.contact-links>*{
+                width:auto!important;
+                max-width:100%!important;
+                min-width:0!important;
+              }
+              .btn,.pill,.packet-wrap,.lang-toggle{
+                min-width:0!important;
+                max-width:100%!important;
+              }
+              .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
+              .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
+              .proof-card p,.contact p,a{overflow-wrap:anywhere;word-break:normal}
+              .rim,.v4-deco,.packet-tip{display:none!important}
+            }
+
+            html.touch-layout,html.touch-layout body{
+              width:100%!important;
+              max-width:100%!important;
+              overflow-x:hidden!important;
+            }
+            html.touch-layout .wrap,html.touch-layout .nav-inner{
+              width:auto!important;
+              max-width:none!important;
+              margin-left:12px!important;
+              margin-right:12px!important;
+            }
+            html.touch-layout .nav-inner{
+              display:grid!important;
+              grid-template-columns:minmax(0,1fr)!important;
+            }
+            html.touch-layout .hero,html.touch-layout .block-grid,
+            html.touch-layout .contact-panel,html.touch-layout .card-grid,
+            html.touch-layout .triple-grid,html.touch-layout .phase-grid,
+            html.touch-layout .proof-grid{
+              display:grid!important;
+              grid-template-columns:minmax(0,1fr)!important;
+              width:100%!important;
+            }
+            html.touch-layout .v4-deco,html.touch-layout .rim,
+            html.touch-layout .packet-tip{display:none!important}
+
+            #beta-v6-proof{
+              position:fixed;top:6px;right:6px;z-index:2147483647;
+              max-width:calc(100% - 12px);padding:6px 8px;border-radius:9px;
+              background:#321126;color:#ffd8ea;border:1px solid #ff91c8;
+              font:800 10px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;
+              pointer-events:none;
+            }
+          '''
+          html = html.replace('</style>', css + '\n  </style>', 1)
+
+          proof = '<div id="beta-v6-proof">BETA V6 · STATIC · TOUCH-FORCED</div>'
+          html = html.replace('<body>', '<body>\n' + proof, 1)
+
+          # Make the document identity unmistakable even in browser source/cache tests.
+          html = html.replace('V6.5 · Beta</title>', 'V6.5 · Beta V6 Static</title>', 1)
+          html = html.replace('BETA · REVISÃO', 'BETA V6 · STATIC', 1)
+
+          target.write_text(html, encoding='utf-8')
+          print(f'wrote {target} ({len(html)} bytes)')
+          PY
+
+          rm .github/workflows/ia-static-beta-v6.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ia/beta.html .github/workflows/ia-static-beta-v6.yml
+          git commit -m 'fix(ia): publish literal static beta with touch-forced mobile layout'
+          git push
