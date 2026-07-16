@@ -63,10 +63,11 @@ img,svg,canvas{
     padding:10px 0;
   }
   .nav-right{
-    width:auto;
+    width:100%;
     display:flex;
     flex-wrap:wrap;
-    justify-content:flex-start;
+    justify-content:flex-end;
+    justify-self:stretch;
     align-items:center;
   }
 
