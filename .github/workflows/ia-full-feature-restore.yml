@@ -1,0 +1,225 @@
+name: Restore complete IA feature baseline
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ia-full-feature-restore.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild standalone production index from full-feature baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Last complete pre-diagnostic production page: visual and interactive
+          # behavior is restored from source instead of guessed through overrides.
+          git show 64926a467adfaec80607ba3cf800f4d1404c9a96:ia/index.html > ia/index.html
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('ia/index.html')
+          html = path.read_text(encoding='utf-8')
+
+          # Preserve the subtle, already-approved semantic evolution that happened
+          # after the full-feature baseline.
+          replacements = {
+              'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e onde a rotina depende de memória individual.':
+                  'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e, quando há lacunas, quais pessoas ou fontes podem completar o contexto.',
+              'Linguagem estratégica': 'Pesquisa e linguagem estratégica',
+              'Tradução de complexidade em texto claro, utilizável, humano e defendível para equipes, lideranças e ferramentas de IA.':
+                  'Investigo informação fragmentada, desenvolvo fontes e transformo complexidade em briefings, textos e handoffs claros, utilizáveis e defendíveis.',
+              "'lastro.tag7':'tradução institucional'": "'lastro.tag7':'pesquisa e tradução institucional'",
+              'I understand who knows what, who decides, who executes, who owns each front, and where the routine depends on individual memory.':
+                  'I understand who knows what, who decides, who executes, who owns each front, and, when gaps remain, which people or sources can complete the context.',
+              'Strategic language': 'Research and strategic language',
+              'Translating complexity into clear, usable, human, and defensible text for teams, leadership, and AI tools.':
+                  'I investigate fragmented information, develop sources, and turn complexity into clear, usable, and defensible briefs, texts, and handoffs.',
+              "'lastro.tag7':'institutional translation'": "'lastro.tag7':'research and institutional translation'",
+          }
+          for old, new in replacements.items():
+              if old not in html:
+                  raise SystemExit(f'Expected semantic baseline text not found: {old[:80]!r}')
+              html = html.replace(old, new)
+
+          # Keep every original feature. These rules only contain width/compositor
+          # hazards and adapt the complete experience to touch/mobile.
+          containment = r'''
+
+    /* Production V6.2 — full-feature restoration with mobile-safe containment. */
+    html,body{
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
+    }
+
+    body>*,header,main,footer,section,.nav,.wrap,.nav-inner,.hero,.hero-text,
+    .block-grid,.rail,.rail-sticky,.card-grid,.triple-grid,.phase-grid,
+    .proof-grid,.contact-panel,.contact-links,.nav-right,.hero-meta,
+    .hero-cta,.packet-wrap{
+      min-width:0;
+      min-inline-size:0;
+      max-width:100%;
+      max-inline-size:100%;
+    }
+
+    .nav-inner>*,.nav-right>*,.hero>*,.block-grid>*,.card-grid>*,
+    .triple-grid>*,.phase-grid>*,.proof-grid>*,.contact-panel>*,
+    .contact-links>*,.hero-meta>*,.hero-cta>*{
+      min-width:0;
+      min-inline-size:0;
+      max-inline-size:100%;
+    }
+
+    img,svg,canvas{
+      max-width:100%;
+      max-inline-size:100%;
+    }
+
+    /* Preserve lift/sheens while avoiding permanent compositor promotion. */
+    .card,.phase-card,.proof-card{
+      transform:none;
+      will-change:auto;
+    }
+    @media (hover:hover) and (pointer:fine){
+      .card:hover,.phase-card:hover,.proof-card:hover{
+        transform:translateY(-8px);
+      }
+    }
+
+    @media (max-width:1100px), (pointer:coarse), (hover:none){
+      html,body,main{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+      }
+
+      .wrap,.nav-inner{
+        width:auto;
+        max-width:none;
+        margin-left:12px;
+        margin-right:12px;
+      }
+
+      .nav-inner{
+        display:grid;
+        grid-template-columns:minmax(0,1fr);
+        justify-content:stretch;
+        align-items:start;
+        gap:10px;
+        padding:10px 0;
+      }
+      .nav-right{
+        width:auto;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:flex-start;
+        align-items:center;
+      }
+
+      .hero,.block-grid,.contact-panel,
+      .card-grid,.triple-grid,.phase-grid,.proof-grid{
+        display:grid;
+        grid-template-columns:minmax(0,1fr);
+        width:100%;
+        max-width:100%;
+      }
+
+      .hero-text,.block-grid>div,.card,.phase-card,.proof-card,
+      .quote-card,.contact-panel>*,.contact-links>*{
+        width:auto;
+        max-width:100%;
+        min-width:0;
+      }
+
+      .btn,.pill,.packet-wrap,.lang-toggle{
+        min-width:0;
+        max-width:100%;
+      }
+      .btn,.pill,.brand,.hero h1,.section-title,.section-lead,
+      .card h3,.phase-card h3,.proof-card h3,.card p,.phase-card p,
+      .proof-card p,.contact p,a{
+        overflow-wrap:anywhere;
+        word-break:normal;
+      }
+
+      /* The orbital remains animated, but becomes a bounded in-flow block. */
+      .v4-deco{
+        width:100%;
+        max-width:360px;
+        min-height:300px;
+        margin:8px auto 0;
+        overflow:hidden;
+        place-items:center;
+      }
+      .v4-deco:before{width:min(330px,88%)}
+      .v4-orbital{
+        width:min(320px,100%);
+        max-width:100%;
+        height:auto;
+      }
+
+      /* Packet explanation remains available without creating document width. */
+      .packet-tip{
+        position:fixed;
+        left:12px;
+        right:12px;
+        top:auto;
+        bottom:14px;
+        width:auto;
+        max-width:none;
+        transform:translateY(8px);
+      }
+      .packet-wrap:hover .packet-tip,
+      .packet-wrap:focus-within .packet-tip{transform:translateY(0)}
+      .packet-tip:before{display:none}
+
+      /* Retain reveal as an opacity animation, avoiding translated mobile layers. */
+      .reveal{
+        transform:none;
+        transition:opacity .72s ease;
+      }
+      .reveal.show{transform:none}
+
+      .card:hover,.phase-card:hover,.proof-card:hover{transform:none}
+    }
+'''
+
+          if '</style>' not in html:
+              raise SystemExit('Could not locate the production style block')
+          html = html.replace('</style>', containment + '\n  </style>', 1)
+
+          # The page must be a direct, deploy-safe document: no Liquid includes,
+          # beta labels, wrappers, diagnostic telemetry, or noindex residue.
+          forbidden = [
+              'include_relative', 'beta-flag-subtle', 'BETA V6',
+              'noindex,nofollow', 'touch-layout', 'beta-width-telemetry'
+          ]
+          leftovers = [item for item in forbidden if item in html]
+          if leftovers:
+              raise SystemExit(f'Forbidden production residue: {leftovers}')
+          if not html.lstrip().lower().startswith('<!doctype html>'):
+              raise SystemExit('Production index is not standalone HTML')
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+          rm -f ia/index-core.html
+          rm .github/workflows/ia-full-feature-restore.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ia/index.html ia/index-core.html .github/workflows/ia-full-feature-restore.yml
+          git commit -m 'fix(ia): fully restore pre-static features with safe mobile layout'
+          git push
