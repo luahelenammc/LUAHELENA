@@ -1,8 +1,15 @@
-/* IA beta: card-like hover language for every circuit node, without rebuilding card boxes. */
+/* IA beta: vivid card-like hover language for circuit nodes without rebuilding boxes. */
 
 .entry-step{
   display:none!important;
 }
+
+/* Small extra breathing room above every circuit item. */
+.entry-node{padding:5px 24px 12px!important}
+.context-node{padding:23px 18px 16px!important}
+.output-node{padding:19px 18px 16px!important}
+.foundation-node{padding:21px 18px 18px!important}
+.cycle-node{padding:5px 14px 10px!important}
 
 .entry-node,
 .context-node,
@@ -11,19 +18,22 @@
 .cycle-node{
   position:relative;
   isolation:isolate;
-  border:1px solid transparent!important;
+  border:1px solid rgba(255,255,255,.035)!important;
   border-radius:24px!important;
   background:
-    linear-gradient(108deg,transparent 0 34%,rgba(232,201,122,0) 43%,rgba(232,201,122,0) 52%,transparent 61%) 150% 0 / 230% 100% no-repeat,
-    linear-gradient(145deg,rgba(255,255,255,.018),rgba(255,255,255,.006))!important;
-  box-shadow:0 0 0 rgba(0,0,0,0);
+    linear-gradient(108deg,transparent 0 32%,rgba(232,201,122,0) 42%,rgba(232,201,122,0) 52%,transparent 62%) 155% 0 / 235% 100% no-repeat,
+    radial-gradient(circle at 84% 16%,rgba(159,135,255,.07),transparent 45%),
+    linear-gradient(145deg,rgba(255,255,255,.032),rgba(255,255,255,.009))!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.08);
   overflow:visible!important;
-  transform:translateY(0);
+  transform:translateY(0) scale(1);
+  filter:saturate(1);
   transition:
-    transform .7s cubic-bezier(.19,1,.22,1),
-    border-color .28s ease,
-    box-shadow .38s ease,
-    background-color .28s ease;
+    transform .68s cubic-bezier(.19,1,.22,1),
+    border-color .25s ease,
+    box-shadow .34s ease,
+    filter .28s ease,
+    background-color .25s ease;
 }
 
 .entry-node>*,
@@ -35,9 +45,46 @@
   z-index:1;
 }
 
+.entry-node h3,
+.context-node h3,
+.output-node h3,
+.foundation-node h3,
+.cycle-node h3,
+.entry-node p,
+.context-node p,
+.output-node p,
+.foundation-node p,
+.cycle-node p{
+  transition:color .25s ease,text-shadow .25s ease;
+}
+
+/* Section 03: icon on the left, label/title/description on the right. */
+.cycle-node{
+  display:grid;
+  grid-template-columns:50px minmax(0,1fr);
+  grid-template-rows:auto auto 1fr;
+  column-gap:12px;
+  align-content:start;
+}
+.cycle-node-marker{
+  grid-column:1;
+  grid-row:1 / span 3;
+  align-self:start;
+  margin:0!important;
+}
+.cycle-node .mini-label,
+.cycle-node h3,
+.cycle-node p{
+  grid-column:2;
+  min-width:0;
+}
+.cycle-node .mini-label{grid-row:1}
+.cycle-node h3{grid-row:2}
+.cycle-node p{grid-row:3}
+
 @keyframes circuitNodeSheen{
-  0%{background-position:150% 0,0 0}
-  100%{background-position:-70% 0,0 0}
+  0%{background-position:155% 0,0 0,0 0}
+  100%{background-position:-78% 0,0 0,0 0}
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -46,14 +93,37 @@
   .output-node:hover,
   .foundation-node:hover,
   .cycle-node:hover{
-    transform:translateY(-8px);
-    border-color:rgba(232,201,122,.34)!important;
+    z-index:5;
+    transform:translateY(-12px) scale(1.018);
+    filter:saturate(1.14) brightness(1.04);
+    border-color:rgba(232,201,122,.68)!important;
     background:
-      linear-gradient(108deg,transparent 0 34%,rgba(232,201,122,0) 43%,rgba(232,201,122,.17) 50%,rgba(232,201,122,0) 57%,transparent 66%) 150% 0 / 230% 100% no-repeat,
-      radial-gradient(circle at 84% 18%,rgba(159,135,255,.18),transparent 43%),
-      linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.038))!important;
-    box-shadow:0 30px 78px rgba(0,0,0,.32),0 0 34px rgba(159,135,255,.10);
-    animation:circuitNodeSheen 1.25s ease-out both;
+      linear-gradient(108deg,transparent 0 31%,rgba(232,201,122,0) 40%,rgba(255,238,186,.34) 50%,rgba(232,201,122,0) 60%,transparent 69%) 155% 0 / 235% 100% no-repeat,
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.31),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.145),rgba(255,255,255,.052))!important;
+    box-shadow:
+      0 38px 92px rgba(0,0,0,.46),
+      0 0 54px rgba(159,135,255,.22),
+      0 0 24px rgba(232,201,122,.13),
+      inset 0 1px 0 rgba(255,255,255,.16);
+    animation:circuitNodeSheen 1.08s ease-out both;
+  }
+
+  .entry-node:hover h3,
+  .context-node:hover h3,
+  .output-node:hover h3,
+  .foundation-node:hover h3,
+  .cycle-node:hover h3{
+    color:#fff4d4;
+    text-shadow:0 0 18px rgba(232,201,122,.16);
+  }
+
+  .entry-node:hover p,
+  .context-node:hover p,
+  .output-node:hover p,
+  .foundation-node:hover p,
+  .cycle-node:hover p{
+    color:#eee5f1;
   }
 
   .entry-node:hover .ic,
@@ -61,33 +131,81 @@
   .output-node:hover .ic,
   .foundation-node:hover .ic,
   .cycle-node:hover .cycle-node-icon{
-    transform:translateY(-3px) scale(1.04);
-    border-color:rgba(232,201,122,.66);
-    box-shadow:0 16px 36px rgba(0,0,0,.3),0 0 30px rgba(159,135,255,.22);
+    transform:translateY(-5px) scale(1.1);
+    color:#fff0bd;
+    border-color:rgba(232,201,122,.9);
+    background:linear-gradient(145deg,rgba(64,49,84,.98),rgba(28,23,43,.98));
+    box-shadow:
+      0 19px 42px rgba(0,0,0,.38),
+      0 0 38px rgba(159,135,255,.34),
+      0 0 22px rgba(232,201,122,.22);
+  }
+
+  .output-node:hover .output-port,
+  .foundation-node:hover .foundation-port,
+  .cycle-node:hover .cycle-node-port{
+    transform:scale(1.45);
+    background:#fff0bd;
+    box-shadow:0 0 20px rgba(232,201,122,1),0 0 34px rgba(159,135,255,.45);
   }
 
   .context-core,
   .output-core{
-    transition:transform .55s cubic-bezier(.19,1,.22,1),border-color .28s ease,box-shadow .35s ease;
+    transition:transform .55s cubic-bezier(.19,1,.22,1),border-color .25s ease,box-shadow .32s ease,filter .25s ease;
   }
   .context-core:hover,
   .output-core:hover{
-    transform:translateY(-5px) scale(1.015);
-    border-color:rgba(232,201,122,.58);
-    box-shadow:0 26px 64px rgba(0,0,0,.36),0 0 46px rgba(159,135,255,.24);
+    transform:translateY(-8px) scale(1.035);
+    filter:saturate(1.14) brightness(1.05);
+    border-color:rgba(232,201,122,.78);
+    box-shadow:0 32px 78px rgba(0,0,0,.42),0 0 58px rgba(159,135,255,.34),0 0 24px rgba(232,201,122,.16);
   }
 }
 
-/* Touch keeps the circuit calm and avoids permanent compositor layers. */
+/* Reduce the dead space between the animated hero ornament and section 00. */
+.hero{padding-bottom:30px}
+#entrada.block{padding-top:16px}
+
+/* Touch stays compositor-safe, but keeps a clear pressed response. */
 @media (max-width:1100px), (pointer:coarse), (hover:none){
+  .hero{padding-bottom:8px!important}
+  #entrada.block{padding-top:6px!important}
+
+  .entry-node{padding:5px 0 30px 68px!important}
+  .context-node,.context-node[data-node]{padding:21px 0 20px 62px!important}
+  .output-node,.output-node[data-side],.output-node[data-node]{padding:5px 0 28px 68px!important}
+  .foundation-node{padding:5px 0 28px 66px!important}
+
+  .cycle-node{
+    display:grid!important;
+    grid-template-columns:50px minmax(0,1fr)!important;
+    grid-template-rows:auto auto 1fr!important;
+    column-gap:14px;
+    padding:5px 0 28px 0!important;
+  }
+  .cycle-node-marker{
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+    grid-column:1!important;
+    grid-row:1 / span 3!important;
+  }
+  .cycle-node .mini-label,
+  .cycle-node h3,
+  .cycle-node p{
+    grid-column:2!important;
+  }
+
   .entry-node,
   .context-node,
   .output-node,
   .foundation-node,
   .cycle-node{
     transform:none!important;
-    box-shadow:none;
-    background:linear-gradient(145deg,rgba(255,255,255,.025),rgba(255,255,255,.008))!important;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    background:
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.08),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012))!important;
   }
 
   .entry-node:active,
@@ -95,7 +213,10 @@
   .output-node:active,
   .foundation-node:active,
   .cycle-node:active{
-    border-color:rgba(232,201,122,.28)!important;
-    background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025))!important;
+    border-color:rgba(232,201,122,.48)!important;
+    filter:saturate(1.08) brightness(1.03);
+    background:
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.2),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035))!important;
   }
 }
