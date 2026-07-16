@@ -20,12 +20,23 @@
 .card:before,.phase-card:before,.proof-card:before,
 .card:after,.phase-card:after,.proof-card:after{display:none!important;content:none!important}
 
-/* Mobile width hardening v1.
-   This fixes the source of lateral overflow instead of merely hiding it. */
-html,body{
+/* Mobile width hardening v2: real root lock, not overflow:clip. */
+html{
   width:100%!important;
   max-width:100%!important;
-  overflow-x:clip!important;
+  overflow-x:hidden!important;
+  overscroll-behavior-x:none!important;
+}
+body{
+  position:relative!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:hidden!important;
+  overscroll-behavior-x:none!important;
+  touch-action:pan-y pinch-zoom;
+}
+body>*,header,main,footer,.nav{
+  max-width:100vw!important;
 }
 main,section,.wrap,.nav-inner,.hero,.hero-text,.block-grid,.rail,.rail-sticky,
 .card-grid,.triple-grid,.phase-grid,.proof-grid,.contact-panel,.contact-links,
@@ -33,15 +44,16 @@ main,section,.wrap,.nav-inner,.hero,.hero-text,.block-grid,.rail,.rail-sticky,
   min-width:0!important;
   max-width:100%!important;
 }
-img,svg,canvas{max-width:100%!important}
+img,svg,canvas{max-width:100%!important;height:auto}
 
 @media(max-width:700px){
   .wrap,.nav-inner{
-    width:calc(100% - 24px)!important;
-    max-width:calc(100% - 24px)!important;
+    width:auto!important;
+    max-width:none!important;
+    margin-left:12px!important;
+    margin-right:12px!important;
   }
 
-  /* Original bug: brand + nav-right:100% remained in the same flex row. */
   .nav-inner{
     display:grid!important;
     grid-template-columns:minmax(0,1fr)!important;
@@ -70,11 +82,8 @@ img,svg,canvas{max-width:100%!important}
     width:100%!important;
   }
 
-  .v4-deco,.v4-orbital{
-    width:100%!important;
-    max-width:100%!important;
-  }
-  .v4-deco{overflow:hidden!important}
+  /* Decorative orbital remains a likely visual-overflow source and adds no mobile content. */
+  .v4-deco{display:none!important}
 
   .btn,.pill,.packet-wrap,.lang-toggle{
     min-width:0!important;
@@ -91,7 +100,6 @@ img,svg,canvas{max-width:100%!important}
     overflow-wrap:anywhere!important;
   }
 
-  /* Tooltip anchored near the right edge was another possible viewport expander. */
   .packet-tip{
     position:fixed!important;
     left:12px!important;
@@ -104,8 +112,11 @@ img,svg,canvas{max-width:100%!important}
   .rim{display:none!important}
 }
 
-@supports not (overflow:clip){
-  html,body{overflow-x:hidden!important}
+#overflow-diagnostic{
+  position:fixed;left:8px;bottom:8px;z-index:9999;
+  max-width:calc(100vw - 16px);padding:6px 8px;border-radius:10px;
+  background:#2c1020;color:#ffd4e8;border:1px solid #ff91c8;
+  font:600 11px/1.3 system-ui,sans-serif;overflow-wrap:anywhere;
 }
 </style>
 
@@ -116,7 +127,49 @@ img,svg,canvas{max-width:100%!important}
     document.documentElement.style.setProperty('--glow-x', '52%');
     document.documentElement.style.setProperty('--glow-y', '18%');
   };
-  forceStablePaint();
-  addEventListener('load', forceStablePaint, { once: true });
+
+  const selectorFor = el => {
+    if (el.id) return '#' + el.id;
+    const classes = typeof el.className === 'string'
+      ? el.className.trim().split(/\s+/).filter(Boolean).slice(0,3)
+      : [];
+    return el.tagName.toLowerCase() + (classes.length ? '.' + classes.join('.') : '');
+  };
+
+  const diagnoseOverflow = () => {
+    const vw = document.documentElement.clientWidth;
+    const offenders = [...document.body.querySelectorAll('*')].filter(el => {
+      if (el.id === 'overflow-diagnostic') return false;
+      const rect = el.getBoundingClientRect();
+      return rect.right > vw + 1 || rect.left < -1 || el.scrollWidth > vw + 1;
+    });
+
+    let badge = document.getElementById('overflow-diagnostic');
+    if (!offenders.length) {
+      if (badge) badge.remove();
+      document.documentElement.dataset.overflowAudit = 'clean';
+      return;
+    }
+
+    if (!badge) {
+      badge = document.createElement('div');
+      badge.id = 'overflow-diagnostic';
+      document.body.appendChild(badge);
+    }
+    const excess = Math.max(0, document.documentElement.scrollWidth - vw);
+    badge.textContent = `overflow +${excess}px · ${offenders.slice(0,4).map(selectorFor).join(' · ')}`;
+    document.documentElement.dataset.overflowAudit = 'failed';
+    window.__iaOverflowOffenders = offenders;
+  };
+
+  const run = () => requestAnimationFrame(() => {
+    forceStablePaint();
+    diagnoseOverflow();
+  });
+
+  run();
+  addEventListener('load', run, { once:true });
+  addEventListener('resize', run, { passive:true });
+  addEventListener('orientationchange', run, { passive:true });
 })();
 </script>
