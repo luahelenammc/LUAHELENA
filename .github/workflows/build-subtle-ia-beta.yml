@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    if: github.event.head_commit.message == 'Build subtle ia beta'
+    if: github.event.head_commit.message == 'Trigger subtle ia beta workflow'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
