@@ -66,9 +66,13 @@ img,svg,canvas{
     width:100%;
     display:flex;
     flex-wrap:wrap;
-    justify-content:flex-end;
+    justify-content:flex-end!important;
     justify-self:stretch;
     align-items:center;
+    text-align:right;
+  }
+  .nav-right>:first-child{
+    margin-inline-start:auto!important;
   }
 
   .hero,.block-grid,.contact-panel,
