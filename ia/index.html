@@ -2,7 +2,7 @@
 layout: null
 ---
 {%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
-{%- assign head_injection = '<link rel="stylesheet" href="/ia/production-fixes.css?v=6.2" /></head>' -%}
+{%- assign head_injection = '<link rel="stylesheet" href="/ia/production-fixes.css?v=6.3" /></head>' -%}
 {%- assign body_injection = '<script src="/ia/semantic-delta.js?v=6.2"></script></body>' -%}
 {%- assign page_html = core | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
