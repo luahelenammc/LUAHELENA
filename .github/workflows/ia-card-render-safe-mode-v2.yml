@@ -2,8 +2,7 @@ name: Apply IA card render safe mode v2
 
 on:
   push:
-    paths:
-      - '.github/workflows/ia-card-render-safe-mode-v2.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -66,12 +65,11 @@ jobs:
           print(f'Updated {path}: {len(html)} characters')
           PY
 
+          rm -f ia/.render-safe-trigger
           rm .github/workflows/ia-card-render-safe-mode-v2.yml
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add ia/beta.html .github/workflows/ia-card-render-safe-mode-v2.yml
+          git add ia/beta.html ia/.render-safe-trigger .github/workflows/ia-card-render-safe-mode-v2.yml
           git commit -m 'fix(ia): remove compositor-sensitive card layers globally'
           git push
-
-# trigger: 2
