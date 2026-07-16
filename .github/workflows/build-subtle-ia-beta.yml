@@ -1,0 +1,165 @@
+name: Build subtle IA beta
+
+on:
+  push:
+    paths:
+      - ".github/workflows/build-subtle-ia-beta.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.event.head_commit.message == 'Build subtle ia beta'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build beta from current index
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          source = Path('ia/index.html')
+          target = Path('ia/beta.html')
+          text = source.read_text(encoding='utf-8')
+
+          def replace_count(old: str, new: str, expected: int, label: str) -> None:
+              global text
+              found = text.count(old)
+              if found != expected:
+                  raise SystemExit(f'{label}: expected {expected} occurrence(s), found {found}')
+              text = text.replace(old, new)
+
+          replace_count(
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5</title>',
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta</title>',
+              1,
+              'static title',
+          )
+
+          description = '<meta name="description" content="Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar." />'
+          replace_count(
+              description,
+              description + '\n  <meta name="robots" content="noindex,nofollow" />',
+              1,
+              'robots meta',
+          )
+
+          beta_css = '''    .beta-flag{position:fixed;right:18px;bottom:16px;z-index:70;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 9px;background:rgba(19,18,31,.76);backdrop-filter:blur(12px);color:var(--quiet);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 10px 28px rgba(0,0,0,.22)}\n'''
+          replace_count(
+              '    @media(max-width:1050px){',
+              beta_css + '    @media(max-width:1050px){',
+              1,
+              'beta css',
+          )
+
+          replace_count(
+              '<body>\n',
+              '<body>\n<!-- beta cumulativo: réplica integral do index com integração pública sutil de research operations -->\n<div class="beta-flag">Beta · revisão</div>\n',
+              1,
+              'beta marker',
+          )
+
+          replace_count(
+              'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e onde a rotina depende de memória individual.',
+              'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e, quando há lacunas, quais pessoas ou fontes podem completar o contexto.',
+              2,
+              'pt key-people copy',
+          )
+          replace_count(
+              'I understand who knows what, who decides, who executes, who owns each front, and where the routine depends on individual memory.',
+              'I understand who knows what, who decides, who executes, who owns each front, and, when gaps remain, which people or sources can complete the context.',
+              1,
+              'en key-people copy',
+          )
+
+          replace_count('Linguagem estratégica', 'Pesquisa e linguagem estratégica', 2, 'pt research title')
+          replace_count('Strategic language', 'Research and strategic language', 1, 'en research title')
+          replace_count(
+              'Tradução de complexidade em texto claro, utilizável, humano e defendível para equipes, lideranças e ferramentas de IA.',
+              'Investigação de informação fragmentada, desenvolvimento de fontes e tradução de complexidade em briefings, textos e handoffs claros, utilizáveis e defendíveis.',
+              2,
+              'pt research copy',
+          )
+          replace_count(
+              'Translating complexity into clear, usable, human, and defensible text for teams, leadership, and AI tools.',
+              'Investigating fragmented information, developing sources, and translating complexity into clear, usable, and defensible briefs, texts, and handoffs.',
+              1,
+              'en research copy',
+          )
+
+          replace_count('tradução institucional', 'pesquisa e tradução institucional', 2, 'pt tag')
+          replace_count('institutional translation', 'research and institutional translation', 1, 'en tag')
+
+          replace_count(
+              "document.title=lang==='en'?'Lua Helena Moon — AI, roles, and institutional context · V6.5':'Lua Helena Moon — IA, papéis e contexto institucional · V6.5';",
+              "document.title=lang==='en'?'Lua Helena Moon — AI, roles, and institutional context · V6.5 · Beta':'Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta';",
+              1,
+              'dynamic title',
+          )
+
+          replace_count(
+              '- documentos, fontes, rotinas, regras vigentes e memória operacional',
+              '- documentos, fontes, rotinas, regras vigentes e memória operacional\n- fontes humanas e institucionais relevantes quando o contexto está fragmentado',
+              1,
+              'packet pt sources',
+          )
+          replace_count(
+              '- operational documents, sources, routines, current rules, and operational memory',
+              '- operational documents, sources, routines, current rules, and operational memory\n- relevant human and institutional sources when context is fragmented',
+              1,
+              'packet en sources',
+          )
+          replace_count(
+              '- documentação viva e memória operacional',
+              '- documentação viva e memória operacional\n- briefings de pesquisa e handoffs para direcionamento institucional',
+              1,
+              'packet pt outputs',
+          )
+          replace_count(
+              '- living documentation and operational memory',
+              '- living documentation and operational memory\n- research briefs and handoffs for institutional routing',
+              1,
+              'packet en outputs',
+          )
+          replace_count(
+              '- mediação entre sistemas humanos e equipes técnicas',
+              '- mediação entre sistemas humanos e equipes técnicas\n- research operations e desenvolvimento de fontes',
+              1,
+              'packet pt fit',
+          )
+          replace_count(
+              '- mediation between human systems and technical teams',
+              '- mediation between human systems and technical teams\n- research operations and source development',
+              1,
+              'packet en fit',
+          )
+          replace_count(
+              'Seu valor está em arquitetura de contexto, tradução institucional, governança de conhecimento, mapeamento de sistemas humanos, mediação, letramento em IA, desenho de aprendizagem, linguagem, memória e adoção real.',
+              'Seu valor está em arquitetura de contexto, pesquisa e desenvolvimento de fontes, tradução institucional, governança de conhecimento, mapeamento de sistemas humanos, mediação, letramento em IA, desenho de aprendizagem, linguagem, memória e adoção real.',
+              1,
+              'packet pt value',
+          )
+          replace_count(
+              'Her value is context architecture, institutional translation, knowledge governance, human-system mapping, mediation, AI literacy, learning design, language, memory, and real adoption.',
+              'Her value is context architecture, research and source development, institutional translation, knowledge governance, human-system mapping, mediation, AI literacy, learning design, language, memory, and real adoption.',
+              1,
+              'packet en value',
+          )
+
+          target.write_text(text, encoding='utf-8')
+          print(f'wrote {target} ({len(text)} chars)')
+          PY
+
+      - name: Commit beta
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ia/beta.html
+          git commit -m "Refine ia beta with subtle research integration"
+          git push
