@@ -1,0 +1,25 @@
+(() => {
+  const delta = {
+    pt: {
+      'entrada.card2.text': 'Entendo quem sabe o quê, quem decide, quem executa, quem responde por cada frente e, quando há lacunas, quais pessoas ou fontes podem completar o contexto.',
+      'lastro.card5.title': 'Pesquisa e linguagem estratégica',
+      'lastro.card5.text': 'Investigo informação fragmentada, desenvolvo fontes e transformo complexidade em briefings, textos e handoffs claros, utilizáveis e defendíveis.',
+      'lastro.tag7': 'pesquisa e tradução institucional'
+    },
+    en: {
+      'entrada.card2.text': 'I understand who knows what, who decides, who executes, who owns each front, and, when gaps remain, which people or sources can complete the context.',
+      'lastro.card5.title': 'Research and strategic language',
+      'lastro.card5.text': 'I investigate fragmented information, develop sources, and turn complexity into clear, usable, and defensible briefs, texts, and handoffs.',
+      'lastro.tag7': 'research and institutional translation'
+    }
+  };
+
+  if (typeof T === 'object' && T.pt && T.en) {
+    Object.assign(T.pt, delta.pt);
+    Object.assign(T.en, delta.en);
+  }
+
+  if (typeof applyLang === 'function' && typeof getLang === 'function') {
+    applyLang(getLang());
+  }
+})();
