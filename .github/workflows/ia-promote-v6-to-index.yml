@@ -1,0 +1,73 @@
+name: Promote IA beta v6 to index
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ia-promote-v6-to-index.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Promote static beta and remove review routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp ia/beta-v6-static.html ia/index.html
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('ia/index.html')
+          html = path.read_text(encoding='utf-8')
+
+          # Production metadata.
+          html = html.replace(
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta V6 Static — Uncached Route</title>',
+              '<title>Lua Helena Moon — IA, papéis e contexto institucional · V6.5</title>'
+          )
+          html = html.replace('  <meta name="robots" content="noindex,nofollow" />\n', '')
+
+          # Remove beta-only visual proof and references while preserving the approved mobile/card fixes.
+          html = html.replace('.nav,.packet-tip,.beta-flag-subtle{', '.nav,.packet-tip{')
+          html = re.sub(r'\n\s*#beta-v6-proof\{.*?\n\s*\}\n', '\n', html, count=1, flags=re.S)
+          html = re.sub(r'<div id="beta-v6-proof">.*?</div>\s*', '', html, count=1, flags=re.S)
+          html = re.sub(r'<div class="beta-flag-subtle"[^>]*>.*?</div>', '', html, count=1, flags=re.S)
+
+          # Language switching in the former beta must also use the production title.
+          html = html.replace(
+              'Lua Helena Moon — AI, roles, and institutional context · V6.5 · Beta',
+              'Lua Helena Moon — AI, roles, and institutional context · V6.5'
+          )
+          html = html.replace(
+              'Lua Helena Moon — IA, papéis e contexto institucional · V6.5 · Beta',
+              'Lua Helena Moon — IA, papéis e contexto institucional · V6.5'
+          )
+
+          forbidden = ['BETA V6', 'Beta · correção mobile', 'Beta V6 Static — Uncached Route', 'noindex,nofollow']
+          leftovers = [item for item in forbidden if item in html]
+          if leftovers:
+              raise SystemExit(f'Beta-only residue remains in production index: {leftovers}')
+          if not html.lstrip().lower().startswith('<!doctype html>'):
+              raise SystemExit('Production index is not a standalone HTML document')
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+          rm ia/beta.html ia/beta-v6-static.html
+          rm .github/workflows/ia-promote-v6-to-index.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ia/index.html ia/beta.html ia/beta-v6-static.html .github/workflows/ia-promote-v6-to-index.yml
+          git commit -m 'feat(ia): promote validated v6 beta to production index'
+          git push
