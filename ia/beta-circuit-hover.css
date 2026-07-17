@@ -1,4 +1,4 @@
-/* IA beta: one soft, one-shot golden reflection for every circuit node. */
+/* IA beta: original card-inspired golden sheen adapted to circuit nodes. */
 
 .entry-step{
   display:none!important;
@@ -24,36 +24,6 @@
   transition:transform .72s cubic-bezier(.19,1,.22,1),border-color .28s ease,box-shadow .34s ease,background .28s ease;
 }
 
-.entry-node::before,
-.context-node::before,
-.output-node::before,
-.foundation-node::before,
-.cycle-node::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  z-index:0;
-  border-radius:inherit;
-  pointer-events:none;
-  opacity:0;
-  background:linear-gradient(
-    102deg,
-    transparent 0 40%,
-    rgba(232,201,122,0) 43%,
-    rgba(255,230,158,.10) 46%,
-    rgba(255,240,190,.42) 50%,
-    rgba(232,201,122,.14) 54%,
-    rgba(232,201,122,0) 57%,
-    transparent 60% 100%
-  );
-  background-size:250% 100%;
-  background-position:155% 0;
-  background-repeat:no-repeat;
-  filter:blur(6px);
-  transform:scaleX(1.025);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-}
-
 .entry-node>*,
 .context-node>*,
 .output-node>*,
@@ -63,11 +33,44 @@
   z-index:1;
 }
 
-@keyframes circuitGoldReflection{
-  0%{opacity:0;background-position:155% 0}
-  16%{opacity:.58}
-  72%{opacity:.48}
-  100%{opacity:0;background-position:-155% 0}
+/* The sheen is clipped inside its own layer, so circuit wires can remain outside. */
+.circuit-sheen{
+  position:absolute!important;
+  inset:0;
+  z-index:0!important;
+  display:block;
+  overflow:hidden;
+  border-radius:inherit;
+  pointer-events:none;
+}
+.circuit-sheen::before{
+  content:"";
+  position:absolute;
+  inset:-30% -58%;
+  opacity:0;
+  background:linear-gradient(
+    90deg,
+    transparent 0 35%,
+    rgba(232,201,122,0) 39%,
+    rgba(255,190,48,.12) 43%,
+    rgba(255,211,79,.34) 47%,
+    rgba(255,239,172,.62) 50%,
+    rgba(255,198,51,.28) 54%,
+    rgba(232,201,122,0) 60%,
+    transparent 65% 100%
+  );
+  filter:blur(13px) saturate(1.38);
+  transform:translateX(-54%) rotate(8deg) scaleY(1.14);
+  transform-origin:center;
+  will-change:transform,opacity;
+}
+
+/* Based on the original cardGoldSheen rhythm, slowed down for a richer pass. */
+@keyframes circuitGoldSheen{
+  0%{opacity:0;transform:translateX(-54%) rotate(8deg) scaleY(1.14)}
+  18%{opacity:.72}
+  64%{opacity:.58}
+  100%{opacity:0;transform:translateX(54%) rotate(8deg) scaleY(1.14)}
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -78,19 +81,19 @@
   .cycle-node:hover{
     z-index:5;
     transform:translateY(-8px);
-    border-color:rgba(232,201,122,.42)!important;
+    border-color:rgba(232,201,122,.46)!important;
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.17),transparent 44%),
-      linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035))!important;
-    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 30px rgba(159,135,255,.1),0 0 16px rgba(232,201,122,.06);
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.18),transparent 44%),
+      linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.038))!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 31px rgba(159,135,255,.11),0 0 18px rgba(232,201,122,.07);
   }
 
-  .entry-node:hover::before,
-  .context-node:hover::before,
-  .output-node:hover::before,
-  .foundation-node:hover::before,
-  .cycle-node:hover::before{
-    animation:circuitGoldReflection 1.18s cubic-bezier(.22,.72,.2,1) 1 both;
+  .entry-node:hover>.circuit-sheen::before,
+  .context-node:hover>.circuit-sheen::before,
+  .output-node:hover>.circuit-sheen::before,
+  .foundation-node:hover>.circuit-sheen::before,
+  .cycle-node:hover>.circuit-sheen::before{
+    animation:circuitGoldSheen 1.9s cubic-bezier(.18,.68,.2,1) 1 both;
   }
 
   .entry-node:hover .ic,
@@ -98,11 +101,11 @@
   .output-node:hover .ic,
   .foundation-node:hover .ic,
   .cycle-node:hover .cycle-node-icon{
-    transform:translateY(-3px) scale(1.045);
-    color:#ffe9a9;
-    border-color:rgba(232,201,122,.7);
-    background:linear-gradient(145deg,rgba(58,45,78,.98),rgba(27,23,42,.98));
-    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 24px rgba(159,135,255,.2),0 0 14px rgba(232,201,122,.12);
+    transform:translateY(-3px) scale(1.05);
+    color:#ffe6a0;
+    border-color:rgba(232,201,122,.74);
+    background:linear-gradient(145deg,rgba(60,45,77,.98),rgba(27,23,42,.98));
+    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 25px rgba(159,135,255,.21),0 0 16px rgba(255,196,55,.15);
   }
 
   .entry-node:hover h3,
@@ -110,16 +113,16 @@
   .output-node:hover h3,
   .foundation-node:hover h3,
   .cycle-node:hover h3{
-    color:#fff4d5;
-    text-shadow:0 0 13px rgba(232,201,122,.11);
+    color:#fff2cc;
+    text-shadow:0 0 14px rgba(255,199,58,.13);
   }
 
   .output-node:hover .output-port,
   .foundation-node:hover .foundation-port,
   .cycle-node:hover .cycle-node-port{
-    transform:scale(1.25);
-    background:#ffe9a9;
-    box-shadow:0 0 15px rgba(232,201,122,.8),0 0 23px rgba(159,135,255,.26);
+    transform:scale(1.28);
+    background:#ffe5a0;
+    box-shadow:0 0 16px rgba(255,199,58,.86),0 0 25px rgba(159,135,255,.28);
   }
 
   .context-core,
@@ -129,8 +132,8 @@
   .context-core:hover,
   .output-core:hover{
     transform:translateY(-5px) scale(1.018);
-    border-color:rgba(232,201,122,.55);
-    box-shadow:0 27px 66px rgba(0,0,0,.34),0 0 38px rgba(159,135,255,.2),0 0 14px rgba(232,201,122,.09);
+    border-color:rgba(232,201,122,.58);
+    box-shadow:0 27px 66px rgba(0,0,0,.35),0 0 40px rgba(159,135,255,.22),0 0 16px rgba(255,199,58,.1);
   }
 }
 
@@ -147,25 +150,24 @@
       linear-gradient(145deg,rgba(255,255,255,.038),rgba(255,255,255,.012))!important;
   }
 
-  /* A released tap keeps this class long enough to finish one complete pass. */
   .entry-node.is-gold-reflecting,
   .context-node.is-gold-reflecting,
   .output-node.is-gold-reflecting,
   .foundation-node.is-gold-reflecting,
   .cycle-node.is-gold-reflecting{
-    border-color:rgba(232,201,122,.4)!important;
+    border-color:rgba(232,201,122,.42)!important;
     background:
-      radial-gradient(circle at 84% 16%,rgba(159,135,255,.15),transparent 45%),
-      linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025))!important;
-    box-shadow:0 16px 42px rgba(0,0,0,.2),0 0 22px rgba(159,135,255,.1),0 0 12px rgba(232,201,122,.05);
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.16),transparent 45%),
+      linear-gradient(145deg,rgba(255,255,255,.074),rgba(255,255,255,.027))!important;
+    box-shadow:0 16px 42px rgba(0,0,0,.21),0 0 23px rgba(159,135,255,.11),0 0 13px rgba(255,199,58,.06);
   }
 
-  .entry-node.is-gold-reflecting::before,
-  .context-node.is-gold-reflecting::before,
-  .output-node.is-gold-reflecting::before,
-  .foundation-node.is-gold-reflecting::before,
-  .cycle-node.is-gold-reflecting::before{
-    animation:circuitGoldReflection 1.18s cubic-bezier(.22,.72,.2,1) 1 both!important;
+  .entry-node.is-gold-reflecting>.circuit-sheen::before,
+  .context-node.is-gold-reflecting>.circuit-sheen::before,
+  .output-node.is-gold-reflecting>.circuit-sheen::before,
+  .foundation-node.is-gold-reflecting>.circuit-sheen::before,
+  .cycle-node.is-gold-reflecting>.circuit-sheen::before{
+    animation:circuitGoldSheen 1.9s cubic-bezier(.18,.68,.2,1) 1 both!important;
   }
 
   .entry-node.is-gold-reflecting .ic,
@@ -173,9 +175,9 @@
   .output-node.is-gold-reflecting .ic,
   .foundation-node.is-gold-reflecting .ic,
   .cycle-node.is-gold-reflecting .cycle-node-icon{
-    color:#ffe9a9;
-    border-color:rgba(232,201,122,.62);
-    box-shadow:0 13px 30px rgba(0,0,0,.26),0 0 19px rgba(159,135,255,.16),0 0 11px rgba(232,201,122,.1);
+    color:#ffe6a0;
+    border-color:rgba(232,201,122,.66);
+    box-shadow:0 13px 30px rgba(0,0,0,.27),0 0 20px rgba(159,135,255,.17),0 0 13px rgba(255,196,55,.12);
   }
 
   .entry-node:active,
@@ -183,6 +185,6 @@
   .output-node:active,
   .foundation-node:active,
   .cycle-node:active{
-    border-color:rgba(232,201,122,.24)!important;
+    border-color:rgba(232,201,122,.25)!important;
   }
 }
