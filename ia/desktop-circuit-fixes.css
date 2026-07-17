@@ -1,0 +1,123 @@
+/* Desktop circuit QA: keep connectors in gutters and away from readable content. */
+
+@media (min-width:1101px) and (hover:hover) and (pointer:fine){
+  /* 03: preserve the linear circuit, but give every node its own breathing room. */
+  .cycle-circuit{
+    isolation:isolate;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:12px!important;
+    padding-inline:0!important;
+  }
+  .cycle-circuit::before{
+    z-index:0;
+    top:55px!important;
+    left:4%!important;
+    right:4%!important;
+  }
+  .cycle-node{
+    z-index:1;
+    min-width:0;
+    border:1px solid rgba(255,255,255,.06)!important;
+    border-radius:22px!important;
+    padding:14px 12px!important;
+    background:
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.08),transparent 45%),
+      linear-gradient(145deg,rgba(34,29,51,.985),rgba(21,19,34,.985))!important;
+  }
+  .cycle-node-marker{
+    width:50px;
+    min-width:50px;
+    overflow:visible;
+  }
+  /* The old port sat between icon and title and collided with the words. */
+  .cycle-node-port{
+    display:none!important;
+  }
+  .cycle-node-heading h3{
+    font-size:clamp(.92rem,1.05vw,1.04rem)!important;
+    line-height:1.18!important;
+  }
+
+  /* 04: replace the SVG overlay with a real gutter-routed circuit. */
+  .foundation-circuit{
+    isolation:isolate;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+    gap:46px 34px!important;
+    padding:20px 0 10px!important;
+  }
+  .foundation-circuit-lines{
+    display:none!important;
+  }
+  .foundation-circuit::before{
+    content:"";
+    position:absolute;
+    z-index:0;
+    left:16.666%;
+    right:16.666%;
+    top:50%;
+    height:1px;
+    transform:translateY(-.5px);
+    background:linear-gradient(90deg,rgba(232,201,122,.58),rgba(159,135,255,.46),rgba(139,220,255,.42),rgba(232,201,122,.58));
+    box-shadow:0 0 14px rgba(159,135,255,.16);
+    pointer-events:none;
+  }
+  .foundation-node{
+    position:relative;
+    z-index:1;
+    align-self:stretch;
+    min-width:0;
+    overflow:visible!important;
+    border:1px solid rgba(255,255,255,.06)!important;
+    border-radius:24px!important;
+    padding:18px!important;
+    background:
+      radial-gradient(circle at 84% 16%,rgba(159,135,255,.08),transparent 45%),
+      linear-gradient(145deg,rgba(34,29,51,.985),rgba(21,19,34,.985))!important;
+  }
+  .foundation-port{
+    z-index:3;
+    left:50%!important;
+    width:10px;
+    height:10px;
+    transform:translateX(-50%);
+    border-radius:50%;
+  }
+  .foundation-node[data-node="0"] .foundation-port,
+  .foundation-node[data-node="1"] .foundation-port,
+  .foundation-node[data-node="2"] .foundation-port{
+    top:auto!important;
+    bottom:-5px!important;
+  }
+  .foundation-node[data-node="3"] .foundation-port,
+  .foundation-node[data-node="4"] .foundation-port,
+  .foundation-node[data-node="5"] .foundation-port{
+    top:-5px!important;
+    bottom:auto!important;
+  }
+  .foundation-node::after{
+    content:"";
+    position:absolute;
+    z-index:0;
+    left:50%;
+    width:1px;
+    height:23px;
+    transform:translateX(-.5px);
+    background:linear-gradient(180deg,rgba(232,201,122,.58),rgba(159,135,255,.42));
+    box-shadow:0 0 10px rgba(159,135,255,.14);
+    pointer-events:none;
+  }
+  .foundation-node[data-node="0"]::after,
+  .foundation-node[data-node="1"]::after,
+  .foundation-node[data-node="2"]::after{
+    top:auto;
+    bottom:-23px;
+  }
+  .foundation-node[data-node="3"]::after,
+  .foundation-node[data-node="4"]::after,
+  .foundation-node[data-node="5"]::after{
+    top:-23px;
+    bottom:auto;
+    background:linear-gradient(180deg,rgba(159,135,255,.42),rgba(232,201,122,.58));
+  }
+}
