@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soberania Cognitiva Brasileira — Lua Helena Moon</title>
+  <meta name="description" content="Uma matriz de oito capacidades para avaliar se o Brasil consegue governar, contestar e substituir os sistemas de inteligência artificial que sustentam serviços públicos.">
+  <link rel="canonical" href="https://www.luahelena.com.br/papers/soberaniacognitiva.html">
+  <link rel="icon" type="image/x-icon" href="/images/photoios6.png">
+  <meta name="author" content="Lua Helena Moon Martins Cardoso">
+  <meta name="theme-color" content="#f2efe4">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Soberania Cognitiva Brasileira">
+  <meta property="og:description" content="Oito capacidades para transformar soberania em IA em decisão pública verificável.">
+  <meta property="og:url" content="https://www.luahelena.com.br/papers/soberaniacognitiva.html">
+  <meta property="article:author" content="Lua Helena Moon Martins Cardoso">
+  <meta property="article:published_time" content="2026-07-18">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Soberania Cognitiva Brasileira">
+  <meta name="twitter:description" content="Oito capacidades para transformar soberania em IA em decisão pública verificável.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Soberania Cognitiva Brasileira",
+    "alternativeHeadline": "Matriz para capacidade pública em inteligência artificial",
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "inLanguage": "pt-BR",
+    "version": "1.0",
+    "author": {
+      "@type": "Person",
+      "name": "Lua Helena Moon Martins Cardoso",
+      "url": "https://www.luahelena.com.br/ia/"
+    },
+    "url": "https://www.luahelena.com.br/papers/soberaniacognitiva.html",
+    "description": "Uma matriz de oito capacidades para avaliar se o Brasil consegue governar, contestar e substituir os sistemas de inteligência artificial que sustentam serviços públicos."
+  }
+  </script>
+  <style>
+    :root {
+      --paper: #f2efe4;
+      --paper-raised: #faf8f0;
+      --ink: #151915;
+      --ink-soft: #4d554d;
+      --blue: #174b78;
+      --blue-pale: #d9e7ee;
+      --red: #a83a2f;
+      --red-pale: #f2dfd8;
+      --green: #315e49;
+      --gold: #a26b1e;
+      --rule: #aeb1a8;
+      --rule-strong: #272d29;
+      --focus: #0067a8;
+      --measure: 72ch;
+      --wide: 1240px;
+      --rail: 15rem;
+      --s1: .35rem;
+      --s2: .65rem;
+      --s3: 1rem;
+      --s4: 1.5rem;
+      --s5: 2.25rem;
+      --s6: 3.5rem;
+      --s7: 5.5rem;
+      --radius-small: .2rem;
+      --radius: .55rem;
+      --shadow: 0 .5rem 2rem rgba(24, 29, 24, .08);
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --sans: "Aptos", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+      --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      color-scheme: light;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 0 49.9%, rgba(21,25,21,.025) 50%, transparent 50.1%),
+        var(--paper);
+      font-family: var(--sans);
+      font-size: clamp(1rem, .97rem + .15vw, 1.075rem);
+      line-height: 1.66;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--blue); text-underline-offset: .18em; text-decoration-thickness: .08em; }
+    a:hover { color: var(--red); }
+    button, summary, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+    img, svg { max-width: 100%; }
+    p, li { text-wrap: pretty; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      left: 1rem;
+      top: 1rem;
+      padding: .7rem 1rem;
+      color: white;
+      background: var(--ink);
+      transform: translateY(-180%);
+      transition: transform .16s var(--ease);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .page {
+      width: min(100% - 2rem, var(--wide));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5.5rem);
+    }
+    .rail {
+      position: relative;
+      border-right: 1px solid var(--rule);
+    }
+    .rail-inner {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      padding: 1.25rem 1.5rem 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .wordmark {
+      display: grid;
+      gap: .25rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.08;
+    }
+    .wordmark small {
+      color: var(--ink-soft);
+      font-size: .7rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .chapter-nav { display: grid; gap: .05rem; }
+    .chapter-nav a {
+      position: relative;
+      padding: .45rem 0 .45rem 1.45rem;
+      color: var(--ink-soft);
+      font-size: .83rem;
+      line-height: 1.2;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .chapter-nav a::before {
+      content: attr(data-n);
+      position: absolute;
+      left: 0;
+      color: var(--rule-strong);
+      font: 700 .68rem/1 var(--sans);
+    }
+    .chapter-nav a:hover,
+    .chapter-nav a[aria-current="location"] { color: var(--blue); border-color: var(--blue); }
+    .rail-actions { margin-top: auto; display: grid; gap: .55rem; }
+    .text-button {
+      width: 100%;
+      padding: .65rem 0;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-top: 1px solid var(--rule-strong);
+      font: 750 .8rem/1.2 var(--sans);
+      text-align: left;
+      cursor: pointer;
+    }
+    .text-button:hover { color: var(--red); }
+
+    .content { min-width: 0; padding-bottom: var(--s7); }
+    .masthead {
+      min-height: min(90vh, 880px);
+      padding: clamp(3.5rem, 10vh, 7rem) 0 var(--s6);
+      display: grid;
+      align-content: center;
+      border-bottom: 3px solid var(--rule-strong);
+    }
+    .folio {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: var(--s5);
+      padding-bottom: .55rem;
+      border-bottom: 1px solid var(--rule-strong);
+      color: var(--ink-soft);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { text-wrap: balance; }
+    h1 {
+      max-width: 11ch;
+      margin: 0;
+      font: 760 clamp(3.75rem, 9.2vw, 8.4rem)/.84 var(--display);
+      letter-spacing: -.07em;
+    }
+    .hero-deck {
+      max-width: 33ch;
+      margin: var(--s5) 0 var(--s4) clamp(0rem, 9vw, 7rem);
+      color: var(--blue);
+      font: 650 clamp(1.35rem, 2.6vw, 2.15rem)/1.18 var(--display);
+    }
+    .governing-thesis {
+      max-width: var(--measure);
+      margin: 0 0 var(--s5) clamp(0rem, 9vw, 7rem);
+      padding-left: var(--s4);
+      border-left: .45rem solid var(--red);
+      font-size: clamp(1.05rem, 1rem + .32vw, 1.3rem);
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(7rem, .65fr));
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-meta span { padding: .75rem .75rem .75rem 0; font-size: .78rem; }
+    .hero-meta span + span { padding-left: .75rem; border-left: 1px solid var(--rule); }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem 1.3rem;
+      margin-top: var(--s4);
+    }
+    .action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: .45rem 0;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid currentColor;
+      font: 800 .84rem/1.1 var(--sans);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .action::after { content: " ↘"; color: var(--red); }
+    button.action::after { content: " ↓"; }
+    .action:hover { color: var(--blue); }
+
+    .chapter { padding: var(--s7) 0; border-bottom: 1px solid var(--rule-strong); scroll-margin-top: 1rem; }
+    .chapter-heading {
+      display: grid;
+      grid-template-columns: minmax(7rem, .42fr) minmax(0, 1.58fr);
+      gap: var(--s5);
+      margin-bottom: var(--s5);
+    }
+    .chapter-label {
+      padding-top: .45rem;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 {
+      max-width: 18ch;
+      margin: 0;
+      font: 720 clamp(2.4rem, 5.2vw, 4.8rem)/.98 var(--display);
+      letter-spacing: -.045em;
+    }
+    h3 { margin: 0 0 .45rem; font: 760 clamp(1.25rem, 2vw, 1.6rem)/1.15 var(--display); }
+    .prose { max-width: var(--measure); margin-left: auto; }
+    .prose > :first-child { margin-top: 0; }
+    .prose .lead { color: var(--blue); font: 620 clamp(1.25rem, 2.2vw, 1.75rem)/1.35 var(--display); }
+
+    .quick-ledger { border-top: 3px solid var(--rule-strong); }
+    .quick-line {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      gap: var(--s4);
+      padding: 1.05rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .quick-line dt { color: var(--red); font-size: .75rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .quick-line dd { margin: 0; font-size: clamp(1rem, 1rem + .2vw, 1.18rem); }
+    .quick-line strong { color: var(--blue); }
+
+    .question-strip {
+      margin: var(--s5) 0;
+      padding: var(--s5) clamp(1rem, 4vw, 3rem);
+      color: var(--paper-raised);
+      background: var(--blue);
+      box-shadow: var(--shadow);
+    }
+    .question-strip p { max-width: 38ch; margin: 0; font: 650 clamp(1.7rem, 4vw, 3.15rem)/1.08 var(--display); }
+
+    .analysis-unit {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: var(--s4);
+      margin-top: var(--s5);
+      align-items: stretch;
+    }
+    .analysis-unit .divider { background: var(--rule); }
+    .analysis-unit article { padding: .5rem 0 1rem; }
+    .analysis-unit .unit { color: var(--red); font-size: .72rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+
+    .matrix-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, .65fr);
+      gap: var(--s5);
+      align-items: end;
+      margin-bottom: var(--s5);
+    }
+    .scale { border-top: 3px solid var(--rule-strong); }
+    .scale-row { display: grid; grid-template-columns: 2.2rem 1fr; gap: .75rem; padding: .45rem 0; border-bottom: 1px solid var(--rule); font-size: .78rem; }
+    .scale-row b { color: var(--red); font: 800 1.05rem/1 var(--display); }
+
+    .capability-register { border-top: 4px solid var(--rule-strong); counter-reset: capability; }
+    .capability {
+      counter-increment: capability;
+      border-bottom: 1px solid var(--rule-strong);
+      transition: background-color .18s var(--ease);
+    }
+    .capability:hover, .capability[open] { background: var(--paper-raised); }
+    .capability summary {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 3rem minmax(9rem, .55fr) minmax(0, 1.45fr) 2rem;
+      gap: var(--s3);
+      align-items: baseline;
+      padding: 1.15rem .5rem;
+      cursor: pointer;
+    }
+    .capability summary::-webkit-details-marker { display: none; }
+    .capability summary::before {
+      content: counter(capability, decimal-leading-zero);
+      color: var(--red);
+      font: 800 .8rem/1 var(--sans);
+    }
+    .capability summary::after {
+      content: "+";
+      color: var(--blue);
+      font: 500 1.45rem/1 var(--sans);
+      text-align: right;
+      transition: transform .16s var(--ease);
+    }
+    .capability[open] summary::after { transform: rotate(45deg); }
+    .capability-name { color: var(--blue); font: 760 clamp(1.35rem, 2.5vw, 2rem)/1 var(--display); }
+    .capability-question { color: var(--ink-soft); }
+    .capability-body {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--s3);
+      padding: .1rem .5rem 1.4rem;
+    }
+    .capability-body section { padding-top: .8rem; border-top: 1px solid var(--rule); }
+    .capability-body section:first-of-type { grid-column: 2; }
+    .capability-body h3 { color: var(--ink-soft); font: 850 .7rem/1.1 var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+    .capability-body p { margin: 0; font-size: .9rem; }
+    .capability-body .alert { color: var(--red); }
+
+    .transversal {
+      margin-top: var(--s5);
+      padding: var(--s4);
+      border: 2px solid var(--blue);
+      display: grid;
+      grid-template-columns: minmax(11rem, .55fr) minmax(0, 1.45fr);
+      gap: var(--s4);
+    }
+    .transversal strong { color: var(--blue); font: 760 1.5rem/1.1 var(--display); }
+    .transversal p { margin: 0; }
+
+    .workshop-timeline { position: relative; margin-top: var(--s5); padding: 0; border-top: 3px solid var(--rule-strong); list-style: none; }
+    .workshop-step {
+      display: grid;
+      grid-template-columns: 7rem minmax(10rem, .65fr) minmax(0, 1.35fr);
+      gap: var(--s4);
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .workshop-step time { color: var(--red); font-weight: 850; }
+    .workshop-step h3 { color: var(--blue); font-size: 1.3rem; }
+    .workshop-step p { margin: 0; }
+    .stress-tests {
+      margin: var(--s5) 0 0 clamp(0rem, 8vw, 6rem);
+      border-left: .45rem solid var(--red);
+    }
+    .stress-tests h3, .stress-tests ol { margin-left: var(--s4); }
+    .stress-tests li { padding: .55rem 0 .55rem .5rem; border-bottom: 1px solid var(--rule); }
+
+    .layers {
+      position: relative;
+      max-width: 54rem;
+      margin: var(--s6) auto 0;
+      display: grid;
+      place-items: center;
+    }
+    .layer-band {
+      width: 100%;
+      padding: var(--s5) clamp(1rem, 5vw, 4rem);
+      border: 1px solid var(--rule-strong);
+    }
+    .layer-band + .layer-band { margin-top: -1px; width: 82%; background: var(--paper-raised); }
+    .layer-band + .layer-band + .layer-band { width: 64%; color: white; background: var(--blue); }
+    .layer-band b { display: block; color: var(--red); font: 800 .75rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+    .layer-band:last-child b { color: var(--paper); }
+    .layer-band p { margin: .7rem 0 0; }
+
+    .pilot-sheet { border: 2px solid var(--rule-strong); box-shadow: var(--shadow); }
+    .pilot-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(14rem, .6fr);
+      gap: var(--s4);
+      padding: var(--s5);
+      color: white;
+      background: var(--green);
+    }
+    .pilot-head h3 { font-size: clamp(1.8rem, 4vw, 3rem); }
+    .pilot-head p { margin: 0; }
+    .pilot-state { align-self: start; padding-top: .65rem; border-top: 1px solid currentColor; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
+    .pilot-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .pilot-grid section { padding: var(--s4) var(--s5); border-top: 1px solid var(--rule); }
+    .pilot-grid section:nth-child(even) { border-left: 1px solid var(--rule); }
+    .pilot-grid p { margin: 0; }
+    .decision-line { padding: var(--s4) var(--s5); color: var(--paper); background: var(--ink); }
+    .decision-line strong { color: #ffe1b4; }
+
+    .applications { columns: 2; column-gap: var(--s6); border-top: 3px solid var(--rule-strong); }
+    .applications li { break-inside: avoid; padding: .75rem 0; border-bottom: 1px solid var(--rule); }
+
+    .author-block {
+      display: grid;
+      grid-template-columns: minmax(13rem, .55fr) minmax(0, 1.45fr);
+      gap: var(--s5);
+      padding: var(--s5) 0;
+      border-top: 4px solid var(--blue);
+      border-bottom: 1px solid var(--rule-strong);
+    }
+    .author-id { color: var(--blue); }
+    .author-id strong { display: block; font: 760 clamp(1.7rem, 3vw, 2.5rem)/1.05 var(--display); }
+    .author-id span { display: block; margin-top: .6rem; color: var(--ink-soft); font-size: .82rem; }
+    .author-copy p:first-child { margin-top: 0; font-size: 1.12rem; }
+    .author-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: var(--s4); }
+
+    .status-note {
+      margin-top: var(--s5);
+      padding: var(--s4);
+      background: var(--red-pale);
+      border-left: .45rem solid var(--red);
+    }
+    .status-note p { margin: 0; }
+
+    .citation-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--s4);
+      align-items: center;
+      padding: var(--s4);
+      border: 2px solid var(--blue);
+      background: var(--blue-pale);
+    }
+    .citation-box cite { font-style: normal; }
+    .copy-button {
+      min-height: 2.75rem;
+      padding: .65rem .9rem;
+      border: 1px solid var(--blue);
+      color: white;
+      background: var(--blue);
+      font: 800 .78rem/1 var(--sans);
+      cursor: pointer;
+    }
+    .copy-button:hover { background: var(--ink); border-color: var(--ink); }
+
+    .references { display: grid; gap: var(--s5); }
+    .spaced { margin-top: var(--s6); }
+    .reference-group h3 { padding-bottom: .5rem; border-bottom: 2px solid var(--rule-strong); color: var(--blue); }
+    .reference-list { margin: 0; padding-left: 1.5rem; }
+    .reference-list li { margin: .85rem 0; padding-left: .35rem; }
+    .reference-list a { overflow-wrap: anywhere; }
+
+    footer {
+      padding: var(--s5) 0 var(--s6);
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s4);
+      color: var(--ink-soft);
+      font-size: .78rem;
+    }
+    .toast {
+      position: fixed;
+      z-index: 500;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: min(24rem, calc(100vw - 2rem));
+      padding: .8rem 1rem;
+      color: white;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+      transform: translateY(calc(100% + 2rem));
+      transition: transform .2s var(--ease);
+    }
+    .toast[data-visible="true"] { transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      .page { display: block; width: min(100% - 2rem, 820px); }
+      .rail { position: sticky; top: 0; z-index: 50; margin-inline: -1rem; border: 0; border-bottom: 1px solid var(--rule-strong); background: rgba(242,239,228,.96); }
+      .rail-inner { min-height: 0; padding: .65rem 1rem; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
+      .wordmark small, .rail-actions .text-button:first-child { display: none; }
+      .chapter-nav { display: flex; overflow-x: auto; scrollbar-width: thin; }
+      .chapter-nav a { flex: 0 0 auto; padding: .45rem .65rem; }
+      .chapter-nav a::before { display: none; }
+      .rail-actions { margin: 0; }
+      .rail-actions .text-button { border: 1px solid var(--rule-strong); padding: .55rem .7rem; white-space: nowrap; }
+      .masthead { min-height: auto; padding-top: var(--s7); }
+      .hero-deck, .governing-thesis { margin-left: 0; }
+      .chapter { scroll-margin-top: 5rem; }
+      .chapter-heading { grid-template-columns: 1fr; gap: .75rem; }
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 1.25rem, 42rem); }
+      .rail { margin-inline: -.625rem; }
+      .rail-inner { grid-template-columns: auto minmax(0, 1fr); }
+      .rail-actions { display: none; }
+      .chapter-nav a { font-size: .75rem; }
+      h1 { font-size: clamp(3.25rem, 18vw, 5.7rem); }
+      .hero-meta { grid-template-columns: 1fr 1fr; }
+      .hero-meta span:nth-child(3) { border-left: 0; border-top: 1px solid var(--rule); }
+      .hero-meta span:nth-child(4) { border-top: 1px solid var(--rule); }
+      .quick-line { grid-template-columns: 1fr; gap: .2rem; }
+      .analysis-unit { grid-template-columns: 1fr; }
+      .analysis-unit .divider { height: 1px; }
+      .matrix-intro { grid-template-columns: 1fr; }
+      .capability summary { grid-template-columns: 2.25rem minmax(0, 1fr) 2rem; }
+      .capability-question { grid-column: 2 / -1; padding-right: 2rem; font-size: .9rem; }
+      .capability-body { grid-template-columns: 2.25rem minmax(0, 1fr); }
+      .capability-body section, .capability-body section:first-of-type { grid-column: 2; }
+      .transversal, .workshop-step, .pilot-head, .author-block, .citation-box { grid-template-columns: 1fr; }
+      .workshop-step { gap: .35rem; }
+      .stress-tests { margin-left: 0; }
+      .layer-band, .layer-band + .layer-band, .layer-band + .layer-band + .layer-band { width: 100%; }
+      .pilot-grid { grid-template-columns: 1fr; }
+      .pilot-grid section:nth-child(even) { border-left: 0; }
+      .applications { columns: 1; }
+      footer { display: block; }
+    }
+
+    @media (max-width: 360px) {
+      body { font-size: .98rem; }
+      h1 { font-size: 3.15rem; }
+      .folio { display: grid; }
+      .chapter { padding: var(--s6) 0; }
+      .capability summary { padding-inline: 0; gap: .65rem; }
+      .capability-body { padding-inline: 0; gap: .65rem; }
+      .pilot-head, .pilot-grid section, .decision-line { padding-inline: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+    }
+
+    @media print {
+      @page { margin: 1.5cm; size: A4; }
+      :root { --paper: white; --paper-raised: white; --ink: black; --ink-soft: #333; --blue: #123f62; --red: #7b241c; }
+      body { background: white; font-size: 10.5pt; }
+      .page { display: block; width: 100%; }
+      .rail, .hero-actions, .toast, .copy-button { display: none !important; }
+      .content { padding: 0; }
+      .masthead { min-height: 0; padding: 0 0 1.2cm; }
+      h1 { font-size: 48pt; }
+      .chapter { padding: 1.2cm 0; break-before: auto; }
+      .chapter-heading { grid-template-columns: 3cm 1fr; }
+      .capability[open], .capability { background: white; }
+      .capability summary::after { display: none; }
+      details:not([open]) > .capability-body,
+      .capability-body { display: grid !important; }
+      .question-strip, .pilot-head, .decision-line { color: black; background: white; border: 2px solid black; }
+      .layer-band:last-child { color: black; background: white; }
+      .layer-band:last-child b { color: var(--red); }
+      a { color: black; text-decoration: underline; }
+      a[href^="http"]::after { content: " [" attr(href) "]"; font-size: 7.5pt; overflow-wrap: anywhere; }
+      .reference-group, .citation-box, .pilot-sheet, .transversal { break-inside: avoid; }
+      footer { border-top: 1px solid black; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="page">
+    <aside class="rail" aria-label="Navegação do paper">
+      <div class="rail-inner">
+        <a class="wordmark" href="#topo">
+          <span>Soberania<br>Cognitiva</span>
+          <small>carta cívica · v1.0</small>
+        </a>
+        <nav class="chapter-nav" aria-label="Capítulos">
+          <a href="#leitura" data-n="01">Leitura rápida</a>
+          <a href="#pergunta" data-n="02">A pergunta</a>
+          <a href="#matriz" data-n="03">A matriz</a>
+          <a href="#aplicar" data-n="04">Como aplicar</a>
+          <a href="#camadas" data-n="05">Três camadas</a>
+          <a href="#piloto" data-n="06">Piloto</a>
+          <a href="#autoria" data-n="07">Autoria</a>
+          <a href="#fontes" data-n="08">Fontes</a>
+        </nav>
+        <div class="rail-actions">
+          <button class="text-button" id="copyCitationRail" type="button">Copiar citação</button>
+          <button class="text-button" type="button" data-print>Imprimir / salvar PDF</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content">
+      <header class="masthead" id="topo">
+        <div class="folio"><span>Paper público independente</span><span>Brasil · 18.07.2026</span></div>
+        <h1>Soberania Cognitiva Brasileira</h1>
+        <p class="hero-deck">Uma matriz para conservar capacidade pública quando a inteligência artificial vira infraestrutura.</p>
+        <p class="governing-thesis">Soberania em IA não é escolher um fornecedor geopoliticamente simpático. É preservar o poder brasileiro de hospedar, compreender, adaptar, auditar, contestar, substituir, aprender e socializar os benefícios da inteligência que passa a sustentar o país.</p>
+        <div class="hero-meta" role="group" aria-label="Metadados do paper">
+          <span><strong>Lua Helena Moon Martins Cardoso</strong></span>
+          <span>Versão 1.0</span>
+          <span>Proposta independente</span>
+          <span>Autoria da matriz</span>
+        </div>
+        <div class="hero-actions">
+          <a class="action" href="#matriz">Abrir a matriz</a>
+          <a class="action" href="#aplicar">Ver a oficina</a>
+          <a class="action" href="#piloto">Examinar o piloto</a>
+          <button class="action" type="button" data-print>Imprimir / salvar</button>
+        </div>
+      </header>
+
+      <main id="conteudo">
+        <section class="chapter" id="leitura" aria-labelledby="leitura-title">
+          <div class="chapter-heading"><span class="chapter-label">01 · 60–90 segundos</span><h2 id="leitura-title">O debate precisa caber numa decisão.</h2></div>
+          <dl class="quick-ledger">
+            <div class="quick-line"><dt>Objeto</dt><dd><strong>IA pública não é apenas modelo.</strong> É dados, infraestrutura, contratos, interfaces, equipes, regras e memória institucional.</dd></div>
+            <div class="quick-line"><dt>Acesso</dt><dd><strong>Usar uma tecnologia não significa governá-la.</strong> A instituição pode comprar acesso e continuar incapaz de explicar, corrigir ou sair.</dd></div>
+            <div class="quick-line"><dt>Hospedagem</dt><dd><strong>Localização importa, mas não basta.</strong> Um datacenter no país não resolve operação, auditoria, contestação ou transferência de conhecimento.</dd></div>
+            <div class="quick-line"><dt>Abertura</dt><dd><strong>Modelo aberto também não encerra a questão.</strong> Integrações, dados, competências e memória podem continuar presos.</dd></div>
+            <div class="quick-line"><dt>Instrumento</dt><dd><strong>A matriz transforma discurso em evidência.</strong> Oito capacidades, quatro níveis e uma regra: falha crítica não é compensada pela média.</dd></div>
+            <div class="quick-line"><dt>Começo</dt><dd><strong>Aplicação pequena, supervisionada e interrompível.</strong> Primeiro se testa a capacidade pública; depois se decide se vale ampliar.</dd></div>
+          </dl>
+        </section>
+
+        <section class="chapter" id="pergunta" aria-labelledby="pergunta-title">
+          <div class="chapter-heading"><span class="chapter-label">02 · Enquadramento</span><h2 id="pergunta-title">A pergunta certa não cabe no nome do fornecedor.</h2></div>
+          <div class="prose">
+            <p class="lead">Modelos, chips e datacenters importam. Nenhum deles, sozinho, revela se o país conservará poder de decisão quando a IA mediar saúde, educação, proteção social, produção e governo.</p>
+            <p>Soberania não exige autarquia tecnológica. Ciência, empresas, comunidades, Estado e bens comuns podem compor interdependências governáveis. O problema começa quando a dependência não tem saída: ninguém consegue reconstruir uma resposta, trocar um componente, preservar a memória ou contestar um dano sem pedir licença ao fornecedor.</p>
+          </div>
+          <div class="question-strip"><p>Quais capacidades o Brasil precisa conservar para decidir, corrigir e aprender?</p></div>
+          <div class="prose"><p>A unidade de análise não é uma caixa com a etiqueta “IA”. É a relação entre sistema, instituição e ecossistema — tecnologia concreta, capacidade organizacional e efeitos acumulados sobre conhecimento, trabalho e poder público.</p></div>
+          <div class="analysis-unit" role="group" aria-label="Distinção entre acesso, dependência e soberania">
+            <article><span class="unit">Acesso</span><h3>Podemos usar.</h3><p>Há licença, interface ou serviço disponível. Isso diz pouco sobre controle e continuidade.</p></article>
+            <span class="divider" aria-hidden="true"></span>
+            <article><span class="unit">Dependência</span><h3>Precisamos pedir.</h3><p>Operação, mudança, prova ou saída dependem de uma entidade externa e de condições que ela controla.</p></article>
+            <span class="divider" aria-hidden="true"></span>
+            <article><span class="unit">Soberania</span><h3>Conseguimos governar.</h3><p>A instituição exerce capacidades, registra evidências e conserva caminhos reais de contestação e substituição.</p></article>
+          </div>
+        </section>
+
+        <section class="chapter" id="matriz" aria-labelledby="matriz-title">
+          <div class="chapter-heading"><span class="chapter-label">03 · Instrumento central</span><h2 id="matriz-title">Oito capacidades. Evidência antes do adjetivo.</h2></div>
+          <div class="matrix-intro">
+            <div class="prose"><p class="lead">Use antes da compra, no desenho do serviço, em revisões e na saída do contrato.</p><p>Abra cada linha para ver a evidência mínima e o sinal de alerta. A pontuação disciplina a conversa; não substitui julgamento.</p></div>
+            <div class="scale" role="group" aria-label="Escala de avaliação de zero a três">
+              <div class="scale-row"><b>0</b><span>inexistente</span></div>
+              <div class="scale-row"><b>1</b><span>prometida</span></div>
+              <div class="scale-row"><b>2</b><span>demonstrada com lacunas</span></div>
+              <div class="scale-row"><b>3</b><span>documentada e exercitada</span></div>
+            </div>
+          </div>
+
+          <div class="capability-register">
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Hospedar</span><span class="capability-question">Onde e sob qual jurisdição operam dados, logs e componentes críticos?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Arquitetura, localização, suboperadores, continuidade e recuperação.</p></section><section><h3>Sinal de alerta</h3><p class="alert">Localização vaga ou mudança unilateral de ambiente e jurisdição.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Auditar</span><span class="capability-question">Conseguimos reconstruir fonte, versão, desempenho, incidente e impacto?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Inventário, logs, avaliações, histórico de mudanças e acesso proporcional.</p></section><section><h3>Sinal de alerta</h3><p class="alert">Caixa-preta contratual ou registros sob controle exclusivo do fornecedor.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Adaptar</span><span class="capability-question">Podemos ajustar linguagem, regras, fontes e salvaguardas ao contexto público?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Parâmetros documentados, conhecimento separado do modelo e processo de mudança.</p></section><section><h3>Sinal de alerta</h3><p class="alert">Customização apenas pelo fornecedor ou punição contratual por adaptar.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Operar</span><span class="capability-question">Há equipe, rotina, documentação e orçamento públicos para manter o serviço?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Papéis, manual, treinamento, contingência e responsável nominal.</p></section><section><h3>Sinal de alerta</h3><p class="alert">A demonstração funciona, mas a operação depende de uma pessoa externa.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Contestar</span><span class="capability-question">A pessoa afetada pode entender, pedir revisão humana e obter correção?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Aviso, explicação, canal humano, prazo, registro e reparação.</p></section><section><h3>Sinal de alerta</h3><p class="alert">“Fale com o chatbot” é o único caminho para reclamar do chatbot.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Substituir</span><span class="capability-question">Podemos trocar modelo ou fornecedor sem perder memória e continuidade?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Formatos exportáveis, padrões documentados, plano de saída e migração ensaiada.</p></section><section><h3>Sinal de alerta</h3><p class="alert">Custos de saída, formatos proprietários ou memória presa ao modelo.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Aprender</span><span class="capability-question">Erros e usos geram capacidade institucional acumulada?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Repositório, revisão de incidentes, formação, pesquisa e lições versionadas.</p></section><section><h3>Sinal de alerta</h3><p class="alert">A melhoria acontece apenas no produto e na equipe do fornecedor.</p></section></div>
+            </details>
+            <details class="capability" name="capacidade">
+              <summary><span class="capability-name">Socializar retorno</span><span class="capability-question">Quem recebe a produtividade, o conhecimento e o valor gerados?</span></summary>
+              <div class="capability-body"><section><h3>Evidência mínima</h3><p>Indicadores para usuários e trabalhadores, reinvestimento e abertura compatível.</p></section><section><h3>Sinal de alerta</h3><p class="alert">O ganho vira apenas corte, concentração ou renda transferida para fora.</p></section></div>
+            </details>
+          </div>
+
+          <div class="transversal"><strong>Compreender atravessa a matriz.</strong><p>Não é uma nona capacidade. É a condição para auditar, operar e contestar: documentação inteligível, pessoas capazes e memória que não desaparece quando muda o fornecedor.</p></div>
+          <div class="status-note"><p><strong>Regra de decisão:</strong> qualquer zero em contestar, operar ou substituir bloqueia uso de alto impacto. Média alta não repara falha crítica. O verde é sempre condicionado a teste real de parada, contestação e migração.</p></div>
+        </section>
+
+        <section class="chapter" id="aplicar" aria-labelledby="aplicar-title">
+          <div class="chapter-heading"><span class="chapter-label">04 · Oficina</span><h2 id="aplicar-title">Noventa minutos para descobrir o que o slide comercial omitiu.</h2></div>
+          <div class="prose"><p class="lead">A sala reúne área finalística, tecnologia, proteção de dados, segurança, jurídico e contratações, atendimento e quem executa o trabalho afetado.</p><p>Antes da sessão, delimite finalidade, usuários, dados, fontes, componentes, fornecedor, integrações e impacto possível. Separe fato demonstrado, interpretação da equipe e promessa ainda não testada.</p></div>
+          <ol class="workshop-timeline">
+            <li class="workshop-step"><time>0–15 min</time><h3>Caso e fronteira</h3><p>O dono do serviço descreve o problema e o que a IA não fará. Pessoas e contratos entram no desenho.</p></li>
+            <li class="workshop-step"><time>15–55 min</time><h3>Pontuação individual</h3><p>Cada participante avalia as oito capacidades e cita evidências. Divergência revela assimetria de informação.</p></li>
+            <li class="workshop-step"><time>55–75 min</time><h3>Testes adversos</h3><p>A equipe simula interrupção, contestação e erro grave. Quem percebe, quem decide e quanto tempo leva?</p></li>
+            <li class="workshop-step"><time>75–90 min</time><h3>Decisão</h3><p>Registrar capacidade crítica, ação, responsável, prazo e prova de conclusão: avançar, condicionar, pausar ou encerrar.</p></li>
+          </ol>
+          <aside class="stress-tests" aria-labelledby="stress-title"><h3 id="stress-title">Três perguntas que precisam sobreviver fora do PowerPoint</h3><ol><li>O fornecedor encerra o produto amanhã. O serviço continua?</li><li>Uma pessoa contesta uma resposta. Existe caminho humano executável?</li><li>Um componente apresenta erro grave. Quem interrompe e recupera?</li></ol></aside>
+          <div class="prose"><p>O resultado é uma ficha do caso, matriz com evidências, mapa de divergências, três riscos prioritários e plano 30/60/90 dias. A oficina não certifica soberania. Ela torna a falta de capacidade difícil de esconder atrás de um adjetivo.</p></div>
+        </section>
+
+        <section class="chapter" id="camadas" aria-labelledby="camadas-title">
+          <div class="chapter-heading"><span class="chapter-label">05 · Escala</span><h2 id="camadas-title">O sistema vive dentro de uma instituição, que vive dentro de um país.</h2></div>
+          <div class="prose"><p class="lead">Uma solução pode funcionar tecnicamente e ainda empobrecer capacidade pública. Por isso a leitura acontece em três camadas relacionadas.</p></div>
+          <figure class="layers" aria-labelledby="layers-caption">
+            <div class="layer-band"><b>Ecossistema</b><p>Infraestrutura, pesquisa, padrões, compras públicas, mercado, trabalho e distribuição de benefícios.</p></div>
+            <div class="layer-band"><b>Instituição</b><p>Contratos, competências, governança, formação, memória, responsabilização e capacidade de saída.</p></div>
+            <div class="layer-band"><b>Sistema</b><p>Fontes, comportamento, limites, logs, acessibilidade, supervisão humana e parada.</p></div>
+            <figcaption id="layers-caption" class="chapter-label">Do componente concreto ao efeito nacional acumulado.</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="piloto" aria-labelledby="piloto-title">
+          <div class="chapter-heading"><span class="chapter-label">06 · Exemplo delimitado</span><h2 id="piloto-title">IA Pública para Acesso Real</h2></div>
+          <article class="pilot-sheet">
+            <header class="pilot-head"><div><h3>Assistente supervisionado de navegação</h3><p>Um serviço, um público, um corpus oficial pequeno e um teste que pode terminar dizendo “não automatizar”.</p></div><div class="pilot-state">Piloto proposto<br>não implementado</div></header>
+            <div class="pilot-grid">
+              <section><h3>O que faz</h3><p>Indica canal, etapas, documentos, fonte, data e caminho de contestação; reconhece dúvida e encaminha ao humano.</p></section>
+              <section><h3>O que não faz</h3><p>Não diagnostica, decide elegibilidade, interpreta definitivamente a lei, aplica sanção ou substitui servidor.</p></section>
+              <section><h3>Desenho soberano</h3><p>Fonte e memória fora do modelo, logs sob governança pública, componente substituível, exportação testada e parada imediata.</p></section>
+              <section><h3>Portões</h3><p>Responsável institucional, base legal, proteção de dados, segurança, acessibilidade e revisões jurídica e finalística.</p></section>
+              <section><h3>Métricas</h3><p>Correção com fonte, encaminhamento, compreensão, abandono, contestação, disparidades, carga de trabalho, custo e segurança.</p></section>
+              <section><h3>Saída real</h3><p>A instituição ensaia troca de modelo, preserva sua memória e mantém contingência sem IA.</p></section>
+            </div>
+            <div class="decision-line"><strong>Decisão ao fim:</strong> ampliar, corrigir, pausar ou encerrar. Resultado negativo bem documentado também é capacidade pública.</div>
+          </article>
+
+          <div class="prose spaced"><h3>Onde a matriz pode entrar</h3><ul class="applications"><li>governo digital</li><li>ciência e tecnologia</li><li>cooperação internacional</li><li>infraestrutura pública</li><li>sistemas sociais</li><li>formação de servidores</li><li>política industrial</li><li>financiamento</li><li>compras e contratos</li><li>continuidade</li><li>auditoria e controle</li></ul></div>
+        </section>
+
+        <section class="chapter" id="autoria" aria-labelledby="autoria-title">
+          <div class="chapter-heading"><span class="chapter-label">07 · Autoria e continuidade</span><h2 id="autoria-title">A matriz tem origem. A aplicação precisa de memória.</h2></div>
+          <div class="author-block">
+            <div class="author-id"><strong>Lua Helena Moon Martins Cardoso</strong><span>Psicóloga hospitalar · socióloga de formação · escritora · Human–AI Context Architect</span></div>
+            <div class="author-copy"><p>Moon criou a Matriz de Soberania Cognitiva e o Moon Source Project, método documental para organizar fontes, memória, linguagem, decisões e handoffs entre pessoas e sistemas de IA.</p><p>Seu trabalho ocupa a camada humana e institucional da adoção de IA: tornar fontes legíveis, preservar contexto fora do fornecedor, desenhar contestabilidade e transformar uso e erro em aprendizagem governável. A experiência hospitalar acrescenta contato cotidiano com sistemas de alto risco e com as consequências humanas de informação mal encaminhada.</p><p>A autora pode facilitar a aplicação da matriz, registrar resultados, adaptar o instrumento e apoiar o desenho humano e documental de oficinas e pilotos. Engenharia, integração, infraestrutura, segurança, jurídico e contratação permanecem com equipes habilitadas.</p><div class="author-links"><a class="action" href="/ia/">Conhecer o trabalho com IA</a><a class="action" href="mailto:luahelenammc@gmail.com">Escrever para Moon</a></div></div>
+          </div>
+          <div class="status-note"><p><strong>Estado público:</strong> proposta independente, versão 1.0. Ainda não enviada, adotada ou validada por órgão público. O piloto é proposto, não implementado. A matriz organiza perguntas e evidências; não certifica soberania, conformidade ou segurança. Nenhuma instituição citada endossa este trabalho.</p></div>
+        </section>
+
+        <section class="chapter" id="fontes" aria-labelledby="fontes-title">
+          <div class="chapter-heading"><span class="chapter-label">08 · Fontes e citação</span><h2 id="fontes-title">Rastreabilidade também é parte da tese.</h2></div>
+          <div class="citation-box"><cite id="citationText">MOON, Lua Helena. Soberania Cognitiva Brasileira: matriz para capacidade pública em inteligência artificial. v. 1.0, 2026.</cite><button class="copy-button" id="copyCitation" type="button">Copiar citação</button></div>
+
+          <div class="references spaced">
+            <section class="reference-group"><h3>Fontes oficiais brasileiras</h3><ol class="reference-list"><li>MCTI. <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/plano-brasileiro-de-inteligencia-artificial" target="_blank" rel="noopener noreferrer">Plano Brasileiro de Inteligência Artificial 2024–2028</a>.</li><li>Presidência da República. <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/D12198.htm" target="_blank" rel="noopener noreferrer">Decreto 12.198/2024 — Estratégia Federal de Governo Digital</a>.</li><li>Presidência da República. <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/D12069.htm" target="_blank" rel="noopener noreferrer">Decreto 12.069/2024 — Infraestrutura Nacional de Dados</a>.</li><li>MGI. <a href="https://www.gov.br/gestao/pt-br/acesso-a-informacao/estrategia-e-governanca/estrutura-de-governanca/cgdsi/E-IA_1.0.pdf" target="_blank" rel="noopener noreferrer">Estratégia de Inteligência Artificial 1.0</a>.</li><li>Câmara dos Deputados. <a href="https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262" target="_blank" rel="noopener noreferrer">Tramitação do PL 2.338/2023</a>.</li></ol></section>
+            <section class="reference-group"><h3>Legislação</h3><ol class="reference-list"><li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener noreferrer">Lei 13.709/2018 — Lei Geral de Proteção de Dados</a>.</li><li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14129.htm" target="_blank" rel="noopener noreferrer">Lei 14.129/2021 — Governo Digital</a>.</li><li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm" target="_blank" rel="noopener noreferrer">Lei 14.133/2021 — Licitações e Contratos</a>.</li><li><a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank" rel="noopener noreferrer">Lei 12.527/2011 — Acesso à Informação</a>.</li></ol></section>
+            <section class="reference-group"><h3>Referências internacionais</h3><ol class="reference-list"><li>OECD. <a href="https://www.oecd.org/en/topics/ai-principles.html" target="_blank" rel="noopener noreferrer">OECD AI Principles</a>.</li><li>UNESCO. <a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noopener noreferrer">Recommendation on the Ethics of Artificial Intelligence</a>.</li><li>NIST. <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">AI Risk Management Framework</a>.</li><li>Comissão Europeia. <a href="https://commission.europa.eu/document/download/09579818-64a6-4dd5-9577-446ab6219113_en" target="_blank" rel="noopener noreferrer">Cloud Sovereignty Framework</a>.</li></ol></section>
+            <section class="reference-group"><h3>Literatura acadêmica</h3><ol class="reference-list"><li>Raji et al. <a href="https://dl.acm.org/doi/10.1145/3351095.3372873" target="_blank" rel="noopener noreferrer">Closing the AI Accountability Gap</a>. FAccT, 2020.</li><li>Cobbe e Singh. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0267364920300807" target="_blank" rel="noopener noreferrer">Reviewable Automated Decision-Making</a>. Computer Law &amp; Security Review, 2020.</li><li>Rizk e Lindgren. <a href="https://www.sciencedirect.com/science/article/pii/S0740624X25000553" target="_blank" rel="noopener noreferrer">Automated decision-making in public administration</a>. Government Information Quarterly, 2025.</li></ol></section>
+          </div>
+        </section>
+      </main>
+
+      <footer><span>© 2026 Lua Helena Moon Martins Cardoso · autoria e versão preservadas</span><a href="#topo">Voltar ao início</a></footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" data-visible="false">Citação copiada.</div>
+  <script>
+    (() => {
+      const toast = document.getElementById('toast');
+      const citation = document.getElementById('citationText').textContent.trim();
+      let toastTimer;
+
+      function notify(message) {
+        window.clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.dataset.visible = 'true';
+        toastTimer = window.setTimeout(() => { toast.dataset.visible = 'false'; }, 1800);
+      }
+
+      async function copyCitation() {
+        try {
+          await navigator.clipboard.writeText(citation);
+          notify('Citação copiada.');
+        } catch (error) {
+          notify('Selecione e copie a citação manualmente.');
+        }
+      }
+
+      document.getElementById('copyCitation').addEventListener('click', copyCitation);
+      document.getElementById('copyCitationRail').addEventListener('click', copyCitation);
+      document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
+
+      const navLinks = [...document.querySelectorAll('.chapter-nav a')];
+      const sections = navLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          navLinks.forEach(link => link.removeAttribute('aria-current'));
+          const active = navLinks.find(link => link.hash === `#${visible.target.id}`);
+          if (active) active.setAttribute('aria-current', 'location');
+        }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, .1, .4] });
+        sections.forEach(section => observer.observe(section));
+      }
+    })();
+  </script>
+</body>
+</html>
