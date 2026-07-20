@@ -7,6 +7,11 @@ layout: null
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — IA, papéis e contexto institucional · V6.6' -%}
+
+{%- capture old_role -%}<p class="role" data-i="hero.role">Psicóloga hospitalar, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional, socióloga de formação e arquiteta de contexto humano-IA.</p>{%- endcapture -%}
+{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><strong class="market-position-title" data-beta-pt="Adoção de IA e desenho de fluxos de trabalho" data-beta-en="AI Adoption &amp; Workflow Design">Adoção de IA e desenho de fluxos de trabalho</strong><p class="market-position-detail" data-beta-pt="Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas." data-beta-en="I map human processes and turn documents, routines, roles, decisions and scattered knowledge into context that people and AI can use, with reliable handoffs, governance and enablement for complex teams.">Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas.</p><p class="professional-foundation" data-beta-pt="Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional." data-beta-en="As a hospital psychologist, I work within complex systems, navigating institutional workflows, multidisciplinary teams, sensitive contexts and crisis mediation. I am trained in Psychology and Sociology, with postgraduate training in Organizational Psychology and Institutional Psychopedagogy.">Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional.</p></div>{%- endcapture -%}
+{%- assign page_html = page_html | replace_first: old_role, positioning_stack -%}
 
 {%- capture language_bootstrap -%}
 <script>
@@ -82,8 +87,88 @@ layout: null
 </style>
 {%- endcapture -%}
 
-{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />' | append: language_styles | append: heading_typography | append: '</head>' -%}
-{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script><script src="/ia/beta-touch-reflection.js?v=2"></script><script src="/ia/email-copy.js?v=1"></script></body>' -%}
+{%- capture positioning_styles -%}
+<style>
+  .positioning-stack{
+    max-width:810px;
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .market-position-title{
+    display:inline-flex;
+    align-items:center;
+    max-width:100%;
+    padding:7px 11px;
+    border:1px solid rgba(232,201,122,.32);
+    border-radius:999px;
+    background:linear-gradient(135deg,rgba(232,201,122,.10),rgba(159,135,255,.06));
+    color:var(--gold);
+    font-size:clamp(.72rem,1vw,.79rem);
+    line-height:1.2;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+  }
+  .market-position-detail{
+    max-width:790px;
+    color:var(--muted);
+    font-size:clamp(1.04rem,1.55vw,1.16rem);
+    line-height:1.55;
+  }
+  .professional-foundation{
+    max-width:790px;
+    margin-top:4px;
+    padding-top:13px;
+    border-top:1px solid rgba(255,255,255,.10);
+    color:var(--quiet);
+    font-family:var(--sans);
+    font-size:clamp(.91rem,1.12vw,1rem);
+    font-style:normal;
+    line-height:1.58;
+  }
+  .hero-text > .tagline{display:none}
+  @media(max-width:600px){
+    .positioning-stack{
+      margin-top:22px;
+      gap:9px;
+    }
+    .market-position-title{
+      border-radius:16px;
+      line-height:1.35;
+    }
+    .market-position-detail{line-height:1.52}
+    .professional-foundation{
+      margin-top:2px;
+      padding-top:12px;
+    }
+  }
+</style>
+{%- endcapture -%}
+
+{%- capture positioning_script -%}
+<script>
+  (() => {
+    const syncBetaPositioning = () => {
+      const english = document.documentElement.lang === 'en';
+      document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
+        element.textContent = english ? element.dataset.betaEn : element.dataset.betaPt;
+      });
+    };
+
+    syncBetaPositioning();
+    new MutationObserver(syncBetaPositioning).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+  })();
+</script>
+{%- endcapture -%}
+
+{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />' | append: language_styles | append: heading_typography | append: positioning_styles | append: '</head>' -%}
+{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script><script src="/ia/beta-touch-reflection.js?v=2"></script><script src="/ia/email-copy.js?v=1"></script>' | append: positioning_script | append: '</body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {{- page_html -}}
