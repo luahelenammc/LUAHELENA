@@ -1,0 +1,623 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="pt-BR" id="top">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beta · Lua Helena Moon — Adoção de IA, fluxos e contexto</title>
+  <meta name="description" content="Lua Helena Moon organiza processos humanos, conhecimento e responsabilidades para que organizações adotem IA com contexto, clareza e governança." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="theme-color" content="#11101b" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#11101b;--bg2:#171322;--panel:rgba(255,255,255,.055);--panel-strong:rgba(255,255,255,.085);
+      --line:rgba(255,255,255,.12);--line-strong:rgba(232,201,122,.36);--text:#fff9ef;
+      --muted:#d5ccdb;--quiet:#a99daf;--gold:#e8c97a;--violet:#a08aff;--cyan:#8bdcff;
+      --green:#a6f3d4;--rose:#ff9bca;--serif:"Fraunces",Georgia,serif;
+      --sans:"Hanken Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --shadow:0 24px 70px rgba(0,0,0,.32)
+    }
+    html{scroll-behavior:smooth;scroll-padding-top:92px;background:var(--bg)}
+    body{
+      min-height:100vh;color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.62;
+      background:
+        radial-gradient(circle at 12% 2%,rgba(160,138,255,.22),transparent 30rem),
+        radial-gradient(circle at 90% 4%,rgba(232,201,122,.13),transparent 28rem),
+        radial-gradient(circle at 75% 62%,rgba(139,220,255,.07),transparent 34rem),
+        linear-gradient(145deg,#0b0b13,var(--bg) 52%,#191023);
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden
+    }
+    body:before{
+      content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.42;
+      background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+      background-size:72px 72px;mask-image:linear-gradient(#000,transparent 82%)
+    }
+    a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:12px}
+    ::selection{background:rgba(232,201,122,.3)}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.07);
+      background:rgba(17,16,27,.76);backdrop-filter:blur(18px)
+    }
+    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;letter-spacing:.01em}
+    .brand-mark{width:27px;height:27px;border-radius:50%;background:radial-gradient(circle,#fff 0 11%,var(--gold) 12% 27%,#8a70de 28% 70%,#211536);box-shadow:0 0 24px rgba(232,201,122,.3)}
+    .nav-links{display:flex;align-items:center;gap:3px}
+    .nav-links a{padding:9px 10px;border-radius:999px;color:var(--muted);font-size:.9rem}
+    .nav-links a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .nav-actions{display:flex;align-items:center;gap:9px}
+    .beta-badge{border:1px solid rgba(255,155,202,.28);border-radius:999px;padding:6px 9px;color:#ffc0df;background:rgba(255,155,202,.07);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(255,255,255,.035)}
+    .lang-toggle button{width:39px;height:34px;border:0;border-radius:999px;background:transparent;display:grid;place-items:center;cursor:pointer}
+    .lang-toggle img{width:23px;height:23px;object-fit:contain;opacity:.62;filter:saturate(.8)}
+    .lang-toggle button.active{background:rgba(232,201,122,.14);box-shadow:inset 0 0 0 1px rgba(232,201,122,.18)}
+    .lang-toggle button.active img{opacity:1;filter:saturate(1.05)}
+    .btn{
+      min-height:48px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.055);
+      font-weight:700;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease
+    }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.09);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+    .btn-primary{border-color:rgba(232,201,122,.5);background:linear-gradient(135deg,rgba(232,201,122,.22),rgba(160,138,255,.12))}
+    .btn-small{min-height:42px;padding:9px 13px;font-size:.9rem}
+    .hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr);gap:42px;align-items:center;padding:88px 0 72px}
+    .eyebrow,.section-kicker{color:var(--gold);font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .hero h1,.section-title,.contact h2{font-family:var(--serif);font-weight:600;text-wrap:balance}
+    .hero h1{font-size:clamp(2.85rem,6.3vw,5.25rem);line-height:1.01;letter-spacing:-.025em;margin-top:18px;max-width:850px}
+    .accent{background:linear-gradient(92deg,var(--text),var(--gold),var(--violet),var(--rose),var(--cyan));background-clip:text;-webkit-background-clip:text;color:transparent}
+    .hero-lead{margin-top:24px;max-width:800px;color:var(--muted);font-size:clamp(1.08rem,1.8vw,1.25rem);line-height:1.52}
+    .foundation-line{margin-top:16px;max-width:790px;color:var(--quiet);font-size:.98rem}
+    .hero-meta,.hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+    .pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);background:rgba(255,255,255,.035);font-size:.86rem}
+    .value-panel{
+      position:relative;border:1px solid rgba(232,201,122,.27);border-radius:30px;padding:25px;
+      background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:var(--shadow);overflow:hidden
+    }
+    .value-panel:before{content:"";position:absolute;width:210px;height:210px;right:-70px;top:-90px;border-radius:50%;background:radial-gradient(circle,rgba(232,201,122,.19),transparent 67%)}
+    .value-panel h2{position:relative;font-family:var(--serif);font-size:1.65rem;line-height:1.15;margin-top:8px}
+    .value-list{position:relative;display:grid;gap:12px;margin-top:20px}
+    .value-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .value-row:first-child{border-top:0}
+    .value-row span{font-size:.92rem}.value-row .from{color:var(--quiet)}.value-row .to{color:var(--text);font-weight:700;text-align:right}.value-row i{width:18px;color:var(--gold)}
+    .value-note{position:relative;margin-top:17px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.9rem}
+    .section{padding:66px 0}
+    .section-head{display:grid;grid-template-columns:175px minmax(0,1fr);gap:28px;align-items:start;margin-bottom:28px}
+    .section-title{font-size:clamp(2rem,4vw,3.25rem);line-height:1.07;letter-spacing:-.018em;max-width:900px}
+    .section-lead{color:var(--muted);max-width:850px;margin-top:13px;font-size:1.05rem}
+    .grid-3,.grid-4{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}
+    .card{
+      position:relative;border:1px solid var(--line);border-radius:25px;padding:22px;
+      background:linear-gradient(145deg,var(--panel),rgba(255,255,255,.025));overflow:hidden
+    }
+    .card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(160,138,255,.13),transparent 42%);pointer-events:none}
+    .card>*{position:relative}
+    .icon{width:43px;height:43px;border:1px solid rgba(232,201,122,.2);border-radius:14px;display:grid;place-items:center;background:rgba(232,201,122,.09);color:var(--gold);margin-bottom:15px}
+    .icon i{width:21px}
+    .card h3{font-size:1.08rem;line-height:1.27}
+    .card p{color:var(--muted);font-size:.94rem;margin-top:9px}
+    .outcome{margin-top:15px;padding-top:13px;border-top:1px solid rgba(255,255,255,.08);color:var(--green)!important;font-size:.87rem!important;font-weight:700}
+    .service-card{padding:24px}
+    .service-code{display:inline-flex;color:var(--gold);font-size:.73rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:10px}
+    .service-card h3{font-family:var(--serif);font-size:1.45rem}
+    .service-card ul{list-style:none;display:grid;gap:7px;margin-top:15px;color:var(--muted);font-size:.92rem}
+    .service-card li{display:flex;gap:8px}.service-card li:before{content:"";width:6px;height:6px;flex:0 0 auto;border-radius:50%;background:var(--gold);margin-top:.62em;box-shadow:0 0 9px rgba(232,201,122,.48)}
+    .method{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:steps}
+    .method-step{counter-increment:steps;border-top:1px solid rgba(232,201,122,.36);padding:18px 4px 4px}
+    .method-step:before{content:"0" counter(steps);color:var(--gold);font-family:var(--serif);font-size:1.55rem}
+    .method-step h3{margin-top:9px}.method-step p{color:var(--muted);font-size:.92rem;margin-top:7px}
+    .depth-box{margin-top:28px;border:1px solid var(--line);border-radius:26px;background:rgba(255,255,255,.035);overflow:hidden}
+    .depth-box summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 22px;cursor:pointer;font-weight:800}
+    .depth-box summary::-webkit-details-marker{display:none}
+    .depth-box summary i{transition:transform .2s ease}.depth-box[open] summary i{transform:rotate(180deg)}
+    .depth-content{padding:0 22px 22px;border-top:1px solid rgba(255,255,255,.08)}
+    .depth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:20px}
+    .depth-grid h3{font-size:1rem}.depth-grid ul{list-style:none;display:grid;gap:7px;margin-top:10px;color:var(--muted);font-size:.9rem}
+    .depth-grid li{padding-left:15px;position:relative}.depth-grid li:before{content:"";position:absolute;left:0;top:.67em;width:5px;height:5px;border-radius:50%;background:var(--violet)}
+    .proof-shell{display:grid;grid-template-columns:1fr .92fr;gap:18px}
+    .proof-main{border:1px solid var(--line-strong);border-radius:28px;padding:27px;background:linear-gradient(135deg,rgba(232,201,122,.09),rgba(160,138,255,.07))}
+    .proof-main .big{font-family:var(--serif);font-size:clamp(1.55rem,2.9vw,2.2rem);line-height:1.2}
+    .proof-main>p:not(.big){color:var(--muted);margin-top:12px}
+    .proof-points{display:grid;gap:11px;margin-top:20px}
+    .proof-point{display:flex;gap:10px;color:var(--muted);font-size:.92rem}.proof-point i{width:19px;flex:0 0 auto;color:var(--gold);margin-top:3px}
+    .work-list{display:grid;gap:12px}
+    .work-card{border:1px solid var(--line);border-radius:22px;padding:20px;background:rgba(255,255,255,.035)}
+    .work-card h3{font-size:1.04rem}.work-card p{color:var(--muted);font-size:.9rem;margin-top:7px}
+    .work-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+    .text-link{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:.86rem;font-weight:800}
+    .truth-note{margin-top:18px;padding:18px 20px;border-left:3px solid var(--gold);border-radius:0 18px 18px 0;background:rgba(255,255,255,.035);color:var(--muted)}
+    .contact{padding:60px 0 82px}
+    .contact-panel{display:grid;grid-template-columns:1.12fr .88fr;gap:28px;align-items:center;border:1px solid rgba(232,201,122,.31);border-radius:32px;padding:30px;background:linear-gradient(135deg,rgba(232,201,122,.11),rgba(160,138,255,.09),rgba(139,220,255,.055));box-shadow:var(--shadow)}
+    .contact h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.04}.contact p{color:var(--muted);margin-top:11px}
+    .contact-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px}
+    .copied{border-color:rgba(166,243,212,.65)!important;background:rgba(166,243,212,.12)!important}
+    footer{border-top:1px solid rgba(255,255,255,.07);padding:21px 0 30px;color:var(--quiet);font-size:.84rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(14px);transition:.55s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:930px){
+      .nav-links{display:none}.hero{grid-template-columns:1fr;padding-top:65px}.value-panel{max-width:720px}
+      .section-head{grid-template-columns:1fr;gap:8px}.grid-3{grid-template-columns:1fr 1fr}.method{grid-template-columns:1fr 1fr}
+      .proof-shell,.contact-panel{grid-template-columns:1fr}.contact-actions{justify-content:flex-start}
+    }
+    @media(max-width:650px){
+      body{font-size:16px}.wrap{width:min(100% - 26px,1120px)}.nav-inner{min-height:66px}.beta-badge{display:none}
+      .hero{padding:48px 0 54px;gap:28px}.hero h1{font-size:clamp(2.55rem,13vw,4rem)}
+      .grid-3,.grid-4,.method,.depth-grid{grid-template-columns:1fr}.section{padding:48px 0}
+      .value-row{grid-template-columns:1fr auto;gap:7px}.value-row .to{grid-column:1/-1;text-align:left}.value-row i{grid-row:1}
+      .contact-panel{padding:22px}.contact-actions .btn{flex:1 1 calc(50% - 8px)}.footer-inner{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Lua Helena</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#fit" data-i="nav.fit">Onde ajudo</a>
+        <a href="#services" data-i="nav.services">Entregas</a>
+        <a href="#method" data-i="nav.method">Método</a>
+        <a href="#proof" data-i="nav.proof">Lastro</a>
+        <a href="#contact" data-i="nav.contact">Contato</a>
+      </nav>
+      <div class="nav-actions">
+        <span class="beta-badge">Hygiene beta</span>
+        <div class="lang-toggle" aria-label="Seleção de idioma">
+          <button data-lang="pt" class="active" aria-label="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button>
+          <button data-lang="en" aria-label="English"><img src="/images/usa.png" alt="" aria-hidden="true" /></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap reveal">
+      <div>
+        <p class="eyebrow" data-i="hero.eyebrow">Adoção de IA · Desenho de fluxos · Governança de conhecimento</p>
+        <h1 data-html="hero.title">Organizo o contexto que precisa existir <span class="accent">antes que a IA consiga ajudar de verdade.</span></h1>
+        <p class="hero-lead" data-i="hero.lead">Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em uma base que pessoas e IA conseguem usar com clareza, continuidade e responsabilidade.</p>
+        <p class="foundation-line" data-i="hero.foundation">Como psicóloga hospitalar, trabalho dentro de sistemas complexos, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional.</p>
+        <div class="hero-meta">
+          <span class="pill"><i data-lucide="map-pin"></i><span data-i="hero.location">Limeira / SP · Brasil</span></span>
+          <span class="pill"><i data-lucide="globe-2"></i><span data-i="hero.remote">Trabalho remoto</span></span>
+          <span class="pill"><i data-lucide="languages"></i><span data-i="hero.languages">Português nativo · inglês avançado</span></span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#fit"><span data-i="hero.cta">Ver onde eu ajudo</span><i data-lucide="arrow-down"></i></a>
+          <button class="btn" type="button" data-packet><span data-i="hero.packet">Baixar packet para IA</span><i data-lucide="package-down"></i></button>
+        </div>
+      </div>
+
+      <aside class="value-panel">
+        <p class="section-kicker" data-i="hero.panel.kicker">Do ruído à operação</p>
+        <h2 data-i="hero.panel.title">O que muda quando o contexto fica legível</h2>
+        <div class="value-list">
+          <div class="value-row"><span class="from" data-i="hero.panel.from1">Conhecimento disperso</span><i data-lucide="arrow-right"></i><span class="to" data-i="hero.panel.to1">Fonte confiável e atualizável</span></div>
+          <div class="value-row"><span class="from" data-i="hero.panel.from2">Papéis e passagens confusas</span><i data-lucide="arrow-right"></i><span class="to" data-i="hero.panel.to2">Responsabilidades legíveis</span></div>
+          <div class="value-row"><span class="from" data-i="hero.panel.from3">IA genérica e insegura</span><i data-lucide="arrow-right"></i><span class="to" data-i="hero.panel.to3">Critérios, limites e revisão humana</span></div>
+        </div>
+        <p class="value-note" data-i="hero.panel.note">Começo pelo trabalho real, não pela ferramenta. A tecnologia entra depois que fontes, pessoas, decisões e riscos estão compreendidos.</p>
+      </aside>
+    </section>
+
+    <section class="section wrap reveal" id="fit">
+      <div class="section-head">
+        <p class="section-kicker" data-i="fit.kicker">Onde eu crio valor</p>
+        <div>
+          <h2 class="section-title" data-i="fit.title">Eu entro quando a organização sabe que precisa de IA, mas ainda não tem o contexto pronto.</h2>
+          <p class="section-lead" data-i="fit.lead">O problema raramente é só escolher uma ferramenta. Antes disso, alguém precisa tornar o trabalho compreensível, localizar autoridade, revelar dependências e decidir o que a IA pode ou não fazer.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon"><i data-lucide="files"></i></div>
+          <h3 data-i="fit.card1.title">Conhecimento espalhado</h3>
+          <p data-i="fit.card1.text">Arquivos, mensagens, pessoas-chave e versões diferentes sustentam o trabalho, mas ninguém enxerga com segurança o que vale agora.</p>
+          <p class="outcome" data-i="fit.card1.outcome">Resultado: fontes, autoridade, lacunas e atualização ficam visíveis.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><i data-lucide="workflow"></i></div>
+          <h3 data-i="fit.card2.title">Trabalho difícil de explicar</h3>
+          <p data-i="fit.card2.text">O fluxo oficial não coincide com a rotina real; papéis se sobrepõem, passagens dependem de memória individual e o retrabalho parece inevitável.</p>
+          <p class="outcome" data-i="fit.card2.outcome">Resultado: fluxos, responsabilidades e interfaces ficam legíveis.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><i data-lucide="bot"></i></div>
+          <h3 data-i="fit.card3.title">IA sem chão operacional</h3>
+          <p data-i="fit.card3.text">A organização quer usar IA, mas ainda não definiu fontes, limites, critérios de resposta, responsáveis, revisão humana ou como medir utilidade.</p>
+          <p class="outcome" data-i="fit.card3.outcome">Resultado: a adoção começa com contexto e governança, não com improviso.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="services">
+      <div class="section-head">
+        <p class="section-kicker" data-i="services.kicker">Entregas possíveis</p>
+        <div>
+          <h2 class="section-title" data-i="services.title">O trabalho vira artefatos concretos, não uma apresentação abstrata sobre o futuro.</h2>
+          <p class="section-lead" data-i="services.lead">O formato depende do cenário. A unidade comum é uma base revisável que conecta conhecimento, pessoas, decisões e uso responsável de IA.</p>
+        </div>
+      </div>
+      <div class="grid-4">
+        <article class="card service-card">
+          <span class="service-code">01 · Context audit</span>
+          <h3 data-i="services.card1.title">Auditoria de contexto</h3>
+          <p data-i="services.card1.text">Diagnóstico do que a organização já possui, do que está faltando e do que pode comprometer uma iniciativa de IA.</p>
+          <ul>
+            <li data-i="services.card1.li1">mapa de fontes, owners e versões</li>
+            <li data-i="services.card1.li2">contradições, lacunas e riscos</li>
+            <li data-i="services.card1.li3">prioridades e próximos passos realistas</li>
+          </ul>
+        </article>
+        <article class="card service-card">
+          <span class="service-code">02 · Knowledge architecture</span>
+          <h3 data-i="services.card2.title">Arquitetura de fontes e conhecimento</h3>
+          <p data-i="services.card2.text">Organização do contexto em fontes vivas, rotas de consulta, critérios de autoridade e protocolos de atualização.</p>
+          <ul>
+            <li data-i="services.card2.li1">documentação viva e memória operacional</li>
+            <li data-i="services.card2.li2">handoffs e packets de contexto</li>
+            <li data-i="services.card2.li3">governança, privacidade e freshness</li>
+          </ul>
+        </article>
+        <article class="card service-card">
+          <span class="service-code">03 · AI workflow</span>
+          <h3 data-i="services.card3.title">Desenho de fluxos para adoção de IA</h3>
+          <p data-i="services.card3.text">Tradução do trabalho real em oportunidades delimitadas de uso, com papéis humanos, revisão e critérios de qualidade explícitos.</p>
+          <ul>
+            <li data-i="services.card3.li1">casos de uso e fronteiras de automação</li>
+            <li data-i="services.card3.li2">responsabilidades e pontos de revisão</li>
+            <li data-i="services.card3.li3">letramento e capacitação conectados à rotina</li>
+          </ul>
+        </article>
+        <article class="card service-card">
+          <span class="service-code">04 · Institutional translation</span>
+          <h3 data-i="services.card4.title">Tradução institucional para pessoas e IA</h3>
+          <p data-i="services.card4.text">Transformação de complexidade organizacional em linguagem, mapas e instruções que diferentes públicos conseguem usar.</p>
+          <ul>
+            <li data-i="services.card4.li1">mapas de papéis, competências e interfaces</li>
+            <li data-i="services.card4.li2">vocabulário, critérios e modelos de decisão</li>
+            <li data-i="services.card4.li3">especificação e orientação de assistentes internos</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="method">
+      <div class="section-head">
+        <p class="section-kicker" data-i="method.kicker">Como eu trabalho</p>
+        <div>
+          <h2 class="section-title" data-i="method.title">Profundidade não precisa virar peso para quem está lendo.</h2>
+          <p class="section-lead" data-i="method.lead">A página mostra o essencial. O método preserva a complexidade por trás dela, em uma sequência simples de entender e rigorosa o bastante para não fabricar contexto.</p>
+        </div>
+      </div>
+      <div class="method">
+        <article class="method-step"><h3 data-i="method.step1.title">Aprender</h3><p data-i="method.step1.text">Leio materiais, converso com pessoas-chave e observo a diferença entre processo oficial e trabalho vivido.</p></article>
+        <article class="method-step"><h3 data-i="method.step2.title">Estruturar</h3><p data-i="method.step2.text">Organizo fontes, fluxos, papéis, critérios, riscos e dependências na menor arquitetura suficiente.</p></article>
+        <article class="method-step"><h3 data-i="method.step3.title">Validar</h3><p data-i="method.step3.text">Levo a estrutura de volta a quem conhece o trabalho e testo sua utilidade em tarefas reais.</p></article>
+        <article class="method-step"><h3 data-i="method.step4.title">Manter</h3><p data-i="method.step4.text">Defino como revisar, atualizar e corrigir o contexto conforme pessoas, processos e decisões mudam.</p></article>
+      </div>
+
+      <details class="depth-box">
+        <summary><span data-i="method.depth.summary">Abrir a camada completa do método</span><i data-lucide="chevron-down"></i></summary>
+        <div class="depth-content">
+          <div class="depth-grid">
+            <div>
+              <h3 data-i="method.depth.map.title">O que eu mapeio</h3>
+              <ul>
+                <li data-i="method.depth.map.li1">fontes, documentos, versões e autoridade</li>
+                <li data-i="method.depth.map.li2">fluxos, exceções, fricções e retrabalho</li>
+                <li data-i="method.depth.map.li3">papéis, autonomia, competências e handoffs</li>
+                <li data-i="method.depth.map.li4">linguagem, critérios e decisões recorrentes</li>
+                <li data-i="method.depth.map.li5">riscos, privacidade e revisão humana</li>
+              </ul>
+            </div>
+            <div>
+              <h3 data-i="method.depth.outputs.title">O que pode sair</h3>
+              <ul>
+                <li data-i="method.depth.outputs.li1">mapa contextual e de responsabilidades</li>
+                <li data-i="method.depth.outputs.li2">fonte viva ou knowledge base governada</li>
+                <li data-i="method.depth.outputs.li3">packet de orientação para IA</li>
+                <li data-i="method.depth.outputs.li4">especificação de assistente interno</li>
+                <li data-i="method.depth.outputs.li5">critérios de QA, atualização e treinamento</li>
+              </ul>
+            </div>
+            <div>
+              <h3 data-i="method.depth.boundaries.title">Limites que preservo</h3>
+              <ul>
+                <li data-i="method.depth.boundaries.li1">IA não substitui autoridade humana</li>
+                <li data-i="method.depth.boundaries.li2">material sensível exige governança</li>
+                <li data-i="method.depth.boundaries.li3">inferência não vira fato por fluência</li>
+                <li data-i="method.depth.boundaries.li4">automação só entra onde resolve trabalho real</li>
+                <li data-i="method.depth.boundaries.li5">documentação precisa de owner e freshness</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section wrap reveal" id="proof">
+      <div class="section-head">
+        <p class="section-kicker" data-i="proof.kicker">Lastro profissional</p>
+        <div>
+          <h2 class="section-title" data-i="proof.title">Meu diferencial não é falar de IA de fora. É saber ler sistemas humanos por dentro.</h2>
+          <p class="section-lead" data-i="proof.lead">A tecnologia é o meio operacional. O lastro vem de trabalhar com complexidade, responsabilidade, aprendizagem, linguagem e relações institucionais.</p>
+        </div>
+      </div>
+
+      <div class="proof-shell">
+        <article class="proof-main">
+          <p class="big" data-i="proof.main.big">Psicologia hospitalar me ensinou que informação só é útil quando chega à pessoa certa, no momento certo, com responsabilidade clara.</p>
+          <p data-i="proof.main.text">No hospital, navego fluxos institucionais, equipes multiprofissionais, contextos sensíveis, crises, conflitos de comunicação e decisões que não toleram contexto inventado. Essa experiência informa diretamente como desenho adoção, governança e handoffs com IA.</p>
+          <div class="proof-points">
+            <div class="proof-point"><i data-lucide="users-round"></i><span data-i="proof.point1">Psicologia Organizacional: papéis, cultura, poder, comunicação e mudança.</span></div>
+            <div class="proof-point"><i data-lucide="graduation-cap"></i><span data-i="proof.point2">Psicopedagogia Institucional: aprendizagem, letramento e capacitação situada.</span></div>
+            <div class="proof-point"><i data-lucide="braces"></i><span data-i="proof.point3">Moon Source Project: fontes vivas, packets, handoffs, routing e higiene de contexto.</span></div>
+          </div>
+        </article>
+
+        <div class="work-list">
+          <article class="work-card">
+            <h3 data-i="proof.work1.title">Moon Source Project</h3>
+            <p data-i="proof.work1.text">Método autoral e corpus aplicado para transformar pessoas, projetos e instituições em contexto vivo, atualizável e governável para colaboração com IA.</p>
+            <div class="work-links"><button class="text-link" type="button" data-packet><span data-i="proof.work1.link">Baixar apresentação estruturada</span><i data-lucide="download"></i></button></div>
+          </article>
+          <article class="work-card">
+            <h3 data-i="proof.work2.title">LMS 3D Cluster Engine</h3>
+            <p data-i="proof.work2.text">Engine web pública para visualizar, explorar e editar grafos 3D por clusters, com contrato de dados, validação, importação, exportação e interface responsiva.</p>
+            <div class="work-links">
+              <a class="text-link" href="https://luahelenammc.github.io/3D-Cluster-Engine/" target="_blank" rel="noopener"><span data-i="proof.work2.demo">Abrir demo</span><i data-lucide="external-link"></i></a>
+              <a class="text-link" href="https://github.com/luahelenammc/3D-Cluster-Engine" target="_blank" rel="noopener"><span>GitHub</span><i data-lucide="github"></i></a>
+            </div>
+          </article>
+          <article class="work-card">
+            <h3 data-i="proof.work3.title">Sistemas contextuais em uso contínuo</h3>
+            <p data-i="proof.work3.text">Arquiteturas de fontes, memória, revisão, voz, imagem, projetos e continuidade usadas diariamente para coordenar trabalho profissional, criativo e institucional assistido por IA.</p>
+            <div class="work-links"><a class="text-link" href="#contact"><span data-i="proof.work3.link">Conversar sobre um case</span><i data-lucide="message-circle"></i></a></div>
+          </article>
+        </div>
+      </div>
+
+      <p class="truth-note" data-i="proof.boundary">Não me apresento como engenheira de IA ou desenvolvedora de modelos. Meu trabalho complementa engenharia, produto, Gestão de Pessoas, educação, saúde e setor público na camada em que contexto humano, conhecimento e operação precisam ser compreendidos antes de automatizar.</p>
+    </section>
+
+    <section class="contact wrap reveal" id="contact">
+      <div class="contact-panel">
+        <div>
+          <p class="section-kicker" data-i="contact.kicker">Próximo passo</p>
+          <h2 data-i="contact.title">Vamos descobrir se o seu problema é de ferramenta — ou de contexto?</h2>
+          <p data-i="contact.text">Uma conversa inicial pode delimitar o cenário, o que já existe, onde estão as lacunas e qual seria a menor intervenção útil.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:luahelenammc@gmail.com" data-email><i data-lucide="mail"></i><span data-i="contact.email">E-mail</span></a>
+          <a class="btn" href="https://wa.me/5541992228411" target="_blank" rel="noopener"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/luahelena/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i><span>LinkedIn</span></a>
+          <button class="btn" type="button" data-discord="moon_aurea"><i data-lucide="copy"></i><span>Discord</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Lua Helena Moon Martins Cardoso</span>
+      <span data-i="footer">Human–AI Context Architecture · trabalho remoto · Brasil</span>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      pt: {
+        "nav.fit":"Onde ajudo","nav.services":"Entregas","nav.method":"Método","nav.proof":"Lastro","nav.contact":"Contato",
+        "hero.eyebrow":"Adoção de IA · Desenho de fluxos · Governança de conhecimento",
+        "hero.title":"Organizo o contexto que precisa existir <span class=\"accent\">antes que a IA consiga ajudar de verdade.</span>",
+        "hero.lead":"Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em uma base que pessoas e IA conseguem usar com clareza, continuidade e responsabilidade.",
+        "hero.foundation":"Como psicóloga hospitalar, trabalho dentro de sistemas complexos, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional.",
+        "hero.location":"Limeira / SP · Brasil","hero.remote":"Trabalho remoto","hero.languages":"Português nativo · inglês avançado","hero.cta":"Ver onde eu ajudo","hero.packet":"Baixar packet para IA",
+        "hero.panel.kicker":"Do ruído à operação","hero.panel.title":"O que muda quando o contexto fica legível",
+        "hero.panel.from1":"Conhecimento disperso","hero.panel.to1":"Fonte confiável e atualizável","hero.panel.from2":"Papéis e passagens confusas","hero.panel.to2":"Responsabilidades legíveis","hero.panel.from3":"IA genérica e insegura","hero.panel.to3":"Critérios, limites e revisão humana",
+        "hero.panel.note":"Começo pelo trabalho real, não pela ferramenta. A tecnologia entra depois que fontes, pessoas, decisões e riscos estão compreendidos.",
+        "fit.kicker":"Onde eu crio valor","fit.title":"Eu entro quando a organização sabe que precisa de IA, mas ainda não tem o contexto pronto.","fit.lead":"O problema raramente é só escolher uma ferramenta. Antes disso, alguém precisa tornar o trabalho compreensível, localizar autoridade, revelar dependências e decidir o que a IA pode ou não fazer.",
+        "fit.card1.title":"Conhecimento espalhado","fit.card1.text":"Arquivos, mensagens, pessoas-chave e versões diferentes sustentam o trabalho, mas ninguém enxerga com segurança o que vale agora.","fit.card1.outcome":"Resultado: fontes, autoridade, lacunas e atualização ficam visíveis.",
+        "fit.card2.title":"Trabalho difícil de explicar","fit.card2.text":"O fluxo oficial não coincide com a rotina real; papéis se sobrepõem, passagens dependem de memória individual e o retrabalho parece inevitável.","fit.card2.outcome":"Resultado: fluxos, responsabilidades e interfaces ficam legíveis.",
+        "fit.card3.title":"IA sem chão operacional","fit.card3.text":"A organização quer usar IA, mas ainda não definiu fontes, limites, critérios de resposta, responsáveis, revisão humana ou como medir utilidade.","fit.card3.outcome":"Resultado: a adoção começa com contexto e governança, não com improviso.",
+        "services.kicker":"Entregas possíveis","services.title":"O trabalho vira artefatos concretos, não uma apresentação abstrata sobre o futuro.","services.lead":"O formato depende do cenário. A unidade comum é uma base revisável que conecta conhecimento, pessoas, decisões e uso responsável de IA.",
+        "services.card1.title":"Auditoria de contexto","services.card1.text":"Diagnóstico do que a organização já possui, do que está faltando e do que pode comprometer uma iniciativa de IA.","services.card1.li1":"mapa de fontes, owners e versões","services.card1.li2":"contradições, lacunas e riscos","services.card1.li3":"prioridades e próximos passos realistas",
+        "services.card2.title":"Arquitetura de fontes e conhecimento","services.card2.text":"Organização do contexto em fontes vivas, rotas de consulta, critérios de autoridade e protocolos de atualização.","services.card2.li1":"documentação viva e memória operacional","services.card2.li2":"handoffs e packets de contexto","services.card2.li3":"governança, privacidade e freshness",
+        "services.card3.title":"Desenho de fluxos para adoção de IA","services.card3.text":"Tradução do trabalho real em oportunidades delimitadas de uso, com papéis humanos, revisão e critérios de qualidade explícitos.","services.card3.li1":"casos de uso e fronteiras de automação","services.card3.li2":"responsabilidades e pontos de revisão","services.card3.li3":"letramento e capacitação conectados à rotina",
+        "services.card4.title":"Tradução institucional para pessoas e IA","services.card4.text":"Transformação de complexidade organizacional em linguagem, mapas e instruções que diferentes públicos conseguem usar.","services.card4.li1":"mapas de papéis, competências e interfaces","services.card4.li2":"vocabulário, critérios e modelos de decisão","services.card4.li3":"especificação e orientação de assistentes internos",
+        "method.kicker":"Como eu trabalho","method.title":"Profundidade não precisa virar peso para quem está lendo.","method.lead":"A página mostra o essencial. O método preserva a complexidade por trás dela, em uma sequência simples de entender e rigorosa o bastante para não fabricar contexto.",
+        "method.step1.title":"Aprender","method.step1.text":"Leio materiais, converso com pessoas-chave e observo a diferença entre processo oficial e trabalho vivido.","method.step2.title":"Estruturar","method.step2.text":"Organizo fontes, fluxos, papéis, critérios, riscos e dependências na menor arquitetura suficiente.","method.step3.title":"Validar","method.step3.text":"Levo a estrutura de volta a quem conhece o trabalho e testo sua utilidade em tarefas reais.","method.step4.title":"Manter","method.step4.text":"Defino como revisar, atualizar e corrigir o contexto conforme pessoas, processos e decisões mudam.",
+        "method.depth.summary":"Abrir a camada completa do método","method.depth.map.title":"O que eu mapeio","method.depth.map.li1":"fontes, documentos, versões e autoridade","method.depth.map.li2":"fluxos, exceções, fricções e retrabalho","method.depth.map.li3":"papéis, autonomia, competências e handoffs","method.depth.map.li4":"linguagem, critérios e decisões recorrentes","method.depth.map.li5":"riscos, privacidade e revisão humana",
+        "method.depth.outputs.title":"O que pode sair","method.depth.outputs.li1":"mapa contextual e de responsabilidades","method.depth.outputs.li2":"fonte viva ou knowledge base governada","method.depth.outputs.li3":"packet de orientação para IA","method.depth.outputs.li4":"especificação de assistente interno","method.depth.outputs.li5":"critérios de QA, atualização e treinamento",
+        "method.depth.boundaries.title":"Limites que preservo","method.depth.boundaries.li1":"IA não substitui autoridade humana","method.depth.boundaries.li2":"material sensível exige governança","method.depth.boundaries.li3":"inferência não vira fato por fluência","method.depth.boundaries.li4":"automação só entra onde resolve trabalho real","method.depth.boundaries.li5":"documentação precisa de owner e freshness",
+        "proof.kicker":"Lastro profissional","proof.title":"Meu diferencial não é falar de IA de fora. É saber ler sistemas humanos por dentro.","proof.lead":"A tecnologia é o meio operacional. O lastro vem de trabalhar com complexidade, responsabilidade, aprendizagem, linguagem e relações institucionais.",
+        "proof.main.big":"Psicologia hospitalar me ensinou que informação só é útil quando chega à pessoa certa, no momento certo, com responsabilidade clara.","proof.main.text":"No hospital, navego fluxos institucionais, equipes multiprofissionais, contextos sensíveis, crises, conflitos de comunicação e decisões que não toleram contexto inventado. Essa experiência informa diretamente como desenho adoção, governança e handoffs com IA.",
+        "proof.point1":"Psicologia Organizacional: papéis, cultura, poder, comunicação e mudança.","proof.point2":"Psicopedagogia Institucional: aprendizagem, letramento e capacitação situada.","proof.point3":"Moon Source Project: fontes vivas, packets, handoffs, routing e higiene de contexto.",
+        "proof.work1.title":"Moon Source Project","proof.work1.text":"Método autoral e corpus aplicado para transformar pessoas, projetos e instituições em contexto vivo, atualizável e governável para colaboração com IA.","proof.work1.link":"Baixar apresentação estruturada",
+        "proof.work2.title":"LMS 3D Cluster Engine","proof.work2.text":"Engine web pública para visualizar, explorar e editar grafos 3D por clusters, com contrato de dados, validação, importação, exportação e interface responsiva.","proof.work2.demo":"Abrir demo",
+        "proof.work3.title":"Sistemas contextuais em uso contínuo","proof.work3.text":"Arquiteturas de fontes, memória, revisão, voz, imagem, projetos e continuidade usadas diariamente para coordenar trabalho profissional, criativo e institucional assistido por IA.","proof.work3.link":"Conversar sobre um case",
+        "proof.boundary":"Não me apresento como engenheira de IA ou desenvolvedora de modelos. Meu trabalho complementa engenharia, produto, Gestão de Pessoas, educação, saúde e setor público na camada em que contexto humano, conhecimento e operação precisam ser compreendidos antes de automatizar.",
+        "contact.kicker":"Próximo passo","contact.title":"Vamos descobrir se o seu problema é de ferramenta — ou de contexto?","contact.text":"Uma conversa inicial pode delimitar o cenário, o que já existe, onde estão as lacunas e qual seria a menor intervenção útil.","contact.email":"E-mail","footer":"Human–AI Context Architecture · trabalho remoto · Brasil"
+      },
+      en: {
+        "nav.fit":"Where I help","nav.services":"Outputs","nav.method":"Method","nav.proof":"Foundation","nav.contact":"Contact",
+        "hero.eyebrow":"AI adoption · Workflow design · Knowledge governance",
+        "hero.title":"I organize the context that needs to exist <span class=\"accent\">before AI can genuinely help.</span>",
+        "hero.lead":"I map human processes and turn documents, routines, roles, decisions, and scattered knowledge into a foundation people and AI can use with clarity, continuity, and accountability.",
+        "hero.foundation":"As a hospital psychologist, I work inside complex systems, multidisciplinary teams, sensitive contexts, and crisis mediation. I am trained in Psychology and Sociology, with postgraduate training in Organizational Psychology and Institutional Psychopedagogy.",
+        "hero.location":"Limeira / São Paulo · Brazil","hero.remote":"Remote work","hero.languages":"Native Portuguese · advanced English","hero.cta":"See where I help","hero.packet":"Download AI packet",
+        "hero.panel.kicker":"From noise to operation","hero.panel.title":"What changes when context becomes legible",
+        "hero.panel.from1":"Scattered knowledge","hero.panel.to1":"Reliable, updateable source","hero.panel.from2":"Blurred roles and handoffs","hero.panel.to2":"Legible responsibilities","hero.panel.from3":"Generic, unsafe AI","hero.panel.to3":"Criteria, boundaries, and human review",
+        "hero.panel.note":"I start with real work, not the tool. Technology enters after sources, people, decisions, and risks are understood.",
+        "fit.kicker":"Where I create value","fit.title":"I enter when an organization knows it needs AI but does not yet have the context ready.","fit.lead":"The problem is rarely just choosing a tool. First, someone needs to make the work understandable, locate authority, reveal dependencies, and decide what AI may or may not do.",
+        "fit.card1.title":"Scattered knowledge","fit.card1.text":"Files, messages, key people, and competing versions sustain the work, but nobody can confidently see what is current.","fit.card1.outcome":"Outcome: sources, authority, gaps, and update needs become visible.",
+        "fit.card2.title":"Work that is hard to explain","fit.card2.text":"The official workflow does not match lived work; roles overlap, handoffs depend on individual memory, and rework feels inevitable.","fit.card2.outcome":"Outcome: workflows, responsibilities, and interfaces become legible.",
+        "fit.card3.title":"AI without operational ground","fit.card3.text":"The organization wants AI but has not defined sources, boundaries, response criteria, owners, human review, or how usefulness will be measured.","fit.card3.outcome":"Outcome: adoption begins with context and governance, not improvisation.",
+        "services.kicker":"Possible outputs","services.title":"The work becomes concrete artifacts, not an abstract presentation about the future.","services.lead":"The format depends on the setting. The common unit is a reviewable foundation connecting knowledge, people, decisions, and responsible AI use.",
+        "services.card1.title":"Context audit","services.card1.text":"A diagnosis of what the organization already has, what is missing, and what could compromise an AI initiative.","services.card1.li1":"source, owner, and version map","services.card1.li2":"contradictions, gaps, and risks","services.card1.li3":"realistic priorities and next steps",
+        "services.card2.title":"Source and knowledge architecture","services.card2.text":"Organizing context into living sources, consultation routes, authority criteria, and update protocols.","services.card2.li1":"living documentation and operational memory","services.card2.li2":"handoffs and context packets","services.card2.li3":"governance, privacy, and freshness",
+        "services.card3.title":"AI adoption workflow design","services.card3.text":"Translating real work into bounded use opportunities with explicit human roles, review, and quality criteria.","services.card3.li1":"use cases and automation boundaries","services.card3.li2":"responsibilities and review points","services.card3.li3":"literacy and enablement tied to routine",
+        "services.card4.title":"Institutional translation for people and AI","services.card4.text":"Turning organizational complexity into language, maps, and instructions different audiences can use.","services.card4.li1":"role, capability, and interface maps","services.card4.li2":"vocabulary, criteria, and decision models","services.card4.li3":"internal assistant specification and orientation",
+        "method.kicker":"How I work","method.title":"Depth does not need to become weight for the reader.","method.lead":"The page shows the essential. The method preserves the complexity behind it through a sequence that is easy to understand and rigorous enough not to fabricate context.",
+        "method.step1.title":"Learn","method.step1.text":"I read materials, speak with key people, and observe the gap between official process and lived work.","method.step2.title":"Structure","method.step2.text":"I organize sources, workflows, roles, criteria, risks, and dependencies into the smallest sufficient architecture.","method.step3.title":"Validate","method.step3.text":"I return the structure to people who know the work and test its usefulness in real tasks.","method.step4.title":"Maintain","method.step4.text":"I define how context will be reviewed, updated, and corrected as people, processes, and decisions change.",
+        "method.depth.summary":"Open the full method layer","method.depth.map.title":"What I map","method.depth.map.li1":"sources, documents, versions, and authority","method.depth.map.li2":"workflows, exceptions, friction, and rework","method.depth.map.li3":"roles, autonomy, capabilities, and handoffs","method.depth.map.li4":"language, criteria, and recurring decisions","method.depth.map.li5":"risks, privacy, and human review",
+        "method.depth.outputs.title":"What may come out","method.depth.outputs.li1":"context and responsibility map","method.depth.outputs.li2":"living source or governed knowledge base","method.depth.outputs.li3":"AI orientation packet","method.depth.outputs.li4":"internal assistant specification","method.depth.outputs.li5":"QA, update, and training criteria",
+        "method.depth.boundaries.title":"Boundaries I preserve","method.depth.boundaries.li1":"AI does not replace human authority","method.depth.boundaries.li2":"sensitive material requires governance","method.depth.boundaries.li3":"fluency does not turn inference into fact","method.depth.boundaries.li4":"automation enters only where it solves real work","method.depth.boundaries.li5":"documentation needs an owner and freshness",
+        "proof.kicker":"Professional foundation","proof.title":"My edge is not talking about AI from the outside. It is knowing how to read human systems from within.","proof.lead":"Technology is the operational medium. The foundation comes from working with complexity, accountability, learning, language, and institutional relationships.",
+        "proof.main.big":"Hospital psychology taught me that information is useful only when it reaches the right person, at the right time, with clear responsibility.","proof.main.text":"In the hospital, I navigate institutional workflows, multidisciplinary teams, sensitive contexts, crises, communication conflicts, and decisions that cannot tolerate invented context. That experience directly informs how I design AI adoption, governance, and handoffs.",
+        "proof.point1":"Organizational Psychology: roles, culture, power, communication, and change.","proof.point2":"Institutional Psychopedagogy: learning, literacy, and situated enablement.","proof.point3":"Moon Source Project: living sources, packets, handoffs, routing, and context hygiene.",
+        "proof.work1.title":"Moon Source Project","proof.work1.text":"An authorial method and applied corpus for turning people, projects, and institutions into living, updateable, governed context for AI collaboration.","proof.work1.link":"Download structured introduction",
+        "proof.work2.title":"LMS 3D Cluster Engine","proof.work2.text":"A public web engine for visualizing, exploring, and editing clustered 3D graphs, with a data contract, validation, import, export, and responsive interface.","proof.work2.demo":"Open demo",
+        "proof.work3.title":"Context systems in continuous use","proof.work3.text":"Architectures for sources, memory, review, voice, images, projects, and continuity used daily to coordinate AI-assisted professional, creative, and institutional work.","proof.work3.link":"Discuss a case",
+        "proof.boundary":"I do not present myself as an AI engineer or model developer. My work complements engineering, product, People teams, education, healthcare, and the public sector at the layer where human context, knowledge, and operation must be understood before automation.",
+        "contact.kicker":"Next step","contact.title":"Let us find out whether your problem is a tool problem — or a context problem.","contact.text":"An initial conversation can delimit the setting, what already exists, where the gaps are, and the smallest useful intervention.","contact.email":"Email","footer":"Human–AI Context Architecture · remote work · Brazil"
+      }
+    };
+
+    const PACKET = `# LUA HELENA MOON — HUMAN–AI CONTEXT ARCHITECTURE PACKET · HYGIENE BETA
+
+## One-line profile
+Hospital psychologist and Human–AI Context Architect focused on AI adoption, workflow design, knowledge governance, and translating complex human systems into context that people and AI can use.
+
+## Core value
+Lua helps organizations make their own knowledge, workflows, roles, decisions, criteria, and boundaries legible before AI is expected to operate inside them.
+
+## Strong professional fits
+- AI adoption and enablement
+- workflow and context design
+- knowledge governance and operations
+- living documentation and operational memory
+- role, capability, responsibility, and interface mapping
+- institutional AI literacy and learning design
+- mediation between human systems and technical teams
+
+## Typical problems
+- knowledge scattered across files, messages, and key people
+- unclear authority, versions, ownership, and update paths
+- official workflows that do not match lived work
+- blurred roles, dependencies, and handoffs
+- AI initiatives without grounded sources, review criteria, or accountable owners
+
+## Possible outputs
+- context audit
+- source and knowledge architecture
+- organizational context map
+- role, capability, and interface map
+- living documentation and operational memory
+- AI orientation packet
+- internal assistant specification
+- review, safety, and accountability criteria
+- AI adoption workflow and enablement plan
+
+## Method
+1. Learn the organization from materials, people, workflows, exceptions, and language.
+2. Structure sources, roles, decisions, risks, and dependencies into the smallest sufficient architecture.
+3. Validate with people close to the work and test in real tasks.
+4. Define maintenance, ownership, review, and update paths.
+
+## Foundation
+Lua works as a hospital psychologist inside complex systems, multidisciplinary teams, sensitive contexts, crisis mediation, and high-accountability communication. She is trained in Psychology and Sociology, with postgraduate training in Organizational Psychology and Institutional Psychopedagogy.
+
+## Representation boundaries
+Do not present Lua as an AI engineer, ML engineer, full-stack developer, data scientist, or model developer. Her role is the human, institutional, knowledge, workflow, and governance layer that complements technical implementation.
+
+## Public proof
+- LMS 3D Cluster Engine: https://luahelenammc.github.io/3D-Cluster-Engine/
+- GitHub: https://github.com/luahelenammc/3D-Cluster-Engine
+- Professional surface: https://luahelena.com.br/ia/
+
+## Contact
+Email: luahelenammc@gmail.com
+WhatsApp: +55 41 99222-8411
+LinkedIn: https://www.linkedin.com/in/luahelena/
+Discord: moon_aurea
+`;
+
+    function currentLang(){
+      const p = new URLSearchParams(location.search).get("lang");
+      if (p === "en" || p === "pt") return p;
+      const stored = localStorage.getItem("lua-ia-beta-hygiene-lang");
+      if (stored === "en" || stored === "pt") return stored;
+      return "pt";
+    }
+
+    function applyLang(lang){
+      document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      localStorage.setItem("lua-ia-beta-hygiene-lang", lang);
+      document.querySelectorAll("[data-i]").forEach(el => {
+        const value = T[lang][el.dataset.i];
+        if (value != null) el.textContent = value;
+      });
+      document.querySelectorAll("[data-html]").forEach(el => {
+        const value = T[lang][el.dataset.html];
+        if (value != null) el.innerHTML = value;
+      });
+      document.querySelectorAll("[data-lang]").forEach(button => button.classList.toggle("active", button.dataset.lang === lang));
+      document.title = lang === "en"
+        ? "Beta · Lua Helena Moon — AI adoption, workflows, and context"
+        : "Beta · Lua Helena Moon — Adoção de IA, fluxos e contexto";
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function switchLang(lang){
+      const url = new URL(location.href);
+      if (lang === "en") url.searchParams.set("lang","en"); else url.searchParams.delete("lang");
+      history.replaceState({},"",url);
+      applyLang(lang);
+    }
+
+    function downloadPacket(){
+      const blob = new Blob([PACKET],{type:"text/markdown;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "LUA_HELENA_MOON_HUMAN_AI_CONTEXT_PACKET_HYGIENE_BETA.md";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function copyValue(button,value,defaultLabel){
+      const label = button.querySelector("span:last-child");
+      const original = label ? label.textContent : defaultLabel;
+      const done = () => {
+        button.classList.add("copied");
+        if (label) label.textContent = document.documentElement.lang === "en" ? "Copied" : "Copiado";
+        setTimeout(() => {
+          button.classList.remove("copied");
+          if (label) label.textContent = original;
+        },1300);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(value).then(done).catch(() => prompt(defaultLabel,value));
+      else prompt(defaultLabel,value);
+    }
+
+    document.querySelectorAll("[data-lang]").forEach(button => button.addEventListener("click",() => switchLang(button.dataset.lang)));
+    document.querySelectorAll("[data-packet]").forEach(button => button.addEventListener("click",downloadPacket));
+    document.querySelectorAll("[data-discord]").forEach(button => button.addEventListener("click",() => copyValue(button,button.dataset.discord,"Discord")));
+    document.querySelectorAll("[data-email]").forEach(link => link.addEventListener("click",() => {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText("luahelenammc@gmail.com").catch(()=>{});
+    }));
+
+    const revealItems = [...document.querySelectorAll(".reveal")];
+    if ("IntersectionObserver" in window){
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting){entry.target.classList.add("show");observer.unobserve(entry.target)}
+      }),{threshold:.08});
+      revealItems.forEach(item => observer.observe(item));
+    } else revealItems.forEach(item => item.classList.add("show"));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    applyLang(currentLang());
+  </script>
+</body>
+</html>
