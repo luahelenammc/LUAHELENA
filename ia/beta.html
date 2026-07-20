@@ -11,9 +11,8 @@ layout: null
 {%- assign page_html = page_html | replace: '<link rel="canonical" href="https://luahelena.com.br/ia/" />', '<meta name="robots" content="noindex,nofollow" /><link rel="canonical" href="https://luahelena.com.br/ia/beta.html" />' -%}
 
 {%- capture old_role -%}<p class="role" data-i="hero.role">Psicóloga hospitalar, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional, socióloga de formação e arquiteta de contexto humano-IA.</p>{%- endcapture -%}
-{%- capture market_positioning -%}<div class="market-positioning" aria-label="Posicionamento profissional"><strong class="market-position-title" data-beta-pt="Especialista em Adoção de IA e Fluxos de Trabalho" data-beta-en="AI Adoption &amp; Workflow Specialist">Especialista em Adoção de IA e Fluxos de Trabalho</strong><span class="market-position-detail" data-beta-pt="Mapeio processos humanos, estruturo conhecimento preparado para IA e desenho sistemas confiáveis de handoff, governança e capacitação para equipes complexas." data-beta-en="Mapping human processes, building AI-ready knowledge and designing reliable handoffs, governance and enablement for complex teams.">Mapeio processos humanos, estruturo conhecimento preparado para IA e desenho sistemas confiáveis de handoff, governança e capacitação para equipes complexas.</span></div>{%- endcapture -%}
-{%- capture new_role -%}{{ market_positioning }}{{ old_role }}{%- endcapture -%}
-{%- assign page_html = page_html | replace_first: old_role, new_role -%}
+{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><strong class="market-position-title" data-beta-pt="Adoção de IA e desenho de fluxos de trabalho" data-beta-en="AI Adoption &amp; Workflow Design">Adoção de IA e desenho de fluxos de trabalho</strong><p class="market-position-detail" data-beta-pt="Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas." data-beta-en="I map human processes and turn documents, routines, roles, decisions and scattered knowledge into context that people and AI can use, with reliable handoffs, governance and enablement for complex teams.">Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas.</p><p class="professional-foundation" data-beta-pt="Minha base profissional combina Psicologia Hospitalar, Psicologia Organizacional, Psicopedagogia Institucional e formação em Sociologia." data-beta-en="My professional foundation combines hospital psychology, organizational psychology, institutional psychopedagogy and training in sociology.">Minha base profissional combina Psicologia Hospitalar, Psicologia Organizacional, Psicopedagogia Institucional e formação em Sociologia.</p></div>{%- endcapture -%}
+{%- assign page_html = page_html | replace_first: old_role, positioning_stack -%}
 
 {%- capture language_bootstrap -%}
 <script>
@@ -91,33 +90,60 @@ layout: null
 
 {%- capture positioning_styles -%}
 <style>
-  .market-positioning{
-    max-width:820px;
-    margin-top:24px;
-    padding:2px 0 2px 16px;
+  .positioning-stack{
+    max-width:810px;
+    margin-top:25px;
     display:flex;
     flex-direction:column;
-    gap:4px;
-    border-left:2px solid rgba(232,201,122,.52);
+    align-items:flex-start;
+    gap:10px;
   }
   .market-position-title{
-    color:var(--txt);
-    font-size:clamp(1rem,1.55vw,1.14rem);
-    line-height:1.35;
-    font-weight:750;
-    letter-spacing:.012em;
+    display:inline-flex;
+    align-items:center;
+    max-width:100%;
+    padding:7px 11px;
+    border:1px solid rgba(232,201,122,.32);
+    border-radius:999px;
+    background:linear-gradient(135deg,rgba(232,201,122,.10),rgba(159,135,255,.06));
+    color:var(--gold);
+    font-size:clamp(.72rem,1vw,.79rem);
+    line-height:1.2;
+    font-weight:800;
+    letter-spacing:.075em;
+    text-transform:uppercase;
   }
   .market-position-detail{
-    max-width:780px;
+    max-width:790px;
     color:var(--muted);
-    font-size:clamp(.96rem,1.35vw,1.06rem);
+    font-size:clamp(1.04rem,1.55vw,1.16rem);
+    line-height:1.55;
+  }
+  .professional-foundation{
+    max-width:790px;
+    margin-top:4px;
+    padding-top:13px;
+    border-top:1px solid rgba(255,255,255,.10);
+    color:var(--quiet);
+    font-family:var(--serif);
+    font-size:clamp(.96rem,1.24vw,1.06rem);
+    font-style:italic;
     line-height:1.5;
   }
-  .market-positioning + .role{margin-top:16px}
+  .hero-text > .tagline{display:none}
   @media(max-width:600px){
-    .market-positioning{
-      margin-top:21px;
-      padding-left:13px;
+    .positioning-stack{
+      margin-top:22px;
+      gap:9px;
+    }
+    .market-position-title{
+      border-radius:16px;
+      line-height:1.35;
+    }
+    .market-position-detail{line-height:1.52}
+    .professional-foundation{
+      margin-top:2px;
+      padding-top:12px;
     }
   }
 </style>
