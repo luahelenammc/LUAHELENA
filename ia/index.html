@@ -8,6 +8,10 @@ layout: null
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — IA, papéis e contexto institucional · V6.8' -%}
+{%- assign page_html = page_html | replace: '<span class="hero-line">Traduzo instituições</span><span class="hero-line">em contexto que a <span class="accent">IA consegue usar.</span></span>', '<span class="hero-line">Traduzo sistemas humanos complexos</span><span class="hero-line">em contexto que <span class="accent">pessoas e IA conseguem usar.</span></span>' -%}
+{%- assign page_html = page_html | replace: '<span class="hero-line">I translate institutions</span><span class="hero-line">into context <span class="accent">AI can actually use.</span></span>', '<span class="hero-line">I translate complex human systems</span><span class="hero-line">into context <span class="accent">people and AI can use.</span></span>' -%}
+{%- assign page_html = page_html | replace: 'Lua ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios, riscos e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Traduzo sistemas humanos complexos em contexto que pessoas e IA conseguem usar.' -%}
+{%- assign page_html = page_html | replace: 'Lua helps organizations turn documents, workflows, roles, capabilities, decisions, criteria, risks, and tacit knowledge into structures that people and AI can actually use.', 'I translate complex human systems into context people and AI can use.' -%}
 
 {%- capture old_role -%}<p class="role" data-i="hero.role">Psicóloga hospitalar, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional, socióloga de formação e arquiteta de contexto humano-IA.</p>{%- endcapture -%}
 {%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><strong class="market-position-title" data-beta-pt="Adoção de IA e desenho de fluxos de trabalho" data-beta-en="AI Adoption &amp; Workflow Design">Adoção de IA e desenho de fluxos de trabalho</strong><p class="market-position-detail" data-beta-pt="Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas." data-beta-en="I map human processes and turn documents, routines, roles, decisions and scattered knowledge into context that people and AI can use, with reliable handoffs, governance and enablement for complex teams.">Mapeio processos humanos e transformo documentos, rotinas, papéis, decisões e conhecimento disperso em contexto utilizável por pessoas e IA, com handoffs, governança e capacitação para equipes complexas.</p><p class="professional-foundation" data-beta-pt="Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional." data-beta-en="As a hospital psychologist, I work within complex systems, navigating institutional workflows, multidisciplinary teams, sensitive contexts and crisis mediation. I am trained in Psychology and Sociology, with postgraduate training in Organizational Psychology and Institutional Psychopedagogy.">Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Sou formada em Psicologia e Sociologia, com pós-graduação em Psicologia Organizacional e Psicopedagogia Institucional.</p></div>{%- endcapture -%}
@@ -151,11 +155,23 @@ layout: null
 {%- capture positioning_script -%}
 <script>
   (() => {
+    const heroTitles = {
+      pt: '<span class="hero-line">Traduzo sistemas humanos complexos</span><span class="hero-line">em contexto que <span class="accent">pessoas e IA conseguem usar.</span></span>',
+      en: '<span class="hero-line">I translate complex human systems</span><span class="hero-line">into context <span class="accent">people and AI can use.</span></span>'
+    };
+
+    if (typeof T === 'object' && T.pt && T.en) {
+      T.pt['hero.title'] = heroTitles.pt;
+      T.en['hero.title'] = heroTitles.en;
+    }
+
     const syncBetaPositioning = () => {
       const english = document.documentElement.lang === 'en';
       document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
         element.textContent = english ? element.dataset.betaEn : element.dataset.betaPt;
       });
+      const hero = document.querySelector('[data-html="hero.title"]');
+      if (hero) hero.innerHTML = english ? heroTitles.en : heroTitles.pt;
     };
 
     syncBetaPositioning();
