@@ -1,7 +1,7 @@
 (() => {
   const copy = {
     pt: {
-      'hero.title': '<span class="hero-line">Torno o trabalho das organizações</span><span class="hero-line">legível para <span class="accent">pessoas e IA.</span></span>',
+      'hero.title': '<span class="hero-line">Traduzo sistemas humanos complexos</span><span class="hero-line">em contexto que <span class="accent">pessoas e IA conseguem usar.</span></span>',
       'hero.tagline': 'Mapeio como conhecimento, papéis, decisões e rotinas realmente circulam — e transformo essa complexidade em fontes, fluxos e critérios que sustentam o uso responsável da IA.',
 
       'entrada.label': 'Onde eu crio valor',
@@ -54,7 +54,7 @@
       'contact.sub': 'Uma conversa inicial pode delimitar o cenário, o que já existe, onde estão as lacunas e qual seria a menor intervenção realmente útil.'
     },
     en: {
-      'hero.title': '<span class="hero-line">I make organizational work</span><span class="hero-line">legible to <span class="accent">people and AI.</span></span>',
+      'hero.title': '<span class="hero-line">I translate complex human systems</span><span class="hero-line">into context that <span class="accent">people and AI can use.</span></span>',
       'hero.tagline': 'I map how knowledge, roles, decisions, and routines actually move through an organization — and turn that complexity into sources, workflows, and criteria that support responsible AI use.',
 
       'entrada.label': 'Where I create value',
