@@ -1,9 +1,12 @@
 (() => {
   const copy = {
     pt: {
+      'hero.title': '<span class="hero-line">Torno o trabalho das organizações</span><span class="hero-line">legível para <span class="accent">pessoas e IA.</span></span>',
+      'hero.tagline': 'Mapeio como conhecimento, papéis, decisões e rotinas realmente circulam — e transformo essa complexidade em fontes, fluxos e critérios que sustentam o uso responsável da IA.',
+
       'entrada.label': 'Onde eu crio valor',
-      'entrada.title': 'Eu entro quando a organização quer usar IA, mas ainda não tem o contexto pronto.',
-      'entrada.lead': 'O problema raramente é só escolher uma ferramenta. Antes disso, alguém precisa tornar o trabalho compreensível, localizar autoridade, revelar dependências e decidir o que a IA pode ou não fazer.',
+      'entrada.title': 'Eu entro onde o trabalho precisa se tornar mais legível — para iniciar, corrigir ou amadurecer o uso de IA.',
+      'entrada.lead': 'O problema raramente é apenas escolher uma ferramenta. Em diferentes estágios, organizações precisam compreender melhor suas fontes, responsabilidades, dependências, critérios e fluxos reais — seja para descobrir onde a IA pode ajudar, estruturar uma iniciativa ou melhorar algo que já está em funcionamento.',
       'entrada.card1.title': 'Conhecimento espalhado',
       'entrada.card1.text': 'Arquivos, mensagens, pessoas-chave e versões diferentes sustentam o trabalho, mas ninguém enxerga com segurança o que vale agora, de onde veio ou quem pode atualizá-lo.',
       'entrada.card2.title': 'Trabalho difícil de explicar',
@@ -51,9 +54,12 @@
       'contact.sub': 'Uma conversa inicial pode delimitar o cenário, o que já existe, onde estão as lacunas e qual seria a menor intervenção realmente útil.'
     },
     en: {
+      'hero.title': '<span class="hero-line">I make organizational work</span><span class="hero-line">legible to <span class="accent">people and AI.</span></span>',
+      'hero.tagline': 'I map how knowledge, roles, decisions, and routines actually move through an organization — and turn that complexity into sources, workflows, and criteria that support responsible AI use.',
+
       'entrada.label': 'Where I create value',
-      'entrada.title': 'I step in when an organization wants to use AI but does not yet have the context ready.',
-      'entrada.lead': 'The problem is rarely just choosing a tool. First, someone needs to make the work understandable, locate authority, reveal dependencies, and decide what AI may or may not do.',
+      'entrada.title': 'I step in wherever work needs to become more legible — to initiate, correct, or mature the use of AI.',
+      'entrada.lead': 'The problem is rarely just choosing a tool. At different stages, organizations need a clearer understanding of their sources, responsibilities, dependencies, criteria, and real workflows — whether to identify where AI can help, structure an initiative, or improve something already in use.',
       'entrada.card1.title': 'Scattered knowledge',
       'entrada.card1.text': 'Files, messages, key people, and competing versions sustain the work, but no one can safely see what is current, where it came from, or who may update it.',
       'entrada.card2.title': 'Work that is hard to explain',
@@ -108,7 +114,11 @@
     document.querySelectorAll('[data-i]').forEach((element) => {
       const key = element.getAttribute('data-i');
       if (Object.prototype.hasOwnProperty.call(current, key)) {
-        element.textContent = current[key];
+        if (key === 'hero.title') {
+          element.innerHTML = current[key];
+        } else {
+          element.textContent = current[key];
+        }
       }
     });
   }
