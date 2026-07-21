@@ -48,7 +48,6 @@ layout: null
   .market-position-detail{max-width:790px;color:var(--muted);font-size:clamp(1.04rem,1.55vw,1.16rem);line-height:1.55}
   .professional-foundation{max-width:790px;margin-top:4px;padding-top:13px;border-top:1px solid rgba(255,255,255,.10);color:var(--quiet);font-family:var(--sans);font-size:clamp(.91rem,1.12vw,1rem);font-style:normal;line-height:1.58}
   .hero-text>.tagline{display:none}
-
   .hero-dynamic-title{max-width:980px}
   .hero-dynamic-title .hero-line{display:block}
   .hero-rotator-line{min-height:1.08em;display:flex;align-items:center;overflow:visible}
@@ -61,7 +60,6 @@ layout: null
   .tone-rose{color:var(--rose);text-shadow:0 0 34px rgba(255,145,200,.18)}
   .context-word{color:var(--cyan);text-shadow:0 0 30px rgba(139,220,255,.18)}
   .hero-resolution{color:var(--txt)}
-
   @media(max-width:600px){
     .positioning-stack{margin-top:22px;gap:9px}
     .market-position-title{border-radius:16px;line-height:1.35}
@@ -78,77 +76,26 @@ layout: null
 <script>
   (() => {
     const terms = {
-      pt: [
-        {text:'sistemas humanos complexos',tone:'tone-gold'},
-        {text:'instituições',tone:'tone-violet'},
-        {text:'organizações',tone:'tone-rose'}
-      ],
-      en: [
-        {text:'complex human systems',tone:'tone-gold'},
-        {text:'institutions',tone:'tone-violet'},
-        {text:'organizations',tone:'tone-rose'}
-      ]
+      pt:[{text:'sistemas humanos complexos',tone:'tone-gold'},{text:'instituições',tone:'tone-violet'},{text:'organizações',tone:'tone-rose'}],
+      en:[{text:'complex human systems',tone:'tone-gold'},{text:'institutions',tone:'tone-violet'},{text:'organizations',tone:'tone-rose'}]
     };
-    let index = 0;
-    let timer = null;
-
-    const titleMarkup = (lang) => {
-      const first = terms[lang][index];
-      const prefix = lang === 'en' ? 'I translate' : 'Traduzo';
-      const bridge = lang === 'en' ? 'into' : 'em';
-      const context = lang === 'en' ? 'context' : 'contexto';
-      const ending = lang === 'en' ? 'people and AI can use.' : 'pessoas e IA conseguem usar.';
-      return `<span class="hero-line">${prefix}</span><span class="hero-line hero-rotator-line"><span class="hero-rotator is-visible ${first.tone}" data-hero-rotator>${first.text}</span></span><span class="hero-line">${bridge} <span class="context-word">${context}</span> que</span><span class="hero-line hero-resolution">${ending}</span>`;
+    let index=0;
+    let timer=null;
+    const titleMarkup=(lang)=>{
+      const first=terms[lang][index];
+      const prefix=lang==='en'?'I translate':'Traduzo';
+      const bridge=lang==='en'?'into':'em';
+      const context=lang==='en'?'context':'contexto';
+      const connector=lang==='en'?'':' que';
+      const ending=lang==='en'?'people and AI can use.':'pessoas e IA conseguem usar.';
+      return `<span class="hero-line">${prefix}</span><span class="hero-line hero-rotator-line"><span class="hero-rotator is-visible ${first.tone}" data-hero-rotator>${first.text}</span></span><span class="hero-line">${bridge} <span class="context-word">${context}</span>${connector}</span><span class="hero-line hero-resolution">${ending}</span>`;
     };
-
-    const currentLang = () => document.documentElement.lang === 'en' ? 'en' : 'pt';
-
-    const mountTitle = () => {
-      const lang = currentLang();
-      const hero = document.querySelector('[data-html="hero.title"]');
-      if (!hero) return;
-      hero.classList.add('hero-dynamic-title');
-      hero.innerHTML = titleMarkup(lang);
-    };
-
-    const rotate = () => {
-      const rotator = document.querySelector('[data-hero-rotator]');
-      if (!rotator) return;
-      const lang = currentLang();
-      rotator.classList.remove('is-visible');
-      rotator.classList.add('is-leaving');
-      window.setTimeout(() => {
-        index = (index + 1) % terms[lang].length;
-        const next = terms[lang][index];
-        rotator.textContent = next.text;
-        rotator.className = `hero-rotator is-entering ${next.tone}`;
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          rotator.classList.remove('is-entering');
-          rotator.classList.add('is-visible');
-        }));
-      }, 620);
-    };
-
-    const restart = () => {
-      if (timer) clearInterval(timer);
-      index = 0;
-      mountTitle();
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(rotate, 3600);
-    };
-
-    if (typeof T === 'object' && T.pt && T.en) {
-      T.pt['hero.title'] = titleMarkup('pt');
-      T.en['hero.title'] = titleMarkup('en');
-    }
-
-    const syncBetaPositioning = () => {
-      const english = document.documentElement.lang === 'en';
-      document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
-        element.textContent = english ? element.dataset.betaEn : element.dataset.betaPt;
-      });
-      restart();
-    };
-
+    const currentLang=()=>document.documentElement.lang==='en'?'en':'pt';
+    const mountTitle=()=>{const lang=currentLang();const hero=document.querySelector('[data-html="hero.title"]');if(!hero)return;hero.classList.add('hero-dynamic-title');hero.innerHTML=titleMarkup(lang)};
+    const rotate=()=>{const rotator=document.querySelector('[data-hero-rotator]');if(!rotator)return;const lang=currentLang();rotator.classList.remove('is-visible');rotator.classList.add('is-leaving');window.setTimeout(()=>{index=(index+1)%terms[lang].length;const next=terms[lang][index];rotator.textContent=next.text;rotator.className=`hero-rotator is-entering ${next.tone}`;requestAnimationFrame(()=>requestAnimationFrame(()=>{rotator.classList.remove('is-entering');rotator.classList.add('is-visible')}))},620)};
+    const restart=()=>{if(timer)clearInterval(timer);index=0;mountTitle();if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(rotate,3600)};
+    if(typeof T==='object'&&T.pt&&T.en){T.pt['hero.title']=titleMarkup('pt');T.en['hero.title']=titleMarkup('en')}
+    const syncBetaPositioning=()=>{const english=document.documentElement.lang==='en';document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element)=>{element.textContent=english?element.dataset.betaEn:element.dataset.betaPt});restart()};
     syncBetaPositioning();
     new MutationObserver(syncBetaPositioning).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   })();
