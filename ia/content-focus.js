@@ -50,7 +50,7 @@
       'lastro.boundary.big': 'Eu não desenvolvo o modelo. Construo a camada que impede pessoas e IA de trabalharem no vazio.',
       'lastro.boundary.text': 'Meu trabalho complementa engenharia, produto, Gestão de Pessoas, educação, saúde e setor público quando conhecimento, papéis, decisões e operação precisam ser compreendidos antes de automatizar.',
 
-      'contact.title': 'Vamos descobrir se o problema é de ferramenta — ou de contexto?',
+      'contact.title': 'Vamos conversar sobre onde esse trabalho pode fazer diferença na sua realidade?',
       'contact.sub': 'Uma conversa inicial pode delimitar o cenário, o que já existe, onde estão as lacunas e qual seria a menor intervenção realmente útil.'
     },
     en: {
