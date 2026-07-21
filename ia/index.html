@@ -7,9 +7,7 @@ layout: null
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — IA, papéis e contexto institucional · V6.8' -%}
-{%- assign page_html = page_html | replace: '<span class="hero-line">Traduzo instituições</span><span class="hero-line">em contexto que a <span class="accent">IA consegue usar.</span></span>', '<span class="hero-line">Traduzo sistemas humanos complexos</span><span class="hero-line">em contexto que <span class="accent">pessoas e IA conseguem usar.</span></span>' -%}
-{%- assign page_html = page_html | replace: '<span class="hero-line">I translate institutions</span><span class="hero-line">into context <span class="accent">AI can actually use.</span></span>', '<span class="hero-line">I translate complex human systems</span><span class="hero-line">into context <span class="accent">people and AI can use.</span></span>' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — IA, papéis e contexto institucional · V6.9' -%}
 {%- assign page_html = page_html | replace: 'Lua ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios, riscos e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Traduzo sistemas humanos complexos em contexto que pessoas e IA conseguem usar.' -%}
 {%- assign page_html = page_html | replace: 'Lua helps organizations turn documents, workflows, roles, capabilities, decisions, criteria, risks, and tacit knowledge into structures that people and AI can actually use.', 'I translate complex human systems into context people and AI can use.' -%}
 
@@ -21,9 +19,7 @@ layout: null
 <script>
   (() => {
     const requested = new URLSearchParams(location.search).get('lang');
-    if (requested !== 'en') {
-      localStorage.setItem('lua-ia-v65-lang', 'pt');
-    }
+    if (requested !== 'en') localStorage.setItem('lua-ia-v65-lang', 'pt');
   })();
 </script>
 {%- endcapture -%}
@@ -31,154 +27,79 @@ layout: null
 {%- capture language_styles -%}
 <style>
   .lang-toggle{gap:2px}
-  .lang-toggle button{
-    width:40px;
-    height:36px;
-    min-width:40px;
-    padding:5px;
-    display:grid;
-    place-items:center;
-    transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease;
-  }
-  .lang-toggle button img{
-    width:25px;
-    height:25px;
-    max-width:none;
-    display:block;
-    object-fit:contain;
-    opacity:.72;
-    filter:saturate(.82) brightness(.96);
-    transition:opacity .18s ease,filter .18s ease,transform .18s ease;
-  }
-  .lang-toggle button:hover img,
-  .lang-toggle button:focus-visible img{
-    opacity:.96;
-    filter:saturate(1.04) brightness(1.02);
-    transform:scale(1.04);
-  }
-  .lang-toggle button.active{
-    box-shadow:inset 0 0 0 1px rgba(232,201,122,.18),0 4px 12px rgba(0,0,0,.12);
-  }
-  .lang-toggle button.active img{
-    opacity:1;
-    filter:saturate(1.1) brightness(1.05);
-    transform:scale(1.07);
-  }
-  @media (max-width:420px){
-    .lang-toggle button{
-      width:38px;
-      min-width:38px;
-      height:34px;
-      padding:5px;
-    }
-    .lang-toggle button img{
-      width:23px;
-      height:23px;
-    }
-  }
+  .lang-toggle button{width:40px;height:36px;min-width:40px;padding:5px;display:grid;place-items:center;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
+  .lang-toggle button img{width:25px;height:25px;max-width:none;display:block;object-fit:contain;opacity:.72;filter:saturate(.82) brightness(.96);transition:opacity .18s ease,filter .18s ease,transform .18s ease}
+  .lang-toggle button:hover img,.lang-toggle button:focus-visible img{opacity:.96;filter:saturate(1.04) brightness(1.02);transform:scale(1.04)}
+  .lang-toggle button.active{box-shadow:inset 0 0 0 1px rgba(232,201,122,.18),0 4px 12px rgba(0,0,0,.12)}
+  .lang-toggle button.active img{opacity:1;filter:saturate(1.1) brightness(1.05);transform:scale(1.07)}
+  @media(max-width:420px){.lang-toggle button{width:38px;min-width:38px;height:34px;padding:5px}.lang-toggle button img{width:23px;height:23px}}
 </style>
 {%- endcapture -%}
 
 {%- capture heading_typography -%}
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 <style>
-  h1,
-  .section-title,
-  .contact h2{
-    font-family:"Fraunces",Georgia,serif;
-    font-optical-sizing:auto;
-  }
+  h1,.section-title,.contact h2{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
 </style>
 {%- endcapture -%}
 
 {%- capture positioning_styles -%}
 <style>
-  .positioning-stack{
-    max-width:810px;
-    margin-top:25px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-  }
-  .market-position-title{
-    display:inline-flex;
-    align-items:center;
-    max-width:100%;
-    padding:7px 11px;
-    border:1px solid rgba(232,201,122,.32);
-    border-radius:999px;
-    background:linear-gradient(135deg,rgba(232,201,122,.10),rgba(159,135,255,.06));
-    color:var(--gold);
-    font-size:clamp(.72rem,1vw,.79rem);
-    line-height:1.2;
-    font-weight:800;
-    letter-spacing:.075em;
-    text-transform:uppercase;
-  }
-  .market-position-detail{
-    max-width:790px;
-    color:var(--muted);
-    font-size:clamp(1.04rem,1.55vw,1.16rem);
-    line-height:1.55;
-  }
-  .professional-foundation{
-    max-width:790px;
-    margin-top:4px;
-    padding-top:13px;
-    border-top:1px solid rgba(255,255,255,.10);
-    color:var(--quiet);
-    font-family:var(--sans);
-    font-size:clamp(.91rem,1.12vw,1rem);
-    font-style:normal;
-    line-height:1.58;
-  }
-  .hero-text > .tagline{display:none}
+  .positioning-stack{max-width:810px;margin-top:25px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+  .market-position-title{display:inline-flex;align-items:center;max-width:100%;padding:7px 11px;border:1px solid rgba(232,201,122,.32);border-radius:999px;background:linear-gradient(135deg,rgba(232,201,122,.10),rgba(159,135,255,.06));color:var(--gold);font-size:clamp(.72rem,1vw,.79rem);line-height:1.2;font-weight:800;letter-spacing:.075em;text-transform:uppercase}
+  .market-position-detail{max-width:790px;color:var(--muted);font-size:clamp(1.04rem,1.55vw,1.16rem);line-height:1.55}
+  .professional-foundation{max-width:790px;margin-top:4px;padding-top:13px;border-top:1px solid rgba(255,255,255,.10);color:var(--quiet);font-family:var(--sans);font-size:clamp(.91rem,1.12vw,1rem);font-style:normal;line-height:1.58}
+  .hero-text>.tagline{display:none}
+  .hero-dynamic-title{max-width:980px}
+  .hero-dynamic-title .hero-line{display:block}
+  .hero-rotator-line{min-height:1.08em;display:flex;align-items:center;overflow:visible}
+  .hero-rotator{display:inline-block;position:relative;will-change:transform,opacity,filter;transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1),filter .72s ease,text-shadow .72s ease}
+  .hero-rotator.is-leaving{opacity:0;transform:translateY(-.28em) scale(.985);filter:blur(8px)}
+  .hero-rotator.is-entering{opacity:0;transform:translateY(.28em) scale(.985);filter:blur(8px)}
+  .hero-rotator.is-visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+  .tone-gold{color:var(--gold);text-shadow:0 0 34px rgba(232,201,122,.18)}
+  .tone-violet{color:var(--violet);text-shadow:0 0 34px rgba(159,135,255,.20)}
+  .tone-rose{color:var(--rose);text-shadow:0 0 34px rgba(255,145,200,.18)}
+  .context-word{color:var(--cyan);text-shadow:0 0 30px rgba(139,220,255,.18)}
+  .hero-resolution{color:var(--txt)}
   @media(max-width:600px){
-    .positioning-stack{
-      margin-top:22px;
-      gap:9px;
-    }
-    .market-position-title{
-      border-radius:16px;
-      line-height:1.35;
-    }
+    .positioning-stack{margin-top:22px;gap:9px}
+    .market-position-title{border-radius:16px;line-height:1.35}
     .market-position-detail{line-height:1.52}
-    .professional-foundation{
-      margin-top:2px;
-      padding-top:12px;
-    }
+    .professional-foundation{margin-top:2px;padding-top:12px}
+    .hero h1.hero-dynamic-title{font-size:clamp(2.12rem,10.8vw,3.28rem);line-height:1.01;letter-spacing:-.025em}
+    .hero-rotator-line{min-height:1.12em}
   }
+  @media(prefers-reduced-motion:reduce){.hero-rotator{transition:none}.hero-rotator.is-leaving,.hero-rotator.is-entering,.hero-rotator.is-visible{opacity:1;transform:none;filter:none}}
 </style>
 {%- endcapture -%}
 
 {%- capture positioning_script -%}
 <script>
   (() => {
-    const heroTitles = {
-      pt: '<span class="hero-line">Traduzo sistemas humanos complexos</span><span class="hero-line">em contexto que <span class="accent">pessoas e IA conseguem usar.</span></span>',
-      en: '<span class="hero-line">I translate complex human systems</span><span class="hero-line">into context <span class="accent">people and AI can use.</span></span>'
+    const terms = {
+      pt:[{text:'sistemas humanos complexos',tone:'tone-gold'},{text:'instituições',tone:'tone-violet'},{text:'organizações',tone:'tone-rose'}],
+      en:[{text:'complex human systems',tone:'tone-gold'},{text:'institutions',tone:'tone-violet'},{text:'organizations',tone:'tone-rose'}]
     };
-
-    if (typeof T === 'object' && T.pt && T.en) {
-      T.pt['hero.title'] = heroTitles.pt;
-      T.en['hero.title'] = heroTitles.en;
-    }
-
-    const syncBetaPositioning = () => {
-      const english = document.documentElement.lang === 'en';
-      document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
-        element.textContent = english ? element.dataset.betaEn : element.dataset.betaPt;
-      });
-      const hero = document.querySelector('[data-html="hero.title"]');
-      if (hero) hero.innerHTML = english ? heroTitles.en : heroTitles.pt;
+    let index=0;
+    let timer=null;
+    const titleMarkup=(lang)=>{
+      const first=terms[lang][index];
+      const prefix=lang==='en'?'I translate':'Traduzo';
+      const bridge=lang==='en'?'into':'em';
+      const context=lang==='en'?'context':'contexto';
+      const connector=lang==='en'?'':' que';
+      const ending=lang==='en'?'people and AI can use.':'pessoas e IA conseguem usar.';
+      return `<span class="hero-line">${prefix}</span><span class="hero-line hero-rotator-line"><span class="hero-rotator is-visible ${first.tone}" data-hero-rotator>${first.text}</span></span><span class="hero-line">${bridge} <span class="context-word">${context}</span>${connector}</span><span class="hero-line hero-resolution">${ending}</span>`;
     };
-
+    const currentLang=()=>document.documentElement.lang==='en'?'en':'pt';
+    const mountTitle=()=>{const lang=currentLang();const hero=document.querySelector('[data-html="hero.title"]');if(!hero)return;hero.classList.add('hero-dynamic-title');hero.innerHTML=titleMarkup(lang)};
+    const rotate=()=>{const rotator=document.querySelector('[data-hero-rotator]');if(!rotator)return;const lang=currentLang();rotator.classList.remove('is-visible');rotator.classList.add('is-leaving');window.setTimeout(()=>{index=(index+1)%terms[lang].length;const next=terms[lang][index];rotator.textContent=next.text;rotator.className=`hero-rotator is-entering ${next.tone}`;requestAnimationFrame(()=>requestAnimationFrame(()=>{rotator.classList.remove('is-entering');rotator.classList.add('is-visible')}))},620)};
+    const restart=()=>{if(timer)clearInterval(timer);index=0;mountTitle();if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(rotate,3600)};
+    if(typeof T==='object'&&T.pt&&T.en){T.pt['hero.title']=titleMarkup('pt');T.en['hero.title']=titleMarkup('en')}
+    const syncBetaPositioning=()=>{const english=document.documentElement.lang==='en';document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element)=>{element.textContent=english?element.dataset.betaEn:element.dataset.betaPt});restart()};
     syncBetaPositioning();
-    new MutationObserver(syncBetaPositioning).observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['lang']
-    });
+    new MutationObserver(syncBetaPositioning).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   })();
 </script>
 {%- endcapture -%}
