@@ -7,7 +7,7 @@ layout: null
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — Estratégia e adoção de IA · V7.0' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — Estratégia e adoção de IA · V7.1' -%}
 {%- assign page_html = page_html | replace: 'Lua ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios, riscos e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Traduzo sistemas humanos complexos em contexto que pessoas e IA conseguem usar.' -%}
 {%- assign page_html = page_html | replace: 'Lua helps organizations turn documents, workflows, roles, capabilities, decisions, criteria, risks, and tacit knowledge into structures that people and AI can actually use.', 'I translate complex human systems into context people and AI can use.' -%}
 
@@ -74,6 +74,19 @@ layout: null
 </style>
 {%- endcapture -%}
 
+{%- capture card_spacing_styles -%}
+<style>
+  .card-grid,
+  .triple-grid,
+  .phase-grid,
+  .proof-grid{gap:5px !important}
+  @media(max-width:600px){
+    .hero{padding-bottom:32px !important}
+    #entrada.block{padding-top:20px}
+  }
+</style>
+{%- endcapture -%}
+
 {%- capture positioning_script -%}
 <script>
   (() => {
@@ -104,7 +117,7 @@ layout: null
 </script>
 {%- endcapture -%}
 
-{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />' | append: language_styles | append: heading_typography | append: positioning_styles | append: '</head>' -%}
+{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />' | append: language_styles | append: heading_typography | append: positioning_styles | append: card_spacing_styles | append: '</head>' -%}
 {%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script><script src="/ia/beta-touch-reflection.js?v=2"></script><script src="/ia/email-copy.js?v=1"></script>' | append: positioning_script | append: '<script src="/ia/market-translation-beta.js?v=1"></script><script src="/ia/content-focus.js?v=3"></script></body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
