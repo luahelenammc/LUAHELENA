@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07182b">
+  <meta name="description" content="Caderno de campo móvel para o Fórum de Cidades Digitais e Inteligentes de Limeira.">
+  <title>Caderno de Campo · Fórum de Cidades Digitais de Limeira</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #04111f;
+      --bg-2: #07182b;
+      --panel: rgba(10, 31, 52, .92);
+      --panel-soft: rgba(13, 39, 64, .78);
+      --text: #f4f0df;
+      --muted: #a8bac8;
+      --teal: #57e0d0;
+      --teal-2: #8ff3e7;
+      --gold: #f2d49b;
+      --line: rgba(87, 224, 208, .26);
+      --danger: #ff8f9d;
+      --ok: #81e6b2;
+      --shadow: 0 18px 46px rgba(0, 0, 0, .28);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(87, 224, 208, .12), transparent 30%),
+        radial-gradient(circle at 0% 20%, rgba(242, 212, 155, .08), transparent 28%),
+        linear-gradient(180deg, var(--bg-2), var(--bg));
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+      padding-bottom: 104px;
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { touch-action: manipulation; }
+
+    .shell {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 18px 14px 48px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(11, 36, 61, .96), rgba(5, 20, 37, .94));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -92px;
+      top: -120px;
+      border: 1px solid rgba(87, 224, 208, .35);
+      border-radius: 50%;
+      box-shadow: 0 0 0 34px rgba(87, 224, 208, .04), 0 0 0 68px rgba(87, 224, 208, .025);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--teal-2);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin-top: 0; }
+    h1 {
+      max-width: 780px;
+      margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: .98;
+      letter-spacing: -.035em;
+      color: var(--text);
+    }
+
+    .hero p { max-width: 760px; margin: 0; color: var(--muted); }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 999px;
+      background: rgba(255,255,255,.045);
+      color: #dce9ef;
+      font-size: .84rem;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0 0;
+    }
+
+    .metric {
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .metric strong { display: block; font-size: 1.35rem; color: var(--teal-2); }
+    .metric span { color: var(--muted); font-size: .75rem; }
+
+    .save-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 12px 2px 24px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .save-state { display: inline-flex; align-items: center; gap: 7px; }
+    .save-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 12px rgba(129,230,178,.65); }
+    .save-dot.saving { background: var(--gold); }
+    .save-dot.error { background: var(--danger); }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 30px 2px 12px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 2px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 5vw, 2.2rem);
+      letter-spacing: -.025em;
+    }
+
+    .section-head p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .panel, details.card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 32px rgba(0,0,0,.18);
+    }
+
+    .panel { padding: 18px; }
+
+    details.card { overflow: hidden; margin-bottom: 12px; }
+    details.card[open] { border-color: rgba(87, 224, 208, .48); }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 17px 18px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      background: linear-gradient(120deg, rgba(255,255,255,.035), transparent);
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "⌄"; color: var(--teal); font-size: 1.35rem; transform-origin: center; transition: transform .2s ease; }
+    details[open] summary::after { transform: rotate(180deg); }
+
+    .time-badge {
+      min-width: 54px;
+      padding: 7px 8px;
+      border-radius: 12px;
+      background: rgba(87, 224, 208, .13);
+      color: var(--teal-2);
+      font-weight: 800;
+      text-align: center;
+      font-size: .83rem;
+    }
+
+    .summary-copy strong { display: block; font-size: 1rem; }
+    .summary-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: .8rem; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: .67rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(242,212,155,.25);
+    }
+
+    .card-body { padding: 4px 18px 20px; }
+
+    .prompt-note {
+      margin: 0 0 16px;
+      padding: 12px 13px;
+      border-left: 3px solid var(--teal);
+      background: rgba(87,224,208,.06);
+      color: #dce9ef;
+      border-radius: 0 12px 12px 0;
+      font-size: .87rem;
+    }
+
+    .field-grid { display: grid; gap: 13px; }
+    .field-grid.two { grid-template-columns: 1fr; }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: #dce9ef;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    label small { color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+    input[type="text"], input[type="email"], textarea, select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 13px;
+      background: rgba(1, 11, 21, .72);
+      color: var(--text);
+      padding: 12px 13px;
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    textarea { min-height: 96px; resize: vertical; }
+    textarea.compact { min-height: 74px; }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(87,224,208,.12);
+      background: rgba(3, 17, 31, .96);
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px;
+      margin: 12px 0 14px;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 43px;
+      padding: 9px 10px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 12px;
+      background: rgba(255,255,255,.025);
+      color: #dce9ef;
+      font-size: .82rem;
+      font-weight: 650;
+    }
+
+    .check input { width: 20px; height: 20px; accent-color: var(--teal); flex: 0 0 auto; }
+
+    .contact-card {
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .contact-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .contact-top h3 { margin: 0; font-size: 1.05rem; }
+    .contact-role { margin: 3px 0 0; color: var(--muted); font-size: .82rem; }
+
+    .rank {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(87,224,208,.14);
+      color: var(--teal-2);
+      font-weight: 900;
+    }
+
+    .punchline {
+      margin: 12px 0;
+      padding: 12px 13px;
+      border-radius: 13px;
+      background: rgba(242,212,155,.07);
+      border: 1px solid rgba(242,212,155,.17);
+      color: #f7edd3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .95rem;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 13px;
+      min-height: 44px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.055);
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn:hover { border-color: rgba(87,224,208,.55); }
+    .btn.primary { background: var(--teal); color: #03201e; border-color: var(--teal); }
+    .btn.gold { background: var(--gold); color: #2b210f; border-color: var(--gold); }
+    .btn.danger { color: #ffd8de; border-color: rgba(255,143,157,.32); }
+    .btn.small { min-height: 38px; padding: 8px 11px; font-size: .8rem; }
+
+    .sticky-bar {
+      position: fixed;
+      z-index: 30;
+      left: max(10px, env(safe-area-inset-left));
+      right: max(10px, env(safe-area-inset-right));
+      bottom: max(10px, env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 8px;
+      width: min(calc(100% - 20px), 760px);
+      margin: 0 auto;
+      padding: 8px;
+      border: 1px solid rgba(87,224,208,.26);
+      border-radius: 18px;
+      background: rgba(4,17,31,.92);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.42);
+    }
+
+    .sticky-bar .btn { padding-inline: 8px; font-size: .78rem; }
+
+    .empty-note { color: var(--muted); font-size: .86rem; }
+
+    .divider { height: 1px; background: var(--line); margin: 18px 0; }
+
+    .modal-backdrop {
+      position: fixed;
+      z-index: 60;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-backdrop.open { display: grid; }
+    .modal {
+      width: min(100%, 560px);
+      max-height: 86vh;
+      overflow: auto;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #07182b;
+      box-shadow: var(--shadow);
+    }
+
+    .modal h2 { font-family: Georgia, "Times New Roman", serif; }
+    .modal pre { white-space: pre-wrap; color: #dce9ef; font-size: .78rem; }
+
+    .toast {
+      position: fixed;
+      z-index: 80;
+      left: 50%;
+      bottom: 94px;
+      transform: translate(-50%, 15px);
+      max-width: calc(100% - 28px);
+      padding: 11px 14px;
+      border-radius: 999px;
+      background: #102c47;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s ease;
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (min-width: 720px) {
+      .shell { padding-inline: 22px; }
+      .field-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .checks { grid-template-columns: repeat(5, minmax(0,1fr)); }
+      .contact-card { padding: 18px 20px; }
+      .sticky-bar .btn { font-size: .86rem; }
+    }
+
+    @media print {
+      .sticky-bar, .save-line, .inline-actions, .btn { display: none !important; }
+      body { padding: 0; background: white; color: black; }
+      .panel, details.card, .contact-card, .hero { box-shadow: none; border-color: #bbb; background: white; color: black; }
+      details { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero" id="topo">
+      <p class="eyebrow">Caderno de campo móvel</p>
+      <h1>Fórum de Cidades Digitais e Inteligentes de Limeira</h1>
+      <p>Capture dores reais, decisões, governança, linguagem cidadã, contatos e oportunidades enquanto as apresentações acontecem. Tudo fica salvo automaticamente neste navegador.</p>
+      <div class="event-meta">
+        <span class="chip">📅 23 de julho de 2026</span>
+        <span class="chip">📍 UNIP · Campus Limeira</span>
+        <span class="chip">🎯 Pesquisa de campo + networking</span>
+      </div>
+      <div class="status-grid" aria-label="Resumo do preenchimento">
+        <div class="metric"><strong id="metricSessions">0</strong><span>apresentações registradas</span></div>
+        <div class="metric"><strong id="metricCards">0</strong><span>cartões entregues</span></div>
+        <div class="metric"><strong id="metricFollowups">0</strong><span>follow-ups abertos</span></div>
+      </div>
+    </header>
+
+    <div class="save-line">
+      <span class="save-state"><span class="save-dot" id="saveDot"></span><span id="saveStatus">Dados carregados</span></span>
+      <button class="btn small" id="saveNow" type="button">Salvar agora</button>
+    </div>
+
+    <section id="captura-rapida">
+      <div class="section-head">
+        <div>
+          <h2>Captura rápida</h2>
+          <p>Para anotar algo sem procurar a palestra certa.</p>
+        </div>
+      </div>
+      <div class="panel field-grid">
+        <label>Apresentação ou pessoa
+          <input type="text" data-general="quickTitle" placeholder="Ex.: fala da LIA / conversa no coffee break">
+        </label>
+        <label>Nota rápida
+          <textarea data-general="quickNote" placeholder="Digite agora; depois você pode organizar com calma."></textarea>
+        </label>
+        <button class="btn primary" id="appendQuick" type="button">Adicionar ao diário do dia</button>
+      </div>
+    </section>
+
+    <section id="apresentacoes">
+      <div class="section-head">
+        <div>
+          <h2>Apresentações</h2>
+          <p>Abra apenas a palestra atual. O preenchimento é salvo enquanto você digita.</p>
+        </div>
+      </div>
+      <div id="sessionsList"></div>
+      <div class="inline-actions">
+        <button class="btn" id="addSession" type="button">＋ Adicionar apresentação extra</button>
+      </div>
+    </section>
+
+    <section id="networking">
+      <div class="section-head">
+        <div>
+          <h2>Cartões e contatos</h2>
+          <p>Prioridade, punchline, resultado da conversa e próximo passo.</p>
+        </div>
+      </div>
+      <div id="contactsList"></div>
+      <div class="inline-actions">
+        <button class="btn" id="addContact" type="button">＋ Adicionar contato extra</button>
+      </div>
+    </section>
+
+    <section id="sintese">
+      <div class="section-head">
+        <div>
+          <h2>Síntese do dia</h2>
+          <p>Feche o evento transformando observação em inteligência profissional.</p>
+        </div>
+      </div>
+      <div class="panel field-grid">
+        <div class="field-grid two">
+          <label>Três dores municipais mais recorrentes
+            <textarea data-general="recurringPains" placeholder="Quais problemas apareceram em várias falas?"></textarea>
+          </label>
+          <label>Oportunidades mais alinhadas ao meu trabalho
+            <textarea data-general="bestFits" placeholder="Onde contexto, fluxos, conhecimento ou IA institucional fizeram falta?"></textarea>
+          </label>
+        </div>
+        <div class="field-grid two">
+          <label>Como gestores descrevem valor
+            <textarea data-general="valueLanguage" placeholder="Palavras, métricas e resultados que eles valorizam."></textarea>
+          </label>
+          <label>Como fornecedores vendem
+            <textarea data-general="vendorLanguage" placeholder="Promessas, formatos, demonstrações e argumentos recorrentes."></textarea>
+          </label>
+        </div>
+        <div class="field-grid two">
+          <label>Follow-ups prioritários
+            <textarea data-general="priorityFollowups" placeholder="Quem contatar, por qual motivo e com qual pedido mínimo."></textarea>
+          </label>
+          <label>Ajustes sugeridos para meu posicionamento ou cartão
+            <textarea data-general="positioningAdjustments" placeholder="O que ficou mais claro, vago ou poderoso depois do evento?"></textarea>
+          </label>
+        </div>
+        <label>Diário livre / notas rápidas acumuladas
+          <textarea data-general="dayLog" style="min-height:180px" placeholder="As notas da captura rápida aparecerão aqui."></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section id="seguranca">
+      <div class="section-head">
+        <div>
+          <h2>Backup e privacidade</h2>
+          <p>Os dados ficam no armazenamento local deste navegador, não em servidor externo.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="empty-note">Antes de limpar o navegador ou trocar de aparelho, gere o relatório Markdown. Você também pode baixar um backup JSON para restaurar exatamente o formulário.</p>
+        <div class="inline-actions">
+          <button class="btn" id="exportJson" type="button">Baixar backup JSON</button>
+          <button class="btn" id="importJsonBtn" type="button">Restaurar backup JSON</button>
+          <input id="importJson" type="file" accept="application/json,.json" hidden>
+          <button class="btn danger" id="clearAll" type="button">Apagar todos os dados</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="sticky-bar" aria-label="Ações principais">
+    <button class="btn" type="button" data-scroll="#apresentacoes">Palestras</button>
+    <button class="btn" type="button" data-scroll="#networking">Cartões</button>
+    <button class="btn gold" id="generateReport" type="button">Gerar relatório .md</button>
+  </nav>
+
+  <div class="modal-backdrop" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+    <div class="modal">
+      <h2 id="reportTitle">Relatório preparado</h2>
+      <p class="empty-note">O download deve começar automaticamente. A prévia abaixo permite conferir o conteúdo.</p>
+      <pre id="reportPreview"></pre>
+      <div class="inline-actions">
+        <button class="btn primary" id="downloadAgain" type="button">Baixar novamente</button>
+        <button class="btn" id="closeModal" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const STORAGE_KEY = 'moon_cidade_inteligente_limeira_2026_v1';
+      const sessions = [
+        {
+          id: 'abertura-limeira', time: '08:45', priority: 'alta',
+          title: 'Avanços tecnológicos de Limeira', speaker: 'Murilo Felix · Prefeito de Limeira',
+          lens: 'Identifique quais iniciativas a gestão apresenta como avanço e qual linguagem usa para falar de tecnologia, eficiência, cidadão e integração.'
+        },
+        {
+          id: 'paula-knoff', time: '09:20', priority: 'alta',
+          title: 'Cidades inteligentes e inovação', speaker: 'Paula Knoff · Secretária de Desenvolvimento Econômico, Ciência e Tecnologia de São Carlos',
+          lens: 'Observe como inovação, desenvolvimento econômico, ciência, tecnologia e articulação institucional são conectados.'
+        },
+        {
+          id: 'lia-softplan', time: '09:35', priority: 'máxima',
+          title: 'IA no atendimento ao cidadão: LIA', speaker: 'Micaela Quaresma · Softplan',
+          lens: 'Prioridade máxima: fontes, atualização, linguagem cidadã, validação humana, exceções, encaminhamento e manutenção da solução.'
+        },
+        {
+          id: 'indicadores-pst', time: '10:10', priority: 'alta',
+          title: 'Indicadores da gestão municipal', speaker: 'Professor Luciano de Lima · PST',
+          lens: 'Diferencie dashboard de decisão real: quem responde pelo indicador, como ele é interpretado e que ação produz.'
+        },
+        {
+          id: 'matão-admin', time: '11:15', priority: 'alta',
+          title: 'Tecnologia na Administração Pública', speaker: 'Willian Di Gaetano Bassi · Secretário de Administração e Finanças de Matão',
+          lens: 'Procure integração de sistemas, duplicação de informação, resistência, clareza de papéis e distância entre processo formal e prática real.'
+        },
+        {
+          id: 'cadastro-unicidades', time: '11:30', priority: 'alta',
+          title: 'Cadastro inteligente', speaker: 'Wilian Josué · Founder e CEO da UniCidades',
+          lens: 'Investigue origem, atualização, responsabilidade, interoperabilidade e governança das informações — não apenas o banco de dados.'
+        },
+        {
+          id: 'cyber-fortinet', time: '14:15', priority: 'contextual',
+          title: 'Cibersegurança nas cidades inteligentes', speaker: 'Alysson Barros · Fortinet',
+          lens: 'Use como fronteira profissional: o que precisa ficar com especialistas técnicos e como contexto, acesso, privacidade e responsabilidade se conectam.'
+        },
+        {
+          id: 'binar-gestao', time: '14:50', priority: 'oportunidade',
+          title: 'Gestão de frequência e implantação no setor público', speaker: 'Eduardo Junqueira · Binär Tech',
+          lens: 'Observe implantação, riscos, controles, responsabilidades, mudança de rotina e complementaridade com arquitetura de contexto.'
+        },
+        {
+          id: 'caraguatatuba', time: '15:15', priority: 'máxima',
+          title: 'Dados, IA e capacidade estatal', speaker: 'Rubens Costa · Secretário de Tecnologia e Inovação de Caraguatatuba',
+          lens: 'Prioridade máxima: capacidade institucional, integração entre áreas, dados e decisão, competências internas, sustentabilidade e valor público.'
+        }
+      ];
+
+      const contacts = [
+        {
+          id: 'roger-willians', rank: 1, name: 'Roger Willians',
+          role: 'Secretário de Tecnologia e Eficiência de Limeira',
+          why: 'Contato local mais importante; está no centro da agenda tecnológica e pode abrir continuidade institucional.',
+          punchline: 'Sou psicóloga hospitalar aqui em Limeira e trabalho com a camada de contexto humano e institucional necessária para IA e serviços digitais funcionarem melhor. Gostaria de te deixar meu cartão.'
+        },
+        {
+          id: 'micaela-quaresma', rank: 2, name: 'Micaela Quaresma',
+          role: 'Relações com o Mercado · Softplan',
+          why: 'Encaixe direto com LIA, atendimento, conteúdo, linguagem e manutenção de conhecimento.',
+          punchline: 'Gostei especialmente da parte sobre a LIA. Meu trabalho entra justamente na organização das fontes, dos fluxos, da linguagem e da validação humana que sustentam esse tipo de solução.'
+        },
+        {
+          id: 'rubens-costa', rank: 3, name: 'Rubens Costa',
+          role: 'Secretário de Tecnologia e Inovação de Caraguatatuba',
+          why: 'Forte alinhamento com capacidade estatal, valor público e integração entre dados, pessoas e instituições.',
+          punchline: 'Sua fala se aproxima muito do que venho pesquisando: como transformar conhecimento, responsabilidades e fluxos institucionais em contexto utilizável por pessoas e IA.'
+        },
+        {
+          id: 'jose-marinho', rank: 4, name: 'José Marinho',
+          role: 'Diretor da Rede Cidade Digital',
+          why: 'Multiplicador de rede entre municípios, gestores, fornecedores e futuros eventos.',
+          punchline: 'Vim justamente porque meu trabalho dialoga com a camada humana e institucional da transformação digital. Gostaria de deixar meu cartão para mantermos contato em futuras agendas da Rede.'
+        },
+        {
+          id: 'paula-knoff', rank: 5, name: 'Paula Knoff',
+          role: 'Secretária de Desenvolvimento Econômico, Ciência e Tecnologia de São Carlos',
+          why: 'Intersecção entre inovação, desenvolvimento, ecossistema e articulação institucional.',
+          punchline: 'Meu trabalho conecta sistemas humanos, conhecimento institucional e adoção de IA. Achei que poderia conversar bastante com a agenda de inovação que você apresentou.'
+        },
+        {
+          id: 'wilian-josue', rank: 6, name: 'Wilian Josué',
+          role: 'Founder e CEO · UniCidades',
+          why: 'Possível parceiro, contratante ou conector no mercado municipal; cadastro inteligente exige governança de fontes.',
+          punchline: 'O ponto sobre cadastro me chamou atenção porque meu trabalho começa justamente onde a informação precisa ganhar origem, atualização, responsabilidade e contexto de uso para pessoas e IA.'
+        },
+        {
+          id: 'willian-bassi', rank: 7, name: 'Willian Di Gaetano Bassi',
+          role: 'Secretário de Administração e Finanças de Matão',
+          why: 'Administração concentra processos, papéis, sistemas, critérios e passagens de responsabilidade.',
+          punchline: 'Eu trabalho organizando informações, papéis, fluxos e critérios para tornar processos institucionais mais claros e utilizáveis — inclusive quando entram sistemas de IA.'
+        },
+        {
+          id: 'luciano-lima', rank: 8, name: 'Professor Luciano de Lima',
+          role: 'Consultor · PST',
+          why: 'Pode reconhecer a diferença entre ter indicadores e possuir contexto suficiente para interpretar e agir.',
+          punchline: 'Achei muito relevante a discussão sobre indicadores. Meu trabalho atua na camada que conecta informação, responsáveis, critérios e contexto para que o dado realmente apoie decisões.'
+        }
+      ];
+
+      const defaultState = () => ({
+        version: 1,
+        updatedAt: null,
+        sessions: {},
+        contacts: {},
+        customSessions: [],
+        customContacts: [],
+        general: {
+          quickTitle: '', quickNote: '', dayLog: '', recurringPains: '', bestFits: '',
+          valueLanguage: '', vendorLanguage: '', priorityFollowups: '', positioningAdjustments: ''
+        }
+      });
+
+      let state = loadState();
+      let saveTimer = null;
+      let lastReport = '';
+
+      const $ = (selector, root = document) => root.querySelector(selector);
+      const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+      const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+      const slug = value => String(value || 'item').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return defaultState();
+          const parsed = JSON.parse(raw);
+          return { ...defaultState(), ...parsed, general: { ...defaultState().general, ...(parsed.general || {}) } };
+        } catch (error) {
+          console.error(error);
+          return defaultState();
+        }
+      }
+
+      function ensureSession(id) {
+        if (!state.sessions[id]) state.sessions[id] = {};
+        return state.sessions[id];
+      }
+
+      function ensureContact(id) {
+        if (!state.contacts[id]) state.contacts[id] = {};
+        return state.contacts[id];
+      }
+
+      function setSaveStatus(text, type = 'ok') {
+        $('#saveStatus').textContent = text;
+        $('#saveDot').className = `save-dot ${type === 'saving' ? 'saving' : type === 'error' ? 'error' : ''}`;
+      }
+
+      function queueSave() {
+        setSaveStatus('Salvando…', 'saving');
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveState, 350);
+      }
+
+      function saveState() {
+        try {
+          state.updatedAt = new Date().toISOString();
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          setSaveStatus(`Salvo às ${new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'})}`);
+          updateMetrics();
+        } catch (error) {
+          console.error(error);
+          setSaveStatus('Falha ao salvar neste navegador', 'error');
+          toast('Não foi possível salvar automaticamente. Gere um backup JSON.');
+        }
+      }
+
+      function sessionFields(id, data = {}) {
+        const value = key => escapeHtml(data[key] || '');
+        return `
+          <div class="field-grid">
+            <div class="field-grid two">
+              <label>Problema público observado
+                <small>O que a iniciativa tenta resolver?</small>
+                <textarea class="compact" data-session="${id}" data-key="problem" placeholder="Dor, público afetado, urgência…">${value('problem')}</textarea>
+              </label>
+              <label>Solução ou proposta apresentada
+                <small>O que estão fazendo — e qual resultado prometem?</small>
+                <textarea class="compact" data-session="${id}" data-key="solution" placeholder="Produto, política, fluxo, estratégia…">${value('solution')}</textarea>
+              </label>
+            </div>
+            <div class="field-grid two">
+              <label>Fontes, dados e conhecimento necessários
+                <small>De onde a solução obtém contexto confiável?</small>
+                <textarea class="compact" data-session="${id}" data-key="sources" placeholder="Sistemas, documentos, cadastros, pessoas-chave…">${value('sources')}</textarea>
+              </label>
+              <label>Governança e responsabilidade
+                <small>Quem atualiza, valida, decide e responde quando falha?</small>
+                <textarea class="compact" data-session="${id}" data-key="governance" placeholder="Owners, validação humana, critérios, revisão…">${value('governance')}</textarea>
+              </label>
+            </div>
+            <div class="field-grid two">
+              <label>Camada humana e linguagem cidadã
+                <small>Como cidadãos e servidores entram no desenho?</small>
+                <textarea class="compact" data-session="${id}" data-key="human" placeholder="Adoção, acessibilidade, comunicação, confiança…">${value('human')}</textarea>
+              </label>
+              <label>Fricção, lacuna ou risco percebido
+                <small>O que continua fragmentado, invisível ou mal resolvido?</small>
+                <textarea class="compact" data-session="${id}" data-key="friction" placeholder="Contradições, dependências, manutenção, risco…">${value('friction')}</textarea>
+              </label>
+            </div>
+            <div class="field-grid two">
+              <label>Ponte com meu trabalho
+                <small>Onde arquitetura de contexto poderia agregar valor real?</small>
+                <textarea class="compact" data-session="${id}" data-key="moonFit" placeholder="Atendimento, fluxos, papéis, bases de conhecimento, IA institucional…">${value('moonFit')}</textarea>
+              </label>
+              <label>Pessoa ou organização para procurar
+                <small>Nome, cargo e motivo.</small>
+                <textarea class="compact" data-session="${id}" data-key="target" placeholder="Quem vale abordar depois da fala?">${value('target')}</textarea>
+              </label>
+            </div>
+            <label>Frase, dado ou exemplo memorável
+              <textarea class="compact" data-session="${id}" data-key="quote" placeholder="Uma formulação que vale preservar literalmente ou quase literalmente.">${value('quote')}</textarea>
+            </label>
+            <label>Próximo passo ou pergunta de follow-up
+              <textarea class="compact" data-session="${id}" data-key="next" placeholder="O que perguntar, pesquisar ou enviar depois?">${value('next')}</textarea>
+            </label>
+          </div>`;
+      }
+
+      function renderSessions() {
+        const all = [
+          ...sessions.map(item => ({...item, custom:false})),
+          ...state.customSessions.map(item => ({...item, custom:true}))
+        ];
+        $('#sessionsList').innerHTML = all.map((session, index) => {
+          const data = ensureSession(session.id);
+          const filled = Object.values(data).some(Boolean);
+          return `
+            <details class="card" ${index === 0 ? 'open' : ''}>
+              <summary>
+                <span class="time-badge">${escapeHtml(session.time || 'Extra')}</span>
+                <span class="summary-copy">
+                  <strong>${escapeHtml(session.title)}</strong>
+                  <span>${escapeHtml(session.speaker || 'Apresentação adicionada')}</span>
+                  <span class="priority">${filled ? 'com anotações' : escapeHtml(session.priority || 'extra')}</span>
+                </span>
+              </summary>
+              <div class="card-body">
+                ${session.lens ? `<p class="prompt-note">🔎 ${escapeHtml(session.lens)}</p>` : ''}
+                ${session.custom ? `
+                  <div class="field-grid two" style="margin-bottom:14px">
+                    <label>Título<input type="text" data-custom-session="${session.id}" data-key="title" value="${escapeHtml(session.title)}"></label>
+                    <label>Pessoa / organização<input type="text" data-custom-session="${session.id}" data-key="speaker" value="${escapeHtml(session.speaker || '')}"></label>
+                  </div>` : ''}
+                ${sessionFields(session.id, data)}
+                ${session.custom ? `<div class="inline-actions"><button class="btn danger small" type="button" data-remove-session="${session.id}">Remover apresentação</button></div>` : ''}
+              </div>
+            </details>`;
+        }).join('');
+      }
+
+      function contactTemplate(contact) {
+        const data = ensureContact(contact.id);
+        const checked = key => data[key] ? 'checked' : '';
+        const value = key => escapeHtml(data[key] || '');
+        return `
+          <article class="contact-card">
+            <div class="contact-top">
+              <div>
+                <h3>${escapeHtml(contact.name)}</h3>
+                <p class="contact-role">${escapeHtml(contact.role || '')}</p>
+              </div>
+              <span class="rank">${escapeHtml(contact.rank || '＋')}</span>
+            </div>
+            ${contact.why ? `<p class="empty-note"><strong>Por que importa:</strong> ${escapeHtml(contact.why)}</p>` : ''}
+            <div class="punchline">“${escapeHtml(contact.punchline || 'Escreva aqui a melhor abertura para esta pessoa.')}”</div>
+            <div class="checks">
+              <label class="check"><input type="checkbox" data-contact="${contact.id}" data-key="seen" ${checked('seen')}> Vi</label>
+              <label class="check"><input type="checkbox" data-contact="${contact.id}" data-key="spoke" ${checked('spoke')}> Conversei</label>
+              <label class="check"><input type="checkbox" data-contact="${contact.id}" data-key="card" ${checked('card')}> Dei cartão</label>
+              <label class="check"><input type="checkbox" data-contact="${contact.id}" data-key="gotContact" ${checked('gotContact')}> Peguei contato</label>
+              <label class="check"><input type="checkbox" data-contact="${contact.id}" data-key="followup" ${checked('followup')}> Follow-up</label>
+            </div>
+            <div class="field-grid two">
+              <label>O que conversamos
+                <textarea class="compact" data-contact="${contact.id}" data-key="conversation" placeholder="Ponto de conexão, interesse, reação…">${value('conversation')}</textarea>
+              </label>
+              <label>Contato / canal
+                <textarea class="compact" data-contact="${contact.id}" data-key="channel" placeholder="LinkedIn, e-mail, WhatsApp, assessoria…">${value('channel')}</textarea>
+              </label>
+            </div>
+            <label style="margin-top:12px">Próximo passo legítimo
+              <textarea class="compact" data-contact="${contact.id}" data-key="next" placeholder="O que enviar, quando e com qual pedido mínimo?">${value('next')}</textarea>
+            </label>
+            ${contact.custom ? `<div class="inline-actions"><button class="btn danger small" type="button" data-remove-contact="${contact.id}">Remover contato</button></div>` : ''}
+          </article>`;
+      }
+
+      function renderContacts() {
+        const all = [
+          ...contacts.map(item => ({...item, custom:false})),
+          ...state.customContacts.map(item => ({...item, custom:true}))
+        ];
+        $('#contactsList').innerHTML = all.map(contactTemplate).join('');
+      }
+
+      function hydrateGeneral() {
+        $$('[data-general]').forEach(el => { el.value = state.general[el.dataset.general] || ''; });
+      }
+
+      function updateMetrics() {
+        const sessionCount = Object.values(state.sessions).filter(item => item && Object.values(item).some(value => String(value || '').trim())).length;
+        const cards = Object.values(state.contacts).filter(item => item && item.card).length;
+        const followups = Object.values(state.contacts).filter(item => item && (item.followup || String(item.next || '').trim())).length;
+        $('#metricSessions').textContent = sessionCount;
+        $('#metricCards').textContent = cards;
+        $('#metricFollowups').textContent = followups;
+      }
+
+      function bindEvents() {
+        document.addEventListener('input', event => {
+          const el = event.target;
+          if (el.matches('[data-session]')) {
+            ensureSession(el.dataset.session)[el.dataset.key] = el.value;
+            queueSave();
+          } else if (el.matches('[data-contact]') && el.type !== 'checkbox') {
+            ensureContact(el.dataset.contact)[el.dataset.key] = el.value;
+            queueSave();
+          } else if (el.matches('[data-general]')) {
+            state.general[el.dataset.general] = el.value;
+            queueSave();
+          } else if (el.matches('[data-custom-session]')) {
+            const item = state.customSessions.find(row => row.id === el.dataset.customSession);
+            if (item) item[el.dataset.key] = el.value;
+            queueSave();
+          }
+        });
+
+        document.addEventListener('change', event => {
+          const el = event.target;
+          if (el.matches('[data-contact]') && el.type === 'checkbox') {
+            ensureContact(el.dataset.contact)[el.dataset.key] = el.checked;
+            queueSave();
+          }
+        });
+
+        document.addEventListener('click', event => {
+          const scrollBtn = event.target.closest('[data-scroll]');
+          if (scrollBtn) $(scrollBtn.dataset.scroll)?.scrollIntoView({behavior:'smooth'});
+
+          const removeSession = event.target.closest('[data-remove-session]');
+          if (removeSession && confirm('Remover esta apresentação e suas anotações?')) {
+            const id = removeSession.dataset.removeSession;
+            state.customSessions = state.customSessions.filter(item => item.id !== id);
+            delete state.sessions[id];
+            saveState(); renderSessions();
+          }
+
+          const removeContact = event.target.closest('[data-remove-contact]');
+          if (removeContact && confirm('Remover este contato e suas anotações?')) {
+            const id = removeContact.dataset.removeContact;
+            state.customContacts = state.customContacts.filter(item => item.id !== id);
+            delete state.contacts[id];
+            saveState(); renderContacts();
+          }
+        });
+
+        $('#saveNow').addEventListener('click', () => { saveState(); toast('Salvo neste aparelho.'); });
+        $('#appendQuick').addEventListener('click', appendQuickNote);
+        $('#addSession').addEventListener('click', addCustomSession);
+        $('#addContact').addEventListener('click', addCustomContact);
+        $('#generateReport').addEventListener('click', generateAndDownloadReport);
+        $('#downloadAgain').addEventListener('click', () => downloadText(lastReport, reportFilename(), 'text/markdown;charset=utf-8'));
+        $('#closeModal').addEventListener('click', () => $('#reportModal').classList.remove('open'));
+        $('#reportModal').addEventListener('click', event => { if (event.target === $('#reportModal')) $('#reportModal').classList.remove('open'); });
+        $('#exportJson').addEventListener('click', exportJson);
+        $('#importJsonBtn').addEventListener('click', () => $('#importJson').click());
+        $('#importJson').addEventListener('change', importJson);
+        $('#clearAll').addEventListener('click', clearAll);
+      }
+
+      function appendQuickNote() {
+        const title = String(state.general.quickTitle || '').trim();
+        const note = String(state.general.quickNote || '').trim();
+        if (!title && !note) return toast('Digite uma nota antes de adicionar.');
+        const stamp = new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+        state.general.dayLog = `${state.general.dayLog ? state.general.dayLog + '\n\n' : ''}### ${title || 'Nota rápida'} · ${stamp}\n${note}`;
+        state.general.quickTitle = '';
+        state.general.quickNote = '';
+        hydrateGeneral();
+        saveState();
+        toast('Nota adicionada ao diário do dia.');
+      }
+
+      function addCustomSession() {
+        const id = `extra-session-${Date.now()}`;
+        state.customSessions.push({ id, time: 'Extra', priority: 'extra', title: 'Nova apresentação', speaker: '', lens: '', custom: true });
+        ensureSession(id);
+        saveState(); renderSessions();
+        setTimeout(() => document.querySelector(`[data-custom-session="${id}"]`)?.focus(), 50);
+      }
+
+      function addCustomContact() {
+        const id = `extra-contact-${Date.now()}`;
+        state.customContacts.push({ id, rank: '＋', name: 'Novo contato', role: '', why: '', punchline: '', custom: true });
+        ensureContact(id);
+        saveState(); renderContacts();
+      }
+
+      function md(value) {
+        const text = String(value || '').trim();
+        return text || '_Não registrado._';
+      }
+
+      function checkbox(value) { return value ? '[x]' : '[ ]'; }
+
+      function buildReport() {
+        const allSessions = [
+          ...sessions,
+          ...state.customSessions
+        ];
+        const allContacts = [
+          ...contacts,
+          ...state.customContacts
+        ];
+        const updated = state.updatedAt ? new Date(state.updatedAt).toLocaleString('pt-BR') : new Date().toLocaleString('pt-BR');
+        const lines = [
+          '# Relatório de Campo — Fórum de Cidades Digitais e Inteligentes de Limeira',
+          '',
+          '- **Data do evento:** 23 de julho de 2026',
+          '- **Local:** UNIP — Campus Limeira',
+          `- **Relatório gerado em:** ${updated}`,
+          '- **Autora das notas:** Lua Helena Moon M. C.',
+          '',
+          '> Objetivo: registrar problemas públicos, contexto institucional, governança, camada humana, oportunidades de arquitetura de contexto e continuidades profissionais observadas no evento.',
+          '',
+          '## 1. Síntese executiva',
+          '',
+          '### Dores municipais recorrentes', md(state.general.recurringPains), '',
+          '### Oportunidades mais alinhadas ao trabalho de Moon', md(state.general.bestFits), '',
+          '### Linguagem usada pelos gestores para descrever valor', md(state.general.valueLanguage), '',
+          '### Como fornecedores apresentaram e venderam soluções', md(state.general.vendorLanguage), '',
+          '### Follow-ups prioritários', md(state.general.priorityFollowups), '',
+          '### Ajustes sugeridos ao posicionamento ou cartão', md(state.general.positioningAdjustments), '',
+          '## 2. Registro das apresentações', ''
+        ];
+
+        allSessions.forEach((session, index) => {
+          const data = state.sessions[session.id] || {};
+          lines.push(
+            `### ${index + 1}. ${session.time || 'Extra'} — ${session.title}`,
+            '',
+            `- **Pessoa/organização:** ${session.speaker || '_Não registrada._'}`,
+            `- **Prioridade original:** ${session.priority || 'extra'}`,
+            '',
+            '#### Problema público observado', md(data.problem), '',
+            '#### Solução ou proposta apresentada', md(data.solution), '',
+            '#### Fontes, dados e conhecimento necessários', md(data.sources), '',
+            '#### Governança e responsabilidade', md(data.governance), '',
+            '#### Camada humana e linguagem cidadã', md(data.human), '',
+            '#### Fricção, lacuna ou risco percebido', md(data.friction), '',
+            '#### Ponte com o trabalho de Moon', md(data.moonFit), '',
+            '#### Pessoa ou organização para procurar', md(data.target), '',
+            '#### Frase, dado ou exemplo memorável', md(data.quote), '',
+            '#### Próximo passo ou pergunta de follow-up', md(data.next), ''
+          );
+        });
+
+        lines.push('## 3. Networking e circulação dos cartões', '');
+        allContacts.forEach((contact, index) => {
+          const data = state.contacts[contact.id] || {};
+          lines.push(
+            `### ${index + 1}. ${contact.name}`,
+            '',
+            `- **Papel:** ${contact.role || '_Não registrado._'}`,
+            `- ${checkbox(data.seen)} Viu a pessoa`,
+            `- ${checkbox(data.spoke)} Conversou`,
+            `- ${checkbox(data.card)} Entregou o cartão`,
+            `- ${checkbox(data.gotContact)} Obteve contato`,
+            `- ${checkbox(data.followup)} Follow-up indicado`,
+            '',
+            `**Punchline preparada:** ${contact.punchline || '_Não registrada._'}`,
+            '',
+            '#### O que foi conversado', md(data.conversation), '',
+            '#### Contato ou canal obtido', md(data.channel), '',
+            '#### Próximo passo legítimo', md(data.next), ''
+          );
+        });
+
+        lines.push('## 4. Diário livre', '', md(state.general.dayLog), '', '## 5. Solicitação para metabolização posterior', '', '> Leia este relatório como material de campo. Separe fatos observados, falas registradas, inferências de Moon, hipóteses de oportunidade e próximos passos. Identifique aprendizados generalizáveis para Moon Professional Source, Corporate Outreach, Political Reaches, `/ia/` e futuras ofertas ao setor público, sem transformar contato ou interesse em parceria confirmada.', '');
+        return lines.join('\n');
+      }
+
+      function reportFilename() {
+        return `relatorio_forum_cidades_digitais_limeira_${new Date().toISOString().slice(0,10)}.md`;
+      }
+
+      function generateAndDownloadReport() {
+        saveState();
+        lastReport = buildReport();
+        downloadText(lastReport, reportFilename(), 'text/markdown;charset=utf-8');
+        $('#reportPreview').textContent = lastReport.slice(0, 9000) + (lastReport.length > 9000 ? '\n\n[Prévia truncada; o arquivo baixado contém o relatório completo.]' : '');
+        $('#reportModal').classList.add('open');
+        toast('Relatório Markdown gerado.');
+      }
+
+      function downloadText(content, filename, type) {
+        const blob = new Blob(['\ufeff', content], { type });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = filename;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      function exportJson() {
+        saveState();
+        downloadText(JSON.stringify(state, null, 2), `backup_cidadeinteligente_${new Date().toISOString().slice(0,10)}.json`, 'application/json;charset=utf-8');
+        toast('Backup JSON baixado.');
+      }
+
+      function importJson(event) {
+        const file = event.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const parsed = JSON.parse(reader.result);
+            if (!parsed || typeof parsed !== 'object') throw new Error('Arquivo inválido');
+            state = { ...defaultState(), ...parsed, general: { ...defaultState().general, ...(parsed.general || {}) } };
+            saveState();
+            renderSessions(); renderContacts(); hydrateGeneral(); updateMetrics();
+            toast('Backup restaurado com sucesso.');
+          } catch (error) {
+            console.error(error);
+            toast('Não foi possível restaurar esse arquivo.');
+          }
+          event.target.value = '';
+        };
+        reader.readAsText(file);
+      }
+
+      function clearAll() {
+        const confirmation = prompt('Para apagar tudo, digite APAGAR:');
+        if (confirmation !== 'APAGAR') return toast('Dados preservados.');
+        localStorage.removeItem(STORAGE_KEY);
+        state = defaultState();
+        renderSessions(); renderContacts(); hydrateGeneral(); updateMetrics();
+        setSaveStatus('Dados apagados');
+        toast('Todos os dados locais foram apagados.');
+      }
+
+      let toastTimer;
+      function toast(message) {
+        const node = $('#toast');
+        node.textContent = message;
+        node.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => node.classList.remove('show'), 2600);
+      }
+
+      renderSessions();
+      renderContacts();
+      hydrateGeneral();
+      updateMetrics();
+      bindEvents();
+      setSaveStatus(state.updatedAt ? `Último salvamento: ${new Date(state.updatedAt).toLocaleString('pt-BR')}` : 'Pronto para anotar');
+    })();
+  </script>
+</body>
+</html>
