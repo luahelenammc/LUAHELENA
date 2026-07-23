@@ -1,0 +1,19 @@
+#publicos .section-lead{max-width:760px}
+.audience-grid{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.audience-card{--audience-accent:var(--gold);position:relative;overflow:hidden;min-height:205px;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.032));transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.audience-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 8%,color-mix(in srgb,var(--audience-accent) 19%,transparent),transparent 40%);pointer-events:none}
+.audience-card:after{content:"";position:absolute;left:20px;right:20px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--audience-accent);box-shadow:0 0 18px color-mix(in srgb,var(--audience-accent) 55%,transparent)}
+.audience-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--audience-accent) 46%,rgba(255,255,255,.15));background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.043))}
+.audience-card[data-tone="cyan"]{--audience-accent:var(--cyan)}
+.audience-card[data-tone="gold"]{--audience-accent:var(--gold)}
+.audience-card[data-tone="rose"]{--audience-accent:var(--rose)}
+.audience-card-head{position:relative;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.audience-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--audience-accent) 44%,transparent);border-radius:15px;background:color-mix(in srgb,var(--audience-accent) 12%,transparent);color:var(--audience-accent);flex:0 0 auto}
+.audience-icon i{width:23px;height:23px}
+.audience-card h3{font-size:1.16rem;line-height:1.2;margin:0}
+.audience-keywords{position:relative;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.audience-keywords span{padding:6px 9px;border:1px solid color-mix(in srgb,var(--audience-accent) 22%,rgba(255,255,255,.09));border-radius:999px;background:color-mix(in srgb,var(--audience-accent) 6%,rgba(255,255,255,.025));color:var(--muted);font-size:.74rem;line-height:1.2}
+.audience-card p{position:relative;margin:0;color:var(--muted);font-size:.91rem;line-height:1.5}
+@media(max-width:900px){.audience-grid{grid-template-columns:1fr}.audience-card{min-height:0}}
+@media(max-width:700px){.audience-card{padding:20px}.audience-icon{width:42px;height:42px}}
+@media(prefers-reduced-motion:reduce){.audience-card{transition:none}}
