@@ -1,0 +1,6 @@
+/* Keep every solution check on the right without covering right-aligned desktop icons. */
+@media (min-width:1101px){
+  #entregas .output-node[data-side="left"] .ic{
+    margin-right:38px;
+  }
+}
