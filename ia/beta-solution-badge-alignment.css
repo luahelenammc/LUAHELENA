@@ -1,4 +1,4 @@
-/* Beta-only responsive placement for solution checks and desktop breathing room. */
+/* Responsive placement for solution checks and stable cycle geometry. */
 
 /* Section 02 desktop: each check sits on the outer edge of its column. */
 @media (min-width:1101px) and (hover:hover) and (pointer:fine){
@@ -16,10 +16,10 @@
     margin-right:0!important;
   }
 
-  /* Section 03 desktop: three cards above, two centered below. */
+  /* Section 05 desktop: three cards above, two centered below. */
   #ciclo .cycle-circuit{
     grid-template-columns:repeat(6,minmax(0,1fr))!important;
-    gap:18px 18px!important;
+    gap:18px!important;
     align-items:stretch;
     padding:16px 0 8px!important;
   }
@@ -29,15 +29,22 @@
   }
 
   #ciclo .cycle-node{
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
     min-height:188px;
+    box-sizing:border-box!important;
     padding:18px 52px 20px 18px!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
   }
 
-  #ciclo .cycle-node:nth-child(1){grid-column:1 / span 2}
-  #ciclo .cycle-node:nth-child(2){grid-column:3 / span 2}
-  #ciclo .cycle-node:nth-child(3){grid-column:5 / span 2}
-  #ciclo .cycle-node:nth-child(4){grid-column:2 / span 2}
-  #ciclo .cycle-node:nth-child(5){grid-column:4 / span 2}
+  /* Stable selectors: SVG circuit overlays do not affect card placement. */
+  #ciclo .cycle-node[data-cycle-order="1"]{grid-column:1 / span 2!important;grid-row:1!important}
+  #ciclo .cycle-node[data-cycle-order="2"]{grid-column:3 / span 2!important;grid-row:1!important}
+  #ciclo .cycle-node[data-cycle-order="3"]{grid-column:5 / span 2!important;grid-row:1!important}
+  #ciclo .cycle-node[data-cycle-order="4"]{grid-column:2 / span 2!important;grid-row:2!important}
+  #ciclo .cycle-node[data-cycle-order="5"]{grid-column:4 / span 2!important;grid-row:2!important}
 
   #ciclo .cycle-node>.solution-badge{
     top:16px;
@@ -51,6 +58,15 @@
 
   #ciclo .cycle-node-port{
     display:none;
+  }
+
+  #ciclo .cycle-node h3,
+  #ciclo .cycle-node>p{
+    min-width:0!important;
+    max-width:100%!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    white-space:normal!important;
   }
 
   #ciclo .cycle-node h3{
@@ -69,5 +85,10 @@
   #ciclo .cycle-node>.solution-badge{
     left:auto!important;
     right:14px!important;
+  }
+
+  #ciclo .cycle-node{
+    grid-column:auto!important;
+    grid-row:auto!important;
   }
 }
