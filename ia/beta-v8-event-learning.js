@@ -48,11 +48,25 @@
     }
   });
 
-  const lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+  const currentLang = () => document.documentElement.lang === 'en' ? 'en' : 'pt';
+  const syncTitle = () => {
+    const english = currentLang() === 'en';
+    const isBeta = /\/ia\/beta(?:\.html)?\/?$/.test(window.location.pathname);
+    document.title = english
+      ? `Lua Helena Moon — Context Architecture, Adoption and AI Auditing · ${isBeta ? 'Beta V8.1' : 'V8.1'}`
+      : `Lua Helena Moon — Contexto, Adoção e Auditoria de IA · ${isBeta ? 'Beta V8.1' : 'V8.1'}`;
+  };
+
+  const lang = currentLang();
   if (typeof applyLang === 'function') applyLang(lang);
 
   document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
     element.textContent = lang === 'en' ? element.dataset.betaEn : element.dataset.betaPt;
+  });
+  syncTitle();
+  new MutationObserver(syncTitle).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['lang']
   });
 
   const packet = `# LUA HELENA MOON — CONTEXT ARCHITECTURE & AI AUDITING — V8.1
