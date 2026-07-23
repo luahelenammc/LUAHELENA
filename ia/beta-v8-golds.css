@@ -1,0 +1,30 @@
+h1,.section-title,.contact h2{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
+.lang-toggle{gap:2px}
+.lang-toggle button{width:40px;height:36px;min-width:40px;padding:5px;display:grid;place-items:center;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.lang-toggle button img{width:25px;height:25px;max-width:none;display:block;object-fit:contain;opacity:.72;filter:saturate(.82) brightness(.96);transition:opacity .18s ease,filter .18s ease,transform .18s ease}
+.lang-toggle button:hover img,.lang-toggle button:focus-visible img{opacity:.96;filter:saturate(1.04) brightness(1.02);transform:scale(1.04)}
+.lang-toggle button.active{box-shadow:inset 0 0 0 1px rgba(232,201,122,.18),0 4px 12px rgba(0,0,0,.12)}
+.lang-toggle button.active img{opacity:1;filter:saturate(1.1) brightness(1.05);transform:scale(1.07)}
+.positioning-stack{max-width:850px;margin-top:25px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.market-position-detail{max-width:820px;color:var(--muted);font-size:clamp(1.05rem,1.58vw,1.19rem);line-height:1.54}
+.professional-foundation{max-width:820px;margin-top:2px;padding-top:13px;border-top:1px solid rgba(255,255,255,.10);color:var(--quiet);font-family:var(--sans);font-size:clamp(.91rem,1.12vw,1rem);font-style:normal;line-height:1.58}
+.hero-text>.tagline,.hero-meta{display:none!important}
+.hero h1{max-width:990px}
+.hero-line{display:block}
+.context-word{color:var(--cyan);text-shadow:0 0 30px rgba(139,220,255,.18)}
+.tone-gold{color:var(--gold);text-shadow:0 0 34px rgba(232,201,122,.18)}
+.hero-resolution{color:var(--rose);text-shadow:0 0 34px rgba(255,145,200,.14)}
+.card-grid,.triple-grid,.phase-grid,.proof-grid{gap:5px!important}
+#entrada .quote-card{border-color:rgba(255,145,200,.24);background:linear-gradient(145deg,rgba(255,145,200,.075),rgba(159,135,255,.055))}
+#ciclo .phase-card:nth-child(1),#ciclo .phase-card:nth-child(2){border-color:rgba(232,201,122,.22)}
+#ciclo .phase-card:nth-child(3){border-color:rgba(159,135,255,.22)}
+#ciclo .phase-card:nth-child(4),#ciclo .phase-card:nth-child(5){border-color:rgba(139,220,255,.20)}
+@media(max-width:600px){
+  .positioning-stack{margin-top:22px;gap:10px}
+  .market-position-detail{line-height:1.52}
+  .professional-foundation{margin-top:2px;padding-top:12px}
+  .hero h1{font-size:clamp(2.1rem,10.7vw,3.25rem);line-height:1.01;letter-spacing:-.025em}
+  .hero{padding-bottom:32px!important}
+  #entrada.block{padding-top:20px}
+}
+@media(max-width:420px){.lang-toggle button{width:38px;min-width:38px;height:34px;padding:5px}.lang-toggle button img{width:23px;height:23px}}
