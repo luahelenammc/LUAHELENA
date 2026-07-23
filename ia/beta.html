@@ -8,11 +8,11 @@ layout: null
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon — Contexto e Auditoria de IA · Beta V8' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Arquitetura contextual, apuração institucional e auditoria de IA para reduzir respostas inventadas, desvios e decisões apoiadas em contexto frágil.' -%}
-{%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Contexto verificável, limites claros e auditoria antes e depois do uso de IA.' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Arquitetura contextual, apuração institucional, desenho de fluxos, adoção e auditoria de IA para decisões e respostas mais confiáveis.' -%}
+{%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Contexto verificável, trabalho legível, adoção humana e auditoria contínua de IA.' -%}
 
 {%- capture old_role -%}<p class="role" data-i="hero.role">Psicóloga hospitalar, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional, socióloga de formação e arquiteta de contexto humano-IA.</p>{%- endcapture -%}
-{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><strong class="market-position-title" data-beta-pt="Arquitetura contextual · Apuração · Auditoria de IA" data-beta-en="Context architecture · Investigation · AI auditing">Arquitetura contextual · Apuração · Auditoria de IA</strong><p class="market-position-detail" data-beta-pt="Apuro a realidade institucional antes do uso, estruturo as fontes e os critérios que orientam a IA e audito suas respostas depois — para reduzir invenções, desvios e decisões apoiadas em contexto frágil." data-beta-en="I investigate institutional reality before deployment, structure the sources and criteria that guide AI, and audit its outputs afterward — reducing fabrication, drift, and decisions built on weak context.">Apuro a realidade institucional antes do uso, estruturo as fontes e os critérios que orientam a IA e audito suas respostas depois — para reduzir invenções, desvios e decisões apoiadas em contexto frágil.</p><div class="trust-triad" aria-label="Ciclo de confiança"><span data-beta-pt="Apurar a realidade" data-beta-en="Investigate reality">Apurar a realidade</span><i aria-hidden="true">→</i><span data-beta-pt="Estruturar o contexto" data-beta-en="Structure context">Estruturar o contexto</span><i aria-hidden="true">→</i><span data-beta-pt="Auditar a resposta" data-beta-en="Audit the output">Auditar a resposta</span></div><p class="professional-foundation" data-beta-pt="Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Minha base une Psicologia, Sociologia, Psicologia Organizacional e Psicopedagogia Institucional à investigação contextual, à governança do conhecimento e ao uso responsável de IA." data-beta-en="As a hospital psychologist, I work within complex systems, navigating institutional workflows, multidisciplinary teams, sensitive contexts, and crisis mediation. My foundation combines Psychology, Sociology, Organizational Psychology, and Institutional Psychopedagogy with contextual investigation, knowledge governance, and responsible AI use.">Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Minha base une Psicologia, Sociologia, Psicologia Organizacional e Psicopedagogia Institucional à investigação contextual, à governança do conhecimento e ao uso responsável de IA.</p></div>{%- endcapture -%}
+{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><p class="market-position-detail" data-beta-pt="Apuro como a organização realmente funciona, estruturo as fontes, os papéis, os critérios e os fluxos que orientam a IA e audito seus resultados depois — para reduzir invenções, melhorar decisões, preservar conhecimento e transformar tecnologia em trabalho útil." data-beta-en="I investigate how the organization actually works, structure the sources, roles, criteria, and workflows that guide AI, and audit its results afterward — reducing fabrication, improving decisions, preserving knowledge, and turning technology into useful work.">Apuro como a organização realmente funciona, estruturo as fontes, os papéis, os critérios e os fluxos que orientam a IA e audito seus resultados depois — para reduzir invenções, melhorar decisões, preservar conhecimento e transformar tecnologia em trabalho útil.</p><p class="professional-foundation" data-beta-pt="Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Minha base une Psicologia, Sociologia, Psicologia Organizacional e Psicopedagogia Institucional à investigação contextual, à governança do conhecimento, à aprendizagem e à adoção responsável de IA." data-beta-en="As a hospital psychologist, I work within complex systems, navigating institutional workflows, multidisciplinary teams, sensitive contexts, and crisis mediation. My foundation combines Psychology, Sociology, Organizational Psychology, and Institutional Psychopedagogy with contextual investigation, knowledge governance, learning, and responsible AI adoption.">Como psicóloga hospitalar, trabalho em sistemas complexos, navegando fluxos institucionais, equipes multiprofissionais, contextos sensíveis e mediações de crise. Minha base une Psicologia, Sociologia, Psicologia Organizacional e Psicopedagogia Institucional à investigação contextual, à governança do conhecimento, à aprendizagem e à adoção responsável de IA.</p></div>{%- endcapture -%}
 {%- assign page_html = page_html | replace_first: old_role, positioning_stack -%}
 
 {%- capture language_bootstrap -%}
@@ -24,215 +24,29 @@ layout: null
 </script>
 {%- endcapture -%}
 
-{%- capture beta_styles -%}
+{%- capture head_assets -%}
+<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />
+<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />
+<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />
+<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />
+<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-<style>
-  h1,.section-title,.contact h2{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
-  .lang-toggle{gap:2px}
-  .lang-toggle button{width:40px;height:36px;min-width:40px;padding:5px;display:grid;place-items:center;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
-  .lang-toggle button img{width:25px;height:25px;max-width:none;display:block;object-fit:contain;opacity:.72;filter:saturate(.82) brightness(.96);transition:opacity .18s ease,filter .18s ease,transform .18s ease}
-  .lang-toggle button:hover img,.lang-toggle button:focus-visible img{opacity:.96;filter:saturate(1.04) brightness(1.02);transform:scale(1.04)}
-  .lang-toggle button.active{box-shadow:inset 0 0 0 1px rgba(232,201,122,.18),0 4px 12px rgba(0,0,0,.12)}
-  .lang-toggle button.active img{opacity:1;filter:saturate(1.1) brightness(1.05);transform:scale(1.07)}
-  .positioning-stack{max-width:850px;margin-top:25px;display:flex;flex-direction:column;align-items:flex-start;gap:11px}
-  .market-position-title{display:inline-flex;align-items:center;max-width:100%;padding:7px 11px;border:1px solid rgba(232,201,122,.34);border-radius:999px;background:linear-gradient(135deg,rgba(232,201,122,.11),rgba(159,135,255,.07));color:var(--gold);font-size:clamp(.72rem,1vw,.79rem);line-height:1.2;font-weight:800;letter-spacing:.072em;text-transform:uppercase}
-  .market-position-detail{max-width:820px;color:var(--muted);font-size:clamp(1.05rem,1.58vw,1.19rem);line-height:1.54}
-  .trust-triad{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:2px 0 1px;color:var(--quiet);font-size:.82rem;font-weight:700;letter-spacing:.025em}
-  .trust-triad span{padding:7px 10px;border:1px solid rgba(139,220,255,.20);border-radius:999px;background:rgba(139,220,255,.055);color:#dcefff}
-  .trust-triad i{color:var(--gold);font-style:normal;opacity:.78}
-  .professional-foundation{max-width:820px;margin-top:3px;padding-top:13px;border-top:1px solid rgba(255,255,255,.10);color:var(--quiet);font-family:var(--sans);font-size:clamp(.91rem,1.12vw,1rem);font-style:normal;line-height:1.58}
-  .hero-text>.tagline{display:none}
-  .hero h1{max-width:990px}
-  .hero-line{display:block}
-  .context-word{color:var(--cyan);text-shadow:0 0 30px rgba(139,220,255,.18)}
-  .tone-gold{color:var(--gold);text-shadow:0 0 34px rgba(232,201,122,.18)}
-  .hero-resolution{color:var(--rose);text-shadow:0 0 34px rgba(255,145,200,.14)}
-  .card-grid,.triple-grid,.phase-grid,.proof-grid{gap:5px!important}
-  #entrada .quote-card{border-color:rgba(255,145,200,.24);background:linear-gradient(145deg,rgba(255,145,200,.075),rgba(159,135,255,.055))}
-  #ciclo .phase-card:nth-child(1),#ciclo .phase-card:nth-child(2){border-color:rgba(232,201,122,.22)}
-  #ciclo .phase-card:nth-child(3),#ciclo .phase-card:nth-child(4),#ciclo .phase-card:nth-child(5){border-color:rgba(139,220,255,.20)}
-  @media(max-width:600px){
-    .positioning-stack{margin-top:22px;gap:9px}
-    .market-position-title{border-radius:16px;line-height:1.35}
-    .market-position-detail{line-height:1.52}
-    .trust-triad{gap:6px}.trust-triad i{display:none}.trust-triad span{font-size:.78rem}
-    .professional-foundation{margin-top:2px;padding-top:12px}
-    .hero h1{font-size:clamp(2.1rem,10.7vw,3.25rem);line-height:1.01;letter-spacing:-.025em}
-    .hero{padding-bottom:32px!important}
-    #entrada.block{padding-top:20px}
-  }
-  @media(max-width:420px){.lang-toggle button{width:38px;min-width:38px;height:34px;padding:5px}.lang-toggle button img{width:23px;height:23px}}
-</style>
+<link rel="stylesheet" href="/ia/beta-v8-golds.css?v=1" />
 {%- endcapture -%}
 
-{%- capture beta_script -%}
-<script>
-(() => {
-  const copy = {
-    pt: {
-      'nav.entrada':'O problema','nav.mapa':'Apuração','nav.entregas':'Arquitetura','nav.ciclo':'Auditoria','nav.lastro':'Lastro',
-      'hero.eyebrow':'Arquitetura Contextual e Auditoria de IA',
-      'hero.title':'<span class="hero-line">Construo o <span class="context-word">contexto</span></span><span class="hero-line">para a IA responder</span><span class="hero-line">com base na <span class="tone-gold">realidade</span> —</span><span class="hero-line hero-resolution">não no improviso.</span>',
-      'hero.cta1':'Baixar pacote para IA','hero.cta2':'Converse comigo',
-      'entrada.label':'O problema','entrada.title':'Uma resposta plausível ainda pode estar errada.','entrada.lead':'A IA pode produzir uma resposta clara, segura e convincente mesmo quando recebeu contexto incompleto, desatualizado ou sem autoridade definida. Em questões humanas e institucionais, essa diferença não é detalhe: ela pode distorcer decisões, orientações e responsabilidades.',
-      'entrada.card1.title':'Contexto ausente','entrada.card1.text':'Quando faltam fatos, regras, exceções ou histórico, a IA pode preencher a lacuna com uma continuação plausível — não necessariamente verdadeira.',
-      'entrada.card2.title':'Fonte sem autoridade','entrada.card2.text':'Ter documentos não basta. É preciso saber qual versão vale, quem responde por ela, o que mudou e quando uma fonte não pode ser tratada como verdade.',
-      'entrada.card3.title':'Resposta convincente, decisão frágil','entrada.card3.text':'Uma formulação fluida pode esconder erro, extrapolação, conflito entre fontes ou uso inadequado de informação sensível.',
-      'entrada.quote.big':'Quando a IA não sabe o que é verdade, ela não fica necessariamente em silêncio. Ela pode completar a lacuna.','entrada.quote.text':'Meu trabalho começa antes da ferramenta: descobrir o que ela pode saber, de onde, com quais limites, em que situações e quem valida.',
-      'mapa.label':'Antes da IA','mapa.title':'Primeiro, eu apuro a realidade que a IA deverá respeitar.','mapa.lead':'Investigo a organização por dentro para separar o que existe do que se presume, o que vale do que envelheceu e o fluxo oficial do trabalho que realmente acontece.',
-      'mapa.card1.title':'Fontes e evidências','mapa.card1.text':'Quais documentos, sistemas, registros e pessoas sustentam cada informação — e qual é o grau de autoridade, atualidade e confiabilidade de cada fonte.',
-      'mapa.card2.title':'Fluxos e exceções','mapa.card2.text':'Como o trabalho circula na prática, onde a informação se perde, quais atalhos existem e quais exceções revelam o processo real.',
-      'mapa.card3.title':'Papéis e autoridade','mapa.card3.text':'Quem sabe, quem executa, quem decide, quem valida, quem responde e onde existem lacunas ou sobreposições de responsabilidade.',
-      'mapa.card4.title':'Linguagem e critérios','mapa.card4.text':'Vocabulário institucional, critérios de decisão, classificações, padrões de resposta e diferenças de significado que a IA precisa respeitar.',
-      'mapa.card5.title':'Contradições, lacunas e riscos','mapa.card5.text':'Fontes conflitantes, regras implícitas, dados ausentes, conteúdo sensível e situações em que a IA deve reconhecer incerteza ou não responder.',
-      'mapa.card6.title':'Casos reais de uso','mapa.card6.text':'Onde a IA pode ajudar, quais problemas realmente resolve, que danos pode causar e quais usos ainda não possuem contexto suficiente.',
-      'entregas.label':'Arquitetura contextual','entregas.title':'Depois, transformo a apuração em uma base que orienta o uso da IA.','entregas.lead':'A entrega organiza realidade institucional, fontes, critérios, limites e responsabilidades em uma camada revisável. Assim, a IA deixa de operar sobre material solto e passa a trabalhar com contexto governado.',
-      'entregas.card1.title':'Mapa contextual da organização','entregas.card1.text':'Um retrato estruturado de objetivos, fontes, fluxos, pessoas, decisões, riscos, linguagem, papéis e prioridades.',
-      'entregas.card2.title':'Fonte de verdade e precedência','entregas.card2.text':'O que deve ser consultado, qual fonte prevalece em caso de conflito, quem pode atualizar e como distinguir regra vigente de registro histórico.',
-      'entregas.card3.title':'Pacote de orientação para IA','entregas.card3.text':'Vocabulário, escopo, critérios, fontes, limites, exemplos, não-respostas e formas esperadas de explicar certeza, dúvida e inferência.',
-      'entregas.card4.title':'Documentação e memória vivas','entregas.card4.text':'Registros atualizáveis que mostram o que vale agora, o que mudou, por que mudou e quando uma revisão se tornou necessária.',
-      'entregas.card5.title':'Especificação de assistentes e fluxos','entregas.card5.text':'Usuários, tarefas, entradas, saídas, permissões, riscos, validações e pontos de passagem entre pessoas, processos e IA.',
-      'entregas.card6.title':'Responsabilidade e revisão humana','entregas.card6.text':'Definição de responsáveis, direitos de validação e situações em que nenhuma resposta da IA deve seguir adiante sem conferência.',
-      'ciclo.label':'Auditoria de IA','ciclo.title':'O trabalho não termina quando a IA começa a responder.','ciclo.lead':'Faço auditorias contextuais antes e depois do uso: testo o que entra, observo o que a IA produz, identifico erros e desvios e investigo se a causa está na fonte, na instrução, no fluxo ou na própria adequação do caso de uso.',
-      'ciclo.fase1.label':'Antes do uso','ciclo.fase1.title':'Auditar entradas','ciclo.fase1.text':'Revisão de fontes, atualidade, autoridade, lacunas, conflitos, dados sensíveis e instruções que orientarão a IA.',
-      'ciclo.fase2.label':'Antes do uso','ciclo.fase2.title':'Testar cenários','ciclo.fase2.text':'Casos reais, exceções, perguntas ambíguas, situações de risco e condições em que a IA deve pedir validação ou se recusar a concluir.',
-      'ciclo.fase3.label':'Depois do uso','ciclo.fase3.title':'Auditar respostas','ciclo.fase3.text':'Análise de respostas inventadas, extrapolações, omissões, linguagem enganosa, perda de nuance e uso inadequado de contexto.',
-      'ciclo.fase4.label':'Diagnóstico','ciclo.fase4.title':'Rastrear a causa','ciclo.fase4.text':'Separação entre falha de fonte, contexto insuficiente, instrução ruim, conflito institucional, uso fora de escopo ou limitação do sistema.',
-      'ciclo.fase5.label':'Continuidade','ciclo.fase5.title':'Corrigir e manter','ciclo.fase5.text':'Atualização da base, ajustes de critérios, novos testes, registro de incidentes e acompanhamento conforme a organização e a IA mudam.',
-      'lastro.label':'Por que eu','lastro.title':'Auditar IA em questões humanas exige entender também a instituição.','lastro.lead':'Eu não entro como engenheira de modelos nem como auditora técnica de infraestrutura. Entro na camada em que a IA encontra pessoas, documentos, decisões, linguagem, poder, risco e responsabilidade — e onde uma resposta errada pode parecer correta por tempo demais.',
-      'lastro.card1.title':'Psicologia Hospitalar','lastro.card1.text':'Experiência em sistemas complexos, informação sensível, decisões sob pressão, comunicação de risco e consequências humanas reais.',
-      'lastro.card2.title':'Psicologia Organizacional','lastro.card2.text':'Leitura de papéis, autoridade, cultura, conflitos, fluxos, responsabilidades, confiança e adoção dentro de organizações.',
-      'lastro.card3.title':'Psicopedagogia Institucional','lastro.card3.text':'Compreensão de como pessoas e instituições aprendem, incorporam ferramentas, reproduzem erros e transformam informação em prática.',
-      'lastro.card4.title':'Investigação contextual','lastro.card4.text':'Apuração de fontes, versões, contradições, conhecimento tácito, regras implícitas e diferenças entre processo formal e trabalho vivido.',
-      'lastro.card5.title':'Governança de conhecimento','lastro.card5.text':'Autoridade, proveniência, atualização, privacidade, autoria e memória operacional para impedir que contexto velho ou frágil governe o presente.',
-      'lastro.card6.title':'Auditoria aplicada de IA','lastro.card6.text':'Testes e revisão contextual de entradas, respostas, desvios, riscos, critérios de validação e adequação do uso da IA ao problema real.',
-      'lastro.boundary.big':'Não desenvolvo o modelo. Estruturo o que ele deve considerar, testo como ele responde e investigo onde ele pode falhar.','lastro.boundary.text':'Meu trabalho complementa equipes técnicas, produtos, Gestão de Pessoas, Qualidade, Saúde, Educação, setor público e organizações que precisam usar IA sem transformar plausibilidade em verdade institucional.',
-      'lastro.tag1':'apuração contextual','lastro.tag2':'auditoria de IA','lastro.tag3':'fontes confiáveis','lastro.tag4':'documentação viva','lastro.tag5':'revisão humana','lastro.tag6':'governança de conhecimento','lastro.tag7':'tradução institucional',
-      'contact.quote':'IA confiável não nasce só de um bom modelo. Nasce de contexto verificável, limites claros e revisão contínua.','contact.title':'Vamos conversar sobre onde esse trabalho pode fazer diferença na sua realidade?','contact.sub':'Se sua organização usa ou pretende usar IA em questões humanas, institucionais ou decisórias, posso ajudar a apurar o contexto, estruturar a base e auditar o uso.',
-      'foot.rights':'Arquitetura Contextual e Auditoria de IA · Limeira/SP · 100% remota'
-    },
-    en: {
-      'nav.entrada':'The problem','nav.mapa':'Investigation','nav.entregas':'Architecture','nav.ciclo':'Auditing','nav.lastro':'Foundation',
-      'hero.eyebrow':'Context Architecture and AI Auditing',
-      'hero.title':'<span class="hero-line">I build the <span class="context-word">context</span></span><span class="hero-line">AI needs to work</span><span class="hero-line">from <span class="tone-gold">reality</span> —</span><span class="hero-line hero-resolution">not guesswork.</span>',
-      'hero.cta1':'Download AI packet','hero.cta2':'Talk to me',
-      'entrada.label':'The problem','entrada.title':'A plausible answer can still be wrong.','entrada.lead':'AI can produce a clear, confident, convincing answer even when it received incomplete, outdated, or unauthorized context. In human and institutional matters, that gap can distort decisions, guidance, and accountability.',
-      'entrada.card1.title':'Missing context','entrada.card1.text':'When facts, rules, exceptions, or history are missing, AI may fill the gap with a plausible continuation — not necessarily the truth.',
-      'entrada.card2.title':'Sources without authority','entrada.card2.text':'Having documents is not enough. You need to know which version governs, who owns it, what changed, and when a source must not be treated as truth.',
-      'entrada.card3.title':'Convincing answer, fragile decision','entrada.card3.text':'Fluent wording can conceal error, extrapolation, source conflict, or misuse of sensitive information.',
-      'entrada.quote.big':'When AI does not know what is true, it does not necessarily stay silent. It may complete the gap.','entrada.quote.text':'My work begins before the tool: determining what it may know, from where, under which limits, in which situations, and who validates it.',
-      'mapa.label':'Before AI','mapa.title':'First, I investigate the reality AI will be expected to respect.','mapa.lead':'I study the organization from within to separate what exists from what is assumed, what is current from what has expired, and the official workflow from the work that actually happens.',
-      'mapa.card1.title':'Sources and evidence','mapa.card1.text':'Which documents, systems, records, and people support each piece of information — and the authority, freshness, and reliability of each source.',
-      'mapa.card2.title':'Workflows and exceptions','mapa.card2.text':'How work moves in practice, where information gets lost, which shortcuts exist, and which exceptions reveal the real process.',
-      'mapa.card3.title':'Roles and authority','mapa.card3.text':'Who knows, executes, decides, validates, and answers — and where accountability is missing or overlapping.',
-      'mapa.card4.title':'Language and criteria','mapa.card4.text':'Institutional vocabulary, decision criteria, classifications, response patterns, and meaning differences AI must respect.',
-      'mapa.card5.title':'Contradictions, gaps, and risks','mapa.card5.text':'Conflicting sources, implicit rules, missing data, sensitive content, and situations where AI must acknowledge uncertainty or not answer.',
-      'mapa.card6.title':'Real use cases','mapa.card6.text':'Where AI can help, which problems it actually solves, what harm it may cause, and which uses still lack enough context.',
-      'entregas.label':'Context architecture','entregas.title':'Then I turn the investigation into a foundation that guides AI use.','entregas.lead':'The deliverable organizes institutional reality, sources, criteria, boundaries, and accountability into a reviewable layer. AI stops operating on loose material and begins working with governed context.',
-      'entregas.card1.title':'Organizational context map','entregas.card1.text':'A structured view of goals, sources, workflows, people, decisions, risks, language, roles, and priorities.',
-      'entregas.card2.title':'Source of truth and precedence','entregas.card2.text':'What must be consulted, which source prevails in a conflict, who may update it, and how current rules differ from historical records.',
-      'entregas.card3.title':'AI orientation packet','entregas.card3.text':'Vocabulary, scope, criteria, sources, limits, examples, non-answers, and expected ways to express certainty, doubt, and inference.',
-      'entregas.card4.title':'Living documentation and memory','entregas.card4.text':'Updatable records showing what is current, what changed, why it changed, and when review became necessary.',
-      'entregas.card5.title':'Assistant and workflow specifications','entregas.card5.text':'Users, tasks, inputs, outputs, permissions, risks, validations, and handoffs between people, processes, and AI.',
-      'entregas.card6.title':'Human review and accountability','entregas.card6.text':'Clear owners, validation rights, and cases where no AI output should proceed without review.',
-      'ciclo.label':'AI auditing','ciclo.title':'The work does not end when AI starts answering.','ciclo.lead':'I conduct contextual audits before and after use: testing inputs, observing outputs, identifying errors and drift, and investigating whether the cause lies in the source, instruction, workflow, or the suitability of the use case itself.',
-      'ciclo.fase1.label':'Before use','ciclo.fase1.title':'Audit inputs','ciclo.fase1.text':'Review sources, freshness, authority, gaps, conflicts, sensitive data, and the instructions that will guide AI.',
-      'ciclo.fase2.label':'Before use','ciclo.fase2.title':'Test scenarios','ciclo.fase2.text':'Use real cases, exceptions, ambiguous questions, risk situations, and conditions in which AI must request validation or decline to conclude.',
-      'ciclo.fase3.label':'After use','ciclo.fase3.title':'Audit outputs','ciclo.fase3.text':'Analyze fabricated answers, extrapolation, omissions, misleading language, lost nuance, and inappropriate use of context.',
-      'ciclo.fase4.label':'Diagnosis','ciclo.fase4.title':'Trace the cause','ciclo.fase4.text':'Separate source failure, insufficient context, poor instructions, institutional conflict, out-of-scope use, and system limitations.',
-      'ciclo.fase5.label':'Continuity','ciclo.fase5.title':'Correct and maintain','ciclo.fase5.text':'Update the foundation, refine criteria, add tests, record incidents, and monitor changes in both the organization and the AI system.',
-      'lastro.label':'Why me','lastro.title':'Auditing AI in human matters also requires understanding the institution.','lastro.lead':'I do not enter as a model engineer or technical infrastructure auditor. I work where AI meets people, documents, decisions, language, power, risk, and accountability — where a wrong answer can look right for far too long.',
-      'lastro.card1.title':'Hospital Psychology','lastro.card1.text':'Experience in complex systems, sensitive information, high-pressure decisions, risk communication, and real human consequences.',
-      'lastro.card2.title':'Organizational Psychology','lastro.card2.text':'Understanding roles, authority, culture, conflict, workflows, accountability, trust, and adoption inside organizations.',
-      'lastro.card3.title':'Institutional Psychopedagogy','lastro.card3.text':'Understanding how people and institutions learn, adopt tools, reproduce errors, and turn information into practice.',
-      'lastro.card4.title':'Contextual investigation','lastro.card4.text':'Investigation of sources, versions, contradictions, tacit knowledge, implicit rules, and gaps between formal processes and lived work.',
-      'lastro.card5.title':'Knowledge governance','lastro.card5.text':'Authority, provenance, updates, privacy, authorship, and operational memory so weak or stale context does not govern the present.',
-      'lastro.card6.title':'Applied AI auditing','lastro.card6.text':'Contextual testing and review of inputs, outputs, drift, risks, validation criteria, and whether AI use fits the real problem.',
-      'lastro.boundary.big':'I do not build the model. I structure what it should consider, test how it responds, and investigate where it may fail.','lastro.boundary.text':'My work complements technical teams, product, People, Quality, Healthcare, Education, public-sector organizations, and any institution that must use AI without mistaking plausibility for institutional truth.',
-      'lastro.tag1':'context investigation','lastro.tag2':'AI auditing','lastro.tag3':'trusted sources','lastro.tag4':'living documentation','lastro.tag5':'human review','lastro.tag6':'knowledge governance','lastro.tag7':'institutional translation',
-      'contact.quote':'Trustworthy AI does not come from a good model alone. It comes from verifiable context, clear boundaries, and continuous review.','contact.title':'Let’s talk about where this work could make a difference in your reality.','contact.sub':'If your organization uses or plans to use AI in human, institutional, or decision-making contexts, I can help investigate the context, structure the foundation, and audit the use.',
-      'foot.rights':'Context Architecture and AI Auditing · Limeira/SP · 100% remote'
-    }
-  };
-
-  if (typeof T === 'object' && T.pt && T.en) {
-    Object.assign(T.pt, copy.pt);
-    Object.assign(T.en, copy.en);
-  }
-
-  const syncExtras = () => {
-    const english = document.documentElement.lang === 'en';
-    document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
-      element.textContent = english ? element.dataset.betaEn : element.dataset.betaPt;
-    });
-    document.title = english
-      ? 'Lua Helena Moon — Context Architecture and AI Auditing · Beta V8'
-      : 'Lua Helena Moon — Contexto e Auditoria de IA · Beta V8';
-  };
-
-  const current = document.documentElement.lang === 'en' ? 'en' : 'pt';
-  applyLang(current);
-  syncExtras();
-  new MutationObserver(syncExtras).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-
-  const BETA_PACKET = `# LUA HELENA MOON — CONTEXT ARCHITECTURE & AI AUDITING PACKET — BETA V8
-
-## Positioning
-Lua Helena Moon is a hospital psychologist and Human–AI Context Architect working across contextual investigation, knowledge governance, institutional translation, and applied AI auditing.
-
-She helps organizations reduce fabricated, misleading, or weakly grounded AI outputs by working across three connected layers:
-
-1. Investigate institutional reality before AI use.
-2. Structure sources, criteria, boundaries, roles, and validation rights into governed context.
-3. Audit AI inputs and outputs before and after deployment, trace failure causes, and maintain the context over time.
-
-## What she investigates
-- sources, versions, provenance, freshness, and authority
-- real workflows, exceptions, friction, and tacit knowledge
-- roles, decision rights, owners, and human validators
-- institutional vocabulary, rules, and recurring criteria
-- contradictions, gaps, sensitive information, and uncertainty boundaries
-- realistic use cases and cases that should not be automated
-
-## Possible outputs
-- organizational context and source map
-- source-of-truth and precedence model
-- AI orientation packet
-- living documentation and operational memory
-- assistant and workflow specification
-- pre-use contextual audit and scenario tests
-- post-use output audit and failure diagnosis
-- human-review and accountability model
-- context maintenance and incident-learning process
-
-## Scope boundary
-Lua does not develop foundation models, perform cybersecurity audits, certify legal compliance, or present herself as an ML engineer. Her audit scope is contextual, institutional, linguistic, operational, and human-centered. She works alongside technical, legal, data, security, product, quality, and domain teams when those layers are required.
-
-## Contact
-Email: luahelenammc@gmail.com
-WhatsApp: +55 41 99222-8411
-Discord: moon_aurea
-LinkedIn: https://www.linkedin.com/in/luahelena/
-`;
-
-  const downloadBetaPacket = () => {
-    const blob = new Blob([BETA_PACKET],{type:'text/markdown;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'LUA_HELENA_MOON_CONTEXT_ARCHITECTURE_AI_AUDITING_BETA_V8.md';
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-    URL.revokeObjectURL(url);
-  };
-  document.querySelectorAll('[data-packet]').forEach((button)=>button.onclick=downloadBetaPacket);
-})();
-</script>
+{%- capture body_assets -%}
+<script src="/ia/semantic-delta.js?v=7.0"></script>
+<script src="/ia/semantic-polish.js?v=1"></script>
+<script src="/ia/cycle-circuit.js?v=1"></script>
+<script src="/ia/beta-integrated-sections.js?v=1"></script>
+<script src="/ia/beta-cycle-heading.js?v=1"></script>
+<script src="/ia/beta-touch-reflection.js?v=2"></script>
+<script src="/ia/email-copy.js?v=1"></script>
+<script src="/ia/beta-v8-golds.js?v=1"></script>
 {%- endcapture -%}
 
-{%- assign head_injection = language_bootstrap | append: '<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />' | append: '<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />' | append: '<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />' | append: '<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />' | append: '<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />' | append: beta_styles | append: '</head>' -%}
-{%- assign body_injection = '<script src="/ia/semantic-delta.js?v=7.0"></script><script src="/ia/semantic-polish.js?v=1"></script><script src="/ia/cycle-circuit.js?v=1"></script><script src="/ia/beta-integrated-sections.js?v=1"></script><script src="/ia/beta-cycle-heading.js?v=1"></script><script src="/ia/beta-touch-reflection.js?v=2"></script><script src="/ia/email-copy.js?v=1"></script>' | append: beta_script | append: '</body>' -%}
+{%- assign head_injection = language_bootstrap | append: head_assets | append: '</head>' -%}
+{%- assign body_injection = body_assets | append: '</body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {{- page_html -}}
