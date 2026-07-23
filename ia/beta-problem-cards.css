@@ -1,4 +1,4 @@
-/* Beta-only signal for the three problem cards in section 00. */
+/* Beta-only visual signals: red for problems, lime checks for solution cards. */
 #entrada .entry-node.problem-node{
   border-color:rgba(255,108,124,.18)!important;
   background:
@@ -14,21 +14,26 @@
   box-shadow:0 12px 30px rgba(0,0,0,.24),0 0 20px rgba(255,86,108,.08);
 }
 
-#entrada .problem-badge{
+#entrada .problem-badge,
+.solution-badge{
   position:absolute!important;
   top:14px;
   right:16px;
   z-index:3!important;
-  width:29px;
-  height:29px;
   display:grid;
   place-items:center;
+  pointer-events:none;
+}
+
+#entrada .problem-badge{
+  width:29px;
+  height:29px;
   border:1px solid rgba(255,108,124,.27);
   border-radius:10px;
   color:#ff7f90;
   background:rgba(73,26,39,.42);
   box-shadow:0 8px 22px rgba(0,0,0,.18),0 0 16px rgba(255,86,108,.08);
-  pointer-events:none;
+  transition:transform .3s ease,border-color .3s ease,color .3s ease,box-shadow .3s ease,background .3s ease;
 }
 
 #entrada .problem-badge svg{
@@ -37,20 +42,82 @@
   stroke-width:1.9;
 }
 
+.solution-badge{
+  width:25px;
+  height:25px;
+  border:1px solid rgba(183,255,72,.28);
+  border-radius:9px;
+  color:#b8ff52;
+  background:rgba(21,38,24,.52);
+  box-shadow:0 7px 18px rgba(0,0,0,.16),0 0 11px rgba(174,255,62,.07);
+  transition:transform .34s cubic-bezier(.19,1,.22,1),border-color .28s ease,color .28s ease,box-shadow .34s ease,background .28s ease;
+}
+
+.solution-badge::after{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  z-index:-1;
+  border-radius:50%;
+  opacity:0;
+  transform:scale(.55);
+  background:radial-gradient(circle,rgba(187,255,76,.28) 0%,rgba(174,255,62,.09) 42%,transparent 72%);
+  filter:blur(2px);
+  pointer-events:none;
+}
+
+.solution-badge svg{
+  width:14px;
+  height:14px;
+  stroke-width:2.35;
+  filter:drop-shadow(0 0 4px rgba(183,255,72,.18));
+}
+
+.output-node[data-side="left"]>.solution-badge{
+  left:16px;
+  right:auto;
+}
+
+@keyframes solutionLimeRadiance{
+  0%{opacity:.12;transform:scale(.58)}
+  48%{opacity:.56}
+  100%{opacity:0;transform:scale(1.75)}
+}
+
 @media (hover:hover) and (pointer:fine){
   #entrada .entry-node.problem-node:hover{
-    border-color:rgba(255,118,132,.38)!important;
+    border-color:rgba(255,104,122,.56)!important;
     background:
-      radial-gradient(circle at 88% 12%,rgba(255,86,108,.16),transparent 43%),
-      linear-gradient(145deg,rgba(255,112,128,.075),rgba(255,255,255,.026))!important;
-    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 30px rgba(255,86,108,.07),0 0 18px rgba(232,201,122,.045);
+      radial-gradient(circle at 88% 12%,rgba(255,72,98,.24),transparent 46%),
+      linear-gradient(145deg,rgba(255,98,120,.115),rgba(255,255,255,.028))!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 38px rgba(255,74,99,.15),0 0 20px rgba(255,103,122,.08);
   }
 
   #entrada .entry-node.problem-node:hover .ic{
-    color:#ffb0b9;
-    border-color:rgba(255,118,132,.52);
-    background:linear-gradient(145deg,rgba(76,34,48,.98),rgba(28,22,37,.98));
-    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 24px rgba(255,86,108,.12);
+    color:#ffc0c8;
+    border-color:rgba(255,104,122,.68);
+    background:linear-gradient(145deg,rgba(88,34,51,.98),rgba(31,22,39,.98));
+    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 28px rgba(255,78,102,.20);
+  }
+
+  #entrada .entry-node.problem-node:hover .problem-badge{
+    color:#ffc2ca;
+    border-color:rgba(255,104,122,.70);
+    background:rgba(98,31,47,.58);
+    box-shadow:0 10px 28px rgba(0,0,0,.22),0 0 25px rgba(255,76,101,.24);
+    transform:translateY(-1px) scale(1.05);
+  }
+
+  .solution-node:hover>.solution-badge{
+    color:#d5ff7a;
+    border-color:rgba(193,255,86,.68);
+    background:rgba(31,55,26,.66);
+    box-shadow:0 9px 24px rgba(0,0,0,.2),0 0 18px rgba(183,255,72,.22),0 0 30px rgba(156,255,47,.10);
+    transform:translateY(-2px) scale(1.07);
+  }
+
+  .solution-node:hover>.solution-badge::after{
+    animation:solutionLimeRadiance 1.35s ease-out infinite;
   }
 }
 
@@ -62,15 +129,38 @@
   }
 
   #entrada .entry-node.problem-node.is-gold-reflecting{
-    border-color:rgba(255,118,132,.30)!important;
+    border-color:rgba(255,104,122,.48)!important;
     background:
-      radial-gradient(circle at 88% 12%,rgba(255,86,108,.14),transparent 43%),
-      linear-gradient(145deg,rgba(255,112,128,.065),rgba(255,255,255,.022))!important;
-    box-shadow:0 16px 42px rgba(0,0,0,.21),0 0 22px rgba(255,86,108,.06);
+      radial-gradient(circle at 88% 12%,rgba(255,72,98,.21),transparent 45%),
+      linear-gradient(145deg,rgba(255,98,120,.095),rgba(255,255,255,.026))!important;
+    box-shadow:0 16px 42px rgba(0,0,0,.21),0 0 28px rgba(255,76,101,.12);
   }
 
-  #entrada .problem-badge{
+  #entrada .entry-node.problem-node.is-gold-reflecting .problem-badge{
+    color:#ffc0c8;
+    border-color:rgba(255,104,122,.60);
+    box-shadow:0 8px 22px rgba(0,0,0,.18),0 0 22px rgba(255,76,101,.20);
+  }
+
+  .solution-node.is-gold-reflecting>.solution-badge{
+    color:#d5ff7a;
+    border-color:rgba(193,255,86,.62);
+    box-shadow:0 8px 22px rgba(0,0,0,.18),0 0 17px rgba(183,255,72,.20);
+    transform:scale(1.05);
+  }
+
+  .solution-node.is-gold-reflecting>.solution-badge::after{
+    animation:solutionLimeRadiance 1.35s ease-out infinite;
+  }
+
+  #entrada .problem-badge,
+  .solution-badge{
     top:13px;
     right:14px;
+  }
+
+  .output-node[data-side="left"]>.solution-badge{
+    left:14px;
+    right:auto;
   }
 }
