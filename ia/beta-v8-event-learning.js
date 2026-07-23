@@ -53,8 +53,8 @@
     const english = currentLang() === 'en';
     const isBeta = /\/ia\/beta(?:\.html)?\/?$/.test(window.location.pathname);
     document.title = english
-      ? `Lua Helena Moon — Context Architecture, Adoption and AI Auditing · ${isBeta ? 'Beta V8.1' : 'V8.1'}`
-      : `Lua Helena Moon — Contexto, Adoção e Auditoria de IA · ${isBeta ? 'Beta V8.1' : 'V8.1'}`;
+      ? `Lua Helena Moon · Context Architecture, Adoption and AI Auditing · ${isBeta ? 'Beta V8.1' : 'V8.1'}`
+      : `Lua Helena Moon · Contexto, Adoção e Auditoria de IA · ${isBeta ? 'Beta V8.1' : 'V8.1'}`;
   };
 
   const lang = currentLang();
@@ -69,7 +69,7 @@
     attributeFilter: ['lang']
   });
 
-  const packet = `# LUA HELENA MOON — CONTEXT ARCHITECTURE & AI AUDITING — V8.1
+  const packet = `# LUA HELENA MOON · CONTEXT ARCHITECTURE & AI AUDITING · V8.1
 
 ## Core principles
 AI does not guarantee truth. It calculates the most likely response from the patterns and context it receives.
