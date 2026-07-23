@@ -1,38 +1,38 @@
 (() => {
   const delta = {
     pt: {
-      'entrada.title':'Uma solução pode estar tecnicamente certa e ainda falhar na realidade.',
-      'entrada.lead':'A IA pode inventar quando recebe contexto frágil. E pode ser rejeitada, mal utilizada ou contornada quando ignora o trabalho real, a linguagem e a experiência das pessoas.',
+      'entrada.title':'Uma resposta pode parecer certa sem estar certa. E uma solução pode responder certo sem funcionar para as pessoas.',
+      'entrada.lead':'A IA não responde automaticamente com o que é verdadeiro. Ela calcula o que é mais provável a partir dos padrões e do contexto que recebe. Fontes sólidas, bases de conhecimento atualizadas, critérios claros e responsabilidade dão chão para respostas melhores. Depois, ainda é preciso verificar se a solução cabe no trabalho real e faz sentido para as pessoas.',
       'entrada.card2.title':'Solução fora da realidade',
       'entrada.card2.text':'A ferramenta não acompanha o fluxo, as exceções, a linguagem ou as necessidades de quem vai usá-la.',
-      'entrada.quote.big':'Eficiência técnica, experiência humana e realidade institucional precisam ser desenhadas juntas.',
-      'entrada.quote.text':'É nessa camada que eu trabalho.',
+      'entrada.quote.big':'Uma resposta confiável e uma solução que funciona são dois resultados diferentes.',
+      'entrada.quote.text':'Meu trabalho conecta os dois.',
       'mapa.title':'Primeiro, eu apuro a realidade que a solução de IA precisa respeitar.',
-      'entregas.lead':'A forma muda conforme o problema. O núcleo é simples: a IA precisa de informação confiável e a solução precisa caber no trabalho real.',
+      'entregas.lead':'A forma muda conforme o problema. O núcleo é simples: fontes confiáveis e critérios responsáveis para orientar a resposta, além de fluxos e validação humana para a solução funcionar na realidade.',
       'entregas.card6.text':'Revisão humana, responsabilidades, comunicação e aprendizagem ligadas à rotina.',
-      'ciclo.lead':'Eu testo antes, observo durante e reviso depois para saber se a IA responde bem e se a solução realmente funciona para as pessoas.',
+      'ciclo.lead':'Eu testo antes, observo durante e reviso depois para saber se a IA responde com base sólida e se a solução realmente funciona para as pessoas.',
       'ciclo.fase3.text':'Confirmar com quem trabalha se a solução é clara, útil, compreensível e aplicável.',
       'lastro.card5.title':'Mediação, linguagem e adoção',
       'lastro.card5.text':'Tradução de complexidade em critérios, comunicação e formas de uso que façam sentido para as pessoas.',
-      'contact.quote':'Tecnologia útil precisa funcionar na instituição e para as pessoas.',
-      'contact.sub':'Posso ajudar a apurar o cenário, estruturar a base e auditar se a IA responde bem e se encaixa no trabalho real.'
+      'contact.quote':'IA confiável precisa de base sólida. Tecnologia útil precisa funcionar para as pessoas.',
+      'contact.sub':'Posso ajudar a apurar o cenário, estruturar fontes, bases de conhecimento e critérios, e auditar tanto as respostas da IA quanto seu encaixe no trabalho real.'
     },
     en: {
-      'entrada.title':'A solution can be technically sound and still fail in reality.',
-      'entrada.lead':'AI may fabricate when it receives fragile context. And it may be rejected, misused, or bypassed when it ignores real work, language, and people’s experience.',
+      'entrada.title':'An answer can look right without being right. And a solution can answer correctly without working for people.',
+      'entrada.lead':'AI does not automatically respond with what is true. It calculates what is most likely from the patterns and context it receives. Solid sources, up-to-date knowledge bases, clear criteria, and accountability provide a stronger foundation for better answers. The solution still needs to fit real work and make sense to people.',
       'entrada.card2.title':'A solution disconnected from reality',
       'entrada.card2.text':'The tool does not fit the workflow, exceptions, language, or needs of the people expected to use it.',
-      'entrada.quote.big':'Technical efficiency, human experience, and institutional reality need to be designed together.',
-      'entrada.quote.text':'That is the layer where I work.',
+      'entrada.quote.big':'A trustworthy answer and a solution that works are two different outcomes.',
+      'entrada.quote.text':'My work connects both.',
       'mapa.title':'First, I investigate the reality the AI solution must respect.',
-      'entregas.lead':'The format changes with the problem. The core is simple: AI needs reliable information, and the solution needs to fit real work.',
+      'entregas.lead':'The format changes with the problem. The core is simple: reliable sources and responsible criteria to guide the answer, plus workflows and human validation so the solution works in reality.',
       'entregas.card6.text':'Human review, accountability, communication, and learning tied to daily work.',
-      'ciclo.lead':'I test before, observe during, and review after use to see whether AI answers well and whether the solution truly works for people.',
+      'ciclo.lead':'I test before, observe during, and review after use to see whether AI answers from solid ground and whether the solution truly works for people.',
       'ciclo.fase3.text':'Confirm with the people doing the work that the solution is clear, useful, understandable, and applicable.',
       'lastro.card5.title':'Mediation, language, and adoption',
       'lastro.card5.text':'Translating complexity into criteria, communication, and ways of working that make sense to people.',
-      'contact.quote':'Useful technology needs to work within the institution and for the people.',
-      'contact.sub':'I can help investigate the landscape, structure the foundation, and audit whether AI answers well and fits real work.'
+      'contact.quote':'Trustworthy AI needs solid ground. Useful technology needs to work for people.',
+      'contact.sub':'I can help investigate the landscape, structure sources, knowledge bases, and criteria, and audit both AI outputs and their fit with real work.'
     }
   };
 
@@ -43,8 +43,8 @@
 
   document.querySelectorAll('[data-beta-pt][data-beta-en]').forEach((element) => {
     if (element.classList.contains('market-position-detail')) {
-      element.dataset.betaPt = 'Uma solução de IA pode estar tecnicamente pronta e ainda falhar na prática. Eu apuro a realidade institucional, organizo fontes, fluxos, responsabilidades e critérios, e audito se a IA responde bem e funciona para as pessoas.';
-      element.dataset.betaEn = 'An AI solution can be technically ready and still fail in practice. I investigate institutional reality, organize sources, workflows, responsibilities, and criteria, and audit whether AI answers well and works for people.';
+      element.dataset.betaPt = 'A IA pode produzir uma resposta convincente sem que ela seja verdadeira. Eu estruturo fontes, bases de conhecimento e critérios responsáveis para que responda com base sólida, e audito também se a solução funciona no trabalho real e para as pessoas.';
+      element.dataset.betaEn = 'AI can produce a convincing answer without it being true. I structure reliable sources, knowledge bases, and responsible criteria so it can answer from solid ground, and I also audit whether the solution works in real operations and for people.';
     }
   });
 
@@ -55,18 +55,21 @@
     element.textContent = lang === 'en' ? element.dataset.betaEn : element.dataset.betaPt;
   });
 
-  const packet = `# LUA HELENA MOON — CONTEXT ARCHITECTURE & AI AUDITING — BETA V8.1
+  const packet = `# LUA HELENA MOON — CONTEXT ARCHITECTURE & AI AUDITING — V8.1
 
-## Core principle
-An AI solution can be technically sound and still fail in reality.
+## Core principles
+AI does not guarantee truth. It calculates the most likely response from the patterns and context it receives.
 
-Technical efficiency, human experience, and institutional reality need to be designed together.
+Reliable answers require solid sources, up-to-date knowledge bases, clear criteria, and accountability.
+
+A solution can answer correctly and still fail if it does not fit real work, institutional reality, or people’s experience.
 
 ## What I do
-I investigate institutional reality, structure the context AI needs, and audit both its outputs and its fit with real work.
+I investigate institutional reality, structure the context AI needs, and audit both the reliability of its outputs and its fit with real work.
 
 ## What I examine
 - sources and what is currently valid
+- knowledge bases, authority, and update responsibility
 - real workflows, exceptions, and friction
 - people, roles, decisions, and accountability
 - language, criteria, risks, and boundaries
@@ -101,7 +104,7 @@ LinkedIn: https://www.linkedin.com/in/luahelena/
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = 'LUA_HELENA_MOON_CONTEXT_ARCHITECTURE_AI_AUDITING_BETA_V8_1.md';
+    anchor.download = 'LUA_HELENA_MOON_CONTEXT_ARCHITECTURE_AI_AUDITING_V8_1.md';
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();
