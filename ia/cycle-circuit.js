@@ -8,6 +8,7 @@
   [...grid.children].forEach((node, index) => {
     node.classList.remove('phase-card');
     node.classList.add('cycle-node');
+    node.dataset.cycleOrder = String(index + 1);
 
     const marker = document.createElement('div');
     marker.className = 'cycle-node-marker';
