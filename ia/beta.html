@@ -7,7 +7,7 @@ layout: null
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · Beta V8.1' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · Beta V9' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Arquitetura contextual para que a IA responda com base sólida e a solução funcione na realidade institucional e para as pessoas.' -%}
 {%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Fontes confiáveis, critérios responsáveis e adoção humana para soluções de IA mais úteis.' -%}
 
@@ -35,6 +35,7 @@ layout: null
 <link rel="stylesheet" href="/ia/beta-v8-golds.css?v=1" />
 <link rel="stylesheet" href="/ia/beta-problem-cards.css?v=3" />
 <link rel="stylesheet" href="/ia/beta-solution-badge-alignment.css?v=2" />
+<link rel="stylesheet" href="/ia/beta-sector-fields.css?v=1" />
 {%- endcapture -%}
 
 {%- capture body_assets -%}
@@ -49,6 +50,7 @@ layout: null
 <script src="/ia/beta-v8-clean-text.js?v=2"></script>
 <script src="/ia/beta-v8-event-learning.js?v=3"></script>
 <script src="/ia/beta-problem-cards.js?v=3"></script>
+<script src="/ia/beta-sector-fields.js?v=1"></script>
 {%- endcapture -%}
 
 {%- assign head_injection = language_bootstrap | append: head_assets | append: '</head>' -%}
