@@ -15,10 +15,10 @@
     svg.setAttribute('aria-hidden', 'true');
     svg.innerHTML = `
       <defs>
-        <linearGradient id="cycle-branch-gradient" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="rgba(232,201,122,.72)" />
-          <stop offset="48%" stop-color="rgba(159,135,255,.68)" />
-          <stop offset="100%" stop-color="rgba(139,220,255,.58)" />
+        <linearGradient id="cycle-branch-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#e8c97a" stop-opacity=".72" />
+          <stop offset="48%" stop-color="#9f87ff" stop-opacity=".68" />
+          <stop offset="100%" stop-color="#8bdcff" stop-opacity=".58" />
         </linearGradient>
       </defs>
       <path />
