@@ -1,4 +1,12 @@
 (() => {
+  const isAuditBeta = /\/ia\/beta(?:\.html)?\/?$/.test(window.location.pathname);
+
+  if (isAuditBeta) {
+    document
+      .querySelectorAll('.market-position-title,.trust-triad,.hero-meta')
+      .forEach((element) => element.remove());
+  }
+
   const selector = '.entry-node,.context-node,.output-node,.foundation-node,.cycle-node';
   const nodes = [...document.querySelectorAll(selector)];
 
