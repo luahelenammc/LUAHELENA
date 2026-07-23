@@ -1,0 +1,76 @@
+/* Beta-only signal for the three problem cards in section 00. */
+#entrada .entry-node.problem-node{
+  border-color:rgba(255,108,124,.18)!important;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(255,86,108,.10),transparent 42%),
+    linear-gradient(145deg,rgba(255,100,118,.045),rgba(255,255,255,.014))!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.12),0 0 22px rgba(255,86,108,.025);
+}
+
+#entrada .entry-node.problem-node .ic{
+  color:#ff9aa7;
+  border-color:rgba(255,108,124,.24);
+  background:linear-gradient(145deg,rgba(63,30,43,.96),rgba(24,20,34,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.24),0 0 20px rgba(255,86,108,.08);
+}
+
+#entrada .problem-badge{
+  position:absolute!important;
+  top:14px;
+  right:16px;
+  z-index:3!important;
+  width:29px;
+  height:29px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,108,124,.27);
+  border-radius:10px;
+  color:#ff7f90;
+  background:rgba(73,26,39,.42);
+  box-shadow:0 8px 22px rgba(0,0,0,.18),0 0 16px rgba(255,86,108,.08);
+  pointer-events:none;
+}
+
+#entrada .problem-badge svg{
+  width:15px;
+  height:15px;
+  stroke-width:1.9;
+}
+
+@media (hover:hover) and (pointer:fine){
+  #entrada .entry-node.problem-node:hover{
+    border-color:rgba(255,118,132,.38)!important;
+    background:
+      radial-gradient(circle at 88% 12%,rgba(255,86,108,.16),transparent 43%),
+      linear-gradient(145deg,rgba(255,112,128,.075),rgba(255,255,255,.026))!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 30px rgba(255,86,108,.07),0 0 18px rgba(232,201,122,.045);
+  }
+
+  #entrada .entry-node.problem-node:hover .ic{
+    color:#ffb0b9;
+    border-color:rgba(255,118,132,.52);
+    background:linear-gradient(145deg,rgba(76,34,48,.98),rgba(28,22,37,.98));
+    box-shadow:0 17px 38px rgba(0,0,0,.32),0 0 24px rgba(255,86,108,.12);
+  }
+}
+
+@media (max-width:1100px), (pointer:coarse), (hover:none){
+  #entrada .entry-node.problem-node{
+    background:
+      radial-gradient(circle at 88% 12%,rgba(255,86,108,.09),transparent 42%),
+      linear-gradient(145deg,rgba(255,100,118,.04),rgba(255,255,255,.014))!important;
+  }
+
+  #entrada .entry-node.problem-node.is-gold-reflecting{
+    border-color:rgba(255,118,132,.30)!important;
+    background:
+      radial-gradient(circle at 88% 12%,rgba(255,86,108,.14),transparent 43%),
+      linear-gradient(145deg,rgba(255,112,128,.065),rgba(255,255,255,.022))!important;
+    box-shadow:0 16px 42px rgba(0,0,0,.21),0 0 22px rgba(255,86,108,.06);
+  }
+
+  #entrada .problem-badge{
+    top:13px;
+    right:14px;
+  }
+}
