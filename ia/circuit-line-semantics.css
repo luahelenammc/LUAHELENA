@@ -1,0 +1,88 @@
+/* Semantic line system for the IA index.
+   Lines communicate relation, flow or branching; they are not generic decoration. */
+
+/* 00 · Problems: the shared line belongs to the red problem language. */
+#entrada .entry-circuit::before{
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,72,98,.10) 6%,
+    rgba(255,104,122,.72) 18%,
+    rgba(255,147,159,.78) 50%,
+    rgba(255,104,122,.72) 82%,
+    rgba(255,72,98,.10) 94%,
+    transparent
+  )!important;
+  box-shadow:0 0 18px rgba(255,76,101,.24)!important;
+}
+
+/* 01 · Context: the central card already embodies the integration point. */
+#mapa .context-network-lines circle{
+  display:none!important;
+}
+
+/* 03 · Audit cycle: lines are drawn dynamically from real card geometry. */
+#ciclo .cycle-circuit{
+  position:relative;
+  isolation:isolate;
+}
+
+#ciclo .cycle-branch-lines{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  pointer-events:none;
+}
+
+#ciclo .cycle-branch-lines path{
+  fill:none;
+  stroke:url(#cycle-branch-gradient);
+  stroke-width:1.35;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  filter:drop-shadow(0 0 7px rgba(159,135,255,.26));
+}
+
+#ciclo .cycle-node{
+  position:relative;
+  z-index:1;
+}
+
+/* 04 · Professional foundation: competence cards stand independently. */
+#lastro .foundation-circuit-lines,
+#lastro .foundation-port{
+  display:none!important;
+}
+
+#lastro .foundation-circuit::before{
+  display:none!important;
+  content:none!important;
+}
+
+@media (max-width:1100px), (pointer:coarse), (hover:none){
+  /* In one-column layouts, the red problem line becomes vertical. */
+  #entrada .entry-circuit::before{
+    background:linear-gradient(
+      180deg,
+      rgba(255,104,122,.78),
+      rgba(255,126,142,.64),
+      rgba(255,86,108,.34),
+      transparent
+    )!important;
+  }
+
+  /* Mobile already has its own vertical cycle line. */
+  #ciclo .cycle-branch-lines{
+    display:none!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  #ciclo .cycle-branch-lines path{
+    filter:none;
+  }
+}
