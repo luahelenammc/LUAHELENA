@@ -1,0 +1,100 @@
+/* Stable production layout for section 00. Keeps the problem language without crossing wires or floating badges. */
+#entrada .entry-circuit{
+  gap:14px!important;
+  padding-top:0!important;
+}
+#entrada .entry-circuit::before{
+  display:none!important;
+  content:none!important;
+}
+#entrada .entry-node.problem-node{
+  position:relative!important;
+  min-height:205px;
+  padding:22px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,108,124,.18)!important;
+  border-radius:24px!important;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(255,86,108,.105),transparent 39%),
+    linear-gradient(145deg,rgba(255,100,118,.052),rgba(255,255,255,.018))!important;
+  box-shadow:0 14px 36px rgba(0,0,0,.14),0 0 20px rgba(255,86,108,.025)!important;
+}
+#entrada .entry-node.problem-node .ic{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  z-index:2!important;
+  width:44px!important;
+  height:44px!important;
+  margin:0 0 17px!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#ff9aa7!important;
+  border:1px solid rgba(255,108,124,.27)!important;
+  border-radius:14px!important;
+  background:linear-gradient(145deg,rgba(63,30,43,.96),rgba(24,20,34,.98))!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.23),0 0 18px rgba(255,86,108,.075)!important;
+}
+#entrada .entry-node.problem-node .ic svg{
+  display:block!important;
+  width:21px!important;
+  height:21px!important;
+  color:#ff9aa7!important;
+  stroke:currentColor!important;
+  fill:none!important;
+  opacity:1!important;
+  filter:none!important;
+}
+#entrada .entry-node.problem-node h3{
+  position:relative;
+  z-index:2;
+  margin:0!important;
+  font-size:1.08rem;
+  line-height:1.28;
+}
+#entrada .entry-node.problem-node p{
+  position:relative;
+  z-index:2;
+  margin:9px 0 0!important;
+  color:var(--muted);
+  font-size:.95rem;
+  line-height:1.52;
+}
+#entrada .entry-step,
+#entrada .problem-badge{
+  display:none!important;
+}
+@media (hover:hover) and (pointer:fine){
+  #entrada .entry-node.problem-node:hover{
+    transform:translateY(-5px)!important;
+    border-color:rgba(255,104,122,.46)!important;
+    background:
+      radial-gradient(circle at 92% 8%,rgba(255,72,98,.18),transparent 42%),
+      linear-gradient(145deg,rgba(255,98,120,.09),rgba(255,255,255,.026))!important;
+    box-shadow:0 26px 66px rgba(0,0,0,.3),0 0 30px rgba(255,74,99,.11)!important;
+  }
+}
+@media (max-width:1100px), (pointer:coarse), (hover:none){
+  #entrada .entry-circuit{
+    gap:12px!important;
+  }
+  #entrada .entry-node.problem-node{
+    min-height:0;
+    padding:20px!important;
+  }
+  #entrada .entry-node.problem-node .ic{
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+  }
+}
+@media (max-width:700px){
+  #entrada .entry-node.problem-node{
+    padding:19px!important;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  #entrada .entry-node.problem-node{
+    transition:none!important;
+  }
+}
