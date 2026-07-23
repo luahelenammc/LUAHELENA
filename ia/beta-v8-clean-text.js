@@ -35,14 +35,16 @@
     nodes.forEach((node) => { node.nodeValue = clean(node.nodeValue); });
   };
 
-  const sync = () => {
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
-    if (typeof applyLang === 'function') applyLang(lang);
-    sanitizeDom();
-  };
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+  if (typeof applyLang === 'function') applyLang(lang);
+  sanitizeDom();
 
-  sync();
-  new MutationObserver(sync).observe(document.documentElement, {
+  // Language changes are already rendered by applyLang in index-core.html.
+  // Only sanitize the title afterward. Calling applyLang from this observer
+  // would mutate <html lang> again and could create a render loop on mobile.
+  new MutationObserver(() => {
+    document.title = clean(document.title);
+  }).observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['lang']
   });
