@@ -1,0 +1,89 @@
+.totem.portrait-host {
+  position: relative;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(229, 201, 139, .28);
+  background:
+    radial-gradient(circle at 50% 24%, rgba(229, 201, 139, .18), transparent 34%),
+    linear-gradient(145deg, #0f0c0b, #201713);
+}
+
+.totem.portrait-host::before {
+  content: "";
+  position: absolute;
+  inset: .8rem;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(229, 201, 139, .28);
+  box-shadow: inset 0 0 0 1px rgba(17, 12, 9, .35);
+}
+
+.portrait-figure {
+  position: relative;
+  margin: 0;
+  color: var(--paper);
+  background: #100d0c;
+}
+
+.portrait-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 38%;
+  background: #100d0c;
+  filter: saturate(.96) contrast(1.025);
+}
+
+.portrait-figure figcaption {
+  position: relative;
+  z-index: 3;
+  margin-top: -1px;
+  padding: 1rem 1.15rem 1.15rem;
+  border-top: 1px solid rgba(229, 201, 139, .2);
+  color: rgba(243, 234, 216, .7);
+  background: linear-gradient(180deg, rgba(19, 14, 12, .96), rgba(11, 8, 7, .99));
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.portrait-figure figcaption strong {
+  display: block;
+  margin-bottom: .25rem;
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.portrait-error {
+  min-height: 30rem;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: rgba(243, 234, 216, .66);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 920px) {
+  .totem.portrait-host {
+    width: min(100%, 36rem);
+    margin-inline: auto;
+  }
+}
+
+@media print {
+  .totem.portrait-host,
+  .portrait-figure {
+    background: white !important;
+    box-shadow: none !important;
+  }
+
+  .portrait-figure figcaption {
+    color: #333 !important;
+    background: white !important;
+  }
+}
