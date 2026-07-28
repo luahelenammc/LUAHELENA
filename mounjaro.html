@@ -61,7 +61,6 @@
     .btn.green{ background:radial-gradient(circle at 30% 30%, #fff, #28c840); }
     .title{ font-size:13px; color:#555b73; }
     .body{ padding:18px; background:linear-gradient(to bottom,#f7f8fd 0%,#f0f4fb 100%); }
-
     .hero{
       display:flex;
       justify-content:space-between;
@@ -92,14 +91,12 @@
     .dot.red{ background:radial-gradient(circle at 30% 30%, #fff, var(--red)); }
     .dot.orange{ background:radial-gradient(circle at 30% 30%, #fff, var(--orange)); }
     .dot.violet{ background:radial-gradient(circle at 30% 30%, #fff, var(--violet)); }
-
     .grid{
       display:grid;
       grid-template-columns: 360px minmax(0,1fr);
       gap:16px;
     }
     @media (max-width: 980px){ .grid{ grid-template-columns:1fr; } }
-
     .panel{
       border-radius:14px;
       padding:14px;
@@ -114,7 +111,6 @@
       color:#7a8099;
       margin-bottom:10px;
     }
-
     .stats{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
     .card{
       border-radius:12px;
@@ -127,7 +123,6 @@
     .label{ font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:#7a8099; margin-bottom:5px; }
     .value{ font-size:22px; font-weight:700; color:#252b3c; }
     .sub{ font-size:12px; color:#616985; margin-top:4px; line-height:1.35; }
-
     .nextbox{
       margin-top:12px;
       border-radius:12px;
@@ -137,7 +132,6 @@
     }
     .nextbox .big{ font-size:28px; font-weight:800; color:#21311c; }
     .nextbox .mid{ font-size:14px; color:#45593d; margin-top:3px; }
-
     .schedule-wrap{ display:flex; flex-direction:column; gap:12px; }
     .section{
       border-radius:14px;
@@ -156,7 +150,6 @@
     }
     .section-title{ font-size:14px; font-weight:700; color:#2a3042; display:flex; align-items:center; gap:9px; }
     .section-sub{ font-size:12px; color:#6a718d; }
-
     .rows{ display:flex; flex-direction:column; }
     .row{
       display:grid;
@@ -194,7 +187,6 @@
     .status.taken{ background:radial-gradient(circle at 30% 30%, #fff, var(--lime)); color:#21411b; }
     .status.planned{ background:radial-gradient(circle at 30% 30%, #fff, var(--cyan)); color:#123c4b; }
     .status.skipped{ background:radial-gradient(circle at 30% 30%, #fff, var(--orange)); color:#5d3814; }
-
     .date{ font-weight:700; color:#283044; }
     .weekday{ color:#5d657f; font-size:12px; }
     .dosepill{
@@ -208,7 +200,6 @@
     .auto{ font-size:12px; color:#7a8198; }
     .note{ color:#505872; line-height:1.35; }
     .key{ font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#6d7590; font-size:12px; }
-
     .footerbox{
       margin-top:14px;
       border-radius:14px;
@@ -237,7 +228,6 @@
       </div>
       <div class="title">Mounjaro · timeline editável com cálculo automático</div>
     </div>
-
     <div class="body">
       <section class="hero">
         <div class="hero-left">
@@ -252,59 +242,21 @@
           <span class="pill"><span class="dot orange"></span><span>17 UI = protocolo pleno</span></span>
         </div>
       </section>
-
       <div class="grid">
         <aside class="panel">
           <h2>Resumo</h2>
           <div class="stats">
-            <div class="card">
-              <div class="label">Doses tomadas</div>
-              <div class="value" id="stat-taken">–</div>
-              <div class="sub" id="stat-range">–</div>
-            </div>
-            <div class="card">
-              <div class="label">Total aplicado</div>
-              <div class="value" id="stat-total-mg">–</div>
-              <div class="sub">mg acumulados</div>
-            </div>
-            <div class="card">
-              <div class="label">Saldo frasco atual</div>
-              <div class="value" id="stat-stock-ui">–</div>
-              <div class="sub" id="stat-stock-detail">–</div>
-            </div>
-            <div class="card">
-              <div class="label">Plano futuro</div>
-              <div class="value" id="stat-planned-ui">–</div>
-              <div class="sub" id="stat-planned-detail">–</div>
-            </div>
-            <div class="card full">
-              <div class="label">Peso</div>
-              <div class="value" id="stat-current-weight">–</div>
-              <div class="sub" id="stat-weight-detail">–</div>
-            </div>
-            <div class="card full">
-              <div class="label">Motor do arquivo</div>
-              <div class="sub">
-                Você só mexe em três coisas: <code>status</code>, <code>date</code> e <code>ui</code>/<code>mg</code>.<br>
-                Se uma linha abaixo estiver com <code>date: "AUTO"</code>, ela recalcula sozinha a partir da linha anterior.
-              </div>
-            </div>
+            <div class="card"><div class="label">Doses tomadas</div><div class="value" id="stat-taken">–</div><div class="sub" id="stat-range">–</div></div>
+            <div class="card"><div class="label">Total aplicado</div><div class="value" id="stat-total-mg">–</div><div class="sub">mg acumulados</div></div>
+            <div class="card"><div class="label">Saldo frasco atual</div><div class="value" id="stat-stock-ui">–</div><div class="sub" id="stat-stock-detail">–</div></div>
+            <div class="card"><div class="label">Plano futuro</div><div class="value" id="stat-planned-ui">–</div><div class="sub" id="stat-planned-detail">–</div></div>
+            <div class="card full"><div class="label">Peso</div><div class="value" id="stat-current-weight">–</div><div class="sub" id="stat-weight-detail">–</div></div>
+            <div class="card full"><div class="label">Motor do arquivo</div><div class="sub">Você só mexe em três coisas: <code>status</code>, <code>date</code> e <code>ui</code>/<code>mg</code>.<br>Se uma linha abaixo estiver com <code>date: "AUTO"</code>, ela recalcula sozinha a partir da linha anterior.</div></div>
           </div>
-
-          <div class="nextbox">
-            <div class="label">Próxima dose</div>
-            <div class="big" id="next-date">–</div>
-            <div class="mid" id="next-meta">–</div>
-            <div class="mid" id="next-countdown">–</div>
-          </div>
+          <div class="nextbox"><div class="label">Próxima dose</div><div class="big" id="next-date">–</div><div class="mid" id="next-meta">–</div><div class="mid" id="next-countdown">–</div></div>
         </aside>
-
-        <main class="panel">
-          <h2>Timeline</h2>
-          <div class="schedule-wrap" id="schedule"></div>
-        </main>
+        <main class="panel"><h2>Timeline</h2><div class="schedule-wrap" id="schedule"></div></main>
       </div>
-
       <div class="footerbox">
         <strong>Como editar sem se perder:</strong><br>
         1) Quando tomar uma dose planejada, troque <code>status: "PLANNED"</code> por <code>"TAKEN"</code>.<br>
@@ -316,381 +268,112 @@
       </div>
     </div>
   </div>
-
   <script>
-    /*
-      ============================================================
-      MOUNJARO · SINGLE SOURCE OF TRUTH
-      ============================================================
-      O que você realmente queria aqui não era só “embelezar a tabela”.
-      Era transformar o arquivo num mini motor de timeline:
-      - fácil de marcar se tomou ou não
-      - fácil de corrigir a data real em que tomou
-      - fácil de mudar a dose em UI
-      - e com recálculo automático das datas seguintes
-
-      REGRA PRÁTICA:
-      - Se uma linha tem date: "AUTO", ela será calculada a partir da linha anterior.
-      - Se você mudar a data de uma linha manual acima, tudo que estiver em AUTO abaixo recalcula.
-      - Se uma linha usa ui, mg é derivado automaticamente.
-      - Se uma linha usa mg e não ui, a UI fica em branco (útil para fases antigas).
-    */
-
     const APP = {
       meta: {
         title: "Mounjaro · timeline editável",
-        subtitle: "Timeline viva com estoque, dose real de 20 UI em 21/07 e próximas datas AUTO."
+        subtitle: "Timeline viva com estoque, dose real de 20 UI em 28/07 e próximas datas AUTO."
       },
-
-      // Deixe fixo para screenshots históricas; deixe null para usar a data real do computador.
       todayISO: null,
-
-      conversions: {
-        mgPerUi: 5 / 17,        // ≈ 0,294117647...
-        defaultIntervalDays: 7,
-        mgDecimals: 2,
-      },
-
-      weights: {
-        startKg: 104,
-        currentKg: 92,
-        usualHighKg: 94,
-      },
-
-      stock: {
-        purchaseDate: "2026-04-29",
-        purchasedMg: 60,
-        countFromKey: "22",
-        protocolUi: 17,
-        surgeryDate: "2026-12-11",
-        stopBeforeDays: 15,
-      },
-
+      conversions: { mgPerUi: 5 / 17, defaultIntervalDays: 7, mgDecimals: 2 },
+      weights: { startKg: 104, currentKg: 92, usualHighKg: 94 },
+      stock: { purchaseDate: "2026-04-29", purchasedMg: 60, countFromKey: "22", protocolUi: 17, surgeryDate: "2026-12-11", stopBeforeDays: 15 },
       timeline: [
-        // =========================
-        // FASE 1 · INÍCIO 2,5 MG
-        // =========================
-        { key:"01", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-03", mg:2.5,  note:"Dose inicial · fase 2,5 mg" },
-        { key:"02", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-10", mg:2.5,  note:"2ª dose de 2,5 mg" },
-        { key:"03", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-17", mg:2.5,  note:"3ª dose de 2,5 mg" },
-        { key:"04", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-24", mg:2.5,  note:"4ª dose de 2,5 mg" },
-
-        // =========================
-        // FASE 2 · ESCALADA E 5 MG
-        // =========================
+        { key:"01", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-03", mg:2.5, note:"Dose inicial · fase 2,5 mg" },
+        { key:"02", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-10", mg:2.5, note:"2ª dose de 2,5 mg" },
+        { key:"03", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-17", mg:2.5, note:"3ª dose de 2,5 mg" },
+        { key:"04", section:"Fase 1 · início 2,5 mg", status:"TAKEN", date:"2025-12-24", mg:2.5, note:"4ª dose de 2,5 mg" },
         { key:"05", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-03", mg:3.75, note:"Transição para 3,75 mg" },
-        { key:"06", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-09", mg:5,    note:"1ª dose de 5 mg" },
-        { key:"07", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-16", mg:5,    note:"2ª dose de 5 mg" },
-        { key:"08", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-23", mg:5,    note:"3ª dose de 5 mg" },
-        { key:"09", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-30", mg:5,    note:"4ª dose de 5 mg" },
-
-        // =========================
-        // FASE 3 · RECALIBRAGEM EM UI
-        // =========================
+        { key:"06", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-09", mg:5, note:"1ª dose de 5 mg" },
+        { key:"07", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-16", mg:5, note:"2ª dose de 5 mg" },
+        { key:"08", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-23", mg:5, note:"3ª dose de 5 mg" },
+        { key:"09", section:"Fase 2 · escalada e 5 mg", status:"TAKEN", date:"2026-01-30", mg:5, note:"4ª dose de 5 mg" },
         { key:"10", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-05", mg:4.41, note:"1ª dose de 4,41 mg" },
-        { key:"11", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-12", ui:12,   note:"12 UI" },
-        { key:"12", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-19", ui:12,   note:"12 UI" },
-        { key:"13", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-26", ui:12,   note:"12 UI" },
-        { key:"14", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-05", ui:12,   note:"12 UI" },
-        { key:"15", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-14", ui:13,   note:"13 UI" },
-        { key:"16", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-21", ui:10,   note:"10 UI" },
-        { key:"17", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-28", ui:9,    note:"9 UI" },
-        { key:"18", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-04-07", ui:8,    note:"8 UI" },
-
-        // =========================
-        // FASE 4 · PONTE PRÉ-FRASCO NOVO
-        // =========================
+        { key:"11", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-12", ui:12, note:"12 UI" },
+        { key:"12", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-19", ui:12, note:"12 UI" },
+        { key:"13", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-02-26", ui:12, note:"12 UI" },
+        { key:"14", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-05", ui:12, note:"12 UI" },
+        { key:"15", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-14", ui:13, note:"13 UI" },
+        { key:"16", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-21", ui:10, note:"10 UI" },
+        { key:"17", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-03-28", ui:9, note:"9 UI" },
+        { key:"18", section:"Fase 3 · recalibragem em UI", status:"TAKEN", date:"2026-04-07", ui:8, note:"8 UI" },
         { key:"19", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-15", ui:10, note:"Ponte com a sobra do frasco anterior" },
         { key:"20", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-21", ui:17, note:"Retomada plena bem tolerada" },
         { key:"21", section:"Fase 4 · ponte pré-frasco novo", status:"TAKEN", date:"2026-04-27", ui:10, note:"Chorinho/sobra do frasco; ponte parcial" },
-
-        // =========================
-        // FASE 5 · FRASCO 60 MG COMPRADO EM 29/04
-        // =========================
         { key:"22", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-02", ui:15, note:"Retomada quase plena; sem compensar os 2 UI faltantes" },
         { key:"23", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-10", ui:16, note:"" },
         { key:"24", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-19", ui:18, note:"Dose levemente acima da régua padrão de 17 UI" },
         { key:"25", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-05-25", ui:10, note:"Erro de leitura da seringa: confundiu a borrachinha/êmbolo; dose parcial de 10 UI." },
         { key:"26", section:"Fase 5 · frasco 60 mg comprado em 29/04", status:"TAKEN", date:"2026-06-08", ui:17, note:"Retomada após semana pulada por insolação/alergia solar; 2 UI + 15 UI complementares." },
-
-        // =========================
-        // FASE 6 · REINÍCIO PÓS-RECUPERAÇÃO
-        // =========================
         { key:"27", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-06-30", ui:12, note:"Reinício após recuperação da saúde; retomada conservadora em 12 UI." },
         { key:"28", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-07-07", ui:15, note:"Reescalada gradual tomada em 15 UI; próxima etapa pode voltar ao protocolo pleno se tolerância ok." },
         { key:"29", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-07-15", ui:20, note:"Dose real tomada em 20 UI; registrar como fato clínico, acima do protocolo pleno prévio de 17 UI." },
         { key:"30", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-07-21", ui:20, note:"Dose real tomada em 20 UI; segunda semana consecutiva em 20 UI, acima do protocolo pleno prévio de 17 UI." },
-
-        // =========================
-        // PRÓXIMOS AUTO · REESCALADA GRADUAL
-        // =========================
-        { key:"31", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Retorno ao protocolo pleno se tolerância ok: 17 UI ≈ 5 mg" },
-        { key:"32", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
-        { key:"33", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Última dose cheia estimada do frasco atual se o protocolo de 17 UI for mantido" },
-        { key:"34", section:"Próximos AUTO · reescalada gradual", status:"PLANNED", date:"AUTO", intervalDays:7, ui:10, note:"Sobra final estimada do frasco atual após duas doses reais de 20 UI em julho" },
+        { key:"31", section:"Fase 6 · reinício pós-recuperação", status:"TAKEN", date:"2026-07-28", ui:20, note:"Dose real tomada em 20 UI; terceira aplicação consecutiva nessa dose em julho." },
+        { key:"32", section:"Próximos AUTO · manutenção e saldo", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"Próxima dose estimada pelo protocolo pleno prévio: 17 UI ≈ 5 mg" },
+        { key:"33", section:"Próximos AUTO · manutenção e saldo", status:"PLANNED", date:"AUTO", intervalDays:7, ui:17, note:"AUTO calculado a partir da dose anterior" },
+        { key:"34", section:"Próximos AUTO · manutenção e saldo", status:"PLANNED", date:"AUTO", intervalDays:7, ui:7, note:"Sobra final estimada do frasco atual após a dose real de 20 UI em 28/07" }
       ]
     };
-
     function parseISO(iso){ return new Date(iso + "T12:00:00"); }
-    function toISO(dateObj){
-      const y = dateObj.getFullYear();
-      const m = String(dateObj.getMonth()+1).padStart(2, "0");
-      const d = String(dateObj.getDate()).padStart(2, "0");
-      return `${y}-${m}-${d}`;
-    }
-    function formatDate(iso){
-      const [y,m,d] = iso.split("-");
-      return `${d}/${m}/${y}`;
-    }
-    function weekdayPt(iso){
-      const dias = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
-      return dias[parseISO(iso).getDay()];
-    }
-    function round(n, decimals=2){
-      const p = 10 ** decimals;
-      return Math.round(n * p) / p;
-    }
+    function toISO(dateObj){ const y=dateObj.getFullYear(); const m=String(dateObj.getMonth()+1).padStart(2,"0"); const d=String(dateObj.getDate()).padStart(2,"0"); return `${y}-${m}-${d}`; }
+    function formatDate(iso){ const [y,m,d]=iso.split("-"); return `${d}/${m}/${y}`; }
+    function weekdayPt(iso){ const dias=["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"]; return dias[parseISO(iso).getDay()]; }
+    function round(n,decimals=2){ const p=10**decimals; return Math.round(n*p)/p; }
     function formatMg(n){ return `${n.toFixed(2).replace('.', ',')} mg`; }
     function formatKg(n){ return `${String(n).replace('.', ',')} kg`; }
-    function diffDays(a, b){
-      const d1 = new Date(a.getFullYear(), a.getMonth(), a.getDate());
-      const d2 = new Date(b.getFullYear(), b.getMonth(), b.getDate());
-      return Math.round((d2 - d1) / 86400000);
-    }
-    function todayDate(){
-      if (APP.todayISO) return parseISO(APP.todayISO);
-      const now = new Date();
-      return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
-    }
-
+    function diffDays(a,b){ const d1=new Date(a.getFullYear(),a.getMonth(),a.getDate()); const d2=new Date(b.getFullYear(),b.getMonth(),b.getDate()); return Math.round((d2-d1)/86400000); }
+    function todayDate(){ if(APP.todayISO)return parseISO(APP.todayISO); const now=new Date(); return new Date(now.getFullYear(),now.getMonth(),now.getDate(),12,0,0); }
     function resolveTimeline(){
-      const mgPerUi = APP.conversions.mgPerUi;
-      const defaultInterval = APP.conversions.defaultIntervalDays;
-
-      let prevDateISO = null;
-
-      return APP.timeline.map((item, idx) => {
-        let resolvedDate = item.date;
-        if (item.date === "AUTO") {
-          if (!prevDateISO) throw new Error(`Linha ${item.key} usa AUTO sem linha anterior válida.`);
-          const base = parseISO(prevDateISO);
-          base.setDate(base.getDate() + (item.intervalDays ?? defaultInterval));
-          resolvedDate = toISO(base);
-        }
-
-        const mg = item.mg != null ? round(item.mg, APP.conversions.mgDecimals)
-          : item.ui != null ? round(item.ui * mgPerUi, APP.conversions.mgDecimals)
-          : null;
-
-        const ui = item.ui != null ? item.ui
-          : (item.mg != null ? null : null);
-
-        prevDateISO = resolvedDate;
-
-        return {
-          ...item,
-          index: idx + 1,
-          resolvedDate,
-          weekday: weekdayPt(resolvedDate),
-          mg,
-          ui,
-          auto: item.date === "AUTO",
-        };
+      const mgPerUi=APP.conversions.mgPerUi; const defaultInterval=APP.conversions.defaultIntervalDays; let prevDateISO=null;
+      return APP.timeline.map((item,idx)=>{
+        let resolvedDate=item.date;
+        if(item.date==="AUTO"){ if(!prevDateISO)throw new Error(`Linha ${item.key} usa AUTO sem linha anterior válida.`); const base=parseISO(prevDateISO); base.setDate(base.getDate()+(item.intervalDays??defaultInterval)); resolvedDate=toISO(base); }
+        const mg=item.mg!=null?round(item.mg,APP.conversions.mgDecimals):item.ui!=null?round(item.ui*mgPerUi,APP.conversions.mgDecimals):null;
+        prevDateISO=resolvedDate;
+        return {...item,index:idx+1,resolvedDate,weekday:weekdayPt(resolvedDate),mg,ui:item.ui??null,auto:item.date==="AUTO"};
       });
     }
-
-    function groupBySection(items){
-      const map = new Map();
-      items.forEach(item => {
-        if (!map.has(item.section)) map.set(item.section, []);
-        map.get(item.section).push(item);
-      });
-      return [...map.entries()].map(([section, rows]) => ({ section, rows }));
-    }
-
-    function statusClass(status){ return String(status || '').toLowerCase(); }
-    function statusLabel(status){ return String(status || '').toUpperCase(); }
-
-    function stopDateISO(){
-      const base = parseISO(APP.stock.surgeryDate);
-      base.setDate(base.getDate() - APP.stock.stopBeforeDays);
-      return toISO(base);
-    }
-
-    function purchasedUi(){
-      return round(APP.stock.purchasedMg / APP.conversions.mgPerUi, 0);
-    }
-
-    function rowsFromCurrentBottle(resolved){
-      return resolved.filter(x => Number(x.key) >= Number(APP.stock.countFromKey));
-    }
-
+    function groupBySection(items){ const map=new Map(); items.forEach(item=>{if(!map.has(item.section))map.set(item.section,[]);map.get(item.section).push(item);}); return [...map.entries()].map(([section,rows])=>({section,rows})); }
+    function statusClass(status){ return String(status||'').toLowerCase(); }
+    function statusLabel(status){ return String(status||'').toUpperCase(); }
+    function purchasedUi(){ return round(APP.stock.purchasedMg/APP.conversions.mgPerUi,0); }
+    function rowsFromCurrentBottle(resolved){ return resolved.filter(x=>Number(x.key)>=Number(APP.stock.countFromKey)); }
     function stockSnapshot(resolved){
-      const bottleRows = rowsFromCurrentBottle(resolved);
-      const takenUi = bottleRows
-        .filter(x => x.status === 'TAKEN')
-        .reduce((sum, x) => sum + (x.ui || 0), 0);
-
-      const plannedUi = bottleRows
-        .filter(x => x.status === 'PLANNED')
-        .reduce((sum, x) => sum + (x.ui || 0), 0);
-
-      const totalUi = purchasedUi();
-      const remainingUi = Math.max(0, totalUi - takenUi);
-      const remainingAfterPlannedUi = remainingUi - plannedUi;
-
-      return {
-        totalUi,
-        takenUi,
-        plannedUi,
-        remainingUi,
-        remainingMg: round(remainingUi * APP.conversions.mgPerUi, APP.conversions.mgDecimals),
-        remainingAfterPlannedUi,
-      };
+      const bottleRows=rowsFromCurrentBottle(resolved);
+      const takenUi=bottleRows.filter(x=>x.status==='TAKEN').reduce((sum,x)=>sum+(x.ui||0),0);
+      const plannedUi=bottleRows.filter(x=>x.status==='PLANNED').reduce((sum,x)=>sum+(x.ui||0),0);
+      const totalUi=purchasedUi(); const remainingUi=Math.max(0,totalUi-takenUi); const remainingAfterPlannedUi=remainingUi-plannedUi;
+      return {totalUi,takenUi,plannedUi,remainingUi,remainingMg:round(remainingUi*APP.conversions.mgPerUi,APP.conversions.mgDecimals),remainingAfterPlannedUi};
     }
-
     function renderHero(){
-      document.getElementById('hero-title').textContent = APP.meta.title;
-      document.getElementById('hero-subtitle').textContent = APP.meta.subtitle;
-
-      const pills = document.getElementById('weight-pills');
-      pills.innerHTML = '';
-
-      const start = APP.weights.startKg;
-      const current = APP.weights.currentKg;
-      const high = APP.weights.usualHighKg;
-      const delta = round(current - start, 1);
-      const abs = Math.abs(delta).toFixed(1).replace('.', ',');
-      const sign = delta < 0 ? '−' : delta > 0 ? '+' : '±';
-
-      const data = [
-        { cls:'cyan', text:`início: ${formatKg(start)}` },
-        { cls:'lime', text:`atual estável: ${formatKg(current)}` },
-        { cls:'orange', text:`variação até: ${formatKg(high)}` },
-        { cls:'violet', text:`delta início → atual: ${sign}${abs} kg` },
-      ];
-
-      data.forEach(item => {
-        const el = document.createElement('span');
-        el.className = 'pill';
-        el.innerHTML = `<span class="dot ${item.cls}"></span><span>${item.text}</span>`;
-        pills.appendChild(el);
-      });
+      document.getElementById('hero-title').textContent=APP.meta.title; document.getElementById('hero-subtitle').textContent=APP.meta.subtitle;
+      const pills=document.getElementById('weight-pills'); pills.innerHTML='';
+      const start=APP.weights.startKg,current=APP.weights.currentKg,high=APP.weights.usualHighKg,delta=round(current-start,1),abs=Math.abs(delta).toFixed(1).replace('.',','),sign=delta<0?'−':delta>0?'+':'±';
+      [{cls:'cyan',text:`início: ${formatKg(start)}`},{cls:'lime',text:`atual estável: ${formatKg(current)}`},{cls:'orange',text:`variação até: ${formatKg(high)}`},{cls:'violet',text:`delta início → atual: ${sign}${abs} kg`}].forEach(item=>{const el=document.createElement('span');el.className='pill';el.innerHTML=`<span class="dot ${item.cls}"></span><span>${item.text}</span>`;pills.appendChild(el);});
     }
-
     function renderSummary(resolved){
-      const taken = resolved.filter(x => x.status === 'TAKEN');
-      const planned = resolved.filter(x => x.status === 'PLANNED');
-      const totalMg = round(taken.reduce((s, x) => s + (x.mg || 0), 0), 2);
-      const stock = stockSnapshot(resolved);
-
-      document.getElementById('stat-taken').textContent = String(taken.length);
-      document.getElementById('stat-total-mg').textContent = formatMg(totalMg);
-
-      if (taken.length) {
-        document.getElementById('stat-range').textContent = `de ${formatDate(taken[0].resolvedDate)} até ${formatDate(taken[taken.length - 1].resolvedDate)}`;
-      } else {
-        document.getElementById('stat-range').textContent = 'sem histórico tomado';
-      }
-
-      document.getElementById('stat-stock-ui').textContent = `${stock.remainingUi} UI`;
-      document.getElementById('stat-stock-detail').textContent =
-        `≈ ${formatMg(stock.remainingMg)} restantes · frasco de ${APP.stock.purchasedMg} mg comprado em ${formatDate(APP.stock.purchaseDate)}`;
-
-      document.getElementById('stat-planned-ui').textContent = `${stock.plannedUi} UI`;
-      document.getElementById('stat-planned-detail').textContent =
-        stock.remainingAfterPlannedUi === 0
-          ? 'os próximos AUTO consomem exatamente o saldo estimado'
-          : stock.remainingAfterPlannedUi > 0
-            ? `sobrariam ${stock.remainingAfterPlannedUi} UI após os AUTO`
-            : `os AUTO excedem o saldo em ${Math.abs(stock.remainingAfterPlannedUi)} UI`;
-
-      document.getElementById('stat-current-weight').textContent = formatKg(APP.weights.currentKg);
-      document.getElementById('stat-weight-detail').textContent = `partiu de ${formatKg(APP.weights.startKg)} · costuma oscilar até ${formatKg(APP.weights.usualHighKg)}`;
-
-      const today = todayDate();
-      const next = planned.find(x => diffDays(today, parseISO(x.resolvedDate)) >= 0) || planned[0] || null;
-
-      if (!next) {
-        document.getElementById('next-date').textContent = '—';
-        document.getElementById('next-meta').textContent = 'sem próxima dose planejada';
-        document.getElementById('next-countdown').textContent = '';
-        return;
-      }
-
-      const delta = diffDays(today, parseISO(next.resolvedDate));
-      document.getElementById('next-date').textContent = formatDate(next.resolvedDate);
-      document.getElementById('next-meta').textContent = `${next.weekday} · ${next.ui != null ? `${next.ui} UI` : '— UI'} · ${formatMg(next.mg)} · ${next.section}`;
-      document.getElementById('next-countdown').textContent =
-        delta === 0 ? 'A próxima dose é hoje.' :
-        delta > 0 ? `Faltam ${delta} dia${delta === 1 ? '' : 's'} para a próxima dose.` :
-        `Essa dose já ficou para trás há ${Math.abs(delta)} dia${Math.abs(delta) === 1 ? '' : 's'}.`;
+      const taken=resolved.filter(x=>x.status==='TAKEN'),planned=resolved.filter(x=>x.status==='PLANNED'),totalMg=round(taken.reduce((s,x)=>s+(x.mg||0),0),2),stock=stockSnapshot(resolved);
+      document.getElementById('stat-taken').textContent=String(taken.length); document.getElementById('stat-total-mg').textContent=formatMg(totalMg);
+      document.getElementById('stat-range').textContent=taken.length?`de ${formatDate(taken[0].resolvedDate)} até ${formatDate(taken[taken.length-1].resolvedDate)}`:'sem histórico tomado';
+      document.getElementById('stat-stock-ui').textContent=`${stock.remainingUi} UI`; document.getElementById('stat-stock-detail').textContent=`≈ ${formatMg(stock.remainingMg)} restantes · frasco de ${APP.stock.purchasedMg} mg comprado em ${formatDate(APP.stock.purchaseDate)}`;
+      document.getElementById('stat-planned-ui').textContent=`${stock.plannedUi} UI`; document.getElementById('stat-planned-detail').textContent=stock.remainingAfterPlannedUi===0?'os próximos AUTO consomem exatamente o saldo estimado':stock.remainingAfterPlannedUi>0?`sobrariam ${stock.remainingAfterPlannedUi} UI após os AUTO`:`os AUTO excedem o saldo em ${Math.abs(stock.remainingAfterPlannedUi)} UI`;
+      document.getElementById('stat-current-weight').textContent=formatKg(APP.weights.currentKg); document.getElementById('stat-weight-detail').textContent=`partiu de ${formatKg(APP.weights.startKg)} · costuma oscilar até ${formatKg(APP.weights.usualHighKg)}`;
+      const today=todayDate(),next=planned.find(x=>diffDays(today,parseISO(x.resolvedDate))>=0)||planned[0]||null;
+      if(!next){document.getElementById('next-date').textContent='—';document.getElementById('next-meta').textContent='sem próxima dose planejada';document.getElementById('next-countdown').textContent='';return;}
+      const delta=diffDays(today,parseISO(next.resolvedDate)); document.getElementById('next-date').textContent=formatDate(next.resolvedDate); document.getElementById('next-meta').textContent=`${next.weekday} · ${next.ui!=null?`${next.ui} UI`:'— UI'} · ${formatMg(next.mg)} · ${next.section}`; document.getElementById('next-countdown').textContent=delta===0?'A próxima dose é hoje.':delta>0?`Faltam ${delta} dia${delta===1?'':'s'} para a próxima dose.`:`Essa dose já ficou para trás há ${Math.abs(delta)} dia${Math.abs(delta)===1?'':'s'}.`;
     }
-
     function renderSchedule(resolved){
-      const host = document.getElementById('schedule');
-      host.innerHTML = '';
-      const groups = groupBySection(resolved);
-
-      groups.forEach(group => {
-        const plannedCount = group.rows.filter(x => x.status === 'PLANNED').length;
-        const takenCount = group.rows.filter(x => x.status === 'TAKEN').length;
-
-        const section = document.createElement('section');
-        section.className = 'section';
-        section.innerHTML = `
-          <div class="section-head">
-            <div>
-              <div class="section-title"><span class="dot ${plannedCount && !takenCount ? 'cyan' : takenCount ? 'lime' : 'orange'}"></span>${group.section}</div>
-              <div class="section-sub">${group.rows.length} linha(s) · ${takenCount} tomada(s) · ${plannedCount} planejada(s)</div>
-            </div>
-          </div>
-        `;
-
-        const rows = document.createElement('div');
-        rows.className = 'rows';
-
-        const head = document.createElement('div');
-        head.className = 'row headrow';
-        head.innerHTML = `
-          <div class="cell">status</div>
-          <div class="cell">data</div>
-          <div class="cell">dose</div>
-          <div class="cell">mg</div>
-          <div class="cell">observação</div>
-          <div class="cell">chave</div>
-        `;
-        rows.appendChild(head);
-
-        group.rows.forEach(item => {
-          const row = document.createElement('div');
-          row.className = 'row';
-          row.innerHTML = `
-            <div class="cell"><span class="status ${statusClass(item.status)}">${statusLabel(item.status)}</span></div>
-            <div class="cell">
-              <div class="date">${formatDate(item.resolvedDate)}</div>
-              <div class="weekday">${item.weekday}${item.auto ? ' · AUTO' : ''}</div>
-            </div>
-            <div class="cell"><span class="dosepill">${item.ui != null ? `${item.ui} UI` : '— UI'}</span></div>
-            <div class="cell"><span class="mgtag">${item.mg != null ? formatMg(item.mg) : '—'}</span></div>
-            <div class="cell fullspan">
-              <div class="note">${item.note || ''}</div>
-              <div class="auto">${item.auto ? `calculada a partir da linha anterior (+${item.intervalDays ?? APP.conversions.defaultIntervalDays} dias)` : 'data manual'}</div>
-            </div>
-            <div class="cell"><span class="key">${item.key}</span></div>
-          `;
-          rows.appendChild(row);
-        });
-
-        section.appendChild(rows);
-        host.appendChild(section);
+      const host=document.getElementById('schedule');host.innerHTML='';
+      groupBySection(resolved).forEach(group=>{
+        const plannedCount=group.rows.filter(x=>x.status==='PLANNED').length,takenCount=group.rows.filter(x=>x.status==='TAKEN').length,section=document.createElement('section');section.className='section';
+        section.innerHTML=`<div class="section-head"><div><div class="section-title"><span class="dot ${plannedCount&&!takenCount?'cyan':takenCount?'lime':'orange'}"></span>${group.section}</div><div class="section-sub">${group.rows.length} linha(s) · ${takenCount} tomada(s) · ${plannedCount} planejada(s)</div></div></div>`;
+        const rows=document.createElement('div');rows.className='rows';const head=document.createElement('div');head.className='row headrow';head.innerHTML='<div class="cell">status</div><div class="cell">data</div><div class="cell">dose</div><div class="cell">mg</div><div class="cell">observação</div><div class="cell">chave</div>';rows.appendChild(head);
+        group.rows.forEach(item=>{const row=document.createElement('div');row.className='row';row.innerHTML=`<div class="cell"><span class="status ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="cell"><div class="date">${formatDate(item.resolvedDate)}</div><div class="weekday">${item.weekday}${item.auto?' · AUTO':''}</div></div><div class="cell"><span class="dosepill">${item.ui!=null?`${item.ui} UI`:'— UI'}</span></div><div class="cell"><span class="mgtag">${item.mg!=null?formatMg(item.mg):'—'}</span></div><div class="cell fullspan"><div class="note">${item.note||''}</div><div class="auto">${item.auto?`calculada a partir da linha anterior (+${item.intervalDays??APP.conversions.defaultIntervalDays} dias)`:'data manual'}</div></div><div class="cell"><span class="key">${item.key}</span></div>`;rows.appendChild(row);});
+        section.appendChild(rows);host.appendChild(section);
       });
     }
-
-    const resolved = resolveTimeline();
-    renderHero();
-    renderSummary(resolved);
-    renderSchedule(resolved);
+    const resolved=resolveTimeline();renderHero();renderSummary(resolved);renderSchedule(resolved);
   </script>
 </body>
 </html>
