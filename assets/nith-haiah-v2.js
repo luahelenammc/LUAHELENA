@@ -1,12 +1,13 @@
-const matrix = document.getElementById('nameMatrix');
-if (matrix) {
+const matrices = document.querySelectorAll('.name-matrix[data-active]');
+matrices.forEach((matrix) => {
+  const active = Number(matrix.dataset.active);
   for (let i = 1; i <= 72; i += 1) {
     const dot = document.createElement('span');
-    dot.className = `name-dot${i === 25 ? ' active' : ''}`;
+    dot.className = `name-dot${i === active ? ' active' : ''}`;
     dot.setAttribute('aria-hidden', 'true');
     matrix.appendChild(dot);
   }
-}
+});
 
 const progress = document.getElementById('progress');
 const updateProgress = () => {
@@ -19,20 +20,20 @@ updateProgress();
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 
-const copyButton = document.getElementById('copyName');
-const copyStatus = document.getElementById('copyStatus');
-if (copyButton && copyStatus) {
-  copyButton.addEventListener('click', async () => {
+document.querySelectorAll('[data-copy-text]').forEach((button) => {
+  const status = button.parentElement?.querySelector('[role="status"]');
+  const original = button.textContent;
+  button.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText('נתה');
-      copyButton.textContent = 'Copiado ✓';
-      copyStatus.textContent = 'O trigrama נתה foi copiado.';
+      await navigator.clipboard.writeText(button.dataset.copyText || '');
+      button.textContent = 'Copiado ✓';
+      if (status) status.textContent = `${button.dataset.copyText} foi copiado.`;
     } catch (error) {
-      copyStatus.textContent = 'Não foi possível copiar automaticamente.';
+      if (status) status.textContent = 'Não foi possível copiar automaticamente.';
     }
-    window.setTimeout(() => { copyButton.textContent = 'Copiar נתה'; }, 1800);
+    window.setTimeout(() => { button.textContent = original; }, 1800);
   });
-}
+});
 
 const loadPortraitStyles = () => {
   const href = 'assets/nith-haiah-portrait.css';
@@ -44,9 +45,10 @@ const loadPortraitStyles = () => {
 };
 
 const loadNithHaiahPortrait = async () => {
-  const host = document.querySelector('.totem');
-  if (!host) return;
+  const host = document.getElementById('nithPortrait');
+  if (!host || host.dataset.loaded === 'true') return;
 
+  host.dataset.loaded = 'true';
   host.classList.add('portrait-host');
   host.setAttribute('aria-busy', 'true');
   loadPortraitStyles();
@@ -91,18 +93,75 @@ const loadNithHaiahPortrait = async () => {
 };
 
 const revealItems = document.querySelectorAll('.reveal');
+let revealObserver = null;
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver((entries) => {
+  revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: .08 });
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => revealObserver.observe(item));
 } else {
   revealItems.forEach((item) => item.classList.add('visible'));
 }
 
+const tabs = [...document.querySelectorAll('[data-angel-tab]')];
+const panels = [...document.querySelectorAll('[data-angel-panel]')];
+const titles = {
+  nith: 'Nith-Haiah — sabedoria contemplativa e mistérios',
+  haaiah: 'Haaiah — verdade, diplomacia e 25 de junho'
+};
+
+const activateAngel = (angel, options = {}) => {
+  const target = panels.find((panel) => panel.dataset.angelPanel === angel);
+  if (!target) return;
+
+  panels.forEach((panel) => { panel.hidden = panel !== target; });
+  tabs.forEach((tab) => {
+    const selected = tab.dataset.angelTab === angel;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+  });
+
+  target.querySelectorAll('.reveal').forEach((item) => {
+    if (revealObserver) revealObserver.observe(item);
+    else item.classList.add('visible');
+  });
+
+  document.title = titles[angel] || titles.nith;
+  document.documentElement.dataset.angel = angel;
+
+  if (options.updateHash !== false) {
+    history.replaceState(null, '', angel === 'haaiah' ? '#haaiah' : '#nith-haiah');
+  }
+
+  if (options.scroll) {
+    const switcher = document.querySelector('.angel-switcher-wrap');
+    const offset = (switcher?.offsetHeight || 0) + 12;
+    window.scrollTo({ top: Math.max(0, target.offsetTop - offset), behavior: 'smooth' });
+  }
+
+  window.requestAnimationFrame(updateProgress);
+};
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateAngel(tab.dataset.angelTab, { scroll: true }));
+  tab.addEventListener('keydown', (event) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = tabs.length - 1;
+    tabs[nextIndex].focus();
+    activateAngel(tabs[nextIndex].dataset.angelTab, { scroll: false });
+  });
+});
+
+const initialAngel = window.location.hash.toLowerCase().startsWith('#haaiah') ? 'haaiah' : 'nith';
+activateAngel(initialAngel, { updateHash: false, scroll: false });
 loadNithHaiahPortrait();
