@@ -18,31 +18,44 @@ const loadPortraitStyles = () => {
   document.head.appendChild(link);
 };
 
-const loadNithHaiahPortrait = async () => {
-  const host = document.getElementById('nithPortrait');
+const loadBase64Portrait = async ({ host, parts, alt, caption, transformHost = false }) => {
   if (!host || host.dataset.loaded === 'true') return;
   host.dataset.loaded = 'true';
-  host.classList.add('portrait-host');
   host.setAttribute('aria-busy', 'true');
   loadPortraitStyles();
-  const parts = ['assets/nith-haiah-portrait/part00.b64','assets/nith-haiah-portrait/part01.b64','assets/nith-haiah-portrait/part02.b64'];
+
+  if (transformHost) {
+    host.className = 'portrait-compact haaiah-portrait reveal visible';
+    host.removeAttribute('role');
+    host.setAttribute('aria-label', 'Reconstituição visual autoral de Haaiah');
+  } else {
+    host.classList.add('portrait-host');
+  }
+
   try {
     const responses = await Promise.all(parts.map((path) => fetch(path, { cache: 'force-cache' })));
     const failed = responses.find((response) => !response.ok);
     if (failed) throw new Error(`Falha ao carregar retrato: HTTP ${failed.status}`);
-    const encoded = (await Promise.all(responses.map((response) => response.text()))).join('').replace(/\s+/g, '');
+
+    const encoded = (await Promise.all(responses.map((response) => response.text())))
+      .join('')
+      .replace(/\s+/g, '');
+
     const figure = document.createElement('figure');
     figure.className = 'portrait-figure';
+
     const image = document.createElement('img');
     image.width = 480;
     image.height = 600;
     image.loading = 'lazy';
     image.decoding = 'async';
-    image.alt = 'Reconstituição visual autoral de Nith-Haiah como figura angelical contemplativa, com vestes marfim e verde-esmeralda, livro, lâmpada e asas dourado-lilás.';
+    image.alt = alt;
     image.src = `data:image/webp;base64,${encoded}`;
-    const caption = document.createElement('figcaption');
-    caption.innerHTML = '<strong>Reconstituição autoral · 2026</strong>Imagem historiograficamente informada; não é iconografia antiga documentada.';
-    figure.append(image, caption);
+
+    const figcaption = document.createElement('figcaption');
+    figcaption.innerHTML = caption;
+
+    figure.append(image, figcaption);
     host.replaceChildren(figure);
     host.removeAttribute('aria-busy');
   } catch (error) {
@@ -51,6 +64,33 @@ const loadNithHaiahPortrait = async () => {
     host.removeAttribute('aria-busy');
   }
 };
+
+const loadHaaiahPortrait = () => loadBase64Portrait({
+  host: document.querySelector('.haaiah-panel .haaiah-emblem'),
+  transformHost: true,
+  parts: [
+    'assets/haaiah-portrait/part00.b64',
+    'assets/haaiah-portrait/part01.b64',
+    'assets/haaiah-portrait/part02.b64',
+    'assets/haaiah-portrait/part03.b64',
+    'assets/haaiah-portrait/part04.b64',
+    'assets/haaiah-portrait/part05.b64',
+    'assets/haaiah-portrait/part06.b64'
+  ],
+  alt: 'Reconstituição visual autoral de Haaiah como figura angelical diplomática e contemplativa, com vestes marfim e azul-esverdeado, pergaminho selado, balança dourada, asas luminosas, halo com o trigrama האא e cenas de tratados e mediação.',
+  caption: '<strong>Reconstituição autoral de Haaiah · 2026</strong>Síntese visual historiograficamente informada a partir de Lenain e da tradição dos 72 nomes. Pergaminho, balança, mensageiros e conselho simbolizam verdade, diplomacia, justiça e operações discretas; não constituem iconografia antiga documentada.'
+});
+
+const loadNithHaiahPortrait = () => loadBase64Portrait({
+  host: document.getElementById('nithPortrait'),
+  parts: [
+    'assets/nith-haiah-portrait/part00.b64',
+    'assets/nith-haiah-portrait/part01.b64',
+    'assets/nith-haiah-portrait/part02.b64'
+  ],
+  alt: 'Reconstituição visual autoral de Nith-Haiah como figura angelical contemplativa, com vestes marfim e verde-esmeralda, livro, lâmpada e asas dourado-lilás.',
+  caption: '<strong>Reconstituição autoral de Nith-Haiah · 2026</strong>Imagem historiograficamente informada; não é iconografia antiga documentada.'
+});
 
 const revealItems = document.querySelectorAll('.reveal');
 let revealObserver = null;
@@ -203,4 +243,5 @@ window.addEventListener('hashchange', () => {
 
 const initialAngel = window.location.hash.toLowerCase().startsWith('#nith') ? 'nith' : 'haaiah';
 activateAngel(initialAngel, { updateHash: false, scroll: false, animateDonut: false });
+loadHaaiahPortrait();
 loadNithHaiahPortrait();
