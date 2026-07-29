@@ -70,32 +70,100 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 
 const tabs = [...document.querySelectorAll('[data-angel-tab]')];
 const panels = [...document.querySelectorAll('[data-angel-panel]')];
-const titles = {
-  haaiah: 'Haaiah 70% — o runtime angelológico de Moon',
-  nith: 'Nith-Haiah 30% — o source interno de Moon'
+const donutSegments = [...document.querySelectorAll('[data-donut-angel]')];
+const donutCore = document.querySelector('[data-donut-core]');
+const donutValue = document.querySelector('[data-donut-value]');
+const donutName = document.querySelector('[data-donut-name]');
+const donutRole = document.querySelector('[data-donut-role]');
+
+const angelData = {
+  haaiah: {
+    title: 'Haaiah 70% — o runtime angelológico de Moon',
+    value: '70',
+    name: 'Haaiah',
+    role: 'runtime no mundo'
+  },
+  nith: {
+    title: 'Nith-Haiah 30% — o source interno de Moon',
+    value: '30',
+    name: 'Nith-Haiah',
+    role: 'source interno'
+  }
+};
+
+let activeAngel = 'haaiah';
+let donutTransitionTimer = null;
+
+const paintDonutCore = (angel, animate = true) => {
+  const data = angelData[angel];
+  if (!data || !donutCore || !donutValue || !donutName || !donutRole) return;
+  window.clearTimeout(donutTransitionTimer);
+
+  const apply = () => {
+    donutValue.textContent = data.value;
+    donutName.textContent = data.name;
+    donutRole.textContent = data.role;
+    donutCore.dataset.active = angel;
+    donutCore.classList.remove('is-changing');
+  };
+
+  if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    apply();
+    return;
+  }
+
+  donutCore.classList.add('is-changing');
+  donutTransitionTimer = window.setTimeout(apply, 110);
+};
+
+const previewDonut = (angel) => {
+  donutSegments.forEach((segment) => {
+    segment.classList.toggle('is-muted', segment.dataset.donutAngel !== angel);
+  });
+  paintDonutCore(angel);
+};
+
+const syncDonut = (angel, animate = true) => {
+  donutSegments.forEach((segment) => {
+    const selected = segment.dataset.donutAngel === angel;
+    segment.classList.toggle('is-selected', selected);
+    segment.classList.remove('is-muted');
+    segment.setAttribute('aria-pressed', String(selected));
+  });
+  paintDonutCore(angel, animate);
 };
 
 const activateAngel = (angel, options = {}) => {
   const target = panels.find((panel) => panel.dataset.angelPanel === angel);
-  if (!target) return;
+  if (!target || !angelData[angel]) return;
+  activeAngel = angel;
+
   panels.forEach((panel) => { panel.hidden = panel !== target; });
   tabs.forEach((tab) => {
     const selected = tab.dataset.angelTab === angel;
     tab.setAttribute('aria-selected', String(selected));
     tab.tabIndex = selected ? 0 : -1;
   });
+
   target.querySelectorAll('.reveal').forEach((item) => {
     if (revealObserver) revealObserver.observe(item);
     else item.classList.add('visible');
   });
-  document.title = titles[angel] || titles.haaiah;
+
+  document.title = angelData[angel].title;
   document.documentElement.dataset.angel = angel;
-  if (options.updateHash !== false) history.replaceState(null, '', angel === 'nith' ? '#nith-haiah' : '#haaiah');
+  syncDonut(angel, options.animateDonut !== false);
+
+  if (options.updateHash !== false) {
+    history.replaceState(null, '', angel === 'nith' ? '#nith-haiah' : '#haaiah');
+  }
+
   if (options.scroll) {
     const switcher = document.querySelector('.angel-switcher-wrap');
     const offset = (switcher?.offsetHeight || 0) + 12;
     window.scrollTo({ top: Math.max(0, target.offsetTop - offset), behavior: 'smooth' });
   }
+
   window.requestAnimationFrame(updateProgress);
 };
 
@@ -114,6 +182,25 @@ tabs.forEach((tab, index) => {
   });
 });
 
+donutSegments.forEach((segment) => {
+  const angel = segment.dataset.donutAngel;
+  segment.addEventListener('pointerenter', () => previewDonut(angel));
+  segment.addEventListener('pointerleave', () => syncDonut(activeAngel));
+  segment.addEventListener('focus', () => previewDonut(angel));
+  segment.addEventListener('blur', () => syncDonut(activeAngel));
+  segment.addEventListener('click', () => activateAngel(angel, { scroll: true }));
+  segment.addEventListener('keydown', (event) => {
+    if (!['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    activateAngel(angel, { scroll: true });
+  });
+});
+
+window.addEventListener('hashchange', () => {
+  const angel = window.location.hash.toLowerCase().startsWith('#nith') ? 'nith' : 'haaiah';
+  activateAngel(angel, { updateHash: false, scroll: false });
+});
+
 const initialAngel = window.location.hash.toLowerCase().startsWith('#nith') ? 'nith' : 'haaiah';
-activateAngel(initialAngel, { updateHash: false, scroll: false });
+activateAngel(initialAngel, { updateHash: false, scroll: false, animateDonut: false });
 loadNithHaiahPortrait();
