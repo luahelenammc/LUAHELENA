@@ -1,14 +1,3 @@
-const matrices = document.querySelectorAll('.name-matrix[data-active]');
-matrices.forEach((matrix) => {
-  const active = Number(matrix.dataset.active);
-  for (let i = 1; i <= 72; i += 1) {
-    const dot = document.createElement('span');
-    dot.className = `name-dot${i === active ? ' active' : ''}`;
-    dot.setAttribute('aria-hidden', 'true');
-    matrix.appendChild(dot);
-  }
-});
-
 const progress = document.getElementById('progress');
 const updateProgress = () => {
   if (!progress) return;
@@ -19,21 +8,6 @@ const updateProgress = () => {
 updateProgress();
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
-
-document.querySelectorAll('[data-copy-text]').forEach((button) => {
-  const status = button.parentElement?.querySelector('[role="status"]');
-  const original = button.textContent;
-  button.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(button.dataset.copyText || '');
-      button.textContent = 'Copiado ✓';
-      if (status) status.textContent = `${button.dataset.copyText} foi copiado.`;
-    } catch (error) {
-      if (status) status.textContent = 'Não foi possível copiar automaticamente.';
-    }
-    window.setTimeout(() => { button.textContent = original; }, 1800);
-  });
-});
 
 const loadPortraitStyles = () => {
   const href = 'assets/nith-haiah-portrait.css';
@@ -47,47 +21,33 @@ const loadPortraitStyles = () => {
 const loadNithHaiahPortrait = async () => {
   const host = document.getElementById('nithPortrait');
   if (!host || host.dataset.loaded === 'true') return;
-
   host.dataset.loaded = 'true';
   host.classList.add('portrait-host');
   host.setAttribute('aria-busy', 'true');
   loadPortraitStyles();
-
-  const parts = [
-    'assets/nith-haiah-portrait/part00.b64',
-    'assets/nith-haiah-portrait/part01.b64',
-    'assets/nith-haiah-portrait/part02.b64'
-  ];
-
+  const parts = ['assets/nith-haiah-portrait/part00.b64','assets/nith-haiah-portrait/part01.b64','assets/nith-haiah-portrait/part02.b64'];
   try {
     const responses = await Promise.all(parts.map((path) => fetch(path, { cache: 'force-cache' })));
     const failed = responses.find((response) => !response.ok);
     if (failed) throw new Error(`Falha ao carregar retrato: HTTP ${failed.status}`);
-
-    const encoded = (await Promise.all(responses.map((response) => response.text())))
-      .join('')
-      .replace(/\s+/g, '');
-
+    const encoded = (await Promise.all(responses.map((response) => response.text()))).join('').replace(/\s+/g, '');
     const figure = document.createElement('figure');
     figure.className = 'portrait-figure';
-
     const image = document.createElement('img');
     image.width = 480;
     image.height = 600;
     image.loading = 'lazy';
     image.decoding = 'async';
-    image.alt = 'Reconstituição visual autoral de Nith-Haiah como figura angelical contemplativa: vestes marfim e verde-esmeralda, livro aberto, lâmpada, asas dourado-lilás, halo com os 72 nomes e uma alusão distante à travessia do mar.';
+    image.alt = 'Reconstituição visual autoral de Nith-Haiah como figura angelical contemplativa, com vestes marfim e verde-esmeralda, livro, lâmpada e asas dourado-lilás.';
     image.src = `data:image/webp;base64,${encoded}`;
-
     const caption = document.createElement('figcaption');
-    caption.innerHTML = '<strong>Reconstituição visual autoral · 2026</strong>Síntese historiograficamente informada das camadas de Lenain, da tradição dos 72 nomes e da Qabalah hermética. Não pretende ser uma iconografia antiga documentada.';
-
+    caption.innerHTML = '<strong>Reconstituição autoral · 2026</strong>Imagem historiograficamente informada; não é iconografia antiga documentada.';
     figure.append(image, caption);
     host.replaceChildren(figure);
     host.removeAttribute('aria-busy');
   } catch (error) {
     console.error(error);
-    host.innerHTML = '<p class="portrait-error">A reconstituição visual não pôde ser carregada. O texto historiográfico permanece disponível ao lado.</p>';
+    host.innerHTML = '<p class="portrait-error">A reconstituição visual não pôde ser carregada.</p>';
     host.removeAttribute('aria-busy');
   }
 };
@@ -111,46 +71,38 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 const tabs = [...document.querySelectorAll('[data-angel-tab]')];
 const panels = [...document.querySelectorAll('[data-angel-panel]')];
 const titles = {
-  nith: 'Nith-Haiah — sabedoria contemplativa e mistérios',
-  haaiah: 'Haaiah — verdade, diplomacia e 25 de junho'
+  haaiah: 'Haaiah 70% — o runtime angelológico de Moon',
+  nith: 'Nith-Haiah 30% — o source interno de Moon'
 };
 
 const activateAngel = (angel, options = {}) => {
   const target = panels.find((panel) => panel.dataset.angelPanel === angel);
   if (!target) return;
-
   panels.forEach((panel) => { panel.hidden = panel !== target; });
   tabs.forEach((tab) => {
     const selected = tab.dataset.angelTab === angel;
     tab.setAttribute('aria-selected', String(selected));
     tab.tabIndex = selected ? 0 : -1;
   });
-
   target.querySelectorAll('.reveal').forEach((item) => {
     if (revealObserver) revealObserver.observe(item);
     else item.classList.add('visible');
   });
-
-  document.title = titles[angel] || titles.nith;
+  document.title = titles[angel] || titles.haaiah;
   document.documentElement.dataset.angel = angel;
-
-  if (options.updateHash !== false) {
-    history.replaceState(null, '', angel === 'haaiah' ? '#haaiah' : '#nith-haiah');
-  }
-
+  if (options.updateHash !== false) history.replaceState(null, '', angel === 'nith' ? '#nith-haiah' : '#haaiah');
   if (options.scroll) {
     const switcher = document.querySelector('.angel-switcher-wrap');
     const offset = (switcher?.offsetHeight || 0) + 12;
     window.scrollTo({ top: Math.max(0, target.offsetTop - offset), behavior: 'smooth' });
   }
-
   window.requestAnimationFrame(updateProgress);
 };
 
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => activateAngel(tab.dataset.angelTab, { scroll: true }));
   tab.addEventListener('keydown', (event) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
     event.preventDefault();
     let nextIndex = index;
     if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
@@ -162,6 +114,6 @@ tabs.forEach((tab, index) => {
   });
 });
 
-const initialAngel = window.location.hash.toLowerCase().startsWith('#haaiah') ? 'haaiah' : 'nith';
+const initialAngel = window.location.hash.toLowerCase().startsWith('#nith') ? 'nith' : 'haaiah';
 activateAngel(initialAngel, { updateHash: false, scroll: false });
 loadNithHaiahPortrait();
