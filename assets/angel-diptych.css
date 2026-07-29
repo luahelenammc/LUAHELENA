@@ -19,6 +19,16 @@ body {
   overflow-x: hidden;
 }
 
+/* O CSS legado define main como papel claro. A díade usa um palco noturno e
+   declara explicitamente quais blocos voltam ao papel. */
+main#conteudo {
+  color: var(--dyad-cream);
+  background:
+    radial-gradient(circle at 16% 16%, rgba(184,139,70,.08), transparent 30rem),
+    radial-gradient(circle at 84% 42%, rgba(40,95,82,.09), transparent 34rem),
+    var(--dyad-night) !important;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -178,10 +188,15 @@ body::before {
 .nith-dot { background:var(--nith-teal); }
 .donut-hint { color: var(--faint-on-dark); font-size: .72rem; letter-spacing: .04em; text-align: center; }
 
-.measurement { padding: clamp(4rem,8vw,7rem) 0; color: var(--dyad-cream); }
+.measurement {
+  position: relative;
+  padding: clamp(4rem,8vw,7rem) 0;
+  color: var(--dyad-cream);
+  background: transparent;
+}
 .measurement-head { display:grid; grid-template-columns: .5fr 1fr; gap:1rem 3rem; align-items:end; margin-bottom:2rem; }
 .measurement-head .section-kicker { grid-row:1/3; align-self:start; color: var(--haaiah-gold); }
-.measurement-head h2 { margin:0; font: clamp(2rem,5vw,4rem)/1 var(--serif); color:var(--dyad-cream-strong); }
+.measurement-head h2 { margin:0; font: clamp(2rem,5vw,4rem)/1 var(--serif); color:var(--dyad-cream-strong); text-shadow:0 10px 34px rgba(0,0,0,.28); }
 .measurement-head p { margin:0; color:var(--muted-on-dark); }
 .meter-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem; }
 .meter-card {
@@ -191,8 +206,9 @@ body::before {
   color: var(--dyad-cream);
   border: 1px solid rgba(245,236,217,.14);
   border-radius: 1rem;
-  background:linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
-  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+  background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
 }
 .meter-card::before {
@@ -205,7 +221,7 @@ body::before {
   background:linear-gradient(90deg, transparent, rgba(255,255,255,.13), transparent);
   transition:transform .65s ease;
 }
-.meter-card.synthesis { background:linear-gradient(135deg,rgba(184,139,70,.18),rgba(40,95,82,.11)); border-color: rgba(231,199,125,.27); }
+.meter-card.synthesis { background:linear-gradient(135deg,rgba(184,139,70,.2),rgba(40,95,82,.13)); border-color: rgba(231,199,125,.3); }
 .meter-label { display:flex; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
 .meter-label strong { color:var(--dyad-cream-strong); }
 .meter-label span { color:var(--haaiah-gold); font-size:.78rem; font-weight:850; }
@@ -261,9 +277,17 @@ body::before {
 .thesis-lines p{margin:0;padding:1rem .75rem;border-bottom:1px solid rgba(245,236,217,.18);color:var(--muted-on-dark);transition:color .2s ease,background .2s ease,padding-left .2s ease}
 .thesis-lines strong{color:var(--haaiah-gold)}
 
-.history-compact { display:grid; grid-template-columns:.75fr 1.25fr; gap:3rem; padding:clamp(4rem,8vw,7rem) 0; color:var(--dyad-cream); }
+.history-compact {
+  position: relative;
+  display:grid;
+  grid-template-columns:.75fr 1.25fr;
+  gap:3rem;
+  padding:clamp(4rem,8vw,7rem) 0;
+  color:var(--dyad-cream);
+  background: transparent;
+}
 .history-compact .section-kicker { color:var(--haaiah-gold); }
-.history-compact h2{font:clamp(2rem,5vw,4rem)/1 var(--serif);color:var(--dyad-cream-strong)}
+.history-compact h2{font:clamp(2rem,5vw,4rem)/1 var(--serif);color:var(--dyad-cream-strong);text-shadow:0 10px 34px rgba(0,0,0,.25)}
 .history-compact ol{list-style:none;margin:0;padding:0;border-top:1px solid rgba(245,236,217,.18)}
 .history-compact li{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem .75rem;border-bottom:1px solid rgba(245,236,217,.18);transition:background .2s ease,padding-left .2s ease}
 .history-compact strong{color:var(--haaiah-gold)}
@@ -278,7 +302,7 @@ body::before {
 .references .ref-list li::before { color:#762e35; }
 
 @media (hover:hover) {
-  .meter-card:hover { transform:translateY(-5px); border-color:rgba(231,199,125,.38); box-shadow:0 22px 55px rgba(0,0,0,.24); background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035)); }
+  .meter-card:hover { transform:translateY(-5px); border-color:rgba(231,199,125,.38); box-shadow:0 22px 55px rgba(0,0,0,.24); background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04)); }
   .meter-card:hover::before { transform:skewX(-18deg) translateX(620%); }
   .meter-card:hover .meter i { filter:saturate(1.2) brightness(1.12); }
   .sequence article:hover { transform:translateY(-3px); background:linear-gradient(135deg,rgba(121,173,158,.14),var(--dyad-night-raised)); }
@@ -332,6 +356,7 @@ body::before {
 }
 
 @media print{
+  main#conteudo{background:white!important;color:black!important}
   .angel-switcher-wrap,.donut-hint{display:none!important}
   .angel-panel[hidden]{display:block!important}
   .dyad-hero{min-height:auto}
