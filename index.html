@@ -132,7 +132,7 @@
     .path-card h3 { margin: 42px 0 16px; max-width: 520px; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4.1rem); line-height: .91; letter-spacing: -.057em; font-weight: 500; }
     .path-card p { max-width: 570px; color: rgba(248,239,228,.72); line-height: 1.63; font-size: 1.02rem; margin-bottom: 0; }
 
-    .secondary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+    .secondary-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 18px; }
     .section-card { min-height: 190px; padding: 22px; border-radius: var(--radius-lg); background: rgba(255,255,255,.048); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
     .section-card.featured, .mini.featured { --glow-rgb: var(--accent-rgb, var(--group-rgb, var(--moon-rgb))); position: relative; isolation: isolate; overflow: hidden; animation: featuredBreathClean var(--pulse-clean, 1.52s) cubic-bezier(.42,0,.22,1) infinite; border-color: rgba(var(--glow-rgb), .44); }
     .section-card:hover, .section-card:focus-visible { transform: translateY(-3px); border-color: rgba(243,220,165,.26); background: rgba(255,255,255,.072); outline: none; }
@@ -225,7 +225,6 @@
   </section>
 
   <section aria-label="Entradas secundárias" class="secondary-grid">
-    <a aria-label="Abrir meu LinkedIn" class="section-card featured" data-i18n-attr="aria-label:secondary.linkedin.aria" href="https://www.linkedin.com/in/luahelena/" rel="noopener" style="--accent: var(--theme-psy); --accent-rgb: var(--theme-psy-rgb);" target="_blank"><div class="section-top"><span aria-hidden="true" class="mini-icon">💼</span></div><h3 data-i18n="secondary.linkedin.title">Meu LinkedIn</h3><p data-i18n="secondary.linkedin.body">Minha jornada profissional.</p></a>
     <a aria-label="Abrir Blog Nostalgia" class="section-card featured" data-i18n-attr="aria-label:secondary.nostalgia.aria" href="https://nostalgia.mooon.com.br" rel="noopener" style="--accent: var(--theme-gamer); --accent-rgb: var(--theme-gamer-rgb);" target="_blank"><div class="section-top"><span aria-hidden="true" class="mini-icon">🎮</span></div><h3 data-i18n="secondary.nostalgia.title">Blog Nostalgia</h3><p data-i18n="secondary.nostalgia.body">Jogos antigos, memória e cultura digital.</p></a>
   </section>
 
@@ -295,7 +294,7 @@
     </div>
   </section>
 
-  <footer aria-label="Rodapé" class="footer"><div data-i18n="footer.site">luahelena.com.br</div><div class="footer-links"><a data-i18n="footer.linkedin" href="https://www.linkedin.com/in/luahelena/" rel="noopener" target="_blank">LinkedIn</a><a data-i18n="footer.psychology" href="https://instagram.com/luamoon.psi" rel="noopener" target="_blank">Psicologia</a><a data-i18n="footer.ai" href="https://www.luahelena.com.br/ia/" rel="noopener" target="_blank">IA</a><a data-i18n="footer.politics" href="https://instagram.com/luahelena.psol" rel="noopener" target="_blank">Política</a></div></footer>
+  <footer aria-label="Rodapé" class="footer"><div data-i18n="footer.site">luahelena.com.br</div><div class="footer-links"><a data-i18n="footer.psychology" href="https://instagram.com/luamoon.psi" rel="noopener" target="_blank">Psicologia</a><a data-i18n="footer.ai" href="https://www.luahelena.com.br/ia/" rel="noopener" target="_blank">IA</a><a data-i18n="footer.politics" href="https://instagram.com/luahelena.psol" rel="noopener" target="_blank">Política</a></div></footer>
 </main>
 
 <script>
@@ -315,9 +314,6 @@
       "primary.politics.aria": "Abrir atuação política",
       "primary.politics.title": "Política, Limeira & vida pública",
       "primary.politics.body": "Presença progressista em Limeira, PSOL, Sociologia, democracia, direitos, cidade e participação pública.",
-      "secondary.linkedin.aria": "Abrir meu LinkedIn",
-      "secondary.linkedin.title": "Meu LinkedIn",
-      "secondary.linkedin.body": "Minha jornada profissional.",
       "secondary.nostalgia.aria": "Abrir Blog Nostalgia",
       "secondary.nostalgia.title": "Blog Nostalgia",
       "secondary.nostalgia.body": "Jogos antigos, memória e cultura digital.",
@@ -397,7 +393,6 @@
       "mini.direitoSemCaminho.title": "Direito sem caminho",
       "mini.direitoSemCaminho.body": "saúde trans, SUS e IA pública",
       "footer.site": "luahelena.com.br",
-      "footer.linkedin": "LinkedIn",
       "footer.psychology": "Psicologia",
       "footer.ai": "IA",
       "footer.politics": "Política"
@@ -417,9 +412,6 @@
       "primary.politics.aria": "Open political work",
       "primary.politics.title": "Politics, Limeira & public life",
       "primary.politics.body": "Progressive presence in Limeira, PSOL, Sociology, democracy, rights, city life, and public participation.",
-      "secondary.linkedin.aria": "Open my LinkedIn",
-      "secondary.linkedin.title": "My LinkedIn",
-      "secondary.linkedin.body": "My professional journey.",
       "secondary.nostalgia.aria": "Open Blog Nostalgia",
       "secondary.nostalgia.title": "Blog Nostalgia",
       "secondary.nostalgia.body": "Old games, memory, and digital culture.",
@@ -499,7 +491,6 @@
       "mini.direitoSemCaminho.title": "Right without a path",
       "mini.direitoSemCaminho.body": "trans healthcare, SUS and public AI",
       "footer.site": "luahelena.com.br",
-      "footer.linkedin": "LinkedIn",
       "footer.psychology": "Psychology",
       "footer.ai": "AI",
       "footer.politics": "Politics"
