@@ -1,0 +1,12 @@
+{
+  "title": "Moonverse",
+  "subtitle": "uma enciclopédia pessoal em formação",
+  "description": "Moonverse é a superfície pública e navegável de um arquivo autoral: memórias, projetos, obras e relações que podem ser lidas sem entrar no corpus privado.",
+  "author": "Lua Helena Moon",
+  "coauthor": "Áurion",
+  "base": "/moonverse/",
+  "language": "pt-BR",
+  "baseline_commit": "0b7882d05086b9c5acd464f5812bfaa99ef9a73b",
+  "branch": "feat/moonverse-rebuild-v1",
+  "generated_warning": "Este diretório é gerado por moonverse-src. Edite a fonte; não edite o artefato manualmente."
+}

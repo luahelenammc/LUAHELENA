@@ -1,0 +1,23 @@
+[
+  {
+    "id": "maresia",
+    "slug": "o-cheiro-de-maresia",
+    "title": "O cheiro de maresia",
+    "type": "Memória evocativa",
+    "wing": "biblioteca-lunar",
+    "summary": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
+    "lead": "A memória não começa exatamente no mar. Começa antes, no corpo pequeno cansado de perguntar se já chegou.",
+    "status": "published",
+    "privacy": "public",
+    "publication_approved": true,
+    "source_kind": "authored",
+    "source_refs": ["autobiografia / 25 de Junho"],
+    "tags": ["infância", "praia", "mar", "memória", "água"],
+    "life_phase": "infância",
+    "date_label": "memória de infância",
+    "published": "2026-08-02",
+    "updated": "2026-08-02",
+    "body_markdown": "## A cena\n\nA memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir.\n\n## O sinal\n\nEm algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado.\n\n## Por que fica\n\nEsse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria.\n\n> Nem toda memória foi fotografada, mas muita memória merece imagem.",
+    "relations": []
+  }
+]

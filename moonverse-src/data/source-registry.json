@@ -1,0 +1,17 @@
+{
+  "authority_chain": [
+    "Sobre a Moon / obras autorizadas",
+    "Moon Wiki como organização editorial",
+    "gate de privacidade, factualidade e publicação",
+    "Portal Moonverse como experiência pública"
+  ],
+  "source_snapshots": [
+    {"path":"moonverse/data/pages.json","role":"legacy authored records","handling":"archived and migrated through ledger"},
+    {"path":"moonverse/data/manifest.json","role":"legacy publication metadata","handling":"translated into typed gate"},
+    {"path":"moonverse/data/rooms.json","role":"legacy thematic taxonomy","handling":"normalized as wings"},
+    {"path":"moonverse/data/memories.json","role":"legacy memory seeds","handling":"absorbed into entries or deferred"},
+    {"path":"moonverse/data/notion/","role":"Notion staging snapshots","handling":"kept in legacy; never copied into public build"},
+    {"path":"uploaded/welcometomycutelife BRUTO.txt","role":"historical source attachment","handling":"review required; not published"}
+  ],
+  "public_gate": "status == published AND privacy in [public, sanitized_approved] AND publication_approved == true"
+}

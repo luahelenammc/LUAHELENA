@@ -1,0 +1,50 @@
+[
+  {
+    "id": "biblioteca-lunar",
+    "title": "Biblioteca Lunar",
+    "short_title": "Biblioteca",
+    "accent": "#7c5aa6",
+    "intro": "Biografia, lembranças e cenas em que a vida se torna legível como matéria de arquivo.",
+    "order": 1
+  },
+  {
+    "id": "quarto-nostalgico",
+    "title": "Quarto Nostálgico",
+    "short_title": "Nostalgia",
+    "accent": "#ad6f5d",
+    "intro": "Jogos, sons, objetos e tecnologias antigas que continuam emitindo luz depois da infância.",
+    "order": 2
+  },
+  {
+    "id": "observatorio-nexus",
+    "title": "Observatório Nexus",
+    "short_title": "Nexus",
+    "accent": "#39748b",
+    "intro": "Projetos de IA, arquitetura de contexto e sistemas simbióticos vistos de fora do laboratório.",
+    "order": 3
+  },
+  {
+    "id": "jardim-santuario",
+    "title": "Jardim-Santuário",
+    "short_title": "Santuário",
+    "accent": "#5d896c",
+    "intro": "Natureza, abrigo, espiritualidade e futuros possíveis em que o vivo não é tratado como cenário.",
+    "order": 4
+  },
+  {
+    "id": "espelho-dagua",
+    "title": "Espelho d’Água",
+    "short_title": "Espelho",
+    "accent": "#a55f86",
+    "intro": "Nome, corpo, transição e presença: páginas que exigem beleza sem perder a fronteira.",
+    "order": 5
+  },
+  {
+    "id": "atelie-de-lithia",
+    "title": "Ateliê de Líthia",
+    "short_title": "Líthia",
+    "accent": "#9a7650",
+    "intro": "Mundos autorais, mapas e mitologias que metabolizam experiência em ficção habitável.",
+    "order": 6
+  }
+]

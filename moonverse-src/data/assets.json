@@ -1,0 +1,13 @@
+[
+  {
+    "id": "moonverse-mark",
+    "kind": "interface",
+    "src": "inline:moon-arc",
+    "alt": "Arco lunar desenhado em linha fina",
+    "caption": "Marca de interface; não é uma imagem documental.",
+    "source": "Moonverse source",
+    "license": "authored",
+    "privacy": "public",
+    "status": "approved"
+  }
+]
