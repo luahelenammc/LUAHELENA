@@ -4,7 +4,7 @@
   --paper-deep: #e8e0d4;
   --ink: #28232b;
   --ink-soft: #625b61;
-  --ink-faint: #8b8184;
+  --ink-faint: #6b6164;
   --rule: #d7cec3;
   --rule-strong: #b9aea3;
   --plum: #72528d;
@@ -116,7 +116,7 @@ h3 { margin: 0 0 .5rem; font-size: 1.5rem; }
 .wing-directory { border-top: 1px solid var(--rule); }
 .wing-line, .path-line { display: grid; grid-template-columns: 4rem minmax(0, 1fr) 2rem; gap: 1rem; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
 .wing-line:hover, .path-line:hover { background: var(--paper-deep); color: var(--ink); }
-.wing-line-number, .path-line > span:first-child { color: var(--wing-accent, var(--plum)); font-family: var(--mono); font-size: .75rem; }
+.wing-line-number, .path-line > span:first-child { color: var(--ink-soft); font-family: var(--mono); font-size: .75rem; }
 .wing-line strong, .path-line strong { display: block; font-family: var(--serif); font-size: 1.35rem; font-weight: 500; }
 .wing-line small, .path-line small { display: block; max-width: 700px; margin-top: .25rem; color: var(--ink-soft); font-size: .86rem; }
 .wing-line-arrow, .path-line > span:last-child { color: var(--plum); text-align: right; }

@@ -80,7 +80,7 @@ try {
     await context.close();
   }
 
-  const nightContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, colorScheme: 'dark' });
+  const nightContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, colorScheme: 'light' });
   const nightPage = await nightContext.newPage();
   await nightPage.goto(baseUrl, { waitUntil: 'networkidle' });
   await nightPage.locator('[data-theme-toggle]').click();
