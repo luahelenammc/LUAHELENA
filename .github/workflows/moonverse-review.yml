@@ -30,9 +30,11 @@ jobs:
           node-version: '22'
 
       - name: Build public artifact
+        id: build
         run: npm --prefix moonverse-src run build
 
       - name: Sync generated artifact to branch
+        id: sync
         if: github.event_name == 'push'
         run: |
           if git diff --quiet -- moonverse; then
@@ -46,19 +48,23 @@ jobs:
           git push
 
       - name: Validate source and artifact
+        id: structural
         run: |
           npm --prefix moonverse-src run validate
           npm --prefix moonverse-src run test
 
       - name: Install browser review dependencies
+        id: dependencies
         working-directory: moonverse-src
         run: npm install --no-save --no-package-lock playwright @axe-core/playwright
 
       - name: Install Chromium
+        id: chromium
         working-directory: moonverse-src
         run: npx playwright install --with-deps chromium
 
       - name: Serve repository
+        id: server
         run: |
           python3 -m http.server 4173 -d . > /tmp/moonverse-server.log 2>&1 &
           echo $! > /tmp/moonverse-server.pid
@@ -116,33 +122,57 @@ jobs:
           console.log(summary);
           NODE
 
-      - name: Write successful QA receipt
-        if: steps.browser_review.outcome == 'success' && steps.lighthouse.outcome == 'success'
+      - name: Write QA receipt
+        if: always()
         env:
           REVIEWED_SHA: ${{ github.sha }}
           RUN_ID: ${{ github.run_id }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          SYNC_OUTCOME: ${{ steps.sync.outcome }}
+          STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
+          DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
+          SERVER_OUTCOME: ${{ steps.server.outcome }}
+          BROWSER_OUTCOME: ${{ steps.browser_review.outcome }}
+          LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
         run: |
+          mkdir -p moonverse-src/review-artifacts
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-          const browser = JSON.parse(fs.readFileSync('moonverse-src/review-artifacts/review-report.json', 'utf8'));
-          const lighthouse = JSON.parse(fs.readFileSync('moonverse-src/review-artifacts/lighthouse/summary.json', 'utf8'));
+          const readJsonIfPresent = (file) => fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
+          const browser = readJsonIfPresent('moonverse-src/review-artifacts/review-report.json');
+          const lighthouse = readJsonIfPresent('moonverse-src/review-artifacts/lighthouse/summary.json');
+          const steps = {
+            build: process.env.BUILD_OUTCOME || 'unknown',
+            sync: process.env.SYNC_OUTCOME || 'unknown',
+            structural: process.env.STRUCTURAL_OUTCOME || 'unknown',
+            dependencies: process.env.DEPENDENCIES_OUTCOME || 'unknown',
+            chromium: process.env.CHROMIUM_OUTCOME || 'unknown',
+            server: process.env.SERVER_OUTCOME || 'unknown',
+            browser: process.env.BROWSER_OUTCOME || 'unknown',
+            lighthouse: process.env.LIGHTHOUSE_OUTCOME || 'unknown'
+          };
+          const passed = ['build', 'structural', 'dependencies', 'chromium', 'server', 'browser', 'lighthouse']
+            .every((key) => steps[key] === 'success');
           const receipt = {
-            status: 'passed',
+            status: passed ? 'passed' : 'failed',
             reviewed_sha: process.env.REVIEWED_SHA,
             workflow_run_id: process.env.RUN_ID,
             reviewed_at: new Date().toISOString(),
-            screenshots: browser.pages.length + 1,
-            axe_pages: browser.accessibility.length,
-            console_errors: browser.consoleErrors.length,
-            page_errors: browser.pageErrors.length,
-            browser_failures: browser.failures,
+            steps,
+            screenshots: browser ? browser.pages.length + 1 : 0,
+            axe_pages: browser?.accessibility?.length || 0,
+            console_errors: browser?.consoleErrors?.length ?? null,
+            page_errors: browser?.pageErrors?.length ?? null,
+            browser_failures: browser?.failures || [],
             lighthouse
           };
           fs.writeFileSync('moonverse-src/QA_STATUS.json', JSON.stringify(receipt, null, 2) + '\n');
+          fs.writeFileSync('moonverse-src/review-artifacts/qa-status.json', JSON.stringify(receipt, null, 2) + '\n');
           NODE
 
-      - name: Commit successful QA receipt
-        if: github.event_name == 'push' && steps.browser_review.outcome == 'success' && steps.lighthouse.outcome == 'success'
+      - name: Commit QA receipt
+        if: always() && github.event_name == 'push'
         run: |
           if git diff --quiet -- moonverse-src/QA_STATUS.json; then
             echo 'QA receipt already current.'
@@ -166,10 +196,25 @@ jobs:
       - name: Enforce review gates
         if: always()
         env:
-          BROWSER_REVIEW: ${{ steps.browser_review.outcome }}
-          LIGHTHOUSE_REVIEW: ${{ steps.lighthouse.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
+          DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
+          SERVER_OUTCOME: ${{ steps.server.outcome }}
+          BROWSER_OUTCOME: ${{ steps.browser_review.outcome }}
+          LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
         run: |
-          echo "Browser review: $BROWSER_REVIEW"
-          echo "Lighthouse review: $LIGHTHOUSE_REVIEW"
-          test "$BROWSER_REVIEW" = 'success'
-          test "$LIGHTHOUSE_REVIEW" = 'success'
+          echo "Build: $BUILD_OUTCOME"
+          echo "Structural: $STRUCTURAL_OUTCOME"
+          echo "Dependencies: $DEPENDENCIES_OUTCOME"
+          echo "Chromium: $CHROMIUM_OUTCOME"
+          echo "Server: $SERVER_OUTCOME"
+          echo "Browser: $BROWSER_OUTCOME"
+          echo "Lighthouse: $LIGHTHOUSE_OUTCOME"
+          test "$BUILD_OUTCOME" = 'success'
+          test "$STRUCTURAL_OUTCOME" = 'success'
+          test "$DEPENDENCIES_OUTCOME" = 'success'
+          test "$CHROMIUM_OUTCOME" = 'success'
+          test "$SERVER_OUTCOME" = 'success'
+          test "$BROWSER_OUTCOME" = 'success'
+          test "$LIGHTHOUSE_OUTCOME" = 'success'
