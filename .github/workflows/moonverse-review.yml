@@ -116,6 +116,44 @@ jobs:
           console.log(summary);
           NODE
 
+      - name: Write successful QA receipt
+        if: steps.browser_review.outcome == 'success' && steps.lighthouse.outcome == 'success'
+        env:
+          REVIEWED_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const browser = JSON.parse(fs.readFileSync('moonverse-src/review-artifacts/review-report.json', 'utf8'));
+          const lighthouse = JSON.parse(fs.readFileSync('moonverse-src/review-artifacts/lighthouse/summary.json', 'utf8'));
+          const receipt = {
+            status: 'passed',
+            reviewed_sha: process.env.REVIEWED_SHA,
+            workflow_run_id: process.env.RUN_ID,
+            reviewed_at: new Date().toISOString(),
+            screenshots: browser.pages.length + 1,
+            axe_pages: browser.accessibility.length,
+            console_errors: browser.consoleErrors.length,
+            page_errors: browser.pageErrors.length,
+            browser_failures: browser.failures,
+            lighthouse
+          };
+          fs.writeFileSync('moonverse-src/QA_STATUS.json', JSON.stringify(receipt, null, 2) + '\n');
+          NODE
+
+      - name: Commit successful QA receipt
+        if: github.event_name == 'push' && steps.browser_review.outcome == 'success' && steps.lighthouse.outcome == 'success'
+        run: |
+          if git diff --quiet -- moonverse-src/QA_STATUS.json; then
+            echo 'QA receipt already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add moonverse-src/QA_STATUS.json
+          git commit -m 'test(moonverse): record browser QA receipt [skip ci]'
+          git push
+
       - name: Upload review evidence
         if: always()
         uses: actions/upload-artifact@v4
