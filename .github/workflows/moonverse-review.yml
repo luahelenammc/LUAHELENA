@@ -1,0 +1,137 @@
+name: Moonverse Review
+
+on:
+  push:
+    branches:
+      - feat/moonverse-rebuild-v1
+    paths:
+      - 'moonverse-src/**'
+      - 'moonverse/**'
+      - '.github/workflows/moonverse-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build public artifact
+        run: npm --prefix moonverse-src run build
+
+      - name: Sync generated artifact to branch
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- moonverse; then
+            echo 'Generated artifact already synchronized.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add moonverse
+          git commit -m 'chore(moonverse): sync generated artifact [skip ci]'
+          git push
+
+      - name: Validate source and artifact
+        run: |
+          npm --prefix moonverse-src run validate
+          npm --prefix moonverse-src run test
+
+      - name: Install browser review dependencies
+        working-directory: moonverse-src
+        run: npm install --no-save --no-package-lock playwright @axe-core/playwright
+
+      - name: Install Chromium
+        working-directory: moonverse-src
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve repository
+        run: |
+          python3 -m http.server 4173 -d . > /tmp/moonverse-server.log 2>&1 &
+          echo $! > /tmp/moonverse-server.pid
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/moonverse/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/moonverse-server.log
+          exit 1
+
+      - name: Browser screenshots and axe audit
+        id: browser_review
+        continue-on-error: true
+        env:
+          MOONVERSE_REVIEW_URL: http://127.0.0.1:4173/moonverse/
+        run: node moonverse-src/scripts/review.mjs
+
+      - name: Lighthouse audits
+        id: lighthouse
+        continue-on-error: true
+        run: |
+          mkdir -p moonverse-src/review-artifacts/lighthouse
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -name chrome | head -n 1)"
+          test -n "$CHROME_PATH"
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/home.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/o-cheiro-de-maresia/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/article.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const files = ['home', 'article'];
+          const thresholds = { performance: .90, accessibility: .95, 'best-practices': .95, seo: .95 };
+          const summary = {};
+          const failures = [];
+          for (const name of files) {
+            const report = JSON.parse(fs.readFileSync(`moonverse-src/review-artifacts/lighthouse/${name}.json`, 'utf8'));
+            summary[name] = {};
+            for (const [category, minimum] of Object.entries(thresholds)) {
+              const score = report.categories[category].score;
+              summary[name][category] = score;
+              if (score < minimum) failures.push(`${name} ${category}: ${score} < ${minimum}`);
+            }
+          }
+          fs.writeFileSync('moonverse-src/review-artifacts/lighthouse/summary.json', JSON.stringify(summary, null, 2) + '\n');
+          if (failures.length) {
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log(summary);
+          NODE
+
+      - name: Upload review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: moonverse-review-${{ github.sha }}
+          path: moonverse-src/review-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce review gates
+        if: always()
+        env:
+          BROWSER_REVIEW: ${{ steps.browser_review.outcome }}
+          LIGHTHOUSE_REVIEW: ${{ steps.lighthouse.outcome }}
+        run: |
+          echo "Browser review: $BROWSER_REVIEW"
+          echo "Lighthouse review: $LIGHTHOUSE_REVIEW"
+          test "$BROWSER_REVIEW" = 'success'
+          test "$LIGHTHOUSE_REVIEW" = 'success'
