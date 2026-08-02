@@ -1,17 +1,21 @@
 name: Moonverse Review
 
 on:
-  push:
+  pull_request:
     branches:
-      - feat/moonverse-rebuild-v1
+      - main
     paths:
       - 'moonverse-src/**'
       - 'moonverse/**'
       - '.github/workflows/moonverse-review.yml'
   workflow_dispatch:
 
+concurrency:
+  group: moonverse-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-review:
@@ -19,7 +23,7 @@ jobs:
     timeout-minutes: 25
 
     steps:
-      - name: Checkout branch
+      - name: Checkout pull request
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -33,19 +37,9 @@ jobs:
         id: build
         run: npm --prefix moonverse-src run build
 
-      - name: Sync generated artifact to branch
-        id: sync
-        if: github.event_name == 'push'
-        run: |
-          if git diff --quiet -- moonverse; then
-            echo 'Generated artifact already synchronized.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add moonverse
-          git commit -m 'chore(moonverse): sync generated artifact [skip ci]'
-          git push
+      - name: Verify generated artifact is committed
+        id: artifact_sync
+        run: git diff --exit-code -- moonverse
 
       - name: Validate source and artifact
         id: structural
@@ -122,13 +116,13 @@ jobs:
           console.log(summary);
           NODE
 
-      - name: Write QA receipt
+      - name: Write QA receipt artifact
         if: always()
         env:
-          REVIEWED_SHA: ${{ github.sha }}
+          REVIEWED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           RUN_ID: ${{ github.run_id }}
           BUILD_OUTCOME: ${{ steps.build.outcome }}
-          SYNC_OUTCOME: ${{ steps.sync.outcome }}
+          ARTIFACT_SYNC_OUTCOME: ${{ steps.artifact_sync.outcome }}
           STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
           DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
           CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
@@ -144,7 +138,7 @@ jobs:
           const lighthouse = readJsonIfPresent('moonverse-src/review-artifacts/lighthouse/summary.json');
           const steps = {
             build: process.env.BUILD_OUTCOME || 'unknown',
-            sync: process.env.SYNC_OUTCOME || 'unknown',
+            artifact_sync: process.env.ARTIFACT_SYNC_OUTCOME || 'unknown',
             structural: process.env.STRUCTURAL_OUTCOME || 'unknown',
             dependencies: process.env.DEPENDENCIES_OUTCOME || 'unknown',
             chromium: process.env.CHROMIUM_OUTCOME || 'unknown',
@@ -152,8 +146,7 @@ jobs:
             browser: process.env.BROWSER_OUTCOME || 'unknown',
             lighthouse: process.env.LIGHTHOUSE_OUTCOME || 'unknown'
           };
-          const passed = ['build', 'structural', 'dependencies', 'chromium', 'server', 'browser', 'lighthouse']
-            .every((key) => steps[key] === 'success');
+          const passed = Object.values(steps).every((outcome) => outcome === 'success');
           const receipt = {
             status: passed ? 'passed' : 'failed',
             reviewed_sha: process.env.REVIEWED_SHA,
@@ -167,28 +160,14 @@ jobs:
             browser_failures: browser?.failures || [],
             lighthouse
           };
-          fs.writeFileSync('moonverse-src/QA_STATUS.json', JSON.stringify(receipt, null, 2) + '\n');
           fs.writeFileSync('moonverse-src/review-artifacts/qa-status.json', JSON.stringify(receipt, null, 2) + '\n');
           NODE
-
-      - name: Commit QA receipt
-        if: always() && github.event_name == 'push'
-        run: |
-          if git diff --quiet -- moonverse-src/QA_STATUS.json; then
-            echo 'QA receipt already current.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add moonverse-src/QA_STATUS.json
-          git commit -m 'test(moonverse): record browser QA receipt [skip ci]'
-          git push
 
       - name: Upload review evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: moonverse-review-${{ github.sha }}
+          name: moonverse-review-${{ github.event.pull_request.head.sha || github.sha }}
           path: moonverse-src/review-artifacts/
           if-no-files-found: warn
           retention-days: 30
@@ -197,6 +176,7 @@ jobs:
         if: always()
         env:
           BUILD_OUTCOME: ${{ steps.build.outcome }}
+          ARTIFACT_SYNC_OUTCOME: ${{ steps.artifact_sync.outcome }}
           STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
           DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
           CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
@@ -205,6 +185,7 @@ jobs:
           LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
         run: |
           echo "Build: $BUILD_OUTCOME"
+          echo "Artifact sync: $ARTIFACT_SYNC_OUTCOME"
           echo "Structural: $STRUCTURAL_OUTCOME"
           echo "Dependencies: $DEPENDENCIES_OUTCOME"
           echo "Chromium: $CHROMIUM_OUTCOME"
@@ -212,6 +193,7 @@ jobs:
           echo "Browser: $BROWSER_OUTCOME"
           echo "Lighthouse: $LIGHTHOUSE_OUTCOME"
           test "$BUILD_OUTCOME" = 'success'
+          test "$ARTIFACT_SYNC_OUTCOME" = 'success'
           test "$STRUCTURAL_OUTCOME" = 'success'
           test "$DEPENDENCIES_OUTCOME" = 'success'
           test "$CHROMIUM_OUTCOME" = 'success'
