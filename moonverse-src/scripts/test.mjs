@@ -16,6 +16,7 @@ const article = read('entry/o-cheiro-de-maresia/index.html');
 const wiki = read('wiki/index.html');
 const atlas = read('atlas/index.html');
 const css = read('assets/site.css');
+const siteJs = read('assets/site.js');
 const searchIndex = JSON.parse(read('assets/search-index.json'));
 
 assert(home.includes('O que você está buscando?'), 'home exposes global search');
@@ -33,6 +34,8 @@ assert(wiki.includes('entry-index'), 'wiki index is rendered without JavaScript'
 assert(atlas.includes('atlas-svg') && atlas.includes('Lista completa'), 'Atlas has visual and textual fallback');
 assert(searchIndex.length === 1 && searchIndex[0].title === 'O cheiro de maresia', 'search index contains only approved public entries');
 assert(css.includes('@media') && css.includes('prefers-reduced-motion'), 'responsive and reduced-motion rules exist');
+assert(siteJs.includes('prefers-color-scheme: dark'), 'first visit respects operating-system theme preference');
+assert(siteJs.includes('if (!response.ok)'), 'search rejects failed index responses');
 assert(!home.match(/staging|wrapper|página física|notion-imported|prototype/i), 'home has no internal workflow language');
 assert(!article.match(/staging|wrapper|página física|notion-imported|prototype/i), 'article has no internal workflow language');
 
