@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-review:
@@ -23,28 +23,15 @@ jobs:
     timeout-minutes: 25
 
     steps:
-      - name: Checkout pull request head
+      - name: Checkout pull request
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Finalize Batch B1 artifact when armed
-        if: github.head_ref == 'agent/moonverse-v2-b1' && hashFiles('.moonverse-b1-build-trigger') != ''
-        run: |
-          npm --prefix moonverse-src run build
-          rm -f .moonverse-b1-build-trigger
-          git show origin/main:.github/workflows/moonverse-review.yml > .github/workflows/moonverse-review.yml
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Build Moonverse V2 editorial batch B1'
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Build public artifact
         id: build

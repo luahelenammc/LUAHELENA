@@ -145,6 +145,84 @@
       ]
     },
     {
+      "id": "entry:me-tornando",
+      "kind": "entry",
+      "label": "Me tornando eu mesma",
+      "summary": "A descoberta trans como reconhecimento de uma continuidade biográfica que já existia antes de ganhar nome.",
+      "url": "/moonverse/entry/me-tornando-eu-mesma/",
+      "wing": "espelho-dagua",
+      "tags": [
+        "transição",
+        "identidade",
+        "reconhecimento",
+        "feminilidade",
+        "autobiografia"
+      ]
+    },
+    {
+      "id": "entry:nome-presenca",
+      "kind": "entry",
+      "label": "Nome e presença",
+      "summary": "O nome como infraestrutura de reconhecimento: uma ponte entre identidade íntima, documentos, sistemas e vida pública.",
+      "url": "/moonverse/entry/nome-e-presenca/",
+      "wing": "espelho-dagua",
+      "tags": [
+        "nome",
+        "presença",
+        "cidadania",
+        "retificação",
+        "reconhecimento"
+      ]
+    },
+    {
+      "id": "entry:casa-arca",
+      "kind": "entry",
+      "label": "Casa-arca",
+      "summary": "A casa imaginada como refúgio multiespécie, família possível e pequena arquitetura de proteção do vivo.",
+      "url": "/moonverse/entry/casa-arca/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "casa",
+        "santuário",
+        "animais",
+        "família",
+        "natureza",
+        "futuro"
+      ]
+    },
+    {
+      "id": "entry:hecate",
+      "kind": "entry",
+      "label": "Hécate no portão",
+      "summary": "Hécate como linguagem pessoal para limiar, proteção, estratégia e travessias que não cabem em certezas simples.",
+      "url": "/moonverse/entry/hecate-no-portao/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "Hécate",
+        "limiar",
+        "proteção",
+        "estratégia",
+        "espiritualidade",
+        "símbolo"
+      ]
+    },
+    {
+      "id": "entry:lithia",
+      "kind": "entry",
+      "label": "Crônicas de Líthia",
+      "summary": "Um universo literário concebido para metabolizar experiência, política, desejo, sombra e beleza em mundo ficcional habitável.",
+      "url": "/moonverse/entry/cronicas-de-lithia/",
+      "wing": "atelie-de-lithia",
+      "tags": [
+        "Líthia",
+        "fantasia",
+        "worldbuilding",
+        "literatura",
+        "mitologia",
+        "autoria"
+      ]
+    },
+    {
       "id": "concept:moonverse",
       "kind": "concept",
       "label": "Portal Moonverse",
@@ -269,6 +347,96 @@
       "label": "precede em uma sequência biográfica frouxa",
       "evidence": "A relação marca uma sequência de memória — olhar, guardar, rearranjar e tornar navegável — sem alegar causalidade determinista entre infância e método.",
       "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "me-tornando-belongs-to-espelho",
+      "source": "entry:me-tornando",
+      "target": "wing:espelho-dagua",
+      "type": "belongs_to",
+      "label": "pertence ao Espelho d’Água",
+      "evidence": "A entrada trata de identidade, reconhecimento e transição sob fronteira autobiográfica sanitizada.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "nome-presenca-belongs-to-espelho",
+      "source": "entry:nome-presenca",
+      "target": "wing:espelho-dagua",
+      "type": "belongs_to",
+      "label": "pertence ao Espelho d’Água",
+      "evidence": "A entrada trata de nome, reconhecimento cívico e presença pública.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "nome-presenca-develops-me-tornando",
+      "source": "entry:nome-presenca",
+      "target": "entry:me-tornando",
+      "type": "develops_into",
+      "label": "desdobra reconhecimento em presença pública",
+      "evidence": "O primeiro texto apresenta o reconhecimento identitário; o segundo mostra como essa verdade atravessa linguagem, documentos e vida compartilhada.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "casa-arca-belongs-to-santuario",
+      "source": "entry:casa-arca",
+      "target": "wing:jardim-santuario",
+      "type": "belongs_to",
+      "label": "pertence ao Jardim-Santuário",
+      "evidence": "A casa-arca é formulada como refúgio multiespécie, família possível e arquitetura de proteção do vivo.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "casa-arca-shares-ecologia",
+      "source": "entry:casa-arca",
+      "target": "entry:ecologia-espiritual",
+      "type": "shares_motif",
+      "label": "compartilha o motivo do cuidado multiespécie",
+      "evidence": "Ambas as entradas recusam natureza como cenário e tratam proteção do vivo como forma de relação e território.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "hecate-belongs-to-santuario",
+      "source": "entry:hecate",
+      "target": "wing:jardim-santuario",
+      "type": "belongs_to",
+      "label": "pertence ao Jardim-Santuário",
+      "evidence": "Hécate é apresentada como linguagem simbólica de limiar, proteção e travessia.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "hecate-shares-ecologia",
+      "source": "entry:hecate",
+      "target": "entry:ecologia-espiritual",
+      "type": "shares_motif",
+      "label": "compartilha a ética de fronteira e proteção",
+      "evidence": "A relação aproxima o operador simbólico de proteção do território espiritual/ecológico sem transformar uma entrada em prova da outra.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "casa-arca-shares-hecate",
+      "source": "entry:casa-arca",
+      "target": "entry:hecate",
+      "type": "shares_motif",
+      "label": "compartilha o motivo do santuário protegido",
+      "evidence": "A casa-arca formula o recinto; Hécate formula a fronteira e o critério de passagem desse recinto.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "lithia-belongs-to-atelie",
+      "source": "entry:lithia",
+      "target": "wing:atelie-de-lithia",
+      "type": "belongs_to",
+      "label": "pertence ao Ateliê de Líthia",
+      "evidence": "A entrada inaugura a ala literária e apresenta a função pública do universo autoral.",
+      "review_state": "approved_batch_b1"
+    },
+    {
+      "id": "lithia-influences-moonverse",
+      "source": "entry:lithia",
+      "target": "concept:moonverse",
+      "type": "influences",
+      "label": "influencia a imaginação territorial do Moonverse",
+      "evidence": "A arquitetura pública reconhece mundos autorais e espacialização narrativa como uma das linhagens do portal, sem confundir os dois projetos.",
+      "review_state": "approved_batch_b1"
     }
   ]
 }
