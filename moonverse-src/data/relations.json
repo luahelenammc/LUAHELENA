@@ -106,5 +106,95 @@
     "label": "precede em uma sequência biográfica frouxa",
     "evidence": "A relação marca uma sequência de memória — olhar, guardar, rearranjar e tornar navegável — sem alegar causalidade determinista entre infância e método.",
     "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "me-tornando-belongs-to-espelho",
+    "source": "me-tornando",
+    "target": "espelho-dagua",
+    "type": "belongs_to",
+    "label": "pertence ao Espelho d’Água",
+    "evidence": "A entrada trata de identidade, reconhecimento e transição sob fronteira autobiográfica sanitizada.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "nome-presenca-belongs-to-espelho",
+    "source": "nome-presenca",
+    "target": "espelho-dagua",
+    "type": "belongs_to",
+    "label": "pertence ao Espelho d’Água",
+    "evidence": "A entrada trata de nome, reconhecimento cívico e presença pública.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "nome-presenca-develops-me-tornando",
+    "source": "nome-presenca",
+    "target": "me-tornando",
+    "type": "develops_into",
+    "label": "desdobra reconhecimento em presença pública",
+    "evidence": "O primeiro texto apresenta o reconhecimento identitário; o segundo mostra como essa verdade atravessa linguagem, documentos e vida compartilhada.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "casa-arca-belongs-to-santuario",
+    "source": "casa-arca",
+    "target": "jardim-santuario",
+    "type": "belongs_to",
+    "label": "pertence ao Jardim-Santuário",
+    "evidence": "A casa-arca é formulada como refúgio multiespécie, família possível e arquitetura de proteção do vivo.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "casa-arca-shares-ecologia",
+    "source": "casa-arca",
+    "target": "ecologia-espiritual",
+    "type": "shares_motif",
+    "label": "compartilha o motivo do cuidado multiespécie",
+    "evidence": "Ambas as entradas recusam natureza como cenário e tratam proteção do vivo como forma de relação e território.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "hecate-belongs-to-santuario",
+    "source": "hecate",
+    "target": "jardim-santuario",
+    "type": "belongs_to",
+    "label": "pertence ao Jardim-Santuário",
+    "evidence": "Hécate é apresentada como linguagem simbólica de limiar, proteção e travessia.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "hecate-shares-ecologia",
+    "source": "hecate",
+    "target": "ecologia-espiritual",
+    "type": "shares_motif",
+    "label": "compartilha a ética de fronteira e proteção",
+    "evidence": "A relação aproxima o operador simbólico de proteção do território espiritual/ecológico sem transformar uma entrada em prova da outra.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "casa-arca-shares-hecate",
+    "source": "casa-arca",
+    "target": "hecate",
+    "type": "shares_motif",
+    "label": "compartilha o motivo do santuário protegido",
+    "evidence": "A casa-arca formula o recinto; Hécate formula a fronteira e o critério de passagem desse recinto.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "lithia-belongs-to-atelie",
+    "source": "lithia",
+    "target": "atelie-de-lithia",
+    "type": "belongs_to",
+    "label": "pertence ao Ateliê de Líthia",
+    "evidence": "A entrada inaugura a ala literária e apresenta a função pública do universo autoral.",
+    "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "lithia-influences-moonverse",
+    "source": "lithia",
+    "target": "moonverse",
+    "type": "influences",
+    "label": "influencia a imaginação territorial do Moonverse",
+    "evidence": "A arquitetura pública reconhece mundos autorais e espacialização narrativa como uma das linhagens do portal, sem confundir os dois projetos.",
+    "review_state": "approved_batch_b1"
   }
 ]

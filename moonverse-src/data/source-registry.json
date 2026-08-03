@@ -6,12 +6,36 @@
     "Portal Moonverse como experiência pública"
   ],
   "source_snapshots": [
-    {"path":"moonverse/data/pages.json","role":"legacy authored records","handling":"archived and migrated through ledger"},
-    {"path":"moonverse/data/manifest.json","role":"legacy publication metadata","handling":"translated into typed gate"},
-    {"path":"moonverse/data/rooms.json","role":"legacy thematic taxonomy","handling":"normalized as wings"},
-    {"path":"moonverse/data/memories.json","role":"legacy memory seeds","handling":"absorbed into entries or deferred"},
-    {"path":"moonverse/data/notion/","role":"Notion staging snapshots","handling":"kept in legacy; never copied into public build"},
-    {"path":"uploaded/welcometomycutelife BRUTO.txt","role":"historical source attachment","handling":"review required; not published"}
+    {
+      "path": "moonverse/data/pages.json",
+      "role": "legacy authored records",
+      "handling": "archived and migrated through ledger"
+    },
+    {
+      "path": "moonverse/data/manifest.json",
+      "role": "legacy publication metadata",
+      "handling": "translated into typed gate"
+    },
+    {
+      "path": "moonverse/data/rooms.json",
+      "role": "legacy thematic taxonomy",
+      "handling": "normalized as wings"
+    },
+    {
+      "path": "moonverse/data/memories.json",
+      "role": "legacy memory seeds",
+      "handling": "absorbed into entries or deferred"
+    },
+    {
+      "path": "moonverse/data/notion/",
+      "role": "Notion staging snapshots",
+      "handling": "kept in legacy; never copied into public build"
+    },
+    {
+      "path": "uploaded/welcometomycutelife BRUTO.txt",
+      "role": "historical source attachment",
+      "handling": "review required; not published"
+    }
   ],
   "public_gate": "status == published AND privacy in [public, sanitized_approved] AND publication_approved == true AND source_authority != empty AND reviewed_by_moon == true",
   "batch_a1_authority": [
@@ -41,9 +65,46 @@
       "handling": "original annotated synthesis; academic text not republished and personal project not institutionalized"
     }
   ],
-  "failed_uploads_not_used": [
-    "25 de Jun (At. em DEZ 25).txt",
-    "KAIROS (At. em DEZ 25).txt",
-    "moon - threads antigas.txt"
+  "failed_uploads_not_used": [],
+  "batch_b1_authority": [
+    {
+      "entry_id": "me-tornando",
+      "authority": "Me tornando eu mesma + 25 de Jun",
+      "handling": "síntese autobiográfica sanitizada; sem deadname, clínica, cirurgia ou terceiros"
+    },
+    {
+      "entry_id": "nome-presenca",
+      "authority": "Me tornando eu mesma + 25 de Jun + índice Moon Wiki",
+      "handling": "síntese cívica; sem documentos, protocolos ou falhas institucionais específicas"
+    },
+    {
+      "entry_id": "casa-arca",
+      "authority": "sonhos.py + santuário.py",
+      "handling": "horizonte imaginal sanitizado; sem nomes, localização, patrimônio ou promessa factual"
+    },
+    {
+      "entry_id": "hecate",
+      "authority": "santuário.py + threads antigas delimitadas + True_Moonverse.py",
+      "handling": "linguagem simbólica; sem experiências íntimas de morte/cemitério ou claims sobrenaturais"
+    },
+    {
+      "entry_id": "lithia",
+      "authority": "projeto autoral Crônicas de Líthia + True_Moonverse.py",
+      "handling": "porta pública sem inventar lore ou promover rascunhos a cânone"
+    }
+  ],
+  "newly_available_private_sources": [
+    {
+      "name": "25 de Jun (At. em DEZ 25).txt",
+      "handling": "bounded autobiographical evidence; raw text excluded from public build"
+    },
+    {
+      "name": "KAIROS (At. em DEZ 25).txt",
+      "handling": "available for future review; not needed for Batch B1 public claims"
+    },
+    {
+      "name": "moon - threads antigas.txt",
+      "handling": "bounded thematic evidence only; raw conversational material excluded"
+    }
   ]
 }

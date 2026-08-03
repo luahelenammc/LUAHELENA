@@ -12,17 +12,17 @@
     "notion_full_snapshots": 2,
     "notion_disposition_records": 2,
     "historical_blogger_title_records": 336,
-    "public_entries_built": 6,
-    "public_paths_built": 1,
+    "public_entries_built": 11,
+    "public_paths_built": 3,
     "dispositions_total": 32,
-    "deferred_or_review_required": 16,
+    "deferred_or_review_required": 10,
     "source_attachments_review_required": 1,
     "disposition_counts": {
+      "legacy_memory": 6,
       "legacy_page": 17,
       "legacy_room": 6,
-      "legacy_memory": 6,
-      "notion_snapshot": 1,
       "notion_record": 1,
+      "notion_snapshot": 1,
       "source_attachment": 1
     },
     "source_attachment_notes": {
@@ -68,25 +68,25 @@
       "kind": "legacy_page",
       "id": "me-tornando",
       "title": "Me tornando eu mesma",
-      "disposition": "sanitized_draft_authorized",
-      "reason": "Eixo trans público e sanitizável, mas exige revisão autoral linha a linha a partir do livro.",
-      "next_action": "aguardar revisão pública específica; não publicar nesta batch"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_page",
       "id": "casa-arca",
       "title": "Casa-arca",
-      "disposition": "restricted_curated_future",
-      "reason": "Projeto de futuro e intimidade com camada pública ainda não escolhida.",
-      "next_action": "manter fora do build até Moon escolher uma superfície pública"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_page",
       "id": "lithia",
       "title": "Crônicas de Líthia",
-      "disposition": "deferred_source_authority",
-      "reason": "A descrição legada não governa o cânone atual; depende de fonte ACL vigente.",
-      "next_action": "localizar e revisar o cânone atual antes de qualquer síntese"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_page",
@@ -132,9 +132,9 @@
       "kind": "legacy_page",
       "id": "hecate",
       "title": "Hécate no portão",
-      "disposition": "curated_symbolic_draft",
-      "reason": "Registro espiritual curado; precisa separar experiência pessoal, símbolo e tradição externa.",
-      "next_action": "fazer curadoria simbólica específica em rota posterior"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_page",
@@ -148,9 +148,9 @@
       "kind": "legacy_page",
       "id": "nome-presenca",
       "title": "Nome e presença",
-      "disposition": "sanitized_draft_authorized",
-      "reason": "Entrada de identidade possível, mas depende de síntese pública específica e exclusão de identificadores operacionais.",
-      "next_action": "redigir em batch posterior a partir de fonte pública atual"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_page",
@@ -220,9 +220,9 @@
       "kind": "legacy_room",
       "id": "lithia",
       "title": "Ateliê de Líthia",
-      "disposition": "migrated",
-      "reason": "Taxonomia normalizada como ala pública sem promover o cânone legado.",
-      "next_action": "aguardar fonte ACL vigente"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_memory",
@@ -252,9 +252,9 @@
       "kind": "legacy_memory",
       "id": "casa-arca",
       "title": "A casa-arca",
-      "disposition": "restricted_curated",
-      "reason": "Semente de futuro íntimo mantida fora do build.",
-      "next_action": "aguardar camada pública escolhida por Moon"
+      "disposition": "published",
+      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
+      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
     },
     {
       "kind": "legacy_memory",

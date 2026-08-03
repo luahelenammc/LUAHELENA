@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-review:
@@ -32,18 +32,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Apply governed Batch B1 when armed
-        if: github.head_ref == 'agent/moonverse-v2-b1' && hashFiles('.moonverse-b1-trigger') != ''
-        run: |
-          PYTHONPATH=. python3 .github/scripts/moonverse-b1-executor.py
-          rm -f .moonverse-b1-trigger
-          git show origin/main:.github/workflows/moonverse-review.yml > .github/workflows/moonverse-review.yml
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Add Moonverse V2 editorial batch B1'
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Build public artifact
         id: build

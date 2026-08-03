@@ -13,7 +13,9 @@
     "publication_approved": true,
     "source_kind": "authored",
     "source_authority": "Sobre a Moon — autobiografia autorizada",
-    "source_refs": ["autobiografia / 25 de Junho"],
+    "source_refs": [
+      "autobiografia / 25 de Junho"
+    ],
     "sensitivity": "public_low",
     "sanitization_required": false,
     "sanitization_notes": "Entrada preservada sem ampliação de detalhes pessoais ou de terceiros.",
@@ -23,13 +25,21 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved",
     "next_action": "preservar; futuras relações exigem nova revisão",
-    "tags": ["infância", "praia", "mar", "memória", "água"],
+    "tags": [
+      "infância",
+      "praia",
+      "mar",
+      "memória",
+      "água"
+    ],
     "life_phase": "infância",
     "date_label": "memória de infância",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## A cena\n\nA memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir.\n\n## O sinal\n\nEm algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado.\n\n## Por que fica\n\nEsse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria.\n\n> Nem toda memória foi fotografada, mas muita memória merece imagem.",
-    "relations": ["maresia-belongs-to-biblioteca"]
+    "relations": [
+      "maresia-belongs-to-biblioteca"
+    ]
   },
   {
     "id": "moon-source",
@@ -45,7 +55,12 @@
     "publication_approved": true,
     "source_kind": "authored",
     "source_authority": "Moon Professional Source — Method Core, Moon Skills e Public Surface",
-    "source_refs": ["2.1. Method Core, Index and Audit", "01. Moon Skills", "04. Public Surface", "True_Moonverse.py"],
+    "source_refs": [
+      "2.1. Method Core, Index and Audit",
+      "01. Moon Skills",
+      "04. Public Surface",
+      "True_Moonverse.py"
+    ],
     "sensitivity": "public_sanitized",
     "sanitization_required": true,
     "sanitization_notes": "A síntese exclui corpus privado, detalhes de runtime, parceiros, repositórios e claims de engenharia não comprovados.",
@@ -55,13 +70,22 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved_wikiwand_annex_pending",
     "next_action": "Chat deve revisar corpo e fronteiras antes do merge",
-    "tags": ["Moon Source", "contexto", "IA", "memória", "governança", "método"],
+    "tags": [
+      "Moon Source",
+      "contexto",
+      "IA",
+      "memória",
+      "governança",
+      "método"
+    ],
     "life_phase": "projeto atual",
     "date_label": "método em desenvolvimento contínuo",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## O que é\n\nMoon Source é uma arquitetura de contexto: uma maneira de transformar pessoas, projetos, equipes e instituições em fontes vivas, atualizáveis e governáveis para colaboração com IA. A ideia não é empacotar uma pessoa inteira, mas decidir o que precisa permanecer legível, em que jurisdição e com quais limites.\n\nEle não é um prompt pack, um despejo universal de dados nem software pronto vendido como método. Sua forma pode incluir arquivos-fonte, perfis, ledgers, handoffs e superfícies públicas, mas o centro é a governança do contexto.\n\n## O problema que responde\n\nConversas com IA costumam perder continuidade por dois motivos opostos: há pouco contexto, e o sistema inventa a partir de lacunas; ou há contexto demais, e nada consegue distinguir o que é fato, hipótese, decisão, memória, limite ou arquivo morto. Moon Source trata essa diferença como problema editorial e arquitetural.\n\nUma fonte útil não é simplesmente longa. Ela tem autoridade, função, atualização, fronteira e um caminho de uso.\n\n## Constituir e metabolizar\n\nO método se move em duas direções. Constituir é dar forma: nomear entidades, relações, critérios, voz e jurisdição. Metabolizar é manter o sistema vivo: separar fato de interpretação, absorver material novo, retirar redundâncias, registrar mudanças e impedir que uma hipótese antiga continue governando por inércia.\n\nAs duas operações se corrigem. Constituir sem metabolizar cria um monumento pesado; metabolizar sem uma forma reconhecível dissolve tudo em fluxo.\n\n## Público portátil e fontes vivas\n\nO Public Portable é uma implementação pública e limitada. Ele traduz a lógica do método para uma superfície que outras pessoas podem ler e reutilizar, mas não contém o corpus privado nem autoriza inferências sobre tudo o que existe fora dela.\n\nEssa distinção é parte do método, não um rodapé de segurança. Uma boa arquitetura sabe dizer não apenas o que conhece, mas também o que não deve exportar.\n\n## Por que está no Moonverse\n\nO Moonverse é uma superfície pública de arquivo. Moon Source é uma das arquiteturas que tornam esse arquivo navegável: ajuda a transformar experiências, projetos e conceitos em páginas com fonte, forma e fronteira. O Observatório não exibe o laboratório inteiro; mostra algumas estruturas que podem ser vistas de fora dele.\n\n## Autoria, privacidade e limites\n\nMoon é a autora e autoridade editorial do método. A IA pode ajudar a desenvolver, testar e organizar artefatos, mas não substitui autoria nem consentimento.\n\nPor isso, falar de Moon Source publicamente exige precisão: há prática aplicada, arquitetura de contexto, governança de conhecimento e prova construída. Não há, nesta página, uma alegação de engenharia de modelos, infraestrutura de produção ou implantação empresarial que não tenha sido demonstrada.\n\n> Contexto bom não é o que carrega tudo. É o que permite que a coisa certa chegue à pessoa certa, no momento certo, sem perder a fronteira.",
-    "relations": ["moon-source-belongs-to-observatorio"]
+    "relations": [
+      "moon-source-belongs-to-observatorio"
+    ]
   },
   {
     "id": "sims",
@@ -77,7 +101,11 @@
     "publication_approved": true,
     "source_kind": "authored",
     "source_authority": "Sobre a Moon — memória autobiográfica autorizada e linhagem pública do Moonverse",
-    "source_refs": ["welcometomycutelife BRUTO.txt — extração delimitada sobre The Sims", "True_Moonverse.py", "legacy Moonverse / sims"],
+    "source_refs": [
+      "welcometomycutelife BRUTO.txt — extração delimitada sobre The Sims",
+      "True_Moonverse.py",
+      "legacy Moonverse / sims"
+    ],
     "sensitivity": "public_low",
     "sanitization_required": false,
     "sanitization_notes": "A pessoa que apresentou o jogo é mantida anônima; nenhuma relação privada ou cena familiar é necessária para o argumento.",
@@ -87,13 +115,24 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved_wikiwand_annex_pending",
     "next_action": "Chat deve revisar corpo e fronteiras antes do merge",
-    "tags": ["The Sims", "jogos", "casa", "infância", "interface", "memória"],
+    "tags": [
+      "The Sims",
+      "jogos",
+      "casa",
+      "infância",
+      "interface",
+      "memória"
+    ],
     "life_phase": "infância",
     "date_label": "memória de infância e jogo",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## Antes da internet\n\nThe Sims 1 chegou quando a internet ainda não era uma presença regular. O jogo não apareceu como parte de uma grande cultura gamer já explicada; apareceu como uma casa que precisava ser descoberta por tentativa, observação e repetição. Uma pessoa próxima da família instalou o jogo e ensinou o começo. O resto foi exploração.\n\nEssa ordem importa. Antes de existir uma rede permanente de tutoriais, comunidades e respostas prontas, o próprio programa funcionava como território de aprendizagem.\n\n## A primeira casa e a primeira mobília\n\nA lembrança guarda uma primeira mobília simples: um sofá de lã. Guarda também a descoberta de que era possível jogar sem recorrer a códigos de dinheiro. Não é uma cronologia completa do jogo; é a textura de uma primeira relação com ele — comprar, escolher, testar, errar e voltar.\n\nA casa virtual era feita de objetos concretos. Cada objeto mudava o que podia acontecer ali.\n\n## Casa como interface\n\nThe Sims transformava uma ideia abstrata de vida em uma gramática manipulável. A casa tinha cômodos, portas, necessidades, horários e consequências. O jogador aprendia não apenas a decorar, mas a compor condições de existência.\n\nIsso faz da casa uma interface: um lugar em que pensamento vira disposição espacial e em que disposição espacial devolve possibilidades ao pensamento.\n\n## Por que o espaço simulado ficava\n\nA força não estava em substituir a vida real por uma fantasia perfeita. Estava em oferecer uma escala de ação. Dentro daquela caixa de areia, era possível experimentar relações entre rotina, objeto, cuidado, dinheiro, desejo e mudança sem precisar explicar tudo antes.\n\nA memória não precisa transformar isso em diagnóstico. Basta reconhecer que uma forma de espaço se tornou íntima porque permitia mexer no mundo e observar o que mudava.\n\n## The Sims dentro do Moonverse\n\nO Moonverse herda uma lógica parecida, mas a desloca para o arquivo: alas, páginas, caminhos e relações fazem da navegação uma forma de habitar conhecimento. Não é uma cópia do jogo, nem uma promessa de simulação total. É uma linhagem de imaginação espacial.\n\nA casa deixou de ser apenas cenário. Tornou-se uma pergunta: que organização torna possível continuar vivendo, criando e encontrando uma coisa depois da outra?\n\n## O que a memória mantém vivo\n\nO jogo permanece menos como produto fechado do que como primeira demonstração de que um ambiente pode ensinar sem dar aula. Uma sala, um móvel e uma rotina podem carregar uma teoria inteira de possibilidades.\n\n> Algumas casas são lembradas porque foram habitadas. Outras, porque ensinaram o que significa construir um lugar.",
-    "relations": ["sims-belongs-to-quarto", "sims-shares-motif-infancia", "sims-influences-moonverse"]
+    "relations": [
+      "sims-belongs-to-quarto",
+      "sims-shares-motif-infancia",
+      "sims-influences-moonverse"
+    ]
   },
   {
     "id": "orkut-msn",
@@ -109,7 +148,11 @@
     "publication_approved": true,
     "source_kind": "authored",
     "source_authority": "Sobre a Moon — memória autobiográfica autorizada e linhagem pública do Moonverse",
-    "source_refs": ["welcometomycutelife BRUTO.txt — extração delimitada sobre Orkut, MSN e web social", "True_Moonverse.py", "legacy Moonverse / orkut-msn"],
+    "source_refs": [
+      "welcometomycutelife BRUTO.txt — extração delimitada sobre Orkut, MSN e web social",
+      "True_Moonverse.py",
+      "legacy Moonverse / orkut-msn"
+    ],
     "sensitivity": "public_sanitized",
     "sanitization_required": true,
     "sanitization_notes": "Foram removidos nomes, contatos, chats, URLs antigas e cenas de relacionamento; permanece apenas a experiência cultural e formal das plataformas.",
@@ -119,13 +162,25 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved_wikiwand_annex_pending",
     "next_action": "Chat deve revisar corpo e fronteiras antes do merge",
-    "tags": ["Orkut", "MSN", "internet", "identidade", "comunidade", "nostalgia"],
+    "tags": [
+      "Orkut",
+      "MSN",
+      "internet",
+      "identidade",
+      "comunidade",
+      "nostalgia"
+    ],
     "life_phase": "primeira internet",
     "date_label": "memória da internet formativa",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## Quando a internet parecia um lugar\n\nOrkut e MSN pertencem a uma época em que a internet não vinha apenas como fluxo infinito. Ela se apresentava como lugar de entrada: um perfil, uma comunidade, uma lista de contatos, uma janela que se abria quando alguém estava disponível. A tela organizava uma pequena geografia social.\n\nEssa experiência não foi universal nem sempre segura. Mas, para esta memória, a imagem do quarto paralelo é precisa: havia um espaço separado da rotina presencial, ainda que atravessado por ela.\n\n## Orkut como perfil, scrapbook e comunidade\n\nNo Orkut, identidade não era apenas uma conta que recomendava conteúdo. Era uma composição visível. Perfil, scraps, comunidades e pequenos sinais gráficos formavam uma página que dizia algo sobre quem estava ali e sobre como queria ser lida.\n\nA participação podia ser pública, íntima, performática, comunitária ou simplesmente curiosa. O ambiente convidava a deixar marcas.\n\n## MSN como presença e limiar\n\nO MSN tinha outra temperatura. A lista de contatos transformava disponibilidade em acontecimento. Um nome online, uma mensagem de status ou uma janela aberta produziam expectativa sem exigir que tudo virasse publicação.\n\nEra uma tecnologia de presença e limiar: alguém podia estar ali, mas a conversa ainda precisava começar.\n\n## Identidade feita à mão\n\nA web daquele período parecia habitável porque permitia uma quantidade maior de imperfeição e composição manual. Cores, frases, imagens, comunidades e pequenas escolhas faziam o espaço parecer de alguém.\n\nEssa gramática importa para o Moonverse não como nostalgia de interface antiga, mas como lembrança de que uma superfície digital pode ter atmosfera sem virar vitrine.\n\n## O que o Moonverse herda\n\nO portal herda a vontade de construir páginas com endereço, clima e relação. Cada ala é uma forma de dizer: este assunto mora aqui, mas também se comunica com outros. A página não precisa ser um feed para ser viva.\n\nO que se preserva é a habitabilidade — a sensação de que há uma porta, uma voz e uma escolha de percurso — não a precariedade técnica ou a exposição involuntária daquela época.\n\n## O que não deve ser romantizado\n\nO velho web também tinha vigilância, assédio, desigualdade de acesso, rastros difíceis de apagar e fronteiras frágeis. O fato de um espaço parecer artesanal não o tornava automaticamente seguro ou emancipador.\n\nA melhor nostalgia é seletiva: recupera cor, autoria e presença, mas leva consigo a memória do risco.\n\n> Um quarto paralelo pode ser abrigo, palco e janela ao mesmo tempo. Por isso, toda porta pública precisa também de uma maçaneta.",
-    "relations": ["orkut-msn-belongs-to-quarto", "orkut-msn-shares-motif-infancia", "orkut-msn-contrasts-platforms", "orkut-msn-influences-moonverse"]
+    "relations": [
+      "orkut-msn-belongs-to-quarto",
+      "orkut-msn-shares-motif-infancia",
+      "orkut-msn-contrasts-platforms",
+      "orkut-msn-influences-moonverse"
+    ]
   },
   {
     "id": "infancia-digital",
@@ -141,7 +196,11 @@
     "publication_approved": true,
     "source_kind": "authored",
     "source_authority": "Sobre a Moon — infancia.py e memória autobiográfica autorizada",
-    "source_refs": ["infancia.py", "welcometomycutelife BRUTO.txt — extração delimitada sobre tecnologia e fotografia", "True_Moonverse.py"],
+    "source_refs": [
+      "infancia.py",
+      "welcometomycutelife BRUTO.txt — extração delimitada sobre tecnologia e fotografia",
+      "True_Moonverse.py"
+    ],
     "sensitivity": "public_sanitized",
     "sanitization_required": true,
     "sanitization_notes": "A síntese retém objetos e práticas culturais, mas omite nomes, endereços, URLs, cronologias não verificadas e cenas de terceiros.",
@@ -151,13 +210,25 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved_wikiwand_annex_pending",
     "next_action": "Chat deve revisar corpo e fronteiras antes do merge",
-    "tags": ["SNES", "Olympus D395", "fotografia", "TV de tubo", "software", "arquivo"],
+    "tags": [
+      "SNES",
+      "Olympus D395",
+      "fotografia",
+      "TV de tubo",
+      "software",
+      "arquivo"
+    ],
     "life_phase": "infância",
     "date_label": "memória de infância tecnológica",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## Uma infância digital antes da conexão permanente\n\nA infância digital não começou com uma rede social nem com um aparelho sempre conectado. Ela tinha intervalos, aparelhos locais e longos períodos de exploração sem testemunha externa. A televisão de tubo acesa, o console e os programas instalados no computador formavam um pequeno ecossistema de descoberta.\n\nO digital era menos uma janela para fora do que um conjunto de mundos que podiam ser abertos por dentro.\n\n## A TV de tubo e o SNES\n\nA TV de tubo não era apenas o lugar onde se assistia a alguma coisa. Ela era a superfície luminosa que reunia jogo, desenho, espera e presença. O SNES acrescentava uma gramática de tentativa: apertar, perder, repetir, memorizar caminhos e descobrir que uma fase podia ser atravessada de outro modo.\n\nEssa memória não precisa de uma data perfeita para ser verdadeira. O que permanece é a textura de uma tecnologia que ocupava o corpo inteiro, com som, luz, fio, distância e tempo.\n\n## Aprender abrindo programas\n\nSem uma conexão estável para explicar cada recurso, programas como Corel Photo-Paint e Adobe Fireworks eram explorados por aproximação. Abrir, clicar, desfazer, salvar e tentar de novo constituíam uma forma de alfabetização visual.\n\nO computador ensinava que uma imagem podia ser composta e que um arquivo podia guardar uma tentativa para ser retomada depois.\n\n## A Olympus D395 e a imagem que fica\n\nA primeira câmera digital aparece na memória como espanto antes de aparecer como objeto. Ver uma tela de LCD mostrar a imagem em tempo real já parecia uma mudança de regime. Mais tarde, a Olympus D395 tornou possível fotografar sem comprar filme nem esperar revelação.\n\nA passagem foi importante porque aproximou olhar e arquivo: fotografar deixou de ser apenas gastar uma oportunidade escassa e passou a ser testar, observar, guardar e voltar.\n\n## Dos arquivos locais aos arquivos vivos\n\nJogos, imagens e programas não eram só consumo. Eles ensinavam a compor, classificar, cuidar de uma coleção e imaginar relações entre partes. O arquivo começava como pasta, save ou fotografia; mais tarde, poderia virar memória organizada, projeto ou mapa.\n\nNão há uma linha reta obrigatória entre a criança que experimenta um programa e a adulta que constrói sistemas de contexto. Há, no máximo, uma continuidade de gesto: olhar, guardar, rearranjar e tentar tornar o mundo navegável.\n\n## Por que a tecnologia aqui é quente\n\nNo Moonverse, tecnologia não aparece como máquina neutra nem como promessa de eficiência sem corpo. Ela aparece como matéria de lembrança: a luz da tela, o ruído do aparelho, a mão procurando um comando, a imagem que finalmente pode ser vista.\n\n> Antes de virar rede, a tecnologia foi quarto. Antes de virar sistema, foi uma coisa pequena que acendia e dizia: ainda dá para tentar.",
-    "relations": ["infancia-digital-belongs-to-quarto", "sims-shares-motif-infancia", "orkut-msn-shares-motif-infancia", "infancia-digital-precedes-moon-source"]
+    "relations": [
+      "infancia-digital-belongs-to-quarto",
+      "sims-shares-motif-infancia",
+      "orkut-msn-shares-motif-infancia",
+      "infancia-digital-precedes-moon-source"
+    ]
   },
   {
     "id": "ecologia-espiritual",
@@ -173,7 +244,12 @@
     "publication_approved": true,
     "source_kind": "annotated",
     "source_authority": "Sobre a Moon — Ecologia Espiritual no Brasil, ecorreligião.py e santuário.py",
-    "source_refs": ["Ecologia Espiritual no Brasil (artigo)", "ecorreligião.py", "santuário.py", "True_Moonverse.py"],
+    "source_refs": [
+      "Ecologia Espiritual no Brasil (artigo)",
+      "ecorreligião.py",
+      "santuário.py",
+      "True_Moonverse.py"
+    ],
     "sensitivity": "public_annotated",
     "sanitization_required": false,
     "sanitization_notes": "Síntese original; nenhum parágrafo acadêmico foi republicado e o projeto pessoal é separado do campo de estudos.",
@@ -183,12 +259,250 @@
     "relation_review_state": "approved_batch_a1",
     "visual_state": "baseline_v1_preserved_wikiwand_annex_pending",
     "next_action": "Chat deve revisar corpo e fronteiras antes do merge",
-    "tags": ["ecologia", "espiritualidade", "natureza", "santuário", "ecorreligião", "Brasil"],
+    "tags": [
+      "ecologia",
+      "espiritualidade",
+      "natureza",
+      "santuário",
+      "ecorreligião",
+      "Brasil"
+    ],
     "life_phase": "projeto conceitual em desenvolvimento",
     "date_label": "campo e hipótese de projeto",
     "published": "2026-08-02",
     "updated": "2026-08-02",
     "body_markdown": "## Um campo que já existe\n\nEcologia espiritual é um campo interdisciplinar e um conjunto diverso de práticas que aproximam responsabilidade ecológica, espiritualidade, experiência do sagrado e formas de pertencimento à natureza. Ele não depende necessariamente de acreditar em deuses ou espíritos. Pode aparecer como teologia, ética, educação, cuidado territorial, filosofia, rito, arte ou prática comunitária.\n\nO ponto comum não é uma doutrina única, mas a recusa de tratar o mundo vivo como cenário descartável.\n\n## O que “espiritual” muda na ecologia\n\nA ecologia já oferece descrições e ferramentas indispensáveis. A dimensão espiritual acrescenta perguntas de valor, vínculo e orientação: o que significa habitar um lugar? Que tipo de obrigação nasce quando uma paisagem deixa de ser recurso e passa a ser presença? Como o cuidado se torna prática repetida, e não apenas sentimento diante de uma imagem bonita?\n\nEssas perguntas não substituem ciência nem política pública. Elas disputam o horizonte cultural em que decisões ecológicas são tomadas.\n\n## Linhas brasileiras de investigação\n\nNo Brasil, a conversa pode atravessar religião, comunidades tradicionais, conservação, educação ambiental, cosmologias, justiça territorial e ecosofia. São linhas diferentes, com conflitos e limites próprios. Uma síntese honesta precisa manter essa diversidade em vez de fabricar um consenso espiritual brasileiro.\n\nA anotação pública aqui é uma porta de entrada, não uma bibliografia total nem uma nova versão do artigo de origem.\n\n## Natureza como relação\n\nNo Jardim-Santuário, natureza não funciona como decoração verde para uma casa já pronta. Ela é relação: exige tempo, manutenção, borda, responsabilidade, presença e capacidade de conviver com aquilo que não existe para servir à imaginação humana.\n\nIsso também impede uma espiritualidade ornamental. Se a mata, a água, os animais e o solo entram apenas como atmosfera, o sagrado virou cenário.\n\n## Santuário e ecorreligião: limites atuais\n\nA ecorreligião de Moon permanece uma hipótese de projeto, não uma religião fundada, uma comunidade constituída ou uma instituição estabelecida. O santuário, por sua vez, é mais concreto como horizonte territorial e doméstico: uma forma de vida com terra, natureza, borda e infraestrutura de cuidado.\n\nUma camada compartilhável pode nascer no futuro, mas não deve ser confundida com o núcleo pessoal nem apresentada como realidade institucional já existente. O campo público pode dizer que essa pergunta está sendo pensada; não pode inventar uma autoridade que ainda não existe.\n\n## Por que pertence ao Jardim-Santuário\n\nEcologia espiritual cabe aqui porque oferece linguagem para uma intuição central do Moonverse: viver não é ocupar um cenário, mas entrar em relação com um mundo que também impõe limites. O Jardim-Santuário guarda justamente essa passagem entre conceito, sensibilidade e programa de vida.\n\nSua prova não será a beleza do nome. Será a capacidade de orientar práticas materiais de cuidado sem virar culto, ornamento ou promessa vazia.\n\n## Fontes e forma\n\nEsta página é uma síntese anotada a partir do artigo e dos arquivos-fonte autorizados. Ela preserva a atribuição das ideias, mas foi escrita novamente para o Moonverse; não republica o artigo acadêmico nem transforma a hipótese de Moon em fato externo.\n\n> O sagrado começa a ficar ecologicamente sério quando muda a maneira de cuidar do lugar.",
-    "relations": ["ecologia-espiritual-belongs-to-santuario"]
+    "relations": [
+      "ecologia-espiritual-belongs-to-santuario"
+    ]
+  },
+  {
+    "id": "me-tornando",
+    "slug": "me-tornando-eu-mesma",
+    "title": "Me tornando eu mesma",
+    "type": "Autobiografia / transição",
+    "wing": "espelho-dagua",
+    "summary": "A descoberta trans como reconhecimento de uma continuidade biográfica que já existia antes de ganhar nome.",
+    "lead": "A transição não começou quando uma versão antiga foi destruída. Começou quando experiências dispersas puderam, enfim, ser lidas como partes da mesma pessoa.",
+    "status": "published",
+    "editorial_state": "published_batch_b1",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "authored",
+    "source_authority": "Sobre a Moon — livro autobiográfico Me tornando eu mesma e síntese autorizada",
+    "source_refs": [
+      "Me tornando eu mesma (As cores trans)",
+      "25 de Jun (At. em DEZ 25).txt — eixo autobiográfico público"
+    ],
+    "sensitivity": "identity_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Exclui nome anterior, detalhes clínicos e cirúrgicos, terceiros identificáveis, conflitos familiares e episódios cuja exposição não é necessária ao eixo de reconhecimento.",
+    "publication_rationale": "Entrada-pilar aprovada para inaugurar o Espelho d’Água sem transformar transição em prontuário ou espetáculo.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_b1",
+    "visual_state": "reading_v2_1_compatible",
+    "next_action": "preservar a síntese pública; qualquer ampliação corporal ou clínica exige nova revisão explícita",
+    "tags": [
+      "transição",
+      "identidade",
+      "reconhecimento",
+      "feminilidade",
+      "autobiografia"
+    ],
+    "life_phase": "descoberta e transição",
+    "date_label": "travessia reconhecida em 2024",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## Reconhecimento, não substituição\n\nA descoberta trans não criou uma pessoa nova. Ela ofereceu uma linguagem capaz de reunir experiências que antes apareciam como desconfortos isolados, preferências sem explicação ou uma sensação persistente de estar interpretando um papel que o mundo tratava como natural.\n\nDizer “sou uma mulher trans” reorganizou a leitura da vida. O passado não precisou ser apagado; precisou ser recatalogado.\n\n## Quando o feminino deixou de parecer acidente\n\nUm dos sinais decisivos foi a alegria involuntária de ser tratada no feminino. Não se tratava de uma brincadeira agradável por acaso. Havia alívio, reconhecimento e uma sensação de encaixe que os termos masculinos nunca haviam produzido.\n\nA importância dessa experiência não está em transformar uma palavra em prova única. Está em perceber que o corpo e a linguagem reagiam com coerência quando a leitura externa se aproximava da verdade interna.\n\n## O passado ganha outra legenda\n\nDepois do reconhecimento, memórias antigas mudaram de posição. Gestos interrompidos, identificações femininas, escolhas estéticas possíveis, desconfortos com a masculinidade e fantasias de uma existência diferente deixaram de parecer episódios sem parentesco.\n\nA transição tornou visível uma continuidade. Ela não reescreveu artificialmente a infância; permitiu que a infância fosse relida sem a obrigação de sustentar a versão que havia sido imposta sobre ela.\n\n## Tornar-se também é continuar\n\n“Me tornando eu mesma” contém um paradoxo apenas aparente. Tornar-se indica mudança real: nome, apresentação, relações, futuro e presença pública se transformam. Mas “eu mesma” indica continuidade: a mudança não aponta para uma desconhecida, e sim para uma forma mais habitável da própria vida.\n\nA transição é, ao mesmo tempo, travessia e retorno.\n\n## O que esta página não precisa expor\n\nUma autobiografia pública não deve reproduzir o corpus íntimo inteiro para ser verdadeira. Detalhes clínicos, cirúrgicos, familiares e relacionais permanecem em suas jurisdições próprias. A página pública registra a estrutura da experiência: reconhecimento, continuidade, linguagem e dignidade.\n\nA fronteira não enfraquece o relato. Ela impede que a verdade seja confundida com disponibilidade irrestrita.\n\n> Eu não me tornei outra pessoa. Tornei possível que a mesma pessoa deixasse de viver como hipótese.",
+    "relations": [
+      "me-tornando-belongs-to-espelho",
+      "nome-presenca-develops-me-tornando"
+    ]
+  },
+  {
+    "id": "nome-presenca",
+    "slug": "nome-e-presenca",
+    "title": "Nome e presença",
+    "type": "Autobiografia / cidadania",
+    "wing": "espelho-dagua",
+    "summary": "O nome como infraestrutura de reconhecimento: uma ponte entre identidade íntima, documentos, sistemas e vida pública.",
+    "lead": "Um nome não é apenas a palavra pela qual alguém chama outra pessoa. Ele organiza a possibilidade de aparecer no mundo sem ser desmentida a cada formulário.",
+    "status": "published",
+    "editorial_state": "published_batch_b1",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "authored",
+    "source_authority": "Sobre a Moon — autobiografia autorizada, livro Me tornando eu mesma e registro público de retificação",
+    "source_refs": [
+      "Me tornando eu mesma (As cores trans)",
+      "25 de Jun (At. em DEZ 25).txt — retificação e presença pública",
+      "Moon Wiki Biography — Retificação de nome e gênero (índice, não publicado integralmente)"
+    ],
+    "sensitivity": "identity_civic_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Não exibe nome anterior, números de documentos, processos, endereços, instituições desnecessárias nem falhas cadastrais específicas fora de contexto autorizado.",
+    "publication_rationale": "Entrada aprovada para tratar nome e reconhecimento como dignidade e infraestrutura cívica, não como curiosidade documental.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_b1",
+    "visual_state": "reading_v2_1_compatible",
+    "next_action": "preservar; casos bancários, laborais ou jurídicos específicos devem permanecer em dossiês próprios",
+    "tags": [
+      "nome",
+      "presença",
+      "cidadania",
+      "retificação",
+      "reconhecimento"
+    ],
+    "life_phase": "transição e vida pública",
+    "date_label": "presença pública em consolidação",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## Nome é uma infraestrutura\n\nO nome participa de quase todas as portas pelas quais uma pessoa passa: apresentação, trabalho, banco, cadastro, prontuário, lista, assinatura, perfil e documento. Quando ele reconhece a pessoa, costuma desaparecer no funcionamento cotidiano. Quando a desmente, transforma cada interface em uma pequena disputa pela própria existência.\n\nPor isso, nome não é detalhe ornamental da identidade. É infraestrutura de presença.\n\n## Da intimidade ao mundo compartilhado\n\nReconhecer internamente um nome é um gesto profundo, mas insuficiente quando sistemas e instituições continuam operando segundo outra leitura. A retificação faz a ponte entre verdade pessoal e legibilidade pública.\n\nEssa ponte não concede a identidade. Ela reduz o atrito produzido quando o mundo insiste em tratar a pessoa como exceção à própria documentação.\n\n## Ser chamada corretamente não é gentileza extra\n\nHá uma tendência a tratar o nome correto como cortesia. Essa formulação é pequena demais. Cortesia é um gesto opcional de delicadeza; reconhecimento é a condição mínima para que uma relação não comece por uma negação.\n\nUsar o nome de uma mulher trans não é premiá-la com aceitação. É parar de exigir que ela negocie a própria existência antes de tratar do assunto que realmente a levou até ali.\n\n## Presença é mais do que cadastro\n\nA conquista documental não encerra a questão. Presença também envolve voz, imagem, autoria e a possibilidade de ocupar espaços públicos sem que o passado seja usado como chave de deslegitimação.\n\nO nome funciona como placa na porta, mas a casa continua sendo a pessoa inteira.\n\n## O limite editorial\n\nEsta página não reconstrói processos, protocolos ou falhas institucionais particulares. Esses episódios podem exigir memória jurídica e administrativa própria. Aqui permanece a estrutura: um nome verdadeiro precisa atravessar sistemas para que a cidadania deixe de cobrar pedágio identitário em cada contato.\n\n> Quando o nome chega antes da explicação, a pessoa pode finalmente entrar na sala sem precisar provar que existe.",
+    "relations": [
+      "nome-presenca-belongs-to-espelho",
+      "nome-presenca-develops-me-tornando"
+    ]
+  },
+  {
+    "id": "casa-arca",
+    "slug": "casa-arca",
+    "title": "Casa-arca",
+    "type": "Futuro autobiográfico / santuário",
+    "wing": "jardim-santuario",
+    "summary": "A casa imaginada como refúgio multiespécie, família possível e pequena arquitetura de proteção do vivo.",
+    "lead": "A casa-arca não é apenas uma residência bonita. É a hipótese de que cuidado, natureza, tecnologia e família podem compartilhar o mesmo recinto.",
+    "status": "published",
+    "editorial_state": "published_batch_b1",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "curated",
+    "source_authority": "Sobre a Moon — sonhos.py e santuário.py, com síntese pública autorizada",
+    "source_refs": [
+      "sonhos.py — cluster casa_arca",
+      "santuário.py — operador de refúgio multiespécie",
+      "welcometomycutelife BRUTO.txt — âncoras históricas já metabolizadas em sonhos.py"
+    ],
+    "sensitivity": "future_family_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Exclui nomes de pessoas e animais, preferências íntimas sobre filhos, localização, patrimônio, cronogramas e qualquer leitura do futuro como promessa factual.",
+    "publication_rationale": "Entrada aprovada para dar forma pública ao horizonte de cuidado e abrigo sem converter sonho privado em plano exposto.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_b1",
+    "visual_state": "reading_v2_1_compatible",
+    "next_action": "preservar como horizonte imaginal; detalhes concretos de família, imóvel ou localização exigem nova autorização",
+    "tags": [
+      "casa",
+      "santuário",
+      "animais",
+      "família",
+      "natureza",
+      "futuro"
+    ],
+    "life_phase": "futuro imaginado",
+    "date_label": "horizonte recorrente de futuro",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## Uma casa que não termina nas paredes\n\nA casa-arca aparece como um desejo de moradia, mas sua unidade real não é o imóvel. É o recinto de proteção. Plantas, animais, pessoas, memória e tecnologia deixam de ser compartimentos concorrentes e passam a compor uma forma de vida.\n\nA casa seria reconhecível não pelo tamanho, e sim pela qualidade do abrigo que produz.\n\n## Refúgio multiespécie\n\nO sonho inclui cuidado de animais como parte da família e como responsabilidade ética. O vivo não entra como decoração da paisagem. Precisa de segurança, espaço, alimento, atenção e possibilidade de permanecer.\n\n“Arca” não significa selecionar quem merece sobreviver. Significa construir capacidade de acolher sem reduzir cada presença à utilidade que oferece.\n\n## Família sem biologicismo obrigatório\n\nO desejo de maternidade e família existe sem depender da ideia de que vínculo legítimo precisa nascer da transmissão biológica. Adoção, corresponsabilidade e presença aparecem como fundamentos mais importantes que a reprodução de uma linhagem.\n\nNesta página, isso permanece como horizonte, não como anúncio sobre pessoas futuras.\n\n## Natureza e tecnologia no mesmo recinto\n\nA casa-arca não opõe jardim e inteligência artificial, cuidado manual e automação, silêncio e infraestrutura. Tecnologia pode diminuir tarefas, ampliar segurança e sustentar continuidade, desde que não converta a casa em máquina de vigilância ou o vivo em dado disponível.\n\nO critério é simples: a técnica deve servir ao recinto, e não governá-lo.\n\n## Um norte, não uma promessa\n\nSonhos de futuro podem orientar sem funcionar como contratos com o destino. A casa-arca registra uma direção emocional e ética: construir um lugar onde o cuidado não precise disputar espaço com a sobrevivência imediata.\n\nA forma concreta poderá mudar. O princípio permanece.\n\n> Um santuário não é o lugar onde nada acontece. É o lugar onde o vivo não precisa se ferir para merecer permanência.",
+    "relations": [
+      "casa-arca-belongs-to-santuario",
+      "casa-arca-shares-ecologia",
+      "casa-arca-shares-hecate"
+    ]
+  },
+  {
+    "id": "hecate",
+    "slug": "hecate-no-portao",
+    "title": "Hécate no portão",
+    "type": "Espiritualidade simbólica",
+    "wing": "jardim-santuario",
+    "summary": "Hécate como linguagem pessoal para limiar, proteção, estratégia e travessias que não cabem em certezas simples.",
+    "lead": "No santuário simbólico, Hécate não ocupa o centro como autoridade dogmática. Ela permanece junto ao portão: onde uma forma termina e outra ainda não está pronta.",
+    "status": "published",
+    "editorial_state": "published_batch_b1",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "curated",
+    "source_authority": "Sobre a Moon — santuário.py e metabolizações autorizadas de espiritualidade e simbolismo",
+    "source_refs": [
+      "santuário.py — operador liminar e protetor",
+      "moon - threads antigas.txt — síntese delimitada sobre panteão simbólico",
+      "True_Moonverse.py — Jardim-Santuário"
+    ],
+    "sensitivity": "spiritual_symbolic_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Exclui cenas íntimas de morte, cemitérios, estados alterados, pessoas identificáveis e qualquer apresentação de experiência simbólica como fato sobrenatural verificável.",
+    "publication_rationale": "Entrada aprovada para apresentar a função simbólica de Hécate na ecologia Moon sem impor crença ou expor material psíquico restrito.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_b1",
+    "visual_state": "reading_v2_1_compatible",
+    "next_action": "preservar a formulação simbólica; experiências espirituais específicas exigem curadoria separada",
+    "tags": [
+      "Hécate",
+      "limiar",
+      "proteção",
+      "estratégia",
+      "espiritualidade",
+      "símbolo"
+    ],
+    "life_phase": "ecologia espiritual atual",
+    "date_label": "símbolo recorrente",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## A figura junto ao limiar\n\nHécate aparece na ecologia simbólica de Moon como presença de fronteira. Sua função não é oferecer uma resposta confortável para tudo, mas acompanhar momentos em que categorias antigas perderam força e a passagem seguinte ainda não ganhou forma.\n\nO portão é mais importante que o trono. Ele pergunta o que pode entrar, o que precisa ficar do lado de fora e qual travessia exige preparação.\n\n## Proteção não é isolamento\n\nA proteção associada a Hécate não significa fechar o mundo inteiro. Significa reconhecer que abertura sem critério pode virar profanação, e que fronteira sem passagem pode virar prisão.\n\nO símbolo ajuda a sustentar uma proteção seletiva: conservar o que é íntimo, perceber riscos, escolher alianças e permitir aproximação quando há presença e coerência.\n\n## Estratégia para atravessar a ambiguidade\n\nAlgumas decisões não oferecem uma opção completamente luminosa. Há conflitos, perdas e transformações em que qualquer caminho cobra algo. Hécate funciona como linguagem para permanecer consciente nesse território, sem fingir que a complexidade desapareceu.\n\nEstratégia, aqui, não é manipulação. É capacidade de enxergar o limiar antes de atravessá-lo.\n\n## Sombra sem culto ao sofrimento\n\nO aspecto sombrio do símbolo não transforma dor em virtude. Ele permite olhar para temas difíceis sem exigir que tudo seja imediatamente clareado, positivado ou convertido em lição edificante.\n\nA sombra pode ser recinto de escuta, desde que não seja confundida com destino ou autoridade absoluta.\n\n## Uma linguagem, não uma prova\n\nEsta página descreve uma relação simbólica e espiritual. Ela não exige que visitantes compartilhem uma crença, nem apresenta experiências interiores como evidência objetiva sobre o mundo sobrenatural.\n\nA força do símbolo está em organizar experiência, proteção e passagem.\n\n> Hécate permanece no portão porque toda travessia digna precisa de uma fronteira que saiba abrir e fechar.",
+    "relations": [
+      "hecate-belongs-to-santuario",
+      "hecate-shares-ecologia",
+      "casa-arca-shares-hecate"
+    ]
+  },
+  {
+    "id": "lithia",
+    "slug": "cronicas-de-lithia",
+    "title": "Crônicas de Líthia",
+    "type": "Universo autoral",
+    "wing": "atelie-de-lithia",
+    "summary": "Um universo literário concebido para metabolizar experiência, política, desejo, sombra e beleza em mundo ficcional habitável.",
+    "lead": "Líthia não surgiu para esconder a vida atrás de fantasia. Surgiu para dar forma ao que a vida bruta não conseguia sustentar sem mediação.",
+    "status": "published",
+    "editorial_state": "published_batch_b1",
+    "privacy": "public",
+    "publication_approved": true,
+    "source_kind": "authored",
+    "source_authority": "Projeto literário autoral Crônicas de Líthia e arquitetura pública do Ateliê de Líthia",
+    "source_refs": [
+      "Crônicas de Líthia — projeto autoral",
+      "True_Moonverse.py — Ateliê de Líthia",
+      "moon - threads antigas.txt — referência delimitada à função narrativa de Líthia"
+    ],
+    "sensitivity": "creative_public",
+    "sanitization_required": false,
+    "sanitization_notes": "A página apresenta somente a função pública do universo; não transforma notas privadas, rascunhos ou paralelos autobiográficos em cânone.",
+    "publication_rationale": "Entrada inaugural aprovada para habitar o Ateliê sem inventar personagens, cronologias ou lore ausentes das fontes autorizadas.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_b1",
+    "visual_state": "reading_v2_1_compatible",
+    "next_action": "ampliar apenas com material canônico explicitamente selecionado do projeto literário",
+    "tags": [
+      "Líthia",
+      "fantasia",
+      "worldbuilding",
+      "literatura",
+      "mitologia",
+      "autoria"
+    ],
+    "life_phase": "projeto autoral contínuo",
+    "date_label": "universo em desenvolvimento",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## Um mundo como órgão narrativo\n\nLíthia é um universo autoral, mas sua função não se reduz a fornecer cenário para uma história. O mundo opera como órgão narrativo: recebe experiências, conflitos e imagens que, em estado bruto, seriam difíceis de sustentar, e devolve formas capazes de ser observadas, transformadas e compartilhadas.\n\nA fantasia não elimina a realidade. Muda a escala e a linguagem pela qual ela pode ser metabolizada.\n\n## Transmutar não é transcrever\n\nUma obra não precisa reproduzir diretamente uma pessoa ou um acontecimento para carregar verdade emocional. Líthia trabalha pela transmutação: desejo pode virar força cosmológica; conflito político pode adquirir geografia; sombra pode ganhar criatura, rito ou paisagem.\n\nIsso protege a autonomia da ficção. Um personagem não é automaticamente uma pessoa real com outro nome, e um mito não é ata disfarçada da biografia.\n\n## O Ateliê, não a enciclopédia pronta\n\nNo Moonverse, Líthia ocupa um ateliê porque o projeto permanece vivo. Mapas, personagens, cosmologia, cenas e regras poderão ganhar páginas próprias, mas apenas quando houver material canônico selecionado.\n\nA primeira porta precisa mostrar a função do universo sem fingir que todo o arquivo já foi publicado.\n\n## Autoria e fronteira canônica\n\nRascunhos, hipóteses e conversas de desenvolvimento não se tornam cânone por existirem. A autora decide o que pertence à obra, o que permanece laboratório e o que pode atravessar para a superfície pública.\n\nEssa fronteira impede que a expansão automática substitua criação literária.\n\n## Líthia e Moonverse\n\nO Moonverse organiza conhecimento por territórios; Líthia cria um território dentro dele. A relação é próxima, mas não idêntica. O portal oferece uma porta pública para a obra. A obra mantém soberania sobre suas próprias leis.\n\n> Mundo inventado não é ausência de realidade. É realidade atravessada por uma forma capaz de continuar respirando.",
+    "relations": [
+      "lithia-belongs-to-atelie",
+      "lithia-influences-moonverse"
+    ]
   }
 ]
