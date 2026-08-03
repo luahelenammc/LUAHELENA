@@ -220,9 +220,9 @@
       "kind": "legacy_room",
       "id": "lithia",
       "title": "Ateliê de Líthia",
-      "disposition": "published",
-      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
-      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública; Batch B1 agora fornece a primeira entrada canônica.",
+      "next_action": "preservar a ala; novas páginas dependem de material canônico explicitamente selecionado"
     },
     {
       "kind": "legacy_memory",
@@ -252,9 +252,9 @@
       "kind": "legacy_memory",
       "id": "casa-arca",
       "title": "A casa-arca",
-      "disposition": "published",
-      "reason": "Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.",
-      "next_action": "preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade"
+      "disposition": "absorbed_published",
+      "reason": "Semente absorvida pela entrada pública Casa-arca em forma sanitizada.",
+      "next_action": "preservar como motivo; não criar publicação paralela sem nova decisão editorial"
     },
     {
       "kind": "legacy_memory",
