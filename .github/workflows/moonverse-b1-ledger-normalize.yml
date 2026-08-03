@@ -1,0 +1,57 @@
+name: Moonverse B1 Ledger Normalize
+
+on:
+  pull_request:
+    branches: [main]
+    types: [reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.event.pull_request.head.ref == 'agent/moonverse-v2-b1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Normalize class-specific dispositions
+        run: |
+          python3 <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('moonverse-src/data/migration-ledger.json')
+          ledger = json.loads(path.read_text(encoding='utf-8'))
+          matched = set()
+          for item in ledger['dispositions']:
+              key = (item['kind'], item['id'])
+              if key == ('legacy_room', 'lithia'):
+                  item['disposition'] = 'migrated'
+                  item['reason'] = 'Taxonomia normalizada como ala pública; Batch B1 agora fornece a primeira entrada canônica.'
+                  item['next_action'] = 'preservar a ala; novas páginas dependem de material canônico explicitamente selecionado'
+                  matched.add(key)
+              elif key == ('legacy_memory', 'casa-arca'):
+                  item['disposition'] = 'absorbed_published'
+                  item['reason'] = 'Semente absorvida pela entrada pública Casa-arca em forma sanitizada.'
+                  item['next_action'] = 'preservar como motivo; não criar publicação paralela sem nova decisão editorial'
+                  matched.add(key)
+
+          expected = {('legacy_room', 'lithia'), ('legacy_memory', 'casa-arca')}
+          if matched != expected:
+              raise SystemExit(f'Ledger normalization mismatch: {matched!r}')
+          path.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit exact correction and self-remove
+        run: |
+          rm -f .github/workflows/moonverse-b1-ledger-normalize.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Fix Batch B1 ledger class dispositions'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
