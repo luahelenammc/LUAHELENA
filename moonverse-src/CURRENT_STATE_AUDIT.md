@@ -33,3 +33,8 @@ The public artifact now contains six entries, six wings, one public path with th
 ## Visual boundary
 
 The Wikiwand examples announced for this work item were not attached. The existing V1 semantic article anatomy remains unchanged. A future visual annex may authorize a separate article-layout pass; no redesign was inferred here.
+
+
+## V2 Batch B1 — 2026-08-03
+
+Five public entries were added after Chat constitution and source/privacy review: `me-tornando`, `nome-presenca`, `casa-arca`, `hecate` and `lithia`. Two paths became public: `transicao-e-presenca` and `santuario-limiar-futuro`. Raw autobiographical, clinical, family, conversational and spiritual source material remains outside the generated artifact.

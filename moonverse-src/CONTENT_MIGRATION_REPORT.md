@@ -26,3 +26,8 @@ The five new entries are new public syntheses constrained by the C0 factual spin
 ## Visual exception
 
 The Wikiwand examples announced for this stage were not attached. The existing static, semantic V1 article architecture remains in force; visual redesign is explicitly deferred until a visual annex can be reviewed.
+
+
+## Batch B1 disposition
+
+The five promoted legacy intentions are now represented by new public syntheses rather than copied placeholders. Identity entries exclude deadname, clinical and third-party detail; sanctuary entries separate symbolic language from factual claims; the Líthia entry introduces the authored universe without inventing lore or promoting drafts to canon.
