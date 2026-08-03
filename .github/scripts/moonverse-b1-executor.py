@@ -1,0 +1,86 @@
+import base64
+import json
+import os
+import zlib
+from collections import Counter
+from pathlib import Path
+
+PAYLOAD = """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"""
+
+payload = json.loads(zlib.decompress(base64.b64decode(PAYLOAD)).decode('utf-8'))
+root = Path('moonverse-src')
+
+def read(name):
+    return json.loads((root / 'data' / name).read_text(encoding='utf-8'))
+
+def write(name, value):
+    (root / 'data' / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+entries = read('entries.json')
+existing_ids = {item['id'] for item in entries}
+if existing_ids.intersection({item['id'] for item in payload['entries']}):
+    raise SystemExit('Batch B1 entry already exists; refusing duplicate application')
+entries.extend(payload['entries'])
+write('entries.json', entries)
+
+relations = read('relations.json')
+existing_relation_ids = {item['id'] for item in relations}
+if existing_relation_ids.intersection({item['id'] for item in payload['relations']}):
+    raise SystemExit('Batch B1 relation already exists; refusing duplicate application')
+relations.extend(payload['relations'])
+write('relations.json', relations)
+
+paths = read('paths.json')
+by_id = {item['id']: item for item in paths}
+for item in payload['paths']:
+    if item['id'] in by_id:
+        by_id[item['id']].update(item)
+    else:
+        paths.append(item)
+write('paths.json', paths)
+
+ledger = read('migration-ledger.json')
+targets = set(payload['ledger_ids'])
+found = set()
+for item in ledger['dispositions']:
+    if item['id'] in targets:
+        item['disposition'] = 'published'
+        item['reason'] = 'Promovida no Batch B1 após constituição em Chat, revisão de fonte e sanitização explícita.'
+        item['next_action'] = 'preservar a síntese pública; ampliações exigem novo gate editorial e de privacidade'
+        found.add(item['id'])
+missing = targets - found
+if missing:
+    raise SystemExit(f'Ledger records missing: {sorted(missing)}')
+
+counts = Counter(item['kind'] for item in ledger['dispositions'])
+structural = sum(1 for item in ledger['dispositions'] if item['kind'] == 'legacy_page' and item['disposition'] == 'superseded_structural')
+safe = {'published', 'published_batch_a1', 'published_batch_a1_annotated', 'migrated', 'absorbed_published', 'superseded_structural'}
+public_entries = [entry for entry in entries if entry.get('status') == 'published' and entry.get('privacy') in {'public', 'sanitized_approved'} and entry.get('publication_approved') is True]
+public_paths = [item for item in paths if item.get('public') is True]
+summary = ledger.setdefault('summary', {})
+summary['dispositions_total'] = len(ledger['dispositions'])
+summary['disposition_counts'] = dict(sorted(counts.items()))
+summary['legacy_page_records'] = counts.get('legacy_page', 0)
+summary['legacy_page_structural_superseded'] = structural
+summary['legacy_page_content_intent_records'] = counts.get('legacy_page', 0) - structural
+summary['notion_disposition_records'] = counts.get('notion_snapshot', 0) + counts.get('notion_record', 0)
+summary['public_entries_built'] = len(public_entries)
+summary['public_paths_built'] = len(public_paths)
+summary['deferred_or_review_required'] = sum(1 for item in ledger['dispositions'] if item['disposition'] not in safe)
+write('migration-ledger.json', ledger)
+
+registry = read('source-registry.json')
+registry['batch_b1_authority'] = payload['source_authority']
+registry['newly_available_private_sources'] = [
+    {'name': '25 de Jun (At. em DEZ 25).txt', 'handling': 'bounded autobiographical evidence; raw text excluded from public build'},
+    {'name': 'KAIROS (At. em DEZ 25).txt', 'handling': 'available for future review; not needed for Batch B1 public claims'},
+    {'name': 'moon - threads antigas.txt', 'handling': 'bounded thematic evidence only; raw conversational material excluded'}
+]
+registry['failed_uploads_not_used'] = []
+write('source-registry.json', registry)
+
+audit = root / 'CURRENT_STATE_AUDIT.md'
+audit.write_text(audit.read_text(encoding='utf-8') + '\n\n## V2 Batch B1 — 2026-08-03\n\nFive public entries were added after Chat constitution and source/privacy review: `me-tornando`, `nome-presenca`, `casa-arca`, `hecate` and `lithia`. Two paths became public: `transicao-e-presenca` and `santuario-limiar-futuro`. Raw autobiographical, clinical, family, conversational and spiritual source material remains outside the generated artifact.\n', encoding='utf-8')
+
+report = root / 'CONTENT_MIGRATION_REPORT.md'
+report.write_text(report.read_text(encoding='utf-8') + '\n\n## Batch B1 disposition\n\nThe five promoted legacy intentions are now represented by new public syntheses rather than copied placeholders. Identity entries exclude deadname, clinical and third-party detail; sanctuary entries separate symbolic language from factual claims; the Líthia entry introduces the authored universe without inventing lore or promoting drafts to canon.\n', encoding='utf-8')
