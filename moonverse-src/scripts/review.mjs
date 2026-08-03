@@ -5,26 +5,32 @@ import AxeBuilder from '@axe-core/playwright';
 
 const baseUrl = process.env.MOONVERSE_REVIEW_URL || 'http://127.0.0.1:4173/moonverse/';
 const sourceRoot = path.resolve(new URL('..', import.meta.url).pathname);
+const siteRoot = path.resolve(sourceRoot, '..', 'moonverse');
 const outputRoot = path.join(sourceRoot, 'review-artifacts');
 const screenshotsRoot = path.join(outputRoot, 'screenshots');
 fs.rmSync(outputRoot, { recursive: true, force: true });
 fs.mkdirSync(screenshotsRoot, { recursive: true });
 
+const publicIndex = JSON.parse(fs.readFileSync(path.join(siteRoot, 'assets', 'search-index.json'), 'utf8'));
+const entryRoutes = publicIndex.map((item) => {
+  const relativePath = new URL(item.url, 'https://moonverse.local').pathname.replace(/^\/moonverse\//, '');
+  const slug = relativePath.replace(/^entry\//, '').replace(/\/$/, '');
+  return [`article-${slug}`, relativePath];
+});
+
 const routes = [
   ['home', ''],
   ['wiki', 'wiki/'],
-  ['article-maresia', 'entry/o-cheiro-de-maresia/'],
-  ['article-moon-source', 'entry/moon-source/'],
-  ['article-sims', 'entry/the-sims-1-como-casa-mental/'],
-  ['article-orkut-msn', 'entry/orkut-msn-e-o-quarto-paralelo/'],
-  ['article-infancia-digital', 'entry/tecnologia-snes-olympus-d395-infancia-digital/'],
-  ['article-ecologia-espiritual', 'entry/ecologia-espiritual/'],
+  ...entryRoutes,
   ['timeline', 'timeline/'],
   ['atlas', 'atlas/'],
   ['about', 'about/'],
   ['search-maresia', 'search/?q=maresia'],
   ['search-moon-source', 'search/?q=Moon%20Source'],
-  ['search-ecologia', 'search/?q=ecologia']
+  ['search-ecologia', 'search/?q=ecologia'],
+  ['search-transicao', 'search/?q=transi%C3%A7%C3%A3o'],
+  ['search-santuario', 'search/?q=santu%C3%A1rio'],
+  ['search-lithia', 'search/?q=L%C3%ADthia']
 ];
 const viewports = [
   ['desktop', { width: 1440, height: 1000 }],
@@ -36,6 +42,8 @@ const browser = await chromium.launch({ headless: true });
 const report = {
   baseUrl,
   generatedAt: new Date().toISOString(),
+  publicEntriesExpected: publicIndex.length,
+  entryRoutesReviewed: entryRoutes.length,
   pages: [],
   accessibility: [],
   consoleErrors: [],
@@ -87,6 +95,10 @@ try {
     await context.close();
   }
 
+  if (entryRoutes.length !== publicIndex.length) {
+    report.failures.push(`entry route coverage mismatch: ${entryRoutes.length} reviewed for ${publicIndex.length} public entries`);
+  }
+
   const nightContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, colorScheme: 'light' });
   const nightPage = await nightContext.newPage();
   await nightPage.goto(baseUrl, { waitUntil: 'networkidle' });
@@ -103,7 +115,7 @@ if (report.consoleErrors.length) report.failures.push(`${report.consoleErrors.le
 if (report.pageErrors.length) report.failures.push(`${report.pageErrors.length} uncaught page error(s)`);
 
 fs.writeFileSync(path.join(outputRoot, 'review-report.json'), JSON.stringify(report, null, 2) + '\n');
-fs.writeFileSync(path.join(outputRoot, 'review-summary.md'), `# Moonverse browser review\n\n- Pages/viewports captured: ${report.pages.length}\n- Desktop axe audits: ${report.accessibility.length}\n- Console errors: ${report.consoleErrors.length}\n- Page errors: ${report.pageErrors.length}\n- Failures: ${report.failures.length}\n\n${report.failures.length ? report.failures.map((item) => `- ${item}`).join('\n') : 'All browser review gates passed.'}\n`);
+fs.writeFileSync(path.join(outputRoot, 'review-summary.md'), `# Moonverse browser review\n\n- Public entries expected: ${report.publicEntriesExpected}\n- Entry routes reviewed: ${report.entryRoutesReviewed}\n- Pages/viewports captured: ${report.pages.length}\n- Desktop axe audits: ${report.accessibility.length}\n- Console errors: ${report.consoleErrors.length}\n- Page errors: ${report.pageErrors.length}\n- Failures: ${report.failures.length}\n\n${report.failures.length ? report.failures.map((item) => `- ${item}`).join('\n') : 'All browser review gates passed.'}\n`);
 
 if (report.failures.length) {
   console.error('Moonverse browser review failed:');
@@ -111,4 +123,4 @@ if (report.failures.length) {
   process.exit(1);
 }
 
-console.log(`Moonverse browser review passed: ${report.pages.length} screenshots, ${report.accessibility.length} axe audits.`);
+console.log(`Moonverse browser review passed: ${report.entryRoutesReviewed} public entries, ${report.pages.length} screenshots, ${report.accessibility.length} axe audits.`);
