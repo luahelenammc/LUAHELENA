@@ -1,0 +1,58 @@
+name: Moonverse V3 Complete Applicator
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: write
+
+concurrency:
+  group: moonverse-v3-complete-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  apply:
+    if: github.head_ref == 'feat/moonverse-wikiwand-complete-v3'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout governed branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply editorial completion
+        run: python3 .github/scripts/moonverse-v3-complete.py
+
+      - name: Rebuild and validate
+        run: |
+          npm --prefix moonverse-src run build
+          npm --prefix moonverse-src run validate
+          npm --prefix moonverse-src run test
+          git diff --check
+
+      - name: Remove temporary applicator
+        run: |
+          rm -f .github/scripts/moonverse-v3-complete.py
+          rm -f .github/workflows/moonverse-v3-complete.yml
+
+      - name: Commit completed tree
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Complete Moonverse V3 and apply Wikiwand reading design'
+          git push origin HEAD:${{ github.head_ref }}
