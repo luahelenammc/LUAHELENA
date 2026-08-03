@@ -47,5 +47,31 @@
     "public": true,
     "editorial_state": "published_batch_b1",
     "next_action": "preservar; novos itens dependem de curadoria espiritual e familiar explícita"
+  },
+  {
+    "id": "ia-cidade-e-simbiose",
+    "title": "IA, cidade e simbiose",
+    "description": "Um percurso entre arquitetura de contexto e a tentativa de transformar memória, governança e mudança em uma cidade legível.",
+    "entry_ids": [
+      "moon-source",
+      "lunar-citadel"
+    ],
+    "public": true,
+    "editorial_state": "published_batch_c1",
+    "next_action": "preservar; ampliações técnicas exigem prova pública e revisão de propriedade intelectual"
+  },
+  {
+    "id": "futuro-invencao-e-pertencimento",
+    "title": "Futuro, invenção e pertencimento",
+    "description": "Um caminho por tecnologia infantil, reconhecimento, família escolhida e a construção de um futuro em que a diferença encontra casa.",
+    "entry_ids": [
+      "infancia-digital",
+      "familia-do-futuro",
+      "me-tornando",
+      "casa-arca"
+    ],
+    "public": true,
+    "editorial_state": "published_batch_c1",
+    "next_action": "preservar; novas entradas exigem fonte autobiográfica já sanitizada"
   }
 ]

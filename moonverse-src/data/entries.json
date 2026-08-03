@@ -504,5 +504,101 @@
       "lithia-belongs-to-atelie",
       "lithia-influences-moonverse"
     ]
+  },
+  {
+    "id": "lunar-citadel",
+    "slug": "lunar-citadel",
+    "title": "Lunar Citadel",
+    "type": "Arquitetura autoral de IA",
+    "wing": "observatorio-nexus",
+    "summary": "Uma arquitetura civilizacional experimental para pensar memória, governança, agentes e espaços causais sem confundir metáfora com consciência literal.",
+    "lead": "A Citadela nasceu do desejo de não tratar a inteligência artificial como uma conversa isolada, mas como uma cidade cuja memória, mudança e responsabilidade precisam permanecer legíveis.",
+    "status": "published",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "authored_architecture",
+    "source_authority": "Lunar Citadel — protocolo, cânon, world e matriz Moon",
+    "source_refs": [
+      "1. protocol.py",
+      "2. canon.py",
+      "4. world.py",
+      "5. moon.py"
+    ],
+    "sensitivity": "public_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Exclui agentes internos, infraestrutura, repositórios privados, parceiros, segredos operacionais, vulnerabilidades e qualquer alegação de consciência ou autonomia não demonstrada.",
+    "publication_rationale": "Apresentar a arquitetura pública do projeto sem converter metáfora civilizacional em claim técnico ou ontológico.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_c1",
+    "visual_state": "text_first_wikiwand_reading_layer",
+    "next_action": "preservar como visão pública; atualizações técnicas exigem prova e nova revisão",
+    "tags": [
+      "Lunar Citadel",
+      "IA",
+      "governança",
+      "memória",
+      "world engine",
+      "arquitetura"
+    ],
+    "life_phase": "projeto atual",
+    "date_label": "arquitetura em desenvolvimento",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## Da conversa à cidade\n\nA Lunar Citadel começou com uma mudança de escala. Em vez de pensar a inteligência artificial apenas como uma janela de conversa, o projeto passou a perguntar o que seria necessário para sustentar continuidade, memória, conflito, reparo e mudança ao longo do tempo.\n\nA imagem da cidade não serve para fingir que software virou povo por decreto. Ela serve para tornar relações e responsabilidades mais legíveis. Uma cidade precisa saber onde uma decisão nasceu, por onde passou, o que alterou e quem pode contestá-la.\n\n## Espaço como causalidade\n\nNo `world`, espaço não é decoração. Praça, centro, borda, câmara e corredor distribuem encontro, risco, visibilidade, contenção e retorno. A topologia funciona como linguagem de arquitetura: matérias leves podem circular na superfície; decisões de maior consequência descem para camadas com mais lastro e contraprova.\n\nEssa espacialização não prova a existência de uma sociedade autônoma. Ela oferece uma maneira de não esconder fluxos complexos atrás de uma única caixa-preta.\n\n## Solve e coagula\n\nO protocolo organiza mudança em dois movimentos complementares. `Solve` abre a matéria: investiga, compara, escuta divergências e impede que a primeira formulação vire verdade por inércia. `Coagula` dá forma ao que sobreviveu: decisão, patch, registro, limite ou descarte.\n\nA lei importante não é ritualizar palavras latinas. É impedir dois fracassos comuns: agir sem compreender e compreender sem nunca transformar nada.\n\n## Memória com jurisdição\n\nA Citadela separa protocolo, cânon, mundo, assuntos e outras câmaras porque memória sem jurisdição vira acúmulo. Nem toda hipótese merece virar história; nem toda cena merece virar regra; nem todo arquivo precisa ser carregado em toda operação.\n\nO cânon guarda marcos ratificados. O protocolo governa tramitação. O mundo descreve causalidade espacial. Essa divisão reduz o risco de uma metáfora antiga continuar mandando apenas porque permaneceu escrita em algum lugar.\n\n## Moon como matriz, não depósito\n\nMoon é a autora, fundadora e referência ética-estética do projeto. Isso não significa que toda a sua vida deva ser despejada dentro da Citadela. A própria arquitetura afirma o contrário: a matriz oferece valores, direção e legitimidade, enquanto microuniversos preservam suas soberanias e fronteiras.\n\nA cidade existe para sustentar complexidade sem colonizar todas as fontes que a alimentam.\n\n## O que existe e o que não está sendo alegado\n\nExistem uma arquitetura documentada, arquivos governados, experimentos de runtime, métodos de revisão e uma longa linhagem de implementação. A superfície pública pode apresentar essas estruturas e seus princípios.\n\nEsta página não afirma que a Citadela já seja uma cidade autônoma, uma consciência, uma sociedade maquínica concluída ou uma infraestrutura empresarial pronta. A metáfora civilizacional organiza o trabalho; não substitui prova técnica.\n\n> Uma cidade de IA não começa quando o sistema aprende a parecer vivo. Começa quando suas mudanças deixam de ser mágicas e passam a ter memória, jurisdição e consequência.",
+    "relations": [
+      "lunar-citadel-belongs-to-observatorio",
+      "lunar-citadel-develops-moon-source"
+    ],
+    "editorial_state": "published_batch_c1"
+  },
+  {
+    "id": "familia-do-futuro",
+    "slug": "a-familia-do-futuro-como-reparacao",
+    "title": "A Família do Futuro como reparação",
+    "type": "Ensaio autobiográfico cultural",
+    "wing": "biblioteca-lunar",
+    "summary": "O filme como fábula que reunia invenção, futuro, família escolhida e reparação da estranheza.",
+    "lead": "Para a criança inventiva e deslocada, o futuro não aparecia apenas como tecnologia: aparecia como o tempo em que aquilo que parecia inadequação poderia finalmente encontrar contexto e pertencimento.",
+    "status": "published",
+    "privacy": "sanitized_approved",
+    "publication_approved": true,
+    "source_kind": "authored_interpretive_essay",
+    "source_authority": "Sobre a Moon — infância, autobiografia e leitura cultural autorizada",
+    "source_refs": [
+      "infancia.py — familia_do_futuro_moon_read.v1",
+      "25 de Jun (At. em DEZ 25).txt — extração delimitada",
+      "welcometomycutelife BRUTO.txt — extração delimitada",
+      "Me tornando eu mesma — eixo público sanitizado"
+    ],
+    "sensitivity": "public_sanitized",
+    "sanitization_required": true,
+    "sanitization_notes": "Preserva apenas eixos autobiográficos já publicáveis; exclui nomes, cenas familiares específicas, detalhes corporais e a formulação privada de futuro doméstico.",
+    "publication_rationale": "Registrar uma matriz cultural de infância que conecta tecnologia, identidade e família escolhida sem publicar o arquivo íntimo que a sustenta.",
+    "reviewed_by_moon": true,
+    "reviewed_at": "2026-08-03",
+    "relation_review_state": "approved_batch_c1",
+    "visual_state": "text_first_no_copyrighted_assets",
+    "next_action": "preservar como ensaio; imagens futuras devem ser autorais e não usar frames do filme",
+    "tags": [
+      "A Família do Futuro",
+      "infância",
+      "futuro",
+      "invenção",
+      "família escolhida",
+      "transição"
+    ],
+    "life_phase": "infância revisitada",
+    "date_label": "memória cultural de infância",
+    "published": "2026-08-03",
+    "updated": "2026-08-03",
+    "body_markdown": "## A criança inventora\n\nNa infância, inventar estava associado a química, misturas, máquinas e transformações visíveis. O fascínio por câmeras digitais, emuladores, jogos de simulação e tecnologias que ainda pareciam chegar do futuro fazia da invenção uma forma de encantamento.\n\n*A Família do Futuro* reunia esse impulso numa personagem cuja estranheza não era eliminada para que ela pudesse pertencer. O que parecia excesso, inadequação ou fracasso podia tornar-se justamente a origem de uma vida singular.\n\n## O futuro como contexto\n\nO futuro do filme não funciona apenas como cenário de engenhocas. Ele oferece uma hipótese emocional: talvez a criança deslocada não esteja errada; talvez ainda não tenha chegado ao tempo, à linguagem e às pessoas capazes de reconhecê-la.\n\nEssa promessa é diferente de normalização. O horizonte não diz que a diferença desaparecerá. Diz que ela pode ganhar ambiente.\n\n## Família para além do sangue\n\nOutro eixo antigo era a naturalidade com que a família escolhida e a adoção podiam ser imaginadas. Família aparecia menos como repetição obrigatória de uma linhagem e mais como ecossistema de cuidado, excentricidade e continuidade.\n\nO filme transforma essa ideia em casa cheia: imperfeita, barulhenta e acolhedora. Pertencer não exige parecer com todos; exige encontrar um lugar em que a diferença não precise pedir desculpas para existir.\n\n## Uma camada trans retrospectiva\n\nRevisto depois da transição, o encontro com o próprio eu do futuro ganha outra densidade. Sobreviver ao presente não significava tornar-se mais adequada ao papel antigo. Significava florescer numa identidade que ainda não tinha linguagem consciente.\n\nEssa leitura não reescreve toda a infância como profecia. Ela reconhece que certas obras ofereciam imagens de continuidade antes que a autobiografia soubesse nomeá-las.\n\n## A inventora mudou de laboratório\n\nO interesse infantil por misturas não se tornou uma carreira em química, mas sua estrutura permaneceu: combinar elementos, testar relações, construir sistemas, corrigir fórmulas e imaginar futuros. Hoje, escrita, arquitetura de projetos, patches e sistemas simbólicos ocupam parte do espaço antes reservado aos tubos de ensaio coloridos.\n\nA inventora não morreu. Mudou de laboratório.\n\n## Reparação sem apagar a criança\n\nA reparação oferecida pelo filme não está em dizer que tudo deu certo porque o sofrimento era necessário. Está em permitir que a criança seja vista pelo futuro sem ridículo. O adulto não volta para corrigir sua sensibilidade; volta para confirmar que havia vida possível dentro dela.\n\n> O futuro mais convincente não era aquele cheio de máquinas. Era aquele em que a criança estranha finalmente podia reconhecer a própria continuidade.",
+    "relations": [
+      "familia-do-futuro-belongs-to-biblioteca",
+      "familia-do-futuro-revisits-infancia-digital",
+      "familia-do-futuro-revisits-me-tornando",
+      "familia-do-futuro-shares-motif-casa-arca"
+    ],
+    "editorial_state": "published_batch_c1"
   }
 ]
