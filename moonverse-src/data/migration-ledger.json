@@ -12,15 +12,16 @@
     "notion_full_snapshots": 2,
     "notion_disposition_records": 2,
     "historical_blogger_title_records": 336,
-    "public_entries_built": 11,
-    "public_paths_built": 3,
-    "dispositions_total": 32,
-    "deferred_or_review_required": 10,
+    "public_entries_built": 13,
+    "public_paths_built": 5,
+    "dispositions_total": 33,
+    "deferred_or_review_required": 9,
     "source_attachments_review_required": 1,
     "disposition_counts": {
       "legacy_memory": 6,
       "legacy_page": 17,
       "legacy_room": 6,
+      "new_public_entry": 1,
       "notion_record": 1,
       "notion_snapshot": 1,
       "source_attachment": 1
@@ -116,9 +117,9 @@
       "kind": "legacy_page",
       "id": "citadel",
       "title": "Lunar Citadel",
-      "disposition": "deferred_current_state_and_ip",
-      "reason": "Projeto técnico com estado corrente e fronteiras de IP que não cabem nesta batch pública.",
-      "next_action": "redigir apenas overview público após revisão do estado atual"
+      "disposition": "published",
+      "reason": "Promovida no Batch C1 como síntese pública da arquitetura, sem infraestrutura privada ou claims não demonstrados.",
+      "next_action": "preservar; atualizações técnicas exigem prova e nova revisão"
     },
     {
       "kind": "legacy_page",
@@ -295,6 +296,14 @@
       "disposition": "source_review_bounded_extraction",
       "reason": "Arquivo histórico usado somente para evidência delimitada sobre The Sims, Orkut/MSN e infância tecnológica; nenhum raw body, URL ou cena de terceiro foi republicado.",
       "next_action": "manter arquivado e fora do build; novas extrações exigem allowlist"
+    },
+    {
+      "kind": "new_public_entry",
+      "id": "familia-do-futuro",
+      "title": "A Família do Futuro como reparação",
+      "disposition": "published",
+      "reason": "Nova síntese constituída em Chat a partir de fontes autobiográficas delimitadas e sanitizadas.",
+      "next_action": "preservar; não expandir com cenas privadas sem novo gate"
     }
   ]
 }

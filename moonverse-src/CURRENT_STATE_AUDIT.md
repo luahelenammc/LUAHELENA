@@ -38,3 +38,12 @@ The Wikiwand examples announced for this work item were not attached. The existi
 ## V2 Batch B1 — 2026-08-03
 
 Five public entries were added after Chat constitution and source/privacy review: `me-tornando`, `nome-presenca`, `casa-arca`, `hecate` and `lithia`. Two paths became public: `transicao-e-presenca` and `santuario-limiar-futuro`. Raw autobiographical, clinical, family, conversational and spiritual source material remains outside the generated artifact.
+
+
+## V2 Batch C1 — 2026-08-03
+
+Two public entries were added after Chat constitution: `lunar-citadel` and `familia-do-futuro`. Two guided paths were added: `ia-cidade-e-simbiose` and `futuro-invencao-e-pertencimento`.
+
+The public corpus now has 13 entries. Biblioteca Lunar and Observatório Nexus each have at least two entries. Ateliê de Líthia remains intentionally sparse with one canonical entrance; a second page is deferred until Moon selects sufficient canonical Líthia material rather than allowing the build to invent lore.
+
+This satisfies the V2 editorial-density rule through five inhabited wings plus one explicit, source-governed exception. It does not by itself authorize 3D integration.

@@ -31,3 +31,8 @@ The Wikiwand examples announced for this stage were not attached. The existing s
 ## Batch B1 disposition
 
 The five promoted legacy intentions are now represented by new public syntheses rather than copied placeholders. Identity entries exclude deadname, clinical and third-party detail; sanctuary entries separate symbolic language from factual claims; the Líthia entry introduces the authored universe without inventing lore or promoting drafts to canon.
+
+
+## Batch C1 disposition
+
+`Lunar Citadel` promotes the legacy Citadel intention as a public architectural synthesis with infrastructure, partners and unsupported claims excluded. `A Família do Futuro como reparação` is a new public essay derived from bounded autobiographical anchors; it does not reproduce the raw archive or private future-family scenes.

@@ -3,7 +3,8 @@ import path from 'node:path';
 
 const sourceRoot = path.resolve(new URL('..', import.meta.url).pathname);
 const siteRoot = path.resolve(sourceRoot, '..', 'moonverse');
-const read = (p) => fs.readFileSync(path.join(siteRoot, p), 'utf8');
+const readSite = (p) => fs.readFileSync(path.join(siteRoot, p), 'utf8');
+const readSource = (p) => JSON.parse(fs.readFileSync(path.join(sourceRoot, 'data', p), 'utf8'));
 const checks = [];
 
 function assert(condition, message) {
@@ -11,52 +12,50 @@ function assert(condition, message) {
   checks.push(message);
 }
 
-const home = read('index.html');
-const wiki = read('wiki/index.html');
-const atlas = read('atlas/index.html');
-const css = read('assets/site.css');
-const siteJs = read('assets/site.js');
-const searchIndex = JSON.parse(read('assets/search-index.json'));
-const entryRoutes = [
-  ['o-cheiro-de-maresia', 'O cheiro de maresia'],
-  ['moon-source', 'Moon Source'],
-  ['the-sims-1-como-casa-mental', 'The Sims 1 como casa mental'],
-  ['orkut-msn-e-o-quarto-paralelo', 'Orkut, MSN e o quarto paralelo'],
-  ['tecnologia-snes-olympus-d395-infancia-digital', 'Tecnologia, SNES e Olympus D395: a infância digital'],
-  ['ecologia-espiritual', 'Ecologia espiritual'],
-  ['me-tornando-eu-mesma', 'Me tornando eu mesma'],
-  ['nome-e-presenca', 'Nome e presença'],
-  ['casa-arca', 'Casa-arca'],
-  ['hecate-no-portao', 'Hécate no portão'],
-  ['cronicas-de-lithia', 'Crônicas de Líthia']
-];
+const home = readSite('index.html');
+const wiki = readSite('wiki/index.html');
+const atlas = readSite('atlas/index.html');
+const css = readSite('assets/site.css');
+const siteJs = readSite('assets/site.js');
+const searchIndex = JSON.parse(readSite('assets/search-index.json'));
+const sourceEntries = readSource('entries.json');
+const paths = readSource('paths.json');
+const approvedEntries = sourceEntries.filter((item) => item.status === 'published' && ['public', 'sanitized_approved'].includes(item.privacy) && item.publication_approved === true);
+const publicPaths = paths.filter((item) => item.public === true);
+const nonPublicPaths = paths.filter((item) => item.public !== true);
 
 assert(home.includes('O que você está buscando?'), 'home exposes global search');
 assert(home.includes('/moonverse/wing/biblioteca-lunar/'), 'home exposes conventional wing navigation');
 assert(home.includes('<title>Moonverse</title>'), 'home title is not duplicated');
-assert(home.includes('/moonverse/wiki/#path-tecnologias-que-ainda-brilham'), 'home exposes the approved Batch A1 path');
-assert(home.includes('/moonverse/wiki/#path-transicao-e-presenca'), 'home exposes the approved identity path');
-assert(home.includes('/moonverse/wiki/#path-santuario-limiar-futuro'), 'home exposes the approved sanctuary path');
-assert(wiki.includes('id="path-tecnologias-que-ainda-brilham"'), 'wiki renders the approved Batch A1 path target');
-assert(wiki.includes('id="path-transicao-e-presenca"'), 'wiki renders the approved identity path target');
-assert(wiki.includes('id="path-santuario-limiar-futuro"'), 'wiki renders the approved sanctuary path target');
-assert(!home.includes('path-infancia-e-agua') && !wiki.includes('id="path-infancia-e-agua"'), 'insufficient paths are not advertised');
 assert(wiki.includes('entry-index'), 'wiki index is rendered without JavaScript');
 assert(atlas.includes('atlas-svg') && atlas.includes('Lista completa'), 'Atlas has visual and textual fallback');
 assert(atlas.includes('Portal Moonverse'), 'Atlas renders approved concept nodes');
-assert(searchIndex.length === entryRoutes.length, 'search index contains exactly the approved public entries');
-for (const [slug, title] of entryRoutes) {
-  const article = read(`entry/${slug}/index.html`);
-  assert(article.includes('<article class="article">'), `${slug} is semantic HTML`);
-  assert(article.includes('<div class="prose">'), `${slug} has JS-independent article prose`);
-  assert(article.includes('source-notes'), `${slug} has a source note`);
-  assert(article.includes(title), `${slug} preserves its approved title`);
-  assert(!article.match(/staging|wrapper|página física|notion-imported|prototype|work_ready|reviewed_by_moon/i), `${slug} has no internal workflow language`);
+assert(searchIndex.length === approvedEntries.length, 'search index contains exactly the approved public entries');
+
+for (const item of searchIndex) {
+  const relative = new URL(item.url, 'https://moonverse.local').pathname.replace(/^\/moonverse\//, '');
+  const article = readSite(`${relative}index.html`);
+  assert(article.includes('<article class="article">'), `${item.id} is semantic HTML`);
+  assert(article.includes('<div class="prose">'), `${item.id} has JS-independent article prose`);
+  assert(article.includes('source-notes'), `${item.id} has a source note`);
+  assert(article.includes(item.title), `${item.id} preserves its approved title`);
+  assert(!article.match(/staging|wrapper|página física|notion-imported|prototype|work_ready|reviewed_by_moon/i), `${item.id} has no internal workflow language`);
 }
-assert(searchIndex.every((item) => entryRoutes.some(([slug, title]) => item.title === title && item.url.includes(slug))), 'search index routes every approved entry');
+
+for (const item of publicPaths) {
+  assert(item.entry_ids.length >= 2, `${item.id} has enough entries to be public`);
+  assert(home.includes(`/moonverse/wiki/#path-${item.id}`), `${item.id} is advertised on home`);
+  assert(wiki.includes(`id="path-${item.id}"`), `${item.id} is rendered in wiki`);
+}
+
+for (const item of nonPublicPaths) {
+  assert(!home.includes(`path-${item.id}`) && !wiki.includes(`id="path-${item.id}"`), `${item.id} is not advertised while nonpublic`);
+}
+
+assert(searchIndex.every((item) => approvedEntries.some((entry) => entry.id === item.id && entry.title === item.title)), 'search index routes every approved entry');
 assert(css.includes('@media') && css.includes('prefers-reduced-motion'), 'responsive and reduced-motion rules exist');
 assert(siteJs.includes('prefers-color-scheme: dark'), 'first visit respects operating-system theme preference');
 assert(siteJs.includes('if (!response.ok)'), 'search rejects failed index responses');
 assert(!home.match(/staging|wrapper|página física|notion-imported|prototype|work_ready|reviewed_by_moon/i), 'home has no internal workflow language');
 
-console.log(`Moonverse smoke tests passed: ${checks.length} checks.`);
+console.log(`Moonverse smoke tests passed: ${checks.length} checks across ${approvedEntries.length} public entries and ${publicPaths.length} public paths.`);

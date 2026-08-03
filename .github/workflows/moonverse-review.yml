@@ -1,26 +1,31 @@
-name: Moonverse C1 Apply Bridge
+name: Moonverse Review
 
 on:
   pull_request:
-    branches: [main]
-    types: [reopened, synchronize]
+    branches:
+      - main
     paths:
       - 'moonverse-src/**'
+      - 'moonverse/**'
       - '.github/workflows/moonverse-review.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: moonverse-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply:
-    if: github.event.pull_request.head.ref == 'agent/moonverse-v2-c1'
+  build-review:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+
     steps:
-      - name: Checkout PR head
+      - name: Checkout pull request
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Node
@@ -28,40 +33,178 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Normalize C1 editorial state
-        run: |
-          python3 <<'PY'
-          import json
-          from pathlib import Path
-          path = Path('.moonverse-c1-payload.json')
-          payload = json.loads(path.read_text(encoding='utf-8'))
-          expected = {'lunar-citadel', 'familia-do-futuro'}
-          actual = {entry['id'] for entry in payload['entries']}
-          if actual != expected:
-              raise SystemExit(f'C1 payload entry mismatch: {sorted(actual)}')
-          for entry in payload['entries']:
-              entry['editorial_state'] = 'published_batch_c1'
-          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          PY
+      - name: Build public artifact
+        id: build
+        run: npm --prefix moonverse-src run build
 
-      - name: Apply readable C1 payload
-        run: python3 moonverse-src/scripts/apply-c1.py
+      - name: Verify generated artifact is committed
+        id: artifact_sync
+        run: git diff --exit-code -- moonverse
 
-      - name: Build, validate and test
+      - name: Validate source and artifact
+        id: structural
         run: |
-          npm --prefix moonverse-src run build
           npm --prefix moonverse-src run validate
           npm --prefix moonverse-src run test
-          git diff --check
 
-      - name: Commit bounded delivery and restore canonical review
+      - name: Install browser review dependencies
+        id: dependencies
+        working-directory: moonverse-src
+        run: npm install --no-save --no-package-lock playwright @axe-core/playwright
+
+      - name: Install Chromium
+        id: chromium
+        working-directory: moonverse-src
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve repository
+        id: server
         run: |
-          rm -f .moonverse-c1-payload.json
-          rm -f moonverse-src/scripts/apply-c1.py
-          rm -f .github/workflows/moonverse-v2-c1-apply.yml
-          git show origin/main:.github/workflows/moonverse-review.yml > .github/workflows/moonverse-review.yml
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Add Moonverse V2 editorial batch C1'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          python3 -m http.server 4173 -d . > /tmp/moonverse-server.log 2>&1 &
+          echo $! > /tmp/moonverse-server.pid
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/moonverse/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/moonverse-server.log
+          exit 1
+
+      - name: Browser screenshots and axe audit
+        id: browser_review
+        continue-on-error: true
+        env:
+          MOONVERSE_REVIEW_URL: http://127.0.0.1:4173/moonverse/
+        run: node moonverse-src/scripts/review.mjs
+
+      - name: Lighthouse audits
+        id: lighthouse
+        continue-on-error: true
+        run: |
+          mkdir -p moonverse-src/review-artifacts/lighthouse
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -name chrome | head -n 1)"
+          test -n "$CHROME_PATH"
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/home.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/o-cheiro-de-maresia/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/article.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/moon-source/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/moon-source.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/ecologia-espiritual/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/ecologia-espiritual.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const files = ['home', 'article', 'moon-source', 'ecologia-espiritual'];
+          const thresholds = { performance: .90, accessibility: .95, 'best-practices': .95, seo: .95 };
+          const summary = {};
+          const failures = [];
+          for (const name of files) {
+            const report = JSON.parse(fs.readFileSync(`moonverse-src/review-artifacts/lighthouse/${name}.json`, 'utf8'));
+            summary[name] = {};
+            for (const [category, minimum] of Object.entries(thresholds)) {
+              const score = report.categories[category].score;
+              summary[name][category] = score;
+              if (score < minimum) failures.push(`${name} ${category}: ${score} < ${minimum}`);
+            }
+          }
+          fs.writeFileSync('moonverse-src/review-artifacts/lighthouse/summary.json', JSON.stringify(summary, null, 2) + '\n');
+          if (failures.length) {
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log(summary);
+          NODE
+
+      - name: Write QA receipt artifact
+        if: always()
+        env:
+          REVIEWED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          ARTIFACT_SYNC_OUTCOME: ${{ steps.artifact_sync.outcome }}
+          STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
+          DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
+          SERVER_OUTCOME: ${{ steps.server.outcome }}
+          BROWSER_OUTCOME: ${{ steps.browser_review.outcome }}
+          LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
+        run: |
+          mkdir -p moonverse-src/review-artifacts
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const readJsonIfPresent = (file) => fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
+          const browser = readJsonIfPresent('moonverse-src/review-artifacts/review-report.json');
+          const lighthouse = readJsonIfPresent('moonverse-src/review-artifacts/lighthouse/summary.json');
+          const steps = {
+            build: process.env.BUILD_OUTCOME || 'unknown',
+            artifact_sync: process.env.ARTIFACT_SYNC_OUTCOME || 'unknown',
+            structural: process.env.STRUCTURAL_OUTCOME || 'unknown',
+            dependencies: process.env.DEPENDENCIES_OUTCOME || 'unknown',
+            chromium: process.env.CHROMIUM_OUTCOME || 'unknown',
+            server: process.env.SERVER_OUTCOME || 'unknown',
+            browser: process.env.BROWSER_OUTCOME || 'unknown',
+            lighthouse: process.env.LIGHTHOUSE_OUTCOME || 'unknown'
+          };
+          const passed = Object.values(steps).every((outcome) => outcome === 'success');
+          const receipt = {
+            status: passed ? 'passed' : 'failed',
+            reviewed_sha: process.env.REVIEWED_SHA,
+            workflow_run_id: process.env.RUN_ID,
+            reviewed_at: new Date().toISOString(),
+            steps,
+            screenshots: browser ? browser.pages.length + 1 : 0,
+            axe_pages: browser?.accessibility?.length || 0,
+            console_errors: browser?.consoleErrors?.length ?? null,
+            page_errors: browser?.pageErrors?.length ?? null,
+            browser_failures: browser?.failures || [],
+            lighthouse
+          };
+          fs.writeFileSync('moonverse-src/review-artifacts/qa-status.json', JSON.stringify(receipt, null, 2) + '\n');
+          NODE
+
+      - name: Upload review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: moonverse-review-${{ github.event.pull_request.head.sha || github.sha }}
+          path: moonverse-src/review-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce review gates
+        if: always()
+        env:
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          ARTIFACT_SYNC_OUTCOME: ${{ steps.artifact_sync.outcome }}
+          STRUCTURAL_OUTCOME: ${{ steps.structural.outcome }}
+          DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          CHROMIUM_OUTCOME: ${{ steps.chromium.outcome }}
+          SERVER_OUTCOME: ${{ steps.server.outcome }}
+          BROWSER_OUTCOME: ${{ steps.browser_review.outcome }}
+          LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
+        run: |
+          echo "Build: $BUILD_OUTCOME"
+          echo "Artifact sync: $ARTIFACT_SYNC_OUTCOME"
+          echo "Structural: $STRUCTURAL_OUTCOME"
+          echo "Dependencies: $DEPENDENCIES_OUTCOME"
+          echo "Chromium: $CHROMIUM_OUTCOME"
+          echo "Server: $SERVER_OUTCOME"
+          echo "Browser: $BROWSER_OUTCOME"
+          echo "Lighthouse: $LIGHTHOUSE_OUTCOME"
+          test "$BUILD_OUTCOME" = 'success'
+          test "$ARTIFACT_SYNC_OUTCOME" = 'success'
+          test "$STRUCTURAL_OUTCOME" = 'success'
+          test "$DEPENDENCIES_OUTCOME" = 'success'
+          test "$CHROMIUM_OUTCOME" = 'success'
+          test "$SERVER_OUTCOME" = 'success'
+          test "$BROWSER_OUTCOME" = 'success'
+          test "$LIGHTHOUSE_OUTCOME" = 'success'

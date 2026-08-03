@@ -196,5 +196,53 @@
     "label": "influencia a imaginação territorial do Moonverse",
     "evidence": "A arquitetura pública reconhece mundos autorais e espacialização narrativa como uma das linhagens do portal, sem confundir os dois projetos.",
     "review_state": "approved_batch_b1"
+  },
+  {
+    "id": "lunar-citadel-belongs-to-observatorio",
+    "source": "lunar-citadel",
+    "target": "observatorio-nexus",
+    "type": "belongs_to",
+    "label": "pertence ao Observatório Nexus",
+    "evidence": "A entrada apresenta uma arquitetura de IA, memória, governança e mundo causal."
+  },
+  {
+    "id": "lunar-citadel-develops-moon-source",
+    "source": "lunar-citadel",
+    "target": "moon-source",
+    "type": "develops_from",
+    "label": "aplica princípios do Moon Source numa arquitetura civilizacional",
+    "evidence": "A Citadela usa fontes governadas, jurisdição, patches e fronteiras como forma de continuidade de projeto."
+  },
+  {
+    "id": "familia-do-futuro-belongs-to-biblioteca",
+    "source": "familia-do-futuro",
+    "target": "biblioteca-lunar",
+    "type": "belongs_to",
+    "label": "pertence à Biblioteca Lunar",
+    "evidence": "A página é um ensaio autobiográfico cultural ancorado em memória de infância."
+  },
+  {
+    "id": "familia-do-futuro-revisits-infancia-digital",
+    "source": "familia-do-futuro",
+    "target": "infancia-digital",
+    "type": "revisits",
+    "label": "revisita a infância tecnológica como promessa de futuro",
+    "evidence": "As duas entradas compartilham câmeras, emuladores, simulação e tecnologia como encantamento infantil."
+  },
+  {
+    "id": "familia-do-futuro-revisits-me-tornando",
+    "source": "familia-do-futuro",
+    "target": "me-tornando",
+    "type": "revisits",
+    "label": "relê a continuidade da infância depois da transição",
+    "evidence": "O ensaio articula o encontro com o eu futuro à descoberta posterior de uma continuidade trans."
+  },
+  {
+    "id": "familia-do-futuro-shares-motif-casa-arca",
+    "source": "familia-do-futuro",
+    "target": "casa-arca",
+    "type": "shares_motif",
+    "label": "compartilha o motivo da família escolhida e do futuro habitável",
+    "evidence": "Ambas tratam família como ecossistema de cuidado, invenção e pertencimento para além do biologicismo."
   }
 ]

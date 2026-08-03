@@ -106,5 +106,24 @@
       "name": "moon - threads antigas.txt",
       "handling": "bounded thematic evidence only; raw conversational material excluded"
     }
-  ]
+  ],
+  "batch_c1_authority": {
+    "status": "approved_in_chat",
+    "date": "2026-08-03",
+    "entries": [
+      "lunar-citadel",
+      "familia-do-futuro"
+    ],
+    "sources": [
+      "1. protocol.py",
+      "2. canon.py",
+      "4. world.py",
+      "5. moon.py",
+      "infancia.py",
+      "25 de Jun (At. em DEZ 25).txt",
+      "welcometomycutelife BRUTO.txt",
+      "Me tornando eu mesma"
+    ],
+    "boundary": "Somente sínteses públicas; corpus bruto, detalhes íntimos, infraestrutura, parceiros e claims não demonstrados permanecem excluídos."
+  }
 }
