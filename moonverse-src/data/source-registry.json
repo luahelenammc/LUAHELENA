@@ -13,5 +13,37 @@
     {"path":"moonverse/data/notion/","role":"Notion staging snapshots","handling":"kept in legacy; never copied into public build"},
     {"path":"uploaded/welcometomycutelife BRUTO.txt","role":"historical source attachment","handling":"review required; not published"}
   ],
-  "public_gate": "status == published AND privacy in [public, sanitized_approved] AND publication_approved == true"
+  "public_gate": "status == published AND privacy in [public, sanitized_approved] AND publication_approved == true AND source_authority != empty AND reviewed_by_moon == true",
+  "batch_a1_authority": [
+    {
+      "entry_id": "moon-source",
+      "authority": "Moon Professional Source — Method Core, Moon Skills e Public Surface",
+      "handling": "new public synthesis; private runtime, partner and IP detail excluded"
+    },
+    {
+      "entry_id": "sims",
+      "authority": "autobiographical evidence + bounded historical source + public Moonverse lineage",
+      "handling": "new cultural synthesis; identity of the installing person omitted"
+    },
+    {
+      "entry_id": "orkut-msn",
+      "authority": "autobiographical evidence + bounded historical source + public Moonverse lineage",
+      "handling": "new cultural synthesis; contacts, chats and old URLs omitted"
+    },
+    {
+      "entry_id": "infancia-digital",
+      "authority": "infancia.py + bounded historical source + authorized memory seed",
+      "handling": "new autobiographical synthesis; dates and third-party details not required by the spine omitted"
+    },
+    {
+      "entry_id": "ecologia-espiritual",
+      "authority": "Ecologia Espiritual no Brasil + ecorreligião.py + santuário.py",
+      "handling": "original annotated synthesis; academic text not republished and personal project not institutionalized"
+    }
+  ],
+  "failed_uploads_not_used": [
+    "25 de Jun (At. em DEZ 25).txt",
+    "KAIROS (At. em DEZ 25).txt",
+    "moon - threads antigas.txt"
+  ]
 }

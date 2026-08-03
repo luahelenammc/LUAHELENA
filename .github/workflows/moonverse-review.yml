@@ -93,9 +93,17 @@ jobs:
             --quiet --output=json \
             --output-path=moonverse-src/review-artifacts/lighthouse/article.json \
             --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/moon-source/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/moon-source.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          npx --yes lighthouse http://127.0.0.1:4173/moonverse/entry/ecologia-espiritual/ \
+            --quiet --output=json \
+            --output-path=moonverse-src/review-artifacts/lighthouse/ecologia-espiritual.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-          const files = ['home', 'article'];
+          const files = ['home', 'article', 'moon-source', 'ecologia-espiritual'];
           const thresholds = { performance: .90, accessibility: .95, 'best-practices': .95, seo: .95 };
           const summary = {};
           const failures = [];

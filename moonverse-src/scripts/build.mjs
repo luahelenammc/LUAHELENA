@@ -10,6 +10,7 @@ const wings = readJson('data/wings.json').sort((a, b) => a.order - b.order);
 const entries = readJson('data/entries.json');
 const relations = readJson('data/relations.json');
 const paths = readJson('data/paths.json');
+const concepts = readJson('data/concepts.json');
 
 const publishablePrivacy = new Set(['public', 'sanitized_approved']);
 const published = entries.filter((entry) => (
@@ -19,6 +20,7 @@ const published = entries.filter((entry) => (
 ));
 const publishedById = new Map(published.map((entry) => [entry.id, entry]));
 const wingsById = new Map(wings.map((wing) => [wing.id, wing]));
+const conceptsById = new Map(concepts.map((concept) => [concept.id, concept]));
 const publicPaths = paths
   .filter((item) => item.public === true)
   .map((item) => ({ ...item, entries: item.entry_ids.map((id) => publishedById.get(id)).filter(Boolean) }))
@@ -292,7 +294,7 @@ function wingPage(wing) {
 }
 
 function sourceLabel(kind) {
-  return ({ authored: 'texto autoral', imported: 'texto importado', curated: 'texto curado' })[kind] || 'fonte editorial';
+  return ({ authored: 'síntese autoral', imported: 'texto importado', curated: 'texto curado', annotated: 'síntese anotada' })[kind] || 'fonte editorial';
 }
 
 function article(entry) {
@@ -303,13 +305,17 @@ function article(entry) {
     const otherId = relation.source === entry.id ? relation.target : relation.source;
     const otherEntry = publishedById.get(otherId);
     const otherWing = wingsById.get(otherId);
-    const href = otherEntry ? entryUrl(otherEntry) : otherWing ? wingUrl(otherWing) : '#';
-    const label = otherEntry?.title || otherWing?.title || relation.label;
+    const otherConcept = conceptsById.get(otherId);
+    const href = otherEntry ? entryUrl(otherEntry) : otherWing ? wingUrl(otherWing) : otherConcept ? otherConcept.url : '#';
+    const label = otherEntry?.title || otherWing?.title || otherConcept?.title || relation.label;
     return `<li><a href="${href}">${escapeHtml(label)}</a><span>${escapeHtml(relation.label)}</span></li>`;
   }).join('');
   const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: entry.title, description: entry.summary, author: { '@type': 'Person', name: site.author }, isPartOf: { '@type': 'WebSite', name: site.title, url: 'https://www.luahelena.com.br/moonverse/' } });
   const sourceRefs = entry.source_refs?.length ? entry.source_refs.map(escapeHtml).join(', ') : 'referência não exibida';
-  const content = `<div class="page-wrap breadcrumb"><a href="/moonverse/">Moonverse</a><span aria-hidden="true">/</span><a href="${wingUrl(wing)}">${escapeHtml(wing.title)}</a><span aria-hidden="true">/</span><span>${escapeHtml(entry.title)}</span></div><div class="article-layout page-wrap"><aside class="article-rail article-toc"><p class="eyebrow">Nesta página</p>${toc}</aside><article class="article"><header class="article-header"><p class="eyebrow">${escapeHtml(entry.type)} · ${escapeHtml(wing.title)}</p><h1>${escapeHtml(entry.title)}</h1><p class="article-lead">${escapeHtml(entry.lead)}</p><div class="article-meta"><span>${escapeHtml(entry.date_label)}</span><span>·</span><span>por ${escapeHtml(site.author)}</span></div></header><div class="prose">${markdownToHtml(entry.body_markdown)}</div><div class="source-notes"><p class="eyebrow">Fonte e forma</p><p>Origem: ${escapeHtml(sourceLabel(entry.source_kind))}. Referência editorial: ${sourceRefs}.</p><p>Esta página pertence à superfície pública do Moonverse; ela não representa o corpus privado inteiro.</p></div>${relationItems ? `<section class="related-block"><p class="eyebrow">Relações</p><ul class="relation-list">${relationItems}</ul></section>` : ''}</article><aside class="article-rail article-infobox"><div class="infobox-rule" style="--wing-accent:${wing.accent}"></div><p class="eyebrow">Ficha</p><dl><dt>Ala</dt><dd><a href="${wingUrl(wing)}">${escapeHtml(wing.title)}</a></dd><dt>Palavras-chave</dt><dd>${entry.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join(' ')}</dd><dt>Última edição</dt><dd>${escapeHtml(entry.updated)}</dd></dl><a class="text-link" href="/moonverse/atlas/">Abrir no Atlas <span aria-hidden="true">↗</span></a></aside></div><script type="application/ld+json">${jsonLd}</script>`;
+  const boundaryNote = entry.sanitization_required
+    ? `<p>Fronteira pública: ${escapeHtml(entry.sanitization_notes)}</p>`
+    : `<p>Fronteira pública: esta síntese não amplia detalhes pessoais ou de terceiros além do necessário ao tema.</p>`;
+  const content = `<div class="page-wrap breadcrumb"><a href="/moonverse/">Moonverse</a><span aria-hidden="true">/</span><a href="${wingUrl(wing)}">${escapeHtml(wing.title)}</a><span aria-hidden="true">/</span><span>${escapeHtml(entry.title)}</span></div><div class="article-layout page-wrap"><aside class="article-rail article-toc"><p class="eyebrow">Nesta página</p>${toc}</aside><article class="article"><header class="article-header"><p class="eyebrow">${escapeHtml(entry.type)} · ${escapeHtml(wing.title)}</p><h1>${escapeHtml(entry.title)}</h1><p class="article-lead">${escapeHtml(entry.lead)}</p><div class="article-meta"><span>${escapeHtml(entry.date_label)}</span><span>·</span><span>por ${escapeHtml(site.author)}</span></div></header><div class="prose">${markdownToHtml(entry.body_markdown)}</div><div class="source-notes"><p class="eyebrow">Fonte e forma</p><p>Origem: ${escapeHtml(sourceLabel(entry.source_kind))}. Referência editorial: ${sourceRefs}.</p>${boundaryNote}<p>Esta página pertence à superfície pública do Moonverse; ela não representa o corpus privado inteiro.</p></div>${relationItems ? `<section class="related-block"><p class="eyebrow">Relações</p><ul class="relation-list">${relationItems}</ul></section>` : ''}</article><aside class="article-rail article-infobox"><div class="infobox-rule" style="--wing-accent:${wing.accent}"></div><p class="eyebrow">Ficha</p><dl><dt>Ala</dt><dd><a href="${wingUrl(wing)}">${escapeHtml(wing.title)}</a></dd><dt>Palavras-chave</dt><dd>${entry.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join(' ')}</dd><dt>Última edição</dt><dd>${escapeHtml(entry.updated)}</dd></dl><a class="text-link" href="/moonverse/atlas/">Abrir no Atlas <span aria-hidden="true">↗</span></a></aside></div><script type="application/ld+json">${jsonLd}</script>`;
   return shell({ title: entry.title, description: entry.summary, active: 'wiki', bodyClass: 'article-page', content, depth: 2 });
 }
 
@@ -323,16 +329,13 @@ function timeline() {
 function graphData() {
   const nodes = [
     ...wings.map((wing) => ({ id: `wing:${wing.id}`, kind: 'wing', label: wing.title, summary: wing.intro, url: wingUrl(wing), accent: wing.accent })),
-    ...published.map((entry) => ({ id: `entry:${entry.id}`, kind: 'entry', label: entry.title, summary: entry.summary, url: entryUrl(entry), wing: entry.wing, tags: entry.tags }))
+    ...published.map((entry) => ({ id: `entry:${entry.id}`, kind: 'entry', label: entry.title, summary: entry.summary, url: entryUrl(entry), wing: entry.wing, tags: entry.tags })),
+    ...concepts.map((concept) => ({ id: `concept:${concept.id}`, kind: 'concept', label: concept.title, summary: concept.summary, url: concept.url, accent: concept.accent }))
   ];
+  const nodeIdFor = (id) => publishedById.has(id) ? `entry:${id}` : wingsById.has(id) ? `wing:${id}` : conceptsById.has(id) ? `concept:${id}` : null;
   const links = relations.filter((relation) => (
-    (publishedById.has(relation.source) || wingsById.has(relation.source))
-    && (publishedById.has(relation.target) || wingsById.has(relation.target))
-  )).map((relation) => ({
-    ...relation,
-    source: publishedById.has(relation.source) ? `entry:${relation.source}` : `wing:${relation.source}`,
-    target: publishedById.has(relation.target) ? `entry:${relation.target}` : `wing:${relation.target}`
-  }));
+    nodeIdFor(relation.source) && nodeIdFor(relation.target)
+  )).map((relation) => ({ ...relation, source: nodeIdFor(relation.source), target: nodeIdFor(relation.target) }));
   return { version: 1, nodes, links };
 }
 
@@ -341,6 +344,7 @@ function atlas() {
   const wingY = new Map(wings.map((wing, index) => [wing.id, 118 + index * 82]));
   const entriesByWing = new Map(wings.map((wing) => [wing.id, published.filter((entry) => entry.wing === wing.id)]));
   const entryPosition = new Map();
+  const conceptPosition = new Map(concepts.map((concept, index) => [concept.id, { x: 730, y: 180 + index * 170 }]));
   for (const wing of wings) {
     entriesByWing.get(wing.id).forEach((entry, index) => entryPosition.set(entry.id, { x: 605 + (index % 2) * 110, y: wingY.get(wing.id) + Math.floor(index / 2) * 44 }));
   }
@@ -348,6 +352,7 @@ function atlas() {
   const svgH = Math.max(610, wings.length * 82 + 80);
   const pointFor = (nodeId) => {
     if (nodeId.startsWith('wing:')) return { x: 220, y: wingY.get(nodeId.slice(5)) || 118 };
+    if (nodeId.startsWith('concept:')) return conceptPosition.get(nodeId.slice(8)) || { x: 730, y: 180 };
     return entryPosition.get(nodeId.slice(6)) || { x: 605, y: 118 };
   };
   const lines = graph.links.map((link) => {
@@ -360,8 +365,9 @@ function atlas() {
     const p = entryPosition.get(entry.id);
     return `<a href="${entryUrl(entry)}" class="svg-node svg-entry" transform="translate(${p.x} ${p.y})"><circle r="16"></circle><text x="-34" y="-28">${escapeHtml(entry.title)}</text></a>`;
   }).join('');
-  const svg = `<svg class="atlas-svg" viewBox="0 0 ${svgW} ${svgH}" role="group" aria-labelledby="atlas-figure-title atlas-figure-desc"><title id="atlas-figure-title">Constelação pública do Moonverse</title><desc id="atlas-figure-desc">Relações entre as alas do Moonverse e as entradas que podem ser lidas publicamente.</desc><g class="graph-lines">${lines}</g><g>${wingNodes}${entryNodes}</g></svg>`;
-  const list = `<div class="atlas-list"><p class="eyebrow">Lista completa</p><ul>${published.map((entry) => `<li><a href="${entryUrl(entry)}"><strong>${escapeHtml(entry.title)}</strong><span>${escapeHtml(wingsById.get(entry.wing)?.title || '')}</span></a></li>`).join('')}${wings.filter((wing) => !published.some((entry) => entry.wing === wing.id)).map((wing) => `<li class="atlas-empty"><a href="${wingUrl(wing)}"><strong>${escapeHtml(wing.title)}</strong><span>explorar a ala</span></a></li>`).join('')}</ul></div>`;
+  const conceptNodes = concepts.map((concept) => { const p = conceptPosition.get(concept.id); return `<a href="${safeHref(concept.url)}" class="svg-node svg-concept" style="--node-accent:${concept.accent}" transform="translate(${p.x} ${p.y})"><circle r="12"></circle><text x="-145" y="5">${escapeHtml(concept.title)}</text></a>`; }).join('');
+  const svg = `<svg class="atlas-svg" viewBox="0 0 ${svgW} ${svgH}" role="group" aria-labelledby="atlas-figure-title atlas-figure-desc"><title id="atlas-figure-title">Constelação pública do Moonverse</title><desc id="atlas-figure-desc">Relações entre alas, entradas públicas e conceitos editoriais aprovados.</desc><g class="graph-lines">${lines}</g><g>${wingNodes}${entryNodes}${conceptNodes}</g></svg>`;
+  const list = `<div class="atlas-list"><p class="eyebrow">Lista completa</p><ul>${published.map((entry) => `<li><a href="${entryUrl(entry)}"><strong>${escapeHtml(entry.title)}</strong><span>${escapeHtml(wingsById.get(entry.wing)?.title || '')}</span></a></li>`).join('')}${wings.filter((wing) => !published.some((entry) => entry.wing === wing.id)).map((wing) => `<li class="atlas-empty"><a href="${wingUrl(wing)}"><strong>${escapeHtml(wing.title)}</strong><span>explorar a ala</span></a></li>`).join('')}${concepts.map((concept) => `<li class="atlas-concept"><a href="${safeHref(concept.url)}"><strong>${escapeHtml(concept.title)}</strong><span>conceito editorial</span></a></li>`).join('')}</ul></div>`;
   const content = `<section class="page-wrap page-heading"><p class="eyebrow">Atlas Moonverse</p><h1>Uma constelação legível.</h1><p class="intro-dek">O mapa é uma camada de orientação. A lista ao lado e os links comuns continuam sendo a forma completa de acesso.</p></section><section class="page-wrap atlas-layout"><figure class="atlas-figure"><div class="atlas-toolbar"><span>Vista pública · relações explícitas</span><a href="/moonverse/wiki/">Voltar ao índice</a></div>${svg}<figcaption>As linhas representam relações editoriais nomeadas; o vazio também é informação.</figcaption></figure>${list}</section><section class="page-wrap atlas-note"><p class="eyebrow">Princípio do Atlas</p><p>O mapa aproxima páginas sem substituir a leitura. Cada ponto continua ligado a uma entrada ou ala convencional.</p></section>`;
   return shell({ title: 'Atlas', description: 'Atlas relacional e textual do Moonverse.', active: 'atlas', content, depth: 1 });
 }
@@ -409,7 +415,7 @@ write('assets/search-index.json', JSON.stringify(published.map((entry) => ({
   wing_id: entry.wing
 })), null, 2) + '\n');
 write('assets/graph.json', JSON.stringify(graphData(), null, 2) + '\n');
-write('assets/publication-manifest.json', JSON.stringify({ generated_at: new Date().toISOString().slice(0, 10), entries: published.map((entry) => entry.id), wings: wings.map((wing) => wing.id) }, null, 2) + '\n');
+  write('assets/publication-manifest.json', JSON.stringify({ generated_at: site.build_date || new Date().toISOString().slice(0, 10), entries: published.map((entry) => entry.id), wings: wings.map((wing) => wing.id) }, null, 2) + '\n');
 write('README.md', `# Moonverse public artifact
 
 > ${site.generated_warning}

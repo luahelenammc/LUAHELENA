@@ -15,5 +15,95 @@
     "type": "Memória evocativa",
     "wing": "Biblioteca Lunar",
     "wing_id": "biblioteca-lunar"
+  },
+  {
+    "id": "moon-source",
+    "title": "Moon Source",
+    "url": "/moonverse/entry/moon-source/",
+    "summary": "Um método para tornar pessoas, projetos e instituições legíveis para IA sem reduzir sua complexidade a um prompt solto.",
+    "body": "O que é Moon Source é uma arquitetura de contexto: uma maneira de transformar pessoas, projetos, equipes e instituições em fontes vivas, atualizáveis e governáveis para colaboração com IA. A ideia não é empacotar uma pessoa inteira, mas decidir o que precisa permanecer legível, em que jurisdição e com quais limites. Ele não é um prompt pack, um despejo universal de dados nem software pronto vendido como método. Sua forma pode incluir arquivos-fonte, perfis, ledgers, handoffs e superfícies públicas, mas o centro é a governança do contexto. O problema que responde Conversas com IA costumam perder continuidade por dois motivos opostos: há pouco contexto, e o sistema inventa a partir de lacunas; ou há contexto demais, e nada consegue distinguir o que é fato, hipótese, decisão, memória, limite ou arquivo morto. Moon Source trata essa diferença como problema editorial e arquitetural. Uma fonte útil não é simplesmente longa. Ela tem autoridade, função, atualização, fronteira e um caminho de uso. Constituir e metabolizar O método se move em duas direções. Constituir é dar forma: nomear entidades, relações, critérios, voz e jurisdição. Metabolizar é manter o sistema vivo: separar fato de interpretação, absorver material novo, retirar redundâncias, registrar mudanças e impedir que uma hipótese antiga continue governando por inércia. As duas operações se corrigem. Constituir sem metabolizar cria um monumento pesado; metabolizar sem uma forma reconhecível dissolve tudo em fluxo. Público portátil e fontes vivas O Public Portable é uma implementação pública e limitada. Ele traduz a lógica do método para uma superfície que outras pessoas podem ler e reutilizar, mas não contém o corpus privado nem autoriza inferências sobre tudo o que existe fora dela. Essa distinção é parte do método, não um rodapé de segurança. Uma boa arquitetura sabe dizer não apenas o que conhece, mas também o que não deve exportar. Por que está no Moonverse O Moonverse é uma superfície pública de arquivo. Moon Source é uma das arquiteturas que tornam esse arquivo navegável: ajuda a transformar experiências, projetos e conceitos em páginas com fonte, forma e fronteira. O Observatório não exibe o laboratório inteiro; mostra algumas estruturas que podem ser vistas de fora dele. Autoria, privacidade e limites Moon é a autora e autoridade editorial do método. A IA pode ajudar a desenvolver, testar e organizar artefatos, mas não substitui autoria nem consentimento. Por isso, falar de Moon Source publicamente exige precisão: há prática aplicada, arquitetura de contexto, governança de conhecimento e prova construída. Não há, nesta página, uma alegação de engenharia de modelos, infraestrutura de produção ou implantação empresarial que não tenha sido demonstrada. Contexto bom não é o que carrega tudo. É o que permite que a coisa certa chegue à pessoa certa, no momento certo, sem perder a fronteira.",
+    "tags": [
+      "Moon Source",
+      "contexto",
+      "IA",
+      "memória",
+      "governança",
+      "método"
+    ],
+    "type": "Projeto / método",
+    "wing": "Observatório Nexus",
+    "wing_id": "observatorio-nexus"
+  },
+  {
+    "id": "sims",
+    "title": "The Sims 1 como casa mental",
+    "url": "/moonverse/entry/the-sims-1-como-casa-mental/",
+    "summary": "Antes da internet regular, uma casa virtual ensinou que objetos, rotinas e possibilidades também podiam ser organizados como linguagem.",
+    "body": "Antes da internet The Sims 1 chegou quando a internet ainda não era uma presença regular. O jogo não apareceu como parte de uma grande cultura gamer já explicada; apareceu como uma casa que precisava ser descoberta por tentativa, observação e repetição. Uma pessoa próxima da família instalou o jogo e ensinou o começo. O resto foi exploração. Essa ordem importa. Antes de existir uma rede permanente de tutoriais, comunidades e respostas prontas, o próprio programa funcionava como território de aprendizagem. A primeira casa e a primeira mobília A lembrança guarda uma primeira mobília simples: um sofá de lã. Guarda também a descoberta de que era possível jogar sem recorrer a códigos de dinheiro. Não é uma cronologia completa do jogo; é a textura de uma primeira relação com ele — comprar, escolher, testar, errar e voltar. A casa virtual era feita de objetos concretos. Cada objeto mudava o que podia acontecer ali. Casa como interface The Sims transformava uma ideia abstrata de vida em uma gramática manipulável. A casa tinha cômodos, portas, necessidades, horários e consequências. O jogador aprendia não apenas a decorar, mas a compor condições de existência. Isso faz da casa uma interface: um lugar em que pensamento vira disposição espacial e em que disposição espacial devolve possibilidades ao pensamento. Por que o espaço simulado ficava A força não estava em substituir a vida real por uma fantasia perfeita. Estava em oferecer uma escala de ação. Dentro daquela caixa de areia, era possível experimentar relações entre rotina, objeto, cuidado, dinheiro, desejo e mudança sem precisar explicar tudo antes. A memória não precisa transformar isso em diagnóstico. Basta reconhecer que uma forma de espaço se tornou íntima porque permitia mexer no mundo e observar o que mudava. The Sims dentro do Moonverse O Moonverse herda uma lógica parecida, mas a desloca para o arquivo: alas, páginas, caminhos e relações fazem da navegação uma forma de habitar conhecimento. Não é uma cópia do jogo, nem uma promessa de simulação total. É uma linhagem de imaginação espacial. A casa deixou de ser apenas cenário. Tornou-se uma pergunta: que organização torna possível continuar vivendo, criando e encontrando uma coisa depois da outra? O que a memória mantém vivo O jogo permanece menos como produto fechado do que como primeira demonstração de que um ambiente pode ensinar sem dar aula. Uma sala, um móvel e uma rotina podem carregar uma teoria inteira de possibilidades. Algumas casas são lembradas porque foram habitadas. Outras, porque ensinaram o que significa construir um lugar.",
+    "tags": [
+      "The Sims",
+      "jogos",
+      "casa",
+      "infância",
+      "interface",
+      "memória"
+    ],
+    "type": "Memória cultural / ensaio autobiográfico",
+    "wing": "Quarto Nostálgico",
+    "wing_id": "quarto-nostalgico"
+  },
+  {
+    "id": "orkut-msn",
+    "title": "Orkut, MSN e o quarto paralelo",
+    "url": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
+    "summary": "Orkut e MSN fizeram da internet um espaço pessoal, colorido e habitável para escrever, conversar e experimentar identidade.",
+    "body": "Quando a internet parecia um lugar Orkut e MSN pertencem a uma época em que a internet não vinha apenas como fluxo infinito. Ela se apresentava como lugar de entrada: um perfil, uma comunidade, uma lista de contatos, uma janela que se abria quando alguém estava disponível. A tela organizava uma pequena geografia social. Essa experiência não foi universal nem sempre segura. Mas, para esta memória, a imagem do quarto paralelo é precisa: havia um espaço separado da rotina presencial, ainda que atravessado por ela. Orkut como perfil, scrapbook e comunidade No Orkut, identidade não era apenas uma conta que recomendava conteúdo. Era uma composição visível. Perfil, scraps, comunidades e pequenos sinais gráficos formavam uma página que dizia algo sobre quem estava ali e sobre como queria ser lida. A participação podia ser pública, íntima, performática, comunitária ou simplesmente curiosa. O ambiente convidava a deixar marcas. MSN como presença e limiar O MSN tinha outra temperatura. A lista de contatos transformava disponibilidade em acontecimento. Um nome online, uma mensagem de status ou uma janela aberta produziam expectativa sem exigir que tudo virasse publicação. Era uma tecnologia de presença e limiar: alguém podia estar ali, mas a conversa ainda precisava começar. Identidade feita à mão A web daquele período parecia habitável porque permitia uma quantidade maior de imperfeição e composição manual. Cores, frases, imagens, comunidades e pequenas escolhas faziam o espaço parecer de alguém. Essa gramática importa para o Moonverse não como nostalgia de interface antiga, mas como lembrança de que uma superfície digital pode ter atmosfera sem virar vitrine. O que o Moonverse herda O portal herda a vontade de construir páginas com endereço, clima e relação. Cada ala é uma forma de dizer: este assunto mora aqui, mas também se comunica com outros. A página não precisa ser um feed para ser viva. O que se preserva é a habitabilidade — a sensação de que há uma porta, uma voz e uma escolha de percurso — não a precariedade técnica ou a exposição involuntária daquela época. O que não deve ser romantizado O velho web também tinha vigilância, assédio, desigualdade de acesso, rastros difíceis de apagar e fronteiras frágeis. O fato de um espaço parecer artesanal não o tornava automaticamente seguro ou emancipador. A melhor nostalgia é seletiva: recupera cor, autoria e presença, mas leva consigo a memória do risco. Um quarto paralelo pode ser abrigo, palco e janela ao mesmo tempo. Por isso, toda porta pública precisa também de uma maçaneta.",
+    "tags": [
+      "Orkut",
+      "MSN",
+      "internet",
+      "identidade",
+      "comunidade",
+      "nostalgia"
+    ],
+    "type": "Memória cultural / história da internet",
+    "wing": "Quarto Nostálgico",
+    "wing_id": "quarto-nostalgico"
+  },
+  {
+    "id": "infancia-digital",
+    "title": "Tecnologia, SNES e Olympus D395: a infância digital",
+    "url": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
+    "summary": "Jogos, programas de imagem e uma câmera digital transformaram uma infância desconectada em laboratório de olhar, tentativa e arquivo.",
+    "body": "Uma infância digital antes da conexão permanente A infância digital não começou com uma rede social nem com um aparelho sempre conectado. Ela tinha intervalos, aparelhos locais e longos períodos de exploração sem testemunha externa. A televisão de tubo acesa, o console e os programas instalados no computador formavam um pequeno ecossistema de descoberta. O digital era menos uma janela para fora do que um conjunto de mundos que podiam ser abertos por dentro. A TV de tubo e o SNES A TV de tubo não era apenas o lugar onde se assistia a alguma coisa. Ela era a superfície luminosa que reunia jogo, desenho, espera e presença. O SNES acrescentava uma gramática de tentativa: apertar, perder, repetir, memorizar caminhos e descobrir que uma fase podia ser atravessada de outro modo. Essa memória não precisa de uma data perfeita para ser verdadeira. O que permanece é a textura de uma tecnologia que ocupava o corpo inteiro, com som, luz, fio, distância e tempo. Aprender abrindo programas Sem uma conexão estável para explicar cada recurso, programas como Corel Photo-Paint e Adobe Fireworks eram explorados por aproximação. Abrir, clicar, desfazer, salvar e tentar de novo constituíam uma forma de alfabetização visual. O computador ensinava que uma imagem podia ser composta e que um arquivo podia guardar uma tentativa para ser retomada depois. A Olympus D395 e a imagem que fica A primeira câmera digital aparece na memória como espanto antes de aparecer como objeto. Ver uma tela de LCD mostrar a imagem em tempo real já parecia uma mudança de regime. Mais tarde, a Olympus D395 tornou possível fotografar sem comprar filme nem esperar revelação. A passagem foi importante porque aproximou olhar e arquivo: fotografar deixou de ser apenas gastar uma oportunidade escassa e passou a ser testar, observar, guardar e voltar. Dos arquivos locais aos arquivos vivos Jogos, imagens e programas não eram só consumo. Eles ensinavam a compor, classificar, cuidar de uma coleção e imaginar relações entre partes. O arquivo começava como pasta, save ou fotografia; mais tarde, poderia virar memória organizada, projeto ou mapa. Não há uma linha reta obrigatória entre a criança que experimenta um programa e a adulta que constrói sistemas de contexto. Há, no máximo, uma continuidade de gesto: olhar, guardar, rearranjar e tentar tornar o mundo navegável. Por que a tecnologia aqui é quente No Moonverse, tecnologia não aparece como máquina neutra nem como promessa de eficiência sem corpo. Ela aparece como matéria de lembrança: a luz da tela, o ruído do aparelho, a mão procurando um comando, a imagem que finalmente pode ser vista. Antes de virar rede, a tecnologia foi quarto. Antes de virar sistema, foi uma coisa pequena que acendia e dizia: ainda dá para tentar.",
+    "tags": [
+      "SNES",
+      "Olympus D395",
+      "fotografia",
+      "TV de tubo",
+      "software",
+      "arquivo"
+    ],
+    "type": "Memória autobiográfica de tecnologia",
+    "wing": "Quarto Nostálgico",
+    "wing_id": "quarto-nostalgico"
+  },
+  {
+    "id": "ecologia-espiritual",
+    "title": "Ecologia espiritual",
+    "url": "/moonverse/entry/ecologia-espiritual/",
+    "summary": "Uma síntese pública sobre o campo que aproxima responsabilidade ecológica, experiência espiritual e formas de pertencimento ao mundo vivo.",
+    "body": "Um campo que já existe Ecologia espiritual é um campo interdisciplinar e um conjunto diverso de práticas que aproximam responsabilidade ecológica, espiritualidade, experiência do sagrado e formas de pertencimento à natureza. Ele não depende necessariamente de acreditar em deuses ou espíritos. Pode aparecer como teologia, ética, educação, cuidado territorial, filosofia, rito, arte ou prática comunitária. O ponto comum não é uma doutrina única, mas a recusa de tratar o mundo vivo como cenário descartável. O que “espiritual” muda na ecologia A ecologia já oferece descrições e ferramentas indispensáveis. A dimensão espiritual acrescenta perguntas de valor, vínculo e orientação: o que significa habitar um lugar? Que tipo de obrigação nasce quando uma paisagem deixa de ser recurso e passa a ser presença? Como o cuidado se torna prática repetida, e não apenas sentimento diante de uma imagem bonita? Essas perguntas não substituem ciência nem política pública. Elas disputam o horizonte cultural em que decisões ecológicas são tomadas. Linhas brasileiras de investigação No Brasil, a conversa pode atravessar religião, comunidades tradicionais, conservação, educação ambiental, cosmologias, justiça territorial e ecosofia. São linhas diferentes, com conflitos e limites próprios. Uma síntese honesta precisa manter essa diversidade em vez de fabricar um consenso espiritual brasileiro. A anotação pública aqui é uma porta de entrada, não uma bibliografia total nem uma nova versão do artigo de origem. Natureza como relação No Jardim-Santuário, natureza não funciona como decoração verde para uma casa já pronta. Ela é relação: exige tempo, manutenção, borda, responsabilidade, presença e capacidade de conviver com aquilo que não existe para servir à imaginação humana. Isso também impede uma espiritualidade ornamental. Se a mata, a água, os animais e o solo entram apenas como atmosfera, o sagrado virou cenário. Santuário e ecorreligião: limites atuais A ecorreligião de Moon permanece uma hipótese de projeto, não uma religião fundada, uma comunidade constituída ou uma instituição estabelecida. O santuário, por sua vez, é mais concreto como horizonte territorial e doméstico: uma forma de vida com terra, natureza, borda e infraestrutura de cuidado. Uma camada compartilhável pode nascer no futuro, mas não deve ser confundida com o núcleo pessoal nem apresentada como realidade institucional já existente. O campo público pode dizer que essa pergunta está sendo pensada; não pode inventar uma autoridade que ainda não existe. Por que pertence ao Jardim-Santuário Ecologia espiritual cabe aqui porque oferece linguagem para uma intuição central do Moonverse: viver não é ocupar um cenário, mas entrar em relação com um mundo que também impõe limites. O Jardim-Santuário guarda justamente essa passagem entre conceito, sensibilidade e programa de vida. Sua prova não será a beleza do nome. Será a capacidade de orientar práticas materiais de cuidado sem virar culto, ornamento ou promessa vazia. Fontes e forma Esta página é uma síntese anotada a partir do artigo e dos arquivos-fonte autorizados. Ela preserva a atribuição das ideias, mas foi escrita novamente para o Moonverse; não republica o artigo acadêmico nem transforma a hipótese de Moon em fato externo. O sagrado começa a ficar ecologicamente sério quando muda a maneira de cuidar do lugar.",
+    "tags": [
+      "ecologia",
+      "espiritualidade",
+      "natureza",
+      "santuário",
+      "ecorreligião",
+      "Brasil"
+    ],
+    "type": "Conceito anotado / ensaio de contexto",
+    "wing": "Jardim-Santuário",
+    "wing_id": "jardim-santuario"
   }
 ]

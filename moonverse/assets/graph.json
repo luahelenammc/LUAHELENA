@@ -63,6 +63,102 @@
         "memória",
         "água"
       ]
+    },
+    {
+      "id": "entry:moon-source",
+      "kind": "entry",
+      "label": "Moon Source",
+      "summary": "Um método para tornar pessoas, projetos e instituições legíveis para IA sem reduzir sua complexidade a um prompt solto.",
+      "url": "/moonverse/entry/moon-source/",
+      "wing": "observatorio-nexus",
+      "tags": [
+        "Moon Source",
+        "contexto",
+        "IA",
+        "memória",
+        "governança",
+        "método"
+      ]
+    },
+    {
+      "id": "entry:sims",
+      "kind": "entry",
+      "label": "The Sims 1 como casa mental",
+      "summary": "Antes da internet regular, uma casa virtual ensinou que objetos, rotinas e possibilidades também podiam ser organizados como linguagem.",
+      "url": "/moonverse/entry/the-sims-1-como-casa-mental/",
+      "wing": "quarto-nostalgico",
+      "tags": [
+        "The Sims",
+        "jogos",
+        "casa",
+        "infância",
+        "interface",
+        "memória"
+      ]
+    },
+    {
+      "id": "entry:orkut-msn",
+      "kind": "entry",
+      "label": "Orkut, MSN e o quarto paralelo",
+      "summary": "Orkut e MSN fizeram da internet um espaço pessoal, colorido e habitável para escrever, conversar e experimentar identidade.",
+      "url": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
+      "wing": "quarto-nostalgico",
+      "tags": [
+        "Orkut",
+        "MSN",
+        "internet",
+        "identidade",
+        "comunidade",
+        "nostalgia"
+      ]
+    },
+    {
+      "id": "entry:infancia-digital",
+      "kind": "entry",
+      "label": "Tecnologia, SNES e Olympus D395: a infância digital",
+      "summary": "Jogos, programas de imagem e uma câmera digital transformaram uma infância desconectada em laboratório de olhar, tentativa e arquivo.",
+      "url": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
+      "wing": "quarto-nostalgico",
+      "tags": [
+        "SNES",
+        "Olympus D395",
+        "fotografia",
+        "TV de tubo",
+        "software",
+        "arquivo"
+      ]
+    },
+    {
+      "id": "entry:ecologia-espiritual",
+      "kind": "entry",
+      "label": "Ecologia espiritual",
+      "summary": "Uma síntese pública sobre o campo que aproxima responsabilidade ecológica, experiência espiritual e formas de pertencimento ao mundo vivo.",
+      "url": "/moonverse/entry/ecologia-espiritual/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "ecologia",
+        "espiritualidade",
+        "natureza",
+        "santuário",
+        "ecorreligião",
+        "Brasil"
+      ]
+    },
+    {
+      "id": "concept:moonverse",
+      "kind": "concept",
+      "label": "Portal Moonverse",
+      "summary": "A superfície pública e navegável do arquivo autoral.",
+      "url": "/moonverse/",
+      "accent": "#7c5aa6"
+    },
+    {
+      "id": "concept:current-platform-uniformity",
+      "kind": "concept",
+      "label": "Uniformidade das plataformas atuais",
+      "summary": "O contraponto argumentativo à web pessoal, artesanal e espacial do artigo sobre Orkut e MSN.",
+      "url": "/moonverse/about/",
+      "accent": "#8b8178"
     }
   ],
   "links": [
@@ -72,7 +168,107 @@
       "target": "wing:biblioteca-lunar",
       "type": "belongs_to",
       "label": "pertence à Biblioteca Lunar",
-      "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico."
+      "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "moon-source-belongs-to-observatorio",
+      "source": "entry:moon-source",
+      "target": "wing:observatorio-nexus",
+      "type": "belongs_to",
+      "label": "pertence ao Observatório Nexus",
+      "evidence": "Moon Source é uma arquitetura pública de contexto, método e governança de colaboração com IA.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "sims-belongs-to-quarto",
+      "source": "entry:sims",
+      "target": "wing:quarto-nostalgico",
+      "type": "belongs_to",
+      "label": "pertence ao Quarto Nostálgico",
+      "evidence": "A entrada trata de memória cultural, jogo, infância e linhagem de interface.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "orkut-msn-belongs-to-quarto",
+      "source": "entry:orkut-msn",
+      "target": "wing:quarto-nostalgico",
+      "type": "belongs_to",
+      "label": "pertence ao Quarto Nostálgico",
+      "evidence": "A entrada trata da internet formativa como memória cultural e espaço pessoal.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "infancia-digital-belongs-to-quarto",
+      "source": "entry:infancia-digital",
+      "target": "wing:quarto-nostalgico",
+      "type": "belongs_to",
+      "label": "pertence ao Quarto Nostálgico",
+      "evidence": "A entrada reúne jogos, TV, software, fotografia e memória tecnológica da infância.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "ecologia-espiritual-belongs-to-santuario",
+      "source": "entry:ecologia-espiritual",
+      "target": "wing:jardim-santuario",
+      "type": "belongs_to",
+      "label": "pertence ao Jardim-Santuário",
+      "evidence": "A entrada conecta ecologia, espiritualidade, natureza e o horizonte territorial do santuário.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "sims-shares-motif-infancia",
+      "source": "entry:sims",
+      "target": "entry:infancia-digital",
+      "type": "shares_motif",
+      "label": "compartilha o motivo do mundo local explorável",
+      "evidence": "Ambas as entradas tratam de ambientes digitais anteriores à conexão permanente como espaços de tentativa, composição e descoberta.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "orkut-msn-shares-motif-infancia",
+      "source": "entry:orkut-msn",
+      "target": "entry:infancia-digital",
+      "type": "shares_motif",
+      "label": "compartilha o motivo da tecnologia como espaço habitável",
+      "evidence": "As duas entradas descrevem tecnologia como lugar de presença, composição, memória e experimentação, não apenas como consumo.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "sims-influences-moonverse",
+      "source": "entry:sims",
+      "target": "concept:moonverse",
+      "type": "influences",
+      "label": "influencia a lógica espacial do Moonverse",
+      "evidence": "O pacote A1 autoriza The Sims como ancestral explícito da lógica de casa, território e navegação do Portal Moonverse.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "orkut-msn-contrasts-platforms",
+      "source": "entry:orkut-msn",
+      "target": "concept:current-platform-uniformity",
+      "type": "contrasts_with",
+      "label": "contrasta com a uniformidade atual das plataformas",
+      "evidence": "O contraste é um argumento do artigo sobre a web artesanal; não é uma afirmação universal de que a web antiga foi segura ou melhor.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "orkut-msn-influences-moonverse",
+      "source": "entry:orkut-msn",
+      "target": "concept:moonverse",
+      "type": "influences",
+      "label": "influencia a linguagem visual do Moonverse",
+      "evidence": "O artigo identifica perfis, comunidades, presença e estética feita à mão como linhagem formal da superfície pública.",
+      "review_state": "approved_batch_a1"
+    },
+    {
+      "id": "infancia-digital-precedes-moon-source",
+      "source": "entry:infancia-digital",
+      "target": "entry:moon-source",
+      "type": "precedes",
+      "label": "precede em uma sequência biográfica frouxa",
+      "evidence": "A relação marca uma sequência de memória — olhar, guardar, rearranjar e tornar navegável — sem alegar causalidade determinista entre infância e método.",
+      "review_state": "approved_batch_a1"
     }
   ]
 }

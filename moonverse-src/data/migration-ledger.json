@@ -1,56 +1,300 @@
 {
-  "task_id": "MOONVERSE_REBUILD_V1",
-  "baseline_commit": "0b7882d05086b9c5acd464f5812bfaa99ef9a73b",
-  "policy": "Nenhum item sem aprovação explícita entra no build público.",
+  "task_id": "MOONVERSE_V2_CONTENT_BATCH_A1",
+  "baseline_commit": "a9f57c7ff800f541d3c23dbb4025979ef3220a",
+  "policy": "Nenhum item sem autoridade de fonte, fronteira de privacidade e aprovação explícita entra no build público.",
   "summary": {
-    "legacy_page_records": 16,
-    "legacy_rooms": 6,
-    "legacy_memories": 6,
+    "legacy_page_records": 17,
+    "legacy_page_content_intent_records": 16,
+    "legacy_page_structural_superseded": 1,
+    "legacy_room_records": 6,
+    "legacy_memory_records": 6,
     "notion_indexed_records": 24,
     "notion_full_snapshots": 2,
-    "public_entries_built": 1,
-    "deferred_or_review_required": 32,
+    "notion_disposition_records": 2,
+    "historical_blogger_title_records": 336,
+    "public_entries_built": 6,
+    "public_paths_built": 1,
+    "dispositions_total": 32,
+    "deferred_or_review_required": 16,
     "source_attachments_review_required": 1,
+    "disposition_counts": {
+      "legacy_page": 17,
+      "legacy_room": 6,
+      "legacy_memory": 6,
+      "notion_snapshot": 1,
+      "notion_record": 1,
+      "source_attachment": 1
+    },
     "source_attachment_notes": {
       "filename": "welcometomycutelife BRUTO.txt",
       "format": "Blogger XML/text export",
       "lines": 18707,
       "bytes": 3164692,
       "title_records": 336,
-      "handling": "read as historical source; raw body and linked media excluded from the public build"
-    }
+      "handling": "bounded extraction only for The Sims, Orkut/MSN and childhood technology; raw body and linked media excluded from the public build"
+    },
+    "failed_uploads_not_used": [
+      "25 de Jun (At. em DEZ 25).txt",
+      "KAIROS (At. em DEZ 25).txt",
+      "moon - threads antigas.txt"
+    ]
   },
   "dispositions": [
-    {"kind":"legacy_page","id":"maresia","title":"O cheiro de maresia","disposition":"migrated","reason":"Era o único registro com status published e privacy public no manifest de origem."},
-    {"kind":"legacy_page","id":"moon-source","title":"Moon Source","disposition":"needs_moon_review","reason":"Conteúdo útil e sanitizável, mas status de origem draft."},
-    {"kind":"legacy_page","id":"sims","title":"The Sims 1 como casa mental","disposition":"needs_moon_review","reason":"Conteúdo cultural seguro em princípio, mas status de origem draft."},
-    {"kind":"legacy_page","id":"me-tornando","title":"Me tornando eu mesma","disposition":"needs_moon_review","reason":"Eixo trans público/sanitizado, porém exige revisão autoral e de privacidade antes da promoção."},
-    {"kind":"legacy_page","id":"casa-arca","title":"Casa-arca","disposition":"needs_moon_review","reason":"Registro de futuro e intimidade com privacy curated; não promover automaticamente."},
-    {"kind":"legacy_page","id":"lithia","title":"Crônicas de Líthia","disposition":"needs_moon_review","reason":"Universo autoral marcado como draft no estado de origem."},
-    {"kind":"legacy_page","id":"timeline-lunar","title":"Linha do Tempo Lunar","disposition":"deferred","reason":"Placeholder estrutural; substituído pela timeline gerada a partir de entradas aprovadas."},
-    {"kind":"legacy_page","id":"orkut-msn","title":"Scrap colorido no Orkut","disposition":"needs_moon_review","reason":"Memória cultural placeholder; requer fonte e aprovação editorial."},
-    {"kind":"legacy_page","id":"evanescence","title":"Evanescence e quarto escuro","disposition":"needs_moon_review","reason":"Memória cultural placeholder; requer fonte e aprovação editorial."},
-    {"kind":"legacy_page","id":"citadel","title":"Lunar Citadel","disposition":"needs_moon_review","reason":"Projeto técnico com material de origem placeholder e fronteiras públicas específicas."},
-    {"kind":"legacy_page","id":"symbiosphere","title":"Symbiosphere","disposition":"needs_moon_review","reason":"Projeto comunitário/simbiótico com conteúdo de origem placeholder."},
-    {"kind":"legacy_page","id":"hecate","title":"Hécate no portão","disposition":"needs_moon_review","reason":"Registro espiritual marcado como curated, não como publicação automática."},
-    {"kind":"legacy_page","id":"ecologia-espiritual","title":"Ecologia espiritual","disposition":"needs_moon_review","reason":"Ensaio potencialmente público, mas ainda placeholder no estado de origem."},
-    {"kind":"legacy_page","id":"nome-presenca","title":"Nome e presença","disposition":"needs_moon_review","reason":"Registro autobiográfico sanitizado que exige revisão autoral."},
-    {"kind":"legacy_page","id":"corpo-casa","title":"Corpo como casa","disposition":"needs_moon_review","reason":"Registro corporal sanitizado; não promover sem revisão de exposição."},
-    {"kind":"legacy_page","id":"lithia-mapas","title":"Mapas e mundos de Líthia","disposition":"needs_moon_review","reason":"Worldbuilding placeholder; aguarda seleção de material."},
-    {"kind":"legacy_page","id":"sombras-incognosciveis","title":"Sombras Incognoscíveis","disposition":"needs_moon_review","reason":"Mitologia autoral com privacy curated; aguarda curadoria."},
-    {"kind":"legacy_room","id":"biblioteca","title":"Biblioteca Lunar","disposition":"migrated","reason":"Transformada em wing pública normalizada."},
-    {"kind":"legacy_room","id":"nostalgia","title":"Quarto Nostálgico","disposition":"migrated","reason":"Transformada em wing pública normalizada; sem entradas aprovadas ainda."},
-    {"kind":"legacy_room","id":"observatorio","title":"Observatório Nexus","disposition":"migrated","reason":"Transformada em wing pública normalizada; sem exposição de corpus privado."},
-    {"kind":"legacy_room","id":"santuario","title":"Jardim-Santuário","disposition":"migrated","reason":"Transformada em wing pública normalizada."},
-    {"kind":"legacy_room","id":"espelho","title":"Espelho d’Água","disposition":"migrated","reason":"Transformada em wing pública normalizada, com revisão reforçada para material trans/corporal."},
-    {"kind":"legacy_room","id":"lithia","title":"Ateliê de Líthia","disposition":"migrated","reason":"Transformada em wing pública normalizada."},
-    {"kind":"legacy_memory","id":"maresia","title":"O cheiro de maresia","disposition":"migrated","reason":"Semente absorvida pela entrada maresia."},
-    {"kind":"legacy_memory","id":"tv-tubo","title":"A TV de tubo acesa","disposition":"needs_moon_review","reason":"Semente de memória sem entrada aprovada correspondente."},
-    {"kind":"legacy_memory","id":"orkut","title":"Scrap colorido no Orkut","disposition":"needs_moon_review","reason":"Semente ligada a placeholder."},
-    {"kind":"legacy_memory","id":"casa-arca","title":"A casa-arca","disposition":"needs_moon_review","reason":"Semente de futuro íntimo."},
-    {"kind":"legacy_memory","id":"franjinha-espelho","title":"O espelho da feminilidade possível","disposition":"needs_moon_review","reason":"Semente autobiográfica corporal."},
-    {"kind":"legacy_memory","id":"lithia-mapa","title":"O mapa de um mundo que insiste","disposition":"needs_moon_review","reason":"Semente criativa sem entrada aprovada."},
-    {"kind":"notion_snapshot","id":"moonwiki-biography","title":"24 registros indexados; 2 textos completos","disposition":"deferred","reason":"O próprio snapshot declara staging_only e proíbe publicação automática; todos os 24 permanecem fora do build."},
-    {"kind":"source_attachment","id":"welcometomycutelife-bruto","title":"welcometomycutelife BRUTO","disposition":"source_review_required","reason":"Arquivo bruto histórico anexado para metabolização; nenhum texto foi republicado sem seleção e aprovação."}
+    {
+      "kind": "legacy_page",
+      "id": "maresia",
+      "title": "O cheiro de maresia",
+      "disposition": "published",
+      "reason": "Entrada já publicada e pública no baseline; conteúdo preservado.",
+      "next_action": "preservar; futuras relações exigem revisão"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "moon-source",
+      "title": "Moon Source",
+      "disposition": "published_batch_a1",
+      "reason": "Reescrita sanitizada a partir de fontes públicas atuais e do pacote editorial A1; claims antigos de kernel federativo foram descartados.",
+      "next_action": "Chat deve revisar o corpo antes do merge"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "sims",
+      "title": "The Sims 1 como casa mental",
+      "disposition": "published_batch_a1",
+      "reason": "Síntese autobiográfica e cultural nova, com identidade de terceiros omitida e linhagem de design explicitada.",
+      "next_action": "Chat deve revisar o corpo antes do merge"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "me-tornando",
+      "title": "Me tornando eu mesma",
+      "disposition": "sanitized_draft_authorized",
+      "reason": "Eixo trans público e sanitizável, mas exige revisão autoral linha a linha a partir do livro.",
+      "next_action": "aguardar revisão pública específica; não publicar nesta batch"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "casa-arca",
+      "title": "Casa-arca",
+      "disposition": "restricted_curated_future",
+      "reason": "Projeto de futuro e intimidade com camada pública ainda não escolhida.",
+      "next_action": "manter fora do build até Moon escolher uma superfície pública"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "lithia",
+      "title": "Crônicas de Líthia",
+      "disposition": "deferred_source_authority",
+      "reason": "A descrição legada não governa o cânone atual; depende de fonte ACL vigente.",
+      "next_action": "localizar e revisar o cânone atual antes de qualquer síntese"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "timeline-lunar",
+      "title": "Linha do Tempo Lunar",
+      "disposition": "superseded_structural",
+      "reason": "Placeholder estrutural substituído pela timeline gerada de entradas aprovadas.",
+      "next_action": "não tratar como artigo; manter apenas como evidência legada"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "orkut-msn",
+      "title": "Orkut, MSN e o quarto paralelo",
+      "disposition": "published_batch_a1",
+      "reason": "Síntese cultural sanitizada sobre interfaces, presença e identidade; relações identificáveis e chats foram excluídos.",
+      "next_action": "Chat deve revisar o corpo antes do merge"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "evanescence",
+      "title": "Evanescence e quarto escuro",
+      "disposition": "draft_authorized_source_review",
+      "reason": "Entrada cultural possível, mas ainda sem material autobiográfico suficiente para não virar texto genérico.",
+      "next_action": "reunir material de primeira pessoa antes de redigir"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "citadel",
+      "title": "Lunar Citadel",
+      "disposition": "deferred_current_state_and_ip",
+      "reason": "Projeto técnico com estado corrente e fronteiras de IP que não cabem nesta batch pública.",
+      "next_action": "redigir apenas overview público após revisão do estado atual"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "symbiosphere",
+      "title": "Symbiosphere",
+      "disposition": "deferred_current_state_and_third_party",
+      "reason": "Projeto comunitário com história e limites de terceiros que exigem reconciliação própria.",
+      "next_action": "revisar status e fronteiras de colaboradores antes de qualquer publicação"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "hecate",
+      "title": "Hécate no portão",
+      "disposition": "curated_symbolic_draft",
+      "reason": "Registro espiritual curado; precisa separar experiência pessoal, símbolo e tradição externa.",
+      "next_action": "fazer curadoria simbólica específica em rota posterior"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "ecologia-espiritual",
+      "title": "Ecologia espiritual",
+      "disposition": "published_batch_a1_annotated",
+      "reason": "Síntese anotada original baseada no artigo e nos arquivos-fonte; sem republicar o texto acadêmico nem instituir a ecorreligião.",
+      "next_action": "Chat deve revisar o corpo antes do merge"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "nome-presenca",
+      "title": "Nome e presença",
+      "disposition": "sanitized_draft_authorized",
+      "reason": "Entrada de identidade possível, mas depende de síntese pública específica e exclusão de identificadores operacionais.",
+      "next_action": "redigir em batch posterior a partir de fonte pública atual"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "corpo-casa",
+      "title": "Corpo como casa",
+      "disposition": "restricted_sanitized_review",
+      "reason": "Tema corporal que exige revisão direta e não deve carregar detalhes clínicos ou cirúrgicos.",
+      "next_action": "aguardar revisão autoral específica; manter fora do build"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "lithia-mapas",
+      "title": "Mapas e mundos de Líthia",
+      "disposition": "deferred_with_acl_canon",
+      "reason": "Worldbuilding depende do cânone ACL atual, não do placeholder legado.",
+      "next_action": "promover apenas material selecionado do cânone vigente"
+    },
+    {
+      "kind": "legacy_page",
+      "id": "sombras-incognosciveis",
+      "title": "Sombras Incognoscíveis",
+      "disposition": "deferred_with_acl_canon",
+      "reason": "Mitologia autoral curada; precisa ser rotulada como ficção e ancorada em fonte literária atual.",
+      "next_action": "revisar cosmologia e estatuto ficcional em rota posterior"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "biblioteca",
+      "title": "Biblioteca Lunar",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública.",
+      "next_action": "manter como jurisdição de entradas biográficas e evocativas"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "nostalgia",
+      "title": "Quarto Nostálgico",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública; Batch A1 agora fornece três entradas.",
+      "next_action": "preservar relações e ampliar apenas com aprovação"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "observatorio",
+      "title": "Observatório Nexus",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública; Moon Source é a primeira entrada aprovada.",
+      "next_action": "manter fronteira contra corpus técnico privado"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "santuario",
+      "title": "Jardim-Santuário",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública; Ecologia espiritual é a primeira entrada aprovada.",
+      "next_action": "não promover Casa-arca ou Hécate por contiguidade temática"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "espelho",
+      "title": "Espelho d’Água",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada com revisão reforçada para material trans e corporal.",
+      "next_action": "manter sem artigos públicos até revisão específica"
+    },
+    {
+      "kind": "legacy_room",
+      "id": "lithia",
+      "title": "Ateliê de Líthia",
+      "disposition": "migrated",
+      "reason": "Taxonomia normalizada como ala pública sem promover o cânone legado.",
+      "next_action": "aguardar fonte ACL vigente"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "maresia",
+      "title": "O cheiro de maresia",
+      "disposition": "absorbed_published",
+      "reason": "Semente absorvida pela entrada pública existente.",
+      "next_action": "preservar dentro de maresia"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "tv-tubo",
+      "title": "A TV de tubo acesa",
+      "disposition": "absorbed_published",
+      "reason": "Semente absorvida pela nova entrada infancia-digital.",
+      "next_action": "não criar artigo separado sem nova decisão editorial"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "orkut",
+      "title": "Scrap colorido no Orkut",
+      "disposition": "absorbed_published",
+      "reason": "Semente absorvida pela entrada orkut-msn em forma cultural sanitizada.",
+      "next_action": "preservar como motivo, sem importar cenas ou nomes"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "casa-arca",
+      "title": "A casa-arca",
+      "disposition": "restricted_curated",
+      "reason": "Semente de futuro íntimo mantida fora do build.",
+      "next_action": "aguardar camada pública escolhida por Moon"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "franjinha-espelho",
+      "title": "O espelho da feminilidade possível",
+      "disposition": "sanitized_later_absorb",
+      "reason": "Semente autobiográfica corporal reservada para me-tornando ou nome-presenca.",
+      "next_action": "não absorver nesta batch"
+    },
+    {
+      "kind": "legacy_memory",
+      "id": "lithia-mapa",
+      "title": "O mapa de um mundo que insiste",
+      "disposition": "deferred_acl_canon",
+      "reason": "Semente criativa depende do cânone ACL atual.",
+      "next_action": "revisar somente com fonte literária vigente"
+    },
+    {
+      "kind": "notion_snapshot",
+      "id": "moonwiki-biography",
+      "title": "24 registros indexados; 2 textos completos",
+      "disposition": "deferred",
+      "reason": "Snapshot declarado como staging_only; nenhum registro indexado é publicado automaticamente.",
+      "next_action": "usar apenas como lead quando houver fonte governante e aprovação específica"
+    },
+    {
+      "kind": "notion_record",
+      "id": "infancia-digital",
+      "title": "Tecnologia, SNES e Olympus D395: a infância digital",
+      "disposition": "published_batch_a1",
+      "reason": "Título/highlight funcionou como lead; a entrada foi sustentada por infancia.py, memória autorizada e extração delimitada do Blogger.",
+      "next_action": "Chat deve revisar o corpo antes do merge"
+    },
+    {
+      "kind": "source_attachment",
+      "id": "welcometomycutelife-bruto",
+      "title": "welcometomycutelife BRUTO",
+      "disposition": "source_review_bounded_extraction",
+      "reason": "Arquivo histórico usado somente para evidência delimitada sobre The Sims, Orkut/MSN e infância tecnológica; nenhum raw body, URL ou cena de terceiro foi republicado.",
+      "next_action": "manter arquivado e fora do build; novas extrações exigem allowlist"
+    }
   ]
 }

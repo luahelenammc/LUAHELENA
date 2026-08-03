@@ -1,12 +1,16 @@
-# Spatial Atlas
+# Spatial Atlas — V2
 
 The Atlas is a second door, not the house’s only door.
 
-## V1 implementation
+## Implementation
 
-This branch generates a deterministic SVG constellation and a complete textual list from the same `entries.json` and `relations.json` that feed the wiki. The list is the canonical fallback. Selection is available through ordinary links and filtering; no essential information depends on hover, canvas precision or JavaScript.
+The branch generates a deterministic SVG constellation and a complete textual list from the same `entries.json`, `concepts.json` and `relations.json` that feed the Wiki. The list is the canonical fallback. No essential information depends on hover, canvas precision or JavaScript.
 
-The public graph contains only production entries and their approved wing relation. It has stable node IDs, explicit relation labels and no invented edges.
+The public graph contains six production entries, six wings, two approved concept anchors and twelve evidenced relations. It excludes every deferred or restricted content record.
+
+## Relation law
+
+Every relation has a stable endpoint, a named type, evidence and an approval state. Concept anchors are used only where the A1 packet explicitly permits a public site/concept node, such as the Portal Moonverse or the article’s contrast with current platform uniformity.
 
 ## Deferred 3D gate
 
@@ -16,7 +20,7 @@ Direct integration with the separate 3D Cluster Engine would be a cross-reposito
 
 - data, renderer and interface remain separate;
 - filters stay outside the spatial surface;
-- the selected node has a textual inspector;
-- unrelated nodes may dim, but never disappear from the fallback;
-- reduced motion and small-screen list mode are defaults;
-- every node opens its canonical article or wing route.
+- every entry opens through an ordinary canonical route;
+- concepts resolve to public explanatory surfaces;
+- unrelated nodes never disappear from the textual fallback;
+- reduced motion and small-screen list mode remain defaults.
