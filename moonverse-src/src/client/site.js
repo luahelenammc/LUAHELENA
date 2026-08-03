@@ -31,7 +31,7 @@
       --ww-border-strong: #c8ced7;
       --ww-text: #20242a;
       --ww-muted: #626b77;
-      --ww-faint: #838c98;
+      --ww-faint: #626b77;
       --ww-link: #6b4d8d;
       --ww-shadow: 0 1px 2px rgba(26, 31, 38, .04), 0 12px 34px rgba(26, 31, 38, .07);
       --ww-radius: 14px;
