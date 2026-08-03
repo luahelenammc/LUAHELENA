@@ -23,19 +23,28 @@ const entryRoutes = [
   ['the-sims-1-como-casa-mental', 'The Sims 1 como casa mental'],
   ['orkut-msn-e-o-quarto-paralelo', 'Orkut, MSN e o quarto paralelo'],
   ['tecnologia-snes-olympus-d395-infancia-digital', 'Tecnologia, SNES e Olympus D395: a infância digital'],
-  ['ecologia-espiritual', 'Ecologia espiritual']
+  ['ecologia-espiritual', 'Ecologia espiritual'],
+  ['me-tornando-eu-mesma', 'Me tornando eu mesma'],
+  ['nome-e-presenca', 'Nome e presença'],
+  ['casa-arca', 'Casa-arca'],
+  ['hecate-no-portao', 'Hécate no portão'],
+  ['cronicas-de-lithia', 'Crônicas de Líthia']
 ];
 
 assert(home.includes('O que você está buscando?'), 'home exposes global search');
 assert(home.includes('/moonverse/wing/biblioteca-lunar/'), 'home exposes conventional wing navigation');
 assert(home.includes('<title>Moonverse</title>'), 'home title is not duplicated');
 assert(home.includes('/moonverse/wiki/#path-tecnologias-que-ainda-brilham'), 'home exposes the approved Batch A1 path');
+assert(home.includes('/moonverse/wiki/#path-transicao-e-presenca'), 'home exposes the approved identity path');
+assert(home.includes('/moonverse/wiki/#path-santuario-limiar-futuro'), 'home exposes the approved sanctuary path');
 assert(wiki.includes('id="path-tecnologias-que-ainda-brilham"'), 'wiki renders the approved Batch A1 path target');
-assert(!home.includes('path-infancia-e-agua') && !home.includes('path-transicao-e-presenca'), 'insufficient paths are not advertised');
+assert(wiki.includes('id="path-transicao-e-presenca"'), 'wiki renders the approved identity path target');
+assert(wiki.includes('id="path-santuario-limiar-futuro"'), 'wiki renders the approved sanctuary path target');
+assert(!home.includes('path-infancia-e-agua') && !wiki.includes('id="path-infancia-e-agua"'), 'insufficient paths are not advertised');
 assert(wiki.includes('entry-index'), 'wiki index is rendered without JavaScript');
 assert(atlas.includes('atlas-svg') && atlas.includes('Lista completa'), 'Atlas has visual and textual fallback');
 assert(atlas.includes('Portal Moonverse'), 'Atlas renders approved concept nodes');
-assert(searchIndex.length === 6, 'search index contains exactly the six approved public entries');
+assert(searchIndex.length === entryRoutes.length, 'search index contains exactly the approved public entries');
 for (const [slug, title] of entryRoutes) {
   const article = read(`entry/${slug}/index.html`);
   assert(article.includes('<article class="article">'), `${slug} is semantic HTML`);
