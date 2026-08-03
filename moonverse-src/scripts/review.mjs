@@ -14,10 +14,17 @@ const routes = [
   ['home', ''],
   ['wiki', 'wiki/'],
   ['article-maresia', 'entry/o-cheiro-de-maresia/'],
+  ['article-moon-source', 'entry/moon-source/'],
+  ['article-sims', 'entry/the-sims-1-como-casa-mental/'],
+  ['article-orkut-msn', 'entry/orkut-msn-e-o-quarto-paralelo/'],
+  ['article-infancia-digital', 'entry/tecnologia-snes-olympus-d395-infancia-digital/'],
+  ['article-ecologia-espiritual', 'entry/ecologia-espiritual/'],
   ['timeline', 'timeline/'],
   ['atlas', 'atlas/'],
   ['about', 'about/'],
-  ['search', 'search/?q=maresia']
+  ['search-maresia', 'search/?q=maresia'],
+  ['search-moon-source', 'search/?q=Moon%20Source'],
+  ['search-ecologia', 'search/?q=ecologia']
 ];
 const viewports = [
   ['desktop', { width: 1440, height: 1000 }],

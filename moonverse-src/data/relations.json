@@ -5,6 +5,106 @@
     "target": "biblioteca-lunar",
     "type": "belongs_to",
     "label": "pertence à Biblioteca Lunar",
-    "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico."
+    "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "moon-source-belongs-to-observatorio",
+    "source": "moon-source",
+    "target": "observatorio-nexus",
+    "type": "belongs_to",
+    "label": "pertence ao Observatório Nexus",
+    "evidence": "Moon Source é uma arquitetura pública de contexto, método e governança de colaboração com IA.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "sims-belongs-to-quarto",
+    "source": "sims",
+    "target": "quarto-nostalgico",
+    "type": "belongs_to",
+    "label": "pertence ao Quarto Nostálgico",
+    "evidence": "A entrada trata de memória cultural, jogo, infância e linhagem de interface.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "orkut-msn-belongs-to-quarto",
+    "source": "orkut-msn",
+    "target": "quarto-nostalgico",
+    "type": "belongs_to",
+    "label": "pertence ao Quarto Nostálgico",
+    "evidence": "A entrada trata da internet formativa como memória cultural e espaço pessoal.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "infancia-digital-belongs-to-quarto",
+    "source": "infancia-digital",
+    "target": "quarto-nostalgico",
+    "type": "belongs_to",
+    "label": "pertence ao Quarto Nostálgico",
+    "evidence": "A entrada reúne jogos, TV, software, fotografia e memória tecnológica da infância.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "ecologia-espiritual-belongs-to-santuario",
+    "source": "ecologia-espiritual",
+    "target": "jardim-santuario",
+    "type": "belongs_to",
+    "label": "pertence ao Jardim-Santuário",
+    "evidence": "A entrada conecta ecologia, espiritualidade, natureza e o horizonte territorial do santuário.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "sims-shares-motif-infancia",
+    "source": "sims",
+    "target": "infancia-digital",
+    "type": "shares_motif",
+    "label": "compartilha o motivo do mundo local explorável",
+    "evidence": "Ambas as entradas tratam de ambientes digitais anteriores à conexão permanente como espaços de tentativa, composição e descoberta.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "orkut-msn-shares-motif-infancia",
+    "source": "orkut-msn",
+    "target": "infancia-digital",
+    "type": "shares_motif",
+    "label": "compartilha o motivo da tecnologia como espaço habitável",
+    "evidence": "As duas entradas descrevem tecnologia como lugar de presença, composição, memória e experimentação, não apenas como consumo.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "sims-influences-moonverse",
+    "source": "sims",
+    "target": "moonverse",
+    "type": "influences",
+    "label": "influencia a lógica espacial do Moonverse",
+    "evidence": "O pacote A1 autoriza The Sims como ancestral explícito da lógica de casa, território e navegação do Portal Moonverse.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "orkut-msn-contrasts-platforms",
+    "source": "orkut-msn",
+    "target": "current-platform-uniformity",
+    "type": "contrasts_with",
+    "label": "contrasta com a uniformidade atual das plataformas",
+    "evidence": "O contraste é um argumento do artigo sobre a web artesanal; não é uma afirmação universal de que a web antiga foi segura ou melhor.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "orkut-msn-influences-moonverse",
+    "source": "orkut-msn",
+    "target": "moonverse",
+    "type": "influences",
+    "label": "influencia a linguagem visual do Moonverse",
+    "evidence": "O artigo identifica perfis, comunidades, presença e estética feita à mão como linhagem formal da superfície pública.",
+    "review_state": "approved_batch_a1"
+  },
+  {
+    "id": "infancia-digital-precedes-moon-source",
+    "source": "infancia-digital",
+    "target": "moon-source",
+    "type": "precedes",
+    "label": "precede em uma sequência biográfica frouxa",
+    "evidence": "A relação marca uma sequência de memória — olhar, guardar, rearranjar e tornar navegável — sem alegar causalidade determinista entre infância e método.",
+    "review_state": "approved_batch_a1"
   }
 ]

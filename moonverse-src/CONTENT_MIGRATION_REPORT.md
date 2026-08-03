@@ -1,20 +1,28 @@
-# Content Migration Report
+# Content Migration Report — Moonverse V2 / Batch A1
 
 ## Baseline
 
 - repository: `luahelenammc/LUAHELENA`
-- baseline: `0b7882d05086b9c5acd464f5812bfaa99ef9a73b`
-- source path: `moonverse/`
+- baseline: `a9f57c7ff800f541d3c23dbb4025979ef3220a` — V1 merged main
+- source path: `moonverse-src/`
 - public path preserved: `/moonverse/`
 
-## Inventory disposition
+## Reconciled inventory
 
-The legacy implementation had 16 page records, six rooms, six memory seeds, a seven-theme registry, controlled taxonomy/privacy files, image registries, 24 Notion index records and two full Notion snapshots. The old runtime, styles, wrappers and data are preserved under `moonverse/legacy-v0/` on the feature branch.
+The legacy registry contains 17 page records: 16 content-intent records and one superseded structural placeholder, `timeline-lunar`. It also contains six rooms and six memory seeds. The Notion snapshot contains 24 indexed records and two full snapshots. The historical Blogger export contains 336 title records.
 
-One entry—`O cheiro de maresia`—was migrated into the new typed source because the legacy manifest marked it `published` and `public`. The six wings were normalized. The remaining records are explicitly deferred or marked for Moon review in `data/migration-ledger.json`.
+The complete disposition ledger has 32 records and carries a reason plus next action for every record. Batch A1 publishes six entries in total: the preserved `maresia` entry and five new entries. One public path contains the three approved technology entries. The two older paths remain nonpublic because they have fewer than two approved entries.
 
-The uploaded `welcometomycutelife BRUTO.txt` was treated as a historical source attachment. Its raw content was not copied into the public artifact and no passage was promoted without editorial selection and approval.
+## Source handling
 
-## Zero silent loss
+`welcometomycutelife BRUTO.txt` is an archived source, not a public-content library. It was used only for bounded evidence about The Sims, Orkut/MSN and childhood technology. Raw XML/HTML, personal URLs, named contacts and unrelated scenes never enter the generated artifact.
 
-Every legacy class has a ledger disposition: migrated, deferred, archived, needs Moon review or source review required. A later content pass can promote an item by changing the source record and rerunning the gate; it does not need to reverse-engineer the old card runtime.
+The failed uploads `25 de Jun (At. em DEZ 25).txt`, `KAIROS (At. em DEZ 25).txt` and `moon - threads antigas.txt` were not used.
+
+## Batch A1 entries
+
+The five new entries are new public syntheses constrained by the C0 factual spines and source allowlists. They are not bulk imports of Blogger, Notion or academic text. `Ecologia espiritual` is annotated and attributed without republishing the academic article. `Moon Source` excludes private runtime, partner and IP detail.
+
+## Visual exception
+
+The Wikiwand examples announced for this stage were not attached. The existing static, semantic V1 article architecture remains in force; visual redesign is explicitly deferred until a visual annex can be reviewed.

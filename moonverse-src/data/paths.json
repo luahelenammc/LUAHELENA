@@ -4,13 +4,26 @@
     "title": "Infância e água",
     "description": "Um caminho curto pela memória sensorial, pelo litoral e pela ideia de paraíso que chega antes da explicação.",
     "entry_ids": ["maresia"],
-    "public": true
+    "public": false,
+    "editorial_state": "deferred_insufficient_entries",
+    "next_action": "reabrir quando houver uma segunda entrada pública realmente pertencente ao percurso"
   },
   {
     "id": "transicao-e-presenca",
     "title": "Transição e presença",
     "description": "Um percurso reservado para páginas sobre nome, corpo e reconhecimento quando houver material público aprovado para atravessá-lo.",
     "entry_ids": [],
-    "public": true
+    "public": false,
+    "editorial_state": "deferred_no_public_entries",
+    "next_action": "aguardar entrada sanitizada aprovada; não exibir caminho vazio"
+  },
+  {
+    "id": "tecnologias-que-ainda-brilham",
+    "title": "Tecnologias que ainda brilham",
+    "description": "Um percurso por jogos, câmeras, programas e espaços sociais antigos que transformaram tecnologia em memória, linguagem visual e mundo habitável.",
+    "entry_ids": ["sims", "infancia-digital", "orkut-msn"],
+    "public": true,
+    "editorial_state": "published_batch_a1",
+    "next_action": "preservar o percurso; futuras ampliações exigem revisão de relação e privacidade"
   }
 ]
