@@ -36,7 +36,7 @@ jobs:
       - name: Apply governed Batch B1 when armed
         if: github.head_ref == 'agent/moonverse-v2-b1' && hashFiles('.moonverse-b1-trigger') != ''
         run: |
-          python3 .github/scripts/moonverse-b1-executor.py
+          PYTHONPATH=. python3 .github/scripts/moonverse-b1-executor.py
           rm -f .moonverse-b1-trigger
           git show origin/main:.github/workflows/moonverse-review.yml > .github/workflows/moonverse-review.yml
           git config user.name 'github-actions[bot]'
