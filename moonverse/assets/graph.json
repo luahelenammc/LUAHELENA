@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "id": "wing:biblioteca-lunar",
+      "kind": "wing",
+      "label": "Biblioteca Lunar",
+      "summary": "Biografia, lembranças e cenas em que a vida se torna legível como matéria de arquivo.",
+      "url": "/moonverse/wing/biblioteca-lunar/",
+      "accent": "#7c5aa6"
+    },
+    {
+      "id": "wing:quarto-nostalgico",
+      "kind": "wing",
+      "label": "Quarto Nostálgico",
+      "summary": "Jogos, sons, objetos e tecnologias antigas que continuam emitindo luz depois da infância.",
+      "url": "/moonverse/wing/quarto-nostalgico/",
+      "accent": "#ad6f5d"
+    },
+    {
+      "id": "wing:observatorio-nexus",
+      "kind": "wing",
+      "label": "Observatório Nexus",
+      "summary": "Projetos de IA, arquitetura de contexto e sistemas simbióticos vistos de fora do laboratório.",
+      "url": "/moonverse/wing/observatorio-nexus/",
+      "accent": "#39748b"
+    },
+    {
+      "id": "wing:jardim-santuario",
+      "kind": "wing",
+      "label": "Jardim-Santuário",
+      "summary": "Natureza, abrigo, espiritualidade e futuros possíveis em que o vivo não é tratado como cenário.",
+      "url": "/moonverse/wing/jardim-santuario/",
+      "accent": "#5d896c"
+    },
+    {
+      "id": "wing:espelho-dagua",
+      "kind": "wing",
+      "label": "Espelho d’Água",
+      "summary": "Nome, corpo, transição e presença: páginas que exigem beleza sem perder a fronteira.",
+      "url": "/moonverse/wing/espelho-dagua/",
+      "accent": "#a55f86"
+    },
+    {
+      "id": "wing:atelie-de-lithia",
+      "kind": "wing",
+      "label": "Ateliê de Líthia",
+      "summary": "Mundos autorais, mapas e mitologias que metabolizam experiência em ficção habitável.",
+      "url": "/moonverse/wing/atelie-de-lithia/",
+      "accent": "#9a7650"
+    },
+    {
+      "id": "entry:maresia",
+      "kind": "entry",
+      "label": "O cheiro de maresia",
+      "summary": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
+      "url": "/moonverse/entry/o-cheiro-de-maresia/",
+      "wing": "biblioteca-lunar",
+      "tags": [
+        "infância",
+        "praia",
+        "mar",
+        "memória",
+        "água"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "id": "maresia-belongs-to-biblioteca",
+      "source": "entry:maresia",
+      "target": "wing:biblioteca-lunar",
+      "type": "belongs_to",
+      "label": "pertence à Biblioteca Lunar",
+      "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "maresia-belongs-to-biblioteca",
+    "source": "maresia",
+    "target": "biblioteca-lunar",
+    "type": "belongs_to",
+    "label": "pertence à Biblioteca Lunar",
+    "evidence": "A entrada é uma memória evocativa de infância e arquivo biográfico."
+  }
+]

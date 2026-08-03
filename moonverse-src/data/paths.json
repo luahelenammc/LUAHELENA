@@ -1,0 +1,16 @@
+[
+  {
+    "id": "infancia-e-agua",
+    "title": "Infância e água",
+    "description": "Um caminho curto pela memória sensorial, pelo litoral e pela ideia de paraíso que chega antes da explicação.",
+    "entry_ids": ["maresia"],
+    "public": true
+  },
+  {
+    "id": "transicao-e-presenca",
+    "title": "Transição e presença",
+    "description": "Um percurso reservado para páginas sobre nome, corpo e reconhecimento quando houver material público aprovado para atravessá-lo.",
+    "entry_ids": [],
+    "public": true
+  }
+]

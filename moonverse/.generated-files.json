@@ -1,0 +1,23 @@
+[
+  "index.html",
+  "wiki/index.html",
+  "wing/biblioteca-lunar/index.html",
+  "wing/quarto-nostalgico/index.html",
+  "wing/observatorio-nexus/index.html",
+  "wing/jardim-santuario/index.html",
+  "wing/espelho-dagua/index.html",
+  "wing/atelie-de-lithia/index.html",
+  "entry/o-cheiro-de-maresia/index.html",
+  "timeline/index.html",
+  "atlas/index.html",
+  "about/index.html",
+  "search/index.html",
+  "404.html",
+  "assets/site.css",
+  "assets/site.js",
+  "assets/search-index.json",
+  "assets/graph.json",
+  "assets/publication-manifest.json",
+  "README.md",
+  ".nojekyll"
+]

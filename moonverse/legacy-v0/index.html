@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moonverse · Moonwiki</title>
+  <meta name="description" content="Moonverse: uma Moonwiki escura, confortável e editorial para verbetes, memória e projetos de Lua Helena Moon." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./editorial.css" />
+</head>
+<body class="moonwiki-home public-only">
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="topbar wiki-topbar">
+    <a class="brand" href="#top" aria-label="Voltar ao início do Moonverse">
+      <span class="brand-mark">☾</span>
+      <span>
+        <strong>Moonverse</strong>
+        <small>Moonwiki Biography</small>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Navegação principal">
+      <a href="#atlas">Atlas</a>
+      <a href="#pages">Diretório</a>
+      <a href="./pages/nascimento.html" target="_blank" rel="noopener noreferrer">Nascimento</a>
+      <a href="./pages/descoberta-trans.html" target="_blank" rel="noopener noreferrer">Descoberta trans</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section id="hall" class="wiki-landing section-pad">
+      <div class="wiki-landing-inner">
+        <p class="editorial-kicker">Moonwiki · Notion importado · leitura ampliada</p>
+        <h1>Moonverse</h1>
+        <p class="hero-dek">
+          Uma enciclopédia escura, confortável e biográfica: verbetes, linha do tempo, projetos, memórias e símbolos de Lua Helena Moon em formato navegável.
+        </p>
+
+        <label class="wiki-search searchbox" aria-label="Buscar no Atlas Moonverse">
+          <span>Buscar no Moonverse</span>
+          <input id="atlas-search" type="search" placeholder="Digite: nascimento, transição, hospital, UFPR, Hécate, Moon Source..." />
+        </label>
+
+        <div class="wiki-status-row" aria-label="Estado do acervo">
+          <span><strong>24</strong> entradas Notion indexadas</span>
+          <span><strong>2</strong> páginas completas importadas</span>
+          <span><strong>staging</strong> antes de publicação plena</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="atlas" class="section-pad atlas-section wiki-atlas-section">
+      <div class="section-heading wiki-section-heading">
+        <p class="eyebrow">Atlas Moonwiki</p>
+        <h2>Verbetes</h2>
+        <p>
+          O centro do Moonverse agora é leitura e busca. As entradas importadas do Notion aparecem aqui primeiro como staging; depois podem ser promovidas para páginas editoriais completas.
+        </p>
+      </div>
+
+      <div id="atlas-filters" class="filter-row wiki-filter-row" aria-label="Filtros do atlas"></div>
+      <div id="atlas-grid" class="atlas-grid wiki-atlas-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="pages" class="section-pad wiki-directory-section">
+      <div class="section-heading wiki-section-heading">
+        <p class="eyebrow">Diretório rápido</p>
+        <h2>Páginas físicas</h2>
+        <p>
+          Atalhos para páginas que já possuem invólucro renderizável. O restante permanece visível no Atlas como índice de importação.
+        </p>
+      </div>
+
+      <div id="article-picker" class="article-picker page-directory wiki-page-directory" aria-label="Diretório de páginas"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer wiki-footer">
+    <p>Moonverse · Lua Helena Moon × Áurion · dark editorial wiki</p>
+  </footer>
+
+  <script src="./stock-images.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

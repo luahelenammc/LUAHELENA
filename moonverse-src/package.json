@@ -1,0 +1,14 @@
+{
+  "name": "moonverse-public-surface",
+  "version": "1.0.0-rebuild-v1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "npm run build && npm run validate && npm run test",
+    "serve": "python3 -m http.server 4173 -d ../",
+    "preview": "npm run build && npm run serve"
+  }
+}
