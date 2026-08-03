@@ -255,6 +255,22 @@
       ]
     },
     {
+      "id": "entry:escrita-magia",
+      "kind": "entry",
+      "label": "A escrita como magia da vida real",
+      "summary": "Desde a adolescência, criar mundos paralelos foi uma forma de testar possibilidades, preservar experiências e devolver arquitetura ao que parecia disperso.",
+      "url": "/moonverse/entry/escrita-como-magia-da-vida-real/",
+      "wing": "atelie-de-lithia",
+      "tags": [
+        "escrita",
+        "worldbuilding",
+        "Líthia",
+        "autoria",
+        "memória",
+        "linguagem"
+      ]
+    },
+    {
       "id": "concept:moonverse",
       "kind": "concept",
       "label": "Portal Moonverse",
@@ -517,6 +533,42 @@
       "type": "shares_motif",
       "label": "compartilha o motivo da família escolhida e do futuro habitável",
       "evidence": "Ambas tratam família como ecossistema de cuidado, invenção e pertencimento para além do biologicismo."
+    },
+    {
+      "id": "escrita-magia-belongs-to-atelie",
+      "source": "entry:escrita-magia",
+      "target": "wing:atelie-de-lithia",
+      "type": "belongs_to",
+      "label": "pertence ao Ateliê de Líthia",
+      "evidence": "A página trata da escrita, do worldbuilding e da fabricação de mundos autorais como prática de longa duração.",
+      "review_state": "approved_batch_d1"
+    },
+    {
+      "id": "escrita-magia-develops-me-tornando",
+      "source": "entry:escrita-magia",
+      "target": "entry:me-tornando",
+      "type": "develops_from",
+      "label": "desdobra a continuidade autobiográfica em autoria",
+      "evidence": "Me tornando eu mesma apresenta a escritora e a continuidade identitária; esta página desenvolve a função da escrita nessa continuidade.",
+      "review_state": "approved_batch_d1"
+    },
+    {
+      "id": "escrita-magia-prepares-lithia",
+      "source": "entry:escrita-magia",
+      "target": "entry:lithia",
+      "type": "prepares",
+      "label": "prepara a entrada pública de Líthia sem inventar seu cânone",
+      "evidence": "A página descreve a prática de criar mundos; a entrada de Líthia apresenta um território autoral específico sob gate canônico.",
+      "review_state": "approved_batch_d1"
+    },
+    {
+      "id": "escrita-magia-influences-moonverse",
+      "source": "entry:escrita-magia",
+      "target": "concept:moonverse",
+      "type": "influences",
+      "label": "influencia a organização narrativa do Moonverse",
+      "evidence": "O portal transforma páginas, relações e alas em territórios legíveis, continuidade formal da escrita como construção de mundos.",
+      "review_state": "approved_batch_d1"
     }
   ]
 }

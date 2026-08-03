@@ -1,7 +1,7 @@
 {
-  "task_id": "MOONVERSE_V2_CONTENT_BATCH_A1",
+  "task_id": "MOONVERSE_V3_COMPLETE_WIKIWAND_D1",
   "baseline_commit": "a9f57c7ff800f541d3c23dbb4025979ef3220a",
-  "policy": "Nenhum item sem autoridade de fonte, fronteira de privacidade e aprovação explícita entra no build público.",
+  "policy": "Nenhum item sem autoridade de fonte, fronteira de privacidade e aprovação explícita entra no build público; todas as alas públicas devem ter densidade editorial real, não conteúdo inventado.",
   "summary": {
     "legacy_page_records": 17,
     "legacy_page_content_intent_records": 16,
@@ -12,19 +12,19 @@
     "notion_full_snapshots": 2,
     "notion_disposition_records": 2,
     "historical_blogger_title_records": 336,
-    "public_entries_built": 13,
-    "public_paths_built": 5,
-    "dispositions_total": 33,
+    "public_entries_built": 14,
+    "public_paths_built": 6,
+    "dispositions_total": 34,
     "deferred_or_review_required": 9,
     "source_attachments_review_required": 1,
     "disposition_counts": {
-      "legacy_memory": 6,
       "legacy_page": 17,
       "legacy_room": 6,
-      "new_public_entry": 1,
-      "notion_record": 1,
+      "legacy_memory": 6,
       "notion_snapshot": 1,
-      "source_attachment": 1
+      "notion_record": 1,
+      "source_attachment": 1,
+      "new_public_entry": 2
     },
     "source_attachment_notes": {
       "filename": "welcometomycutelife BRUTO.txt",
@@ -35,7 +35,6 @@
       "handling": "bounded extraction only for The Sims, Orkut/MSN and childhood technology; raw body and linked media excluded from the public build"
     },
     "failed_uploads_not_used": [
-      "25 de Jun (At. em DEZ 25).txt",
       "KAIROS (At. em DEZ 25).txt",
       "moon - threads antigas.txt"
     ]
@@ -304,6 +303,14 @@
       "disposition": "published",
       "reason": "Nova síntese constituída em Chat a partir de fontes autobiográficas delimitadas e sanitizadas.",
       "next_action": "preservar; não expandir com cenas privadas sem novo gate"
+    },
+    {
+      "kind": "new_public_entry",
+      "id": "escrita-magia",
+      "title": "A escrita como magia da vida real",
+      "disposition": "published",
+      "reason": "Síntese autoral sanitizada criada para completar o Ateliê de Líthia sem inventar lore ou promover rascunhos a cânone.",
+      "next_action": "preservar; futuras páginas literárias exigem seleção explícita de fonte e cânone"
     }
   ]
 }
