@@ -28,6 +28,22 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Normalize C1 editorial state
+        run: |
+          python3 <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('.moonverse-c1-payload.json')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          expected = {'lunar-citadel', 'familia-do-futuro'}
+          actual = {entry['id'] for entry in payload['entries']}
+          if actual != expected:
+              raise SystemExit(f'C1 payload entry mismatch: {sorted(actual)}')
+          for entry in payload['entries']:
+              entry['editorial_state'] = 'published_batch_c1'
+          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
       - name: Apply readable C1 payload
         run: python3 moonverse-src/scripts/apply-c1.py
 
