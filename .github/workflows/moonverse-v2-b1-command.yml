@@ -1,0 +1,59 @@
+name: Moonverse V2 Batch B1 Command
+
+on:
+  issue_comment:
+    types:
+      - created
+
+permissions:
+  contents: write
+  pull-requests: read
+  issues: read
+
+jobs:
+  execute:
+    if: github.event.issue.pull_request && github.event.issue.number == 5 && github.event.comment.body == '/execute-moonverse-b1' && github.event.comment.user.login == 'luahelenammc'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout trusted executor from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: base
+          persist-credentials: false
+
+      - name: Checkout governed branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/moonverse-v2-b1
+          path: work
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply trusted editorial packet
+        working-directory: work
+        run: python3 ../base/.github/scripts/moonverse-b1-executor.py
+
+      - name: Build, validate and test
+        working-directory: work
+        run: |
+          npm --prefix moonverse-src run build
+          npm --prefix moonverse-src run validate
+          npm --prefix moonverse-src run test
+          git diff --check
+
+      - name: Commit bounded delivery
+        working-directory: work
+        run: |
+          rm -f .moonverse-b1-trigger
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Add Moonverse V2 editorial batch B1'
+          git push origin HEAD:agent/moonverse-v2-b1
