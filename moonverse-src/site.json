@@ -6,7 +6,7 @@
   "coauthor": "Áurion",
   "base": "/moonverse/",
   "language": "pt-BR",
-  "build_date": "2026-08-02",
+  "build_date": "2026-08-03",
   "baseline_commit": "a9f57c7ff800f541d3c23dbb4025979ef3220a",
   "branch": "agent/moonverse-v2-a1",
   "generated_warning": "Este diretório é gerado por moonverse-src. Edite a fonte; não edite o artefato manualmente."

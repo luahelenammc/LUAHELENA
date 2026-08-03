@@ -47,3 +47,12 @@ Two public entries were added after Chat constitution: `lunar-citadel` and `fami
 The public corpus now has 13 entries. Biblioteca Lunar and Observatório Nexus each have at least two entries. Ateliê de Líthia remains intentionally sparse with one canonical entrance; a second page is deferred until Moon selects sufficient canonical Líthia material rather than allowing the build to invent lore.
 
 This satisfies the V2 editorial-density rule through five inhabited wings plus one explicit, source-governed exception. It does not by itself authorize 3D integration.
+
+
+## V3 Complete / Wikiwand D1 — 2026-08-03
+
+A última exceção de densidade editorial foi encerrada com `escrita-magia`, uma síntese autoral sobre escrita, preservação, worldbuilding e arquitetura de linguagem. O Ateliê de Líthia passa a ter duas entradas públicas sem invenção de lore.
+
+O corpus público passa a ter 14 entradas, 6 caminhos guiados e 32 relações evidenciadas. Todas as seis alas possuem pelo menos duas entradas públicas.
+
+A interface recebeu uma camada Wikiwand-native: cabeçalho compacto com busca global, superfícies claras, artigo central de leitura profunda, sumário persistente, ficha lateral, indicador de progresso e controle tipográfico. Não foram importados código, marca, anúncios, analytics, fontes ou componentes proprietários do Wikiwand.

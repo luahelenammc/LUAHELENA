@@ -73,5 +73,18 @@
     "public": true,
     "editorial_state": "published_batch_c1",
     "next_action": "preservar; novas entradas exigem fonte autobiográfica já sanitizada"
+  },
+  {
+    "id": "escrita-mundos-e-arquitetura",
+    "title": "Escrita, mundos e arquitetura",
+    "description": "Um percurso da escrita como tecnologia íntima à criação de Líthia e à organização pública de contextos e territórios.",
+    "entry_ids": [
+      "escrita-magia",
+      "lithia",
+      "moon-source"
+    ],
+    "public": true,
+    "editorial_state": "published_batch_d1",
+    "next_action": "preservar; ampliações ficcionais dependem de cânone explicitamente escolhido por Moon"
   }
 ]
