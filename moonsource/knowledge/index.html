@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="meta.title">Moon Source · Bancos de conhecimento</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="Bancos de conhecimento planejados para expandir um perfil Moon Source depois do Setup." />
+<meta property="og:title" data-i18n-attr="content:meta.title" content="Moon Source · Bancos de conhecimento" />
+<meta property="og:description" data-i18n-attr="content:meta.desc" content="Bancos de conhecimento planejados para expandir um perfil Moon Source depois do Setup." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#071213" />
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#071213;
+  --text:#fff8eb;
+  --muted:#d1e8e0;
+  --quiet:#8fa9a3;
+  --line:rgba(255,248,235,.16);
+  --line2:rgba(255,248,235,.32);
+  --mint:#7df7cf;
+  --mint2:#19d7b0;
+  --sun:#fff06a;
+  --peach:#ffb36f;
+  --coral:#ff6f91;
+  --blue:#7fc7ff;
+  --panel:rgba(255,255,255,.055);
+  --panel2:rgba(255,255,255,.09);
+  --shadow:0 34px 110px rgba(0,0,0,.46);
+  --radius:28px;
+  --max:980px;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -12%,rgba(125,247,207,.25),transparent 24rem),
+    radial-gradient(circle at 12% 75%,rgba(127,199,255,.12),transparent 24rem),
+    radial-gradient(circle at 92% 65%,rgba(255,111,145,.12),transparent 22rem),
+    linear-gradient(145deg,#061012 0%,#0b1b1b 54%,#071113 100%);
+  line-height:1.52;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(circle at 50% 38%,#000 0%,transparent 76%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  width:82vmax;
+  height:82vmax;
+  left:50%;
+  top:44%;
+  z-index:-2;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    rgba(125,247,207,.18),
+    rgba(255,240,106,.10),
+    rgba(255,111,145,.12),
+    rgba(127,199,255,.12),
+    rgba(125,247,207,.18)
+  );
+  filter:blur(76px);
+  opacity:.46;
+  animation:slowTurn 24s linear infinite;
+}
+@keyframes slowTurn{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+a{color:inherit}
+.page{
+  position:relative;
+  z-index:1;
+  width:min(var(--max),calc(100% - 32px));
+  min-height:100vh;
+  margin:0 auto;
+  padding:22px 0 38px;
+  display:grid;
+  grid-template-rows:auto auto 1fr auto;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:56px;
+}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+.mark{
+  position:relative;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#fff 0%,#dfffee 24%,var(--mint) 46%,#0aa98c 72%,#062323 100%);
+  box-shadow:0 0 34px rgba(125,247,207,.42),0 0 0 1px rgba(255,255,255,.14);
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  right:-3px;
+  top:1px;
+  border-radius:50%;
+  background:var(--sun);
+  box-shadow:0 0 20px rgba(255,240,106,.8);
+}
+.links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.link{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.92rem;
+}
+.link:hover{color:var(--text)}
+.lang{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  min-height:38px;
+  padding:4px 7px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(12px);
+}
+.lang button{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  border-radius:999px;
+  font:inherit;
+  font-size:.8rem;
+  font-weight:900;
+  padding:5px 8px;
+}
+.lang button.active{
+  color:#071213;
+  background:var(--mint);
+}
+.btn{
+  --mx:50%;
+  --my:50%;
+  position:relative;
+  isolation:isolate;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:43px;
+  padding:10px 15px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.045);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:780;
+  font-size:.93rem;
+  overflow:hidden;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s ease,background .28s ease,box-shadow .28s ease;
+}
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.35) 42%,transparent 58%);
+  transform:translateX(-130%);
+  transition:transform .78s cubic-bezier(.2,.8,.2,1);
+}
+.btn:hover,.btn:focus-visible{
+  transform:translateY(-2px);
+  border-color:var(--line2);
+  background:rgba(255,255,255,.07);
+  box-shadow:0 18px 50px rgba(0,0,0,.24);
+  outline:none;
+}
+.btn:hover::before,.btn:focus-visible::before{transform:translateX(130%)}
+.btn.primary{
+  border-color:transparent;
+  color:#041314;
+  background:linear-gradient(120deg,var(--mint) 0%,var(--sun) 42%,var(--peach) 75%,var(--blue) 100%);
+  box-shadow:0 18px 56px rgba(125,247,207,.18),0 0 0 1px rgba(255,255,255,.48) inset;
+  animation:buttonBreathe 2.8s ease-in-out infinite;
+}
+.btn.primary:hover{
+  box-shadow:0 24px 72px rgba(125,247,207,.28),0 0 34px rgba(255,240,106,.17),0 0 0 1px rgba(255,255,255,.6) inset;
+}
+.btn.about{
+  border-color:rgba(125,247,207,.26);
+  background:rgba(125,247,207,.075);
+}
+.btn.ghost{
+  color:var(--muted);
+}
+@keyframes buttonBreathe{
+  0%,100%{filter:saturate(1);box-shadow:0 18px 56px rgba(125,247,207,.18),0 0 0 1px rgba(255,255,255,.48) inset}
+  50%{filter:saturate(1.08);box-shadow:0 24px 72px rgba(255,240,106,.20),0 0 30px rgba(125,247,207,.13),0 0 0 1px rgba(255,255,255,.58) inset}
+}
+.hero{
+  position:relative;
+  max-width:830px;
+  margin:0 auto 34px;
+  text-align:center;
+  padding:34px 20px 6px;
+}
+.hero::before{
+  content:"";
+  display:block;
+  width:min(100%,540px);
+  height:2px;
+  margin:0 auto 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--mint),var(--sun),var(--blue),transparent);
+  opacity:.9;
+}
+.kicker{
+  margin:0 0 15px;
+  color:var(--mint);
+  font-size:.75rem;
+  font-weight:950;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.kicker.soft{
+  color:var(--quiet);
+}
+h1,h2,h3{
+  margin:0;
+  line-height:1.05;
+}
+h1{
+  max-width:780px;
+  margin:0 auto;
+  font-size:clamp(3rem,8.4vw,7rem);
+  letter-spacing:-.105em;
+  line-height:.84;
+  text-wrap:balance;
+}
+h2{
+  font-size:clamp(1.3rem,2.6vw,1.9rem);
+  letter-spacing:-.05em;
+}
+h3{
+  font-size:1.04rem;
+  letter-spacing:-.025em;
+}
+p{
+  margin:0;
+  color:var(--muted);
+}
+.lead{
+  max-width:690px;
+  margin:22px auto 0;
+  font-size:clamp(1rem,1.7vw,1.17rem);
+  line-height:1.52;
+  color:#d7efe8;
+  text-wrap:balance;
+}
+.cta{
+  display:flex;
+  justify-content:center;
+  gap:11px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+.note{
+  margin-top:10px;
+  color:var(--quiet);
+  font-size:.9rem;
+}
+.section{
+  margin-top:18px;
+}
+.grid{
+  display:grid;
+  gap:12px;
+}
+.cols-2{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.cols-3{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.panel{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+  box-shadow:0 18px 48px rgba(0,0,0,.22);
+  padding:20px;
+  overflow:hidden;
+  backdrop-filter:blur(12px);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s ease,background .3s ease,box-shadow .3s ease;
+}
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.12) 44%,transparent 61%);
+  transform:translateX(-120%);
+  transition:transform .85s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.panel:hover{
+  transform:translateY(-5px);
+  border-color:rgba(125,247,207,.34);
+  background:linear-gradient(180deg,rgba(125,247,207,.08),rgba(255,255,255,.045));
+  box-shadow:0 24px 64px rgba(0,0,0,.27);
+}
+.panel:hover::before{
+  transform:translateX(120%);
+}
+.panel.slim{
+  padding:18px;
+}
+.panel p{
+  margin-top:7px;
+  font-size:.94rem;
+}
+.downloads{
+  display:grid;
+  gap:10px;
+  margin-top:15px;
+}
+.download{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(255,255,255,.045);
+  text-decoration:none;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s ease,background .28s ease;
+}
+.download:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,179,111,.34);
+  background:rgba(255,179,111,.065);
+}
+.download strong{display:block}
+.download small{
+  display:block;
+  color:var(--quiet);
+  margin-top:3px;
+}
+.download.primary-download{
+  border-color:rgba(125,247,207,.34);
+  background:linear-gradient(135deg,rgba(125,247,207,.12),rgba(255,240,106,.06));
+}
+.arrow{
+  color:var(--mint);
+  font-weight:900;
+}
+.steps{
+  display:grid;
+  gap:9px;
+  margin-top:14px;
+}
+.step{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.042);
+}
+.step-no{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 2rem;
+  width:2rem;
+  height:2rem;
+  border-radius:11px;
+  background:rgba(125,247,207,.12);
+  color:var(--mint);
+  font-weight:900;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.step-text{display:block;min-width:0}
+.step-text strong{
+  display:block;
+  color:var(--text);
+  line-height:1.2;
+}
+.step-text span{
+  display:block;
+  color:var(--muted);
+  font-size:.91rem;
+  margin-top:3px;
+}
+.chips{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.chip{
+  display:inline-flex;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+  padding:7px 10px;
+  font-size:.85rem;
+}
+.footer{
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  color:var(--quiet);
+  font-size:.86rem;
+}
+.muted-link{
+  color:var(--muted);
+  text-underline-offset:3px;
+}
+.muted-link:hover{color:var(--text)}
+@media(max-width:760px){
+  .page{
+    width:min(100% - 24px,var(--max));
+    padding-top:17px;
+  }
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+    margin-bottom:36px;
+  }
+  .links{
+    justify-content:flex-start;
+  }
+  .cols-2,.cols-3{
+    grid-template-columns:1fr;
+  }
+  h1{
+    font-size:clamp(2.75rem,15vw,4.8rem);
+    letter-spacing:-.086em;
+  }
+  .hero{
+    padding-left:0;
+    padding-right:0;
+  }
+  .cta .btn{
+    width:auto;
+  }
+  .btn,.download{
+    width:100%;
+  }
+  .download{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .footer{
+    display:grid;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{
+    transition:none!important;
+    animation:none!important;
+  }
+  .btn:hover,.panel:hover,.download:hover{
+    transform:none;
+  }
+}
+</style>
+</head>
+<body><main class="page">
+<nav class="nav" aria-label="Navegação principal">
+  <a class="brand" href="../"><span class="mark" aria-hidden="true"></span><span>Moon Source</span></a>
+  <div class="links">
+    <a class="link" data-i18n="nav.home" href="../">Setup</a>
+    <a class="link" data-i18n="nav.knowledge" href="./">Bancos de conhecimento</a>
+    <div class="lang" role="group" aria-label="Idioma"><button type="button" class="lang-btn active" data-lang-choice="pt">PT</button><span aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang-choice="en">EN</button></div>
+    <a class="btn about" data-i18n="nav.about" href="https://www.luahelena.com.br/ia/">Meu trabalho</a>
+  </div>
+</nav>
+<section class="hero">
+  <p class="kicker" data-i18n="hero.kicker">Bancos de conhecimento</p>
+  <h1 data-i18n="hero.title">Extensões pequenas para depois.</h1>
+  <p class="lead" data-i18n="hero.lead">Esta prateleira guarda futuros bancos de conhecimento para ampliar um source já criado. Primeiro vem o Setup; depois, só entra o que realmente melhora continuidade.</p>
+  <div class="cta">
+    <a class="btn primary" data-i18n="cta.setup" href="../downloads/MOON_SOURCE_SETUP.md" download="MOON_SOURCE_SETUP.md">Baixar Setup</a>
+    <a class="btn about" data-i18n="cta.about" href="https://www.luahelena.com.br/ia/">Meu trabalho</a>
+    <a class="btn ghost" data-i18n="cta.kernel" href="../downloads/MOON_SOURCE_KERNEL.md" download="MOON_SOURCE_KERNEL.md">Baixar Kernel</a>
+  </div>
+</section>
+<section class="section grid cols-2" aria-label="Bancos planejados">
+  <article class="panel slim"><p class="kicker soft" data-i18n="cards.kicker">Planejados</p><h3 data-i18n="card.soc.title">Sociologia</h3><p data-i18n="card.soc.body">Instituições, poder, cultura, classe e leitura social.</p></article>
+  <article class="panel slim"><p class="kicker soft" data-i18n="cards.kicker">Planejados</p><h3 data-i18n="card.write.title">Escrita</h3><p data-i18n="card.write.body">Voz, estrutura, revisão e continuidade editorial.</p></article>
+  <article class="panel slim"><p class="kicker soft" data-i18n="cards.kicker">Planejados</p><h3 data-i18n="card.research.title">Pesquisa</h3><p data-i18n="card.research.body">Perguntas, fontes, incerteza e verificação.</p></article>
+  <article class="panel slim"><p class="kicker soft">01</p><h3 data-i18n="card.rule.title">Regra de uso</h3><p data-i18n="card.rule.body">Banco de conhecimento não substitui source. Ele só expande um source vivo.</p></article>
+</section>
+<footer class="footer"><span><a class="muted-link" data-i18n="footer.back" href="../">← Voltar ao Setup</a></span><span><a class="muted-link" data-i18n="footer.about" href="https://www.luahelena.com.br/ia/">Lua Helena Moon — meu trabalho</a></span></footer>
+<script>
+const I18N={
+ pt:{
+  'meta.title':`Moon Source · Bancos de conhecimento`,'meta.desc':`Bancos de conhecimento planejados para expandir um perfil Moon Source depois do Setup.`,
+  'nav.home':`Setup`,'nav.knowledge':`Bancos de conhecimento`,'nav.about':`Meu trabalho`,
+  'hero.kicker':`Bancos de conhecimento`,'hero.title':`Extensões pequenas para depois.`,'hero.lead':`Esta prateleira guarda futuros bancos de conhecimento para ampliar um source já criado. Primeiro vem o Setup; depois, só entra o que realmente melhora continuidade.`,
+  'cta.setup':`Baixar Setup`,'cta.kernel':`Baixar Kernel`,'cta.about':`Meu trabalho`,
+  'cards.kicker':`Planejados`,'card.soc.title':`Sociologia`,'card.soc.body':`Instituições, poder, cultura, classe e leitura social.`,'card.write.title':`Escrita`,'card.write.body':`Voz, estrutura, revisão e continuidade editorial.`,'card.research.title':`Pesquisa`,'card.research.body':`Perguntas, fontes, incerteza e verificação.`,'card.rule.title':`Regra de uso`,'card.rule.body':`Banco de conhecimento não substitui source. Ele só expande um source vivo.`,
+  'footer.back':`← Voltar ao Setup`,'footer.about':`Lua Helena Moon — meu trabalho`
+ },
+ en:{
+  'meta.title':`Moon Source · Knowledge banks`,'meta.desc':`Planned knowledge banks for extending a Moon Source profile after Setup.`,
+  'nav.home':`Setup`,'nav.knowledge':`Knowledge banks`,'nav.about':`About my work`,
+  'hero.kicker':`Knowledge banks`,'hero.title':`Small extensions for later.`,'hero.lead':`This shelf holds future knowledge banks for expanding an existing source. Setup comes first; later, add only what truly improves continuity.`,
+  'cta.setup':`Download Setup`,'cta.kernel':`Download Kernel`,'cta.about':`About my work`,
+  'cards.kicker':`Planned`,'card.soc.title':`Sociology`,'card.soc.body':`Institutions, power, culture, class and social reading.`,'card.write.title':`Writing`,'card.write.body':`Voice, structure, revision and editorial continuity.`,'card.research.title':`Research`,'card.research.body':`Questions, sources, uncertainty and verification.`,'card.rule.title':`Use rule`,'card.rule.body':`A knowledge bank does not replace a source. It only expands a living source.`,
+  'footer.back':`← Back to Setup`,'footer.about':`Lua Helena Moon — about my work`
+ }
+};
+
+
+const BRAZIL_TIMEZONES=new Set(['America/Sao_Paulo','America/Belem','America/Fortaleza','America/Recife','America/Araguaina','America/Maceio','America/Bahia','America/Santarem','America/Cuiaba','America/Campo_Grande','America/Manaus','America/Porto_Velho','America/Boa_Vista','America/Rio_Branco','America/Eirunepe','America/Noronha']);
+function getPrimaryLocale(){const langs=Array.isArray(navigator.languages)&&navigator.languages.length?navigator.languages:[navigator.language||''];return (langs[0]||'').trim();}
+function getLocaleRegion(locale){try{return new Intl.Locale(locale).region||'';}catch(_){const parts=String(locale||'').split('-');return parts.length>1?parts[1].toUpperCase():'';}}
+function detectLanguageFromViewer(){const locale=getPrimaryLocale();const primary=locale.toLowerCase().split('-')[0];const region=getLocaleRegion(locale).toUpperCase();const timezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';const timezoneLooksBrazil=BRAZIL_TIMEZONES.has(timezone);const regionKnownOutsideBrazil=Boolean(region)&&region!=='BR';if(primary!=='pt')return'en';if(timezone&&!timezoneLooksBrazil)return'en';if(!timezone&&regionKnownOutsideBrazil)return'en';return'pt';}
+function getInitialLanguage(){const p=new URLSearchParams(location.search);const u=p.get('lang');if(u==='en'||u==='pt')return{lang:u,detected:false};const saved=localStorage.getItem('moonSourceLang');if(saved==='en'||saved==='pt')return{lang:saved,detected:false};return{lang:detectLanguageFromViewer(),detected:true};}
+function setLanguage(lang,updateUrl=true,persist=true){const d=I18N[lang]||I18N.pt;document.documentElement.lang=lang==='en'?'en':'pt-BR';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k];});document.querySelectorAll('[data-i18n-attr]').forEach(el=>{el.getAttribute('data-i18n-attr').split(';').filter(Boolean).forEach(pair=>{const [a,k]=pair.split(':');if(a&&k&&d[k]!==undefined)el.setAttribute(a,d[k]);});});document.querySelectorAll('[data-lang-choice]').forEach(btn=>{const on=btn.getAttribute('data-lang-choice')===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on?'true':'false');});if(persist)localStorage.setItem('moonSourceLang',lang);if(updateUrl){const url=new URL(location.href);lang==='en'?url.searchParams.set('lang','en'):url.searchParams.delete('lang');history.replaceState(null,'',url);}}
+document.querySelectorAll('[data-lang-choice]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.getAttribute('data-lang-choice'),true,true)));
+const initialLanguage=getInitialLanguage();setLanguage(initialLanguage.lang,initialLanguage.detected&&initialLanguage.lang==='en',false);
+</script>
+</main></body></html>
