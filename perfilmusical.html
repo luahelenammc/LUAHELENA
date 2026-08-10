@@ -6,7 +6,11 @@
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#07070b" />
   <title>Perfil Musical · Lua Helena Moon</title>
-  <meta name="description" content="Cartografia musical de Lua Helena Moon: constelações de gosto, órbita atual, memória e evidências do Spotify." />
+  <meta id="meta-description" name="description" content="Cartografia musical de Lua Helena Moon: constelações de gosto, atmosferas, memória e escuta contemporânea." />
+  <link rel="canonical" href="https://www.luahelena.com.br/perfilmusical.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/perfilmusical.html" />
+  <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/perfilmusical.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/perfilmusical.html" />
   <style>
     :root {
       --bg: #07070b;
@@ -66,7 +70,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    a:focus-visible { outline: 2px solid var(--moon-bright); outline-offset: 4px; border-radius: 8px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--moon-bright); outline-offset: 4px; border-radius: 8px; }
 
     .page {
       position: relative;
@@ -100,6 +104,7 @@
     }
     .brand-copy strong { display:block; font-size:.96rem; }
     .brand-copy span { display:block; margin-top:2px; color:var(--muted); font-size:.75rem; }
+    .top-actions { display:flex; align-items:center; gap:8px; }
     .home-link {
       color: var(--muted);
       border: 1px solid var(--line);
@@ -110,6 +115,32 @@
       transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
     }
     .home-link:hover { transform: translateY(-2px); color: var(--text); border-color: rgba(245,217,157,.38); background: rgba(255,255,255,.07); }
+
+    .lang-toggle {
+      display:flex;
+      align-items:center;
+      gap:3px;
+      padding:3px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+    }
+    .lang-toggle button {
+      width:36px;
+      height:32px;
+      display:grid;
+      place-items:center;
+      padding:0;
+      border:0;
+      border-radius:999px;
+      background:transparent;
+      cursor:pointer;
+      opacity:.58;
+      transition:opacity .18s ease, background .18s ease, transform .18s ease;
+    }
+    .lang-toggle button:hover { opacity:.88; transform:translateY(-1px); }
+    .lang-toggle button.active { opacity:1; background:rgba(245,217,157,.16); }
+    .lang-toggle img { width:20px; height:20px; object-fit:cover; border-radius:50%; box-shadow:0 0 0 1px rgba(255,255,255,.18); }
 
     .hero {
       position: relative;
@@ -191,7 +222,6 @@
       font-weight:700;
       letter-spacing:.02em;
     }
-    .badge.live::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 14px rgba(152,230,179,.62); }
 
     .fingerprint {
       align-self: stretch;
@@ -266,8 +296,8 @@
     .panel { padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); }
     .panel h3 { font-family:var(--serif); font-size:1.65rem; font-weight:500; margin-bottom:14px; }
     .panel p { color:var(--muted); line-height:1.6; }
-    .track-list, .method-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
-    .track-list a, .method-list li { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 11px; border-radius:13px; border:1px solid rgba(255,255,255,.075); background:rgba(255,255,255,.025); color:rgba(251,244,235,.80); font-size:.84rem; }
+    .track-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+    .track-list a { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 11px; border-radius:13px; border:1px solid rgba(255,255,255,.075); background:rgba(255,255,255,.025); color:rgba(251,244,235,.80); font-size:.84rem; }
     .track-list a:hover { border-color:rgba(245,217,157,.30); background:rgba(255,255,255,.05); }
     .track-list em { color:var(--faint); font-style:normal; font-size:.72rem; }
 
@@ -288,13 +318,24 @@
         linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
         var(--panel-strong);
     }
-    .verdict blockquote { margin:0; font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.8rem); line-height:1.02; letter-spacing:-.045em; color:var(--moon-bright); }
+    .verdict .thesis { margin:0; font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.8rem); line-height:1.02; letter-spacing:-.045em; color:var(--moon-bright); }
     .verdict aside { color:var(--muted); line-height:1.58; }
 
-    .limits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-    .limit { padding:16px 17px; border-radius:16px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.022); }
-    .limit strong { display:block; margin-bottom:6px; font-size:.86rem; }
-    .limit span { color:var(--muted); line-height:1.5; font-size:.82rem; }
+    .method-disclaimer {
+      margin-top: 22px;
+      padding: 15px 18px;
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      border:1px solid rgba(245,217,157,.14);
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(245,217,157,.035),rgba(181,156,255,.025));
+      color:var(--faint);
+      font-size:.76rem;
+      line-height:1.55;
+    }
+    .method-disclaimer .sigil { color:var(--moon); font-size:1rem; line-height:1.25; }
+    .method-disclaimer strong { color:rgba(251,244,235,.70); font-weight:750; }
 
     footer { display:flex; align-items:center; justify-content:space-between; gap:18px; color:var(--faint); font-size:.76rem; padding:16px 4px 0; }
     footer a:hover { color:var(--text); }
@@ -312,11 +353,13 @@
     @media (max-width: 640px) {
       .page { width:min(100% - 20px,var(--max)); padding-top:18px; }
       .topbar { align-items:flex-start; }
-      .brand-copy span { max-width:180px; }
+      .brand-copy span { max-width:150px; }
+      .top-actions { gap:5px; }
+      .home-link { padding-inline:10px; }
       .hero, .section { border-radius:24px; }
       .section-head { display:block; }
       .section-note { margin-top:12px; }
-      .timeline, .split, .limits { grid-template-columns:1fr; }
+      .timeline, .split { grid-template-columns:1fr; }
       h1 { font-size:clamp(3rem,18vw,5.2rem); }
       footer { display:block; line-height:1.7; }
     }
@@ -330,93 +373,97 @@
 <body>
   <main class="page">
     <header class="topbar">
-      <a class="brand" href="/" aria-label="Voltar ao portal Lua Helena">
+      <a class="brand" href="/" aria-label="Lua Helena Moon">
         <span class="mark" aria-hidden="true">☾</span>
-        <span class="brand-copy"><strong>Lua Helena Moon</strong><span>cartografia pessoal · música</span></span>
+        <span class="brand-copy"><strong>Lua Helena Moon</strong><span data-pt="cartografia pessoal · música" data-en="personal cartography · music">cartografia pessoal · música</span></span>
       </a>
-      <a class="home-link" href="/">← portal</a>
+      <div class="top-actions">
+        <div class="lang-toggle" aria-label="Seleção de idioma">
+          <button type="button" data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button>
+          <button type="button" data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button>
+        </div>
+        <a class="home-link" href="/" data-pt="← portal" data-en="← portal">← portal</a>
+      </div>
     </header>
 
     <section class="hero" aria-labelledby="title">
       <div>
-        <div class="kicker">Music Discovery Engine · Taste State V0</div>
-        <h1 id="title">Perfil<br>Musical.</h1>
-        <p class="hero-lead">Meu gosto não forma uma linha de gêneros. Ele forma <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes que compartilham uma gravidade emocional comum.</p>
+        <div class="kicker" data-pt="Lua Helena Moon · cartografia sonora" data-en="Lua Helena Moon · sonic cartography">Lua Helena Moon · cartografia sonora</div>
+        <h1 id="title" data-pt="Perfil<br>Musical." data-en="Music<br>Profile.">Perfil<br>Musical.</h1>
+        <p class="hero-lead" data-pt="O universo musical de Lua Helena Moon não forma uma linha de gêneros. Ele se organiza em <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes ligadas por uma gravidade emocional comum." data-en="Lua Helena Moon's musical universe does not follow a single line of genres. It forms <strong>constellations</strong>: different eras, voices, atmospheres and memories connected by a shared emotional gravity.">O universo musical de Lua Helena Moon não forma uma linha de gêneros. Ele se organiza em <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes ligadas por uma gravidade emocional comum.</p>
         <div class="badges">
-          <span class="badge live">Spotify conectado</span>
-          <span class="badge">âncora: últimos 6 meses</span>
-          <span class="badge">V0 · 09 ago 2026</span>
-          <span class="badge">histórico estendido pendente</span>
+          <span class="badge" data-pt="nostalgia" data-en="nostalgia">nostalgia</span>
+          <span class="badge" data-pt="melancolia" data-en="melancholy">melancolia</span>
+          <span class="badge" data-pt="voz expressiva" data-en="expressive voice">voz expressiva</span>
+          <span class="badge" data-pt="teatralidade" data-en="theatricality">teatralidade</span>
+          <span class="badge" data-pt="atmosfera" data-en="atmosphere">atmosfera</span>
         </div>
       </div>
 
-      <aside class="fingerprint" aria-label="Impressão digital musical inferida">
-        <h2>Impressão digital</h2>
-        <div class="axis"><span>gravidade nostálgica</span><b>muito forte</b><div class="axis-line"><i style="width:94%"></i></div></div>
-        <div class="axis"><span>melancolia / ternura</span><b>forte</b><div class="axis-line"><i style="width:88%"></i></div></div>
-        <div class="axis"><span>voz expressiva</span><b>forte</b><div class="axis-line"><i style="width:86%"></i></div></div>
-        <div class="axis"><span>teatralidade</span><b>forte</b><div class="axis-line"><i style="width:82%"></i></div></div>
-        <div class="axis"><span>atmosfera / som-lugar</span><b>forte agora</b><div class="axis-line"><i style="width:80%"></i></div></div>
-        <div class="axis"><span>fidelidade a um gênero só</span><b>baixa</b><div class="axis-line"><i style="width:27%"></i></div></div>
+      <aside class="fingerprint" aria-label="Impressão digital musical">
+        <h2 data-pt="Impressão digital" data-en="Musical fingerprint">Impressão digital</h2>
+        <div class="axis"><span data-pt="gravidade nostálgica" data-en="nostalgic gravity">gravidade nostálgica</span><b data-pt="muito forte" data-en="very strong">muito forte</b><div class="axis-line"><i style="width:94%"></i></div></div>
+        <div class="axis"><span data-pt="melancolia / ternura" data-en="melancholy / tenderness">melancolia / ternura</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:88%"></i></div></div>
+        <div class="axis"><span data-pt="voz expressiva" data-en="expressive voice">voz expressiva</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:86%"></i></div></div>
+        <div class="axis"><span data-pt="teatralidade" data-en="theatricality">teatralidade</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:82%"></i></div></div>
+        <div class="axis"><span data-pt="atmosfera / som-lugar" data-en="atmosphere / sense of place">atmosfera / som-lugar</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:80%"></i></div></div>
+        <div class="axis"><span data-pt="fidelidade a um gênero só" data-en="single-genre loyalty">fidelidade a um gênero só</span><b data-pt="baixa" data-en="low">baixa</b><div class="axis-line"><i style="width:27%"></i></div></div>
       </aside>
     </section>
 
     <section class="section" aria-labelledby="constellations-title">
       <div class="section-head">
-        <div><div class="eyebrow">01 · Taste constellations</div><h2 id="constellations-title">Cinco núcleos, sem achatamento.</h2></div>
-        <p class="section-note">A regra aqui é simples: diversidade não vira média. Ópera, balada setentista, rock brasileiro, memória 2000s e trilha de jogo podem coexistir sem serem forçados a um gênero central fictício.</p>
+        <div><div class="eyebrow" data-pt="01 · Constelações" data-en="01 · Constellations">01 · Constelações</div><h2 id="constellations-title" data-pt="Cinco núcleos, sem achatamento." data-en="Five cores, no flattening.">Cinco núcleos, sem achatamento.</h2></div>
+        <p class="section-note" data-pt="Ópera, balada setentista, rock brasileiro, memória dos anos 2000 e trilhas de jogos ocupam regiões diferentes do mesmo mapa musical." data-en="Opera, 1970s ballads, Brazilian rock, 2000s memory and game soundtracks occupy different regions of the same musical map.">Ópera, balada setentista, rock brasileiro, memória dos anos 2000 e trilhas de jogos ocupam regiões diferentes do mesmo mapa musical.</p>
       </div>
 
       <div class="constellations">
         <article class="constellation c1">
           <span class="num">01</span>
-          <h3>Melancolia de veludo</h3>
-          <p>Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais evidente no recorte de seis meses.</p>
+          <h3 data-pt="Melancolia de veludo" data-en="Velvet melancholy">Melancolia de veludo</h3>
+          <p data-pt="Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais visível na escuta contemporânea de Lua Helena." data-en="Open tenderness, romance without cynicism, and songs that place vulnerability at the center rather than using it as ornament. This is the most visible constellation in Lua Helena's contemporary listening.">Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais visível na escuta contemporânea de Lua Helena.</p>
           <div class="evidence">
             <a class="chip link" href="https://open.spotify.com/artist/1LZEQNv7sE11VDY3SdxQeN" target="_blank" rel="noopener">Bee Gees ↗</a>
             <a class="chip link" href="https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH" target="_blank" rel="noopener">Billie Eilish ↗</a>
             <a class="chip link" href="https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa" target="_blank" rel="noopener">Lana Del Rey ↗</a>
-            <span class="chip">confiança alta</span>
           </div>
         </article>
 
         <article class="constellation c2">
           <span class="num">02</span>
-          <h3>Voz como drama</h3>
-          <p>O canto precisa carregar personagem, tensão ou grandeza. A presença de ópera e playlists explicitamente líricas mostra que “voz bonita” é pouco: interessa voz com cena.</p>
+          <h3 data-pt="Voz como drama" data-en="Voice as drama">Voz como drama</h3>
+          <p data-pt="O canto ganha peso quando carrega personagem, tensão ou grandeza. A presença da ópera e da canção lírica aponta para uma preferência por vozes que criam cena." data-en="Singing gains weight when it carries character, tension or grandeur. The presence of opera and lyrical song points to a preference for voices that create a scene.">O canto ganha peso quando carrega personagem, tensão ou grandeza. A presença da ópera e da canção lírica aponta para uma preferência por vozes que criam cena.</p>
           <div class="evidence">
             <a class="chip link" href="https://open.spotify.com/artist/0bjdfjE8XbLa2Odstu6E1E" target="_blank" rel="noopener">Maria Callas ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener">Óperas Líricas. ↗</a>
-            <span class="chip">confiança alta</span>
+            <a class="chip link" href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener" data-pt="Óperas Líricas. ↗" data-en="Lyrical Operas. ↗">Óperas Líricas. ↗</a>
           </div>
         </article>
 
         <article class="constellation c3">
           <span class="num">03</span>
-          <h3>Memória brasileira</h3>
-          <p>Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro não aparece como “MPB” genérica, mas como memória emocional atravessada por rock, canção e televisão.</p>
+          <h3 data-pt="Memória brasileira" data-en="Brazilian memory">Memória brasileira</h3>
+          <p data-pt="Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro aparece menos como rótulo de gênero e mais como memória emocional atravessada por rock, canção e televisão." data-en="Affection, roughness and cultural familiarity coexist. The Brazilian axis appears less as a genre label and more as emotional memory crossing rock, songwriting and television.">Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro aparece menos como rótulo de gênero e mais como memória emocional atravessada por rock, canção e televisão.</p>
           <div class="evidence">
             <a class="chip link" href="https://open.spotify.com/artist/10naVTwNjE50daQVrN0bXh" target="_blank" rel="noopener">Cássia Eller ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener">Novelas. ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener">Memórias. ↗</a>
+            <a class="chip link" href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener" data-pt="Novelas. ↗" data-en="Telenovelas. ↗">Novelas. ↗</a>
+            <a class="chip link" href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener" data-pt="Memórias. ↗" data-en="Memories. ↗">Memórias. ↗</a>
           </div>
         </article>
 
         <article class="constellation c4">
           <span class="num">04</span>
-          <h3>Arquivo 2000s</h3>
-          <p>O corpus musical anterior preserva um núcleo de infância/adolescência com alt-rock, emo, pop-rock, reggae-pop e pop dançante. Ele funciona melhor como <em>dormant love</em> do que como retrato do mês atual.</p>
-          <div class="evidence"><span class="chip">arquivo pessoal</span><span class="chip">memória durável</span><span class="chip">não é ranking atual</span></div>
+          <h3 data-pt="Arquivo 2000s" data-en="2000s archive">Arquivo 2000s</h3>
+          <p data-pt="Um núcleo de infância e adolescência preserva alt-rock, emo, pop-rock, reggae-pop e pop dançante. Essa região permanece afetivamente viva mesmo quando não domina a escuta recente." data-en="A childhood-and-adolescence core preserves alt-rock, emo, pop-rock, reggae-pop and dance-pop. This region remains emotionally alive even when it does not dominate recent listening.">Um núcleo de infância e adolescência preserva alt-rock, emo, pop-rock, reggae-pop e pop dançante. Essa região permanece afetivamente viva mesmo quando não domina a escuta recente.</p>
+          <div class="evidence"><span class="chip" data-pt="memória durável" data-en="durable memory">memória durável</span><span class="chip" data-pt="infância / adolescência" data-en="childhood / adolescence">infância / adolescência</span></div>
         </article>
 
         <article class="constellation c5">
           <span class="num">05</span>
-          <h3>Som como lugar</h3>
-          <p>Na órbita atual, música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma noite eletrônica discreta. Isso é contexto forte, mas não deve apagar os outros quatro núcleos.</p>
+          <h3 data-pt="Som como lugar" data-en="Sound as place">Som como lugar</h3>
+          <p data-pt="Música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma eletrônica noturna discreta criam espaços sonoros habitáveis." data-en="Music also functions as environment: game soundtracks, instrumental landscapes, comfortable repetition and understated nocturnal electronics create inhabitable sonic spaces.">Música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma eletrônica noturna discreta criam espaços sonoros habitáveis.</p>
           <div class="evidence">
             <a class="chip link" href="https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX" target="_blank" rel="noopener">Metronomy ↗</a>
             <a class="chip link" href="https://open.spotify.com/track/6qOBFuoFiay0tRAs5en6nB" target="_blank" rel="noopener">Night Owl ↗</a>
-            <span class="chip">current orbit</span>
           </div>
         </article>
       </div>
@@ -424,42 +471,42 @@
 
     <section class="section" aria-labelledby="time-title">
       <div class="section-head">
-        <div><div class="eyebrow">02 · Temporal state</div><h2 id="time-title">O gosto muda sem se apagar.</h2></div>
-        <p class="section-note">O maior erro seria transformar o que tocou muito nesta semana em definição permanente. O engine separa camadas temporais.</p>
+        <div><div class="eyebrow" data-pt="02 · Camadas de escuta" data-en="02 · Listening layers">02 · Camadas de escuta</div><h2 id="time-title" data-pt="O gosto muda sem se apagar." data-en="Taste changes without erasing itself.">O gosto muda sem se apagar.</h2></div>
+        <p class="section-note" data-pt="A escuta de Lua Helena combina permanências afetivas, ciclos recentes e repertórios que retornam em épocas diferentes." data-en="Lua Helena's listening combines emotional continuities, recent cycles and repertoires that return at different moments.">A escuta de Lua Helena combina permanências afetivas, ciclos recentes e repertórios que retornam em épocas diferentes.</p>
       </div>
       <div class="timeline">
-        <article class="phase deep"><small>deep core</small><h3>Gravidade</h3><p>memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera.</p></article>
-        <article class="phase current"><small>current orbit</small><h3>Agora</h3><p>trilhas de Sims/jogos, ambient e escuta instrumental; <a href="https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX" target="_blank" rel="noopener">Metronomy ↗</a> aparece como ponte pop-eletrônica.</p></article>
-        <article class="phase dormant"><small>dormant loves</small><h3>Arquivo vivo</h3><p>rock alternativo/emo, pop-rock e pop dançante dos anos 2000 continuam com peso afetivo mesmo sem dominar o ranking recente.</p></article>
-        <article class="phase emerging"><small>emerging signal</small><h3>Som-lugar</h3><p>há um sinal crescente de usar música menos como “faixa” e mais como espaço habitável. Confiança média.</p></article>
+        <article class="phase deep"><small data-pt="gravidade durável" data-en="durable gravity">gravidade durável</small><h3 data-pt="Centro afetivo" data-en="Emotional center">Centro afetivo</h3><p data-pt="Memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera formam o eixo mais estável." data-en="Memory, expressive voice, melancholy, intimacy, drama and atmosphere form the most stable axis.">Memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera formam o eixo mais estável.</p></article>
+        <article class="phase current"><small data-pt="órbita recente" data-en="recent orbit">órbita recente</small><h3 data-pt="Som-lugar" data-en="Sound-place">Som-lugar</h3><p data-pt="Trilhas de Sims e jogos, ambient e escuta instrumental aparecem com força, enquanto Metronomy cria uma ponte pop-eletrônica." data-en="Sims and game soundtracks, ambient and instrumental listening appear strongly, while Metronomy creates a pop-electronic bridge.">Trilhas de Sims e jogos, ambient e escuta instrumental aparecem com força, enquanto Metronomy cria uma ponte pop-eletrônica.</p></article>
+        <article class="phase dormant"><small data-pt="arquivo vivo" data-en="living archive">arquivo vivo</small><h3 data-pt="Anos 2000" data-en="The 2000s">Anos 2000</h3><p data-pt="Rock alternativo, emo, pop-rock e pop dançante continuam associados a uma memória afetiva reconhecível." data-en="Alternative rock, emo, pop-rock and dance-pop remain attached to a recognizable emotional memory.">Rock alternativo, emo, pop-rock e pop dançante continuam associados a uma memória afetiva reconhecível.</p></article>
+        <article class="phase emerging"><small data-pt="sinal contemporâneo" data-en="contemporary signal">sinal contemporâneo</small><h3 data-pt="Atmosfera" data-en="Atmosphere">Atmosfera</h3><p data-pt="A música aparece cada vez mais como espaço emocional habitável, e não apenas como sucessão de faixas." data-en="Music increasingly appears as an inhabitable emotional space rather than merely a sequence of tracks.">A música aparece cada vez mais como espaço emocional habitável, e não apenas como sucessão de faixas.</p></article>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="evidence-title">
+    <section class="section" aria-labelledby="marks-title">
       <div class="section-head">
-        <div><div class="eyebrow">03 · Evidence</div><h2 id="evidence-title">O que sustenta o mapa.</h2></div>
-        <p class="section-note">Peso maior para recorrência de seis meses e curadoria explícita; peso menor para escuta recente potencialmente funcional.</p>
+        <div><div class="eyebrow" data-pt="03 · Marcas recorrentes" data-en="03 · Recurring signatures">03 · Marcas recorrentes</div><h2 id="marks-title" data-pt="Canções e curadorias que deixam rastro." data-en="Songs and collections that leave a trace.">Canções e curadorias que deixam rastro.</h2></div>
+        <p class="section-note" data-pt="Algumas recorrências recentes e algumas playlists pessoais ajudam a tornar o mapa concreto." data-en="A few recent recurring songs and personal playlists make the map tangible.">Algumas recorrências recentes e algumas playlists pessoais ajudam a tornar o mapa concreto.</p>
       </div>
       <div class="split">
         <article class="panel">
-          <h3>Âncoras dos últimos 6 meses</h3>
+          <h3 data-pt="Canções recorrentes" data-en="Recurring songs">Canções recorrentes</h3>
           <ul class="track-list">
-            <li><a href="https://open.spotify.com/track/1jy0RbDHyBMTupSdc98XbG" target="_blank" rel="noopener"><span>How Can You Mend A Broken Heart · Bee Gees</span><em>saved</em></a></li>
-            <li><a href="https://open.spotify.com/track/2JoZzpdeP2G6Csfdq5aLXP" target="_blank" rel="noopener"><span>How Deep Is Your Love · Bee Gees</span><em>top</em></a></li>
-            <li><a href="https://open.spotify.com/track/3SKHO4ccbKbO3gGapfKWDu" target="_blank" rel="noopener"><span>Words · Bee Gees</span><em>top</em></a></li>
-            <li><a href="https://open.spotify.com/track/0mbS3VwRbO6HVBMPXnzOGA" target="_blank" rel="noopener"><span>To Love Somebody · Bee Gees</span><em>saved</em></a></li>
-            <li><a href="https://open.spotify.com/track/6CcJMwBtXByIz4zQLzFkKc" target="_blank" rel="noopener"><span>i love you · Billie Eilish</span><em>saved</em></a></li>
+            <li><a href="https://open.spotify.com/track/1jy0RbDHyBMTupSdc98XbG" target="_blank" rel="noopener"><span>How Can You Mend A Broken Heart · Bee Gees</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/track/2JoZzpdeP2G6Csfdq5aLXP" target="_blank" rel="noopener"><span>How Deep Is Your Love · Bee Gees</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/track/3SKHO4ccbKbO3gGapfKWDu" target="_blank" rel="noopener"><span>Words · Bee Gees</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/track/0mbS3VwRbO6HVBMPXnzOGA" target="_blank" rel="noopener"><span>To Love Somebody · Bee Gees</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/track/6CcJMwBtXByIz4zQLzFkKc" target="_blank" rel="noopener"><span>i love you · Billie Eilish</span><em>↗</em></a></li>
           </ul>
         </article>
 
         <article class="panel">
-          <h3>Curadoria explícita</h3>
+          <h3 data-pt="Curadorias pessoais" data-en="Personal collections">Curadorias pessoais</h3>
           <ul class="track-list">
-            <li><a href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener"><span>Óperas Líricas.</span><em>playlist</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener"><span>Novelas.</span><em>playlist</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener"><span>Memórias.</span><em>playlist</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/5cw9VjaYCRhDBA027WLOBT" target="_blank" rel="noopener"><span>Bee Gees.</span><em>playlist</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/33dmhuik2kaF9tH8WQiANc" target="_blank" rel="noopener"><span>Billie &amp; Lana</span><em>playlist</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener"><span data-pt="Óperas Líricas." data-en="Lyrical Operas.">Óperas Líricas.</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener"><span data-pt="Novelas." data-en="Telenovelas.">Novelas.</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener"><span data-pt="Memórias." data-en="Memories.">Memórias.</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/5cw9VjaYCRhDBA027WLOBT" target="_blank" rel="noopener"><span>Bee Gees.</span><em>↗</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/33dmhuik2kaF9tH8WQiANc" target="_blank" rel="noopener"><span>Billie &amp; Lana</span><em>↗</em></a></li>
           </ul>
         </article>
       </div>
@@ -467,40 +514,84 @@
 
     <section class="section" aria-labelledby="bridges-title">
       <div class="section-head">
-        <div><div class="eyebrow">04 · Bridges</div><h2 id="bridges-title">Onde a descoberta deve procurar.</h2></div>
-        <p class="section-note">Em vez de sugerir “mais do mesmo”, o engine procura compatibilidade entre constelações que normalmente ficam separadas.</p>
+        <div><div class="eyebrow" data-pt="04 · Pontes" data-en="04 · Bridges">04 · Pontes</div><h2 id="bridges-title" data-pt="Afinidades que atravessam gêneros." data-en="Affinities that cross genres.">Afinidades que atravessam gêneros.</h2></div>
+        <p class="section-note" data-pt="As ligações mais características aparecem quando artistas muito diferentes compartilham uma mesma função emocional ou estética." data-en="The most characteristic connections appear when very different artists share the same emotional or aesthetic function.">As ligações mais características aparecem quando artistas muito diferentes compartilham uma mesma função emocional ou estética.</p>
       </div>
       <div class="bridge-grid">
-        <article class="bridge"><div class="route">bridge A</div><h3>Callas ↔ Lana</h3><p>Teatralidade, personagem, tragédia e atmosfera cinematográfica. A ponte não é gênero: é encenação emocional.</p></article>
-        <article class="bridge"><div class="route">bridge B</div><h3>Bee Gees ↔ Billie</h3><p>Fragilidade vocal, intimidade e heartbreak com produção de eras opostas. Excelente rota para novidade sem perder o centro afetivo.</p></article>
-        <article class="bridge"><div class="route">bridge C</div><h3>Memória ↔ Liminal</h3><p>Nostalgia 2000s e trilha de jogo podem se encontrar em música que soa como lugar lembrado: familiar, estranha e habitável.</p></article>
+        <article class="bridge"><div class="route" data-pt="teatralidade" data-en="theatricality">teatralidade</div><h3>Callas ↔ Lana</h3><p data-pt="Personagem, tragédia, intensidade e atmosfera cinematográfica aproximam universos que musicalmente parecem distantes." data-en="Character, tragedy, intensity and cinematic atmosphere bring together musical worlds that otherwise seem distant.">Personagem, tragédia, intensidade e atmosfera cinematográfica aproximam universos que musicalmente parecem distantes.</p></article>
+        <article class="bridge"><div class="route" data-pt="vulnerabilidade" data-en="vulnerability">vulnerabilidade</div><h3>Bee Gees ↔ Billie</h3><p data-pt="Fragilidade vocal, intimidade e heartbreak reaparecem em produções de eras opostas." data-en="Vocal fragility, intimacy and heartbreak reappear across productions from opposite eras.">Fragilidade vocal, intimidade e heartbreak reaparecem em produções de eras opostas.</p></article>
+        <article class="bridge"><div class="route" data-pt="memória espacial" data-en="spatial memory">memória espacial</div><h3 data-pt="Memória ↔ Liminal" data-en="Memory ↔ Liminal">Memória ↔ Liminal</h3><p data-pt="Nostalgia dos anos 2000 e trilhas de jogos convergem em músicas que soam como lugares lembrados: familiares, estranhas e habitáveis." data-en="2000s nostalgia and game soundtracks converge in music that feels like remembered places: familiar, strange and inhabitable.">Nostalgia dos anos 2000 e trilhas de jogos convergem em músicas que soam como lugares lembrados: familiares, estranhas e habitáveis.</p></article>
       </div>
     </section>
 
     <section class="section verdict" aria-labelledby="verdict-title">
-      <blockquote id="verdict-title">“Eu não escuto por gênero. Eu reconheço atmosferas emocionais em corpos musicais diferentes.”</blockquote>
-      <aside>Esse é o melhor resumo provisório do Taste State V0. O núcleo parece menos preocupado com pedigree musical e mais com uma combinação recorrente de <strong>memória + emoção legível + voz + atmosfera</strong>.</aside>
+      <p class="thesis" id="verdict-title" data-pt="O gosto de Lua Helena reconhece atmosferas emocionais em corpos musicais diferentes." data-en="Lua Helena's taste recognizes emotional atmospheres across different musical bodies.">O gosto de Lua Helena reconhece atmosferas emocionais em corpos musicais diferentes.</p>
+      <aside data-pt="O eixo mais característico combina <strong>memória + emoção legível + voz + atmosfera</strong>. O gênero funciona mais como veículo do que como fronteira." data-en="Its most characteristic axis combines <strong>memory + legible emotion + voice + atmosphere</strong>. Genre works more as a vehicle than as a boundary.">O eixo mais característico combina <strong>memória + emoção legível + voz + atmosfera</strong>. O gênero funciona mais como veículo do que como fronteira.</aside>
     </section>
 
-    <section class="section" aria-labelledby="limits-title">
-      <div class="section-head">
-        <div><div class="eyebrow">05 · Unknowns</div><h2 id="limits-title">O que eu ainda não finjo saber.</h2></div>
-        <p class="section-note">Perfil bom também precisa de fronteiras. Esses pontos ficam explicitamente abertos até o histórico estendido chegar.</p>
-      </div>
-      <div class="limits">
-        <div class="limit"><strong>Anti-taste</strong><span>O conector não revelou rejeições suficientes. Nenhum “não gosto” foi inventado.</span></div>
-        <div class="limit"><strong>Saturação</strong><span>Sem contagens e skips brutos, não dá para separar amor recorrente de faixa já cansada.</span></div>
-        <div class="limit"><strong>Longo prazo quantitativo</strong><span>A consulta de longo prazo do conector se mostrou inconsistente; por isso não foi tratada como evidência forte.</span></div>
-        <div class="limit"><strong>Liked Songs em massa</strong><span>O conector identifica a coleção, mas não expôs seu conteúdo integral nesta interface.</span></div>
-        <div class="limit"><strong>Histórico bruto</strong><span>Timestamps, duração ouvida, skips e contexto de reprodução dependem do Extended Streaming History.</span></div>
-        <div class="limit"><strong>Próxima versão</strong><span>Quando a exportação chegar, este mapa vira V1 por delta: preserva o que se sustentar e corrige o que era ruído.</span></div>
-      </div>
-    </section>
+    <div class="method-disclaimer" role="note">
+      <span class="sigil" aria-hidden="true">✦</span>
+      <span data-pt="<strong>Nota de proveniência.</strong> Este perfil foi produzido com apoio do Music Discovery Engine — Dynamic Taste Cartography, a partir de sinais autorizados do Spotify e de curadorias musicais de Lua Helena Moon. O engine permanece separado do conteúdo do perfil e serve apenas como método de leitura e atualização." data-en="<strong>Provenance note.</strong> This profile was produced with support from the Music Discovery Engine — Dynamic Taste Cartography, using authorized Spotify signals and Lua Helena Moon's musical curation. The engine remains separate from the profile content and serves only as a method for interpretation and updating."><strong>Nota de proveniência.</strong> Este perfil foi produzido com apoio do Music Discovery Engine — Dynamic Taste Cartography, a partir de sinais autorizados do Spotify e de curadorias musicais de Lua Helena Moon. O engine permanece separado do conteúdo do perfil e serve apenas como método de leitura e atualização.</span>
+    </div>
 
     <footer>
-      <span>Music Discovery Engine · Dynamic Taste Cartography · V0</span>
-      <span>Spotify como sensor; Taste State como memória própria.</span>
+      <span>Lua Helena Moon · <span data-pt="Perfil Musical" data-en="Music Profile">Perfil Musical</span></span>
+      <span data-pt="cartografia sonora pessoal" data-en="personal sonic cartography">cartografia sonora pessoal</span>
     </footer>
   </main>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = 'lua-perfilmusical-lang';
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get('lang');
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const initial = requested === 'en' ? 'en' : requested === 'pt' ? 'pt' : saved === 'en' ? 'en' : 'pt';
+      const buttons = [...document.querySelectorAll('[data-lang]')];
+      const translatables = [...document.querySelectorAll('[data-pt][data-en]')];
+
+      const metadata = {
+        pt: {
+          lang: 'pt-BR',
+          title: 'Perfil Musical · Lua Helena Moon',
+          description: 'Cartografia musical de Lua Helena Moon: constelações de gosto, atmosferas, memória e escuta contemporânea.'
+        },
+        en: {
+          lang: 'en',
+          title: 'Music Profile · Lua Helena Moon',
+          description: 'Lua Helena Moon’s musical cartography: taste constellations, atmospheres, memory and contemporary listening.'
+        }
+      };
+
+      function applyLanguage(lang, syncUrl = true) {
+        const next = lang === 'en' ? 'en' : 'pt';
+        document.documentElement.lang = metadata[next].lang;
+        document.title = metadata[next].title;
+        document.getElementById('meta-description').setAttribute('content', metadata[next].description);
+
+        translatables.forEach(el => {
+          el.innerHTML = el.dataset[next];
+        });
+
+        buttons.forEach(button => {
+          const active = button.dataset.lang === next;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        localStorage.setItem(STORAGE_KEY, next);
+
+        if (syncUrl) {
+          const url = new URL(window.location.href);
+          if (next === 'en') url.searchParams.set('lang', 'en');
+          else url.searchParams.delete('lang');
+          history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }
+      }
+
+      buttons.forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+      applyLanguage(initial, false);
+    })();
+  </script>
 </body>
 </html>
