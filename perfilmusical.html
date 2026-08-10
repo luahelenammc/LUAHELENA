@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#07070b" />
+  <title>Perfil Musical · Lua Helena Moon</title>
+  <meta name="description" content="Cartografia musical de Lua Helena Moon: constelações de gosto, órbita atual, memória e evidências do Spotify." />
+  <style>
+    :root {
+      --bg: #07070b;
+      --panel: rgba(16, 15, 24, .76);
+      --panel-strong: rgba(20, 18, 30, .9);
+      --text: #fbf4eb;
+      --muted: rgba(251, 244, 235, .69);
+      --faint: rgba(251, 244, 235, .46);
+      --line: rgba(255,255,255,.12);
+      --moon: #f5d99d;
+      --moon-bright: #fff0be;
+      --rose: #ff88b7;
+      --violet: #b59cff;
+      --cyan: #7eddf2;
+      --green: #98e6b3;
+      --orange: #f6ad78;
+      --shadow: 0 30px 90px rgba(0,0,0,.46);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 16% 8%, rgba(245,217,157,.15), transparent 26%),
+        radial-gradient(circle at 82% 15%, rgba(255,136,183,.12), transparent 25%),
+        radial-gradient(circle at 76% 72%, rgba(126,221,242,.10), transparent 30%),
+        radial-gradient(circle at 30% 82%, rgba(181,156,255,.09), transparent 29%),
+        linear-gradient(135deg, #050509 0%, #11101a 46%, #07070b 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .48;
+      background-image:
+        radial-gradient(circle at 17% 22%, rgba(255,255,255,.42) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,.28) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 90% 66%, rgba(255,255,255,.22) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 31% 80%, rgba(255,255,255,.22) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 54% 41%, rgba(255,255,255,.15) 0 1px, transparent 1.6px);
+      background-size: 360px 360px, 520px 520px, 460px 460px, 620px 620px, 420px 420px;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--moon-bright); outline-offset: 4px; border-radius: 8px; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .brand { display: inline-flex; align-items: center; gap: 13px; }
+    .mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(245,217,157,.36);
+      background: radial-gradient(circle at 35% 28%, rgba(255,240,190,.96), rgba(245,217,157,.60) 40%, rgba(245,217,157,.04) 71%), #15120d;
+      color: #2a1e0d;
+      box-shadow: 0 0 44px rgba(245,217,157,.14);
+      font-family: var(--serif);
+      font-weight: 800;
+    }
+    .brand-copy strong { display:block; font-size:.96rem; }
+    .brand-copy span { display:block; margin-top:2px; color:var(--muted); font-size:.75rem; }
+    .home-link {
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: .82rem;
+      transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .home-link:hover { transform: translateY(-2px); color: var(--text); border-color: rgba(245,217,157,.38); background: rgba(255,255,255,.07); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 20px;
+      padding: clamp(28px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+        radial-gradient(circle at 12% 18%, rgba(245,217,157,.11), transparent 42%),
+        rgba(9,8,14,.74);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      margin-bottom: 18px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -110px;
+      top: -105px;
+      border: 1px solid rgba(245,217,157,.17);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(245,217,157,.07) 23% 24%, transparent 25% 38%, rgba(245,217,157,.06) 39% 40%, transparent 41% 54%, rgba(245,217,157,.05) 55% 56%, transparent 57%),
+        radial-gradient(circle at 34% 28%, rgba(255,240,190,.28), rgba(245,217,157,.04) 48%, transparent 70%);
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--moon-bright);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .75rem;
+      margin-bottom: 22px;
+    }
+    .kicker::before { content:""; width:34px; height:1px; background:linear-gradient(90deg,transparent,var(--moon)); }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 18px;
+      max-width: 740px;
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      line-height: .87;
+      letter-spacing: -.065em;
+      font-weight: 500;
+    }
+    .hero-lead {
+      max-width: 690px;
+      color: rgba(251,244,235,.79);
+      font-size: clamp(1.03rem, 2vw, 1.25rem);
+      line-height: 1.58;
+      margin-bottom: 26px;
+    }
+    .hero-lead strong { color: var(--moon-bright); font-weight: 760; }
+
+    .badges { display:flex; flex-wrap:wrap; gap:8px; }
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.035);
+      color:var(--muted);
+      font-size:.76rem;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .badge.live::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 14px rgba(152,230,179,.62); }
+
+    .fingerprint {
+      align-self: stretch;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(4,4,8,.30);
+    }
+    .fingerprint h2 { font-family:var(--serif); font-size:1.38rem; font-weight:500; margin-bottom:2px; }
+    .axis { display:grid; grid-template-columns: 1fr auto; align-items:center; gap:12px; }
+    .axis span { font-size:.82rem; color:var(--muted); }
+    .axis b { font-size:.73rem; letter-spacing:.09em; text-transform:uppercase; color:var(--text); }
+    .axis-line { grid-column:1 / -1; height:5px; border-radius:999px; background:rgba(255,255,255,.07); overflow:hidden; margin-top:-6px; }
+    .axis-line i { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--violet),var(--rose),var(--moon)); box-shadow:0 0 22px rgba(255,136,183,.25); }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: clamp(24px, 4vw, 38px);
+      margin-bottom: 18px;
+    }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:24px; }
+    .eyebrow { color:var(--moon); text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:800; margin-bottom:8px; }
+    .section h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.3rem); line-height:.98; letter-spacing:-.04em; font-weight:500; margin-bottom:0; }
+    .section-note { max-width:430px; color:var(--muted); line-height:1.55; font-size:.9rem; margin:0; }
+
+    .constellations { display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); gap:14px; }
+    .constellation {
+      position:relative;
+      overflow:hidden;
+      min-height:230px;
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      transition: transform .24s ease, border-color .24s ease, background .24s ease;
+    }
+    .constellation:hover { transform:translateY(-4px); border-color:rgba(255,255,255,.22); background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); }
+    .constellation::before { content:""; position:absolute; width:150px; height:150px; right:-56px; top:-56px; border-radius:50%; background:radial-gradient(circle, var(--glow), transparent 67%); opacity:.22; }
+    .c1 { grid-column:span 7; --glow:var(--rose); }
+    .c2 { grid-column:span 5; --glow:var(--moon); }
+    .c3 { grid-column:span 4; --glow:var(--orange); }
+    .c4 { grid-column:span 4; --glow:var(--violet); }
+    .c5 { grid-column:span 4; --glow:var(--cyan); }
+    .constellation .num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; border:1px solid color-mix(in srgb,var(--glow) 42%,transparent); color:color-mix(in srgb,var(--glow) 86%,white); font-size:.72rem; font-weight:900; margin-bottom:36px; }
+    .constellation h3 { font-family:var(--serif); font-size:clamp(1.55rem,2.7vw,2.35rem); letter-spacing:-.035em; font-weight:500; margin-bottom:10px; }
+    .constellation p { color:var(--muted); line-height:1.58; margin-bottom:14px; }
+    .evidence { display:flex; flex-wrap:wrap; gap:7px; }
+    .chip { display:inline-flex; align-items:center; padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.035); color:rgba(251,244,235,.72); font-size:.72rem; }
+    .chip.link:hover { color:var(--text); border-color:rgba(245,217,157,.35); }
+
+    .timeline { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .phase { padding:20px; border-radius:20px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.026); }
+    .phase small { display:block; margin-bottom:11px; color:var(--faint); text-transform:uppercase; letter-spacing:.12em; font-size:.68rem; font-weight:900; }
+    .phase h3 { font-family:var(--serif); font-size:1.45rem; font-weight:500; margin-bottom:9px; }
+    .phase p { margin:0; color:var(--muted); line-height:1.55; font-size:.9rem; }
+    .phase.current { border-color:rgba(126,221,242,.30); background:linear-gradient(145deg,rgba(126,221,242,.07),rgba(255,255,255,.02)); }
+    .phase.deep { border-color:rgba(245,217,157,.28); }
+    .phase.dormant { border-color:rgba(181,156,255,.25); }
+    .phase.emerging { border-color:rgba(152,230,179,.25); }
+
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .panel { padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); }
+    .panel h3 { font-family:var(--serif); font-size:1.65rem; font-weight:500; margin-bottom:14px; }
+    .panel p { color:var(--muted); line-height:1.6; }
+    .track-list, .method-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+    .track-list a, .method-list li { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 11px; border-radius:13px; border:1px solid rgba(255,255,255,.075); background:rgba(255,255,255,.025); color:rgba(251,244,235,.80); font-size:.84rem; }
+    .track-list a:hover { border-color:rgba(245,217,157,.30); background:rgba(255,255,255,.05); }
+    .track-list em { color:var(--faint); font-style:normal; font-size:.72rem; }
+
+    .bridge-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .bridge { padding:20px; border-radius:20px; border:1px solid rgba(255,255,255,.09); background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)); }
+    .bridge .route { color:var(--moon); font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; font-weight:900; margin-bottom:13px; }
+    .bridge h3 { font-family:var(--serif); font-weight:500; font-size:1.45rem; margin-bottom:8px; }
+    .bridge p { color:var(--muted); font-size:.88rem; line-height:1.55; margin:0; }
+
+    .verdict {
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);
+      gap:20px;
+      align-items:center;
+      border-color:rgba(245,217,157,.22);
+      background:
+        radial-gradient(circle at 12% 22%, rgba(245,217,157,.08), transparent 40%),
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+        var(--panel-strong);
+    }
+    .verdict blockquote { margin:0; font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.8rem); line-height:1.02; letter-spacing:-.045em; color:var(--moon-bright); }
+    .verdict aside { color:var(--muted); line-height:1.58; }
+
+    .limits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .limit { padding:16px 17px; border-radius:16px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.022); }
+    .limit strong { display:block; margin-bottom:6px; font-size:.86rem; }
+    .limit span { color:var(--muted); line-height:1.5; font-size:.82rem; }
+
+    footer { display:flex; align-items:center; justify-content:space-between; gap:18px; color:var(--faint); font-size:.76rem; padding:16px 4px 0; }
+    footer a:hover { color:var(--text); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns:1fr; }
+      .fingerprint { max-width:none; }
+      .c1,.c2,.c3,.c4,.c5 { grid-column:span 12; min-height:0; }
+      .constellation .num { margin-bottom:24px; }
+      .timeline { grid-template-columns:1fr 1fr; }
+      .bridge-grid { grid-template-columns:1fr; }
+      .verdict { grid-template-columns:1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page { width:min(100% - 20px,var(--max)); padding-top:18px; }
+      .topbar { align-items:flex-start; }
+      .brand-copy span { max-width:180px; }
+      .hero, .section { border-radius:24px; }
+      .section-head { display:block; }
+      .section-note { margin-top:12px; }
+      .timeline, .split, .limits { grid-template-columns:1fr; }
+      h1 { font-size:clamp(3rem,18vw,5.2rem); }
+      footer { display:block; line-height:1.7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { transition:none !important; animation:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Voltar ao portal Lua Helena">
+        <span class="mark" aria-hidden="true">☾</span>
+        <span class="brand-copy"><strong>Lua Helena Moon</strong><span>cartografia pessoal · música</span></span>
+      </a>
+      <a class="home-link" href="/">← portal</a>
+    </header>
+
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <div class="kicker">Music Discovery Engine · Taste State V0</div>
+        <h1 id="title">Perfil<br>Musical.</h1>
+        <p class="hero-lead">Meu gosto não forma uma linha de gêneros. Ele forma <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes que compartilham uma gravidade emocional comum.</p>
+        <div class="badges">
+          <span class="badge live">Spotify conectado</span>
+          <span class="badge">âncora: últimos 6 meses</span>
+          <span class="badge">V0 · 09 ago 2026</span>
+          <span class="badge">histórico estendido pendente</span>
+        </div>
+      </div>
+
+      <aside class="fingerprint" aria-label="Impressão digital musical inferida">
+        <h2>Impressão digital</h2>
+        <div class="axis"><span>gravidade nostálgica</span><b>muito forte</b><div class="axis-line"><i style="width:94%"></i></div></div>
+        <div class="axis"><span>melancolia / ternura</span><b>forte</b><div class="axis-line"><i style="width:88%"></i></div></div>
+        <div class="axis"><span>voz expressiva</span><b>forte</b><div class="axis-line"><i style="width:86%"></i></div></div>
+        <div class="axis"><span>teatralidade</span><b>forte</b><div class="axis-line"><i style="width:82%"></i></div></div>
+        <div class="axis"><span>atmosfera / som-lugar</span><b>forte agora</b><div class="axis-line"><i style="width:80%"></i></div></div>
+        <div class="axis"><span>fidelidade a um gênero só</span><b>baixa</b><div class="axis-line"><i style="width:27%"></i></div></div>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="constellations-title">
+      <div class="section-head">
+        <div><div class="eyebrow">01 · Taste constellations</div><h2 id="constellations-title">Cinco núcleos, sem achatamento.</h2></div>
+        <p class="section-note">A regra aqui é simples: diversidade não vira média. Ópera, balada setentista, rock brasileiro, memória 2000s e trilha de jogo podem coexistir sem serem forçados a um gênero central fictício.</p>
+      </div>
+
+      <div class="constellations">
+        <article class="constellation c1">
+          <span class="num">01</span>
+          <h3>Melancolia de veludo</h3>
+          <p>Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais evidente no recorte de seis meses.</p>
+          <div class="evidence">
+            <a class="chip link" href="https://open.spotify.com/artist/1LZEQNv7sE11VDY3SdxQeN" target="_blank" rel="noopener">Bee Gees ↗</a>
+            <a class="chip link" href="https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH" target="_blank" rel="noopener">Billie Eilish ↗</a>
+            <a class="chip link" href="https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa" target="_blank" rel="noopener">Lana Del Rey ↗</a>
+            <span class="chip">confiança alta</span>
+          </div>
+        </article>
+
+        <article class="constellation c2">
+          <span class="num">02</span>
+          <h3>Voz como drama</h3>
+          <p>O canto precisa carregar personagem, tensão ou grandeza. A presença de ópera e playlists explicitamente líricas mostra que “voz bonita” é pouco: interessa voz com cena.</p>
+          <div class="evidence">
+            <a class="chip link" href="https://open.spotify.com/artist/0bjdfjE8XbLa2Odstu6E1E" target="_blank" rel="noopener">Maria Callas ↗</a>
+            <a class="chip link" href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener">Óperas Líricas. ↗</a>
+            <span class="chip">confiança alta</span>
+          </div>
+        </article>
+
+        <article class="constellation c3">
+          <span class="num">03</span>
+          <h3>Memória brasileira</h3>
+          <p>Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro não aparece como “MPB” genérica, mas como memória emocional atravessada por rock, canção e televisão.</p>
+          <div class="evidence">
+            <a class="chip link" href="https://open.spotify.com/artist/10naVTwNjE50daQVrN0bXh" target="_blank" rel="noopener">Cássia Eller ↗</a>
+            <a class="chip link" href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener">Novelas. ↗</a>
+            <a class="chip link" href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener">Memórias. ↗</a>
+          </div>
+        </article>
+
+        <article class="constellation c4">
+          <span class="num">04</span>
+          <h3>Arquivo 2000s</h3>
+          <p>O corpus musical anterior preserva um núcleo de infância/adolescência com alt-rock, emo, pop-rock, reggae-pop e pop dançante. Ele funciona melhor como <em>dormant love</em> do que como retrato do mês atual.</p>
+          <div class="evidence"><span class="chip">arquivo pessoal</span><span class="chip">memória durável</span><span class="chip">não é ranking atual</span></div>
+        </article>
+
+        <article class="constellation c5">
+          <span class="num">05</span>
+          <h3>Som como lugar</h3>
+          <p>Na órbita atual, música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma noite eletrônica discreta. Isso é contexto forte, mas não deve apagar os outros quatro núcleos.</p>
+          <div class="evidence">
+            <a class="chip link" href="https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX" target="_blank" rel="noopener">Metronomy ↗</a>
+            <a class="chip link" href="https://open.spotify.com/track/6qOBFuoFiay0tRAs5en6nB" target="_blank" rel="noopener">Night Owl ↗</a>
+            <span class="chip">current orbit</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="time-title">
+      <div class="section-head">
+        <div><div class="eyebrow">02 · Temporal state</div><h2 id="time-title">O gosto muda sem se apagar.</h2></div>
+        <p class="section-note">O maior erro seria transformar o que tocou muito nesta semana em definição permanente. O engine separa camadas temporais.</p>
+      </div>
+      <div class="timeline">
+        <article class="phase deep"><small>deep core</small><h3>Gravidade</h3><p>memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera.</p></article>
+        <article class="phase current"><small>current orbit</small><h3>Agora</h3><p>trilhas de Sims/jogos, ambient e escuta instrumental; <a href="https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX" target="_blank" rel="noopener">Metronomy ↗</a> aparece como ponte pop-eletrônica.</p></article>
+        <article class="phase dormant"><small>dormant loves</small><h3>Arquivo vivo</h3><p>rock alternativo/emo, pop-rock e pop dançante dos anos 2000 continuam com peso afetivo mesmo sem dominar o ranking recente.</p></article>
+        <article class="phase emerging"><small>emerging signal</small><h3>Som-lugar</h3><p>há um sinal crescente de usar música menos como “faixa” e mais como espaço habitável. Confiança média.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="evidence-title">
+      <div class="section-head">
+        <div><div class="eyebrow">03 · Evidence</div><h2 id="evidence-title">O que sustenta o mapa.</h2></div>
+        <p class="section-note">Peso maior para recorrência de seis meses e curadoria explícita; peso menor para escuta recente potencialmente funcional.</p>
+      </div>
+      <div class="split">
+        <article class="panel">
+          <h3>Âncoras dos últimos 6 meses</h3>
+          <ul class="track-list">
+            <li><a href="https://open.spotify.com/track/1jy0RbDHyBMTupSdc98XbG" target="_blank" rel="noopener"><span>How Can You Mend A Broken Heart · Bee Gees</span><em>saved</em></a></li>
+            <li><a href="https://open.spotify.com/track/2JoZzpdeP2G6Csfdq5aLXP" target="_blank" rel="noopener"><span>How Deep Is Your Love · Bee Gees</span><em>top</em></a></li>
+            <li><a href="https://open.spotify.com/track/3SKHO4ccbKbO3gGapfKWDu" target="_blank" rel="noopener"><span>Words · Bee Gees</span><em>top</em></a></li>
+            <li><a href="https://open.spotify.com/track/0mbS3VwRbO6HVBMPXnzOGA" target="_blank" rel="noopener"><span>To Love Somebody · Bee Gees</span><em>saved</em></a></li>
+            <li><a href="https://open.spotify.com/track/6CcJMwBtXByIz4zQLzFkKc" target="_blank" rel="noopener"><span>i love you · Billie Eilish</span><em>saved</em></a></li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>Curadoria explícita</h3>
+          <ul class="track-list">
+            <li><a href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener"><span>Óperas Líricas.</span><em>playlist</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener"><span>Novelas.</span><em>playlist</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener"><span>Memórias.</span><em>playlist</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/5cw9VjaYCRhDBA027WLOBT" target="_blank" rel="noopener"><span>Bee Gees.</span><em>playlist</em></a></li>
+            <li><a href="https://open.spotify.com/playlist/33dmhuik2kaF9tH8WQiANc" target="_blank" rel="noopener"><span>Billie &amp; Lana</span><em>playlist</em></a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="bridges-title">
+      <div class="section-head">
+        <div><div class="eyebrow">04 · Bridges</div><h2 id="bridges-title">Onde a descoberta deve procurar.</h2></div>
+        <p class="section-note">Em vez de sugerir “mais do mesmo”, o engine procura compatibilidade entre constelações que normalmente ficam separadas.</p>
+      </div>
+      <div class="bridge-grid">
+        <article class="bridge"><div class="route">bridge A</div><h3>Callas ↔ Lana</h3><p>Teatralidade, personagem, tragédia e atmosfera cinematográfica. A ponte não é gênero: é encenação emocional.</p></article>
+        <article class="bridge"><div class="route">bridge B</div><h3>Bee Gees ↔ Billie</h3><p>Fragilidade vocal, intimidade e heartbreak com produção de eras opostas. Excelente rota para novidade sem perder o centro afetivo.</p></article>
+        <article class="bridge"><div class="route">bridge C</div><h3>Memória ↔ Liminal</h3><p>Nostalgia 2000s e trilha de jogo podem se encontrar em música que soa como lugar lembrado: familiar, estranha e habitável.</p></article>
+      </div>
+    </section>
+
+    <section class="section verdict" aria-labelledby="verdict-title">
+      <blockquote id="verdict-title">“Eu não escuto por gênero. Eu reconheço atmosferas emocionais em corpos musicais diferentes.”</blockquote>
+      <aside>Esse é o melhor resumo provisório do Taste State V0. O núcleo parece menos preocupado com pedigree musical e mais com uma combinação recorrente de <strong>memória + emoção legível + voz + atmosfera</strong>.</aside>
+    </section>
+
+    <section class="section" aria-labelledby="limits-title">
+      <div class="section-head">
+        <div><div class="eyebrow">05 · Unknowns</div><h2 id="limits-title">O que eu ainda não finjo saber.</h2></div>
+        <p class="section-note">Perfil bom também precisa de fronteiras. Esses pontos ficam explicitamente abertos até o histórico estendido chegar.</p>
+      </div>
+      <div class="limits">
+        <div class="limit"><strong>Anti-taste</strong><span>O conector não revelou rejeições suficientes. Nenhum “não gosto” foi inventado.</span></div>
+        <div class="limit"><strong>Saturação</strong><span>Sem contagens e skips brutos, não dá para separar amor recorrente de faixa já cansada.</span></div>
+        <div class="limit"><strong>Longo prazo quantitativo</strong><span>A consulta de longo prazo do conector se mostrou inconsistente; por isso não foi tratada como evidência forte.</span></div>
+        <div class="limit"><strong>Liked Songs em massa</strong><span>O conector identifica a coleção, mas não expôs seu conteúdo integral nesta interface.</span></div>
+        <div class="limit"><strong>Histórico bruto</strong><span>Timestamps, duração ouvida, skips e contexto de reprodução dependem do Extended Streaming History.</span></div>
+        <div class="limit"><strong>Próxima versão</strong><span>Quando a exportação chegar, este mapa vira V1 por delta: preserva o que se sustentar e corrige o que era ruído.</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Music Discovery Engine · Dynamic Taste Cartography · V0</span>
+      <span>Spotify como sensor; Taste State como memória própria.</span>
+    </footer>
+  </main>
+</body>
+</html>
