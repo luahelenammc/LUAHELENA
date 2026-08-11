@@ -55,6 +55,22 @@ layout: null
 <script src="/ia/circuit-line-semantics.js?v=2"></script>
 <script src="/ia/beta-sector-fields.js?v=3"></script>
 <script src="/ia/beta-audience-cards.js?v=1"></script>
+<script>
+  (() => {
+    const applyMarketPositioning = () => {
+      const eyebrow = document.querySelector('[data-i="hero.eyebrow"]');
+      if (!eyebrow) return;
+      const english = document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
+      eyebrow.textContent = english
+        ? 'Context Architecture, AI Adoption and Auditing'
+        : 'Arquitetura Contextual, Adoção e Auditoria de IA';
+    };
+    applyMarketPositioning();
+    document.querySelectorAll('.lang-toggle button').forEach((button) => {
+      button.addEventListener('click', () => requestAnimationFrame(applyMarketPositioning));
+    });
+  })();
+</script>
 {%- endcapture -%}
 
 {%- assign head_injection = language_bootstrap | append: head_assets | append: '</head>' -%}
