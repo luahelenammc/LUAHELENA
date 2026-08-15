@@ -1,0 +1,11 @@
+{
+  "version": "4.0.0",
+  "policy": "notion_first_github_rendered",
+  "raw_private_bodies_committed": 0,
+  "sources": [
+    {"id":"moonwiki","kind":"notion_wiki","notion_id":"2f5330bf734080628c29e073eb6cbdbd","data_source":"collection://2f5330bf-7340-804f-b5d1-000bf078c17d","role":"mother_source","safe_schema":["Página","Última edição"]},
+    {"id":"timeline","kind":"notion_database","notion_id":"2f5330bf734080628402fc3867374357","data_source":"collection://2f5330bf-7340-8092-b02a-000be6296c6e","role":"dated_biographical_events","safe_schema":["Nome","Data","Fase da vida","Tipo de evento"]},
+    {"id":"verbetes","kind":"notion_database","notion_id":"2f5330bf734080709e00fc1343775b86","data_source":"collection://2f5330bf-7340-8045-b475-000b35b20ddd","role":"entity_and_symbol_registry","safe_schema":["Nome","Tipo","Tags","Fase da vida"]},
+    {"id":"textos-base","kind":"notion_database","notion_id":"2f5330bf734080f1a485e2c4a498aa39","data_source":"collection://2f5330bf-7340-8045-8b79-000b8997578c","role":"draft_text_seeds","safe_schema":["Nome","Categoria","Status"]}
+  ]
+}

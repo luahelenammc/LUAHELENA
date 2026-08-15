@@ -1,0 +1,15 @@
+{
+  "exported_at":"2026-08-14",
+  "root":"PASS",
+  "timeline":"16/16",
+  "verbetes":"8/8",
+  "textos_base":"4/4",
+  "full_bodies_read_in_session":{"timeline":16,"verbetes":8,"textos_base":4},
+  "blank_bodies":{"verbetes":8,"textos_base":4},
+  "source_inconsistencies_flagged":[
+    {"source_id":"302330bf73408085af72c1fdf160fa17","issue":"database_date_conflicts_with_body_heading"},
+    {"source_id":"302330bf73408080af8fd03c5fe5de34","issue":"database_date_conflicts_with_body_heading"}
+  ],
+  "raw_private_bodies_committed":0,
+  "rule":"export_does_not_imply_publication"
+}

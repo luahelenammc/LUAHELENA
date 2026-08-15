@@ -1,0 +1,11 @@
+{
+  "version":"4.0.0",
+  "source_of_truth":"Moonwiki / Notion",
+  "publication_layer":"GitHub Pages / moonverse/",
+  "record_count":28,
+  "timeline_count":16,
+  "verbete_count":8,
+  "text_base_count":4,
+  "mapping_rule":"source_record != room != article != memory_item",
+  "private_titles_redacted_in_public_repository":true
+}
