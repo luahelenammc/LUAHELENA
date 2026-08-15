@@ -14,7 +14,14 @@
 .timeline-list span{color:#66556b}.privacy-line{color:#655a68}
 .atlas-node small{color:#655a68}.room-node small{color:#c3b2c4}
 .search-v4 label{color:#655a68}.search-result p{color:#625765}.search-result span{color:#65566a}
+:root[data-theme="light"] .paper-body .v4-header,:root[data-theme="light"] .orientation-body .v4-header{--muted:#655a68}
 :root[data-theme="light"] .document-strips span{color:#5f5361}
 :root[data-theme="light"] .document-strips b{color:#694d70}
 :root[data-theme="light"] .room-object em{color:#6f5156}
 :root[data-theme="light"] .mobile-memory a{color:#f7e9cf}
+:root[data-theme="light"] .memory-body .kicker{color:#714d79}
+:root[data-theme="light"] .albums-v4 header>p:last-child,:root[data-theme="light"] .memory-v4 header>p:last-child{color:#5f5361}
+:root[data-theme="light"] .factuality{color:#5f5361}
+.album-cover small{color:#ead8e9}
+.memory-console label,.memory-result p{color:#f0deef}
+@media (max-width:1120px){:root[data-theme="light"] .hall-hint{color:#4f4054}}
