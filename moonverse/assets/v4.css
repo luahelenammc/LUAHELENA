@@ -5,3 +5,16 @@
 @import url("/moonverse/assets/v4-memory.css");
 @import url("/moonverse/assets/v4-responsive.css");
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* V4 AA contrast hardening */
+.paper-body .v4-footer,.orientation-body .v4-footer{color:#5f5361}
+.paper-body .kicker,.orientation-body .kicker{color:#714d79}
+.wiki-row small{color:#655a68}.wiki-row b{color:#694d70}
+.source-note dt{color:#625765}
+.timeline-list span{color:#66556b}.privacy-line{color:#655a68}
+.atlas-node small{color:#655a68}.room-node small{color:#c3b2c4}
+.search-v4 label{color:#655a68}.search-result p{color:#625765}.search-result span{color:#65566a}
+:root[data-theme="light"] .document-strips span{color:#5f5361}
+:root[data-theme="light"] .document-strips b{color:#694d70}
+:root[data-theme="light"] .room-object em{color:#6f5156}
+:root[data-theme="light"] .mobile-memory a{color:#f7e9cf}

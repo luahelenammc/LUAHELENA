@@ -105,6 +105,9 @@
     if (input.value) renderSearch(input.value);
   }
 
+  // Visible room titles/descriptions are the accessible names; fixed aria-labels hid that visible text from Lighthouse's name/label check.
+  document.querySelectorAll('.hall-door[aria-label]').forEach((door) => door.removeAttribute('aria-label'));
+
   function escapeText(value = '') {
     const div = document.createElement('div');
     div.textContent = String(value);
