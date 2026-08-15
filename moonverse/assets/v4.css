@@ -14,6 +14,7 @@
 .timeline-list span{color:#66556b}.privacy-line{color:#655a68}
 .atlas-node small{color:#655a68}.room-node small{color:#c3b2c4}
 .search-v4 label{color:#655a68}.search-result p{color:#625765}.search-result span{color:#65566a}
+.about-grid span{color:#6f5576}
 :root[data-theme="light"] .paper-body .v4-header,:root[data-theme="light"] .orientation-body .v4-header{--muted:#655a68}
 :root[data-theme="light"] .document-strips span{color:#5f5361}
 :root[data-theme="light"] .document-strips b{color:#694d70}
