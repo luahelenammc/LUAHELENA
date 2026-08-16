@@ -1,0 +1,48 @@
+name: Moonverse V5 Editorial Apply
+
+on:
+  push:
+    branches:
+      - feat/moonverse-v5-encyclopedic-corpus
+    paths:
+      - .github/workflows/moonverse-v5-editorial-apply.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/moonverse-v5-encyclopedic-corpus
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Apply encyclopedic corpus migration
+        run: node moonverse-src/scripts/_apply-v5-encyclopedic-reform.mjs
+
+      - name: Build and validate corpus
+        run: |
+          npm --prefix moonverse-src run build
+          npm --prefix moonverse-src run validate
+          npm --prefix moonverse-src run test
+
+      - name: Remove one-time applicator
+        run: |
+          rm -f moonverse-src/scripts/_apply-v5-encyclopedic-reform.mjs
+          rm -f .github/workflows/moonverse-v5-editorial-apply.yml
+
+      - name: Commit generated reform
+        run: |
+          git config user.name "Moonverse Editorial Applicator"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A moonverse-src moonverse .github/workflows/moonverse-v5-editorial-apply.yml
+          git commit -m "Reform Moonpedia into an encyclopedic corpus"
+          git push origin HEAD:feat/moonverse-v5-encyclopedic-corpus
