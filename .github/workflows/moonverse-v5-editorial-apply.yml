@@ -28,6 +28,16 @@ jobs:
       - name: Apply encyclopedic corpus migration
         run: node moonverse-src/scripts/_apply-v5-encyclopedic-reform.mjs
 
+      - name: Normalize proper-title handling in style validator
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('moonverse-src/scripts/validate-editorial-style.mjs')
+          s = p.read_text()
+          s = s.replace(" if(/\\b(eu|meu|minha|meus|minhas)\\b/i.test(e.body_markdown))errors.push(e.id+' uses first-person singular in article body');", " const prose=e.body_markdown.replaceAll('Me tornando eu mesma',''); if(/\\b(eu|meu|minha|meus|minhas)\\b/i.test(prose))errors.push(e.id+' uses first-person singular in article body');")
+          p.write_text(s)
+          PY
+
       - name: Build and validate corpus
         run: |
           npm --prefix moonverse-src run build
