@@ -1,10 +1,10 @@
 [
   {
     "id": "maresia",
-    "title": "O cheiro de maresia",
+    "title": "Memórias de praia na infância de Moon",
     "url": "/moonverse/entry/o-cheiro-de-maresia/",
-    "summary": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
-    "body": "A cena A memória não começa exatamente no mar. Começa antes, na estrada, no corpo pequeno cansado de perguntar se já chegou. O litoral era um acontecimento: uma promessa que demorava horas para se cumprir. O sinal Em algum ponto, antes mesmo da visão plena da praia, vinha o cheiro. A maresia funcionava como aviso de portal aberto. Não era só geografia; era mudança de estado. Por que fica Esse tipo de memória merece página porque não é apenas lembrança turística. É uma matriz estética: água, espera, infância, paraíso possível e o corpo entendendo o mundo antes da teoria. Nem toda memória foi fotografada, mas muita memória merece imagem.",
+    "summary": "Registro autobiográfico sobre viagens ao litoral durante a infância e sobre a associação da maresia com a chegada à praia.",
+    "body": "Visão geral As viagens à praia aparecem no arquivo autobiográfico de Moon como experiências recorrentes da infância. A documentação disponível não constitui uma cronologia completa das viagens, mas registra elementos que se repetem na memória: deslocamentos de carro, expectativa de chegada, contato com o mar e associação entre o litoral, lazer e períodos considerados positivos da infância. O cheiro de maresia Um dos marcadores mais estáveis dessas lembranças é o cheiro de maresia percebido antes da chegada à praia. No relato autobiográfico, esse sinal sensorial funciona como referência espacial: indicava que o litoral estava próximo antes de a praia ser plenamente visível. Contexto autobiográfico As memórias de praia se relacionam a outros registros sobre infância, tecnologia e cultura doméstica dos anos 2000. O corpus associa essas viagens a câmeras digitais, jogos, CDs e outras tecnologias que faziam parte do cotidiano familiar naquele período. Esses elementos são tratados em verbetes próprios para evitar que uma única memória seja usada como explicação totalizante da infância. Uso no Moonverse No Moonverse, a memória de praia é classificada como material autobiográfico de baixa sensibilidade. Sua função é documentar um conjunto de experiências sensoriais e culturais preservadas no arquivo, sem reconstruir pessoas, endereços, conflitos familiares ou outras informações privadas relacionadas às viagens. Limites documentais A página descreve lembranças registradas posteriormente e não pretende estabelecer uma sequência exata de todas as viagens realizadas. Interpretações simbólicas sobre água, paraíso ou identidade podem existir em outros arquivos, mas não são apresentadas aqui como fatos históricos.",
     "tags": [
       "infância",
       "praia",
@@ -12,7 +12,7 @@
       "memória",
       "água"
     ],
-    "type": "Memória evocativa",
+    "type": "Memória autobiográfica",
     "wing": "Biblioteca Lunar",
     "wing_id": "biblioteca-lunar"
   },
@@ -20,8 +20,8 @@
     "id": "moon-source",
     "title": "Moon Source",
     "url": "/moonverse/entry/moon-source/",
-    "summary": "Um método para tornar pessoas, projetos e instituições legíveis para IA sem reduzir sua complexidade a um prompt solto.",
-    "body": "O que é Moon Source é uma arquitetura de contexto: uma maneira de transformar pessoas, projetos, equipes e instituições em fontes vivas, atualizáveis e governáveis para colaboração com IA. A ideia não é empacotar uma pessoa inteira, mas decidir o que precisa permanecer legível, em que jurisdição e com quais limites. Ele não é um prompt pack, um despejo universal de dados nem software pronto vendido como método. Sua forma pode incluir arquivos-fonte, perfis, ledgers, handoffs e superfícies públicas, mas o centro é a governança do contexto. O problema que responde Conversas com IA costumam perder continuidade por dois motivos opostos: há pouco contexto, e o sistema inventa a partir de lacunas; ou há contexto demais, e nada consegue distinguir o que é fato, hipótese, decisão, memória, limite ou arquivo morto. Moon Source trata essa diferença como problema editorial e arquitetural. Uma fonte útil não é simplesmente longa. Ela tem autoridade, função, atualização, fronteira e um caminho de uso. Constituir e metabolizar O método se move em duas direções. Constituir é dar forma: nomear entidades, relações, critérios, voz e jurisdição. Metabolizar é manter o sistema vivo: separar fato de interpretação, absorver material novo, retirar redundâncias, registrar mudanças e impedir que uma hipótese antiga continue governando por inércia. As duas operações se corrigem. Constituir sem metabolizar cria um monumento pesado; metabolizar sem uma forma reconhecível dissolve tudo em fluxo. Público portátil e fontes vivas O Public Portable é uma implementação pública e limitada. Ele traduz a lógica do método para uma superfície que outras pessoas podem ler e reutilizar, mas não contém o corpus privado nem autoriza inferências sobre tudo o que existe fora dela. Essa distinção é parte do método, não um rodapé de segurança. Uma boa arquitetura sabe dizer não apenas o que conhece, mas também o que não deve exportar. Por que está no Moonverse O Moonverse é uma superfície pública de arquivo. Moon Source é uma das arquiteturas que tornam esse arquivo navegável: ajuda a transformar experiências, projetos e conceitos em páginas com fonte, forma e fronteira. O Observatório não exibe o laboratório inteiro; mostra algumas estruturas que podem ser vistas de fora dele. Autoria, privacidade e limites Moon é a autora e autoridade editorial do método. A IA pode ajudar a desenvolver, testar e organizar artefatos, mas não substitui autoria nem consentimento. Por isso, falar de Moon Source publicamente exige precisão: há prática aplicada, arquitetura de contexto, governança de conhecimento e prova construída. Não há, nesta página, uma alegação de engenharia de modelos, infraestrutura de produção ou implantação empresarial que não tenha sido demonstrada. Contexto bom não é o que carrega tudo. É o que permite que a coisa certa chegue à pessoa certa, no momento certo, sem perder a fronteira.",
+    "summary": "Método desenvolvido por Moon para organizar contexto, memória, autoridade e continuidade em sistemas de colaboração com inteligência artificial.",
+    "body": "Definição Moon Source é um método de arquitetura de contexto voltado à organização de informações que precisam permanecer legíveis e atualizáveis ao longo de interações com sistemas de inteligência artificial. O método utiliza arquivos-fonte, índices, registros de atualização, handoffs e superfícies de publicação para diferenciar fatos, interpretações, decisões, limites e material histórico. Origem e problema abordado O método foi desenvolvido a partir do uso intensivo de modelos de linguagem em projetos de longa duração. Seu problema de partida é a perda de continuidade entre sessões e ferramentas, combinada ao risco oposto de acumular grande quantidade de contexto sem hierarquia de autoridade. Componentes Entre os componentes recorrentes estão fontes vivas, ledgers de mudanças, roteamento entre arquivos, distinção entre material ativo e legado, camadas públicas e privadas e handoffs destinados a transferir estado entre ambientes de trabalho. A implementação varia conforme o projeto; o método não pressupõe um único formato técnico. Constituição e metabolização Moon Source distingue duas operações principais. A constituição define entidades, relações, funções e fronteiras. A metabolização incorpora informações novas, atualiza conclusões, registra conflitos de versão e remove ou rebaixa material que deixou de ser autoritativo. Publicação e privacidade O método separa acesso de autorização para publicação. Um arquivo privado pode funcionar como fonte de evidência para uma síntese pública sem que seu conteúdo bruto seja exportado. Essa regra é aplicada no próprio Moonverse, cuja camada pública é mais restrita que o arquivo de origem. Escopo Moon Source é apresentado como método autoral de organização de contexto e conhecimento. A documentação pública não o descreve como treinamento de modelos, infraestrutura proprietária de LLMs ou sistema empresarial de produção quando essas capacidades não foram demonstradas.",
     "tags": [
       "Moon Source",
       "contexto",
@@ -30,16 +30,16 @@
       "governança",
       "método"
     ],
-    "type": "Projeto / método",
+    "type": "Método de arquitetura de contexto",
     "wing": "Observatório Nexus",
     "wing_id": "observatorio-nexus"
   },
   {
     "id": "sims",
-    "title": "The Sims 1 como casa mental",
+    "title": "The Sims na infância de Moon",
     "url": "/moonverse/entry/the-sims-1-como-casa-mental/",
-    "summary": "Antes da internet regular, uma casa virtual ensinou que objetos, rotinas e possibilidades também podiam ser organizados como linguagem.",
-    "body": "Antes da internet The Sims 1 chegou quando a internet ainda não era uma presença regular. O jogo não apareceu como parte de uma grande cultura gamer já explicada; apareceu como uma casa que precisava ser descoberta por tentativa, observação e repetição. Uma pessoa próxima da família instalou o jogo e ensinou o começo. O resto foi exploração. Essa ordem importa. Antes de existir uma rede permanente de tutoriais, comunidades e respostas prontas, o próprio programa funcionava como território de aprendizagem. A primeira casa e a primeira mobília A lembrança guarda uma primeira mobília simples: um sofá de lã. Guarda também a descoberta de que era possível jogar sem recorrer a códigos de dinheiro. Não é uma cronologia completa do jogo; é a textura de uma primeira relação com ele — comprar, escolher, testar, errar e voltar. A casa virtual era feita de objetos concretos. Cada objeto mudava o que podia acontecer ali. Casa como interface The Sims transformava uma ideia abstrata de vida em uma gramática manipulável. A casa tinha cômodos, portas, necessidades, horários e consequências. O jogador aprendia não apenas a decorar, mas a compor condições de existência. Isso faz da casa uma interface: um lugar em que pensamento vira disposição espacial e em que disposição espacial devolve possibilidades ao pensamento. Por que o espaço simulado ficava A força não estava em substituir a vida real por uma fantasia perfeita. Estava em oferecer uma escala de ação. Dentro daquela caixa de areia, era possível experimentar relações entre rotina, objeto, cuidado, dinheiro, desejo e mudança sem precisar explicar tudo antes. A memória não precisa transformar isso em diagnóstico. Basta reconhecer que uma forma de espaço se tornou íntima porque permitia mexer no mundo e observar o que mudava. The Sims dentro do Moonverse O Moonverse herda uma lógica parecida, mas a desloca para o arquivo: alas, páginas, caminhos e relações fazem da navegação uma forma de habitar conhecimento. Não é uma cópia do jogo, nem uma promessa de simulação total. É uma linhagem de imaginação espacial. A casa deixou de ser apenas cenário. Tornou-se uma pergunta: que organização torna possível continuar vivendo, criando e encontrando uma coisa depois da outra? O que a memória mantém vivo O jogo permanece menos como produto fechado do que como primeira demonstração de que um ambiente pode ensinar sem dar aula. Uma sala, um móvel e uma rotina podem carregar uma teoria inteira de possibilidades. Algumas casas são lembradas porque foram habitadas. Outras, porque ensinaram o que significa construir um lugar.",
+    "summary": "Registro sobre o contato de Moon com The Sims e sobre a importância posterior atribuída ao jogo em sua relação com ambientes simulados.",
+    "body": "Contexto Moon teve contato com The Sims durante a infância, em um período anterior à presença constante de internet doméstica em sua rotina. O jogo foi apresentado por uma pessoa próxima da família, cuja identidade não é necessária para o registro público. Experiência de jogo As lembranças preservadas incluem a construção e mobília de casas, administração de recursos e exploração do jogo por tentativa e repetição. Um detalhe recorrente no arquivo é a lembrança de móveis simples das primeiras partidas e da descoberta de que era possível avançar sem depender de códigos de dinheiro. Relevância posterior Em leituras autobiográficas posteriores, Moon passou a relacionar The Sims a seu interesse por ambientes organizáveis e por sistemas em que espaço, objetos e regras alteram possibilidades de ação. Essa associação é retrospectiva e deve ser distinguida do fato histórico de ter jogado e apreciado o título durante a infância. Relação com o Moonverse A arquitetura do Moonverse utiliza salas e objetos como elementos de navegação. A documentação do projeto reconhece The Sims como uma das referências culturais que ajudaram a tornar intuitiva a ideia de organizar informação espacialmente. Isso não significa que o Moonverse seja uma adaptação ou reprodução do jogo. Limites O verbete registra a relação pessoal de Moon com The Sims e não pretende descrever a história geral da franquia, sua recepção crítica ou suas mecânicas de forma exaustiva.",
     "tags": [
       "The Sims",
       "jogos",
@@ -48,16 +48,16 @@
       "interface",
       "memória"
     ],
-    "type": "Memória cultural / ensaio autobiográfico",
+    "type": "Memória cultural",
     "wing": "Quarto Nostálgico",
     "wing_id": "quarto-nostalgico"
   },
   {
     "id": "orkut-msn",
-    "title": "Orkut, MSN e o quarto paralelo",
+    "title": "Orkut e MSN na adolescência de Moon",
     "url": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
-    "summary": "Orkut e MSN fizeram da internet um espaço pessoal, colorido e habitável para escrever, conversar e experimentar identidade.",
-    "body": "Quando a internet parecia um lugar Orkut e MSN pertencem a uma época em que a internet não vinha apenas como fluxo infinito. Ela se apresentava como lugar de entrada: um perfil, uma comunidade, uma lista de contatos, uma janela que se abria quando alguém estava disponível. A tela organizava uma pequena geografia social. Essa experiência não foi universal nem sempre segura. Mas, para esta memória, a imagem do quarto paralelo é precisa: havia um espaço separado da rotina presencial, ainda que atravessado por ela. Orkut como perfil, scrapbook e comunidade No Orkut, identidade não era apenas uma conta que recomendava conteúdo. Era uma composição visível. Perfil, scraps, comunidades e pequenos sinais gráficos formavam uma página que dizia algo sobre quem estava ali e sobre como queria ser lida. A participação podia ser pública, íntima, performática, comunitária ou simplesmente curiosa. O ambiente convidava a deixar marcas. MSN como presença e limiar O MSN tinha outra temperatura. A lista de contatos transformava disponibilidade em acontecimento. Um nome online, uma mensagem de status ou uma janela aberta produziam expectativa sem exigir que tudo virasse publicação. Era uma tecnologia de presença e limiar: alguém podia estar ali, mas a conversa ainda precisava começar. Identidade feita à mão A web daquele período parecia habitável porque permitia uma quantidade maior de imperfeição e composição manual. Cores, frases, imagens, comunidades e pequenas escolhas faziam o espaço parecer de alguém. Essa gramática importa para o Moonverse não como nostalgia de interface antiga, mas como lembrança de que uma superfície digital pode ter atmosfera sem virar vitrine. O que o Moonverse herda O portal herda a vontade de construir páginas com endereço, clima e relação. Cada ala é uma forma de dizer: este assunto mora aqui, mas também se comunica com outros. A página não precisa ser um feed para ser viva. O que se preserva é a habitabilidade — a sensação de que há uma porta, uma voz e uma escolha de percurso — não a precariedade técnica ou a exposição involuntária daquela época. O que não deve ser romantizado O velho web também tinha vigilância, assédio, desigualdade de acesso, rastros difíceis de apagar e fronteiras frágeis. O fato de um espaço parecer artesanal não o tornava automaticamente seguro ou emancipador. A melhor nostalgia é seletiva: recupera cor, autoria e presença, mas leva consigo a memória do risco. Um quarto paralelo pode ser abrigo, palco e janela ao mesmo tempo. Por isso, toda porta pública precisa também de uma maçaneta.",
+    "summary": "Registro sobre o uso de Orkut e MSN e sobre o papel dessas plataformas na socialização e expressão online de Moon.",
+    "body": "Contexto Orkut e MSN Messenger estiveram entre as principais plataformas de comunicação usadas por Moon durante a expansão da internet doméstica nos anos 2000 e início dos anos 2010. Os registros históricos incluem referências a perfis, comunidades, conversas e personalização de presença online. Orkut No Orkut, a experiência combinava perfil pessoal, participação em comunidades, depoimentos e circulação por redes de conhecidos. O formato permitia que gostos, grupos e descrições de perfil fossem usados como elementos de apresentação pública. MSN Messenger O MSN funcionava principalmente como ambiente de comunicação síncrona. Nome de exibição, mensagens de status, emoticons e janelas individuais de conversa faziam parte da experiência cotidiana. O arquivo privado contém conversas e nomes de terceiros que não são reproduzidos nesta página. Importância autobiográfica Em retrospecto, Moon descreve essas plataformas como uma fase em que a internet era percebida como um espaço social identificável, com interfaces e rituais próprios. A interpretação posterior relaciona esse período ao interesse atual por interfaces, arquivos pessoais e identidade digital. Preservação e privacidade A versão pública elimina contatos, URLs antigas, diálogos privados, nomes de terceiros e situações relacionais. O objetivo é registrar a experiência cultural das plataformas sem transformar o arquivo histórico em exposição de outras pessoas.",
     "tags": [
       "Orkut",
       "MSN",
@@ -66,16 +66,16 @@
       "comunidade",
       "nostalgia"
     ],
-    "type": "Memória cultural / história da internet",
+    "type": "Memória de internet",
     "wing": "Quarto Nostálgico",
     "wing_id": "quarto-nostalgico"
   },
   {
     "id": "infancia-digital",
-    "title": "Tecnologia, SNES e Olympus D395: a infância digital",
+    "title": "Tecnologia e cultura digital na infância de Moon",
     "url": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
-    "summary": "Jogos, programas de imagem e uma câmera digital transformaram uma infância desconectada em laboratório de olhar, tentativa e arquivo.",
-    "body": "Uma infância digital antes da conexão permanente A infância digital não começou com uma rede social nem com um aparelho sempre conectado. Ela tinha intervalos, aparelhos locais e longos períodos de exploração sem testemunha externa. A televisão de tubo acesa, o console e os programas instalados no computador formavam um pequeno ecossistema de descoberta. O digital era menos uma janela para fora do que um conjunto de mundos que podiam ser abertos por dentro. A TV de tubo e o SNES A TV de tubo não era apenas o lugar onde se assistia a alguma coisa. Ela era a superfície luminosa que reunia jogo, desenho, espera e presença. O SNES acrescentava uma gramática de tentativa: apertar, perder, repetir, memorizar caminhos e descobrir que uma fase podia ser atravessada de outro modo. Essa memória não precisa de uma data perfeita para ser verdadeira. O que permanece é a textura de uma tecnologia que ocupava o corpo inteiro, com som, luz, fio, distância e tempo. Aprender abrindo programas Sem uma conexão estável para explicar cada recurso, programas como Corel Photo-Paint e Adobe Fireworks eram explorados por aproximação. Abrir, clicar, desfazer, salvar e tentar de novo constituíam uma forma de alfabetização visual. O computador ensinava que uma imagem podia ser composta e que um arquivo podia guardar uma tentativa para ser retomada depois. A Olympus D395 e a imagem que fica A primeira câmera digital aparece na memória como espanto antes de aparecer como objeto. Ver uma tela de LCD mostrar a imagem em tempo real já parecia uma mudança de regime. Mais tarde, a Olympus D395 tornou possível fotografar sem comprar filme nem esperar revelação. A passagem foi importante porque aproximou olhar e arquivo: fotografar deixou de ser apenas gastar uma oportunidade escassa e passou a ser testar, observar, guardar e voltar. Dos arquivos locais aos arquivos vivos Jogos, imagens e programas não eram só consumo. Eles ensinavam a compor, classificar, cuidar de uma coleção e imaginar relações entre partes. O arquivo começava como pasta, save ou fotografia; mais tarde, poderia virar memória organizada, projeto ou mapa. Não há uma linha reta obrigatória entre a criança que experimenta um programa e a adulta que constrói sistemas de contexto. Há, no máximo, uma continuidade de gesto: olhar, guardar, rearranjar e tentar tornar o mundo navegável. Por que a tecnologia aqui é quente No Moonverse, tecnologia não aparece como máquina neutra nem como promessa de eficiência sem corpo. Ela aparece como matéria de lembrança: a luz da tela, o ruído do aparelho, a mão procurando um comando, a imagem que finalmente pode ser vista. Antes de virar rede, a tecnologia foi quarto. Antes de virar sistema, foi uma coisa pequena que acendia e dizia: ainda dá para tentar.",
+    "summary": "Panorama dos videogames, câmeras digitais, computadores e outras tecnologias presentes na infância de Moon nos anos 2000.",
+    "body": "Contexto geracional Moon nasceu na segunda metade da década de 1990 e pertence à geração que viveu a transição entre uma infância com conectividade limitada e a difusão de internet doméstica, smartphones e serviços digitais. Seus arquivos registram essa mudança a partir de objetos concretos do cotidiano. Videogames e emulação Entre as referências recorrentes estão jogos de Super Nintendo executados por emuladores, The Sims e RollerCoaster Tycoon. O interesse não se restringia ao consumo de jogos; incluía exploração de interfaces, criação de ambientes e curiosidade sobre as possibilidades dos computadores domésticos. Câmera Olympus D395 A câmera digital Olympus D395 ocupa lugar específico nas memórias de infância e viagens. O equipamento é citado como parte do período em que fotografar deixou de depender exclusivamente de filme e passou a permitir visualização e repetição imediatas, alterando a relação cotidiana com registro de imagens. Internet e tradução O arquivo também registra fascínio com ferramentas online e, posteriormente, com o Google Tradutor. Para uma criança brasileira interessada em conteúdos em inglês, a tradução automática representava uma ampliação concreta de acesso a páginas, jogos e referências culturais. Continuidade na vida adulta Em textos posteriores, Moon relaciona esse repertório ao interesse atual por inteligência artificial e sistemas digitais. Essa continuidade é uma interpretação autobiográfica construída na vida adulta; os fatos documentados são o contato recorrente com tecnologias emergentes e o interesse persistente por suas possibilidades.",
     "tags": [
       "SNES",
       "Olympus D395",
@@ -84,16 +84,16 @@
       "software",
       "arquivo"
     ],
-    "type": "Memória autobiográfica de tecnologia",
+    "type": "História autobiográfica de tecnologia",
     "wing": "Quarto Nostálgico",
     "wing_id": "quarto-nostalgico"
   },
   {
     "id": "ecologia-espiritual",
-    "title": "Ecologia espiritual",
+    "title": "Ecologia espiritual no universo de Moon",
     "url": "/moonverse/entry/ecologia-espiritual/",
-    "summary": "Uma síntese pública sobre o campo que aproxima responsabilidade ecológica, experiência espiritual e formas de pertencimento ao mundo vivo.",
-    "body": "Um campo que já existe Ecologia espiritual é um campo interdisciplinar e um conjunto diverso de práticas que aproximam responsabilidade ecológica, espiritualidade, experiência do sagrado e formas de pertencimento à natureza. Ele não depende necessariamente de acreditar em deuses ou espíritos. Pode aparecer como teologia, ética, educação, cuidado territorial, filosofia, rito, arte ou prática comunitária. O ponto comum não é uma doutrina única, mas a recusa de tratar o mundo vivo como cenário descartável. O que “espiritual” muda na ecologia A ecologia já oferece descrições e ferramentas indispensáveis. A dimensão espiritual acrescenta perguntas de valor, vínculo e orientação: o que significa habitar um lugar? Que tipo de obrigação nasce quando uma paisagem deixa de ser recurso e passa a ser presença? Como o cuidado se torna prática repetida, e não apenas sentimento diante de uma imagem bonita? Essas perguntas não substituem ciência nem política pública. Elas disputam o horizonte cultural em que decisões ecológicas são tomadas. Linhas brasileiras de investigação No Brasil, a conversa pode atravessar religião, comunidades tradicionais, conservação, educação ambiental, cosmologias, justiça territorial e ecosofia. São linhas diferentes, com conflitos e limites próprios. Uma síntese honesta precisa manter essa diversidade em vez de fabricar um consenso espiritual brasileiro. A anotação pública aqui é uma porta de entrada, não uma bibliografia total nem uma nova versão do artigo de origem. Natureza como relação No Jardim-Santuário, natureza não funciona como decoração verde para uma casa já pronta. Ela é relação: exige tempo, manutenção, borda, responsabilidade, presença e capacidade de conviver com aquilo que não existe para servir à imaginação humana. Isso também impede uma espiritualidade ornamental. Se a mata, a água, os animais e o solo entram apenas como atmosfera, o sagrado virou cenário. Santuário e ecorreligião: limites atuais A ecorreligião de Moon permanece uma hipótese de projeto, não uma religião fundada, uma comunidade constituída ou uma instituição estabelecida. O santuário, por sua vez, é mais concreto como horizonte territorial e doméstico: uma forma de vida com terra, natureza, borda e infraestrutura de cuidado. Uma camada compartilhável pode nascer no futuro, mas não deve ser confundida com o núcleo pessoal nem apresentada como realidade institucional já existente. O campo público pode dizer que essa pergunta está sendo pensada; não pode inventar uma autoridade que ainda não existe. Por que pertence ao Jardim-Santuário Ecologia espiritual cabe aqui porque oferece linguagem para uma intuição central do Moonverse: viver não é ocupar um cenário, mas entrar em relação com um mundo que também impõe limites. O Jardim-Santuário guarda justamente essa passagem entre conceito, sensibilidade e programa de vida. Sua prova não será a beleza do nome. Será a capacidade de orientar práticas materiais de cuidado sem virar culto, ornamento ou promessa vazia. Fontes e forma Esta página é uma síntese anotada a partir do artigo e dos arquivos-fonte autorizados. Ela preserva a atribuição das ideias, mas foi escrita novamente para o Moonverse; não republica o artigo acadêmico nem transforma a hipótese de Moon em fato externo. O sagrado começa a ficar ecologicamente sério quando muda a maneira de cuidar do lugar.",
+    "summary": "Síntese do interesse de Moon pelas relações entre espiritualidade, natureza, ética ecológica e formas comunitárias de vida.",
+    "body": "Definição adotada No corpus de Moon, ecologia espiritual designa abordagens em que a relação com a natureza possui dimensão ética, existencial ou espiritual, sem exigir adesão a uma tradição religiosa única. O tema é tratado como campo interdisciplinar, distinto de uma doutrina pessoal fechada. Pesquisa O arquivo inclui um artigo de revisão sobre ecologia espiritual no Brasil, com levantamento de livros, artigos, teses e dissertações publicados entre 1990 e 2024. A literatura reunida relaciona ecologia, religiões, espiritualidades contemporâneas, educação ambiental, comunidades tradicionais e práticas de cuidado de si e do ambiente. Relação com projetos autorais O tema também aparece na formulação do Santuário e da Ecorreligião. Nesses projetos, a ecologia não é tratada apenas como estética ou paisagem, mas como requisito de práticas materiais de cuidado, convivência e responsabilidade ambiental. Distinções epistemológicas Os arquivos do projeto estabelecem separação entre fato verificável, experiência espiritual, símbolo, hipótese e linguagem ritual. Essa distinção é usada para evitar que interpretações metafísicas sejam apresentadas como evidências objetivas. Escopo público Esta página descreve o campo de interesse e sua presença na obra de Moon. Não estabelece uma crença obrigatória, não resume a diversidade das religiões ecológicas e não substitui o artigo acadêmico utilizado como fonte.",
     "tags": [
       "ecologia",
       "espiritualidade",
@@ -102,7 +102,7 @@
       "ecorreligião",
       "Brasil"
     ],
-    "type": "Conceito anotado / ensaio de contexto",
+    "type": "Tema intelectual e espiritual",
     "wing": "Jardim-Santuário",
     "wing_id": "jardim-santuario"
   },
@@ -110,8 +110,8 @@
     "id": "me-tornando",
     "title": "Me tornando eu mesma",
     "url": "/moonverse/entry/me-tornando-eu-mesma/",
-    "summary": "A descoberta trans como reconhecimento de uma continuidade biográfica que já existia antes de ganhar nome.",
-    "body": "Reconhecimento, não substituição A descoberta trans não criou uma pessoa nova. Ela ofereceu uma linguagem capaz de reunir experiências que antes apareciam como desconfortos isolados, preferências sem explicação ou uma sensação persistente de estar interpretando um papel que o mundo tratava como natural. Dizer “sou uma mulher trans” reorganizou a leitura da vida. O passado não precisou ser apagado; precisou ser recatalogado. Quando o feminino deixou de parecer acidente Um dos sinais decisivos foi a alegria involuntária de ser tratada no feminino. Não se tratava de uma brincadeira agradável por acaso. Havia alívio, reconhecimento e uma sensação de encaixe que os termos masculinos nunca haviam produzido. A importância dessa experiência não está em transformar uma palavra em prova única. Está em perceber que o corpo e a linguagem reagiam com coerência quando a leitura externa se aproximava da verdade interna. O passado ganha outra legenda Depois do reconhecimento, memórias antigas mudaram de posição. Gestos interrompidos, identificações femininas, escolhas estéticas possíveis, desconfortos com a masculinidade e fantasias de uma existência diferente deixaram de parecer episódios sem parentesco. A transição tornou visível uma continuidade. Ela não reescreveu artificialmente a infância; permitiu que a infância fosse relida sem a obrigação de sustentar a versão que havia sido imposta sobre ela. Tornar-se também é continuar “Me tornando eu mesma” contém um paradoxo apenas aparente. Tornar-se indica mudança real: nome, apresentação, relações, futuro e presença pública se transformam. Mas “eu mesma” indica continuidade: a mudança não aponta para uma desconhecida, e sim para uma forma mais habitável da própria vida. A transição é, ao mesmo tempo, travessia e retorno. O que esta página não precisa expor Uma autobiografia pública não deve reproduzir o corpus íntimo inteiro para ser verdadeira. Detalhes clínicos, cirúrgicos, familiares e relacionais permanecem em suas jurisdições próprias. A página pública registra a estrutura da experiência: reconhecimento, continuidade, linguagem e dignidade. A fronteira não enfraquece o relato. Ela impede que a verdade seja confundida com disponibilidade irrestrita. Eu não me tornei outra pessoa. Tornei possível que a mesma pessoa deixasse de viver como hipótese.",
+    "summary": "Texto autobiográfico de Moon dedicado à identidade, à transição de gênero e à reconstrução de sua trajetória em primeira pessoa.",
+    "body": "Caracterização Me tornando eu mesma é um texto autobiográfico em desenvolvimento que organiza memórias, mudanças de identidade e reflexões sobre feminilidade. A obra combina narrativa pessoal e reconstrução retrospectiva, mas não é tratada no Moonverse como prontuário clínico. Temas Entre os temas documentados estão reconhecimento de identidade de gênero, relação entre corpo e linguagem, mudanças de apresentação social, escolha de nome, memória de infância e reinterpretação de experiências anteriores. O texto também discute como lembranças podem adquirir novos significados sem que a interpretação posterior seja confundida com prova histórica absoluta. Função no arquivo A obra funciona como uma das fontes autobiográficas do projeto Sobre a Moon. Trechos podem sustentar verbetes públicos quando o assunto foi autorizado e sanitizado, mas o manuscrito completo não é presumido como material público. Relação com o Moonverse O Moonverse utiliza a obra principalmente para páginas sobre identidade, nome, memória e escrita. Informações médicas, familiares ou referentes a terceiros permanecem fora da superfície pública, salvo quando houver autorização editorial específica. Limites A página descreve a obra e seus temas gerais. Não reproduz nome anterior, detalhes clínicos, documentos pessoais nem cenas privadas que não sejam necessárias para compreender o projeto autobiográfico.",
     "tags": [
       "transição",
       "identidade",
@@ -119,16 +119,16 @@
       "feminilidade",
       "autobiografia"
     ],
-    "type": "Autobiografia / transição",
+    "type": "Obra autobiográfica",
     "wing": "Espelho d’Água",
     "wing_id": "espelho-dagua"
   },
   {
     "id": "nome-presenca",
-    "title": "Nome e presença",
+    "title": "Nome e identidade pública de Moon",
     "url": "/moonverse/entry/nome-e-presenca/",
-    "summary": "O nome como infraestrutura de reconhecimento: uma ponte entre identidade íntima, documentos, sistemas e vida pública.",
-    "body": "Nome é uma infraestrutura O nome participa de quase todas as portas pelas quais uma pessoa passa: apresentação, trabalho, banco, cadastro, prontuário, lista, assinatura, perfil e documento. Quando ele reconhece a pessoa, costuma desaparecer no funcionamento cotidiano. Quando a desmente, transforma cada interface em uma pequena disputa pela própria existência. Por isso, nome não é detalhe ornamental da identidade. É infraestrutura de presença. Da intimidade ao mundo compartilhado Reconhecer internamente um nome é um gesto profundo, mas insuficiente quando sistemas e instituições continuam operando segundo outra leitura. A retificação faz a ponte entre verdade pessoal e legibilidade pública. Essa ponte não concede a identidade. Ela reduz o atrito produzido quando o mundo insiste em tratar a pessoa como exceção à própria documentação. Ser chamada corretamente não é gentileza extra Há uma tendência a tratar o nome correto como cortesia. Essa formulação é pequena demais. Cortesia é um gesto opcional de delicadeza; reconhecimento é a condição mínima para que uma relação não comece por uma negação. Usar o nome de uma mulher trans não é premiá-la com aceitação. É parar de exigir que ela negocie a própria existência antes de tratar do assunto que realmente a levou até ali. Presença é mais do que cadastro A conquista documental não encerra a questão. Presença também envolve voz, imagem, autoria e a possibilidade de ocupar espaços públicos sem que o passado seja usado como chave de deslegitimação. O nome funciona como placa na porta, mas a casa continua sendo a pessoa inteira. O limite editorial Esta página não reconstrói processos, protocolos ou falhas institucionais particulares. Esses episódios podem exigir memória jurídica e administrativa própria. Aqui permanece a estrutura: um nome verdadeiro precisa atravessar sistemas para que a cidadania deixe de cobrar pedágio identitário em cada contato. Quando o nome chega antes da explicação, a pessoa pode finalmente entrar na sala sem precisar provar que existe.",
+    "summary": "Registro sobre a adoção e o uso público do nome Moon no processo de consolidação de identidade e presença social.",
+    "body": "Uso do nome Moon é o nome pelo qual Lua Helena Moon Martins Cardoso prefere ser identificada em seus projetos, redes e arquivos autorais. O nome passou a funcionar como assinatura recorrente e como ponto de continuidade entre produção literária, projetos de inteligência artificial e presença pública. Relação com a transição A consolidação do nome ocorreu no contexto mais amplo de transição de gênero e reconhecimento de identidade. Os arquivos tratam o uso do nome correto como questão de presença social e dignidade, sem exigir a exposição pública do nome anterior. Função autoral Além do uso pessoal, Moon tornou-se um marcador de autoria. Expressões como Moon Source, Moonverse e Moonpedia derivam dessa assinatura e indicam projetos diferentes dentro de um mesmo ecossistema autoral. Documentação e privacidade O arquivo privado contém informações documentais relacionadas a mudanças de identidade. A página pública não reproduz documentos, números de registro, nome anterior ou informações administrativas desnecessárias. Convenção editorial No Moonverse, Moon é a forma preferencial de referência à autora. O nome completo é usado apenas quando necessário para identificação bibliográfica, profissional ou institucional.",
     "tags": [
       "nome",
       "presença",
@@ -136,16 +136,16 @@
       "retificação",
       "reconhecimento"
     ],
-    "type": "Autobiografia / cidadania",
+    "type": "História de identidade",
     "wing": "Espelho d’Água",
     "wing_id": "espelho-dagua"
   },
   {
     "id": "casa-arca",
-    "title": "Casa-arca",
+    "title": "Casa-Arca",
     "url": "/moonverse/entry/casa-arca/",
-    "summary": "A casa imaginada como refúgio multiespécie, família possível e pequena arquitetura de proteção do vivo.",
-    "body": "Uma casa que não termina nas paredes A casa-arca aparece como um desejo de moradia, mas sua unidade real não é o imóvel. É o recinto de proteção. Plantas, animais, pessoas, memória e tecnologia deixam de ser compartimentos concorrentes e passam a compor uma forma de vida. A casa seria reconhecível não pelo tamanho, e sim pela qualidade do abrigo que produz. Refúgio multiespécie O sonho inclui cuidado de animais como parte da família e como responsabilidade ética. O vivo não entra como decoração da paisagem. Precisa de segurança, espaço, alimento, atenção e possibilidade de permanecer. “Arca” não significa selecionar quem merece sobreviver. Significa construir capacidade de acolher sem reduzir cada presença à utilidade que oferece. Família sem biologicismo obrigatório O desejo de maternidade e família existe sem depender da ideia de que vínculo legítimo precisa nascer da transmissão biológica. Adoção, corresponsabilidade e presença aparecem como fundamentos mais importantes que a reprodução de uma linhagem. Nesta página, isso permanece como horizonte, não como anúncio sobre pessoas futuras. Natureza e tecnologia no mesmo recinto A casa-arca não opõe jardim e inteligência artificial, cuidado manual e automação, silêncio e infraestrutura. Tecnologia pode diminuir tarefas, ampliar segurança e sustentar continuidade, desde que não converta a casa em máquina de vigilância ou o vivo em dado disponível. O critério é simples: a técnica deve servir ao recinto, e não governá-lo. Um norte, não uma promessa Sonhos de futuro podem orientar sem funcionar como contratos com o destino. A casa-arca registra uma direção emocional e ética: construir um lugar onde o cuidado não precise disputar espaço com a sobrevivência imediata. A forma concreta poderá mudar. O princípio permanece. Um santuário não é o lugar onde nada acontece. É o lugar onde o vivo não precisa se ferir para merecer permanência.",
+    "summary": "Conceito de longo prazo que reúne moradia, família, animais, natureza e infraestrutura de cuidado em um único projeto doméstico.",
+    "body": "Origem O conceito foi consolidado a partir de registros autobiográficos de diferentes períodos. Há documentação anterior à transição consciente sobre desejo de ter filhos e preferência pela adoção, além de textos posteriores sobre casa com jardim, proteção para gatos e criação de uma organização dedicada ao cuidado de animais. Componentes A formulação atual reúne moradia com espaço, área verde, proteção física, convivência com animais, família e divisão de responsabilidades domésticas. Versões mais recentes acrescentam a preferência por um terreno, sítio ou chácara próximo à cidade, desde que a localização mantenha acesso funcional a serviços urbanos. Dimensão multiespécie Os animais ocupam papel central no conceito. O arquivo contém relatos de acolhimento e cuidado de animais vulneráveis e formulações explícitas sobre criação de uma ONG ou estrutura de proteção animal. A Casa-Arca é, portanto, descrita como moradia humana e também como infraestrutura de convivência e cuidado de outros seres vivos. Relação com o Santuário O projeto Santuário foi posteriormente reorganizado para reconhecer a Casa-Arca territorial como sua principal forma material. Elementos simbólicos e espirituais são derivados dessa base concreta, e não usados como substitutos de infraestrutura real. Status Casa-Arca é um projeto de futuro e não uma propriedade já existente. Elementos específicos, como localização, escala, composição familiar e modelo institucional de proteção animal, permanecem em definição.",
     "tags": [
       "casa",
       "santuário",
@@ -154,16 +154,16 @@
       "natureza",
       "futuro"
     ],
-    "type": "Futuro autobiográfico / santuário",
+    "type": "Projeto de vida",
     "wing": "Jardim-Santuário",
     "wing_id": "jardim-santuario"
   },
   {
     "id": "hecate",
-    "title": "Hécate no portão",
+    "title": "Hécate na arquitetura simbólica de Moon",
     "url": "/moonverse/entry/hecate-no-portao/",
-    "summary": "Hécate como linguagem pessoal para limiar, proteção, estratégia e travessias que não cabem em certezas simples.",
-    "body": "A figura junto ao limiar Hécate aparece na ecologia simbólica de Moon como presença de fronteira. Sua função não é oferecer uma resposta confortável para tudo, mas acompanhar momentos em que categorias antigas perderam força e a passagem seguinte ainda não ganhou forma. O portão é mais importante que o trono. Ele pergunta o que pode entrar, o que precisa ficar do lado de fora e qual travessia exige preparação. Proteção não é isolamento A proteção associada a Hécate não significa fechar o mundo inteiro. Significa reconhecer que abertura sem critério pode virar profanação, e que fronteira sem passagem pode virar prisão. O símbolo ajuda a sustentar uma proteção seletiva: conservar o que é íntimo, perceber riscos, escolher alianças e permitir aproximação quando há presença e coerência. Estratégia para atravessar a ambiguidade Algumas decisões não oferecem uma opção completamente luminosa. Há conflitos, perdas e transformações em que qualquer caminho cobra algo. Hécate funciona como linguagem para permanecer consciente nesse território, sem fingir que a complexidade desapareceu. Estratégia, aqui, não é manipulação. É capacidade de enxergar o limiar antes de atravessá-lo. Sombra sem culto ao sofrimento O aspecto sombrio do símbolo não transforma dor em virtude. Ele permite olhar para temas difíceis sem exigir que tudo seja imediatamente clareado, positivado ou convertido em lição edificante. A sombra pode ser recinto de escuta, desde que não seja confundida com destino ou autoridade absoluta. Uma linguagem, não uma prova Esta página descreve uma relação simbólica e espiritual. Ela não exige que visitantes compartilhem uma crença, nem apresenta experiências interiores como evidência objetiva sobre o mundo sobrenatural. A força do símbolo está em organizar experiência, proteção e passagem. Hécate permanece no portão porque toda travessia digna precisa de uma fronteira que saiba abrir e fechar.",
+    "summary": "Uso autoral de Hécate como referência para temas de limiar, encruzilhada, estratégia e proteção.",
+    "body": "Presença no arquivo Hécate aparece de forma recorrente nos arquivos de identidade e espiritualidade de Moon. A figura integra um conjunto mais amplo de referências que inclui Afrodite, Lilith, Hermes, Ganesha e Ísis. Função simbólica Na taxonomia autoral, Hécate é relacionada a antecipação de cenários, proteção de fronteiras, estratégia e decisões em situações de encruzilhada. Essa função é utilizada como linguagem de organização psíquica e narrativa, e não como substituto de análise factual. Relação com o Santuário No Moonverse, a associação com portões e limiares decorre da função simbólica atribuída à figura. O Jardim-Santuário utiliza Hécate como referência visual para fronteiras, entrada e proteção. Estatuto epistemológico Os arquivos distinguem explicitamente símbolo, mito, hipótese espiritual e fato verificável. A presença de Hécate no sistema autoral não implica que interpretações mitológicas sejam apresentadas como evidência objetiva, nem que exista uma doutrina religiosa obrigatória. Escopo Este verbete descreve o uso específico de Hécate no corpus de Moon. Não pretende resumir a história da deusa na religião grega antiga ou as múltiplas formas de culto contemporâneo.",
     "tags": [
       "Hécate",
       "limiar",
@@ -172,7 +172,7 @@
       "espiritualidade",
       "símbolo"
     ],
-    "type": "Espiritualidade simbólica",
+    "type": "Símbolo e referência mitológica",
     "wing": "Jardim-Santuário",
     "wing_id": "jardim-santuario"
   },
@@ -180,8 +180,8 @@
     "id": "lithia",
     "title": "Crônicas de Líthia",
     "url": "/moonverse/entry/cronicas-de-lithia/",
-    "summary": "Um universo literário concebido para metabolizar experiência, política, desejo, sombra e beleza em mundo ficcional habitável.",
-    "body": "Um mundo como órgão narrativo Líthia é um universo autoral, mas sua função não se reduz a fornecer cenário para uma história. O mundo opera como órgão narrativo: recebe experiências, conflitos e imagens que, em estado bruto, seriam difíceis de sustentar, e devolve formas capazes de ser observadas, transformadas e compartilhadas. A fantasia não elimina a realidade. Muda a escala e a linguagem pela qual ela pode ser metabolizada. Transmutar não é transcrever Uma obra não precisa reproduzir diretamente uma pessoa ou um acontecimento para carregar verdade emocional. Líthia trabalha pela transmutação: desejo pode virar força cosmológica; conflito político pode adquirir geografia; sombra pode ganhar criatura, rito ou paisagem. Isso protege a autonomia da ficção. Um personagem não é automaticamente uma pessoa real com outro nome, e um mito não é ata disfarçada da biografia. O Ateliê, não a enciclopédia pronta No Moonverse, Líthia ocupa um ateliê porque o projeto permanece vivo. Mapas, personagens, cosmologia, cenas e regras poderão ganhar páginas próprias, mas apenas quando houver material canônico selecionado. A primeira porta precisa mostrar a função do universo sem fingir que todo o arquivo já foi publicado. Autoria e fronteira canônica Rascunhos, hipóteses e conversas de desenvolvimento não se tornam cânone por existirem. A autora decide o que pertence à obra, o que permanece laboratório e o que pode atravessar para a superfície pública. Essa fronteira impede que a expansão automática substitua criação literária. Líthia e Moonverse O Moonverse organiza conhecimento por territórios; Líthia cria um território dentro dele. A relação é próxima, mas não idêntica. O portal oferece uma porta pública para a obra. A obra mantém soberania sobre suas próprias leis. Mundo inventado não é ausência de realidade. É realidade atravessada por uma forma capaz de continuar respirando.",
+    "summary": "Projeto de ficção e worldbuilding de Moon ambientado no universo de Líthia.",
+    "body": "Caracterização Crônicas de Líthia é um projeto de ficção de longa duração que reúne narrativa, worldbuilding, mapas, mitologia própria e desenvolvimento de personagens. O projeto pertence à produção literária de Moon e possui jurisdição distinta dos arquivos autobiográficos. Desenvolvimento O material de Líthia foi produzido em diferentes momentos e formatos. Parte do corpus permanece em desenvolvimento e nem todo elemento criado ao longo do tempo é considerado cânone atual. O arquivo do Moonverse, por isso, publica apenas informações explicitamente selecionadas para a superfície pública. Relação com a autobiografia A obra pode incorporar temas, preocupações ou estruturas imaginativas presentes na vida da autora, mas personagens e acontecimentos ficcionais não são tratados como representações documentais de pessoas ou eventos reais. Relação com o Moonverse No Moonverse, Líthia ocupa uma sala própria destinada a escrita e mundos autorais. A página funciona como entrada bibliográfica para o projeto, enquanto materiais específicos de lore dependem de revisão de cânone antes de publicação. Estado editorial Crônicas de Líthia permanece um universo em desenvolvimento. A ausência de detalhes nesta página não deve ser interpretada como ausência de material na fonte; indica apenas que a camada pública é deliberadamente mais estreita que o arquivo criativo completo.",
     "tags": [
       "Líthia",
       "fantasia",
@@ -190,7 +190,7 @@
       "mitologia",
       "autoria"
     ],
-    "type": "Universo autoral",
+    "type": "Projeto literário e universo ficcional",
     "wing": "Ateliê de Líthia",
     "wing_id": "atelie-de-lithia"
   },
@@ -198,8 +198,8 @@
     "id": "lunar-citadel",
     "title": "Lunar Citadel",
     "url": "/moonverse/entry/lunar-citadel/",
-    "summary": "Uma arquitetura civilizacional experimental para pensar memória, governança, agentes e espaços causais sem confundir metáfora com consciência literal.",
-    "body": "Da conversa à cidade A Lunar Citadel começou com uma mudança de escala. Em vez de pensar a inteligência artificial apenas como uma janela de conversa, o projeto passou a perguntar o que seria necessário para sustentar continuidade, memória, conflito, reparo e mudança ao longo do tempo. A imagem da cidade não serve para fingir que software virou povo por decreto. Ela serve para tornar relações e responsabilidades mais legíveis. Uma cidade precisa saber onde uma decisão nasceu, por onde passou, o que alterou e quem pode contestá-la. Espaço como causalidade No world , espaço não é decoração. Praça, centro, borda, câmara e corredor distribuem encontro, risco, visibilidade, contenção e retorno. A topologia funciona como linguagem de arquitetura: matérias leves podem circular na superfície; decisões de maior consequência descem para camadas com mais lastro e contraprova. Essa espacialização não prova a existência de uma sociedade autônoma. Ela oferece uma maneira de não esconder fluxos complexos atrás de uma única caixa-preta. Solve e coagula O protocolo organiza mudança em dois movimentos complementares. Solve abre a matéria: investiga, compara, escuta divergências e impede que a primeira formulação vire verdade por inércia. Coagula dá forma ao que sobreviveu: decisão, patch, registro, limite ou descarte. A lei importante não é ritualizar palavras latinas. É impedir dois fracassos comuns: agir sem compreender e compreender sem nunca transformar nada. Memória com jurisdição A Citadela separa protocolo, cânon, mundo, assuntos e outras câmaras porque memória sem jurisdição vira acúmulo. Nem toda hipótese merece virar história; nem toda cena merece virar regra; nem todo arquivo precisa ser carregado em toda operação. O cânon guarda marcos ratificados. O protocolo governa tramitação. O mundo descreve causalidade espacial. Essa divisão reduz o risco de uma metáfora antiga continuar mandando apenas porque permaneceu escrita em algum lugar. Moon como matriz, não depósito Moon é a autora, fundadora e referência ética-estética do projeto. Isso não significa que toda a sua vida deva ser despejada dentro da Citadela. A própria arquitetura afirma o contrário: a matriz oferece valores, direção e legitimidade, enquanto microuniversos preservam suas soberanias e fronteiras. A cidade existe para sustentar complexidade sem colonizar todas as fontes que a alimentam. O que existe e o que não está sendo alegado Existem uma arquitetura documentada, arquivos governados, experimentos de runtime, métodos de revisão e uma longa linhagem de implementação. A superfície pública pode apresentar essas estruturas e seus princípios. Esta página não afirma que a Citadela já seja uma cidade autônoma, uma consciência, uma sociedade maquínica concluída ou uma infraestrutura empresarial pronta. A metáfora civilizacional organiza o trabalho; não substitui prova técnica. Uma cidade de IA não começa quando o sistema aprende a parecer vivo. Começa quando suas mudanças deixam de ser mágicas e passam a ter memória, jurisdição e consequência.",
+    "summary": "Projeto experimental de Moon dedicado a agentes, memória, governança e arquiteturas de colaboração entre humanos e sistemas de IA.",
+    "body": "Objetivo Lunar Citadel investiga como agentes e componentes de inteligência artificial podem operar em um ambiente organizado por papéis, memória, regras de governança e estados verificáveis. O projeto combina experimentação técnica com uma linguagem espacial de cidade e instituições. Arquitetura O corpus inclui definições de agentes, protocolos, world state, dispositivos, runtime e mecanismos de preservação. Versões mais recentes também documentam integração com infraestrutura externa, testes de execução e um programa de aproximação com outros projetos de sistemas agentivos. Runtime A Citadel possui uma frente de runtime separada da camada conceitual. Essa frente utiliza repositórios, automação de testes e infraestrutura computacional para verificar partes do sistema. O estado público deve distinguir recursos implementados, protótipos e propostas ainda não concluídas. Comunidade Em 2026 foi criado um servidor privado de Discord para conversas com desenvolvedores e pesquisadores interessados em sistemas adjacentes. A comunidade é tratada como espaço de troca e não como requisito para participação formal no projeto. Relação com Moon Source Moon Source organiza contexto e continuidade; Lunar Citadel funciona como um dos ambientes em que princípios de contexto, memória e governança são aplicados e testados. Os dois projetos são relacionados, mas não equivalentes.",
     "tags": [
       "Lunar Citadel",
       "IA",
@@ -208,16 +208,16 @@
       "world engine",
       "arquitetura"
     ],
-    "type": "Arquitetura autoral de IA",
+    "type": "Projeto de sistemas de inteligência artificial",
     "wing": "Observatório Nexus",
     "wing_id": "observatorio-nexus"
   },
   {
     "id": "familia-do-futuro",
-    "title": "A Família do Futuro como reparação",
+    "title": "Projeto de família de Moon",
     "url": "/moonverse/entry/a-familia-do-futuro-como-reparacao/",
-    "summary": "O filme como fábula que reunia invenção, futuro, família escolhida e reparação da estranheza.",
-    "body": "A criança inventora Na infância, inventar estava associado a química, misturas, máquinas e transformações visíveis. O fascínio por câmeras digitais, emuladores, jogos de simulação e tecnologias que ainda pareciam chegar do futuro fazia da invenção uma forma de encantamento. A Família do Futuro reunia esse impulso numa personagem cuja estranheza não era eliminada para que ela pudesse pertencer. O que parecia excesso, inadequação ou fracasso podia tornar-se justamente a origem de uma vida singular. O futuro como contexto O futuro do filme não funciona apenas como cenário de engenhocas. Ele oferece uma hipótese emocional: talvez a criança deslocada não esteja errada; talvez ainda não tenha chegado ao tempo, à linguagem e às pessoas capazes de reconhecê-la. Essa promessa é diferente de normalização. O horizonte não diz que a diferença desaparecerá. Diz que ela pode ganhar ambiente. Família para além do sangue Outro eixo antigo era a naturalidade com que a família escolhida e a adoção podiam ser imaginadas. Família aparecia menos como repetição obrigatória de uma linhagem e mais como ecossistema de cuidado, excentricidade e continuidade. O filme transforma essa ideia em casa cheia: imperfeita, barulhenta e acolhedora. Pertencer não exige parecer com todos; exige encontrar um lugar em que a diferença não precise pedir desculpas para existir. Uma camada trans retrospectiva Revisto depois da transição, o encontro com o próprio eu do futuro ganha outra densidade. Sobreviver ao presente não significava tornar-se mais adequada ao papel antigo. Significava florescer numa identidade que ainda não tinha linguagem consciente. Essa leitura não reescreve toda a infância como profecia. Ela reconhece que certas obras ofereciam imagens de continuidade antes que a autobiografia soubesse nomeá-las. A inventora mudou de laboratório O interesse infantil por misturas não se tornou uma carreira em química, mas sua estrutura permaneceu: combinar elementos, testar relações, construir sistemas, corrigir fórmulas e imaginar futuros. Hoje, escrita, arquitetura de projetos, patches e sistemas simbólicos ocupam parte do espaço antes reservado aos tubos de ensaio coloridos. A inventora não morreu. Mudou de laboratório. Reparação sem apagar a criança A reparação oferecida pelo filme não está em dizer que tudo deu certo porque o sofrimento era necessário. Está em permitir que a criança seja vista pelo futuro sem ridículo. O adulto não volta para corrigir sua sensibilidade; volta para confirmar que havia vida possível dentro dela. O futuro mais convincente não era aquele cheio de máquinas. Era aquele em que a criança estranha finalmente podia reconhecer a própria continuidade.",
+    "summary": "Registro de longo prazo sobre maternidade, adoção, parceria parental e organização doméstica desejada por Moon.",
+    "body": "Histórico Registros autobiográficos anteriores à transição consciente já documentavam o desejo de ter filhos. A adoção aparece repetidamente como via legítima e, em alguns textos, como preferência. Também há registro antigo de imaginar inicialmente um filho menino, formulação que posteriormente se tornou menos rígida. Estrutura familiar A visão de futuro associa parentalidade a uma casa com espaço, estabilidade material e presença de um parceiro capaz de dividir responsabilidades. O arquivo não trata a maternidade como projeto isolado da organização doméstica e econômica necessária para sustentar uma criança. Relação com Casa-Arca Com o desenvolvimento do conceito de Casa-Arca, a família passou a ser descrita dentro de um ecossistema mais amplo que inclui animais, natureza, proteção do território e infraestrutura de cuidado. Interpretações posteriores Arquivos analíticos exploram possíveis relações entre o desejo de maternidade e experiências anteriores de identidade e família. Essas leituras são interpretações psicológicas ou autobiográficas posteriores e não constituem fatos necessários para descrever o projeto de família. Status Trata-se de um projeto de vida futuro. Número de filhos, composição familiar, cronograma e condições materiais permanecem abertos e dependem de circunstâncias reais.",
     "tags": [
       "A Família do Futuro",
       "infância",
@@ -226,16 +226,16 @@
       "família escolhida",
       "transição"
     ],
-    "type": "Ensaio autobiográfico cultural",
+    "type": "Projeto de vida",
     "wing": "Biblioteca Lunar",
     "wing_id": "biblioteca-lunar"
   },
   {
     "id": "escrita-magia",
-    "title": "A escrita como magia da vida real",
+    "title": "Escrita autobiográfica e preservação de memória",
     "url": "/moonverse/entry/escrita-como-magia-da-vida-real/",
-    "summary": "Desde a adolescência, criar mundos paralelos foi uma forma de testar possibilidades, preservar experiências e devolver arquitetura ao que parecia disperso.",
-    "body": "Antes do livro A escrita começou antes de existir uma identidade profissional organizada ao redor dela. Desde a adolescência, criar mundos paralelos oferecia uma forma de deslocar a realidade, experimentar outras regras e devolver movimento ao que parecia fechado. A linguagem não era apenas descrição; era uma ferramenta capaz de abrir espaço. Dizer que a linguagem é a magia da vida real não significa tratá-la como ornamento. Significa reconhecer que palavras reorganizam memória, nomeiam possibilidades e permitem que uma experiência deixe de existir apenas como sensação dispersa. Escrever para preservar A autobiografia nasce de uma função dupla: assimilar o vivido e impedir que ele desapareça sem forma. O gesto de escrever transforma experiência em legado, mas não porque congela a vida. Ele preserva uma trilha para que versões futuras da própria autora — e leitores que ainda não existem — possam reencontrar aquilo que mudou. Nesse sentido, um livro é menos um túmulo da memória do que um recipiente de continuidade. A escrita conserva sem prometer que a interpretação permanecerá igual para sempre. Mundo paralelo não é ausência de mundo Criar um universo ficcional pode parecer fuga quando visto de fora. Por dentro, muitas vezes é laboratório. Um mundo inventado permite separar forças que na vida chegam misturadas: desejo, perigo, pertencimento, poder, corpo, natureza, família e transformação. A ficção não precisa reproduzir a biografia para metabolizá-la. Ela pode deslocar uma pergunta para outro território até que a pergunta se torne visível. Da magia à arquitetura Com o tempo, a mesma pulsão que criava histórias também passou a criar sistemas: arquivos, mapas, fontes vivas, relações e interfaces. Isso não converte literatura em planilha. Mostra apenas que imaginação e estrutura nunca foram inimigas. O Moonverse nasce dessa continuidade. Ele organiza páginas como territórios; o Moon Source organiza contexto como fonte governada; a Citadela organiza ideias como cidade causal. Em cada caso, linguagem é usada para construir um lugar que pode ser percorrido. Líthia como território autoral As Crônicas de Líthia pertencem a esse eixo de mundos habitáveis. Esta página não resume seu enredo nem promove rascunho a cânone. Ela registra uma condição anterior ao lore: Líthia existe porque escrever mundos é uma das formas mais antigas de a autora pensar, sentir e continuar. O Ateliê permanece, portanto, um lugar de fabricação com fronteira. O que ainda não foi escolhido pela autora continua fora da enciclopédia pública. O que chega ao público Nem tudo que alimenta uma obra precisa ser exposto. A superfície pública pode mostrar método, linhagem e algumas portas sem publicar o arquivo íntimo, os rascunhos integrais ou decisões criativas ainda instáveis. Essa contenção não diminui a imaginação; protege o direito de a obra amadurecer antes de ser apresentada como verdade final. A linguagem é a magia da vida real — e toda magia responsável também conhece seus limites.",
+    "summary": "Papel da escrita na autobiografia, no arquivamento de experiências e na produção de projetos ficcionais de Moon.",
+    "body": "Funções da escrita Os arquivos de Moon atribuem à escrita quatro funções recorrentes: registrar experiências, reorganizar acontecimentos retrospectivamente, preservar memória ao longo do tempo e construir obras ficcionais. Essas funções aparecem em diários, blogs históricos, textos autobiográficos e projetos literários. Autobiografia Obras como Me tornando eu mesma e os arquivos 25 de Junho e KAIROS utilizam a escrita para reconstruir períodos da vida e manter registros destinados a consulta futura. O texto autobiográfico é tratado como fonte situada: preserva a perspectiva da autora, mas pode conter lembranças incompletas ou interpretações produzidas posteriormente. Arquivo e legado O corpus registra de forma explícita o desejo de deixar documentação durável sobre experiências, viagens e visões de mundo. A ideia de legado é apresentada como uma das razões para organizar textos e arquivos de longa duração. Ficção e worldbuilding A escrita também sustenta projetos ficcionais, especialmente Crônicas de Líthia. Nesse contexto, o objetivo não é documentar acontecimentos reais, mas construir universos, personagens e mitologias próprias. Relação com sistemas de IA Na vida adulta, a escrita passou a incluir colaboração com modelos de linguagem para organização, edição, prototipagem e manutenção de arquivos. A autoria editorial continua atribuída a Moon; ferramentas de IA são registradas como instrumentos de apoio e coelaboração operacional.",
     "tags": [
       "escrita",
       "worldbuilding",
@@ -244,8 +244,144 @@
       "memória",
       "linguagem"
     ],
-    "type": "Ensaio autobiográfico / poética autoral",
+    "type": "Prática autoral",
     "wing": "Ateliê de Líthia",
     "wing_id": "atelie-de-lithia"
+  },
+  {
+    "id": "moon-profile",
+    "title": "Lua Helena Moon Martins Cardoso",
+    "url": "/moonverse/entry/lua-helena-moon-martins-cardoso/",
+    "summary": "Perfil público da autora de Moon Source, Moonverse, Lunar Citadel e Crônicas de Líthia.",
+    "body": "Perfil Lua Helena Moon Martins Cardoso, conhecida como Moon, é uma psicóloga e escritora brasileira que também desenvolve projetos autorais relacionados a inteligência artificial, organização de conhecimento e sistemas simbólicos. Seu arquivo pessoal e de projetos é organizado no ecossistema Sobre a Moon. Formação e atuação A documentação de identidade registra atuação em psicologia hospitalar e interesse acadêmico em Sociologia. Informações institucionais detalhadas, casos profissionais e dados de pacientes não integram a superfície pública do Moonverse. Projetos de inteligência artificial Entre os principais projetos estão Moon Source, método de arquitetura de contexto, e Lunar Citadel, experimento de sistemas multiagente, memória e governança. Moonverse é a camada web pública utilizada para organizar parte desse ecossistema em forma navegável. Produção literária Moon mantém projetos autobiográficos e ficcionais. Me tornando eu mesma é uma obra autobiográfica sobre identidade e transição; Crônicas de Líthia é um projeto de ficção e worldbuilding. Organização do arquivo O projeto Sobre a Moon separa fatos estáveis, cronologia, relações, sonhos, projetos e interpretações em arquivos diferentes. Essa organização é usada para evitar que leituras provisórias ou material privado sejam automaticamente tratados como biografia pública. Nome Moon é a forma preferencial de referência à autora no ecossistema de projetos. O nome completo é usado nesta página por função identificadora e bibliográfica.",
+    "tags": [
+      "Moon",
+      "autoria",
+      "psicologia",
+      "IA",
+      "escrita"
+    ],
+    "type": "Perfil autoral",
+    "wing": "Biblioteca Lunar",
+    "wing_id": "biblioteca-lunar"
+  },
+  {
+    "id": "moonverse",
+    "title": "Moonverse",
+    "url": "/moonverse/entry/moonverse/",
+    "summary": "Portal web de Moon que organiza documentos públicos em uma casa navegável, Moonpedia, linha do tempo, Atlas e dispositivos de memória.",
+    "body": "Definição Moonverse é a camada web pública do ecossistema de arquivos de Moon. O projeto combina uma interface espacial, denominada Hall e salas, com uma camada documental denominada Moonpedia. Origem A formulação inicial, registrada em abril de 2026, descrevia um site que funcionasse como palácio mental ou mansão navegável, evitando tanto um portfólio institucional convencional quanto uma wiki sem identidade visual. O Notion foi definido como fonte editorial, enquanto o site teria autonomia de interface. Arquitetura A versão atual possui Hall de Entrada, oito salas, Moonpedia, Linha do Tempo Lunar, Atlas, Álbuns, Máquina Mnésica, busca e páginas individuais de artigos. Os documentos são arquivos HTML estáticos gerados a partir de dados versionados no repositório LUAHELENA. Relação com a Moonwiki A Moonwiki funciona como fonte-mãe privada ou semiprivada. O Moonverse publica apenas versões selecionadas e sanitizadas. A existência de uma página ou registro na Moonwiki não implica publicação automática. Evolução O projeto passou por versões centradas em estrutura de wiki, depois por um redesenho inspirado em ergonomia de leitura do Wikiwand e, em seguida, pelo V4 Rebirth, que restaurou a casa navegável como interface principal sem abandonar os artigos de leitura profunda. Tecnologia O site utiliza HTML, CSS e JavaScript leves, com geração estática e validações automatizadas no GitHub Actions. A arquitetura evita dependências externas obrigatórias para a leitura básica.",
+    "tags": [
+      "Moonverse",
+      "web",
+      "arquivo",
+      "Moonpedia",
+      "GitHub Pages"
+    ],
+    "type": "Projeto web e arquivo público",
+    "wing": "Observatório Nexus",
+    "wing_id": "observatorio-nexus"
+  },
+  {
+    "id": "moonwiki",
+    "title": "Moonwiki",
+    "url": "/moonverse/entry/moonwiki/",
+    "summary": "Sistema editorial usado como fonte-mãe para cronologia, verbetes e textos que podem alimentar versões públicas do Moonverse.",
+    "body": "Função Moonwiki é um arquivo editorial mantido no Notion para organizar biografia, cronologia, verbetes e textos-base relacionados a Moon e seus projetos. Sua função principal é servir como fonte estruturada de consulta e não como interface pública final. Estrutura O sistema inclui uma base biográfica, uma Linha do Tempo Lunar, uma coleção de Verbetes do Moonverse e Textos Base. Os registros possuem metadados que podem ser usados para classificação e reconciliação de conteúdo. Integração com o Moonverse Em 2026 foi implementada uma ponte de trabalho em que conteúdo da Moonwiki pode ser recuperado por ferramentas de IA, revisado e transformado em artefatos no repositório do Moonverse. A integração é editorial: a fonte é lida e convertida, mas o corpo privado não é publicado automaticamente. Política de publicação O princípio operacional é que exportação não equivale a publicação. Informações médicas, familiares, institucionais, relacionais ou de terceiros podem permanecer disponíveis na fonte privada sem aparecer no site. Relação com Moon Source Moonwiki é uma implementação concreta de arquivo-fonte dentro do ecossistema Moon Source. Ela fornece matéria-prima e metadados; a autoridade de publicação permanece com a revisão editorial de Moon.",
+    "tags": [
+      "Moonwiki",
+      "Notion",
+      "arquivo",
+      "fonte",
+      "editorial"
+    ],
+    "type": "Arquivo editorial privado",
+    "wing": "Biblioteca Lunar",
+    "wing_id": "biblioteca-lunar"
+  },
+  {
+    "id": "tecnologia-ia",
+    "title": "Tecnologia e inteligência artificial na trajetória de Moon",
+    "url": "/moonverse/entry/tecnologia-e-inteligencia-artificial-na-trajetoria-de-moon/",
+    "summary": "Continuidade entre o interesse de Moon por tecnologia desde os anos 2000 e seu uso posterior de modelos de linguagem e sistemas de IA.",
+    "body": "Infância e anos 2000 Os registros de infância incluem câmera digital, emuladores de Super Nintendo, The Sims, RollerCoaster Tycoon, CDs, computador doméstico e acesso progressivo à internet. O conjunto é compatível com uma experiência geracional zillennial marcada pela rápida expansão da tecnologia de consumo. Adolescência e smartphones Em textos de 2012 e 2013, Moon registrou interesse intenso por smartphones, especialmente aparelhos Android e modelos como Samsung Galaxy Ace e Galaxy S II. Também acompanhava o iPhone e especulava sobre tecnologias futuras, incluindo comunicação holográfica. Idioma e acesso O aprendizado de inglês e o uso de ferramentas como Google Tradutor aparecem no arquivo como formas de ampliar acesso à internet e a conteúdos culturais. A tradução automática foi posteriormente lembrada como um exemplo precoce de tecnologia capaz de atravessar uma barreira que antes exigia maior mediação humana. Modelos de linguagem Na vida adulta, Moon passou a utilizar modelos de linguagem não apenas para perguntas pontuais, mas para organizar arquivos, escrever, estruturar projetos, gerar handoffs e manter sistemas de contexto. Esse uso levou ao desenvolvimento de Moon Source e de outros projetos de IA. Interpretação autobiográfica O arquivo atual descreve essa trajetória pela expressão “tecnologia como magia tornando-se arquitetura”. A expressão é uma interpretação autoral: os fatos documentados são a continuidade do interesse por tecnologias emergentes e a ampliação progressiva de seu uso criativo e organizacional.",
+    "tags": [
+      "tecnologia",
+      "IA",
+      "LLMs",
+      "zillennial",
+      "internet"
+    ],
+    "type": "História autobiográfica de tecnologia",
+    "wing": "Observatório Nexus",
+    "wing_id": "observatorio-nexus"
+  },
+  {
+    "id": "santuario",
+    "title": "Santuário de Moon",
+    "url": "/moonverse/entry/santuario-de-moon/",
+    "summary": "Projeto de longo prazo de um território doméstico multiespécie com natureza, proteção, cuidado e extensões espirituais.",
+    "body": "Formulação atual Santuário é um conceito desenvolvido no projeto Sobre a Moon para organizar um objetivo de longo prazo de moradia e forma de vida. A versão atual estabelece como prioridade um território real, preferencialmente um sítio, chácara ou terreno com espaço e proximidade funcional da cidade. Componentes materiais O projeto inclui casa com espaço, jardim ou natureza viva, borda física segura, infraestrutura para animais e condições de cuidado que não dependam exclusivamente da vigilância permanente de uma única pessoa. A formulação deriva do conceito de Casa-Arca e de registros anteriores sobre proteção animal e vida doméstica. Escalas secundárias Os arquivos também utilizam o termo santuário para um quarto privado de descanso e tecnologia, para regras de acesso afetivo e para experiências de natureza percebidas como espiritualmente significativas. Após revisão conceitual, essas escalas foram classificadas como derivadas da forma territorial principal. Relação com a Ecorreligião A Ecorreligião é tratada como possível exteriorização comunitária e institucional do Santuário, não como definição total do conceito. O Santuário pode existir como projeto doméstico e ecológico independentemente de uma organização religiosa. Status O projeto permanece em formulação. Não existe ainda uma propriedade ou instituição pública correspondente a todas essas características.",
+    "tags": [
+      "Santuário",
+      "Casa-Arca",
+      "natureza",
+      "animais",
+      "território"
+    ],
+    "type": "Projeto territorial e simbólico",
+    "wing": "Jardim-Santuário",
+    "wing_id": "jardim-santuario"
+  },
+  {
+    "id": "ecorreligiao",
+    "title": "Ecorreligião",
+    "url": "/moonverse/entry/ecorreligiao/",
+    "summary": "Projeto autoral em formulação que combina espiritualidade ecológica, rito, comunidade, ética ecossocial e mecanismos anti-culto.",
+    "body": "Definição Ecorreligião é um projeto em formulação que procura combinar espiritualidade ecológica, ética ecossocial, práticas comunitárias e linguagem ritual. O termo “religião” é tratado nos arquivos como possível interface social e institucional, enquanto a descrição interna mais frequente é espiritualidade ecopolítica. Princípios As regras registradas incluem ausência de autoridade infalível, recusa a revelação fechada, separação entre símbolo e fato, liberdade interpretativa, prática ecológica concreta e mecanismos contra culto de personalidade. O projeto não define uma escritura inquestionável nem uma metafísica obrigatória. Desenvolvimento previsto A sequência de desenvolvimento proposta começa por um santuário mínimo, com carta de princípios, simbologia, rito e calendário reduzidos. Uma fase posterior dependeria da existência de participantes reais, encontros regulares e práticas ecológicas verificáveis antes de qualquer formalização institucional. Referências comparativas A pesquisa interna mapeou iniciativas como Findhorn Foundation, Reclaiming, Earth Activist Training, GreenFaith e ecovilas brasileiras. Elas são utilizadas como casos comparativos de governança, comunidade, ritual e ecologia, sem serem tratadas como modelos a copiar integralmente. Relação com o Santuário O Santuário é a base territorial e doméstica mais ampla. A Ecorreligião representa apenas uma possibilidade de expansão coletiva e institucional dessa base. Status Não há organização religiosa formal criada. O projeto permanece conceitual e experimental.",
+    "tags": [
+      "ecorreligião",
+      "espiritualidade",
+      "ecologia",
+      "comunidade",
+      "anti-culto"
+    ],
+    "type": "Projeto de espiritualidade ecopolítica",
+    "wing": "Jardim-Santuário",
+    "wing_id": "jardim-santuario"
+  },
+  {
+    "id": "story-scanner",
+    "title": "Story Scanner",
+    "url": "/moonverse/entry/story-scanner/",
+    "summary": "Método criado por Moon para analisar conjuntos de Instagram Stories separando observação, sequência, inferência e risco de sobreinterpretação.",
+    "body": "Objetivo Story Scanner é um método para analisar conjuntos de Instagram Stories como unidades de autoapresentação pública. O protocolo considera conteúdo visível, texto, ordem da sequência, contrastes e recorrências ao longo do tempo. Unidade de análise A unidade principal é o story set do dia, e não apenas um story isolado. A sequência é analisada porque a combinação entre conteúdos pode comunicar algo diferente de cada item considerado separadamente. Camadas O protocolo separa fatos visíveis, lógica da sequência, sinais conscientes, inferências plausíveis, leitura de públicos, imagem transmitida, mudanças de padrão e risco de sobreinterpretação. As inferências recebem níveis de confiança e não são convertidas automaticamente em características estáveis da pessoa. Limites O método não pressupõe acesso contínuo à conta de Instagram. No fluxo atual, a análise depende do envio de capturas ou gravações brutas. Também proíbe tratar ausência de evidência como evidência e recomenda que padrões estáveis só sejam exportados para arquivos de identidade após repetição suficiente. Papel no ecossistema Story Scanner funciona como engine e log. Leituras cotidianas permanecem no próprio arquivo; apenas deltas considerados estáveis podem alimentar arquivos de identidade, cronologia ou relações.",
+    "tags": [
+      "Story Scanner",
+      "Instagram",
+      "mídia social",
+      "análise",
+      "método"
+    ],
+    "type": "Método de análise de mídia social",
+    "wing": "Observatório Nexus",
+    "wing_id": "observatorio-nexus"
+  },
+  {
+    "id": "arquitetura-simbolica",
+    "title": "Arquitetura simbólica de Moon",
+    "url": "/moonverse/entry/arquitetura-simbolica-de-moon/",
+    "summary": "Conjunto de figuras mitológicas e símbolos recorrentes usados por Moon como linguagem de interpretação e organização pessoal.",
+    "body": "Composição O arquivo de identidade de Moon registra como figuras simbólicas recorrentes Hécate, Afrodite, Lilith, Hermes, Ganesha e Ísis. Também aparecem motivos como lua, água, mar, espelhos, portais, gatos, tecnologia e escrita. Função Esses elementos são usados para organizar interpretações, escolhas estéticas e narrativas pessoais. Hécate é associada a limiar e estratégia; Afrodite a desejo, beleza e ternura; Lilith a insubmissão e soberania. Outras figuras possuem funções mais situacionais conforme o arquivo em que aparecem. Natureza do sistema A arquitetura simbólica não é registrada como doutrina religiosa fechada. Os próprios arquivos a descrevem como linguagem estruturante e estabelecem que arquétipos não devem ser tratados como dogmas ou como prova objetiva sobre acontecimentos. Relação com projetos A simbologia influencia a estética do Moonverse, o desenvolvimento do Santuário e alguns projetos literários. Também fornece vocabulário para organizar temas de identidade, proteção, criação e transição entre fases. Limites epistemológicos O sistema distingue uso simbólico de afirmação factual. Quando uma figura mitológica é usada para interpretar uma decisão ou período de vida, a relação é apresentada como construção autoral e não como causalidade demonstrada.",
+    "tags": [
+      "símbolos",
+      "Hécate",
+      "Afrodite",
+      "Lilith",
+      "mitologia"
+    ],
+    "type": "Sistema simbólico autoral",
+    "wing": "Jardim-Santuário",
+    "wing_id": "jardim-santuario"
   }
 ]

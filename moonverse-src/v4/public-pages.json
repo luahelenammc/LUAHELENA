@@ -1,1 +1,501 @@
-{"version":"4.0.0","pages":[{"id":"maresia","title":"O cheiro de maresia","url":"/moonverse/entry/o-cheiro-de-maresia/","summary":"O litoral como memória corporal: estrada, espera, água e a sensação de atravessar um portal.","source_record_ids":["302330bf7340806eb95efa85794925e4"],"rooms":["biblioteca-lunar","jardim-santuario"],"albums":["album-infancia"],"memory":true,"tags":["infância","mar","memória"],"era":"infancia"},{"id":"moon-source","title":"Moon Source","url":"/moonverse/entry/moon-source/","summary":"Arquitetura de contexto, governança e continuidade para colaboração com IA.","source_record_ids":[],"rooms":["observatorio-nexus"],"albums":[],"memory":false,"tags":["IA","contexto","governança"],"era":"agora"},{"id":"sims","title":"The Sims 1 como casa mental","url":"/moonverse/entry/the-sims-1-como-casa-mental/","summary":"Uma casa virtual como primeira gramática de espaço, rotina e possibilidade.","source_record_ids":["302330bf7340804b8879ecbfc354e987"],"rooms":["quarto-nostalgico"],"albums":["album-infancia","album-nostalgico"],"memory":true,"tags":["The Sims","jogos","casa"],"era":"infancia"},{"id":"orkut-msn","title":"Orkut, MSN e o quarto paralelo","url":"/moonverse/entry/orkut-msn-e-o-quarto-paralelo/","summary":"A internet antiga como lugar habitável, artesanal e social.","source_record_ids":[],"rooms":["quarto-nostalgico","cinema-musica"],"albums":["album-nostalgico"],"memory":true,"tags":["Orkut","MSN","internet"],"era":"adolescencia"},{"id":"infancia-digital","title":"Tecnologia, SNES e Olympus D395: a infância digital","url":"/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/","summary":"Jogos, câmera e computador como laboratório precoce de arquivo e imaginação.","source_record_ids":["302330bf7340804b8879ecbfc354e987"],"rooms":["quarto-nostalgico","biblioteca-lunar"],"albums":["album-infancia","album-nostalgico"],"memory":true,"tags":["SNES","Olympus","arquivo"],"era":"infancia"},{"id":"ecologia-espiritual","title":"Ecologia espiritual","url":"/moonverse/entry/ecologia-espiritual/","summary":"Natureza como relação ética, espiritual e comunitária, não mero cenário.","source_record_ids":[],"rooms":["jardim-santuario"],"albums":["atlas-afetivo"],"memory":true,"tags":["natureza","espiritualidade"],"era":"agora"},{"id":"me-tornando","title":"Me tornando eu mesma","url":"/moonverse/entry/me-tornando-eu-mesma/","summary":"Uma página-pilar sobre reconhecimento, transição e autoria da própria presença.","source_record_ids":["302330bf73408005b12bf26fffe66d1f","302330bf734080fbaf8def540c95198f"],"rooms":["espelho-dagua","biblioteca-lunar"],"albums":["me-tornando"],"memory":true,"tags":["transição","identidade"],"era":"transicao"},{"id":"nome-presenca","title":"Nome e presença","url":"/moonverse/entry/nome-e-presenca/","summary":"O nome como reconhecimento, presença e proteção documental.","source_record_ids":["302330bf73408020956ee47c670a111f"],"rooms":["espelho-dagua"],"albums":["me-tornando"],"memory":true,"tags":["nome","presença"],"era":"transicao"},{"id":"casa-arca","title":"Casa-arca","url":"/moonverse/entry/casa-arca/","summary":"Lar futuro como abrigo do vivo: plantas, animais, vínculo, tecnologia e cuidado.","source_record_ids":[],"rooms":["jardim-santuario"],"albums":["atlas-afetivo"],"memory":true,"tags":["casa","futuro","abrigo"],"era":"futuro"},{"id":"hecate","title":"Hécate no portão","url":"/moonverse/entry/hecate-no-portao/","summary":"Limiar, proteção e leitura simbólica de encruzilhadas.","source_record_ids":[],"rooms":["jardim-santuario"],"albums":[],"memory":true,"tags":["Hécate","limiar"],"era":"agora"},{"id":"lithia","title":"Crônicas de Líthia","url":"/moonverse/entry/cronicas-de-lithia/","summary":"Portal para um território autoral em que experiência é metabolizada como mundo.","source_record_ids":[],"rooms":["atelie-de-lithia"],"albums":[],"memory":false,"tags":["Líthia","ficção","worldbuilding"],"era":"agora"},{"id":"lunar-citadel","title":"Lunar Citadel","url":"/moonverse/entry/lunar-citadel/","summary":"Cidade, memória e governança como experimento de arquitetura simbiótica.","source_record_ids":[],"rooms":["observatorio-nexus"],"albums":[],"memory":false,"tags":["IA","Citadel","cidade"],"era":"agora"},{"id":"familia-do-futuro","title":"A família do futuro como reparação","url":"/moonverse/entry/a-familia-do-futuro-como-reparacao/","summary":"Futuro doméstico, pertencimento e família imaginada sem repetir o passado.","source_record_ids":[],"rooms":["jardim-santuario","biblioteca-lunar"],"albums":["atlas-afetivo"],"memory":true,"tags":["família","futuro"],"era":"futuro"},{"id":"escrita-magia","title":"A escrita como magia da vida real","url":"/moonverse/entry/escrita-como-magia-da-vida-real/","summary":"Escrita como preservação, worldbuilding e arquitetura de linguagem.","source_record_ids":[],"rooms":["atelie-de-lithia","biblioteca-lunar"],"albums":[],"memory":true,"tags":["escrita","linguagem","Líthia"],"era":"agora"}]}
+{
+  "version": "5.0.0-encyclopedic",
+  "pages": [
+    {
+      "id": "maresia",
+      "title": "Memórias de praia na infância de Moon",
+      "url": "/moonverse/entry/o-cheiro-de-maresia/",
+      "summary": "Registro autobiográfico sobre viagens ao litoral durante a infância e sobre a associação da maresia com a chegada à praia.",
+      "source_record_ids": [
+        "302330bf7340806eb95efa85794925e4"
+      ],
+      "rooms": [
+        "biblioteca-lunar",
+        "jardim-santuario"
+      ],
+      "albums": [
+        "album-infancia"
+      ],
+      "memory": true,
+      "tags": [
+        "infância",
+        "praia",
+        "mar",
+        "memória",
+        "água"
+      ],
+      "era": "infancia"
+    },
+    {
+      "id": "moon-source",
+      "title": "Moon Source",
+      "url": "/moonverse/entry/moon-source/",
+      "summary": "Método desenvolvido por Moon para organizar contexto, memória, autoridade e continuidade em sistemas de colaboração com inteligência artificial.",
+      "source_record_ids": [],
+      "rooms": [
+        "observatorio-nexus"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Moon Source",
+        "contexto",
+        "IA",
+        "memória",
+        "governança",
+        "método"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "sims",
+      "title": "The Sims na infância de Moon",
+      "url": "/moonverse/entry/the-sims-1-como-casa-mental/",
+      "summary": "Registro sobre o contato de Moon com The Sims e sobre a importância posterior atribuída ao jogo em sua relação com ambientes simulados.",
+      "source_record_ids": [
+        "302330bf7340804b8879ecbfc354e987"
+      ],
+      "rooms": [
+        "quarto-nostalgico"
+      ],
+      "albums": [
+        "album-infancia",
+        "album-nostalgico"
+      ],
+      "memory": true,
+      "tags": [
+        "The Sims",
+        "jogos",
+        "casa",
+        "infância",
+        "interface",
+        "memória"
+      ],
+      "era": "infancia"
+    },
+    {
+      "id": "orkut-msn",
+      "title": "Orkut e MSN na adolescência de Moon",
+      "url": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
+      "summary": "Registro sobre o uso de Orkut e MSN e sobre o papel dessas plataformas na socialização e expressão online de Moon.",
+      "source_record_ids": [],
+      "rooms": [
+        "quarto-nostalgico",
+        "cinema-musica"
+      ],
+      "albums": [
+        "album-nostalgico"
+      ],
+      "memory": true,
+      "tags": [
+        "Orkut",
+        "MSN",
+        "internet",
+        "identidade",
+        "comunidade",
+        "nostalgia"
+      ],
+      "era": "adolescencia"
+    },
+    {
+      "id": "infancia-digital",
+      "title": "Tecnologia e cultura digital na infância de Moon",
+      "url": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
+      "summary": "Panorama dos videogames, câmeras digitais, computadores e outras tecnologias presentes na infância de Moon nos anos 2000.",
+      "source_record_ids": [
+        "302330bf7340804b8879ecbfc354e987"
+      ],
+      "rooms": [
+        "quarto-nostalgico",
+        "biblioteca-lunar"
+      ],
+      "albums": [
+        "album-infancia",
+        "album-nostalgico"
+      ],
+      "memory": true,
+      "tags": [
+        "SNES",
+        "Olympus D395",
+        "fotografia",
+        "TV de tubo",
+        "software",
+        "arquivo"
+      ],
+      "era": "infancia"
+    },
+    {
+      "id": "ecologia-espiritual",
+      "title": "Ecologia espiritual no universo de Moon",
+      "url": "/moonverse/entry/ecologia-espiritual/",
+      "summary": "Síntese do interesse de Moon pelas relações entre espiritualidade, natureza, ética ecológica e formas comunitárias de vida.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario"
+      ],
+      "albums": [
+        "atlas-afetivo"
+      ],
+      "memory": true,
+      "tags": [
+        "ecologia",
+        "espiritualidade",
+        "natureza",
+        "santuário",
+        "ecorreligião",
+        "Brasil"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "me-tornando",
+      "title": "Me tornando eu mesma",
+      "url": "/moonverse/entry/me-tornando-eu-mesma/",
+      "summary": "Texto autobiográfico de Moon dedicado à identidade, à transição de gênero e à reconstrução de sua trajetória em primeira pessoa.",
+      "source_record_ids": [
+        "302330bf73408005b12bf26fffe66d1f",
+        "302330bf734080fbaf8def540c95198f"
+      ],
+      "rooms": [
+        "espelho-dagua",
+        "biblioteca-lunar"
+      ],
+      "albums": [
+        "me-tornando"
+      ],
+      "memory": true,
+      "tags": [
+        "transição",
+        "identidade",
+        "reconhecimento",
+        "feminilidade",
+        "autobiografia"
+      ],
+      "era": "transicao"
+    },
+    {
+      "id": "nome-presenca",
+      "title": "Nome e identidade pública de Moon",
+      "url": "/moonverse/entry/nome-e-presenca/",
+      "summary": "Registro sobre a adoção e o uso público do nome Moon no processo de consolidação de identidade e presença social.",
+      "source_record_ids": [
+        "302330bf73408020956ee47c670a111f"
+      ],
+      "rooms": [
+        "espelho-dagua"
+      ],
+      "albums": [
+        "me-tornando"
+      ],
+      "memory": true,
+      "tags": [
+        "nome",
+        "presença",
+        "cidadania",
+        "retificação",
+        "reconhecimento"
+      ],
+      "era": "transicao"
+    },
+    {
+      "id": "casa-arca",
+      "title": "Casa-Arca",
+      "url": "/moonverse/entry/casa-arca/",
+      "summary": "Conceito de longo prazo que reúne moradia, família, animais, natureza e infraestrutura de cuidado em um único projeto doméstico.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario"
+      ],
+      "albums": [
+        "atlas-afetivo"
+      ],
+      "memory": true,
+      "tags": [
+        "casa",
+        "santuário",
+        "animais",
+        "família",
+        "natureza",
+        "futuro"
+      ],
+      "era": "futuro"
+    },
+    {
+      "id": "hecate",
+      "title": "Hécate na arquitetura simbólica de Moon",
+      "url": "/moonverse/entry/hecate-no-portao/",
+      "summary": "Uso autoral de Hécate como referência para temas de limiar, encruzilhada, estratégia e proteção.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario"
+      ],
+      "albums": [],
+      "memory": true,
+      "tags": [
+        "Hécate",
+        "limiar",
+        "proteção",
+        "estratégia",
+        "espiritualidade",
+        "símbolo"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "lithia",
+      "title": "Crônicas de Líthia",
+      "url": "/moonverse/entry/cronicas-de-lithia/",
+      "summary": "Projeto de ficção e worldbuilding de Moon ambientado no universo de Líthia.",
+      "source_record_ids": [],
+      "rooms": [
+        "atelie-de-lithia"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Líthia",
+        "fantasia",
+        "worldbuilding",
+        "literatura",
+        "mitologia",
+        "autoria"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "lunar-citadel",
+      "title": "Lunar Citadel",
+      "url": "/moonverse/entry/lunar-citadel/",
+      "summary": "Projeto experimental de Moon dedicado a agentes, memória, governança e arquiteturas de colaboração entre humanos e sistemas de IA.",
+      "source_record_ids": [],
+      "rooms": [
+        "observatorio-nexus"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Lunar Citadel",
+        "IA",
+        "governança",
+        "memória",
+        "world engine",
+        "arquitetura"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "familia-do-futuro",
+      "title": "Projeto de família de Moon",
+      "url": "/moonverse/entry/a-familia-do-futuro-como-reparacao/",
+      "summary": "Registro de longo prazo sobre maternidade, adoção, parceria parental e organização doméstica desejada por Moon.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario",
+        "biblioteca-lunar"
+      ],
+      "albums": [
+        "atlas-afetivo"
+      ],
+      "memory": true,
+      "tags": [
+        "A Família do Futuro",
+        "infância",
+        "futuro",
+        "invenção",
+        "família escolhida",
+        "transição"
+      ],
+      "era": "futuro"
+    },
+    {
+      "id": "escrita-magia",
+      "title": "Escrita autobiográfica e preservação de memória",
+      "url": "/moonverse/entry/escrita-como-magia-da-vida-real/",
+      "summary": "Papel da escrita na autobiografia, no arquivamento de experiências e na produção de projetos ficcionais de Moon.",
+      "source_record_ids": [],
+      "rooms": [
+        "atelie-de-lithia",
+        "biblioteca-lunar"
+      ],
+      "albums": [],
+      "memory": true,
+      "tags": [
+        "escrita",
+        "worldbuilding",
+        "Líthia",
+        "autoria",
+        "memória",
+        "linguagem"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "moon-profile",
+      "title": "Lua Helena Moon Martins Cardoso",
+      "url": "/moonverse/entry/lua-helena-moon-martins-cardoso/",
+      "summary": "Perfil público da autora de Moon Source, Moonverse, Lunar Citadel e Crônicas de Líthia.",
+      "source_record_ids": [],
+      "rooms": [
+        "biblioteca-lunar",
+        "espelho-dagua"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Moon",
+        "autoria",
+        "psicologia",
+        "IA",
+        "escrita"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "moonverse",
+      "title": "Moonverse",
+      "url": "/moonverse/entry/moonverse/",
+      "summary": "Portal web de Moon que organiza documentos públicos em uma casa navegável, Moonpedia, linha do tempo, Atlas e dispositivos de memória.",
+      "source_record_ids": [],
+      "rooms": [
+        "observatorio-nexus",
+        "biblioteca-lunar"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Moonverse",
+        "web",
+        "arquivo",
+        "Moonpedia",
+        "GitHub Pages"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "moonwiki",
+      "title": "Moonwiki",
+      "url": "/moonverse/entry/moonwiki/",
+      "summary": "Sistema editorial usado como fonte-mãe para cronologia, verbetes e textos que podem alimentar versões públicas do Moonverse.",
+      "source_record_ids": [],
+      "rooms": [
+        "biblioteca-lunar"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Moonwiki",
+        "Notion",
+        "arquivo",
+        "fonte",
+        "editorial"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "tecnologia-ia",
+      "title": "Tecnologia e inteligência artificial na trajetória de Moon",
+      "url": "/moonverse/entry/tecnologia-e-inteligencia-artificial-na-trajetoria-de-moon/",
+      "summary": "Continuidade entre o interesse de Moon por tecnologia desde os anos 2000 e seu uso posterior de modelos de linguagem e sistemas de IA.",
+      "source_record_ids": [],
+      "rooms": [
+        "quarto-nostalgico",
+        "observatorio-nexus"
+      ],
+      "albums": [
+        "album-nostalgico"
+      ],
+      "memory": true,
+      "tags": [
+        "tecnologia",
+        "IA",
+        "LLMs",
+        "zillennial",
+        "internet"
+      ],
+      "era": "transversal"
+    },
+    {
+      "id": "santuario",
+      "title": "Santuário de Moon",
+      "url": "/moonverse/entry/santuario-de-moon/",
+      "summary": "Projeto de longo prazo de um território doméstico multiespécie com natureza, proteção, cuidado e extensões espirituais.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario"
+      ],
+      "albums": [
+        "atlas-afetivo"
+      ],
+      "memory": true,
+      "tags": [
+        "Santuário",
+        "Casa-Arca",
+        "natureza",
+        "animais",
+        "território"
+      ],
+      "era": "futuro"
+    },
+    {
+      "id": "ecorreligiao",
+      "title": "Ecorreligião",
+      "url": "/moonverse/entry/ecorreligiao/",
+      "summary": "Projeto autoral em formulação que combina espiritualidade ecológica, rito, comunidade, ética ecossocial e mecanismos anti-culto.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "ecorreligião",
+        "espiritualidade",
+        "ecologia",
+        "comunidade",
+        "anti-culto"
+      ],
+      "era": "futuro"
+    },
+    {
+      "id": "story-scanner",
+      "title": "Story Scanner",
+      "url": "/moonverse/entry/story-scanner/",
+      "summary": "Método criado por Moon para analisar conjuntos de Instagram Stories separando observação, sequência, inferência e risco de sobreinterpretação.",
+      "source_record_ids": [],
+      "rooms": [
+        "observatorio-nexus"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Story Scanner",
+        "Instagram",
+        "mídia social",
+        "análise",
+        "método"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "arquitetura-simbolica",
+      "title": "Arquitetura simbólica de Moon",
+      "url": "/moonverse/entry/arquitetura-simbolica-de-moon/",
+      "summary": "Conjunto de figuras mitológicas e símbolos recorrentes usados por Moon como linguagem de interpretação e organização pessoal.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario",
+        "atelie-de-lithia"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "símbolos",
+        "Hécate",
+        "Afrodite",
+        "Lilith",
+        "mitologia"
+      ],
+      "era": "transversal"
+    }
+  ]
+}

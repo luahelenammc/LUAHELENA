@@ -1,1 +1,299 @@
-{"version":"4.0.0","rooms":[{"id":"biblioteca-lunar","title":"Biblioteca Lunar","icon":"📚","subtitle":"Arquivo, autobiografia, linha do tempo e páginas que sustentam a casa.","tone":"amber","objects":[{"kind":"bookshelf","label":"Estante da Moonpedia","href":"/moonverse/wiki/","note":"Índice pragmático dos documentos públicos."},{"kind":"timeline","label":"Parede da Linha do Tempo","href":"/moonverse/timeline/","note":"Marcos públicos derivados da Moonwiki."},{"kind":"album","label":"Álbum da Infância","href":"/moonverse/albums/#album-infancia","note":"Folhear antes de explicar."},{"kind":"desk","label":"Mesa de escrita","href":"/moonverse/entry/escrita-como-magia-da-vida-real/","note":"A linguagem como forma de preservar."},{"kind":"locked","label":"Gaveta do arquivo privado","href":null,"note":"Existe, mas não é uma porta pública."}]},{"id":"quarto-nostalgico","title":"Quarto Nostálgico","icon":"💿","subtitle":"Jogos, internet antiga, aparelhos e cultura digital como tecnologias de memória.","tone":"rose","objects":[{"kind":"computer","label":"Computador antigo","href":"/moonverse/entry/orkut-msn-e-o-quarto-paralelo/","note":"Orkut, MSN e a web habitável."},{"kind":"console","label":"Console ao lado da TV","href":"/moonverse/entry/the-sims-1-como-casa-mental/","note":"Casas virtuais e mundos reiniciáveis."},{"kind":"camera","label":"Olympus D395","href":"/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/","note":"Registrar para garantir que aconteceu."},{"kind":"album","label":"Álbum Nostálgico","href":"/moonverse/albums/#album-nostalgico","note":"Recortes da internet e dos objetos que ainda brilham."}]},{"id":"observatorio-nexus","title":"Observatório Nexus","icon":"🔭","subtitle":"IA, arquitetura de contexto, Citadel e projetos vistos do lado público do laboratório.","tone":"blue","objects":[{"kind":"terminal","label":"Terminal Moon Source","href":"/moonverse/entry/moon-source/","note":"Contexto, fronteira e governança."},{"kind":"city","label":"Cidade sob a cúpula","href":"/moonverse/entry/lunar-citadel/","note":"A Citadel como cidade legível."},{"kind":"telescope","label":"Telescópio do Atlas","href":"/moonverse/atlas/","note":"Ver relações em vez de só páginas."},{"kind":"signal","label":"Sinal da Simbiosfera","href":"/moonverse/atlas/#source-simbiosfera","note":"Nó de fonte, ainda sem documento público próprio."}]},{"id":"jardim-santuario","title":"Jardim-Santuário","icon":"🌿","subtitle":"Natureza, abrigo, futuros domésticos e limiares espirituais.","tone":"green","objects":[{"kind":"tree","label":"Ecologia espiritual","href":"/moonverse/entry/ecologia-espiritual/","note":"Natureza como relação."},{"kind":"gate","label":"Portão de Hécate","href":"/moonverse/entry/hecate-no-portao/","note":"Limiar e proteção."},{"kind":"house","label":"Casa-arca","href":"/moonverse/entry/casa-arca/","note":"Um futuro em forma de abrigo."},{"kind":"bench","label":"Banco do futuro","href":"/moonverse/entry/a-familia-do-futuro-como-reparacao/","note":"Pertencimento imaginado como continuidade."}]},{"id":"espelho-dagua","title":"Espelho d’Água","icon":"🪞","subtitle":"Nome, transição e presença pública sem transformar intimidade em prontuário.","tone":"violet","objects":[{"kind":"mirror","label":"Me tornando eu mesma","href":"/moonverse/entry/me-tornando-eu-mesma/","note":"Reconhecer-se sem reduzir-se à clínica."},{"kind":"nameplate","label":"Nome e presença","href":"/moonverse/entry/nome-e-presenca/","note":"O nome certo como presença."},{"kind":"locked","label":"Arquivo corporal privado","href":null,"note":"A história existe; o corpo não é exposição obrigatória."}]},{"id":"atelie-de-lithia","title":"Ateliê de Líthia","icon":"🗺️","subtitle":"Escrita, mapas, mitologias e mundos autorais ainda em movimento.","tone":"gold","objects":[{"kind":"manuscript","label":"Crônicas de Líthia","href":"/moonverse/entry/cronicas-de-lithia/","note":"Entrada canônica para o mundo."},{"kind":"ink","label":"A escrita como magia","href":"/moonverse/entry/escrita-como-magia-da-vida-real/","note":"A tecnologia íntima que abre mundos."},{"kind":"map","label":"Mesa de mapas","href":null,"note":"Espaço reservado para material canônico futuro, sem lore inventado."}]},{"id":"cinema-musica","title":"Sala de Cinema e Música","icon":"🎞️","subtitle":"Uma sala reaberta da concepção original; por enquanto, o acervo público é deliberadamente pequeno.","tone":"red","objects":[{"kind":"projector","label":"Projetor de memórias culturais","href":"/moonverse/wiki/","note":"Os documentos culturais públicos continuam acessíveis pelo índice."},{"kind":"jukebox","label":"Jukebox em silêncio","href":null,"note":"A estrutura está pronta; nenhum repertório foi inventado para preenchê-la."},{"kind":"album","label":"Álbum Nostálgico","href":"/moonverse/albums/#album-nostalgico","note":"Tecnologias e interfaces antigas como memória."}]},{"id":"consultorio-warroom","title":"Consultório / Warroom","icon":"🗂️","subtitle":"Trabalho, psicologia e leitura institucional em uma superfície pública deliberadamente sanitizada.","tone":"slate","objects":[{"kind":"chair","label":"Trajetória profissional","href":"/moonverse/timeline/#trabalho","note":"Marcos públicos, sem detalhes internos do hospital."},{"kind":"file","label":"Arquivo institucional","href":null,"note":"Trancado: casos, pessoas e conflitos profissionais não pertencem à superfície pública."},{"kind":"notebook","label":"Caderno de método","href":"/moonverse/entry/moon-source/","note":"A parte publicável da arquitetura de contexto."}]}]}
+{
+  "version": "5.0.0-encyclopedic",
+  "rooms": [
+    {
+      "id": "biblioteca-lunar",
+      "title": "Biblioteca Lunar",
+      "icon": "📚",
+      "subtitle": "Arquivo, autobiografia, linha do tempo e páginas que sustentam a casa.",
+      "tone": "amber",
+      "objects": [
+        {
+          "kind": "bookshelf",
+          "label": "Estante da Moonpedia",
+          "href": "/moonverse/wiki/",
+          "note": "Índice pragmático dos documentos públicos."
+        },
+        {
+          "kind": "timeline",
+          "label": "Parede da Linha do Tempo",
+          "href": "/moonverse/timeline/",
+          "note": "Marcos públicos derivados da Moonwiki."
+        },
+        {
+          "kind": "album",
+          "label": "Álbum da Infância",
+          "href": "/moonverse/albums/#album-infancia",
+          "note": "Folhear antes de explicar."
+        },
+        {
+          "kind": "desk",
+          "label": "Mesa de escrita",
+          "href": "/moonverse/entry/escrita-como-magia-da-vida-real/",
+          "note": "A linguagem como forma de preservar."
+        },
+        {
+          "kind": "locked",
+          "label": "Gaveta do arquivo privado",
+          "href": null,
+          "note": "Existe, mas não é uma porta pública."
+        },
+        {
+          "kind": "portrait",
+          "label": "Perfil de Moon",
+          "href": "/moonverse/entry/lua-helena-moon-martins-cardoso/",
+          "note": "Perfil autoral e mapa dos principais projetos."
+        },
+        {
+          "kind": "archive",
+          "label": "Moonwiki",
+          "href": "/moonverse/entry/moonwiki/",
+          "note": "A fonte editorial por trás de parte da casa."
+        }
+      ]
+    },
+    {
+      "id": "quarto-nostalgico",
+      "title": "Quarto Nostálgico",
+      "icon": "💿",
+      "subtitle": "Jogos, internet antiga, aparelhos e cultura digital como tecnologias de memória.",
+      "tone": "rose",
+      "objects": [
+        {
+          "kind": "computer",
+          "label": "Computador antigo",
+          "href": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
+          "note": "Orkut, MSN e a web habitável."
+        },
+        {
+          "kind": "console",
+          "label": "Console ao lado da TV",
+          "href": "/moonverse/entry/the-sims-1-como-casa-mental/",
+          "note": "Casas virtuais e mundos reiniciáveis."
+        },
+        {
+          "kind": "camera",
+          "label": "Olympus D395",
+          "href": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
+          "note": "Registrar para garantir que aconteceu."
+        },
+        {
+          "kind": "album",
+          "label": "Álbum Nostálgico",
+          "href": "/moonverse/albums/#album-nostalgico",
+          "note": "Recortes da internet e dos objetos que ainda brilham."
+        },
+        {
+          "kind": "signal",
+          "label": "Da tecnologia à IA",
+          "href": "/moonverse/entry/tecnologia-e-inteligencia-artificial-na-trajetoria-de-moon/",
+          "note": "Tecnologia dos anos 2000, smartphones e LLMs."
+        }
+      ]
+    },
+    {
+      "id": "observatorio-nexus",
+      "title": "Observatório Nexus",
+      "icon": "🔭",
+      "subtitle": "IA, arquitetura de contexto, Citadel e projetos vistos do lado público do laboratório.",
+      "tone": "blue",
+      "objects": [
+        {
+          "kind": "terminal",
+          "label": "Terminal Moon Source",
+          "href": "/moonverse/entry/moon-source/",
+          "note": "Contexto, fronteira e governança."
+        },
+        {
+          "kind": "city",
+          "label": "Cidade sob a cúpula",
+          "href": "/moonverse/entry/lunar-citadel/",
+          "note": "A Citadel como cidade legível."
+        },
+        {
+          "kind": "telescope",
+          "label": "Telescópio do Atlas",
+          "href": "/moonverse/atlas/",
+          "note": "Ver relações em vez de só páginas."
+        },
+        {
+          "kind": "signal",
+          "label": "Sinal da Simbiosfera",
+          "href": "/moonverse/atlas/#source-simbiosfera",
+          "note": "Nó de fonte, ainda sem documento público próprio."
+        },
+        {
+          "kind": "site",
+          "label": "Moonverse",
+          "href": "/moonverse/entry/moonverse/",
+          "note": "Arquitetura e história do próprio portal."
+        },
+        {
+          "kind": "scanner",
+          "label": "Story Scanner",
+          "href": "/moonverse/entry/story-scanner/",
+          "note": "Método para analisar autoapresentação efêmera."
+        }
+      ]
+    },
+    {
+      "id": "jardim-santuario",
+      "title": "Jardim-Santuário",
+      "icon": "🌿",
+      "subtitle": "Natureza, abrigo, futuros domésticos e limiares espirituais.",
+      "tone": "green",
+      "objects": [
+        {
+          "kind": "tree",
+          "label": "Ecologia espiritual",
+          "href": "/moonverse/entry/ecologia-espiritual/",
+          "note": "Natureza como relação."
+        },
+        {
+          "kind": "gate",
+          "label": "Portão de Hécate",
+          "href": "/moonverse/entry/hecate-no-portao/",
+          "note": "Limiar e proteção."
+        },
+        {
+          "kind": "house",
+          "label": "Casa-arca",
+          "href": "/moonverse/entry/casa-arca/",
+          "note": "Um futuro em forma de abrigo."
+        },
+        {
+          "kind": "bench",
+          "label": "Banco do futuro",
+          "href": "/moonverse/entry/a-familia-do-futuro-como-reparacao/",
+          "note": "Pertencimento imaginado como continuidade."
+        },
+        {
+          "kind": "land",
+          "label": "Santuário",
+          "href": "/moonverse/entry/santuario-de-moon/",
+          "note": "Projeto territorial, ecológico e multiespécie."
+        },
+        {
+          "kind": "circle",
+          "label": "Ecorreligião",
+          "href": "/moonverse/entry/ecorreligiao/",
+          "note": "Espiritualidade ecopolítica em formulação."
+        },
+        {
+          "kind": "symbols",
+          "label": "Arquitetura simbólica",
+          "href": "/moonverse/entry/arquitetura-simbolica-de-moon/",
+          "note": "Figuras e símbolos como linguagem autoral."
+        }
+      ]
+    },
+    {
+      "id": "espelho-dagua",
+      "title": "Espelho d’Água",
+      "icon": "🪞",
+      "subtitle": "Nome, transição e presença pública sem transformar intimidade em prontuário.",
+      "tone": "violet",
+      "objects": [
+        {
+          "kind": "mirror",
+          "label": "Me tornando eu mesma",
+          "href": "/moonverse/entry/me-tornando-eu-mesma/",
+          "note": "Reconhecer-se sem reduzir-se à clínica."
+        },
+        {
+          "kind": "nameplate",
+          "label": "Nome e presença",
+          "href": "/moonverse/entry/nome-e-presenca/",
+          "note": "O nome certo como presença."
+        },
+        {
+          "kind": "locked",
+          "label": "Arquivo corporal privado",
+          "href": null,
+          "note": "A história existe; o corpo não é exposição obrigatória."
+        }
+      ]
+    },
+    {
+      "id": "atelie-de-lithia",
+      "title": "Ateliê de Líthia",
+      "icon": "🗺️",
+      "subtitle": "Escrita, mapas, mitologias e mundos autorais ainda em movimento.",
+      "tone": "gold",
+      "objects": [
+        {
+          "kind": "manuscript",
+          "label": "Crônicas de Líthia",
+          "href": "/moonverse/entry/cronicas-de-lithia/",
+          "note": "Entrada canônica para o mundo."
+        },
+        {
+          "kind": "ink",
+          "label": "A escrita como magia",
+          "href": "/moonverse/entry/escrita-como-magia-da-vida-real/",
+          "note": "A tecnologia íntima que abre mundos."
+        },
+        {
+          "kind": "map",
+          "label": "Mesa de mapas",
+          "href": null,
+          "note": "Espaço reservado para material canônico futuro, sem lore inventado."
+        }
+      ]
+    },
+    {
+      "id": "cinema-musica",
+      "title": "Sala de Cinema e Música",
+      "icon": "🎞️",
+      "subtitle": "Uma sala reaberta da concepção original; por enquanto, o acervo público é deliberadamente pequeno.",
+      "tone": "red",
+      "objects": [
+        {
+          "kind": "projector",
+          "label": "Projetor de memórias culturais",
+          "href": "/moonverse/wiki/",
+          "note": "Os documentos culturais públicos continuam acessíveis pelo índice."
+        },
+        {
+          "kind": "jukebox",
+          "label": "Jukebox em silêncio",
+          "href": null,
+          "note": "A estrutura está pronta; nenhum repertório foi inventado para preenchê-la."
+        },
+        {
+          "kind": "album",
+          "label": "Álbum Nostálgico",
+          "href": "/moonverse/albums/#album-nostalgico",
+          "note": "Tecnologias e interfaces antigas como memória."
+        }
+      ]
+    },
+    {
+      "id": "consultorio-warroom",
+      "title": "Consultório / Warroom",
+      "icon": "🗂️",
+      "subtitle": "Trabalho, psicologia e leitura institucional em uma superfície pública deliberadamente sanitizada.",
+      "tone": "slate",
+      "objects": [
+        {
+          "kind": "chair",
+          "label": "Trajetória profissional",
+          "href": "/moonverse/timeline/#trabalho",
+          "note": "Marcos públicos, sem detalhes internos do hospital."
+        },
+        {
+          "kind": "file",
+          "label": "Arquivo institucional",
+          "href": null,
+          "note": "Trancado: casos, pessoas e conflitos profissionais não pertencem à superfície pública."
+        },
+        {
+          "kind": "notebook",
+          "label": "Caderno de método",
+          "href": "/moonverse/entry/moon-source/",
+          "note": "A parte publicável da arquitetura de contexto."
+        }
+      ]
+    }
+  ]
+}

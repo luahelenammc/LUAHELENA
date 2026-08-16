@@ -52,8 +52,8 @@
     {
       "id": "entry:maresia",
       "kind": "entry",
-      "label": "O cheiro de maresia",
-      "summary": "A lembrança de quando o litoral surgia depois de horas de estrada, e o mundo parecia prometer que ainda existia paraíso.",
+      "label": "Memórias de praia na infância de Moon",
+      "summary": "Registro autobiográfico sobre viagens ao litoral durante a infância e sobre a associação da maresia com a chegada à praia.",
       "url": "/moonverse/entry/o-cheiro-de-maresia/",
       "wing": "biblioteca-lunar",
       "tags": [
@@ -68,7 +68,7 @@
       "id": "entry:moon-source",
       "kind": "entry",
       "label": "Moon Source",
-      "summary": "Um método para tornar pessoas, projetos e instituições legíveis para IA sem reduzir sua complexidade a um prompt solto.",
+      "summary": "Método desenvolvido por Moon para organizar contexto, memória, autoridade e continuidade em sistemas de colaboração com inteligência artificial.",
       "url": "/moonverse/entry/moon-source/",
       "wing": "observatorio-nexus",
       "tags": [
@@ -83,8 +83,8 @@
     {
       "id": "entry:sims",
       "kind": "entry",
-      "label": "The Sims 1 como casa mental",
-      "summary": "Antes da internet regular, uma casa virtual ensinou que objetos, rotinas e possibilidades também podiam ser organizados como linguagem.",
+      "label": "The Sims na infância de Moon",
+      "summary": "Registro sobre o contato de Moon com The Sims e sobre a importância posterior atribuída ao jogo em sua relação com ambientes simulados.",
       "url": "/moonverse/entry/the-sims-1-como-casa-mental/",
       "wing": "quarto-nostalgico",
       "tags": [
@@ -99,8 +99,8 @@
     {
       "id": "entry:orkut-msn",
       "kind": "entry",
-      "label": "Orkut, MSN e o quarto paralelo",
-      "summary": "Orkut e MSN fizeram da internet um espaço pessoal, colorido e habitável para escrever, conversar e experimentar identidade.",
+      "label": "Orkut e MSN na adolescência de Moon",
+      "summary": "Registro sobre o uso de Orkut e MSN e sobre o papel dessas plataformas na socialização e expressão online de Moon.",
       "url": "/moonverse/entry/orkut-msn-e-o-quarto-paralelo/",
       "wing": "quarto-nostalgico",
       "tags": [
@@ -115,8 +115,8 @@
     {
       "id": "entry:infancia-digital",
       "kind": "entry",
-      "label": "Tecnologia, SNES e Olympus D395: a infância digital",
-      "summary": "Jogos, programas de imagem e uma câmera digital transformaram uma infância desconectada em laboratório de olhar, tentativa e arquivo.",
+      "label": "Tecnologia e cultura digital na infância de Moon",
+      "summary": "Panorama dos videogames, câmeras digitais, computadores e outras tecnologias presentes na infância de Moon nos anos 2000.",
       "url": "/moonverse/entry/tecnologia-snes-olympus-d395-infancia-digital/",
       "wing": "quarto-nostalgico",
       "tags": [
@@ -131,8 +131,8 @@
     {
       "id": "entry:ecologia-espiritual",
       "kind": "entry",
-      "label": "Ecologia espiritual",
-      "summary": "Uma síntese pública sobre o campo que aproxima responsabilidade ecológica, experiência espiritual e formas de pertencimento ao mundo vivo.",
+      "label": "Ecologia espiritual no universo de Moon",
+      "summary": "Síntese do interesse de Moon pelas relações entre espiritualidade, natureza, ética ecológica e formas comunitárias de vida.",
       "url": "/moonverse/entry/ecologia-espiritual/",
       "wing": "jardim-santuario",
       "tags": [
@@ -148,7 +148,7 @@
       "id": "entry:me-tornando",
       "kind": "entry",
       "label": "Me tornando eu mesma",
-      "summary": "A descoberta trans como reconhecimento de uma continuidade biográfica que já existia antes de ganhar nome.",
+      "summary": "Texto autobiográfico de Moon dedicado à identidade, à transição de gênero e à reconstrução de sua trajetória em primeira pessoa.",
       "url": "/moonverse/entry/me-tornando-eu-mesma/",
       "wing": "espelho-dagua",
       "tags": [
@@ -162,8 +162,8 @@
     {
       "id": "entry:nome-presenca",
       "kind": "entry",
-      "label": "Nome e presença",
-      "summary": "O nome como infraestrutura de reconhecimento: uma ponte entre identidade íntima, documentos, sistemas e vida pública.",
+      "label": "Nome e identidade pública de Moon",
+      "summary": "Registro sobre a adoção e o uso público do nome Moon no processo de consolidação de identidade e presença social.",
       "url": "/moonverse/entry/nome-e-presenca/",
       "wing": "espelho-dagua",
       "tags": [
@@ -177,8 +177,8 @@
     {
       "id": "entry:casa-arca",
       "kind": "entry",
-      "label": "Casa-arca",
-      "summary": "A casa imaginada como refúgio multiespécie, família possível e pequena arquitetura de proteção do vivo.",
+      "label": "Casa-Arca",
+      "summary": "Conceito de longo prazo que reúne moradia, família, animais, natureza e infraestrutura de cuidado em um único projeto doméstico.",
       "url": "/moonverse/entry/casa-arca/",
       "wing": "jardim-santuario",
       "tags": [
@@ -193,8 +193,8 @@
     {
       "id": "entry:hecate",
       "kind": "entry",
-      "label": "Hécate no portão",
-      "summary": "Hécate como linguagem pessoal para limiar, proteção, estratégia e travessias que não cabem em certezas simples.",
+      "label": "Hécate na arquitetura simbólica de Moon",
+      "summary": "Uso autoral de Hécate como referência para temas de limiar, encruzilhada, estratégia e proteção.",
       "url": "/moonverse/entry/hecate-no-portao/",
       "wing": "jardim-santuario",
       "tags": [
@@ -210,7 +210,7 @@
       "id": "entry:lithia",
       "kind": "entry",
       "label": "Crônicas de Líthia",
-      "summary": "Um universo literário concebido para metabolizar experiência, política, desejo, sombra e beleza em mundo ficcional habitável.",
+      "summary": "Projeto de ficção e worldbuilding de Moon ambientado no universo de Líthia.",
       "url": "/moonverse/entry/cronicas-de-lithia/",
       "wing": "atelie-de-lithia",
       "tags": [
@@ -226,7 +226,7 @@
       "id": "entry:lunar-citadel",
       "kind": "entry",
       "label": "Lunar Citadel",
-      "summary": "Uma arquitetura civilizacional experimental para pensar memória, governança, agentes e espaços causais sem confundir metáfora com consciência literal.",
+      "summary": "Projeto experimental de Moon dedicado a agentes, memória, governança e arquiteturas de colaboração entre humanos e sistemas de IA.",
       "url": "/moonverse/entry/lunar-citadel/",
       "wing": "observatorio-nexus",
       "tags": [
@@ -241,8 +241,8 @@
     {
       "id": "entry:familia-do-futuro",
       "kind": "entry",
-      "label": "A Família do Futuro como reparação",
-      "summary": "O filme como fábula que reunia invenção, futuro, família escolhida e reparação da estranheza.",
+      "label": "Projeto de família de Moon",
+      "summary": "Registro de longo prazo sobre maternidade, adoção, parceria parental e organização doméstica desejada por Moon.",
       "url": "/moonverse/entry/a-familia-do-futuro-como-reparacao/",
       "wing": "biblioteca-lunar",
       "tags": [
@@ -257,8 +257,8 @@
     {
       "id": "entry:escrita-magia",
       "kind": "entry",
-      "label": "A escrita como magia da vida real",
-      "summary": "Desde a adolescência, criar mundos paralelos foi uma forma de testar possibilidades, preservar experiências e devolver arquitetura ao que parecia disperso.",
+      "label": "Escrita autobiográfica e preservação de memória",
+      "summary": "Papel da escrita na autobiografia, no arquivamento de experiências e na produção de projetos ficcionais de Moon.",
       "url": "/moonverse/entry/escrita-como-magia-da-vida-real/",
       "wing": "atelie-de-lithia",
       "tags": [
@@ -268,6 +268,126 @@
         "autoria",
         "memória",
         "linguagem"
+      ]
+    },
+    {
+      "id": "entry:moon-profile",
+      "kind": "entry",
+      "label": "Lua Helena Moon Martins Cardoso",
+      "summary": "Perfil público da autora de Moon Source, Moonverse, Lunar Citadel e Crônicas de Líthia.",
+      "url": "/moonverse/entry/lua-helena-moon-martins-cardoso/",
+      "wing": "biblioteca-lunar",
+      "tags": [
+        "Moon",
+        "autoria",
+        "psicologia",
+        "IA",
+        "escrita"
+      ]
+    },
+    {
+      "id": "entry:moonverse",
+      "kind": "entry",
+      "label": "Moonverse",
+      "summary": "Portal web de Moon que organiza documentos públicos em uma casa navegável, Moonpedia, linha do tempo, Atlas e dispositivos de memória.",
+      "url": "/moonverse/entry/moonverse/",
+      "wing": "observatorio-nexus",
+      "tags": [
+        "Moonverse",
+        "web",
+        "arquivo",
+        "Moonpedia",
+        "GitHub Pages"
+      ]
+    },
+    {
+      "id": "entry:moonwiki",
+      "kind": "entry",
+      "label": "Moonwiki",
+      "summary": "Sistema editorial usado como fonte-mãe para cronologia, verbetes e textos que podem alimentar versões públicas do Moonverse.",
+      "url": "/moonverse/entry/moonwiki/",
+      "wing": "biblioteca-lunar",
+      "tags": [
+        "Moonwiki",
+        "Notion",
+        "arquivo",
+        "fonte",
+        "editorial"
+      ]
+    },
+    {
+      "id": "entry:tecnologia-ia",
+      "kind": "entry",
+      "label": "Tecnologia e inteligência artificial na trajetória de Moon",
+      "summary": "Continuidade entre o interesse de Moon por tecnologia desde os anos 2000 e seu uso posterior de modelos de linguagem e sistemas de IA.",
+      "url": "/moonverse/entry/tecnologia-e-inteligencia-artificial-na-trajetoria-de-moon/",
+      "wing": "observatorio-nexus",
+      "tags": [
+        "tecnologia",
+        "IA",
+        "LLMs",
+        "zillennial",
+        "internet"
+      ]
+    },
+    {
+      "id": "entry:santuario",
+      "kind": "entry",
+      "label": "Santuário de Moon",
+      "summary": "Projeto de longo prazo de um território doméstico multiespécie com natureza, proteção, cuidado e extensões espirituais.",
+      "url": "/moonverse/entry/santuario-de-moon/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "Santuário",
+        "Casa-Arca",
+        "natureza",
+        "animais",
+        "território"
+      ]
+    },
+    {
+      "id": "entry:ecorreligiao",
+      "kind": "entry",
+      "label": "Ecorreligião",
+      "summary": "Projeto autoral em formulação que combina espiritualidade ecológica, rito, comunidade, ética ecossocial e mecanismos anti-culto.",
+      "url": "/moonverse/entry/ecorreligiao/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "ecorreligião",
+        "espiritualidade",
+        "ecologia",
+        "comunidade",
+        "anti-culto"
+      ]
+    },
+    {
+      "id": "entry:story-scanner",
+      "kind": "entry",
+      "label": "Story Scanner",
+      "summary": "Método criado por Moon para analisar conjuntos de Instagram Stories separando observação, sequência, inferência e risco de sobreinterpretação.",
+      "url": "/moonverse/entry/story-scanner/",
+      "wing": "observatorio-nexus",
+      "tags": [
+        "Story Scanner",
+        "Instagram",
+        "mídia social",
+        "análise",
+        "método"
+      ]
+    },
+    {
+      "id": "entry:arquitetura-simbolica",
+      "kind": "entry",
+      "label": "Arquitetura simbólica de Moon",
+      "summary": "Conjunto de figuras mitológicas e símbolos recorrentes usados por Moon como linguagem de interpretação e organização pessoal.",
+      "url": "/moonverse/entry/arquitetura-simbolica-de-moon/",
+      "wing": "jardim-santuario",
+      "tags": [
+        "símbolos",
+        "Hécate",
+        "Afrodite",
+        "Lilith",
+        "mitologia"
       ]
     },
     {
@@ -363,7 +483,7 @@
     {
       "id": "sims-influences-moonverse",
       "source": "entry:sims",
-      "target": "concept:moonverse",
+      "target": "entry:moonverse",
       "type": "influences",
       "label": "influencia a lógica espacial do Moonverse",
       "evidence": "O pacote A1 autoriza The Sims como ancestral explícito da lógica de casa, território e navegação do Portal Moonverse.",
@@ -381,7 +501,7 @@
     {
       "id": "orkut-msn-influences-moonverse",
       "source": "entry:orkut-msn",
-      "target": "concept:moonverse",
+      "target": "entry:moonverse",
       "type": "influences",
       "label": "influencia a linguagem visual do Moonverse",
       "evidence": "O artigo identifica perfis, comunidades, presença e estética feita à mão como linhagem formal da superfície pública.",
@@ -480,7 +600,7 @@
     {
       "id": "lithia-influences-moonverse",
       "source": "entry:lithia",
-      "target": "concept:moonverse",
+      "target": "entry:moonverse",
       "type": "influences",
       "label": "influencia a imaginação territorial do Moonverse",
       "evidence": "A arquitetura pública reconhece mundos autorais e espacialização narrativa como uma das linhagens do portal, sem confundir os dois projetos.",
@@ -564,7 +684,7 @@
     {
       "id": "escrita-magia-influences-moonverse",
       "source": "entry:escrita-magia",
-      "target": "concept:moonverse",
+      "target": "entry:moonverse",
       "type": "influences",
       "label": "influencia a organização narrativa do Moonverse",
       "evidence": "O portal transforma páginas, relações e alas em territórios legíveis, continuidade formal da escrita como construção de mundos.",
