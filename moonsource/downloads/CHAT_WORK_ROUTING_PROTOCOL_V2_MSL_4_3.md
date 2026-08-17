@@ -4,6 +4,12 @@
 
 ## Meta
 
+- **canonical repository:** https://github.com/luahelenammc/Moon-Source
+- **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V2.md
+- **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
+- **professional context:** https://www.luahelena.com.br/ia/?lang=en
+- **public boundary:** standalone protocol; model, product, price and usage calibration are date-sensitive
+
 - **status:** public portable protocol
 - **version:** 2.0-public
 - **language:** English

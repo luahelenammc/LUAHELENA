@@ -4,8 +4,10 @@ Make your AI understand you better.
 
 A free public setup for creating a reusable profile with your context, projects, preferences, boundaries and way of working.
 
-Canonical source: https://www.luahelena.com.br/moonsource/  
-Public reference to Lua Helena's AI/context-architecture work: https://www.luahelena.com.br/ia/  
+Moon Source public surface: https://www.luahelena.com.br/moonsource/?lang=en  
+Canonical repository: https://github.com/luahelenammc/Moon-Source  
+Canonical path: portables/setup/MOON_SOURCE_SETUP.md  
+Public reference to Lua Helena's AI/context-architecture work: https://www.luahelena.com.br/ia/?lang=en  
 Created by: Lua Helena Moon Martins Cardoso  
 Method: Moon Source  
 Origin process: Moon–Áurion coauthorial process  
