@@ -90,9 +90,9 @@ function roomPage(room) {
 for (const room of rooms) write(`room/${room.id}/index.html`, roomPage(room));
 
 const wikiGroups = [
- ['Sobre Moon',['moon-profile','me-tornando','nome-presenca','escrita-magia']],
- ['Memória & tecnologia',['maresia','sims','orkut-msn','infancia-digital','tecnologia-ia']],
- ['Natureza, espiritualidade & futuro',['ecologia-espiritual','casa-arca','santuario','ecorreligiao','hecate','arquitetura-simbolica','familia-do-futuro']],
+ ['Sobre Moon',['moon-profile','sobre-a-moon','me-tornando','nome-presenca','cores-fluorescentes','escrita-magia']],
+ ['Memória, lugares & tecnologia',['maresia','kairos','sims','orkut-msn','infancia-digital','tecnologia-ia']],
+ ['Natureza, espiritualidade & futuro',['ecologia-espiritual','casa-arca','santuario','ecorreligiao','hecate','arquitetura-simbolica','diario-onirico','familia-do-futuro']],
  ['IA, arquivo & mundos autorais',['moon-source','moonwiki','moonverse','lunar-citadel','story-scanner','lithia']]
 ];
 const wikiContent=`<section class="paper-index"><header><p class="kicker">Moonpedia</p><h1>O índice de documentos</h1><p>A casa organiza por atmosfera. Aqui, quando você já sabe que quer ler, os documentos aparecem sem cenário.</p></header>

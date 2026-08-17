@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0-encyclopedic",
+  "version": "5.1.0-encyclopedic-source-mining",
   "rooms": [
     {
       "id": "biblioteca-lunar",
@@ -49,6 +49,18 @@
           "label": "Moonwiki",
           "href": "/moonverse/entry/moonwiki/",
           "note": "A fonte editorial por trás de parte da casa."
+        },
+        {
+          "kind": "archive",
+          "label": "Sobre a Moon",
+          "href": "/moonverse/entry/sobre-a-moon/",
+          "note": "O self-core e suas regras de continuidade."
+        },
+        {
+          "kind": "atlas",
+          "label": "Kairós",
+          "href": "/moonverse/entry/kairos/",
+          "note": "Viagens, geografia e legado."
         }
       ]
     },
@@ -184,6 +196,12 @@
           "label": "Arquitetura simbólica",
           "href": "/moonverse/entry/arquitetura-simbolica-de-moon/",
           "note": "Figuras e símbolos como linguagem autoral."
+        },
+        {
+          "kind": "dreambook",
+          "label": "Diário Onírico",
+          "href": "/moonverse/entry/diario-onirico/",
+          "note": "Sonhos, lucidez e recorrências documentadas."
         }
       ]
     },
@@ -211,6 +229,12 @@
           "label": "Arquivo corporal privado",
           "href": null,
           "note": "A história existe; o corpo não é exposição obrigatória."
+        },
+        {
+          "kind": "palette",
+          "label": "Cores fluorescentes",
+          "href": "/moonverse/entry/cores-fluorescentes-na-estetica-de-moon/",
+          "note": "Preferência estética de longa duração."
         }
       ]
     },

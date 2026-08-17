@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0-encyclopedic",
+  "version": "5.1.0-encyclopedic-source-mining",
   "pages": [
     {
       "id": "maresia",
@@ -494,6 +494,96 @@
         "Afrodite",
         "Lilith",
         "mitologia"
+      ],
+      "era": "transversal"
+    },
+    {
+      "id": "sobre-a-moon",
+      "title": "Sobre a Moon",
+      "url": "/moonverse/entry/sobre-a-moon/",
+      "summary": "Projeto-fonte que organiza identidade, cronologia, vínculos, operadores e proveniência no ecossistema pessoal de Moon.",
+      "source_record_ids": [],
+      "rooms": [
+        "biblioteca-lunar",
+        "espelho-dagua"
+      ],
+      "albums": [],
+      "memory": false,
+      "tags": [
+        "Sobre a Moon",
+        "self-core",
+        "arquivo",
+        "identidade",
+        "proveniência"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "diario-onirico",
+      "title": "Diário Onírico",
+      "url": "/moonverse/entry/diario-onirico/",
+      "summary": "Arquivo de sonhos de Moon que separa relato, recorrência, técnica de lucidez e interpretação simbólica.",
+      "source_record_ids": [],
+      "rooms": [
+        "jardim-santuario",
+        "espelho-dagua"
+      ],
+      "albums": [
+        "album-onirico"
+      ],
+      "memory": false,
+      "tags": [
+        "sonhos",
+        "diário onírico",
+        "lucidez",
+        "memória",
+        "epistemologia"
+      ],
+      "era": "agora"
+    },
+    {
+      "id": "kairos",
+      "title": "Kairós",
+      "url": "/moonverse/entry/kairos/",
+      "summary": "Projeto autobiográfico iniciado por Moon para registrar viagens, lugares e memórias geográficas como legado de longo prazo.",
+      "source_record_ids": [],
+      "rooms": [
+        "biblioteca-lunar",
+        "quarto-nostalgico"
+      ],
+      "albums": [
+        "atlas-afetivo"
+      ],
+      "memory": true,
+      "tags": [
+        "Kairós",
+        "viagens",
+        "autobiografia",
+        "atlas",
+        "legado"
+      ],
+      "era": "transversal"
+    },
+    {
+      "id": "cores-fluorescentes",
+      "title": "Cores fluorescentes na estética de Moon",
+      "url": "/moonverse/entry/cores-fluorescentes-na-estetica-de-moon/",
+      "summary": "Preferência estável de Moon por cores fluorescentes e vibrantes, registrada desde antes da transição e reorganizada posteriormente em sua estética pública.",
+      "source_record_ids": [],
+      "rooms": [
+        "espelho-dagua",
+        "quarto-nostalgico"
+      ],
+      "albums": [
+        "album-trans"
+      ],
+      "memory": true,
+      "tags": [
+        "cores",
+        "fluorescente",
+        "rosa",
+        "estética",
+        "identidade"
       ],
       "era": "transversal"
     }

@@ -383,5 +383,73 @@
     "type": "Sistema simbólico autoral",
     "wing": "Jardim-Santuário",
     "wing_id": "jardim-santuario"
+  },
+  {
+    "id": "sobre-a-moon",
+    "title": "Sobre a Moon",
+    "url": "/moonverse/entry/sobre-a-moon/",
+    "summary": "Projeto-fonte que organiza identidade, cronologia, vínculos, operadores e proveniência no ecossistema pessoal de Moon.",
+    "body": "Definição Sobre a Moon é um projeto de organização biográfica, identitária e simbólica mantido por Moon. Sua função é preservar continuidade entre fatos, cronologia, vínculos, interpretações e projetos sem transformar todo o material disponível em uma única narrativa indiferenciada. Estrutura A arquitetura local distribui funções entre arquivos especializados. O núcleo identitário registra traços e formulações de longa duração; a linha do tempo registra eventos datáveis; arquivos de constelações organizam pessoas, lugares e vínculos recorrentes; router e registry governam fronteiras, autoridade e proveniência. Operadores como Diário Onírico e Santuário possuem jurisdição temática própria. Leis epistemológicas O Kernel estabelece que fatos precedem inferências e que relato, documento, memória retrospectiva, interpretação, hipótese, símbolo e impressão não são categorias equivalentes. Quando as fontes divergem, a divergência deve ser preservada ou resolvida pela fonte mais atual e autoritativa, em vez de apagada por conveniência narrativa. Relação com outros projetos Projetos como Lunar Citadel, Meu Macho, Hospital, Política e outros mantêm seus próprios corpus. Sobre a Moon recebe apenas reflexos biográficos considerados duradouros, evitando importar operações locais inteiras. Moon Source pode coordenar o ecossistema, mas não substitui a soberania do corpus local. Privacidade Sobre a Moon é muito mais amplo que a superfície pública do Moonverse. O acesso a um arquivo interno não constitui autorização automática de publicação. Conteúdo clínico, familiar, sexual, institucional ou de terceiros permanece fora da Moonpedia salvo decisão editorial específica. Status O projeto é uma fonte viva. Formulações antigas podem ser rebaixadas a legado quando deixam de representar o estado atual, e novas interpretações permanecem corrigíveis até adquirir estabilidade suficiente.",
+    "tags": [
+      "Sobre a Moon",
+      "self-core",
+      "arquivo",
+      "identidade",
+      "proveniência"
+    ],
+    "type": "Projeto de continuidade identitária",
+    "wing": "Biblioteca Lunar",
+    "wing_id": "biblioteca-lunar"
+  },
+  {
+    "id": "diario-onirico",
+    "title": "Diário Onírico",
+    "url": "/moonverse/entry/diario-onirico/",
+    "summary": "Arquivo de sonhos de Moon que separa relato, recorrência, técnica de lucidez e interpretação simbólica.",
+    "body": "Função Diário Onírico é o arquivo local usado para registrar sonhos e fenômenos recorrentes do sono no projeto Sobre a Moon. O objetivo não é apenas conservar narrativas, mas distinguir o que foi relatado no sonho de interpretações formuladas posteriormente. Estrutura dos registros Os registros podem conter data, descrição do sonho, personagens ou entidades recorrentes, ambiente, técnicas de lucidez, tags e observações posteriores. Quando uma interpretação é adicionada, ela permanece identificada como leitura ou hipótese, não como parte factual do acontecimento onírico. Lucidez e reality checks Entre os fenômenos documentados está o uso recorrente da contagem de dedos como reality check. Moon relata que, em sonhos, as mãos frequentemente apresentam mais de cinco dedos quando submetidas à contagem, o que pode funcionar como sinal de que está sonhando. A documentação trata esse padrão como fenômeno onírico pessoal, não como prova de uma hipótese metafísica externa. Padrões recorrentes O arquivo acompanha recorrências quando elas aparecem em múltiplos sonhos. Algumas figuras podem mudar de aparência ou de função entre registros; por isso, o método evita reduzir uma recorrência complexa a uma interpretação única antes de haver evidência suficiente. Relação com Sobre a Moon O Diário Onírico é um operador local e não a fonte soberana da identidade de Moon. Apenas padrões estabilizados e relevantes podem alimentar outros arquivos do self-core. Sonhos isolados permanecem no próprio diário. Fronteira pública Este verbete descreve o método e alguns fenômenos de baixa sensibilidade. O corpus completo de sonhos, incluindo conteúdos íntimos e interpretações psíquicas, não é publicado automaticamente no Moonverse.",
+    "tags": [
+      "sonhos",
+      "diário onírico",
+      "lucidez",
+      "memória",
+      "epistemologia"
+    ],
+    "type": "Arquivo e método de registro de sonhos",
+    "wing": "Jardim-Santuário",
+    "wing_id": "jardim-santuario"
+  },
+  {
+    "id": "kairos",
+    "title": "Kairós",
+    "url": "/moonverse/entry/kairos/",
+    "summary": "Projeto autobiográfico iniciado por Moon para registrar viagens, lugares e memórias geográficas como legado de longo prazo.",
+    "body": "Caracterização Kairós é um projeto autobiográfico voltado à documentação de viagens realizadas por Moon. O texto de abertura, datado de 5 de outubro de 2022, apresenta a escrita como meio de preservar experiências e permitir que relatos de lugares atravessem o tempo. Nome O título utiliza a noção grega de kairós, associada ao momento oportuno, em contraste com o tempo cronológico. A explicação mitológica faz parte do manuscrito como justificativa do título e como estrutura temática para pensar lembrança, passagem e oportunidade. Conteúdo geográfico O arquivo reúne uma lista ampla de cidades e regiões visitadas no Brasil, além de registros de Colômbia e Estados Unidos. Entre os eixos documentados está a viagem internacional de julho de 2011 para Maryland, com passagem por Bogotá e visitas a locais da região de Washington, D.C. Fontes históricas Para a viagem de 2011, Kairós utiliza como apoio um blog de bordo criado na época, From Limeira to Takoma Park, com dezenove postagens produzidas entre julho e agosto daquele ano. O uso do blog permite comparar memória posterior com registros contemporâneos à viagem. Função de legado O manuscrito associa viagens a expansão de repertório cultural e a uma forma de herança documental. O objetivo declarado é permitir que descendentes ou leitores futuros conheçam parte das travessias registradas e, eventualmente, revisitem lugares a partir de suas próprias experiências. Relação com o Moonverse No Moonverse, Kairós fornece uma das bases para o Atlas Afetivo e para entradas geográficas ou de viagem. O manuscrito completo permanece uma obra própria; a Moonpedia pode derivar verbetes de lugares sem reproduzir integralmente seus relatos.",
+    "tags": [
+      "Kairós",
+      "viagens",
+      "autobiografia",
+      "atlas",
+      "legado"
+    ],
+    "type": "Obra autobiográfica de viagens",
+    "wing": "Biblioteca Lunar",
+    "wing_id": "biblioteca-lunar"
+  },
+  {
+    "id": "cores-fluorescentes",
+    "title": "Cores fluorescentes na estética de Moon",
+    "url": "/moonverse/entry/cores-fluorescentes-na-estetica-de-moon/",
+    "summary": "Preferência estável de Moon por cores fluorescentes e vibrantes, registrada desde antes da transição e reorganizada posteriormente em sua estética pública.",
+    "body": "Preferência documentada Moon relata fascínio por cores fluorescentes e vibrantes desde a infância, incluindo rosa, verde, azul e outras tonalidades de alta intensidade. O núcleo identitário trata a preferência como estável e anterior à reorganização estética produzida pela transição de gênero. Âncora anterior à transição O arquivo histórico contém, em novembro de 2022, o registro da compra de uma camisa de academia rosa-fluorescente descrita positivamente. A referência é usada no self-core como evidência de continuidade e não como prova isolada sobre identidade de gênero. Rosa fluorescente No período posterior à transição, o rosa fluorescente adquiriu centralidade maior na estética de Moon. Essa centralidade não elimina a preferência anterior por verde, azul e outras cores intensas; representa uma reorganização de repertório e de liberdade de apresentação. Interpretações posteriores Arquivos analíticos associam a alta intensidade cromática a presença, vitalidade, tecnologia e recusa de apagamento. Essas associações são interpretações autorais posteriores. O fato biográfico mais seguro é a preferência recorrente por cores fluorescentes e de alto contraste. Uso em projetos A paleta de projetos visuais ligados a Moon frequentemente utiliza roxo, rosa, verde, azul ou ciano em versões luminosas. A escolha varia por contexto e não funciona como identidade visual rígida para todos os projetos. Limites O gosto por cores fluorescentes não é apresentado como diagnóstico psicológico, prova retrospectiva de transgeneridade ou consequência exclusiva de um único traço cognitivo.",
+    "tags": [
+      "cores",
+      "fluorescente",
+      "rosa",
+      "estética",
+      "identidade"
+    ],
+    "type": "Preferência estética documentada",
+    "wing": "Espelho d’Água",
+    "wing_id": "espelho-dagua"
   }
 ]
