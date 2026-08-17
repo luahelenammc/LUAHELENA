@@ -30,3 +30,5 @@ O primeiro parágrafo identifica o assunto e responde, quando aplicável, o que 
 ## Exceções
 
 Títulos de obras e nomes autorais podem ser poéticos. O artigo que os descreve continua enciclopédico. Citações curtas só entram quando forem documentalmente necessárias e atribuídas.
+
+Nomes próprios de obras, projetos ou sistemas não são classificados como primeira pessoa narrativa apenas por conterem pronomes em sua grafia. Exemplos do corpus incluem *Me tornando eu mesma* e *Meu Macho*. A exceção vale somente para o nome próprio identificável; a prosa ao redor continua submetida à regra de terceira pessoa.
