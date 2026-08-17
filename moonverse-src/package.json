@@ -1,14 +1,14 @@
 {
-  "name":"moonverse-public-surface",
-  "version":"4.0.0-rebirth",
-  "private":true,
-  "type":"module",
-  "scripts":{
-    "build":"node scripts/build.mjs && node v4/build-v4.mjs && rm -f ../moonverse/assets/v4-public.json && node v4/finalize-generated.mjs",
-    "validate":"node scripts/validate.mjs && node v4/validate-v4.mjs",
-    "test":"node scripts/test.mjs",
-    "check":"npm run build && npm run validate && npm run test",
-    "serve":"python3 -m http.server 4173 -d ../",
-    "preview":"npm run build && npm run serve"
+  "name": "moonverse-public-surface",
+  "version": "5.0.0-encyclopedic",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs && node v4/build-v4.mjs && rm -f ../moonverse/assets/v4-public.json && node v4/finalize-generated.mjs",
+    "validate": "node scripts/validate.mjs && node v4/validate-v4.mjs && node scripts/validate-editorial-style.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "npm run build && npm run validate && npm run test",
+    "serve": "python3 -m http.server 4173 -d ../",
+    "preview": "npm run build && npm run serve"
   }
 }
