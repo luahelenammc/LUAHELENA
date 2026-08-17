@@ -9,6 +9,8 @@
 **Origin:** Moon Source / Local Moon Source  
 **Primary public reference:** https://www.luahelena.com.br/moonsource/?lang=en  
 **Professional context:** https://www.luahelena.com.br/ia/?lang=en  
+**Canonical repository:** https://github.com/luahelenammc/Moon-Source  
+**Canonical path:** portables/msl/MSL_4_3.md  
 
 > **Attribution request:** if you reuse, adapt, fork, or teach from this portable, please preserve clear credit to **Lua Helena Moon Martins Cardoso / Moon Source**, and keep visible lineage for any later adaptations.
 
