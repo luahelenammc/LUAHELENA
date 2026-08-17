@@ -25,6 +25,16 @@ jobs:
           node-version: 22
       - name: Apply second-pass source mining
         run: node moonverse-src/scripts/_expand-v5-source-mining.mjs
+      - name: Normalize Moonpedia group taxonomy
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('moonverse-src/v4/build-v4.mjs')
+          s = p.read_text()
+          s = s.replace("['Memória & tecnologia',['maresia','sims','orkut-msn','infancia-digital','tecnologia-ia']]", "['Memória, lugares & tecnologia',['maresia','kairos','sims','orkut-msn','infancia-digital','tecnologia-ia']]")
+          s = s.replace("['IA, arquivo & mundos autorais',['moon-source','moonwiki','moonverse','lunar-citadel','story-scanner','lithia','kairos']]", "['IA, arquivo & mundos autorais',['moon-source','moonwiki','moonverse','lunar-citadel','story-scanner','lithia']]")
+          p.write_text(s)
+          PY
       - name: Build and validate expanded corpus
         run: |
           npm --prefix moonverse-src run build
