@@ -13,7 +13,7 @@
 - **status:** public portable protocol
 - **version:** 2.0-public
 - **language:** English
-- **as of:** 2026-08-01
+- **as of:** 2026-08-17
 - **primary implementation:** ChatGPT Chat and Work modes
 - **governed dimensions:** surface, model, reasoning effort, continuity, usage economy, verification
 - **publishing body:** Moon Professional Source
@@ -80,33 +80,27 @@ Work is not “the better brain.” It is a different execution surface.
 
 ### Usage pools
 
-At publication, ordinary Chat and agentic Work may draw from different plan limits or shared agentic allowances. Exact behavior depends on the account, plan, workspace and current product rules. Always inspect the current usage dashboard instead of assuming that old accounting still applies.
+Current official ChatGPT pricing documentation states that ChatGPT Work and Codex share usage, pricing, credits and usage limits. Exact availability and limits still depend on the account, plan and workspace. Inspect the current usage dashboard instead of treating this portable as a tariff or quota reference.
 
 ## 3. Dated Cost and Capability Calibration
 
-On 2026-07-30, OpenAI announced a major GPT-5.6 Luna price reduction that also affected subscription usage accounting in Work and Codex. In the rate card observed on 2026-08-01:
+This section is a dated calibration, not a permanent tariff.
 
-- Luna token charges were listed at roughly one twenty-fifth of Sol token charges;
-- a representative local task was estimated at approximately 1 credit on Luna versus 14 credits on Sol.
+OpenAI's official release notes for July 27–31, 2026 state that GPT-5.6 Terra costs 20% less and GPT-5.6 Luna costs 80% less, with input, cached-input and output rates reduced proportionally.
 
-This calibration explains why **Work + Luna Max** can consume dramatically less agentic allowance than **Work + Sol**, even though both run inside Work.
+The current official ChatGPT pricing page states that ChatGPT Work and Codex share usage, pricing, credits and usage limits. Plan-specific limits and available surfaces remain account-dependent.
 
-Capability comparisons also showed Luna Max approaching Sol in some professional and bounded execution benchmarks. That does **not** mean Luna is universally “2% less intelligent.” A two-point benchmark difference belongs to that benchmark. Larger gaps may appear in:
+The current OpenAI API pricing page lists these standard short-context rates per 1M tokens:
 
-- difficult autonomous research;
-- very long context;
-- specialized science;
-- cybersecurity;
-- complex architecture;
-- high-ambiguity decisions;
-- tasks requiring repeated strategic replanning.
+- GPT-5.6 Sol: $5 input and $30 output;
+- GPT-5.6 Terra: $2 input and $12 output;
+- GPT-5.6 Luna: $0.20 input and $1.20 output.
 
-Community reports are mixed: some users observe very low Luna Max consumption, while others report large usage jumps during long contexts, repeated rereads, tool loops or subagent fan-out.
+Those are API rates, not a promise of how a particular ChatGPT Work plan will count a task. Do not convert them into a fixed credit ratio for every account.
 
-Therefore:
+Official model guidance frames Sol as the model for complex or open-ended work, Terra as a balanced everyday model, and Luna as a fast model for clear, repeatable work. This supports the protocol's separation of model choice from surface choice; it does not establish a universal intelligence ranking.
 
-> **Treat low observed consumption as promising local evidence, not as a guaranteed tariff.**
-
+For this protocol's current calibration, **Work + Luna Max** remains the default for well-specified continuity-heavy execution. That is a routing rule of this portable, not an OpenAI policy. Recheck the official sources before treating product names, rates, limits or availability as current.
 ## 4. Core Laws
 
 1. **Choose surface, model and effort separately.**
@@ -671,7 +665,7 @@ Using elaborate routing for trivial work. The protocol exists to reduce waste, n
 
 ## 18. Freshness Contract
 
-- **as of:** 2026-08-01
+- **as of:** 2026-08-17
 - **expire if:** OpenAI changes model names, pricing, rate cards, reasoning settings, plan limits, Work behavior or usage pools
 - **refresh if:** repeated real usage observations materially contradict this calibration
 - **safe fallback:** keep the three decisions separate; use Chat to understand, the efficient max-effort model for defined execution, and escalate only from diagnosed cognitive need
@@ -697,7 +691,11 @@ For a specific Work task, fill in the **Portable Work Handoff Template** rather 
 > Adapted from the **Chat–Work Routing Protocol V2** by Lua Helena Moon Martins Cardoso (Moon), Moon Professional Source: https://www.luahelena.com.br/ia/?lang=en  
 > Modifications by: [name / project], [date or version].
 
-Public sharing, internal adoption, quotation, translation and adaptation are welcome when:
+### Attribution guidance for permitted uses
+
+The following is guidance for uses that are otherwise permitted by this portable or another applicable permission. It does not grant rights by implication.
+
+When a use is permitted:
 
 - original authorship remains visible;
 - modified versions identify themselves as adaptations;
@@ -708,6 +706,14 @@ Public sharing, internal adoption, quotation, translation and adaptation are wel
 
 This is an independent operating protocol. It is not official OpenAI documentation and does not imply endorsement by OpenAI.
 
+## References
+
+- [OpenAI ChatGPT Learn — What's new](https://learn.chatgpt.com/docs/whats-new)
+- [OpenAI ChatGPT Learn — Pricing](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI ChatGPT Learn — Models](https://learn.chatgpt.com/docs/models)
+- [OpenAI Developers — API pricing](https://developers.openai.com/api/docs/pricing)
+
 ## Final Law
 
 > **Chat designs the operation. Work sustains it. Luna Max is the default execution crew; Sol enters when the operation also requires inventing the anatomy during the incision.**
+
