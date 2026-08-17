@@ -77,4 +77,6 @@ layout: null
 {%- assign body_injection = body_assets | append: '</body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
+{%- assign page_html = page_html | replace_first: '<nav class="nav-links">', '<nav class="nav-links"><a href="https://www.luahelena.com.br/moonsource/?lang=en" class="nav-source">Moon Source</a>' -%}
+{%- assign page_html = page_html | replace_first: '<div class="nav-right">', '<div class="nav-right"><a class="btn" href="https://github.com/luahelenammc/Moon-Source" target="_blank" rel="noopener">GitHub</a>' -%}
 {{- page_html -}}
