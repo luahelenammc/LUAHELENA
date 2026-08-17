@@ -71,6 +71,29 @@ layout: null
     });
   })();
 </script>
+<script>
+  (() => {
+    const setProductionTitle = () => {
+      const english = document.documentElement.lang === 'en' ||
+        document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
+      document.title = english
+        ? 'Lua Helena Moon · Context Architecture, AI Adoption and Auditing'
+        : 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA';
+    };
+    setProductionTitle();
+    document.querySelectorAll('.lang-toggle button').forEach((button) => {
+      button.addEventListener('click', () => {
+        setProductionTitle();
+        requestAnimationFrame(setProductionTitle);
+        setTimeout(setProductionTitle, 0);
+      });
+    });
+    new MutationObserver(setProductionTitle).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+  })();
+</script>
 {%- endcapture -%}
 
 {%- assign head_injection = language_bootstrap | append: head_assets | append: '</head>' -%}
