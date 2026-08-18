@@ -285,3 +285,9 @@ img,svg,canvas{
     overflow-wrap:anywhere;
   }
 }
+
+/* Moon Source proof is injected after the page reveal observer has initialized. */
+.moon-source-proof-section.reveal{
+  opacity:1!important;
+  transform:none!important;
+}
