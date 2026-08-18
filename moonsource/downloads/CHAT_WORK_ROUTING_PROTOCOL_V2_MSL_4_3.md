@@ -21,6 +21,7 @@
 - **AI-assisted development:** Moon + Áurion coauthoring dyad
 - **method lineage:** Local Moon Source → Moon Professional Source
 - **canonical attribution:** https://www.luahelena.com.br/ia/?lang=en
+- **credits operations:** https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
 - **portability:** ChatGPT-first; adaptable to systems with interactive and agentic execution lanes
 - **freshness rule:** recheck model names, prices, usage pools and product behavior before treating dated calibration as current fact
 
@@ -681,6 +682,8 @@ For a specific Work task, fill in the **Portable Work Handoff Template** rather 
 
 ## 20. Attribution Ops
 
+This portable carries a local attribution operation for its own reuse. The repository-wide contract for origin, adaptation, permission scope, mirrors, composite outputs and attribution QA is [Credits & Attribution Ops](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md).
+
 ### Short attribution
 
 > Chat–Work Routing Protocol V2 — created by Lua Helena Moon Martins Cardoso (Moon), Moon Professional Source.  
@@ -716,4 +719,3 @@ This is an independent operating protocol. It is not official OpenAI documentati
 ## Final Law
 
 > **Chat designs the operation. Work sustains it. Luna Max is the default execution crew; Sol enters when the operation also requires inventing the anatomy during the incision.**
-
