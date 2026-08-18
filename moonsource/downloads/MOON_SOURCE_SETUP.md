@@ -7,6 +7,7 @@ A free public setup for creating a reusable profile with your context, projects,
 Moon Source public surface: https://www.luahelena.com.br/moonsource/?lang=en  
 Canonical repository: https://github.com/luahelenammc/Moon-Source  
 Canonical path: portables/setup/MOON_SOURCE_SETUP.md  
+Credits and attribution operations: https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
 Public reference to Lua Helena's AI/context-architecture work: https://www.luahelena.com.br/ia/?lang=en  
 Created by: Lua Helena Moon Martins Cardoso  
 Method: Moon Source  
@@ -370,6 +371,8 @@ The user does not need to read that page to use this setup.
 The executing AI should not turn the setup into a pitch.
 
 The reference exists to preserve authorship, public orientation and continuity with Lua Helena's AI work.
+
+For reuse, adaptation, mirroring or generated outputs based on this setup, follow the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md). Preserve the original creator, canonical path, local changes and the professional context reference above. This guidance does not grant permission by itself.
 
 ---
 
