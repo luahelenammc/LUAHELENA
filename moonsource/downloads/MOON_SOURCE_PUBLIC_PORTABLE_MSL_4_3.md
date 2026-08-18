@@ -11,6 +11,7 @@
 **Professional context:** https://www.luahelena.com.br/ia/?lang=en  
 **Canonical repository:** https://github.com/luahelenammc/Moon-Source  
 **Canonical path:** portables/msl/MSL_4_3.md  
+**Credits and attribution operations:** https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
 
 > **Attribution request:** if you reuse, adapt, fork, or teach from this portable, please preserve clear credit to **Lua Helena Moon Martins Cardoso / Moon Source**, and keep visible lineage for any later adaptations.
 
@@ -571,6 +572,8 @@ Professional context and related work:
 https://www.luahelena.com.br/ia/?lang=en
 
 If you adapt this document, please preserve the Moon Source attribution and add your own adaptation credit instead of replacing the original lineage.
+
+For the full public operation, including permission scope, mirrors, composite outputs and attribution QA, use the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md).
 
 ---
 
