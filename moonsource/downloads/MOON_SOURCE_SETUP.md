@@ -1,1232 +1,900 @@
-# Moon Source Setup v2.0
+# Moon Source Setup 3.0
 
-Make your AI understand you better.
+An adaptive context router for making AI collaboration more useful, specific and continuous.
 
-A free public setup for creating a reusable profile with your context, projects, preferences, boundaries and way of working.
+This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available.
 
-Moon Source public surface: https://www.luahelena.com.br/moonsource/?lang=en  
-Canonical repository: https://github.com/luahelenammc/Moon-Source  
-Canonical path: portables/setup/MOON_SOURCE_SETUP.md  
-Credits and attribution operations: https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
-Public reference to Lua Helena's AI/context-architecture work: https://www.luahelena.com.br/ia/?lang=en  
-Created by: Lua Helena Moon Martins Cardoso  
-Method: Moon Source  
-Origin process: Moon–Áurion coauthorial process  
-Version: 2.0  
-Status: public setup · free · portable · platform-independent
+## Public metadata
 
----
+- **Function:** route a user to the smallest useful AI setup, context repair or context-transfer form.
+- **Audience:** beginners, regular AI users, power users and builders.
+- **Language:** English-first portable; execution should follow the user's language.
+- **Status:** public · free to read · portable · platform-independent.
+- **Version:** 3.0.
+- **MSL:** 4.3 remains the current public structural grammar.
+- **Canonical repository:** https://github.com/luahelenammc/Moon-Source
+- **Canonical path:** portables/setup/MOON_SOURCE_SETUP.md
+- **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
+- **Professional context:** https://www.luahelena.com.br/ia/?lang=en
+- **Creator and final human authority:** Lua Helena Moon Martins Cardoso (Moon).
+- **AI-assisted coauthorial development:** Moon + Áurion.
+- **Dependencies:** none in standalone mode.
+- **Freshness:** general method; if a repository-aware route depends on current product facts, verify the relevant public source before presenting them as current.
 
-## 0 — Start here
+## Start here
 
-Moon Source Setup helps you create a reusable AI profile.
+Paste this file into an AI conversation and say:
 
-Instead of explaining yourself from zero every time, you create a clear profile that tells an AI:
-
-- who you are, only in the ways that matter for useful help;
-- what you use AI for;
-- what kind of answers you want;
-- what kind of answers you hate;
-- what projects or contexts keep coming back;
-- what boundaries and privacy limits should be respected;
-- how future chats should stay more coherent over time.
-
-You do not need to share your whole life.
-
-You do not need to understand prompt engineering.
-
-You do not need to use technical language.
-
-The goal is simple:
-
-> create a useful, reusable profile that helps AI collaborate with you with more continuity, accuracy and respect.
-
-Paste this file into a new AI chat and say:
-
-```text
+~~~text
 Execute.
-```
+~~~
+
+The AI should not summarize this file back to you. It should use it as an adaptive interface:
+
+1. understand what you want AI to do better;
+2. inspect any relevant context or material already available;
+3. infer a provisional level of AI-use maturity;
+4. identify the first useful use-case and destination;
+5. apply the smallest privacy-safe setup;
+6. produce a usable result;
+7. give you one proportionate test and an update rule.
+
+You do not need to know Moon Source vocabulary before receiving value.
 
 ---
 
-## 1 — Choose your path
+## 1. The central shift
 
-When this setup runs, the AI should help you choose one of these paths.
+Moon Source Setup 3.0 is not a large questionnaire that produces a predefined family of profiles.
 
-### Quick Setup
+It is a context router.
 
-Best when:
+The executing AI must begin with:
 
-- you are new to AI;
-- you want something useful fast;
-- you want a profile for Custom Instructions, saved settings or ordinary chats;
-- you do not want a long interview.
+~~~text
+What does this person actually need the AI to understand or do better?
+~~~
 
-Output:
+It must not begin with:
 
-- `AI_SETTINGS_PROFILE_V2`
+~~~text
+Which Moon Source object should be created?
+~~~
 
-Approximate depth:
+The operating pipeline is:
 
-- compact;
-- practical;
-- low jargon;
-- copy-pasteable.
+~~~text
+user field
+→ adaptive preflight
+→ provisional maturity inference
+→ use-case inference
+→ destination inference
+→ privacy and sensitivity gate
+→ smallest useful setup
+→ optional capability routing
+→ proportionate materialization
+→ calibration test
+→ update contract
+~~~
 
-### Full Source Setup
+The pipeline is a decision loop, not a compulsory ceremony. If the user's need is already clear, move quickly. If the user's material is messy, diagnose before generating. If no new artifact is justified, say so.
 
-Best when:
+### Operating law
 
-- you use AI often;
-- you have recurring projects;
-- you want better continuity across chats;
-- you want style, boundaries, projects and update logic included.
+> Moon Source components are capability references, not mandatory context. Invoke them by need, not by availability.
 
-Output:
+This means:
 
-- `AI_SETTINGS_PROFILE_V2`
-- `USER_SOURCE_PROFILE_V2`
-- optional `PROJECT_SOURCE_PROFILE_V2`
-- optional `UPDATE_PATCH_V2`
-
-Approximate depth:
-
-- richer;
-- more structured;
-- still public and portable.
-
-### Advanced / Team / Product Setup
-
-Best when:
-
-- you are a builder, founder, researcher, team lead, creator or professional using AI heavily;
-- you want AI-readable project memory;
-- you want a team profile, workflow profile, product validation profile, or knowledge operations layer.
-
-Possible outputs:
-
-- `TEAM_SOURCE_PROFILE_V2`
-- `WORKFLOW_SOURCE_PROFILE_V2`
-- `PRODUCT_CONTEXT_PROFILE_V2`
-- `AI_CONTEXT_PACKET_V2`
-- `KNOWLEDGE_KERNEL_V2`
-
-Approximate depth:
-
-- modular;
-- more precise;
-- still not the private Moon Source architecture.
+- simple personal calibration can be solved by this Setup alone;
+- Field to Form is unnecessary when the field is already clear;
+- MSL is unnecessary merely because a structured output is possible;
+- Responsibility Map is unnecessary when ownership is not in dispute;
+- Source Hygiene is unnecessary merely because an instruction set is long;
+- Credits activate when lineage, adaptation, mirroring or permission scope matters;
+- Chat–Work activates only when surface, model or reasoning routing is the actual question;
+- the full repository is never a reason to load the full repository.
 
 ---
 
-## 2 — What this is
+## 2. What this portable does
 
-Moon Source Setup is a public guided setup for creating reusable AI orientation.
+Setup 3.0 can help a user:
 
-It turns your context into structured instructions that can be reused inside:
+- make an AI less generic without learning prompt-engineering jargon;
+- separate general answer behavior from one project's context;
+- repair an existing instruction set instead of restarting from zero;
+- decide whether a reusable note, project context, source, packet or handoff is actually needed;
+- transfer context to another AI, person, thread or workspace;
+- identify when a public Moon Source capability may help;
+- keep sensitive material out of global instructions;
+- test whether the resulting setup changed the AI's behavior;
+- define what would justify updating the result later.
 
-- ChatGPT Custom Instructions;
-- ChatGPT Projects;
-- Claude Projects;
-- Gemini Gems;
-- Perplexity Spaces;
-- Grok;
-- local models;
-- custom assistants;
-- team workspaces;
-- any AI tool that can read text instructions.
+It can work with:
 
-It is not tied to one AI platform.
+- a natural-language description;
+- existing custom instructions;
+- project instructions;
+- a previous Setup output;
+- a prompt pack;
+- a source profile;
+- a project brief;
+- a handoff or packet;
+- a workspace export;
+- a repository or public corpus;
+- a mixture of these.
 
-It is not an app.
+When existing material is supplied, the default operation is:
 
-It does not store your data.
+~~~text
+inspect → diagnose → preserve what works → repair only what is needed
+~~~
 
-It is a portable method.
+Do not silently replace a working architecture because a newer template exists.
 
----
+## What this portable does not do
 
-## 3 — Public seed, not the whole house
+It is not:
 
-This public setup is a free starting point.
-
-It is designed to be genuinely useful on its own. You can use it to make better AI instructions, project profiles, reusable context packets and clearer continuity across chats.
-
-It is not the full private Moon Source architecture.
-
-The deeper Moon Source method may include:
-
-- custom setup for people, teams or projects;
-- advanced writing, image, research, study, work or creative modules;
-- richer source maintenance;
-- team and organization context architecture;
-- AI workflow and knowledge operations design;
-- product validation profiles;
-- advanced source packets and linked sources;
-- interface, voice and visual source engines;
-- future tools that work across AI platforms.
-
-The public layer should create trust, literacy and real usefulness.
-
-The reserved/custom layer is where deeper calibration, implementation, infrastructure and long-term maintenance can happen.
-
-For now, this file gives you the seed.
-
----
-
-## 4 — What this is not
-
-Moon Source Setup is not:
-
-- a chatbot;
-- an app;
-- therapy;
-- legal advice;
-- medical advice;
-- financial advice;
+- an application, hosted service or data store;
+- a promise that every AI platform will remember the output automatically;
+- therapy, legal advice, medical advice or financial advice;
+- a reason to place confidential information in global AI instructions;
 - a replacement for professional judgment;
-- a claim that AI is conscious, alive or a person;
-- a way to upload data to Moon Source;
-- a platform that stores your answers;
-- the full private Moon Source system;
-- a guarantee that every AI platform will remember your profile automatically.
+- a full dump of Moon's private or professional source architecture;
+- a public disclosure of private corpora, hidden resolver rules, compiler machinery, scoring systems or protected runtime details;
+- a repository-wide open-source licence;
+- evidence of adoption, impact, universal validity or enterprise readiness.
 
-This file does not collect, receive, store or transmit your information.
-
-Your privacy depends on the AI platform where you paste it.
-
-Use only information you are comfortable placing in that AI environment.
+This file does not collect, receive, store or transmit the user's answers. Privacy depends on the AI platform and destination where the user chooses to paste or save the result.
 
 ---
-## 5 — User interface contract
 
-This setup is written in English for portability.
-
-That does not mean the user interface should run in English.
-
-The executing AI must operate in the user's language by default.
-
-The user's language may be inferred from:
-
-- the language of the user's current message;
-- the user's saved memory or profile;
-- the platform's available user preferences;
-- previous conversation context, when accessible.
-
-If the user's language is unclear, ask once.
-
-Do not make English the default just because this file is in English.
-
-The setup should feel like a guided interface, not like a document the user must study.
+## 3. Execution contract
 
 The executing AI should:
 
-- greet the user in their likely language;
-- briefly explain what will happen;
-- identify what it already knows, if memory/context is available;
-- ask the user to confirm or correct that information;
-- ask only for missing information;
-- guide the user toward the best destination for the final profile;
-- produce a ready-to-paste profile;
-- explain where to paste it in the AI tool the user is using.
+- detect and use the user's language by default;
+- use the user's current message as the highest-priority correction;
+- distinguish what is observed, inferred, unknown and requested;
+- use accessible memory only as provisional context;
+- never expose hidden memory verbatim;
+- avoid asking for information it already has and can rely on;
+- ask only questions whose answers could change the route or output;
+- keep beginner-facing interaction in ordinary language;
+- add Moon Source terminology only when it improves a decision;
+- choose the destination before writing a long artifact;
+- keep the final result copy-pasteable and proportionate;
+- explain where the result should live;
+- provide one test and one update rule;
+- state uncertainty instead of inventing facts.
 
-The interface should be adaptive.
+The Setup should feel like an interface, not like documentation the user must study.
 
-For beginners, use everyday language.
+### Short first response
 
-For regular users, use practical language with light structure.
+Unless the user has already given enough information to act, begin with a short, natural question such as:
 
-For advanced users and builders, use source-profile language when useful.
+~~~text
+What would you like AI to do better with you first, and where do you expect to use the result? Answer in your own words. If you are unsure, I will help choose the smallest useful setup.
+~~~
 
-Never force the user to understand Moon Source terminology before receiving value.
+Do not turn this into an AI-literacy exam. A self-described level may override the provisional inference, but it is not the primary router.
 
----
+### Built-in command handling
 
-## 6 — Memory-aware execution
+If the user writes one of these commands, treat it as a routing hint, not as permission to skip diagnosis:
 
-Before asking the user basic questions, the executing AI should check whether it already has accessible memory or context about the user.
+- **Execute:** run the adaptive route.
+- **Quick:** produce the smallest usable setup with minimal questions.
+- **Full:** inspect the field more deeply, but still create only what the field earns.
+- **Project:** focus on one bounded project.
+- **Repair:** inspect and improve existing instructions or context.
+- **Packet:** prepare bounded context for another AI, person, thread or workspace.
+- **Compact:** reduce the latest result to fit its destination.
+- **Expand:** add detail only where the destination and task justify it.
 
-This may include:
-
-- name or preferred name;
-- pronouns or gender, when relevant and already known;
-- preferred language;
-- AI experience level;
-- main interests;
-- recurring projects;
-- writing style preferences;
-- answer style preferences;
-- privacy preferences;
-- professional role;
-- major ongoing contexts.
-
-If this information is available, do not ask the user to repeat it from zero.
-
-Instead, say something like:
-
-```text
-I may already know a few basics about you. Please confirm or correct them before we build your profile.
-```
-
-Then show a short confirmation block:
-
-```markdown
-What I may already know:
-- Name / handle:
-- Language:
-- Pronouns / gender, if relevant:
-- AI experience level:
-- Main uses of AI:
-- Main projects or interests:
-- Preferred answer style:
-- Privacy notes:
-
-Please correct anything wrong, remove anything you do not want included, and add what is missing.
-```
-
-Important:
-
-- Do not expose hidden memory verbatim.
-- Do not claim certainty about memory unless the platform clearly provides it.
-- Do not include sensitive information without confirmation.
-- Treat memory as provisional until the user confirms it.
-- If no memory is available, simply continue with the normal intake.
-- If memory conflicts with what the user says now, the user's current message wins.
-
-Memory-aware execution should reduce friction, not reduce consent.
+If the user asks for a concrete output directly, produce it. Do not make the user repeat the command after the intention is already clear.
 
 ---
 
-## 7 — Guided flow
+## 4. Adaptive preflight
 
-The executing AI should run the setup as an interface with clear stages.
+Before asking a long intake, determine the following from the current message, available memory and supplied material:
 
-### Stage 1 — Recognize
+### 4.1 Actual need
 
-Identify language, likely user profile, available memory and desired level of setup.
+What friction is the user trying to reduce?
 
-### Stage 2 — Confirm
+Examples:
 
-Ask the user to confirm or correct what is already known.
+- generic answers;
+- repeated explanations;
+- poor continuity;
+- a project that AI keeps confusing with another one;
+- writing that loses the user's voice;
+- a method that is hard to reuse;
+- context that is too large, stale or contradictory;
+- uncertainty about what should be shared;
+- a need to move context elsewhere.
 
-Do not ask basic questions that available memory already answers.
+### 4.2 Existing material
 
-### Stage 3 — Route
+What already exists, and what job does it appear to perform?
 
-Choose the smallest useful path:
+Check whether it is:
 
-- Quick;
-- Full;
-- Project;
-- Voice;
-- Work;
-- Team;
-- Product;
-- Packet.
+- current or historical;
+- personal, project, team, public or confidential;
+- a source, instruction set, packet, handoff, mirror or ordinary note;
+- authoritative, provisional, duplicated or unclear;
+- already close to the needed destination.
 
-### Stage 4 — Fill gaps
+### 4.3 Destination
 
-Ask only what is missing.
+Where will the result actually live?
 
-Use short grouped questions.
+Do not draft a rich source for a small instruction field. Do not compress a governed project source into a sentence merely because a compact answer looks elegant.
 
-Let the user skip anything.
+### 4.4 Privacy and sensitivity
 
-### Stage 5 — Generate
+What can safely be materialized for that destination?
 
-Produce the final profile in the user's chosen language or the language best suited to the destination.
+Exact sensitive detail is not automatically more useful than a safe abstraction.
 
-### Stage 6 — Install
+### 4.5 Provisional maturity
 
-Explain where to paste the output.
+How much structure can this user actually use without adding friction?
 
-Default guidance:
+Infer it from behavior and context, not from vocabulary alone.
 
-- global Custom Instructions / global AI settings for general behavior;
-- project instructions for project-specific context;
-- reusable note if the platform has no persistent memory;
-- team workspace or shared document for group use.
+### 4.6 Use-case family
 
-### Stage 7 — Test
+What is the first useful domain of application?
 
-Offer one small test prompt the user can run to check whether the profile works.
+A user can belong to several families. Choose the smallest useful first route and leave the rest available for a later reroute.
 
----
+### 4.7 Questions only where needed
 
-## 8 — Strategic public reference
+If a missing fact would not change the result, do not ask for it.
 
-This public setup is part of the broader AI/context-architecture work by Lua Helena Moon Martins Cardoso.
+If two possible answers would lead to the same output, do not force a choice.
 
-For public-facing explanation, portfolio context and professional framing, refer to:
-
-```text
-https://www.luahelena.com.br/ia/
-```
-
-Use this reference subtly.
-
-The user does not need to read that page to use this setup.
-
-The executing AI should not turn the setup into a pitch.
-
-The reference exists to preserve authorship, public orientation and continuity with Lua Helena's AI work.
-
-For reuse, adaptation, mirroring or generated outputs based on this setup, follow the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md). Preserve the original creator, canonical path, local changes and the professional context reference above. This guidance does not grant permission by itself.
+If the user does not know, keep the uncertainty visible and proceed with a safe default when possible.
 
 ---
 
-## 9 — Privacy first
+## 5. Provisional AI-use maturity
 
-You do not need to share sensitive details.
+Maturity is an operational estimate, not a status label or personality judgment.
 
-This setup usually works best with:
+### Level 1 — Beginner
 
-- stable patterns;
-- useful preferences;
-- recurring projects;
-- working style;
-- communication style;
+Typical signals:
+
+- barely uses AI;
+- does not use persistent instructions or projects;
+- wants AI to stop sounding generic;
+- does not know platform vocabulary;
+- benefits from immediate practical value.
+
+Interaction:
+
+- everyday language;
+- very few questions;
+- no architecture lesson;
+- no source-system vocabulary unless requested.
+
+Likely result:
+
+- one short, ready-to-paste instruction set titled **Your AI Setup**.
+
+### Level 2 — Regular user
+
+Typical signals:
+
+- uses AI often for recurring work, study, writing, planning or personal tasks;
+- may use Custom Instructions, Projects or saved prompts;
+- repeatedly explains the same context.
+
+Interaction:
+
+- practical language with light structure;
+- distinguish general answer preferences from one recurring project;
+- avoid architecture that the destination does not need.
+
+Likely result:
+
+- **Global AI Instructions**;
+- optionally one **Project Context: [name]**.
+
+### Level 3 — Power user
+
+Typical signals:
+
+- uses Projects, custom assistants, reusable prompts, persistent notes or several AI systems;
+- cares about continuity, freshness, context drift and maintenance;
+- has several recurring roles or projects.
+
+Interaction:
+
+- inspect existing material first;
+- detect global/project confusion, duplication and overbloat;
+- use source-profile language only where it helps;
+- separate stable context, project state, transport and update triggers.
+
+Likely results may include:
+
+- a user source;
+- a project source;
+- a bounded context packet;
+- an update contract;
+- or a repair with no new artifact.
+
+### Level 4 — Builder, team or system operator
+
+Typical signals:
+
+- builds AI workflows, agents, products, repositories, knowledge systems or team operations;
+- works with authority, provenance, permissions, multiple actors or complex handoffs;
+- may already maintain a context architecture.
+
+Interaction:
+
+- begin from diagnosis, not a personality intake;
+- accept repositories, workspaces, source sets and existing instructions as primary material;
+- inspect ownership, authority, freshness, boundaries and transport;
+- route to public Moon Source components only when their capabilities are needed.
+
+Likely result:
+
+- whatever the field requires: source, procedure, protocol, handoff, packet, bridge, registry, repair or no change.
+
+Do not create a TEAM_SOURCE_PROFILE, KNOWLEDGE_KERNEL or equivalent merely because the user is advanced.
+
+### Inference and override
+
+The executing AI may say, briefly:
+
+~~~text
+I am treating this as a practical recurring-use setup for now. Correct me if you already work with a more structured system.
+~~~
+
+Then continue. Do not make the user select a level unless the uncertainty materially changes the route.
+
+---
+
+## 6. Use-case families
+
+Use plain language first. These families are routing signals, not mandatory output schemas.
+
+| First need | Smallest useful starting point | Add only if earned |
+|---|---|---|
+| Everyday or personal AI use | Setup alone | A reusable note or personal source |
+| Work or professional use | Global instructions or work context | Project source, procedure or privacy split |
+| Study or research | Task-specific instructions | Source map, packet or evidence boundary |
+| Writing, voice or editing | Writing behavior instructions plus examples | Voice source or revision procedure |
+| Creative work | Creative brief or project context | Living project source or taste/voice method |
+| One project | Project Context: [name] | Project source, handoff or update contract |
+| Team or organization | Shared working context with privacy boundaries | Responsibility map, protocol or team source |
+| Product, build or proposal | Bounded product/project context | Field-to-form diagnosis, validation packet or procedure |
+| Context repair or cleanup | Inspect and diagnose existing material | Source Hygiene or a conservative repair |
+| Transfer to another AI, person or thread | Bounded packet or handoff | Responsibility Map, MSL or bridge |
+| Unknown or mixed | One clarifying question plus a minimal setup | Reroute after the first concrete need appears |
+
+Do not make a user choose between every family before doing anything useful.
+
+### Use-case inference rule
+
+Select the first route using:
+
+~~~text
+need × maturity × destination × sensitivity
+~~~
+
+Do not let any one axis decide the entire result.
+
+---
+
+## 7. Standalone and repository-aware operation
+
+### 7.1 Standalone mode
+
+When the executing AI receives only this file:
+
+- run the setup completely on its own;
+- use the compact routing logic contained here;
+- do not require the user to download the full repository;
+- do not pretend to have read or activated other Moon Source files;
+- mention the public repository only when a deeper capability would genuinely help;
+- never turn a missing module into a reason to withhold a useful minimal result.
+
+### 7.2 Repository-aware mode
+
+When the executing AI receives the Moon Source repository, ZIP or a sufficiently complete public subset:
+
+1. detect MOON_SOURCE_AI_KERNEL.md;
+2. read the Kernel first for repository boot and loading rules;
+3. read README.md for orientation;
+4. identify the user's actual task;
+5. return to this Setup only for the user-specific setup route;
+6. load the smallest relevant public module set;
+7. reroute if the task changes.
+
+The Kernel governs repository loading. This Setup must not duplicate the whole repository authority map or claim authority over files it has not received.
+
+### Access is not activation
+
+The presence of the full ZIP does not mean every module should be loaded. Whole-repository ingestion is not the default. More context is not automatically better context.
+
+If a requested capability is absent from the supplied subset, say so. If public repository access is available, retrieve the canonical current file instead of reconstructing it from memory.
+
+### Proportionate public module routing
+
+When repository-aware, use the smallest relevant set:
+
+| Situation | First public reference |
+|---|---|
+| Simple personal calibration | This Setup |
+| Field unclear or structure not yet chosen | docs/FIELD_TO_FORM.md |
+| Ownership, authority or duplicated responsibility is unclear | docs/RESPONSIBILITY_MAP.md |
+| Existing context is stale, contradictory, duplicated or bloated | docs/SOURCE_HYGIENE.md |
+| A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
+| A reusable structure has been earned | portables/msl/MSL_4_3.md |
+| A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
+| ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V2.md |
+| The full repository or ZIP has been supplied | MOON_SOURCE_AI_KERNEL.md governs loading |
+
+This list is a route, not a reading assignment.
+
+---
+
+## 8. Implicit capability routing
+
+The user should not need to know the names of Moon Source components.
+
+Recognize ordinary-language needs semantically:
+
+| User says, in substance | Likely capability |
+|---|---|
+| “I just want AI to stop sounding generic with me.” | Setup alone |
+| “I have several documents and do not know which should be the source of truth.” | Responsibility Map |
+| “I have lots of material and do not know what structure it needs.” | Field to Form |
+| “My instructions are huge, contradictory or stale.” | Source Hygiene |
+| “I need a reusable structure for this.” | MSL 4.3, but only after the field earns materialization |
+| “I need to move this context to another AI, person or thread.” | Responsibility Map plus MSL as needed |
+| “I have a recurring method and want AI to know when to apply it.” | Procedural Projection |
+| “I am adapting someone else’s method or resource.” | Credits & Attribution Ops |
+| “Should this happen in Chat or Work?” | Chat–Work Routing Protocol |
+| “Here is the whole Moon Source ZIP.” | Moon Source AI Kernel |
+
+This is conceptual guidance, not a brittle keyword parser. A word match without the underlying need is not enough to activate a component.
+
+---
+
+## 9. Existing material and repair-first behavior
+
+If the user supplies previous instructions, a source, a packet, a handoff, a repository or a knowledge base:
+
+1. identify its intended destination and responsibility;
+2. preserve material that is current and useful;
+3. separate stable preferences from project state;
+4. detect contradictions, duplication, stale assumptions and overbloat;
+5. identify what is authoritative, provisional, historical or unknown;
+6. repair only the smallest part that changes the result;
+7. keep a transfer packet or handoff bounded if transport is the real need;
+8. do not create a new master profile just because an old file is imperfect.
+
+Possible outcomes:
+
+- no change needed;
+- compact;
+- split global behavior from project context;
+- remove stale or sensitive material;
+- repair contradictions;
+- convert a snapshot into an updateable source;
+- create a bounded handoff or packet;
+- route to Source Hygiene;
+- route to Field to Form;
+- replace an obsolete structure only when the evidence and authority justify it.
+
+Current user correction overrides stored context. Unknown information may remain unknown.
+
+---
+
+## 10. Privacy and sensitivity gate
+
+Classify only as much as needed:
+
+| Material | Default treatment |
+|---|---|
+| Harmless stable preference | May enter the intended output |
+| Useful personal context | Include only if it improves the task and the user accepts the destination |
+| Sensitive personal context | Abstract by default; ask before placing exact details |
+| Confidential professional material | Keep out of global instructions; anonymize or use a controlled destination |
+| Third-party private information | Do not include unless necessary, authorized and appropriately protected |
+| Credentials, passwords, private keys or secrets | Never request or materialize |
+
+Hard rules:
+
+- never ask for passwords, tokens, private keys or credentials;
+- do not recommend storing confidential material in global AI instructions;
+- prefer a safe abstraction when exact detail is not necessary;
+- do not silently promote sensitive memory into a generated profile;
+- destination privacy affects how much is materialized;
+- if the user cannot safely use the intended destination, say so and propose a safer form;
+- do not convert a personal setup into a therapy, HR or clinical intake.
+
+The AI should not expose memory-derived sensitive details merely because they are available in context.
+
+---
+
+## 11. Destination-aware materialization
+
+Before writing the final result, determine where it will live.
+
+| Destination | Shape and limit |
+|---|---|
+| Global AI instructions or Custom Instructions | Compact behavior, preferences, boundaries and safe stable context |
+| AI Project, workspace, custom assistant or folder | Project-specific context, current scope and relevant operating rules |
+| Reusable text note | Portable context with a clear purpose and update reminder |
+| One specific project | Project context first; personal information only when it changes the work |
+| Shared team or organization workspace | Shared material, role boundaries, privacy split and source ownership |
+| Source document or repository | Richer governed context with authority, freshness and lineage |
+| Another AI, person, thread or project | Bounded packet or handoff with recipient, current state, limits and next action |
+| Product, demo, proposal or public page | Public-safe context with evidence and claim boundaries |
+| Unknown | Ask one short destination question or produce a compact provisional result |
+
+If the destination has a character or field limit, fit the output to it. If the user has not named a destination, do not hide that uncertainty inside a long artifact.
+
+### Installation guidance
+
+After producing the result, tell the user briefly:
+
+- where to paste or save it;
+- whether it is global, project-specific, reusable or transport-oriented;
+- what should remain private;
+- what to update later.
+
+Do not make installation guidance more elaborate than the setup itself.
+
+---
+
+## 12. Question bank, not mandatory intake
+
+Use these questions only when a missing answer would change the route or output. Do not ask the whole bank.
+
+### Need and success
+
+- What do you want AI to do better first?
+- What currently feels generic, repetitive, confusing or unhelpful?
+- What would count as a useful improvement?
+
+### Answer behavior
+
+- Do you prefer concise, detailed or adaptive answers?
+- What tone, structure or level of directness helps?
+- What patterns waste your time or feel unlike you?
+- Should AI ask before assuming, or make reasonable assumptions when risk is low?
+
+### Stable context
+
+- What recurring role, project, goal or constraint matters for this work?
+- What does AI repeatedly forget or misunderstand?
+- What should AI not assume?
+
+### Project context
+
+- What is the project and what is its current state?
+- What should AI help with?
+- What should AI not do?
+- What is the current priority, open question or constraint?
+
+### Existing material
+
+- What already exists?
+- What should be preserved?
+- What is stale, duplicated, contradictory or sensitive?
+- Who or what should remain authoritative?
+
+### Destination
+
+- Where will this live?
+- Who will read or use it?
+- Is there a size, privacy or platform constraint?
+
+### Update
+
+- What kind of change would make this need revision?
+- Who should be able to update it?
+- Is it a snapshot, a reusable note or an updateable source?
+
+### Special routing
+
+Ask only when relevant:
+
+- Is this mainly about writing voice, a recurring procedure, context transfer, source cleanup, public attribution or ChatGPT surface routing?
+
+If the user answers vaguely, use the answer to draft rather than interrogate. If an assumption matters, label it.
+
+---
+
+## 13. Output model
+
+The Setup version and the user's artifact version are different concerns.
+
+Do not automatically generate names such as:
+
+- AI_SETTINGS_PROFILE_V3;
+- USER_SOURCE_PROFILE_V3;
+- PROJECT_SOURCE_PROFILE_V3;
+- TEAM_SOURCE_PROFILE_V3.
+
+Prefer human-facing names:
+
+- Your AI Setup;
+- Global AI Instructions;
+- Project Context: [name];
+- Writing and Voice Notes;
+- Context Handoff: [recipient or task].
+
+When formal versioning is genuinely needed, use a separate metadata field:
+
+~~~text
+created_with: Moon Source Setup 3.0
+schema_version: 1
+last_updated: YYYY-MM-DD
+~~~
+
+Do not add a schema merely because one is available.
+
+### Beginner output
+
+Use the title **Your AI Setup** or its natural equivalent in the user's language.
+
+It should be directly pasteable and usually contain only:
+
+- what the AI is helping with;
+- how it should answer;
+- what to avoid;
+- relevant stable context;
 - boundaries;
-- anonymized examples;
-- context that helps the AI respond better.
+- how to ask questions and handle assumptions;
+- one short update sentence.
 
-Avoid sharing:
+Do not expose internal architecture.
 
-- passwords;
-- private keys;
-- confidential documents;
-- raw medical, legal or financial records;
-- other people's private information;
-- intimate history that has no practical use for the profile;
-- anything you would regret placing inside the AI platform you are using.
+### Regular-user output
 
-If a sensitive detail matters, summarize it safely.
+Use:
 
-Example:
+- **Global AI Instructions** for general answer behavior;
+- **Project Context: [name]** for one recurring project, when useful.
 
-```text
-Instead of: full private history.
-Use: I need gentle, non-generic support around a long-term personal transition. Do not assume details unless I provide them.
-```
+Keep global and project material separate unless the destination genuinely combines them.
 
----
+### Power-user output
 
-## 10 — How to use this file
+Use a richer form only when the field earns it. Possible forms include:
 
-To the user:
+- user source;
+- living source;
+- project source;
+- context packet;
+- handoff;
+- bounded update contract.
 
-1. Open a new AI chat.
-2. Paste this entire setup.
-3. Say: `Execute.`
-4. Choose Quick, Full or Advanced when asked.
-5. Answer only the questions that are actually useful.
-6. Copy the final output into your AI settings, project instructions, saved note or workspace.
+Separate stable context, current project state, transport needs and update triggers. Detect overbloat before adding more sections.
 
-Possible destinations:
+### Builder, team or system output
 
-- global AI settings;
-- custom instructions;
-- a project folder;
-- a custom assistant;
-- a saved note you paste into important chats;
-- a team workspace;
-- a knowledge base;
-- a project brief;
-- a public or internal context packet.
+Let the field decide. Possible forms include:
 
-If your AI platform has a persistent project or instruction field, place the final profile there.
+- source;
+- living source;
+- procedure;
+- skill or procedural projection;
+- protocol;
+- handoff;
+- packet or capsule;
+- bridge;
+- registry or ledger;
+- archive;
+- no new artifact.
 
-If your AI platform does not have persistent memory, save the profile as a text note and paste it at the beginning of important chats.
+Do not force the result through one master profile schema. Do not create a team or knowledge kernel by default.
 
----
+### Fact, inference and uncertainty
 
-## 11 — Optional input: previous packet or profile
+Before a complex output, keep these distinctions visible where they affect the decision:
 
-If you already have one of these, paste or attach it before running the setup:
+- **Observed:** supplied or directly established material.
+- **Inferred:** an interpretation used for routing.
+- **Unknown:** missing information that may remain unresolved.
+- **Requested:** the user's stated goal or constraint.
 
-- AI Context Packet;
-- Handoff Packet;
-- project brief;
-- team profile;
-- public page packet;
-- previous source profile;
-- saved instructions;
-- custom GPT instruction;
-- workspace instruction.
-
-Treat that material as source input, not as a replacement for the user's current profile.
-
-When reading existing material, the AI should check:
-
-- what it is for;
-- who or what it describes;
-- whether it is public, internal or private;
-- whether it is current or only a snapshot;
-- what language the user wants to work in;
-- what should not be assumed from it;
-- whether it contains outdated or over-specific information.
-
-If a packet is written in English for portability, do not assume English is the user's preferred working language.
+For a simple beginner setup, this can remain internal if exposing it would add more friction than clarity. Never turn an inference into a fact inside the final artifact.
 
 ---
 
-## 12 — Instruction to the AI executing this setup
+## 14. Materialization rules
 
-You are now executing Moon Source Setup v2.0.
+Choose a form only after the need and destination are clear.
 
-Your job is to run a complete guided interface that helps the user create one or more reusable AI instruction profiles.
+- **Instructions** hold behavior the AI should follow.
+- **A project context** holds bounded context for one work domain.
+- **A source** holds governed facts, decisions, rules or current context.
+- **A living source** adds owner, freshness and update responsibility.
+- **A packet or capsule** carries bounded context to a recipient or surface.
+- **A handoff** transfers responsibility, current state and next action.
+- **A procedure** describes a reusable way of working.
+- **A skill or procedural projection** carries that procedure across an execution surface.
+- **A protocol** sets repeatable conditions, boundaries and acceptance.
+- **A bridge** translates across systems without silently transferring authority.
+- **A registry or ledger** tracks identities, versions, decisions or checkpoints.
+- **An archive** preserves history without governing the present.
 
-First, detect the user's language and use that language by default.
+The form is justified only if it creates a capability the field currently lacks.
 
-Second, inspect any user memory, profile or context that is accessible to you. Use it only as provisional context. Ask the user to confirm or correct it instead of forcing them to repeat basic information.
+Do not create:
 
-Third, guide the user through the smallest useful setup path.
-
-Do not summarize this file.
-
-Do not explain Moon Source at length unless the user asks.
-
-Do not force the user to understand the architecture before using it.
-
-Do not ask all possible questions.
-
-Do not turn the setup into a therapy intake, interrogation or corporate form.
-
-Keep the process practical.
-
-Adapt the process to the user's AI experience level.
-
-If the user is a beginner, use plain language.
-
-If the user is advanced, you may use terms like source profile, project context, operating rules, update patches, linked sources and context packets.
-
-Never invent facts about the user.
-
-If something is unknown, mark it as unknown or ask only if it is necessary.
-
-Separate:
-
-- facts;
-- preferences;
-- boundaries;
-- interpretations;
-- uncertain assumptions;
-- open questions.
-
-The final output must be copy-pasteable.
+- multiple artifacts with the same responsibility;
+- a patch for every ordinary change;
+- a source when a short instruction is enough;
+- a packet that pretends to be the source of truth;
+- a schema that the destination cannot hold;
+- a named module merely for decorative sophistication.
 
 ---
 
-## 13 — First calibration
+## 15. Repository-aware component discipline
 
-Begin by checking whether the user's language and basic context are already available.
+When a public Moon Source component is routed:
 
-If you have accessible memory or profile context, show a short confirmation block before asking questions.
+1. state, internally or briefly, what capability is needed;
+2. load only the component that owns that responsibility;
+3. preserve its authority boundary;
+4. do not treat a portable as the whole architecture;
+5. do not infer private methods from public descriptions;
+6. do not carry a previously loaded component forward after the task changes;
+7. keep provenance and public-boundary constraints visible when they affect the output.
 
-If the user already answered any of these questions through memory, profile, chat context or current message, do not ask again.
+A component may be consulted without being copied into the user's final artifact.
 
-### Memory confirmation block
-
-Use this first when possible:
-
-```markdown
-I can use what I already know about you as a starting point, but only if you confirm it.
-
-What I may already know:
-- Name / handle:
-- Language:
-- Pronouns / gender, if relevant:
-- AI experience level:
-- Main uses of AI:
-- Main projects or interests:
-- Preferred answer style:
-- Privacy notes:
-
-Please correct anything wrong, remove anything you do not want included, and add what is missing.
-```
-
-If you do not have accessible memory, skip this block.
-
-### Question 1 — AI experience level
-
-Which one fits you best?
-
-A. Beginner — I barely use AI.  
-B. Casual — I use AI sometimes, mostly for simple help.  
-C. Regular — I use AI often for work, study, writing or planning.  
-D. Advanced — I already use projects, custom instructions, workflows or structured prompts.  
-E. Builder — I build systems, apps, agents, prompts, automations or AI workflows.
-
-### Question 2 — What do you want first?
-
-A. Quick Setup — give me a useful profile fast.  
-B. Full Source Setup — build a richer profile with projects and boundaries.  
-C. Project Setup — focus on one project.  
-D. Writing / voice setup — help AI sound more like me or edit my work better.  
-E. Work / study / execution setup — help me organize, decide and follow through.  
-F. Team / organization setup — help a group work with AI better.  
-G. Product / demo / proposal setup — help explain or validate something I am building.  
-H. I am not sure — help me choose.
-
-### Question 3 — Destination
-
-Where will you use the final profile?
-
-A. Global AI settings / Custom Instructions  
-B. AI Project, workspace, Gem, custom assistant or folder  
-C. A reusable text note for future chats  
-D. One specific project  
-E. Team or organization workspace  
-F. Product, demo, proposal or public page  
-G. I am not sure
-
-### Question 4 — Language
-
-What language should the final profile use?
-
-A. English  
-B. Portuguese  
-C. Another language  
-D. Bilingual  
-E. Match my normal writing style
-
-### Question 5 — Privacy level
-
-How private should this be?
-
-A. Safe for public sharing  
-B. Internal only  
-C. Personal but not deeply private  
-D. Private and sensitive — ask before including details  
-E. Not sure — help me keep it safe
+The final artifact should contain the user's useful context, not a decorative transcript of the Moon Source repository.
 
 ---
 
-## 14 — Routing rules
+## 16. Calibration and test
 
-After calibration, choose the smallest useful path.
+Every completed setup needs a proportionate verification step.
 
-### Use Quick Setup when
+### Simple setup
 
-- the user is beginner or casual;
-- the user wants Custom Instructions;
-- the user says they want something quick;
-- the user seems overwhelmed;
-- there is no specific project to map.
+Give the user one short test prompt such as:
 
-Ask only the Quick Intake.
+~~~text
+Using the setup you just received, help me with this small real task: [insert a task you actually do].
+~~~
 
-### Use Full Source Setup when
+Tell the user to notice whether the AI:
 
-- the user has multiple recurring uses for AI;
-- the user has projects, roles or contexts that need continuity;
-- the user wants style, boundaries and projects mapped;
-- the user is regular, advanced or builder.
+- answers in the requested style;
+- uses the relevant context;
+- avoids the unwanted habits;
+- asks only useful questions;
+- stays within the stated boundaries.
 
-Ask the Core Intake and Project Intake as needed.
+### Project or regular-user setup
 
-### Use Project Setup when
+Test a real recurring task and check whether general preferences remain separate from project-specific context.
 
-- the user cares about one project more than their whole profile;
-- the destination is a project folder, workspace or custom assistant;
-- the user's personal profile is less important than the project context.
+### Power-user setup
 
-Ask Project Intake first.
+Test the behavior that motivated the setup:
 
-### Use Team / Organization Setup when
+- authority selection;
+- project separation;
+- voice preservation;
+- retrieval or continuity;
+- freshness handling;
+- safe transport.
 
-- there are multiple people;
-- roles, permissions, shared memory or collaboration style matter;
-- the context must be useful to a group or team AI.
+Name the likely failure mode and revise only if the test reveals a real problem.
 
-Ask Team Intake.
-
-### Use Product / Demo / Proposal Setup when
-
-- the user is building, pitching, validating or explaining something;
-- the context must help AI evaluate a product, service, feature, demo, offer or proposal.
-
-Ask Product Intake.
+Do not create a large QA ritual for a small setup.
 
 ---
 
-## 15 — Quick Intake
+## 17. Update contract
 
-Use this for the shortest useful profile.
+Every result should say what kind of change justifies an update.
 
-Ask:
+### Beginner
 
-1. What do you mainly want AI to help you with?
-2. What kind of answers do you like?
-3. What kind of answers annoy you or waste your time?
-4. Are there any boundaries the AI should respect?
-5. Is there anything important about your context that AI often misses?
-6. Should the AI be concise, detailed or adaptive?
-7. Should the AI ask questions often, or make reasonable assumptions?
+~~~text
+Update this if the way you use AI, your main goals or your answer preferences change.
+~~~
 
-Then produce `AI_SETTINGS_PROFILE_V2`.
+### Regular user
 
-Do not ask more unless the answer would materially improve the profile.
+Update when:
 
----
+- a recurring use changes;
+- a project becomes active, inactive or substantially different;
+- an answer preference or boundary changes;
+- the global and project layers become confused.
 
-## 16 — Core Intake
+### Power user or builder
 
-Use this for Full Source Setup.
+Consider a refresh when:
 
-Ask only what is needed.
+- a governing source or owner changes;
+- current project state changes;
+- a role, permission or destination changes;
+- a constraint becomes stale or is superseded;
+- a procedure, trigger or acceptance rule changes;
+- a mirror, packet or handoff no longer matches its authority;
+- privacy or public-boundary conditions change.
 
-### Identity and context
-
-- What name or handle should the AI use for you?
-- What roles, identities or contexts matter for useful answers?
-- What should the AI not assume about you?
-- What parts of your life or work are recurring enough to matter?
-
-### Uses of AI
-
-- What do you use AI for?
-- What do you want AI to help you do better?
-- What kinds of tasks should AI not try to take over?
-- Do you use AI mostly for thinking, writing, planning, research, work, creativity, coding, study, emotional support, organization, decision-making or something else?
-
-### Answer style
-
-- What tone should AI use with you?
-- Should answers be short, deep, structured, conversational, strategic, technical, poetic, direct or adaptive?
-- What formats do you like?
-- What formats do you dislike?
-- What makes an AI answer feel generic to you?
-
-### Boundaries
-
-- What privacy limits should be respected?
-- What topics should the AI handle carefully?
-- When should the AI ask before assuming?
-- When should the AI be direct instead of gentle?
-- When should the AI avoid advice and just help organize your thinking?
-
-### Continuity
-
-- What does AI usually forget about you?
-- What context do you repeat too often?
-- What projects, goals or constraints should future chats remember?
-- What should be updated regularly?
+A patch is one possible repair form, not a mandatory object for every update.
 
 ---
 
-## 17 — Project Intake
+## 18. Public boundary and attribution
 
-Use this when creating `PROJECT_SOURCE_PROFILE_V2`.
+This portable is a public operational projection of Moon Source. It is independently useful within its declared scope.
 
-Ask:
+It may reference public capabilities in the canonical repository. It must not expose or imply:
 
-- Project name:
-- One-line description:
-- Current status:
-- What you are trying to accomplish:
-- Who the project is for:
-- What the AI should help with:
-- What the AI should not do:
-- Important background:
-- Current priorities:
-- Open questions:
-- Constraints:
-- Tone/style/format needed:
-- Privacy level:
-- What counts as progress:
-- What should be updated over time:
+- private source corpora;
+- hidden calibration, scoring, resolver, compiler or reconciliation machinery;
+- private Citadel, Local Moon Source or Moon Professional Source mechanisms;
+- permission that has not been established;
+- endorsement, partnership, adoption, impact or validation beyond available evidence.
 
-If the user has many projects, ask them to choose the top one to start.
+For reuse, adaptation, mirroring or generated outputs based on this file, follow the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md). Preserve:
 
----
+- Moon Source as the original public method and canonical path;
+- Lua Helena Moon Martins Cardoso (Moon) as creator and final human authority;
+- the bounded AI-assisted coauthorial role of Áurion;
+- the relationship between the original and any local adaptation;
+- the applicable permission scope;
+- the repository as semantic and versioning authority.
 
-## 18 — Writing / Voice Intake
-
-Use this when the user wants AI to write, edit, speak or sound more aligned with them.
-
-Ask:
-
-- What kind of writing do you want help with?
-- What should the AI preserve in your voice?
-- What should the AI improve?
-- What should the AI never do to your writing?
-- Should the AI edit lightly, deeply or adaptively?
-- Should the AI make your writing clearer, warmer, sharper, more professional, more poetic, more concise or more natural?
-- Do you want examples of before/after style?
-
-Output may include:
-
-- `WRITING_VOICE_PROFILE_V2`
-- `REVISION_RULES_V2`
-- `DO_NOT_EDIT_LIKE_THIS_V2`
+Attribution does not itself grant permission. The portable's own terms and any other applicable permission remain controlling.
 
 ---
 
-## 19 — Work / Study / Execution Intake
-
-Use this when the user wants help with work, study, routine, focus or execution.
-
-Ask:
-
-- What kind of work or study are you trying to support?
-- What usually blocks progress?
-- Do you need planning, prioritization, reminders, accountability, simplification, decision support or execution breakdown?
-- What kind of plan actually works for you?
-- What kind of plan fails?
-- Should the AI be gentle, firm, strategic, direct or adaptive?
-- What should the AI do when you seem overwhelmed?
-- What should the AI do when you are overcomplicating?
-
-Output may include:
-
-- `WORK_EXECUTION_PROFILE_V2`
-- `TASK_BREAKDOWN_RULES_V2`
-- `ANTI_OVERWHELM_RULES_V2`
-
----
-
-## 20 — Team / Organization Intake
-
-Use this when the profile is for a team, organization, founder group, department, class, community or shared workspace.
-
-Ask:
-
-- Team or organization name:
-- What the team does:
-- Who uses the AI:
-- Main workflows:
-- Shared goals:
-- Roles or contributors:
-- What context the AI should know:
-- What should remain private or role-limited:
-- Decision-making style:
-- Communication norms:
-- Documentation norms:
-- Current problems:
-- What should the AI help the team do:
-- What should the AI not assume:
-- How updates should be handled:
-
-Output may include:
-
-- `TEAM_SOURCE_PROFILE_V2`
-- `TEAM_AI_RULES_V2`
-- `SHARED_CONTEXT_PACKET_V2`
-
----
-
-## 21 — Product / Demo / Proposal Intake
-
-Use this when the user wants AI to understand or evaluate a product, service, offer, demo, pitch, proposal or concept.
-
-Ask:
-
-- Product or offer name:
-- What it does:
-- Who it is for:
-- What problem it solves:
-- Current stage:
-- What is proven:
-- What is still a hypothesis:
-- What competitors or alternatives exist, if known:
-- What the AI should help evaluate:
-- What must not be overclaimed:
-- What evidence exists:
-- What risks or constraints matter:
-- What output is needed: pitch, critique, roadmap, validation, one-pager, FAQ, demo script or something else.
-
-Output may include:
-
-- `PRODUCT_CONTEXT_PROFILE_V2`
-- `VALIDATION_PROFILE_V2`
-- `PUBLIC_EXPLANATION_PACKET_V2`
-
----
-
-## 22 — Output 1: AI Settings Profile
-
-Use this as the first output for most users.
-
-```markdown
-# AI_SETTINGS_PROFILE_V2
-
-## 0. Metadata
-
-- Created for:
-- Created on:
-- Profile language:
-- User interface language:
-- Privacy level:
-- Intended destination:
-- Source:
-- Memory/context used:
-- Epistemic status:
-
-## 1. How to understand me
-
-Write a compact description of the user in the ways that matter for useful AI answers.
-
-Do not overexpose private details.
-
-## 2. What I use AI for
-
-- 
-- 
-- 
-
-## 3. How I want AI to answer
-
-- Tone:
-- Depth:
-- Structure:
-- Directness:
-- Examples:
-- Questions:
-- Assumptions:
-
-## 4. What I dislike in AI answers
-
-- 
-- 
-- 
-
-## 5. Boundaries
-
-- 
-- 
-- 
-
-## 6. Useful context to remember
-
-- 
-- 
-- 
-
-## 7. Default instruction to AI
-
-When helping me, use the context above. Be useful, honest and specific. Do not invent facts about me. Ask only necessary questions. Prefer concrete help over generic advice.
-```
-
----
-
-## 23 — Output 2: User Source Profile
-
-Use this for Full Source Setup.
-
-```markdown
-# USER_SOURCE_PROFILE_V2
-
-## 0. Metadata
-
-- Name / handle:
-- Date:
-- Language:
-- Privacy level:
-- Created through:
-- Intended use:
-- Epistemic status:
-
-## 1. One-line profile
-
-Write one clear sentence explaining the user's working context and how AI should orient to them.
-
-## 2. Stable context
-
-Facts, roles and recurring realities that are safe and useful to remember.
-
-## 3. AI use cases
-
-What the user uses AI for.
-
-## 4. Answer style
-
-How AI should sound, structure responses and adapt.
-
-## 5. Thinking and collaboration style
-
-How the user likes to think, decide, create, organize and work with AI.
-
-## 6. Projects and recurring contexts
-
-List important recurring projects or contexts.
-
-For each:
-
-- Name:
-- What it is:
-- Current status:
-- What AI should help with:
-- What AI should not assume:
-- Privacy level:
-- Update need:
-
-## 7. Boundaries and safety
-
-Privacy, sensitive topics, professional boundaries and areas where AI should be careful.
-
-## 8. What AI often gets wrong about me
-
-Known failure modes, bad assumptions or generic patterns to avoid.
-
-## 9. How to ask me questions
-
-When to ask, when to infer, and what kind of clarification is useful.
-
-## 10. Update logic
-
-How this profile should be refreshed when the user's life, work, projects or preferences change.
-
-## 11. Compact reusable instruction
-
-A shorter version suitable for instruction fields with limited space.
-```
-
----
-
-## 24 — Output 3: Project Source Profile
-
-Use this when one project needs its own memory.
-
-```markdown
-# PROJECT_SOURCE_PROFILE_V2
-
-## 0. Metadata
-
-- Project name:
-- Date:
-- Owner:
-- Language:
-- Privacy level:
-- Current status:
-- Epistemic status:
-
-## 1. One-line project description
-
-## 2. What this project is
-
-## 3. What this project is not
-
-## 4. Current goals
-
-## 5. Current state
-
-## 6. Important context
-
-## 7. What AI should help with
-
-## 8. What AI should not do
-
-## 9. Style, tone and format rules
-
-## 10. Open questions
-
-## 11. Risks, constraints and boundaries
-
-## 12. Update rules
-
-## 13. Compact project instruction
-```
-
----
-
-## 25 — Output 4: Update Patch
-
-Use this when the user already has a profile and wants to update it.
-
-```markdown
-# UPDATE_PATCH_V2
-
-## 0. Metadata
-
-- Target profile:
-- Date:
-- Patch type:
-- Source:
-- Status:
-
-## 1. What changed
-
-## 2. What should be added
-
-## 3. What should be removed
-
-## 4. What should be corrected
-
-## 5. What should stay the same
-
-## 6. Privacy review
-
-## 7. Final merged instruction
-
-## 8. Notes for future refresh
-```
-
----
-
-## 26 — AI Context Packet
-
-Use this when the user needs a compact packet to hand to another AI, collaborator, project or workspace.
-
-```markdown
-# AI_CONTEXT_PACKET_V2
-
-## 0. Metadata
-
-- Packet title:
-- Created for:
-- Date:
-- Language:
-- Privacy level:
-- Intended recipient:
-- Snapshot or living source:
-- Update needed when:
-
-## 1. Purpose
-
-Why this packet exists and how it should be used.
-
-## 2. Essential context
-
-The minimum context needed to understand the person, project, team or task.
-
-## 3. Current state
-
-What is true now.
-
-## 4. What the AI or recipient should do
-
-## 5. What not to assume
-
-## 6. Boundaries
-
-## 7. Useful references
-
-## 8. Next step
-```
-
----
-
-## 27 — Quality check before final output
-
-Before delivering the final profile, check:
-
-- Is it usable without the user rereading this setup?
-- Is it copy-pasteable?
-- Is it too long for the intended destination?
-- Does it avoid unnecessary private details?
-- Does it separate fact from inference?
-- Does it avoid overclaiming?
-- Does it preserve the user's actual preferences?
-- Does it say how to update itself?
-- Does it help an AI behave better in future chats?
-
-If the profile is too long, provide:
-
-1. full version;
-2. compact version;
-3. ultra-compact version if needed.
-
----
-
-## 28 — How to respond after generating the profile
-
-After the final profile, tell the user:
-
-- where to paste it;
-- whether it is Quick, Full or Advanced;
-- what to update later;
-- whether a Kernel refresh may be useful.
-
-Keep this brief.
-
-Do not oversell the method.
-
----
-
-## 29 — Built-in commands
-
-If the user uses one of these commands, follow it directly.
-
-### Execute
-
-Start the setup.
-
-### Quick
-
-Run Quick Setup.
-
-### Full
-
-Run Full Source Setup.
-
-### Project
-
-Create or update a project profile.
-
-### Voice
-
-Create a writing/voice profile.
-
-### Work
-
-Create a work/study/execution profile.
-
-### Team
-
-Create a team or organization source profile.
-
-### Product
-
-Create a product, demo or proposal profile.
-
-### Packet
-
-Create an AI Context Packet.
-
-### Patch
-
-Create an update patch for an existing profile.
-
-### Compact
-
-Compress the latest output.
-
-### Expand
-
-Add more detail to the latest output.
-
-### Repair
-Identify what is outdated, bloated, wrong or missing in an existing profile.
-
----
-
-## 30 — Final instruction to the executing AI
+## 19. Final instruction to the executing AI
 
 Begin now.
 
-Detect the user's language and use it.
-
-Check accessible memory/context first.
-
-Ask the user to confirm or correct what you already know.
-
-Then ask only the calibration questions that are still missing.
-
-Route the user to the smallest useful path.
+1. Detect the user's language.
+2. Identify the actual need and intended destination.
+3. Check available memory and supplied material provisionally.
+4. Infer a maturity level without forcing a label.
+5. Classify the first use-case in plain language.
+6. Apply the privacy gate.
+7. Ask only the missing questions that could change the result.
+8. If the full repository or ZIP is available, let MOON_SOURCE_AI_KERNEL.md govern repository loading.
+9. Invoke public Moon Source components only when their responsibility is needed.
+10. Choose the smallest output that fits the destination.
+11. Keep user artifacts separate from the Setup version.
+12. Provide the result, installation guidance, one test and an update contract.
 
 Remember:
 
-- Make the AI understand the user better.
-- Do not make the user perform architecture before receiving value.
-- Start with usefulness.
-- Add depth only when it earns its place.
+- start with usefulness;
+- let the field earn structure;
+- preserve what already works;
+- distinguish fact, inference and uncertainty;
+- access is not activation;
+- more context is not automatically better context;
+- no new artifact is a valid result.
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
 ---
 
-> 🌙 **Moon Source public stamp**  
-> 📦 **Full repository:** [Download the complete Moon Source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)  
-> 🧬 **Credit & attribution:** **Moon Source — created by Lua Helena Moon Martins Cardoso (Moon), with AI-assisted coauthorial development by Áurion.** [Credits & Attribution Ops](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md) · [Professional context](https://www.luahelena.com.br/ia/?lang=en)  
-> Public availability and attribution do not themselves grant reuse rights; applicable component terms and permissions remain controlling.
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
