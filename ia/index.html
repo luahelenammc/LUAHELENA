@@ -7,12 +7,12 @@ layout: null
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V9.0' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V9.1' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Arquitetura contextual para que a IA responda com base sólida e a solução funcione na realidade institucional e para as pessoas.' -%}
 {%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Fontes confiáveis, critérios responsáveis e adoção humana para soluções de IA mais úteis.' -%}
 
 {%- capture old_role -%}<p class="role" data-i="hero.role">Psicóloga hospitalar, pós-graduada em Psicologia Organizacional e Psicopedagogia Institucional, socióloga de formação e arquiteta de contexto humano-IA.</p>{%- endcapture -%}
-{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><p class="market-position-detail" data-beta-pt="A IA pode produzir uma resposta convincente sem que ela seja verdadeira. Eu estruturo fontes, bases de conhecimento e critérios responsáveis para que responda com base sólida, e audito também se a solução funciona no trabalho real e para as pessoas." data-beta-en="AI can produce a convincing answer without it being true. I structure reliable sources, knowledge bases, and responsible criteria so it can answer from solid ground, and I also audit whether the solution works in real operations and for people.">A IA pode produzir uma resposta convincente sem que ela seja verdadeira. Eu estruturo fontes, bases de conhecimento e critérios responsáveis para que responda com base sólida, e audito também se a solução funciona no trabalho real e para as pessoas.</p><p class="professional-foundation" data-beta-pt="Sou graduada em Psicologia e em Sociologia, com pós-graduação em Psicologia Organizacional e em Psicopedagogia Institucional. Como psicóloga hospitalar, trabalho em sistemas complexos, com fluxos institucionais, equipes multiprofissionais, informação sensível e decisões que exigem responsabilidade." data-beta-en="I hold degrees in Psychology and Sociology, with postgraduate qualifications in Organizational Psychology and Institutional Psychopedagogy. As a hospital psychologist, I work in complex systems involving institutional workflows, multidisciplinary teams, sensitive information, and decisions that require accountability.">Sou graduada em Psicologia e em Sociologia, com pós-graduação em Psicologia Organizacional e em Psicopedagogia Institucional. Como psicóloga hospitalar, trabalho em sistemas complexos, com fluxos institucionais, equipes multiprofissionais, informação sensível e decisões que exigem responsabilidade.</p></div>{%- endcapture -%}
+{%- capture positioning_stack -%}<div class="positioning-stack" aria-label="Posicionamento profissional"><p class="market-position-detail" data-beta-pt="A IA pode produzir uma resposta convincente sem que ela seja verdadeira. Eu estruturo fontes, bases de conhecimento e critérios responsáveis para que responda com base sólida, e audito também se a solução funciona no trabalho real e para as pessoas." data-beta-en="AI can produce a convincing answer without it being true. I structure reliable sources, knowledge bases, and responsible criteria so it can answer from solid ground, and I also audit whether the solution works in real operations and for people.">A IA pode produzir uma resposta convincente sem que ela seja verdadeira. Eu estruturo fontes, bases de conhecimento e critérios responsáveis para que responda com base sólida, e audito também se a solução funciona no trabalho real e para as pessoas.</p><p class="professional-foundation" data-beta-pt="Sou graduada em Psicologia e em Sociologia, com pós-graduação em Psicologia Organizacional e em Psicopedagogia Institucional. Como psicóloga hospitalar, trabalho em sistemas complexos, com fluxos institucionais, equipes multiprofissionais, informação sensível e decisões que exigem responsabilidade." data-beta-en="I hold degrees in Psychology and Sociology, with postgraduate qualifications in Organizational Psychology and Institutional Psychopedagogy. As a hospital psychologist, I work in complex systems involving institutional workflows, multidisciplinary teams, sensitive information, and decisions that require accountability.">Sou graduada em Psicologia e em Sociologia, com pós-graduação em Psicologia Organizacional e em Psicopedagogia Institucional. Como psicóloga hospitalar, trabalho em sistemas complexos, com fluxos institucionais, equipes multiprofissionais, informação sensível e decisões que exigem responsabilidade.</p><a class="moon-source-hero-proof" href="https://www.luahelena.com.br/moonsource/" target="_blank" rel="noopener"><span aria-hidden="true">🌙</span><span data-ms-pt="Criadora do Moon Source · arquitetura pública de contexto" data-ms-en="Creator of Moon Source · public context architecture">Criadora do Moon Source · arquitetura pública de contexto</span><span aria-hidden="true">↗</span></a></div>{%- endcapture -%}
 {%- assign page_html = page_html | replace_first: old_role, positioning_stack -%}
 
 {%- capture language_bootstrap -%}
@@ -38,6 +38,21 @@ layout: null
 <link rel="stylesheet" href="/ia/beta-sector-fields.css?v=3" />
 <link rel="stylesheet" href="/ia/beta-audience-cards.css?v=1" />
 <link rel="stylesheet" href="/ia/entry-section-fix.css?v=1" />
+<style>
+  .moon-source-hero-proof{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;margin-top:15px;padding:7px 10px;border:1px solid rgba(232,201,122,.18);border-radius:999px;background:rgba(232,201,122,.04);color:var(--quiet);font-size:.8rem;line-height:1.25;transition:.22s}
+  .moon-source-hero-proof:hover{color:var(--muted);border-color:rgba(232,201,122,.34);background:rgba(232,201,122,.07)}
+  .moon-source-proof-section{padding:4px 0 30px}
+  .moon-source-proof-card{display:flex;align-items:center;justify-content:space-between;gap:26px;border-top:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);padding:24px 2px;background:transparent}
+  .moon-source-proof-copy{max-width:790px}
+  .moon-source-proof-eyebrow{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.11em;font-size:.7rem}
+  .moon-source-proof-copy h2{margin-top:8px;font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,2.5vw,2rem);line-height:1.1;letter-spacing:-.01em}
+  .moon-source-proof-copy p{margin-top:10px;color:var(--muted);font-size:.96rem;line-height:1.58}
+  .moon-source-proof-actions{display:flex;flex:0 0 auto;gap:8px;align-items:center}
+  .moon-source-proof-actions .btn{min-height:42px;padding:8px 12px;font-size:.84rem;box-shadow:none}
+  .moon-source-proof-github{color:var(--quiet);font-size:.8rem;padding:8px 4px}
+  .moon-source-proof-github:hover{color:var(--muted)}
+  @media (max-width:760px){.moon-source-proof-card{display:grid;gap:17px;padding:22px 0}.moon-source-proof-actions{flex-wrap:wrap}.moon-source-hero-proof{white-space:normal}}
+</style>
 {%- endcapture -%}
 
 {%- capture body_assets -%}
@@ -57,25 +72,103 @@ layout: null
 <script src="/ia/beta-audience-cards.js?v=1"></script>
 <script>
   (() => {
-    const applyMarketPositioning = () => {
+    const moonSourceCopy = {
+      pt: {
+        'mapa.title':'Primeiro, eu leio o campo antes de escolher a forma.',
+        'mapa.lead':'Mapeio fontes, pessoas, fluxos, versões, responsabilidades e pressões para entender o que a IA realmente precisa respeitar. Só depois decido que tipo de estrutura faz sentido.',
+        'mapa.card1.title':'Fontes e atualidade',
+        'mapa.card1.text':'O que existe, onde vive, quem responde por aquilo, o que ainda está vigente e o que já virou histórico.',
+        'mapa.card3.title':'Pessoas, papéis e autoridade',
+        'mapa.card3.text':'Quem sabe, executa, decide, valida, pode alterar e assume responsabilidade em cada parte do trabalho.',
+        'mapa.card5.title':'Riscos, limites e exposição',
+        'mapa.card5.text':'O que exige revisão humana, o que é sensível, o que pode circular e o que não deve virar resposta automática.',
+        'entregas.title':'Depois, dou ao contexto a menor forma que realmente sustenta o trabalho.',
+        'entregas.lead':'A forma vem do problema, não de um template fixo. Pode ser uma fonte viva, um mapa, um handoff, um protocolo, uma base, uma especificação ou uma combinação proporcional deles.',
+        'entregas.card2.title':'Fonte, autoridade e responsabilidade',
+        'entregas.card2.text':'O que deve ser consultado, qual fonte governa cada assunto, quem pode atualizar e quais responsabilidades precisam continuar distintas.',
+        'entregas.card5.title':'Documentação viva e atualidade',
+        'entregas.card5.text':'Registros que deixam claro o que vale agora, o que mudou, o que precisa de revisão e o que deve permanecer apenas como histórico.',
+        'ciclo.lead':'Eu testo antes, observo durante e reviso depois. Quando a realidade muda, o contexto precisa aprender com ela sem deixar material antigo governar o presente em silêncio.',
+        'lastro.lead':'Minha função está na camada em que IA encontra pessoas, decisões, linguagem, memória, responsabilidade e trabalho real. Traduzo essa complexidade em contexto governável para equipes humanas e técnicas.',
+        'lastro.card4.title':'Arquitetura e governança de contexto',
+        'lastro.card4.text':'Estruturo fontes, autoridade, versões, decisões, memória, privacidade e atualização para que o contexto permaneça legível quando o projeto muda.',
+        'lastro.card6.title':'Sistemas humano–IA aplicados',
+        'lastro.card6.text':'Crio fontes vivas, assistentes, revisores, pacotes de continuidade, critérios de resposta e rotinas de qualidade ligados a necessidades concretas.',
+        'lastro.boundary.big':'Meu trabalho está na camada entre a realidade humana e a implementação técnica.',
+        'lastro.boundary.text':'Não vendo engenharia de modelos, MLOps ou infraestrutura que não construo. Trabalho com contexto, conhecimento, adoção, documentação e validação, em complemento às equipes técnicas.'
+      },
+      en: {
+        'mapa.title':'First, I read the field before choosing the form.',
+        'mapa.lead':'I map sources, people, workflows, versions, responsibilities, and pressures to understand what AI actually needs to respect. Only then do I decide what kind of structure makes sense.',
+        'mapa.card1.title':'Sources and freshness',
+        'mapa.card1.text':'What exists, where it lives, who owns it, what is still current, and what has already become historical.',
+        'mapa.card3.title':'People, roles, and authority',
+        'mapa.card3.text':'Who knows, acts, decides, validates, may change something, and is accountable for each part of the work.',
+        'mapa.card5.title':'Risk, boundaries, and exposure',
+        'mapa.card5.text':'What requires human review, what is sensitive, what may travel, and what should never become an automatic answer.',
+        'entregas.title':'Then I give context the smallest form that can genuinely support the work.',
+        'entregas.lead':'Form follows the problem, not a fixed template. The result may be a living source, a map, a handoff, a protocol, a knowledge base, a specification, or a proportionate combination of them.',
+        'entregas.card2.title':'Source, authority, and responsibility',
+        'entregas.card2.text':'What should be consulted, which source governs each matter, who may update it, and which responsibilities must remain distinct.',
+        'entregas.card5.title':'Living documentation and freshness',
+        'entregas.card5.text':'Records that make clear what is current, what changed, what needs review, and what should remain only as history.',
+        'ciclo.lead':'I test before use, observe during use, and review afterward. When reality changes, context should learn from it without letting old material quietly govern the present.',
+        'lastro.lead':'My work sits where AI meets people, decisions, language, memory, accountability, and real operations. I translate that complexity into governable context for human and technical teams.',
+        'lastro.card4.title':'Context architecture and governance',
+        'lastro.card4.text':'I structure sources, authority, versions, decisions, memory, privacy, and updates so context remains legible as a project changes.',
+        'lastro.card6.title':'Applied human–AI systems',
+        'lastro.card6.text':'I build living sources, assistants, reviewers, continuity packets, response criteria, and quality routines tied to concrete needs.',
+        'lastro.boundary.big':'My work sits between human reality and technical implementation.',
+        'lastro.boundary.text':'I do not sell model engineering, MLOps, or infrastructure I do not build. I work on context, knowledge, adoption, documentation, and validation alongside technical teams.'
+      }
+    };
+
+    const sourceSection = `
+      <section class="moon-source-proof-section wrap reveal" id="moon-source-proof" aria-label="Moon Source">
+        <div class="moon-source-proof-card">
+          <div class="moon-source-proof-copy">
+            <div class="moon-source-proof-eyebrow">Moon Source</div>
+            <h2 data-ms-pt="Parte do método está aberta para inspeção." data-ms-en="Part of the method is open for inspection.">Parte do método está aberta para inspeção.</h2>
+            <p data-ms-pt="O Moon Source publica uma arquitetura de referência para decidir que contexto um campo realmente precisa, onde vive a autoridade e como a estrutura permanece útil quando a realidade muda." data-ms-en="Moon Source publishes a reference architecture for deciding what context a field actually needs, where authority lives, and how the structure stays useful as reality changes.">O Moon Source publica uma arquitetura de referência para decidir que contexto um campo realmente precisa, onde vive a autoridade e como a estrutura permanece útil quando a realidade muda.</p>
+          </div>
+          <div class="moon-source-proof-actions">
+            <a class="btn btn-primary" href="https://www.luahelena.com.br/moonsource/" target="_blank" rel="noopener"><span data-ms-pt="Explorar Moon Source" data-ms-en="Explore Moon Source">Explorar Moon Source</span></a>
+            <a class="moon-source-proof-github" href="https://github.com/luahelenammc/Moon-Source" target="_blank" rel="noopener"><span data-ms-pt="GitHub ↗" data-ms-en="GitHub ↗">GitHub ↗</span></a>
+          </div>
+        </div>
+      </section>`;
+
+    const applyMoonSourceLayer = () => {
+      const english = document.documentElement.lang === 'en' || document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
+      const lang = english ? 'en' : 'pt';
+      if (typeof T === 'object' && T.pt && T.en) {
+        Object.entries(moonSourceCopy.pt).forEach(([key,value]) => { T.pt[key] = value; });
+        Object.entries(moonSourceCopy.en).forEach(([key,value]) => { T.en[key] = value; });
+      }
+      if (!document.getElementById('moon-source-proof')) {
+        document.querySelector('#ciclo')?.insertAdjacentHTML('beforebegin', sourceSection);
+      }
+      if (typeof applyLang === 'function') applyLang(lang);
+      document.querySelectorAll('[data-ms-pt]').forEach((el) => {
+        el.textContent = lang === 'en' ? el.dataset.msEn : el.dataset.msPt;
+      });
       const eyebrow = document.querySelector('[data-i="hero.eyebrow"]');
-      if (!eyebrow) return;
-      const english = document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
-      eyebrow.textContent = english
+      if (eyebrow) eyebrow.textContent = lang === 'en'
         ? 'Context Architecture, AI Adoption and Auditing'
         : 'Arquitetura Contextual, Adoção e Auditoria de IA';
+      if (window.lucide) window.lucide.createIcons();
     };
-    applyMarketPositioning();
+
+    applyMoonSourceLayer();
     document.querySelectorAll('.lang-toggle button').forEach((button) => {
-      button.addEventListener('click', () => requestAnimationFrame(applyMarketPositioning));
+      button.addEventListener('click', () => requestAnimationFrame(applyMoonSourceLayer));
     });
   })();
 </script>
 <script>
   (() => {
     const setProductionTitle = () => {
-      const english = document.documentElement.lang === 'en' ||
-        document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
+      const english = document.documentElement.lang === 'en' || document.querySelector('.lang-toggle button[data-lang="en"]')?.classList.contains('active');
       document.title = english
         ? 'Lua Helena Moon · Context Architecture, AI Adoption and Auditing'
         : 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA';
@@ -88,10 +181,7 @@ layout: null
         setTimeout(setProductionTitle, 0);
       });
     });
-    new MutationObserver(setProductionTitle).observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['lang']
-    });
+    new MutationObserver(setProductionTitle).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   })();
 </script>
 {%- endcapture -%}
@@ -101,5 +191,4 @@ layout: null
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
 {%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
 {%- assign page_html = page_html | replace_first: '<nav class="nav-links">', '<nav class="nav-links"><a href="https://www.luahelena.com.br/moonsource/?lang=en" class="nav-source">Moon Source</a>' -%}
-{%- assign page_html = page_html | replace_first: '<div class="nav-right">', '<div class="nav-right"><a class="btn" href="https://github.com/luahelenammc/Moon-Source" target="_blank" rel="noopener">GitHub</a>' -%}
 {{- page_html -}}
