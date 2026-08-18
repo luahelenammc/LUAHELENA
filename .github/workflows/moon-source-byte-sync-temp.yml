@@ -1,0 +1,49 @@
+name: Temporary Moon Source byte sync
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/moon-source-byte-sync-temp.yml"
+      - "moonsource/downloads/**"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Checkout canonical Moon Source
+        uses: actions/checkout@v4
+        with:
+          repository: luahelenammc/Moon-Source
+          ref: main
+          path: .moon-source-canonical
+
+      - name: Copy canonical portable bytes
+        run: |
+          cp .moon-source-canonical/portables/setup/MOON_SOURCE_SETUP.md moonsource/downloads/MOON_SOURCE_SETUP.md
+          cp .moon-source-canonical/portables/msl/MSL_4_3.md moonsource/downloads/MOON_SOURCE_PUBLIC_PORTABLE_MSL_4_3.md
+          cp .moon-source-canonical/portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V2.md moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V2_MSL_4_3.md
+          rm -rf .moon-source-canonical
+
+      - name: Commit synchronized mirrors
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add moonsource/downloads/MOON_SOURCE_SETUP.md \
+                  moonsource/downloads/MOON_SOURCE_PUBLIC_PORTABLE_MSL_4_3.md \
+                  moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V2_MSL_4_3.md
+          if git diff --cached --quiet; then
+            echo "Mirrors already synchronized."
+            exit 0
+          fi
+          git commit -m "Sync Moon Source stamped portable mirrors"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
