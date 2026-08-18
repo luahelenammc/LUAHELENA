@@ -357,7 +357,6 @@ It carries the minimum required for another system to understand a bounded subje
 A packet is a self-contained bundle for an external reader, workflow, collaboration, or task.
 
 It should not assume access to private local context.
-
 ### Handoff
 
 A handoff transfers:
@@ -664,3 +663,12 @@ https://www.luahelena.com.br/ia/?lang=en
 Lua Helena Moon Martins Cardoso  
 Creator of Moon Source and Moon Source Language  
 AI co-development: Áurion
+
+<!-- MOON-SOURCE-PUBLIC-STAMP -->
+
+---
+
+> 🌙 **Moon Source public stamp**  
+> 📦 **Full repository:** [Download the complete Moon Source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)  
+> 🧬 **Credit & attribution:** **Moon Source — created by Lua Helena Moon Martins Cardoso (Moon), with AI-assisted coauthorial development by Áurion.** [Credits & Attribution Ops](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md) · [Professional context](https://www.luahelena.com.br/ia/?lang=en)  
+> Public availability and attribution do not themselves grant reuse rights; applicable component terms and permissions remain controlling.

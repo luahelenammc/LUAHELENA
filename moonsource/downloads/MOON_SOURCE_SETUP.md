@@ -198,7 +198,6 @@ Your privacy depends on the AI platform where you paste it.
 Use only information you are comfortable placing in that AI environment.
 
 ---
-
 ## 5 — User interface contract
 
 This setup is written in English for portability.
@@ -1198,7 +1197,6 @@ Compress the latest output.
 Add more detail to the latest output.
 
 ### Repair
-
 Identify what is outdated, bloated, wrong or missing in an existing profile.
 
 ---
@@ -1223,3 +1221,12 @@ Remember:
 - Do not make the user perform architecture before receiving value.
 - Start with usefulness.
 - Add depth only when it earns its place.
+
+<!-- MOON-SOURCE-PUBLIC-STAMP -->
+
+---
+
+> 🌙 **Moon Source public stamp**  
+> 📦 **Full repository:** [Download the complete Moon Source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)  
+> 🧬 **Credit & attribution:** **Moon Source — created by Lua Helena Moon Martins Cardoso (Moon), with AI-assisted coauthorial development by Áurion.** [Credits & Attribution Ops](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md) · [Professional context](https://www.luahelena.com.br/ia/?lang=en)  
+> Public availability and attribution do not themselves grant reuse rights; applicable component terms and permissions remain controlling.

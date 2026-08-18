@@ -357,7 +357,6 @@ A task is ready for Work only when the handoff contains:
 - completion states.
 
 ### Control
-
 - stop conditions;
 - rollback or recovery path;
 - iteration limit when relevant;
@@ -538,7 +537,6 @@ For meaningful tests:
 -
 
 ## Limitations
-
 -
 
 ## Residual Risks
@@ -717,5 +715,13 @@ This is an independent operating protocol. It is not official OpenAI documentati
 - [OpenAI Developers — API pricing](https://developers.openai.com/api/docs/pricing)
 
 ## Final Law
-
 > **Chat designs the operation. Work sustains it. Luna Max is the default execution crew; Sol enters when the operation also requires inventing the anatomy during the incision.**
+
+<!-- MOON-SOURCE-PUBLIC-STAMP -->
+
+---
+
+> 🌙 **Moon Source public stamp**  
+> 📦 **Full repository:** [Download the complete Moon Source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)  
+> 🧬 **Credit & attribution:** **Moon Source — created by Lua Helena Moon Martins Cardoso (Moon), with AI-assisted coauthorial development by Áurion.** [Credits & Attribution Ops](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md) · [Professional context](https://www.luahelena.com.br/ia/?lang=en)  
+> Public availability and attribution do not themselves grant reuse rights; applicable component terms and permissions remain controlling.
