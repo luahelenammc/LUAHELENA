@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#07070b" />
-  <title>Perfil Musical · Lua Helena Moon</title>
-  <meta id="meta-description" name="description" content="Cartografia musical de Lua Helena Moon: constelações de gosto, atmosferas, memória e escuta contemporânea." />
+  <title>Moon Music DNA · Lua Helena Moon</title>
+  <meta id="meta-description" name="description" content="Moon Music DNA: cartografia do gosto musical de Lua Helena Moon a partir do histórico, biblioteca e curadorias do Spotify." />
   <link rel="canonical" href="https://www.luahelena.com.br/perfilmusical.html" />
   <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/perfilmusical.html" />
   <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/perfilmusical.html?lang=en" />
@@ -14,26 +14,29 @@
   <style>
     :root {
       --bg: #07070b;
-      --panel: rgba(16, 15, 24, .76);
-      --panel-strong: rgba(20, 18, 30, .9);
+      --bg-deep: #030306;
+      --panel: rgba(15, 14, 22, .78);
+      --panel-soft: rgba(255,255,255,.035);
       --text: #fbf4eb;
-      --muted: rgba(251, 244, 235, .69);
-      --faint: rgba(251, 244, 235, .46);
-      --line: rgba(255,255,255,.12);
-      --moon: #f5d99d;
-      --moon-bright: #fff0be;
-      --rose: #ff88b7;
-      --violet: #b59cff;
-      --cyan: #7eddf2;
-      --green: #98e6b3;
-      --orange: #f6ad78;
-      --shadow: 0 30px 90px rgba(0,0,0,.46);
+      --muted: rgba(251,244,235,.69);
+      --faint: rgba(251,244,235,.45);
+      --line: rgba(255,255,255,.115);
+      --moon: #f4dba3;
+      --moon-bright: #fff2c5;
+      --rose: #ff8db9;
+      --violet: #b69fff;
+      --cyan: #80ddf3;
+      --green: #9ae5b5;
+      --orange: #f1ad79;
+      --red: #ff7d88;
+      --shadow: 0 30px 90px rgba(0,0,0,.48);
       --serif: Georgia, "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --radius-xl: 34px;
       --radius-lg: 24px;
-      --radius-md: 16px;
-      --max: 1160px;
+      --radius-md: 17px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
@@ -44,11 +47,11 @@
       color: var(--text);
       font-family: var(--sans);
       background:
-        radial-gradient(circle at 16% 8%, rgba(245,217,157,.15), transparent 26%),
-        radial-gradient(circle at 82% 15%, rgba(255,136,183,.12), transparent 25%),
-        radial-gradient(circle at 76% 72%, rgba(126,221,242,.10), transparent 30%),
-        radial-gradient(circle at 30% 82%, rgba(181,156,255,.09), transparent 29%),
-        linear-gradient(135deg, #050509 0%, #11101a 46%, #07070b 100%);
+        radial-gradient(circle at 16% 8%, rgba(244,219,163,.15), transparent 25%),
+        radial-gradient(circle at 86% 13%, rgba(255,141,185,.12), transparent 24%),
+        radial-gradient(circle at 76% 60%, rgba(128,221,243,.09), transparent 31%),
+        radial-gradient(circle at 26% 82%, rgba(182,159,255,.09), transparent 28%),
+        linear-gradient(135deg, #040407 0%, #101019 43%, #06060a 100%);
       overflow-x: hidden;
     }
 
@@ -57,11 +60,11 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .48;
+      opacity: .55;
       background-image:
         radial-gradient(circle at 17% 22%, rgba(255,255,255,.42) 0 1px, transparent 1.7px),
         radial-gradient(circle at 78% 18%, rgba(255,255,255,.28) 0 1px, transparent 1.7px),
-        radial-gradient(circle at 90% 66%, rgba(255,255,255,.22) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 90% 66%, rgba(255,255,255,.23) 0 1px, transparent 1.7px),
         radial-gradient(circle at 31% 80%, rgba(255,255,255,.22) 0 1px, transparent 1.7px),
         radial-gradient(circle at 54% 41%, rgba(255,255,255,.15) 0 1px, transparent 1.6px);
       background-size: 360px 360px, 520px 520px, 460px 460px, 620px 620px, 420px 420px;
@@ -69,15 +72,44 @@
       z-index: 0;
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .18;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(circle at 50% 35%, black, transparent 82%);
+    }
+
     a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--moon-bright); outline-offset: 4px; border-radius: 8px; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--moon-bright); outline-offset: 4px; border-radius: 9px; }
+    ::selection { background: rgba(255,141,185,.32); color: var(--text); }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 99;
+      background: var(--moon);
+      color: #201604;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 850;
+    }
+    .skip:focus { left: 12px; }
 
     .page {
       position: relative;
       z-index: 1;
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      padding: 30px 0 56px;
+      padding: 30px 0 58px;
     }
 
     .topbar {
@@ -87,7 +119,6 @@
       gap: 18px;
       margin-bottom: 28px;
     }
-
     .brand { display: inline-flex; align-items: center; gap: 13px; }
     .mark {
       width: 44px;
@@ -95,10 +126,10 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      border: 1px solid rgba(245,217,157,.36);
-      background: radial-gradient(circle at 35% 28%, rgba(255,240,190,.96), rgba(245,217,157,.60) 40%, rgba(245,217,157,.04) 71%), #15120d;
+      border: 1px solid rgba(244,219,163,.36);
+      background: radial-gradient(circle at 35% 28%, rgba(255,242,197,.96), rgba(244,219,163,.60) 40%, rgba(244,219,163,.04) 71%), #15120d;
       color: #2a1e0d;
-      box-shadow: 0 0 44px rgba(245,217,157,.14);
+      box-shadow: 0 0 44px rgba(244,219,163,.14);
       font-family: var(--serif);
       font-weight: 800;
     }
@@ -114,7 +145,7 @@
       font-size: .82rem;
       transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
     }
-    .home-link:hover { transform: translateY(-2px); color: var(--text); border-color: rgba(245,217,157,.38); background: rgba(255,255,255,.07); }
+    .home-link:hover { transform: translateY(-2px); color: var(--text); border-color: rgba(244,219,163,.38); background: rgba(255,255,255,.07); }
 
     .lang-toggle {
       display:flex;
@@ -139,239 +170,388 @@
       transition:opacity .18s ease, background .18s ease, transform .18s ease;
     }
     .lang-toggle button:hover { opacity:.88; transform:translateY(-1px); }
-    .lang-toggle button.active { opacity:1; background:rgba(245,217,157,.16); }
+    .lang-toggle button.active { opacity:1; background:rgba(244,219,163,.16); }
     .lang-toggle img { width:20px; height:20px; object-fit:cover; border-radius:50%; box-shadow:0 0 0 1px rgba(255,255,255,.18); }
+
+    .hero,
+    .section,
+    .verdict,
+    .method {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
 
     .hero {
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
-      gap: 20px;
-      padding: clamp(28px, 5vw, 54px);
-      border: 1px solid var(--line);
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+      gap: 28px;
+      padding: clamp(30px, 5vw, 58px);
       border-radius: var(--radius-xl);
       background:
-        linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
-        radial-gradient(circle at 12% 18%, rgba(245,217,157,.11), transparent 42%),
-        rgba(9,8,14,.74);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+        radial-gradient(circle at 11% 15%, rgba(244,219,163,.12), transparent 38%),
+        radial-gradient(circle at 84% 85%, rgba(255,141,185,.09), transparent 35%),
+        linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(8,7,12,.76);
       margin-bottom: 18px;
     }
-
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      width: 320px;
-      height: 320px;
-      right: -110px;
-      top: -105px;
-      border: 1px solid rgba(245,217,157,.17);
+      width: 470px;
+      aspect-ratio: 1;
+      right: -145px;
+      top: -135px;
       border-radius: 50%;
+      border: 1px solid rgba(244,219,163,.16);
       background:
-        radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(245,217,157,.07) 23% 24%, transparent 25% 38%, rgba(245,217,157,.06) 39% 40%, transparent 41% 54%, rgba(245,217,157,.05) 55% 56%, transparent 57%),
-        radial-gradient(circle at 34% 28%, rgba(255,240,190,.28), rgba(245,217,157,.04) 48%, transparent 70%);
-      opacity: .8;
+        radial-gradient(circle at 50% 50%, #09090d 0 8%, rgba(255,255,255,.05) 8.4% 9%, transparent 9.4% 19%, rgba(255,255,255,.045) 19.4% 20%, transparent 20.4% 31%, rgba(255,255,255,.04) 31.4% 32%, transparent 32.4% 44%, rgba(255,255,255,.033) 44.4% 45%, transparent 45.4% 58%, rgba(255,255,255,.028) 58.4% 59%, transparent 59.4%),
+        radial-gradient(circle at 39% 30%, rgba(255,242,197,.25), rgba(244,219,163,.035) 44%, transparent 67%);
+      opacity: .82;
       pointer-events: none;
+      box-shadow: inset 0 0 80px rgba(0,0,0,.48), 0 0 80px rgba(244,219,163,.06);
     }
-
+    .hero-copy { position: relative; z-index: 2; }
     .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--moon-bright);
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .75rem;
-      margin-bottom: 22px;
-    }
-    .kicker::before { content:""; width:34px; height:1px; background:linear-gradient(90deg,transparent,var(--moon)); }
-
-    h1, h2, h3, p { margin-top: 0; }
-    h1 {
-      margin-bottom: 18px;
-      max-width: 740px;
-      font-family: var(--serif);
-      font-size: clamp(3.2rem, 8vw, 7rem);
-      line-height: .87;
-      letter-spacing: -.065em;
-      font-weight: 500;
-    }
-    .hero-lead {
-      max-width: 690px;
-      color: rgba(251,244,235,.79);
-      font-size: clamp(1.03rem, 2vw, 1.25rem);
-      line-height: 1.58;
-      margin-bottom: 26px;
-    }
-    .hero-lead strong { color: var(--moon-bright); font-weight: 760; }
-
-    .badges { display:flex; flex-wrap:wrap; gap:8px; }
-    .badge {
       display:inline-flex;
       align-items:center;
-      gap:7px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.035);
-      color:var(--muted);
-      font-size:.76rem;
-      font-weight:700;
-      letter-spacing:.02em;
+      gap:10px;
+      color:var(--moon-bright);
+      text-transform:uppercase;
+      letter-spacing:.19em;
+      font-size:.75rem;
+      margin-bottom:24px;
     }
-
-    .fingerprint {
-      align-self: stretch;
+    .kicker::before { content:""; width:34px; height:1px; background:linear-gradient(90deg,transparent,var(--moon)); }
+    h1, h2, h3, p { margin-top:0; }
+    h1 {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-      padding: 20px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(4,4,8,.30);
+      margin:0 0 20px;
+      max-width: 760px;
+      font-family:var(--serif);
+      font-size:clamp(3.8rem,9vw,7.8rem);
+      line-height:.86;
+      letter-spacing:-.068em;
+      font-weight:500;
     }
-    .fingerprint h2 { font-family:var(--serif); font-size:1.38rem; font-weight:500; margin-bottom:2px; }
-    .axis { display:grid; grid-template-columns: 1fr auto; align-items:center; gap:12px; }
-    .axis span { font-size:.82rem; color:var(--muted); }
-    .axis b { font-size:.73rem; letter-spacing:.09em; text-transform:uppercase; color:var(--text); }
-    .axis-line { grid-column:1 / -1; height:5px; border-radius:999px; background:rgba(255,255,255,.07); overflow:hidden; margin-top:-6px; }
-    .axis-line i { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--violet),var(--rose),var(--moon)); box-shadow:0 0 22px rgba(255,136,183,.25); }
+    .accent { color:var(--moon-bright); text-shadow:0 0 34px rgba(244,219,163,.12); }
+    .hero-lead {
+      position:relative;
+      z-index:2;
+      max-width:730px;
+      color:rgba(251,244,235,.79);
+      font-size:clamp(1.05rem,2vw,1.28rem);
+      line-height:1.58;
+      margin-bottom:27px;
+    }
+    .hero-lead strong { color:var(--text); }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:8px; position:relative; z-index:2; }
+    .hero-tag {
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.035);
+      color:var(--muted);
+      font-size:.75rem;
+      font-weight:750;
+    }
+
+    .hero-aside {
+      position:relative;
+      z-index:2;
+      align-self:end;
+      display:grid;
+      gap:12px;
+      padding:20px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(2,2,5,.35);
+    }
+    .aside-label { color:var(--faint); text-transform:uppercase; letter-spacing:.15em; font-size:.68rem; font-weight:900; }
+    .aside-thesis { margin:0; font-family:var(--serif); font-size:1.72rem; line-height:1.06; letter-spacing:-.035em; }
+    .signal-list { display:grid; gap:8px; margin-top:4px; }
+    .signal {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:9px 10px;
+      border-radius:13px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);
+    }
+    .signal span { color:var(--muted); font-size:.78rem; }
+    .signal b { font-size:.69rem; text-transform:uppercase; letter-spacing:.08em; color:var(--moon-bright); }
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .stat {
+      min-height:140px;
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      box-shadow:0 18px 48px rgba(0,0,0,.27);
+    }
+    .stat strong { display:block; font-family:var(--serif); font-size:clamp(2rem,4vw,3.6rem); font-weight:500; letter-spacing:-.05em; color:var(--moon-bright); margin-bottom:5px; }
+    .stat span { color:var(--muted); font-size:.8rem; line-height:1.45; }
 
     .section {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: clamp(24px, 4vw, 38px);
-      margin-bottom: 18px;
+      border-radius:var(--radius-xl);
+      background:var(--panel);
+      padding:clamp(24px,4vw,40px);
+      margin-bottom:18px;
     }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:24px; }
-    .eyebrow { color:var(--moon); text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:800; margin-bottom:8px; }
-    .section h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.3rem); line-height:.98; letter-spacing:-.04em; font-weight:500; margin-bottom:0; }
-    .section-note { max-width:430px; color:var(--muted); line-height:1.55; font-size:.9rem; margin:0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:26px; }
+    .eyebrow { color:var(--moon); text-transform:uppercase; letter-spacing:.17em; font-size:.7rem; font-weight:900; margin-bottom:9px; }
+    .section h2 { font-family:var(--serif); font-weight:500; font-size:clamp(2rem,4.2vw,3.6rem); line-height:.98; letter-spacing:-.048em; margin-bottom:0; }
+    .section-note { max-width:450px; color:var(--muted); line-height:1.58; font-size:.9rem; margin:0; }
 
-    .constellations { display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); gap:14px; }
-    .constellation {
+    .principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+    .principle {
       position:relative;
-      overflow:hidden;
-      min-height:230px;
+      min-height:250px;
       padding:22px;
       border-radius:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
-      transition: transform .24s ease, border-color .24s ease, background .24s ease;
+      border:1px solid rgba(255,255,255,.09);
+      background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.018));
+      overflow:hidden;
     }
-    .constellation:hover { transform:translateY(-4px); border-color:rgba(255,255,255,.22); background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); }
-    .constellation::before { content:""; position:absolute; width:150px; height:150px; right:-56px; top:-56px; border-radius:50%; background:radial-gradient(circle, var(--glow), transparent 67%); opacity:.22; }
-    .c1 { grid-column:span 7; --glow:var(--rose); }
-    .c2 { grid-column:span 5; --glow:var(--moon); }
-    .c3 { grid-column:span 4; --glow:var(--orange); }
-    .c4 { grid-column:span 4; --glow:var(--violet); }
-    .c5 { grid-column:span 4; --glow:var(--cyan); }
-    .constellation .num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; border:1px solid color-mix(in srgb,var(--glow) 42%,transparent); color:color-mix(in srgb,var(--glow) 86%,white); font-size:.72rem; font-weight:900; margin-bottom:36px; }
-    .constellation h3 { font-family:var(--serif); font-size:clamp(1.55rem,2.7vw,2.35rem); letter-spacing:-.035em; font-weight:500; margin-bottom:10px; }
-    .constellation p { color:var(--muted); line-height:1.58; margin-bottom:14px; }
-    .evidence { display:flex; flex-wrap:wrap; gap:7px; }
-    .chip { display:inline-flex; align-items:center; padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.035); color:rgba(251,244,235,.72); font-size:.72rem; }
-    .chip.link:hover { color:var(--text); border-color:rgba(245,217,157,.35); }
+    .principle::after { content:""; position:absolute; width:130px; height:130px; right:-45px; top:-45px; border-radius:50%; background:radial-gradient(circle,var(--glow),transparent 70%); opacity:.18; }
+    .principle:nth-child(1){--glow:var(--rose)}
+    .principle:nth-child(2){--glow:var(--cyan)}
+    .principle:nth-child(3){--glow:var(--violet)}
+    .principle .glyph { display:block; margin-bottom:38px; color:var(--moon); font-size:1.2rem; }
+    .principle h3 { font-family:var(--serif); font-weight:500; font-size:1.75rem; letter-spacing:-.035em; margin-bottom:10px; }
+    .principle p { margin:0; color:var(--muted); line-height:1.6; font-size:.92rem; }
 
-    .timeline { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-    .phase { padding:20px; border-radius:20px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.026); }
-    .phase small { display:block; margin-bottom:11px; color:var(--faint); text-transform:uppercase; letter-spacing:.12em; font-size:.68rem; font-weight:900; }
-    .phase h3 { font-family:var(--serif); font-size:1.45rem; font-weight:500; margin-bottom:9px; }
-    .phase p { margin:0; color:var(--muted); line-height:1.55; font-size:.9rem; }
-    .phase.current { border-color:rgba(126,221,242,.30); background:linear-gradient(145deg,rgba(126,221,242,.07),rgba(255,255,255,.02)); }
-    .phase.deep { border-color:rgba(245,217,157,.28); }
-    .phase.dormant { border-color:rgba(181,156,255,.25); }
-    .phase.emerging { border-color:rgba(152,230,179,.25); }
+    .dna-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:13px; }
+    .dna-card {
+      position:relative;
+      overflow:hidden;
+      min-height:270px;
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.09);
+      background:linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.018));
+      transition:transform .22s ease,border-color .22s ease,background .22s ease;
+    }
+    .dna-card:hover { transform:translateY(-4px); border-color:rgba(255,255,255,.20); background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.024)); }
+    .dna-card.large { grid-column:span 7; }
+    .dna-card.medium { grid-column:span 5; }
+    .dna-card.third { grid-column:span 4; }
+    .dna-card::before { content:""; position:absolute; width:160px; height:160px; right:-60px; top:-60px; border-radius:50%; background:radial-gradient(circle,var(--glow),transparent 70%); opacity:.17; }
+    .dna-card:nth-child(1){--glow:var(--rose)}
+    .dna-card:nth-child(2){--glow:var(--moon)}
+    .dna-card:nth-child(3){--glow:var(--orange)}
+    .dna-card:nth-child(4){--glow:var(--cyan)}
+    .dna-card:nth-child(5){--glow:var(--green)}
+    .dna-card:nth-child(6){--glow:var(--violet)}
+    .dna-card:nth-child(7){--glow:var(--red)}
+    .card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:38px; }
+    .num { color:var(--faint); font-family:var(--mono); font-size:.75rem; }
+    .confidence { padding:6px 8px; border-radius:999px; border:1px solid rgba(244,219,163,.17); background:rgba(244,219,163,.055); color:var(--moon); font-size:.66rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .dna-card h3 { position:relative; z-index:1; font-family:var(--serif); font-weight:500; font-size:clamp(1.55rem,2.8vw,2.35rem); line-height:1; letter-spacing:-.04em; margin-bottom:11px; }
+    .dna-card p { position:relative; z-index:1; color:var(--muted); line-height:1.6; margin-bottom:16px; font-size:.9rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:7px; position:relative; z-index:1; }
+    .chip { padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.03); color:rgba(251,244,235,.72); font-size:.69rem; }
 
-    .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .panel { padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); }
-    .panel h3 { font-family:var(--serif); font-size:1.65rem; font-weight:500; margin-bottom:14px; }
-    .panel p { color:var(--muted); line-height:1.6; }
-    .track-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
-    .track-list a { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 11px; border-radius:13px; border:1px solid rgba(255,255,255,.075); background:rgba(255,255,255,.025); color:rgba(251,244,235,.80); font-size:.84rem; }
-    .track-list a:hover { border-color:rgba(245,217,157,.30); background:rgba(255,255,255,.05); }
-    .track-list em { color:var(--faint); font-style:normal; font-size:.72rem; }
+    .song-card {
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+      gap:22px;
+      padding:clamp(25px,4vw,42px);
+      border-radius:28px;
+      border:1px solid rgba(255,141,185,.18);
+      background:
+        radial-gradient(circle at 10% 15%,rgba(255,141,185,.09),transparent 38%),
+        radial-gradient(circle at 90% 88%,rgba(244,219,163,.08),transparent 34%),
+        rgba(255,255,255,.025);
+    }
+    .song-card::after {
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-120px;
+      bottom:-170px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:0 0 0 22px rgba(255,255,255,.013),0 0 0 44px rgba(255,255,255,.011),0 0 0 68px rgba(255,255,255,.009);
+      pointer-events:none;
+    }
+    .song-title { font-family:var(--serif); font-weight:500; font-size:clamp(2.4rem,5vw,4.7rem); letter-spacing:-.055em; line-height:.92; margin-bottom:8px; }
+    .song-sub { color:var(--rose); font-size:.74rem; text-transform:uppercase; letter-spacing:.16em; font-weight:900; margin-bottom:18px; }
+    .song-copy { color:var(--muted); line-height:1.68; max-width:680px; margin-bottom:0; }
+    .song-copy strong { color:var(--text); }
+    .mechanism {
+      position:relative;
+      z-index:2;
+      display:grid;
+      gap:10px;
+      align-self:center;
+    }
+    .mechanism-label { color:var(--faint); text-transform:uppercase; letter-spacing:.15em; font-size:.68rem; font-weight:900; margin-bottom:2px; }
+    .mechanism-step { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; padding:12px; border-radius:15px; border:1px solid rgba(255,255,255,.08); background:rgba(0,0,0,.18); }
+    .mechanism-step b { width:26px; height:26px; display:grid; place-items:center; border-radius:50%; background:rgba(255,141,185,.10); border:1px solid rgba(255,141,185,.18); color:var(--rose); font-family:var(--mono); font-size:.69rem; }
+    .mechanism-step span { color:var(--muted); line-height:1.45; font-size:.83rem; }
 
-    .bridge-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
-    .bridge { padding:20px; border-radius:20px; border:1px solid rgba(255,255,255,.09); background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)); }
-    .bridge .route { color:var(--moon); font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; font-weight:900; margin-bottom:13px; }
-    .bridge h3 { font-family:var(--serif); font-weight:500; font-size:1.45rem; margin-bottom:8px; }
-    .bridge p { color:var(--muted); font-size:.88rem; line-height:1.55; margin:0; }
+    .clusters { display:grid; gap:9px; }
+    .cluster {
+      display:grid;
+      grid-template-columns:42px minmax(180px,.7fr) 1.3fr;
+      gap:14px;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:17px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.025);
+    }
+    .cluster i { width:32px; height:32px; display:grid; place-items:center; border-radius:50%; font-style:normal; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.03); }
+    .cluster strong { font-family:var(--serif); font-size:1.17rem; font-weight:500; }
+    .cluster span { color:var(--muted); line-height:1.5; font-size:.83rem; }
+
+    .anti-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .anti {
+      padding:20px;
+      border-radius:20px;
+      border:1px solid rgba(255,125,136,.13);
+      background:linear-gradient(145deg,rgba(255,125,136,.035),rgba(255,255,255,.018));
+    }
+    .anti strong { display:block; margin-bottom:7px; color:#ffabb2; font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
+    .anti p { margin:0; color:var(--muted); line-height:1.57; font-size:.88rem; }
+
+    .search-layout { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:16px; }
+    .search-note { padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.024); }
+    .search-note h3 { font-family:var(--serif); font-size:1.7rem; font-weight:500; margin-bottom:10px; }
+    .search-note p { color:var(--muted); line-height:1.62; margin-bottom:0; }
+    .queries { display:grid; gap:8px; }
+    .query {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:11px 12px;
+      border-radius:13px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.17);
+    }
+    .query code { color:rgba(251,244,235,.82); font-family:var(--mono); font-size:.76rem; line-height:1.4; overflow-wrap:anywhere; }
+    .copy-btn {
+      flex:0 0 auto;
+      border:1px solid rgba(244,219,163,.16);
+      border-radius:999px;
+      background:rgba(244,219,163,.06);
+      color:var(--moon);
+      padding:6px 8px;
+      cursor:pointer;
+      font:inherit;
+      font-size:.66rem;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .copy-btn:hover { background:rgba(244,219,163,.11); }
+    .suno {
+      grid-column:1 / -1;
+      margin-top:4px;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(128,221,243,.14);
+      background:linear-gradient(145deg,rgba(128,221,243,.035),rgba(255,255,255,.018));
+    }
+    .suno small { display:block; margin-bottom:8px; color:var(--cyan); font-size:.67rem; font-weight:900; text-transform:uppercase; letter-spacing:.12em; }
+    .suno code { display:block; color:rgba(251,244,235,.78); font-family:var(--mono); font-size:.76rem; line-height:1.65; }
 
     .verdict {
       display:grid;
-      grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);
-      gap:20px;
+      grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+      gap:24px;
       align-items:center;
-      border-color:rgba(245,217,157,.22);
+      padding:clamp(27px,4vw,42px);
+      border-radius:var(--radius-xl);
+      border-color:rgba(244,219,163,.22);
       background:
-        radial-gradient(circle at 12% 22%, rgba(245,217,157,.08), transparent 40%),
+        radial-gradient(circle at 10% 20%,rgba(244,219,163,.08),transparent 42%),
         linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
-        var(--panel-strong);
+        rgba(13,11,18,.9);
+      margin-bottom:18px;
     }
-    .verdict .thesis { margin:0; font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.8rem); line-height:1.02; letter-spacing:-.045em; color:var(--moon-bright); }
-    .verdict aside { color:var(--muted); line-height:1.58; }
+    .verdict .thesis { margin:0; font-family:var(--serif); font-size:clamp(2.2rem,4.8vw,4.2rem); line-height:.99; letter-spacing:-.052em; color:var(--moon-bright); }
+    .verdict aside { color:var(--muted); line-height:1.62; }
 
-    .method-disclaimer {
-      margin-top: 22px;
-      padding: 15px 18px;
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      border:1px solid rgba(245,217,157,.14);
-      border-radius:18px;
-      background:linear-gradient(135deg,rgba(245,217,157,.035),rgba(181,156,255,.025));
+    .method {
+      padding:18px 20px;
+      border-radius:20px;
+      background:linear-gradient(135deg,rgba(244,219,163,.035),rgba(182,159,255,.025));
       color:var(--faint);
-      font-size:.76rem;
-      line-height:1.55;
+      font-size:.77rem;
+      line-height:1.6;
+      margin-bottom:18px;
     }
-    .method-disclaimer .sigil { color:var(--moon); font-size:1rem; line-height:1.25; }
-    .method-disclaimer strong { color:rgba(251,244,235,.70); font-weight:750; }
+    .method strong { color:rgba(251,244,235,.72); }
+    .method a { color:var(--moon); }
+    .method a:hover { color:var(--moon-bright); }
 
-    footer { display:flex; align-items:center; justify-content:space-between; gap:18px; color:var(--faint); font-size:.76rem; padding:16px 4px 0; }
-    footer a:hover { color:var(--text); }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:18px; color:var(--faint); font-size:.76rem; padding:2px 4px 0; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 940px) {
       .hero { grid-template-columns:1fr; }
-      .fingerprint { max-width:none; }
-      .c1,.c2,.c3,.c4,.c5 { grid-column:span 12; min-height:0; }
-      .constellation .num { margin-bottom:24px; }
-      .timeline { grid-template-columns:1fr 1fr; }
-      .bridge-grid { grid-template-columns:1fr; }
+      .hero-aside { max-width:600px; }
+      .stats { grid-template-columns:1fr 1fr; }
+      .principles { grid-template-columns:1fr; }
+      .dna-card.large,.dna-card.medium,.dna-card.third { grid-column:span 12; min-height:0; }
+      .song-card { grid-template-columns:1fr; }
+      .search-layout { grid-template-columns:1fr; }
+      .suno { grid-column:auto; }
       .verdict { grid-template-columns:1fr; }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .page { width:min(100% - 20px,var(--max)); padding-top:18px; }
       .topbar { align-items:flex-start; }
       .brand-copy span { max-width:150px; }
-      .top-actions { gap:5px; }
       .home-link { padding-inline:10px; }
-      .hero, .section { border-radius:24px; }
+      h1 { font-size:clamp(3.4rem,18vw,5.4rem); }
+      .hero,.section,.verdict { border-radius:24px; }
       .section-head { display:block; }
       .section-note { margin-top:12px; }
-      .timeline, .split { grid-template-columns:1fr; }
-      h1 { font-size:clamp(3rem,18vw,5.2rem); }
-      footer { display:block; line-height:1.7; }
+      .stats { grid-template-columns:1fr 1fr; }
+      .stat { min-height:118px; }
+      .cluster { grid-template-columns:38px 1fr; align-items:start; }
+      .cluster span { grid-column:2; }
+      .anti-grid { grid-template-columns:1fr; }
+      footer { display:block; line-height:1.8; }
+    }
+
+    @media (max-width: 430px) {
+      .stats { grid-template-columns:1fr; }
+      .top-actions { gap:5px; }
+      .brand-copy strong { font-size:.88rem; }
+      .hero { padding:26px 21px; }
+      .section { padding:23px 20px; }
+      .query { align-items:flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; }
-      *, *::before, *::after { transition:none !important; animation:none !important; }
+      *,*::before,*::after { transition:none !important; animation:none !important; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
+  <a href="#content" class="skip" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
+  <main class="page" id="content">
     <header class="topbar">
       <a class="brand" href="/" aria-label="Lua Helena Moon">
         <span class="mark" aria-hidden="true">☾</span>
@@ -387,156 +567,155 @@
     </header>
 
     <section class="hero" aria-labelledby="title">
-      <div>
-        <div class="kicker" data-pt="Lua Helena Moon · cartografia sonora" data-en="Lua Helena Moon · sonic cartography">Lua Helena Moon · cartografia sonora</div>
-        <h1 id="title" data-pt="Perfil<br>Musical." data-en="Music<br>Profile.">Perfil<br>Musical.</h1>
-        <p class="hero-lead" data-pt="O universo musical de Lua Helena Moon não forma uma linha de gêneros. Ele se organiza em <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes ligadas por uma gravidade emocional comum." data-en="Lua Helena Moon's musical universe does not follow a single line of genres. It forms <strong>constellations</strong>: different eras, voices, atmospheres and memories connected by a shared emotional gravity.">O universo musical de Lua Helena Moon não forma uma linha de gêneros. Ele se organiza em <strong>constelações</strong>: épocas, vozes, atmosferas e memórias diferentes ligadas por uma gravidade emocional comum.</p>
-        <div class="badges">
-          <span class="badge" data-pt="nostalgia" data-en="nostalgia">nostalgia</span>
-          <span class="badge" data-pt="melancolia" data-en="melancholy">melancolia</span>
-          <span class="badge" data-pt="voz expressiva" data-en="expressive voice">voz expressiva</span>
-          <span class="badge" data-pt="teatralidade" data-en="theatricality">teatralidade</span>
-          <span class="badge" data-pt="atmosfera" data-en="atmosphere">atmosfera</span>
+      <div class="hero-copy">
+        <div class="kicker" data-pt="Moon Music DNA · Spotify 2025–2026" data-en="Moon Music DNA · Spotify 2025–2026">Moon Music DNA · Spotify 2025–2026</div>
+        <h1 id="title"><span data-pt="Meu gosto não é" data-en="My taste isn't">Meu gosto não é</span><br><span class="accent" data-pt="gênero. É gesto." data-en="genre. It's gesture.">gênero. É gesto.</span></h1>
+        <p class="hero-lead" data-pt="O que une Radiohead, Metronomy, Nina Simone, Tchaikovsky, jazz de balada, trilhas antigas e covers improváveis não é uma etiqueta. É uma mesma gramática: <strong>melodia que respira, tensão que amadurece, calor de timbre, memória e transformação.</strong>" data-en="What connects Radiohead, Metronomy, Nina Simone, Tchaikovsky, jazz ballads, old soundtracks and unlikely covers is not a label. It is the same grammar: <strong>melody that breathes, tension that matures, warm timbre, memory and transformation.</strong>">O que une Radiohead, Metronomy, Nina Simone, Tchaikovsky, jazz de balada, trilhas antigas e covers improváveis não é uma etiqueta. É uma mesma gramática: <strong>melodia que respira, tensão que amadurece, calor de timbre, memória e transformação.</strong></p>
+        <div class="hero-tags">
+          <span class="hero-tag" data-pt="instrumento como voz" data-en="instrument as voice">instrumento como voz</span>
+          <span class="hero-tag" data-pt="slow burn" data-en="slow burn">slow burn</span>
+          <span class="hero-tag" data-pt="rearranjo / reencarnação" data-en="rearrangement / reincarnation">rearranjo / reencarnação</span>
+          <span class="hero-tag" data-pt="calor orgânico" data-en="organic warmth">calor orgânico</span>
+          <span class="hero-tag" data-pt="nostalgia dupla" data-en="dual nostalgia">nostalgia dupla</span>
         </div>
       </div>
 
-      <aside class="fingerprint" aria-label="Impressão digital musical">
-        <h2 data-pt="Impressão digital" data-en="Musical fingerprint">Impressão digital</h2>
-        <div class="axis"><span data-pt="gravidade nostálgica" data-en="nostalgic gravity">gravidade nostálgica</span><b data-pt="muito forte" data-en="very strong">muito forte</b><div class="axis-line"><i style="width:94%"></i></div></div>
-        <div class="axis"><span data-pt="melancolia / ternura" data-en="melancholy / tenderness">melancolia / ternura</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:88%"></i></div></div>
-        <div class="axis"><span data-pt="voz expressiva" data-en="expressive voice">voz expressiva</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:86%"></i></div></div>
-        <div class="axis"><span data-pt="teatralidade" data-en="theatricality">teatralidade</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:82%"></i></div></div>
-        <div class="axis"><span data-pt="atmosfera / som-lugar" data-en="atmosphere / sense of place">atmosfera / som-lugar</span><b data-pt="forte" data-en="strong">forte</b><div class="axis-line"><i style="width:80%"></i></div></div>
-        <div class="axis"><span data-pt="fidelidade a um gênero só" data-en="single-genre loyalty">fidelidade a um gênero só</span><b data-pt="baixa" data-en="low">baixa</b><div class="axis-line"><i style="width:27%"></i></div></div>
+      <aside class="hero-aside" aria-label="Impressão digital musical">
+        <span class="aside-label" data-pt="impressão digital" data-en="musical fingerprint">impressão digital</span>
+        <p class="aside-thesis" data-pt="Eu persigo <em>funções sonoras</em>, não fronteiras de gênero." data-en="I chase <em>sonic functions</em>, not genre borders.">Eu persigo <em>funções sonoras</em>, não fronteiras de gênero.</p>
+        <div class="signal-list">
+          <div class="signal"><span data-pt="instrumento que canta" data-en="instrument that sings">instrumento que canta</span><b data-pt="alta" data-en="high">alta</b></div>
+          <div class="signal"><span data-pt="melancolia arquitetada" data-en="architected melancholy">melancolia arquitetada</span><b data-pt="alta" data-en="high">alta</b></div>
+          <div class="signal"><span data-pt="melodia recontextualizada" data-en="recontextualized melody">melodia recontextualizada</span><b data-pt="muito alta" data-en="very high">muito alta</b></div>
+          <div class="signal"><span data-pt="nostalgia temporal" data-en="temporal nostalgia">nostalgia temporal</span><b data-pt="muito alta" data-en="very high">muito alta</b></div>
+          <div class="signal"><span data-pt="fidelidade a um só gênero" data-en="loyalty to one genre">fidelidade a um só gênero</span><b data-pt="baixa" data-en="low">baixa</b></div>
+        </div>
       </aside>
     </section>
 
-    <section class="section" aria-labelledby="constellations-title">
+    <section class="stats" aria-label="Base de dados">
+      <article class="stat"><strong>11.645</strong><span data-pt="registros de streaming no recorte de um ano" data-en="streaming records in the one-year window">registros de streaming no recorte de um ano</span></article>
+      <article class="stat"><strong>≈554h</strong><span data-pt="de escuta acumulada" data-en="of accumulated listening">de escuta acumulada</span></article>
+      <article class="stat"><strong>3.683</strong><span data-pt="faixas salvas na biblioteca" data-en="tracks saved in the library">faixas salvas na biblioteca</span></article>
+      <article class="stat"><strong>95</strong><span data-pt="playlists pessoais usadas como sinal de curadoria" data-en="personal playlists used as curation signals">playlists pessoais usadas como sinal de curadoria</span></article>
+    </section>
+
+    <section class="section" aria-labelledby="grammar-title">
       <div class="section-head">
-        <div><div class="eyebrow" data-pt="01 · Constelações" data-en="01 · Constellations">01 · Constelações</div><h2 id="constellations-title" data-pt="Cinco núcleos, sem achatamento." data-en="Five cores, no flattening.">Cinco núcleos, sem achatamento.</h2></div>
-        <p class="section-note" data-pt="Ópera, balada setentista, rock brasileiro, memória dos anos 2000 e trilhas de jogos ocupam regiões diferentes do mesmo mapa musical." data-en="Opera, 1970s ballads, Brazilian rock, 2000s memory and game soundtracks occupy different regions of the same musical map.">Ópera, balada setentista, rock brasileiro, memória dos anos 2000 e trilhas de jogos ocupam regiões diferentes do mesmo mapa musical.</p>
+        <div><div class="eyebrow" data-pt="01 · A gramática" data-en="01 · The grammar">01 · A gramática</div><h2 id="grammar-title" data-pt="O que meu ouvido está procurando." data-en="What my ears are actually looking for.">O que meu ouvido está procurando.</h2></div>
+        <p class="section-note" data-pt="Três verbos explicam melhor o meu gosto do que qualquer lista de gêneros." data-en="Three verbs explain my taste better than any genre list.">Três verbos explicam melhor o meu gosto do que qualquer lista de gêneros.</p>
       </div>
-
-      <div class="constellations">
-        <article class="constellation c1">
-          <span class="num">01</span>
-          <h3 data-pt="Melancolia de veludo" data-en="Velvet melancholy">Melancolia de veludo</h3>
-          <p data-pt="Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais visível na escuta contemporânea de Lua Helena." data-en="Open tenderness, romance without cynicism, and songs that place vulnerability at the center rather than using it as ornament. This is the most visible constellation in Lua Helena's contemporary listening.">Ternura exposta, romantismo sem cinismo e canções que tratam vulnerabilidade como centro, não ornamento. É a constelação mais visível na escuta contemporânea de Lua Helena.</p>
-          <div class="evidence">
-            <a class="chip link" href="https://open.spotify.com/artist/1LZEQNv7sE11VDY3SdxQeN" target="_blank" rel="noopener">Bee Gees ↗</a>
-            <a class="chip link" href="https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH" target="_blank" rel="noopener">Billie Eilish ↗</a>
-            <a class="chip link" href="https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa" target="_blank" rel="noopener">Lana Del Rey ↗</a>
-          </div>
-        </article>
-
-        <article class="constellation c2">
-          <span class="num">02</span>
-          <h3 data-pt="Voz como drama" data-en="Voice as drama">Voz como drama</h3>
-          <p data-pt="O canto ganha peso quando carrega personagem, tensão ou grandeza. A presença da ópera e da canção lírica aponta para uma preferência por vozes que criam cena." data-en="Singing gains weight when it carries character, tension or grandeur. The presence of opera and lyrical song points to a preference for voices that create a scene.">O canto ganha peso quando carrega personagem, tensão ou grandeza. A presença da ópera e da canção lírica aponta para uma preferência por vozes que criam cena.</p>
-          <div class="evidence">
-            <a class="chip link" href="https://open.spotify.com/artist/0bjdfjE8XbLa2Odstu6E1E" target="_blank" rel="noopener">Maria Callas ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener" data-pt="Óperas Líricas. ↗" data-en="Lyrical Operas. ↗">Óperas Líricas. ↗</a>
-          </div>
-        </article>
-
-        <article class="constellation c3">
-          <span class="num">03</span>
-          <h3 data-pt="Memória brasileira" data-en="Brazilian memory">Memória brasileira</h3>
-          <p data-pt="Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro aparece menos como rótulo de gênero e mais como memória emocional atravessada por rock, canção e televisão." data-en="Affection, roughness and cultural familiarity coexist. The Brazilian axis appears less as a genre label and more as emotional memory crossing rock, songwriting and television.">Afeto, aspereza e familiaridade cultural convivem. O eixo brasileiro aparece menos como rótulo de gênero e mais como memória emocional atravessada por rock, canção e televisão.</p>
-          <div class="evidence">
-            <a class="chip link" href="https://open.spotify.com/artist/10naVTwNjE50daQVrN0bXh" target="_blank" rel="noopener">Cássia Eller ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener" data-pt="Novelas. ↗" data-en="Telenovelas. ↗">Novelas. ↗</a>
-            <a class="chip link" href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener" data-pt="Memórias. ↗" data-en="Memories. ↗">Memórias. ↗</a>
-          </div>
-        </article>
-
-        <article class="constellation c4">
-          <span class="num">04</span>
-          <h3 data-pt="Arquivo 2000s" data-en="2000s archive">Arquivo 2000s</h3>
-          <p data-pt="Um núcleo de infância e adolescência preserva alt-rock, emo, pop-rock, reggae-pop e pop dançante. Essa região permanece afetivamente viva mesmo quando não domina a escuta recente." data-en="A childhood-and-adolescence core preserves alt-rock, emo, pop-rock, reggae-pop and dance-pop. This region remains emotionally alive even when it does not dominate recent listening.">Um núcleo de infância e adolescência preserva alt-rock, emo, pop-rock, reggae-pop e pop dançante. Essa região permanece afetivamente viva mesmo quando não domina a escuta recente.</p>
-          <div class="evidence"><span class="chip" data-pt="memória durável" data-en="durable memory">memória durável</span><span class="chip" data-pt="infância / adolescência" data-en="childhood / adolescence">infância / adolescência</span></div>
-        </article>
-
-        <article class="constellation c5">
-          <span class="num">05</span>
-          <h3 data-pt="Som como lugar" data-en="Sound as place">Som como lugar</h3>
-          <p data-pt="Música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma eletrônica noturna discreta criam espaços sonoros habitáveis." data-en="Music also functions as environment: game soundtracks, instrumental landscapes, comfortable repetition and understated nocturnal electronics create inhabitable sonic spaces.">Música também funciona como ambiente: trilhas de jogos, paisagens instrumentais, repetição confortável e uma eletrônica noturna discreta criam espaços sonoros habitáveis.</p>
-          <div class="evidence">
-            <a class="chip link" href="https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX" target="_blank" rel="noopener">Metronomy ↗</a>
-            <a class="chip link" href="https://open.spotify.com/track/6qOBFuoFiay0tRAs5en6nB" target="_blank" rel="noopener">Night Owl ↗</a>
-          </div>
-        </article>
+      <div class="principles">
+        <article class="principle"><span class="glyph">◌</span><h3 data-pt="Algo precisa cantar." data-en="Something has to sing.">Algo precisa cantar.</h3><p data-pt="Voz, sax, violoncelo, guitarra ou synth ganham quando deixam de ser textura e passam a enunciar uma frase. Melodia importa; respiração importa; silêncio entre frases também." data-en="Voice, sax, cello, guitar or synth become compelling when they stop being texture and begin to utter a phrase. Melody matters; breathing matters; the silence between phrases matters too.">Voz, sax, violoncelo, guitarra ou synth ganham quando deixam de ser textura e passam a enunciar uma frase. Melodia importa; respiração importa; silêncio entre frases também.</p></article>
+        <article class="principle"><span class="glyph">↗</span><h3 data-pt="Algo precisa amadurecer." data-en="Something has to mature.">Algo precisa amadurecer.</h3><p data-pt="A recompensa costuma vir depois de contenção: espaço, tensão, acúmulo seletivo, mudança de temperatura e enfim abertura. É o prazer do slow burn, não do impacto instantâneo." data-en="The reward often comes after restraint: space, tension, selective accumulation, a temperature shift, then opening. It is the pleasure of slow burn rather than instant impact.">A recompensa costuma vir depois de contenção: espaço, tensão, acúmulo seletivo, mudança de temperatura e enfim abertura. É o prazer do slow burn, não do impacto instantâneo.</p></article>
+        <article class="principle"><span class="glyph">⟲</span><h3 data-pt="Algo precisa lembrar." data-en="Something has to remember.">Algo precisa lembrar.</h3><p data-pt="Às vezes é memória autobiográfica. Às vezes é saudade estética de uma época não vivida. E às vezes é uma melodia conhecida entrando em outro corpo e revelando uma segunda vida." data-en="Sometimes it is autobiographical memory. Sometimes it is aesthetic longing for an era I never lived. And sometimes it is a familiar melody entering another body and revealing a second life.">Às vezes é memória autobiográfica. Às vezes é saudade estética de uma época não vivida. E às vezes é uma melodia conhecida entrando em outro corpo e revelando uma segunda vida.</p></article>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="time-title">
+    <section class="section" aria-labelledby="dna-title">
       <div class="section-head">
-        <div><div class="eyebrow" data-pt="02 · Camadas de escuta" data-en="02 · Listening layers">02 · Camadas de escuta</div><h2 id="time-title" data-pt="O gosto muda sem se apagar." data-en="Taste changes without erasing itself.">O gosto muda sem se apagar.</h2></div>
-        <p class="section-note" data-pt="A escuta de Lua Helena combina permanências afetivas, ciclos recentes e repertórios que retornam em épocas diferentes." data-en="Lua Helena's listening combines emotional continuities, recent cycles and repertoires that return at different moments.">A escuta de Lua Helena combina permanências afetivas, ciclos recentes e repertórios que retornam em épocas diferentes.</p>
+        <div><div class="eyebrow" data-pt="02 · DNA musical" data-en="02 · Musical DNA">02 · DNA musical</div><h2 id="dna-title" data-pt="Sete sinais estruturais." data-en="Seven structural signals.">Sete sinais estruturais.</h2></div>
+        <p class="section-note" data-pt="A força abaixo é qualitativa: ela combina recorrência, biblioteca salva e curadoria deliberada. Não é uma porcentagem inventada." data-en="The strength below is qualitative: it combines recurrence, saved library and deliberate curation. It is not an invented percentage.">A força abaixo é qualitativa: ela combina recorrência, biblioteca salva e curadoria deliberada. Não é uma porcentagem inventada.</p>
       </div>
-      <div class="timeline">
-        <article class="phase deep"><small data-pt="gravidade durável" data-en="durable gravity">gravidade durável</small><h3 data-pt="Centro afetivo" data-en="Emotional center">Centro afetivo</h3><p data-pt="Memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera formam o eixo mais estável." data-en="Memory, expressive voice, melancholy, intimacy, drama and atmosphere form the most stable axis.">Memória, voz expressiva, melancolia, intimidade, dramaticidade e atmosfera formam o eixo mais estável.</p></article>
-        <article class="phase current"><small data-pt="órbita recente" data-en="recent orbit">órbita recente</small><h3 data-pt="Som-lugar" data-en="Sound-place">Som-lugar</h3><p data-pt="Trilhas de Sims e jogos, ambient e escuta instrumental aparecem com força, enquanto Metronomy cria uma ponte pop-eletrônica." data-en="Sims and game soundtracks, ambient and instrumental listening appear strongly, while Metronomy creates a pop-electronic bridge.">Trilhas de Sims e jogos, ambient e escuta instrumental aparecem com força, enquanto Metronomy cria uma ponte pop-eletrônica.</p></article>
-        <article class="phase dormant"><small data-pt="arquivo vivo" data-en="living archive">arquivo vivo</small><h3 data-pt="Anos 2000" data-en="The 2000s">Anos 2000</h3><p data-pt="Rock alternativo, emo, pop-rock e pop dançante continuam associados a uma memória afetiva reconhecível." data-en="Alternative rock, emo, pop-rock and dance-pop remain attached to a recognizable emotional memory.">Rock alternativo, emo, pop-rock e pop dançante continuam associados a uma memória afetiva reconhecível.</p></article>
-        <article class="phase emerging"><small data-pt="sinal contemporâneo" data-en="contemporary signal">sinal contemporâneo</small><h3 data-pt="Atmosfera" data-en="Atmosphere">Atmosfera</h3><p data-pt="A música aparece cada vez mais como espaço emocional habitável, e não apenas como sucessão de faixas." data-en="Music increasingly appears as an inhabitable emotional space rather than merely a sequence of tracks.">A música aparece cada vez mais como espaço emocional habitável, e não apenas como sucessão de faixas.</p></article>
+      <div class="dna-grid">
+        <article class="dna-card large"><div class="card-top"><span class="num">01</span><span class="confidence" data-pt="força alta" data-en="high signal">força alta</span></div><h3 data-pt="O instrumento que canta" data-en="The instrument that sings">O instrumento que canta</h3><p data-pt="Minha playlist de sax entrega o mecanismo: não coleciono apenas jazz de sax; coleciono canções conhecidas entregues à garganta de um saxofone. O instrumento funciona como personagem e segunda voz." data-en="My sax playlist reveals the mechanism: I do not merely collect sax jazz; I collect familiar songs handed over to the throat of a saxophone. The instrument behaves like a character and a second voice.">Minha playlist de sax entrega o mecanismo: não coleciono apenas jazz de sax; coleciono canções conhecidas entregues à garganta de um saxofone. O instrumento funciona como personagem e segunda voz.</p><div class="chips"><span class="chip">Ben Webster</span><span class="chip">Gene Ammons</span><span class="chip">Scott Hamilton</span><span class="chip" data-pt="baladas instrumentais" data-en="instrumental ballads">baladas instrumentais</span></div></article>
+
+        <article class="dna-card medium"><div class="card-top"><span class="num">02</span><span class="confidence" data-pt="força alta" data-en="high signal">força alta</span></div><h3 data-pt="Melancolia arquitetada" data-en="Architected melancholy">Melancolia arquitetada</h3><p data-pt="Não basta ser triste. A música precisa saber construir a emoção no tempo: contenção, tensão, acúmulo e liberação. Radiohead, Pink Floyd, Muse e Son Lux vivem aqui." data-en="Sadness alone is not enough. The music has to build emotion through time: restraint, tension, accumulation and release. Radiohead, Pink Floyd, Muse and Son Lux live here.">Não basta ser triste. A música precisa saber construir a emoção no tempo: contenção, tensão, acúmulo e liberação. Radiohead, Pink Floyd, Muse e Son Lux vivem aqui.</p><div class="chips"><span class="chip">Nude</span><span class="chip">Exit Music</span><span class="chip">The Great Gig in the Sky</span></div></article>
+
+        <article class="dna-card third"><div class="card-top"><span class="num">03</span><span class="confidence" data-pt="força muito alta" data-en="very high signal">força muito alta</span></div><h3 data-pt="Melodia preservada, corpo substituído" data-en="Same melody, different body">Melodia preservada, corpo substituído</h3><p data-pt="Postmodern Jukebox, acústicos, lives, jazzificações e versões instrumentais apontam para um prazer muito específico: reconhecer a canção enquanto o arranjo muda completamente de universo." data-en="Postmodern Jukebox, acoustic versions, live takes, jazz transformations and instrumentals point to a specific pleasure: recognizing the song while the arrangement moves to another universe.">Postmodern Jukebox, acústicos, lives, jazzificações e versões instrumentais apontam para um prazer muito específico: reconhecer a canção enquanto o arranjo muda completamente de universo.</p><div class="chips"><span class="chip">PMJ</span><span class="chip" data-pt="covers" data-en="covers">covers</span><span class="chip" data-pt="rearranjos" data-en="rearrangements">rearranjos</span></div></article>
+
+        <article class="dna-card third"><div class="card-top"><span class="num">04</span><span class="confidence" data-pt="força alta" data-en="high signal">força alta</span></div><h3 data-pt="Calor orgânico de meia-luz" data-en="Organic half-light warmth">Calor orgânico de meia-luz</h3><p data-pt="Baixo redondo, piano ou Rhodes, bateria assentada, voz ou sopro com grão humano. A sensualidade vem da proximidade do timbre, não de uma batida tentando explicar que é sexy." data-en="Rounded bass, piano or Rhodes, settled drums, a voice or horn with human grain. Sensuality comes from timbral closeness, not from a beat trying to announce that it is sexy.">Baixo redondo, piano ou Rhodes, bateria assentada, voz ou sopro com grão humano. A sensualidade vem da proximidade do timbre, não de uma batida tentando explicar que é sexy.</p><div class="chips"><span class="chip">Nina Simone</span><span class="chip">Etta James</span><span class="chip">Ray Charles</span></div></article>
+
+        <article class="dna-card third"><div class="card-top"><span class="num">05</span><span class="confidence" data-pt="força alta" data-en="high signal">força alta</span></div><h3 data-pt="Groove retrô, seco e hipnótico" data-en="Dry, hypnotic retro groove">Groove retrô, seco e hipnótico</h3><p data-pt="Metronomy impede qualquer caricatura de ‘mulher triste ouvindo sax na chuva’. Baixo presente, bateria seca, repetição, synths com pátina retrô e estranheza elegante também são centro de gravidade." data-en="Metronomy prevents any caricature of ‘sad woman listening to sax in the rain’. Present bass, dry drums, repetition, retro-patina synths and elegant weirdness are also gravitational centers.">Metronomy impede qualquer caricatura de ‘mulher triste ouvindo sax na chuva’. Baixo presente, bateria seca, repetição, synths com pátina retrô e estranheza elegante também são centro de gravidade.</p><div class="chips"><span class="chip">Metronomy</span><span class="chip" data-pt="baixo" data-en="bass">baixo</span><span class="chip">retro synth</span></div></article>
+
+        <article class="dna-card medium"><div class="card-top"><span class="num">06</span><span class="confidence" data-pt="força muito alta" data-en="very high signal">força muito alta</span></div><h3 data-pt="Nostalgia temporal dupla" data-en="Dual temporal nostalgia">Nostalgia temporal dupla</h3><p data-pt="Há memória vivida dos anos 2000 e há saudade estética de épocas não vividas. Evanescence, CPM 22 e Linkin Park convivem com Piaf, Brel, Sinatra, Ella, soul antigo, bossa e jazz." data-en="There is lived memory of the 2000s and aesthetic longing for eras I never lived. Evanescence, CPM 22 and Linkin Park coexist with Piaf, Brel, Sinatra, Ella, old soul, bossa and jazz.">Há memória vivida dos anos 2000 e há saudade estética de épocas não vividas. Evanescence, CPM 22 e Linkin Park convivem com Piaf, Brel, Sinatra, Ella, soul antigo, bossa e jazz.</p><div class="chips"><span class="chip" data-pt="memória vivida" data-en="lived memory">memória vivida</span><span class="chip" data-pt="épocas não vividas" data-en="unlived eras">épocas não vividas</span></div></article>
+
+        <article class="dna-card large"><div class="card-top"><span class="num">07</span><span class="confidence" data-pt="força média-alta" data-en="medium-high signal">força média-alta</span></div><h3 data-pt="Frase longa e gravidade clássica" data-en="Long phrase and classical gravity">Frase longa e gravidade clássica</h3><p data-pt="A escuta clássica aponta menos para ‘gostar de clássico’ e mais para uma familiaridade com linhas melódicas extensas, rubato, espera antes da resolução, swell dinâmico e instrumentos capazes de sustentar emoção sem texto." data-en="My classical listening points less to ‘liking classical music’ and more to familiarity with extended melodic lines, rubato, delayed resolution, dynamic swells and instruments able to sustain emotion without words.">A escuta clássica aponta menos para ‘gostar de clássico’ e mais para uma familiaridade com linhas melódicas extensas, rubato, espera antes da resolução, swell dinâmico e instrumentos capazes de sustentar emoção sem texto.</p><div class="chips"><span class="chip">Tchaikovsky</span><span class="chip" data-pt="sinfonias" data-en="symphonies">sinfonias</span><span class="chip" data-pt="fraseado longo" data-en="long phrasing">fraseado longo</span></div></article>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="marks-title">
+    <section class="section" aria-labelledby="song-title-section">
       <div class="section-head">
-        <div><div class="eyebrow" data-pt="03 · Marcas recorrentes" data-en="03 · Recurring signatures">03 · Marcas recorrentes</div><h2 id="marks-title" data-pt="Canções e curadorias que deixam rastro." data-en="Songs and collections that leave a trace.">Canções e curadorias que deixam rastro.</h2></div>
-        <p class="section-note" data-pt="Algumas recorrências recentes e algumas playlists pessoais ajudam a tornar o mapa concreto." data-en="A few recent recurring songs and personal playlists make the map tangible.">Algumas recorrências recentes e algumas playlists pessoais ajudam a tornar o mapa concreto.</p>
+        <div><div class="eyebrow" data-pt="03 · A fechadura perfeita" data-en="03 · The perfect lock">03 · A fechadura perfeita</div><h2 id="song-title-section"><em>A Song for You</em></h2></div>
+        <p class="section-note" data-pt="A música não criou esse gosto. Ela encontrou uma preferência que já existia e a deixou visível." data-en="The song did not create this taste. It found a preference that was already there and made it visible.">A música não criou esse gosto. Ela encontrou uma preferência que já existia e a deixou visível.</p>
       </div>
-      <div class="split">
-        <article class="panel">
-          <h3 data-pt="Canções recorrentes" data-en="Recurring songs">Canções recorrentes</h3>
-          <ul class="track-list">
-            <li><a href="https://open.spotify.com/track/1jy0RbDHyBMTupSdc98XbG" target="_blank" rel="noopener"><span>How Can You Mend A Broken Heart · Bee Gees</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/track/2JoZzpdeP2G6Csfdq5aLXP" target="_blank" rel="noopener"><span>How Deep Is Your Love · Bee Gees</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/track/3SKHO4ccbKbO3gGapfKWDu" target="_blank" rel="noopener"><span>Words · Bee Gees</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/track/0mbS3VwRbO6HVBMPXnzOGA" target="_blank" rel="noopener"><span>To Love Somebody · Bee Gees</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/track/6CcJMwBtXByIz4zQLzFkKc" target="_blank" rel="noopener"><span>i love you · Billie Eilish</span><em>↗</em></a></li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <h3 data-pt="Curadorias pessoais" data-en="Personal collections">Curadorias pessoais</h3>
-          <ul class="track-list">
-            <li><a href="https://open.spotify.com/playlist/0BhRPJZfoRPbRckYfik8Mg" target="_blank" rel="noopener"><span data-pt="Óperas Líricas." data-en="Lyrical Operas.">Óperas Líricas.</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/6TKC4cKOsbK0dtvtZYehuj" target="_blank" rel="noopener"><span data-pt="Novelas." data-en="Telenovelas.">Novelas.</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu" target="_blank" rel="noopener"><span data-pt="Memórias." data-en="Memories.">Memórias.</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/5cw9VjaYCRhDBA027WLOBT" target="_blank" rel="noopener"><span>Bee Gees.</span><em>↗</em></a></li>
-            <li><a href="https://open.spotify.com/playlist/33dmhuik2kaF9tH8WQiANc" target="_blank" rel="noopener"><span>Billie &amp; Lana</span><em>↗</em></a></li>
-          </ul>
-        </article>
-      </div>
+      <article class="song-card">
+        <div>
+          <div class="song-sub" data-pt="Carpenters · eixo do tenor sax" data-en="Carpenters · tenor sax axis">Carpenters · eixo do tenor sax</div>
+          <h3 class="song-title" data-pt="Não é ‘sax sexy’. É um sax que canta." data-en="It isn't ‘sexy sax’. It is a sax that sings.">Não é ‘sax sexy’. É um sax que canta.</h3>
+          <p class="song-copy" data-pt="O solo funciona como <strong>segunda voz humana dentro de uma balada pop/soul setentista:</strong> ataque respirado, fraseado legato, linhas longas e cantáveis, ornamentação contida, espaço entre enunciados e desenvolvimento emocional acima de virtuosismo. ‘Noturno’, ‘quente’ e ‘melancólico’ descrevem o clima; o mecanismo principal é o <strong>tenor sax como countervoice lírica.</strong>" data-en="The solo behaves like a <strong>second human voice inside a 1970s pop/soul ballad:</strong> breath-led attack, legato phrasing, long singable lines, restrained ornamentation, air between statements and emotional development over virtuosity. ‘Nocturnal’, ‘warm’ and ‘melancholic’ describe the climate; the main mechanism is the <strong>tenor sax as a lyrical countervoice.</strong>">O solo funciona como <strong>segunda voz humana dentro de uma balada pop/soul setentista:</strong> ataque respirado, fraseado legato, linhas longas e cantáveis, ornamentação contida, espaço entre enunciados e desenvolvimento emocional acima de virtuosismo. ‘Noturno’, ‘quente’ e ‘melancólico’ descrevem o clima; o mecanismo principal é o <strong>tenor sax como countervoice lírica.</strong></p>
+        </div>
+        <div class="mechanism">
+          <span class="mechanism-label" data-pt="mecanismo" data-en="mechanism">mecanismo</span>
+          <div class="mechanism-step"><b>01</b><span data-pt="melodia muito cantável" data-en="highly singable melody">melodia muito cantável</span></div>
+          <div class="mechanism-step"><b>02</b><span data-pt="timbre quente + respiração audível" data-en="warm timbre + audible breath">timbre quente + respiração audível</span></div>
+          <div class="mechanism-step"><b>03</b><span data-pt="fraseado longo, legato e contido" data-en="long, legato, restrained phrasing">fraseado longo, legato e contido</span></div>
+          <div class="mechanism-step"><b>04</b><span data-pt="harmonia rica e arranjo espaçoso" data-en="rich harmony and spacious arrangement">harmonia rica e arranjo espaçoso</span></div>
+          <div class="mechanism-step"><b>05</b><span data-pt="emoção antes da exibição técnica" data-en="emotion before technical display">emoção antes da exibição técnica</span></div>
+        </div>
+      </article>
     </section>
 
-    <section class="section" aria-labelledby="bridges-title">
+    <section class="section" aria-labelledby="clusters-title">
       <div class="section-head">
-        <div><div class="eyebrow" data-pt="04 · Pontes" data-en="04 · Bridges">04 · Pontes</div><h2 id="bridges-title" data-pt="Afinidades que atravessam gêneros." data-en="Affinities that cross genres.">Afinidades que atravessam gêneros.</h2></div>
-        <p class="section-note" data-pt="As ligações mais características aparecem quando artistas muito diferentes compartilham uma mesma função emocional ou estética." data-en="The most characteristic connections appear when very different artists share the same emotional or aesthetic function.">As ligações mais características aparecem quando artistas muito diferentes compartilham uma mesma função emocional ou estética.</p>
+        <div><div class="eyebrow" data-pt="04 · Clusters" data-en="04 · Clusters">04 · Clusters</div><h2 id="clusters-title" data-pt="Os bairros do mapa." data-en="The neighborhoods of the map.">Os bairros do mapa.</h2></div>
+        <p class="section-note" data-pt="Gêneros ainda importam; só não são a jurisdição final do gosto." data-en="Genres still matter; they simply are not the final jurisdiction of taste.">Gêneros ainda importam; só não são a jurisdição final do gosto.</p>
       </div>
-      <div class="bridge-grid">
-        <article class="bridge"><div class="route" data-pt="teatralidade" data-en="theatricality">teatralidade</div><h3>Callas ↔ Lana</h3><p data-pt="Personagem, tragédia, intensidade e atmosfera cinematográfica aproximam universos que musicalmente parecem distantes." data-en="Character, tragedy, intensity and cinematic atmosphere bring together musical worlds that otherwise seem distant.">Personagem, tragédia, intensidade e atmosfera cinematográfica aproximam universos que musicalmente parecem distantes.</p></article>
-        <article class="bridge"><div class="route" data-pt="vulnerabilidade" data-en="vulnerability">vulnerabilidade</div><h3>Bee Gees ↔ Billie</h3><p data-pt="Fragilidade vocal, intimidade e heartbreak reaparecem em produções de eras opostas." data-en="Vocal fragility, intimacy and heartbreak reappear across productions from opposite eras.">Fragilidade vocal, intimidade e heartbreak reaparecem em produções de eras opostas.</p></article>
-        <article class="bridge"><div class="route" data-pt="memória espacial" data-en="spatial memory">memória espacial</div><h3 data-pt="Memória ↔ Liminal" data-en="Memory ↔ Liminal">Memória ↔ Liminal</h3><p data-pt="Nostalgia dos anos 2000 e trilhas de jogos convergem em músicas que soam como lugares lembrados: familiares, estranhas e habitáveis." data-en="2000s nostalgia and game soundtracks converge in music that feels like remembered places: familiar, strange and inhabitable.">Nostalgia dos anos 2000 e trilhas de jogos convergem em músicas que soam como lugares lembrados: familiares, estranhas e habitáveis.</p></article>
+      <div class="clusters">
+        <div class="cluster"><i>🌒</i><strong data-pt="Slow-burn melancólico" data-en="Melancholic slow-burn">Slow-burn melancólico</strong><span>Radiohead · Pink Floyd · Muse · Son Lux · Elliott Smith</span></div>
+        <div class="cluster"><i>🎷</i><strong data-pt="Horn ballad / instrumento-pessoa" data-en="Horn ballad / instrument-person">Horn ballad / instrumento-pessoa</strong><span>Ben Webster · Gene Ammons · Scott Hamilton · baladas instrumentais</span></div>
+        <div class="cluster"><i>🥃</i><strong data-pt="Soul & jazz de meia-luz" data-en="Half-light soul & jazz">Soul & jazz de meia-luz</strong><span>Nina Simone · Aretha Franklin · Etta James · Ray Charles · Chet Baker</span></div>
+        <div class="cluster"><i>🪞</i><strong data-pt="Canção conhecida em universo paralelo" data-en="Familiar song in a parallel universe">Canção conhecida em universo paralelo</strong><span>Postmodern Jukebox · acústicos · lives · covers · versões instrumentais</span></div>
+        <div class="cluster"><i>🌃</i><strong data-pt="Retro-groove cerebral" data-en="Cerebral retro-groove">Retro-groove cerebral</strong><span>Metronomy · baixo presente · pulso seco · synths vintage · repetição hipnótica</span></div>
+        <div class="cluster"><i>📼</i><strong data-pt="Memória verdadeira" data-en="True memory">Memória verdadeira</strong><span>Cássia Eller · Evanescence · CPM 22 · Linkin Park · Oasis · Black Eyed Peas</span></div>
+        <div class="cluster"><i>🕰️</i><strong data-pt="Saudade de épocas não vividas" data-en="Longing for unlived eras">Saudade de épocas não vividas</strong><span>Édith Piaf · Jacques Brel · Sinatra · Ella Fitzgerald · soul antigo · bossa · jazz</span></div>
       </div>
     </section>
 
-    <section class="section verdict" aria-labelledby="verdict-title">
-      <p class="thesis" id="verdict-title" data-pt="O gosto de Lua Helena reconhece atmosferas emocionais em corpos musicais diferentes." data-en="Lua Helena's taste recognizes emotional atmospheres across different musical bodies.">O gosto de Lua Helena reconhece atmosferas emocionais em corpos musicais diferentes.</p>
-      <aside data-pt="O eixo mais característico combina <strong>memória + emoção legível + voz + atmosfera</strong>. O gênero funciona mais como veículo do que como fronteira." data-en="Its most characteristic axis combines <strong>memory + legible emotion + voice + atmosphere</strong>. Genre works more as a vehicle than as a boundary.">O eixo mais característico combina <strong>memória + emoção legível + voz + atmosfera</strong>. O gênero funciona mais como veículo do que como fronteira.</aside>
+    <section class="section" aria-labelledby="anti-title">
+      <div class="section-head">
+        <div><div class="eyebrow" data-pt="05 · Anti-perfil" data-en="05 · Anti-profile">05 · Anti-perfil</div><h2 id="anti-title" data-pt="Coisas que o mapa não autoriza concluir." data-en="Things the map does not authorize us to conclude.">Coisas que o mapa não autoriza concluir.</h2></div>
+        <p class="section-note" data-pt="Tão importante quanto detectar padrões é impedir que eles virem caricatura." data-en="Detecting patterns matters; preventing them from becoming caricatures matters just as much.">Tão importante quanto detectar padrões é impedir que eles virem caricatura.</p>
+      </div>
+      <div class="anti-grid">
+        <article class="anti"><strong data-pt="não: smooth jazz como identidade" data-en="not: smooth jazz as identity">não: smooth jazz como identidade</strong><p data-pt="Existe sobreposição tímbrica, mas o eixo do sax é melody-first e ballad-first. ‘Smooth jazz’ sozinho é um rótulo largo demais." data-en="There is timbral overlap, but the sax axis is melody-first and ballad-first. ‘Smooth jazz’ alone is far too broad a label.">Existe sobreposição tímbrica, mas o eixo do sax é melody-first e ballad-first. ‘Smooth jazz’ sozinho é um rótulo largo demais.</p></article>
+        <article class="anti"><strong data-pt="não: virtuosismo por si só" data-en="not: virtuosity for its own sake">não: virtuosismo por si só</strong><p data-pt="A recorrência favorece fraseado significativo, arco emocional e melodia. Exibição atlética sem função dramática perde força." data-en="Recurrence favors meaningful phrasing, emotional arc and melody. Athletic display without dramatic function loses power.">A recorrência favorece fraseado significativo, arco emocional e melodia. Exibição atlética sem função dramática perde força.</p></article>
+        <article class="anti"><strong data-pt="não: ‘música lenta’ como regra" data-en="not: ‘slow music’ as a rule">não: ‘música lenta’ como regra</strong><p data-pt="Metronomy, rock, pop 2000s e soul rítmico desmontam essa leitura. O eixo é dinâmica e gesto, não BPM baixo." data-en="Metronomy, rock, 2000s pop and rhythmic soul dismantle that reading. The axis is dynamics and gesture, not low BPM.">Metronomy, rock, pop 2000s e soul rítmico desmontam essa leitura. O eixo é dinâmica e gesto, não BPM baixo.</p></article>
+        <article class="anti"><strong data-pt="não: trilha de jogo = identidade estética" data-en="not: game OST = aesthetic identity">não: trilha de jogo = identidade estética</strong><p data-pt="O volume de trilhas pode misturar gosto, ambiente, memória e escuta funcional. Sem evidência adicional, isso não recebe o mesmo peso de uma playlist deliberadamente curada." data-en="The amount of game soundtrack listening may mix taste, ambience, memory and functional listening. Without additional evidence, it does not receive the same weight as a deliberately curated playlist.">O volume de trilhas pode misturar gosto, ambiente, memória e escuta funcional. Sem evidência adicional, isso não recebe o mesmo peso de uma playlist deliberadamente curada.</p></article>
+        <article class="anti"><strong data-pt="não: jazz abstrato como núcleo" data-en="not: abstract jazz as a core">não: jazz abstrato como núcleo</strong><p data-pt="O jazz está presente, mas as seleções mais consistentes tendem ao lírico, atmosférico, soul-jazz, standard, modal ou contemplativo." data-en="Jazz is present, but the most consistent selections lean lyrical, atmospheric, soul-jazz, standard, modal or contemplative.">O jazz está presente, mas as seleções mais consistentes tendem ao lírico, atmosférico, soul-jazz, standard, modal ou contemplativo.</p></article>
+        <article class="anti"><strong data-pt="não: falsa precisão" data-en="not: fake precision">não: falsa precisão</strong><p data-pt="O export não traz BPM, key, danceability, instrumentação ou compressão. Essas coisas só entram quando houver análise acústica externa, nunca por adivinhação." data-en="The export does not contain BPM, key, danceability, instrumentation or compression. Those only enter with external acoustic analysis, never by guessing.">O export não traz BPM, key, danceability, instrumentação ou compressão. Essas coisas só entram quando houver análise acústica externa, nunca por adivinhação.</p></article>
+      </div>
     </section>
 
-    <div class="method-disclaimer" role="note">
-      <span class="sigil" aria-hidden="true">✦</span>
-      <span data-pt="<strong>Sobre o método.</strong> Este perfil foi mapeado pelo Music Discovery Engine, módulo experimental do <a href='https://www.mooon.com.br/moonsource/index.html' target='_blank' rel='noopener'>Moon Source ↗</a> — arquitetura de contexto criada por Lua Helena Moon para manter conhecimento vivo e corrigível ao longo do tempo. O Spotify fornece sinais; a interpretação do gosto permanece no Moon Source." data-en="<strong>About the method.</strong> This profile was mapped by the Music Discovery Engine, an experimental module of <a href='https://www.mooon.com.br/moonsource/index.html' target='_blank' rel='noopener'>Moon Source ↗</a> — Lua Helena Moon's context architecture for keeping knowledge living and revisable over time. Spotify provides signals; taste interpretation remains in Moon Source."><strong>Sobre o método.</strong> Este perfil foi mapeado pelo Music Discovery Engine, módulo experimental do <a href="https://www.mooon.com.br/moonsource/index.html" target="_blank" rel="noopener">Moon Source ↗</a> — arquitetura de contexto criada por Lua Helena Moon para manter conhecimento vivo e corrigível ao longo do tempo. O Spotify fornece sinais; a interpretação do gosto permanece no Moon Source.</span>
-    </div>
+    <section class="section" aria-labelledby="search-title">
+      <div class="section-head">
+        <div><div class="eyebrow" data-pt="06 · Vocabulário operacional" data-en="06 · Operational vocabulary">06 · Vocabulário operacional</div><h2 id="search-title" data-pt="Como procurar o som certo." data-en="How to search for the right sound.">Como procurar o som certo.</h2></div>
+        <p class="section-note" data-pt="A busca melhora quando descreve comportamento sonoro, não uma vibe genérica." data-en="Search improves when it describes sonic behavior rather than a generic vibe.">A busca melhora quando descreve comportamento sonoro, não uma vibe genérica.</p>
+      </div>
+      <div class="search-layout">
+        <article class="search-note"><h3 data-pt="Para Spotify, YouTube e Last.fm" data-en="For Spotify, YouTube and Last.fm">Para Spotify, YouTube e Last.fm</h3><p data-pt="A ideia é combinar instrumento + função + fraseado + contexto. ‘Romantic sax’ é o equivalente musical de pedir ao algoritmo para me levar a um restaurante italiano em 1993." data-en="The idea is to combine instrument + function + phrasing + context. ‘Romantic sax’ is the musical equivalent of asking the algorithm to take me to an Italian restaurant in 1993.">A ideia é combinar instrumento + função + fraseado + contexto. ‘Romantic sax’ é o equivalente musical de pedir ao algoritmo para me levar a um restaurante italiano em 1993.</p></article>
+        <div class="queries">
+          <div class="query"><code>lyrical tenor sax ballad</code><button class="copy-btn" type="button" data-copy="lyrical tenor sax ballad" data-pt="copiar" data-en="copy">copiar</button></div>
+          <div class="query"><code>warm breathy tenor sax</code><button class="copy-btn" type="button" data-copy="warm breathy tenor sax" data-pt="copiar" data-en="copy">copiar</button></div>
+          <div class="query"><code>tenor sax vocal phrasing</code><button class="copy-btn" type="button" data-copy="tenor sax vocal phrasing" data-pt="copiar" data-en="copy">copiar</button></div>
+          <div class="query"><code>soul ballad tenor sax solo</code><button class="copy-btn" type="button" data-copy="soul ballad tenor sax solo" data-pt="copiar" data-en="copy">copiar</button></div>
+          <div class="query"><code>instrumental pop ballad sax cover</code><button class="copy-btn" type="button" data-copy="instrumental pop ballad sax cover" data-pt="copiar" data-en="copy">copiar</button></div>
+          <div class="query"><code>restrained tenor sax solo</code><button class="copy-btn" type="button" data-copy="restrained tenor sax solo" data-pt="copiar" data-en="copy">copiar</button></div>
+        </div>
+        <div class="suno"><small data-pt="prompt canônico para geração" data-en="canonical generation prompt">prompt canônico para geração</small><code>warm lyrical tenor sax, breathy restrained phrasing, long singable legato lines, emotional countervoice over lush 1970s orchestral pop and soul harmony, intimate rhythm section, spacious arrangement, melodic development over virtuosity, soft analog warmth</code></div>
+      </div>
+    </section>
+
+    <section class="verdict" aria-labelledby="verdict-title">
+      <p class="thesis" id="verdict-title" data-pt="Eu gosto quando a música parece ter uma vida interior." data-en="I like music when it seems to have an inner life.">Eu gosto quando a música parece ter uma vida interior.</p>
+      <aside data-pt="O denominador comum é <strong>calor + melodia + atmosfera + transformação + alguma coisa humana respirando dentro do arranjo.</strong> Gênero continua sendo mapa de bairro. A jurisdição final é o gesto." data-en="The common denominator is <strong>warmth + melody + atmosphere + transformation + something human breathing inside the arrangement.</strong> Genre remains a neighborhood map. Gesture is the final jurisdiction.">O denominador comum é <strong>calor + melodia + atmosfera + transformação + alguma coisa humana respirando dentro do arranjo.</strong> Gênero continua sendo mapa de bairro. A jurisdição final é o gesto.</aside>
+    </section>
+
+    <div class="method" role="note" data-pt="<strong>Sobre o método.</strong> Este perfil foi reconstruído a partir do export do Spotify de 12/08/2025 a 12/08/2026: histórico de streaming, biblioteca salva e playlists pessoais. O peso aumenta quando um padrão aparece em mais de uma dessas fontes. O dataset não contém audio features como BPM, tonalidade ou instrumentação; toda inferência sonora aqui é explicitamente tratada como inferência. A cartografia é mantida pelo <a href='https://www.mooon.com.br/moonsource/index.html' target='_blank' rel='noopener'>Music Engine do Moon Source ↗</a>." data-en="<strong>About the method.</strong> This profile was rebuilt from the Spotify export covering Aug 12, 2025 to Aug 12, 2026: streaming history, saved library and personal playlists. A pattern receives more weight when it appears in more than one of those sources. The dataset does not contain audio features such as BPM, key or instrumentation; every sonic interpretation here is explicitly treated as inference. The cartography is maintained by the <a href='https://www.mooon.com.br/moonsource/index.html' target='_blank' rel='noopener'>Moon Source Music Engine ↗</a>."><strong>Sobre o método.</strong> Este perfil foi reconstruído a partir do export do Spotify de 12/08/2025 a 12/08/2026: histórico de streaming, biblioteca salva e playlists pessoais. O peso aumenta quando um padrão aparece em mais de uma dessas fontes. O dataset não contém audio features como BPM, tonalidade ou instrumentação; toda inferência sonora aqui é explicitamente tratada como inferência. A cartografia é mantida pelo <a href="https://www.mooon.com.br/moonsource/index.html" target="_blank" rel="noopener">Music Engine do Moon Source ↗</a>.</div>
 
     <footer>
-      <span>Lua Helena Moon · <span data-pt="Perfil Musical" data-en="Music Profile">Perfil Musical</span></span>
-      <span data-pt="cartografia sonora pessoal" data-en="personal sonic cartography">cartografia sonora pessoal</span>
+      <span>Lua Helena Moon · Moon Music DNA</span>
+      <span data-pt="perfil musical · agosto de 2026" data-en="music profile · August 2026">perfil musical · agosto de 2026</span>
     </footer>
   </main>
 
@@ -553,13 +732,13 @@
       const metadata = {
         pt: {
           lang: 'pt-BR',
-          title: 'Perfil Musical · Lua Helena Moon',
-          description: 'Cartografia musical de Lua Helena Moon: constelações de gosto, atmosferas, memória e escuta contemporânea.'
+          title: 'Moon Music DNA · Lua Helena Moon',
+          description: 'Moon Music DNA: cartografia do gosto musical de Lua Helena Moon a partir do histórico, biblioteca e curadorias do Spotify.'
         },
         en: {
           lang: 'en',
-          title: 'Music Profile · Lua Helena Moon',
-          description: 'Lua Helena Moon’s musical cartography: taste constellations, atmospheres, memory and contemporary listening.'
+          title: 'Moon Music DNA · Lua Helena Moon',
+          description: 'Moon Music DNA: Lua Helena Moon’s musical taste mapped from Spotify listening history, saved library and personal curation.'
         }
       };
 
@@ -568,28 +747,35 @@
         document.documentElement.lang = metadata[next].lang;
         document.title = metadata[next].title;
         document.getElementById('meta-description').setAttribute('content', metadata[next].description);
-
-        translatables.forEach(el => {
-          el.innerHTML = el.dataset[next];
-        });
-
+        translatables.forEach(el => { el.innerHTML = el.dataset[next]; });
         buttons.forEach(button => {
           const active = button.dataset.lang === next;
           button.classList.toggle('active', active);
           button.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
-
         localStorage.setItem(STORAGE_KEY, next);
-
         if (syncUrl) {
           const url = new URL(window.location.href);
-          if (next === 'en') url.searchParams.set('lang', 'en');
-          else url.searchParams.delete('lang');
+          if (next === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
           history.replaceState(null, '', url.pathname + url.search + url.hash);
         }
       }
 
       buttons.forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+      document.querySelectorAll('[data-copy]').forEach(button => {
+        button.addEventListener('click', async () => {
+          const value = button.dataset.copy;
+          try {
+            await navigator.clipboard.writeText(value);
+            const lang = document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+            const previous = button.textContent;
+            button.textContent = lang === 'en' ? 'copied' : 'copiado';
+            setTimeout(() => { button.textContent = previous; }, 1200);
+          } catch (_) {
+            // Clipboard can be blocked by browser permissions; the query remains selectable.
+          }
+        });
+      });
       applyLanguage(initial, false);
     })();
   </script>
