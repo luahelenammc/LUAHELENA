@@ -18,6 +18,9 @@ This portable helps an AI understand what the user actually needs before decidin
 - **Professional context:** https://www.luahelena.com.br/ia/?lang=en
 - **Creator and final human authority:** Lua Helena Moon Martins Cardoso (Moon).
 - **AI-assisted coauthorial development:** Moon + Áurion.
+- **License:** CC-BY-4.0 for this documentation portable: https://creativecommons.org/licenses/by/4.0/
+- **Licensing route:** https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md
+- **Adaptation expectation:** preserve creator and canonical origin, link the license, and indicate material changes without implying endorsement.
 - **Dependencies:** none in standalone mode.
 - **Freshness:** general method; if a repository-aware route depends on current product facts, verify the relevant public source before presenting them as current.
 
@@ -143,7 +146,7 @@ It is not:
 - a replacement for professional judgment;
 - a full dump of Moon's private or professional source architecture;
 - a public disclosure of private corpora, hidden resolver rules, compiler machinery, scoring systems or protected runtime details;
-- a repository-wide open-source licence;
+- a disclosure of Moon's private or internal source architecture;
 - evidence of adoption, impact, universal validity or enterprise readiness.
 
 This file does not collect, receive, store or transmit the user's answers. Privacy depends on the AI platform and destination where the user chooses to paste or save the result.
@@ -853,13 +856,14 @@ It may reference public capabilities in the canonical repository. It must not ex
 - permission that has not been established;
 - endorsement, partnership, adoption, impact or validation beyond available evidence.
 
-For reuse, adaptation, mirroring or generated outputs based on this file, follow the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md). Preserve:
+For reuse, adaptation, mirroring or generated outputs based on this file, follow [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) and the [Credits & Attribution Ops Protocol](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md). Preserve:
 
 - Moon Source as the original public method and canonical path;
 - Lua Helena Moon Martins Cardoso (Moon) as creator and final human authority;
 - the bounded AI-assisted coauthorial role of Áurion;
 - the relationship between the original and any local adaptation;
 - the applicable permission scope;
+- the CC BY 4.0 license link and an indication of material changes;
 - the repository as semantic and versioning authority.
 
 Attribution does not itself grant permission. The portable's own terms and any other applicable permission remain controlling.
@@ -897,4 +901,4 @@ Remember:
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
