@@ -11,9 +11,12 @@
 **Professional context:** https://www.luahelena.com.br/ia/?lang=en  
 **Canonical repository:** https://github.com/luahelenammc/Moon-Source  
 **Canonical path:** portables/msl/MSL_4_3.md  
-**Credits and attribution operations:** https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
+- **Credits and attribution operations:** https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
+- **License:** CC-BY-4.0 · https://creativecommons.org/licenses/by/4.0/
+- **Licensing route:** https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md
+**Adaptation expectation:** preserve creator and canonical origin, link the license, and indicate material changes without implying endorsement.
 
-> **Attribution request:** if you reuse, adapt, fork, or teach from this portable, please preserve clear credit to **Lua Helena Moon Martins Cardoso / Moon Source**, and keep visible lineage for any later adaptations.
+> **Attribution and license:** if you share, reuse, adapt, fork, or teach from this portable, preserve clear credit to **Lua Helena Moon Martins Cardoso / Moon Source**, link **CC BY 4.0**, indicate material changes and keep visible lineage for later adaptations.
 
 ---
 
@@ -668,4 +671,4 @@ AI co-development: Áurion
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
