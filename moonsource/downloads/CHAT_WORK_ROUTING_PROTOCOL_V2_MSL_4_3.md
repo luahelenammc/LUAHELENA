@@ -22,6 +22,9 @@
 - **method lineage:** Local Moon Source → Moon Professional Source
 - **canonical attribution:** https://www.luahelena.com.br/ia/?lang=en
 - **credits operations:** https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md
+- **license:** CC-BY-4.0 · https://creativecommons.org/licenses/by/4.0/
+- **licensing route:** https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md
+- **adaptation expectation:** preserve creator and canonical origin, link the license, and indicate material changes without implying endorsement
 - **portability:** ChatGPT-first; adaptable to systems with interactive and agentic execution lanes
 - **freshness rule:** recheck model names, prices, usage pools and product behavior before treating dated calibration as current fact
 
@@ -692,14 +695,15 @@ This portable carries a local attribution operation for its own reuse. The repos
 > Adapted from the **Chat–Work Routing Protocol V2** by Lua Helena Moon Martins Cardoso (Moon), Moon Professional Source: https://www.luahelena.com.br/ia/?lang=en  
 > Modifications by: [name / project], [date or version].
 
-### Attribution guidance for permitted uses
+### Attribution and license for shared uses
 
-The following is guidance for uses that are otherwise permitted by this portable or another applicable permission. It does not grant rights by implication.
+This portable's documentation is shared under CC-BY-4.0. Follow the repository [licensing guide](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) and use the following compact pattern when sharing or adapting it. The pattern does not add conditions beyond the license.
 
 When a use is permitted:
 
 - original authorship remains visible;
 - modified versions identify themselves as adaptations;
+- the CC BY 4.0 license link is preserved;
 - dated product claims are refreshed rather than repeated as timeless facts;
 - use does not imply partnership, endorsement or access to private Moon Source materials.
 
@@ -721,4 +725,4 @@ This is an independent operating protocol. It is not official OpenAI documentati
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
