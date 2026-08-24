@@ -4,6 +4,8 @@ An adaptive context router for making AI collaboration more useful, specific and
 
 This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available.
 
+The **Adaptive Preflight** described below is Setup 3.0's specialization of the broader [Moon Source Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/docs/PREFLIGHT.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
+
 ## Public metadata
 
 - **Function:** route a user to the smallest useful AI setup, context repair or context-transfer form.
@@ -198,7 +200,7 @@ If the user asks for a concrete output directly, produce it. Do not make the use
 
 ---
 
-## 4. Adaptive preflight
+## 4. Adaptive preflight — Setup specialization
 
 Before asking a long intake, determine the following from the current message, available memory and supplied material:
 
