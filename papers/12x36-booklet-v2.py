@@ -302,7 +302,7 @@ def build_reader():
     story.append(Spacer(1, 5 * mm))
     story.append(box([
         p("Fontes essenciais", "Subhead"),
-        p("CLT, arts. 59-A e 60 · Lei 13.467/2017 · TST, Súmula 444 · Rogers et al. (2004) · Dall'Ora et al. (2015) · IARC, volume 124", "BodyTight"),
+        p("CLT, arts. 59-A e 60 · Lei 13.467/2017 · TST, Súmula 444 · Rogers et al. (2004) · IARC, volume 124", "BodyTight"),
         p("Fontes, referências completas, método, limites e minuta integral: <b>QR na contracapa.</b>", "Small"),
     ], bg=WHITE, border=LINE, padding=8))
     story.append(PageBreak())
