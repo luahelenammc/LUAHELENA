@@ -386,7 +386,6 @@
       <a href="#disputa">disputa</a>
       <a href="#proposta">proposta</a>
       <a href="#fontes">fontes</a>
-      <button type="button" id="print-page">imprimir</button>
       <button type="button" id="copy-link">copiar link</button>
     </nav>
   </header>
@@ -404,7 +403,7 @@
         </div>
         <div class="hero-actions" aria-label="Ações da nota">
           <a class="button" href="#proposta">entenda a proposta</a>
-          <button class="button secondary" id="hero-print" type="button">imprimir / salvar PDF</button>
+          <button class="button secondary" id="hero-print" type="button">Imprimir esta página</button>
           <a class="button quiet" href="assets/nota-tecnica-12x36-direito-ao-tempo.pdf" download>nota original (PDF)</a>
         </div>
       </div>
@@ -599,9 +598,9 @@
   <script>
     (function () {
       if (window.location.search.indexOf('print-preview=1') !== -1) document.documentElement.classList.add('print-preview');
-      var printButtons = [document.getElementById('print-page'), document.getElementById('hero-print')];
+      var printButton = document.getElementById('hero-print');
       var printPage = function () { if (typeof window.print === 'function') window.print(); };
-      printButtons.forEach(function (button) { if (button) button.addEventListener('click', printPage); });
+      if (printButton) printButton.addEventListener('click', printPage);
       var copy = document.getElementById('copy-link');
       if (copy) copy.addEventListener('click', function () {
         var original = copy.textContent;
