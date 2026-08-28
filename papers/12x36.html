@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#7a2947">
-  <meta name="description" content="Proposta técnica para incluir o regime 12x36 na agenda de redução da jornada: média de 42 horas semanais, compensação em tempo, proteção salarial e negociação coletiva mais favorável.">
+  <meta name="description" content="Proposta para que a redução geral da jornada alcance também o regime 12x36, com compensação em tempo, salário preservado e transição negociada - sem abolição automática da escala.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Jornada 12x36 e Direito ao Tempo - Lua Helena Moon">
-  <meta property="og:description" content="Proposta técnica para incluir o regime 12x36 na agenda de redução da jornada: média de 42 horas semanais, compensação em tempo, proteção salarial e negociação coletiva mais favorável.">
+  <meta property="og:description" content="Proposta para que a redução geral da jornada alcance também o regime 12x36, com compensação em tempo, salário preservado e transição negociada - sem abolição automática da escala.">
   <meta property="og:url" content="https://www.luahelena.com.br/papers/12x36.html">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://www.luahelena.com.br/papers/12x36.html">
@@ -122,7 +122,7 @@
       text-transform: uppercase;
     }
     h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
-    h1 { max-width: 850px; margin: 16px 0 20px; font-size: clamp(3.2rem, 8vw, 7.8rem); line-height: .9; }
+    h1 { max-width: 850px; margin: 16px 0 20px; font-size: clamp(3.2rem, 7vw, 6.9rem); line-height: .9; }
     .hero-deck { max-width: 700px; margin: 0; color: var(--ink-soft); font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.65rem); line-height: 1.3; }
     .hero-note {
       padding: 25px;
@@ -259,7 +259,7 @@
     .draft p { max-width: none; margin: 0 0 13px; font-family: var(--serif); font-size: 1.02rem; }
     .draft p:last-child { margin-bottom: 0; }
 
-    .steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .step { min-height: 165px; padding: 16px 13px; border-top: 5px solid var(--burgundy); background: var(--white); }
     .step:nth-child(even) { border-top-color: var(--green-dark); background: var(--green); }
     .step b { display: block; color: var(--burgundy); font-family: var(--serif); font-size: 1.5rem; }
@@ -284,13 +284,14 @@
     .about-grid p { margin: 0; color: var(--ink-soft); font-size: .88rem; }
     .references { columns: 2; column-gap: 28px; margin: 22px 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .79rem; }
     .references li { break-inside: avoid; margin-bottom: 10px; }
+    .print-meta { display: none; }
     .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 22px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
     .site-footer p { margin: 0; }
 
     @media (max-width: 880px) {
       .hero, .measure-board, .concept-grid, .two-col, .cta-box, .about-grid { grid-template-columns: 1fr; }
       .evidence-grid { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
       .section-intro { margin-left: 0; }
     }
     @media (max-width: 620px) {
@@ -328,7 +329,7 @@
       .section { padding: 10mm 0; break-inside: avoid; }
       .section-heading { margin-bottom: 5mm; }
       .section-heading h2 { font-size: 25pt; }
-      .section-intro { margin-top: -2mm; }
+      .section-intro { margin-top: -2mm; margin-left: 0; }
       .calculation, .note-box, .proposal-box, .cta-box, .evidence-card, .about-grid > div, .wide-table, .quick-read { box-shadow: none; }
       a { color: inherit; }
       a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .7em; overflow-wrap: anywhere; }
@@ -340,8 +341,15 @@
       .wide-table th, .wide-table td { padding: 6pt; }
       .shift-strip { break-inside: avoid; }
       .pillars { grid-template-columns: repeat(3, 1fr); }
-      .steps { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
       .references { font-size: 7.3pt; }
+      .print-meta { display: block !important; margin: 0 0 5mm; color: #46535a; font-size: 8pt; }
+      .section p, .section-intro { max-width: none; }
+      .section-heading { break-after: avoid; }
+      .section-heading h2, h3 { break-after: avoid; }
+      .measure-board, .concept-grid, .two-col, .evidence-grid, .pillars, .steps, .data-gaps, .about-grid { break-inside: avoid; }
+      .wide-table table { width: 100%; }
+      .about-grid { margin-top: 7mm; }
     }
   </style>
 </head>
@@ -354,6 +362,7 @@
     </a>
     <nav class="top-nav" aria-label="Navegação da nota">
       <a href="#leitura-rapida">leitura rápida</a>
+      <a href="#disputa">disputa</a>
       <a href="#proposta">proposta</a>
       <a href="#fontes">fontes</a>
       <button type="button" id="print-page">imprimir</button>
@@ -364,40 +373,67 @@
   <main id="conteudo">
     <section class="hero" aria-labelledby="titulo">
       <div>
-        <div class="eyebrow">Nota técnica 01/2026 · versão pública · julho de 2026</div>
+        <div class="eyebrow">Direito ao tempo · jornada 12x36 · contribuição técnica</div>
         <h1 id="titulo">Jornada 12x36 e direito ao tempo</h1>
-        <p class="hero-deck">Como incluir escalas extensas na agenda de redução da jornada sem apagar um regime que pode ser útil quando protegido.</p>
+        <p class="hero-deck">A redução geral da jornada deve alcançar também as escalas especiais. O 12x36 pode continuar onde fizer sentido, mas não como exceção automática ao novo direito ao tempo.</p>
         <div class="meta-row">
+          <span>Nota técnica 01/2026 · versão pública</span>
           <span>Lua Helena Moon Martins Cardoso</span>
-          <span>Psicóloga hospitalar · socióloga de formação</span>
           <span>Contribuição técnica independente</span>
         </div>
         <div class="hero-actions" aria-label="Ações da nota">
-          <a class="button" href="assets/12x36-direito-ao-tempo-booklet-v2-reader.pdf" download>baixar livreto A5 (leitura)</a>
-          <a class="button secondary" href="assets/12x36-direito-ao-tempo-booklet-v2-print-a4.pdf" download>impressão A4 (duplex)</a>
+          <a class="button" href="#proposta">entenda a proposta</a>
+          <button class="button secondary" id="hero-print" type="button">imprimir / salvar PDF</button>
           <a class="button quiet" href="assets/nota-tecnica-12x36-direito-ao-tempo.pdf" download>nota original (PDF)</a>
-          <button class="button secondary" id="hero-print" type="button">modo de impressão</button>
         </div>
       </div>
-      <aside class="hero-note" aria-label="Tese central">
-        <span class="eyebrow">tese central</span>
-        <strong>O tempo também é uma medida de justiça.</strong>
-        <p>A redução da jornada ficará incompleta se o regime 12x36 continuar autorizado a operar, por padrão, com média de 42 horas semanais e sem garantia legal de compensação adicional em tempo.</p>
+      <aside class="hero-note" aria-label="Tese política">
+        <span class="eyebrow">tese política</span>
+        <strong>O direito ao tempo também precisa alcançar o plantão.</strong>
+        <p>Quando o teto geral da jornada cair, o regime 12x36 deve acompanhar a redução por média, com compensação adicional em tempo, salário preservado e manutenção das condições coletivas mais favoráveis.</p>
       </aside>
     </section>
 
+    <p class="print-meta">Publicação canônica: https://www.luahelena.com.br/papers/12x36.html · Lua Helena Moon · nota técnica independente</p>
+
     <section class="quick-read" id="leitura-rapida" aria-labelledby="quick-title">
       <h2 id="quick-title">Em menos de 90 segundos</h2>
-      <div class="quick-item"><span class="quick-number">01</span><div><strong>Quanto a escala 12x36 entrega hoje?</strong><p>Em 14 dias, são 7 plantões de 12 horas: 84 horas, equivalentes a 42 horas semanais na média.</p></div></div>
-      <div class="quick-item"><span class="quick-number">02</span><div><strong>O que muda se o teto for 40 ou 36?</strong><p>A diferença precisa voltar em tempo: folgas pagas, menos plantões ou reorganização equivalente, sem reduzir salário.</p></div></div>
-      <div class="quick-item"><span class="quick-number">03</span><div><strong>36 horas são 36 horas livres?</strong><p>Não necessariamente. A composição conceitual inclui sono, deslocamento, cuidados e recuperação. A folga no calendário não é disponibilidade plena.</p></div></div>
-      <div class="quick-item"><span class="quick-number">04</span><div><strong>A proposta acaba com o 12x36?</strong><p>Não. O ponto é impedir que uma exceção extensa fique fora da redução geral e estabelecer proteção verificável.</p></div></div>
-      <div class="quick-item"><span class="quick-number">05</span><div><strong>Qual é o princípio?</strong><p>Mesmo teto semanal por média, compensação em tempo, salário preservado e negociação coletiva mais favorável.</p></div></div>
+      <div class="quick-item"><span class="quick-number">01</span><div><strong>A tese inclui o 12x36.</strong><p>Uma redução geral da jornada que deixa as escalas especiais de fora não alcança todo o trabalho.</p></div></div>
+      <div class="quick-item"><span class="quick-number">02</span><div><strong>A proposta não acaba com a escala.</strong><p>O 12x36 pode continuar em serviços que precisam dele, desde que acompanhe o teto por média e uma transição negociada.</p></div></div>
+      <div class="quick-item"><span class="quick-number">03</span><div><strong>O que muda?</strong><p>A diferença entre a escala e o novo teto volta em tempo: folgas pagas, menos plantões ou redução equivalente, sem cortar salário.</p></div></div>
+      <div class="quick-item"><span class="quick-number">04</span><div><strong>Por que uma regra expressa?</strong><p>O 12x36 regular chega a 42 horas semanais na média. A conta demonstra um ponto cego; não é a finalidade da política.</p></div></div>
+      <div class="quick-item"><span class="quick-number">05</span><div><strong>O que fazer agora?</strong><p>Levar a pergunta à assessoria legislativa: como incluir a escala com proteção salarial, compensação efetiva e escuta setorial?</p></div></div>
+    </section>
+
+    <section class="section" id="disputa" aria-labelledby="dispute-title">
+      <div class="section-heading"><div class="section-index">01 · disputa política</div><h2 id="dispute-title">Uma redução que deixa trabalhadores de fora não é uma redução geral.</h2></div>
+      <p class="section-intro">O debate público sobre jornada costuma partir da escala mais visível. Mas o direito ao tempo também precisa alcançar quem trabalha por ciclos especiais, plantões e noites. A pergunta política é quem recebe a conquista e quem fica esperando.</p>
+      <div class="two-col">
+        <div><h3>O problema</h3><ul><li>uma redução do teto geral pode conviver com a permanência silenciosa de jornadas médias acima dele;</li><li>serviços contínuos não devem ser usados como justificativa para uma exceção sem limite, proteção ou transição;</li><li>a folga nominal não responde sozinha por sono, deslocamento, cuidado e recuperação.</li></ul></div>
+        <div><h3>O princípio</h3><ul><li>se o país reduz a jornada, a escala 12x36 reduz junto;</li><li>a continuidade do serviço pode ser preservada por desenho setorial, não por exclusão automática;</li><li>o ganho precisa aparecer em tempo e salário, com a negociação coletiva mais favorável mantida.</li></ul></div>
+      </div>
+      <div class="formula-callout"><strong>Incluir o 12x36 é ampliar a conquista, não abolir uma forma de organizar o trabalho.</strong><p>A questão é criar um piso político e jurídico para que a escolha pela escala não transforme trabalhadores em exceção ao novo direito ao tempo.</p></div>
+    </section>
+
+    <section class="section" id="proposta" aria-labelledby="proposal-title">
+      <div class="section-heading"><div class="section-index">02 · proposta primeiro</div><h2 id="proposal-title">Reduzir junto, não abolir por reflexo.</h2></div>
+      <p class="section-intro">A proposta é uma regra de inclusão: o mesmo teto semanal por média deve alcançar a escala, e a diferença deve retornar como tempo protegido. A forma exata depende de análise jurídica, setor e negociação.</p>
+      <div class="pillars">
+        <article class="pillar"><strong>Mesmo teto por média</strong><p>A escala acompanha o limite geral aplicável ao conjunto dos trabalhadores.</p></article>
+        <article class="pillar"><strong>Compensação em tempo</strong><p>Folgas pagas, menos plantões ou redução equivalente devolvem a diferença.</p></article>
+        <article class="pillar"><strong>Salário preservado</strong><p>Menos tempo de trabalho não pode significar perda remuneratória automática.</p></article>
+        <article class="pillar"><strong>Mais favorável coletivo</strong><p>Convenções e acordos melhores continuam valendo como proteção adicional.</p></article>
+        <article class="pillar"><strong>Transição negociada</strong><p>Serviços contínuos precisam de implantação setorial, dados e revisão pública.</p></article>
+      </div>
+      <div class="two-col" style="margin-top:22px">
+        <div><h3>O que propõe</h3><ul><li>incluir expressamente o regime 12x36 em qualquer redução geral;</li><li>calcular o teto na média do período de referência;</li><li>compensar a diferença principalmente com tempo, sem reduzir salário;</li><li>proteger condições coletivas mais favoráveis e negociar a transição.</li></ul></div>
+        <div><h3>O que não propõe</h3><ul><li>abolir automaticamente o 12x36;</li><li>tratar todos os setores, turnos e pessoas como iguais;</li><li>trocar recuperação por pagamento em dinheiro como regra única;</li><li>apresentar esta nota como projeto de lei pronto ou posição oficial de mandato.</li></ul></div>
+      </div>
     </section>
 
     <section class="section" id="matematica" aria-labelledby="math-title">
-      <div class="section-heading"><div class="section-index">01 · conta aberta</div><h2 id="math-title">A exceção aparece quando a semana vira média.</h2></div>
-      <p class="section-intro">A escala alterna dias de trabalho e descanso. A conta abaixo não diz como cada pessoa vive a folga; ela explicita o volume de horas que uma regra de teto precisa alcançar.</p>
+      <div class="section-heading"><div class="section-index">03 · demonstração</div><h2 id="math-title">A conta demonstra o ponto cego.</h2></div>
+      <p class="section-intro">A matemática vem depois da tese e da proposta. Ela torna visível o que uma regra de teto precisa alcançar; não decide, sozinha, como as pessoas vivem a folga nem qual redação jurídica será adotada.</p>
       <div class="measure-board">
         <div class="calculation">
           <div class="formula"><span>7 x 12</span><small>= 84 horas em 14 dias</small></div>
@@ -405,7 +441,7 @@
           <div class="shift-strip" aria-label="Quatorze dias: sete dias de plantão de doze horas e sete dias de descanso">
             <div class="day work">01<span>12h</span></div><div class="day">02<span>folga</span></div><div class="day work">03<span>12h</span></div><div class="day">04<span>folga</span></div><div class="day work">05<span>12h</span></div><div class="day">06<span>folga</span></div><div class="day work">07<span>12h</span></div><div class="day">08<span>folga</span></div><div class="day work">09<span>12h</span></div><div class="day">10<span>folga</span></div><div class="day work">11<span>12h</span></div><div class="day">12<span>folga</span></div><div class="day work">13<span>12h</span></div><div class="day">14<span>folga</span></div>
           </div>
-          <div class="math-caption">Quadro demonstrativo para um ciclo regular de 14 dias. A média é aritmética; a recuperação é humana e depende das condições concretas.</div>
+          <div class="math-caption">Ciclo regular de 14 dias. A média é aritmética; a recuperação é humana e depende das condições concretas.</div>
         </div>
         <div class="calculation">
           <table class="cap-table">
@@ -416,129 +452,111 @@
               <tr data-cap="36"><td><strong>36h</strong></td><td>72h</td><td>84h</td><td>12h a compensar: um plantão</td></tr>
             </tbody>
           </table>
-          <p class="table-note">Se o teto geral ficar abaixo de 42 horas, a escala precisa ser ajustada explicitamente. A forma da compensação é uma decisão jurídica, setorial e coletiva, não uma conclusão automática desta tabela.</p>
+          <p class="table-note">Se o teto geral ficar abaixo de 42 horas, a escala precisa ser ajustada explicitamente. A forma da compensação é uma decisão jurídica, setorial e coletiva.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="tempo" aria-labelledby="time-title">
-      <div class="section-heading"><div class="section-index">02 · vida concreta</div><h2 id="time-title">Trinta e seis horas não são automaticamente trinta e seis horas livres.</h2></div>
-      <p class="section-intro">A nota não transforma descanso nominal em um índice universal de bem-estar. Ela chama atenção para a diferença entre intervalo cronológico e tempo de vida efetivamente recuperável.</p>
+      <div class="section-heading"><div class="section-index">04 · experiência</div><h2 id="time-title">Folga no calendário não é sinônimo de vida livre.</h2></div>
+      <p class="section-intro">O tempo fora do posto tem composição: sono, deslocamento, cuidado, tarefas domésticas e recuperação. A nota não transforma essa composição em índice universal; usa-a para perguntar o que a contagem bruta de horas deixa de fora.</p>
       <div class="concept-grid">
         <div class="concept-board">
-          <h3>Composição conceitual da folga</h3>
+          <h3>Tempo vivido na folga</h3>
           <div class="life-bar" role="img" aria-label="Representação conceitual, não proporcional, de sono, deslocamento, cuidados, recuperação e tempo livre">
             <span style="background:#cbd9d0">sono</span><span style="background:#e4d6bb">deslocamento</span><span style="background:#e3c1c1">cuidados</span><span class="rest">recuperação<br>e tempo</span>
           </div>
-          <p><strong>Representação conceitual, não proporcional.</strong> O cálculo de horas não substitui dados sobre distância, dupla jornada, cuidado, saúde, renda e organização real do trabalho.</p>
+          <p><strong>Representação conceitual, não proporcional.</strong> A política precisa perguntar quanto da folga é recuperável, para quem e em quais condições de renda, saúde e cuidado.</p>
         </div>
         <div class="blind-spot">
-          <h3>O ponto cego do 6x1 também pode estar no 12x36.</h3>
-          <p>A comparação não autoriza uma hierarquia universal de sofrimento: há pessoas que preferem o 12x36 e serviços que precisam de continuidade. O ponto é outro: jornadas de 12 horas, especialmente noturnas, podem concentrar fadiga e deslocar a recuperação para uma folga que já começa ocupada.</p>
+          <h3>O ponto cego da redução pode estar na escala especial.</h3>
+          <p>Há pessoas que preferem o 12x36 e serviços que precisam de continuidade. Ainda assim, jornadas de 12 horas, sobretudo noturnas, podem concentrar fadiga e empurrar a recuperação para uma folga que já começa ocupada.</p>
           <p><strong>Origem da reflexão:</strong> um ano e quatro meses como controladora de acesso em jornada 12x36 noturna, seguido do TCC <em>Trabalho noturno e regime 12/36: precarização da saúde e direitos dos vigias e vigilantes em Limeira (SP)</em> e da experiência em psicologia hospitalar.</p>
         </div>
       </div>
-    </section>
-
-    <section class="section" id="salvaguardas" aria-labelledby="safeguards-title">
-      <div class="section-heading"><div class="section-index">03 · base jurídica</div><h2 id="safeguards-title">A Reforma de 2017 não encerra a conversa. Ela define o que precisa ser reavaliado.</h2></div>
-      <p class="section-intro">O art. 59-A da CLT reconhece a jornada 12x36 por acordo individual escrito ou instrumento coletivo. A mesma moldura trata feriados, prorrogação noturna, intervalos e insalubridade de modo específico.</p>
-      <div class="wide-table">
-        <table>
-          <thead><tr><th>Instituto</th><th>O que a regra registra</th><th>O que a proposta pede para a próxima etapa</th></tr></thead>
-          <tbody>
-            <tr><td>Feriados</td><td>Considerados compensados pela remuneração mensal prevista no art. 59-A.</td><td>Verificar impacto real e preservar regra coletiva mais favorável.</td></tr>
-            <tr><td>Trabalho noturno</td><td>Prorrogações do trabalho noturno são consideradas compensadas na forma legal.</td><td>Debater proteção específica para a recuperação e o trabalho noturno.</td></tr>
-            <tr><td>Intervalo</td><td>Deve ser observado ou indenizado, conforme a redação aplicável.</td><td>Não permitir que dinheiro seja substituto integral de tempo de recuperação.</td></tr>
-            <tr><td>Insalubridade</td><td>O art. 60, parágrafo único, dispensa licença prévia para 12x36 em ambientes insalubres.</td><td>Reabrir o debate com base em saúde e segurança, antes de uma redação final.</td></tr>
-          </tbody>
-        </table>
+      <div class="evidence-grid" style="margin-top:22px">
+        <article class="evidence-card"><h3>Sono</h3><p>Trocas de turno e trabalho noturno podem reduzir a recuperação entre plantões. O efeito não é uniforme e precisa ser medido no contexto.</p></article>
+        <article class="evidence-card"><h3>Deslocamento</h3><p>Horas de viagem entram na experiência do trabalho, mesmo quando não entram no cálculo da jornada.</p></article>
+        <article class="evidence-card"><h3>Cuidado</h3><p>Filhos, idosos, tarefas domésticas e renda transformam a folga em tempo compartilhado, não em disponibilidade abstrata.</p></article>
       </div>
-      <div class="source-note"><strong>Nuance necessária:</strong> dizer que a Reforma “reduziu salvaguardas” é mais preciso do que afirmar que ela retirou todos os direitos. A vigência, a interpretação judicial e as cláusulas coletivas precisam ser lidas com o texto completo.</div>
-    </section>
-
-    <section class="section" id="evidencias" aria-labelledby="evidence-title">
-      <div class="section-heading"><div class="section-index">04 · evidência e limite</div><h2 id="evidence-title">A evidência sustenta cautela, não uma sentença única.</h2></div>
-      <div class="evidence-grid">
-        <article class="evidence-card"><h3>Horas longas importam.</h3><p>Estudos sobre enfermagem associam jornadas muito longas e semanas extensas a fadiga, erros, burnout, insatisfação e intenção de sair. São achados contextuais: ajudam a formular proteção, não medem todos os postos.</p><a href="https://doi.org/10.1377/hlthaff.23.4.202" target="_blank" rel="noopener">Rogers et al., Health Affairs, 2004</a><br><a href="https://doi.org/10.1136/bmjopen-2015-008331" target="_blank" rel="noopener">Dall'Ora et al., BMJ Open, 2015</a></article>
-        <article class="evidence-card"><h3>Noite não é só um horário.</h3><p>A IARC classificou o trabalho noturno como provavelmente carcinogênico para humanos, grupo 2A, com base na evidência disponível. “Perigo” em nível populacional não é uma previsão de risco individual.</p><a href="https://www.iarc.who.int/news-events/iarc-monographs-volume-124-night-shift-work/" target="_blank" rel="noopener">IARC Monographs, volume 124</a></article>
-        <article class="evidence-card"><h3>O tempo é social.</h3><p>Deslocamento, cuidado, sono, renda e tarefas domésticas mediam a folga. Por isso a nota não promete que toda redução de horas produzirá o mesmo efeito, nem que todo 12x36 é pior que todo 6x1.</p><a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/05.html" target="_blank" rel="noopener">NIOSH, treinamento sobre turnos</a></article>
-      </div>
-      <div class="two-col" style="margin-top:22px">
-        <div><h3>A evidência permite dizer</h3><ul><li>horas longas e trabalho noturno podem pressionar sono, saúde e segurança;</li><li>o desenho da escala deve ser lido junto com setor, posto, intervalo e vida fora do trabalho;</li><li>uma redução geral precisa incluir os regimes que se organizam por média.</li></ul></div>
-        <div><h3>A evidência não permite dizer</h3><ul><li>que todos os trabalhadores 12x36 sofrem do mesmo modo;</li><li>que um estudo hospitalar representa todos os setores;</li><li>que a nota já demonstrou prevalência nacional ou causalidade entre 6x1 e 12x36.</li></ul></div>
-      </div>
+      <div class="source-note"><strong>Cautela metodológica:</strong> estudos sobre enfermagem, turnos e trabalho noturno ajudam a formular proteção, mas não autorizam generalizar que todo 12x36 seja vivido do mesmo modo.</div>
     </section>
 
     <section class="section" id="contraprova" aria-labelledby="counter-title">
-      <div class="section-heading"><div class="section-index">05 · contraprova</div><h2 id="counter-title">Uma boa regra precisa sobreviver às objeções mais fortes.</h2></div>
+      <div class="section-heading"><div class="section-index">05 · contraprova</div><h2 id="counter-title">A proposta precisa sobreviver às objeções mais fortes.</h2></div>
       <div class="wide-table objection-table">
         <table>
           <thead><tr><th>Objeção</th><th>Resposta de desenho</th></tr></thead>
           <tbody>
-            <tr><td>“As pessoas preferem 12x36.”</td><td>A preferência é relevante. Ela não elimina o direito a um teto geral e a uma compensação que preserve a escolha sem naturalizar o excesso.</td></tr>
-            <tr><td>“Serviços contínuos não podem parar.”</td><td>O texto precisa de transição setorial, dimensionamento, negociação e tempo para contratar ou reorganizar, não de uma exceção invisível.</td></tr>
-            <tr><td>“42 horas ainda é menos que 44.”</td><td>Sim. A proposta não apaga esse ganho; pergunta como o 12x36 acompanha um teto que pode ficar abaixo de 42.</td></tr>
-            <tr><td>“36 horas já dão vários dias livres.”</td><td>O calendário não mede sozinho recuperação. A análise deve contabilizar o uso concreto da folga e a carga de cuidado.</td></tr>
-            <tr><td>“A negociação coletiva já resolve.”</td><td>Ela é parte da solução. O piso legal deve impedir que tempo e salário dependam apenas da assimetria de cada mesa.</td></tr>
-            <tr><td>“Uma regra nacional ficaria rígida.”</td><td>O princípio pode ser nacional e a transição pode ser setorial: teto, compensação, proteção salarial e mais favorável coletivo.</td></tr>
+            <tr><td>"As pessoas preferem 12x36."</td><td>A preferência é relevante. Ela não elimina o direito a um teto geral e a uma compensação que preserve a escolha sem naturalizar o excesso.</td></tr>
+            <tr><td>"Serviços contínuos não podem parar."</td><td>O texto precisa de transição setorial, dimensionamento, negociação e tempo para reorganizar, não de uma exceção invisível.</td></tr>
+            <tr><td>"42 horas ainda é menos que 44."</td><td>Sim. A proposta não apaga esse ganho; pergunta como o 12x36 acompanha um teto que pode ficar abaixo de 42.</td></tr>
+            <tr><td>"36 horas já dão vários dias livres."</td><td>O calendário não mede sozinho recuperação. A análise deve contabilizar sono, cuidado, deslocamento e uso concreto da folga.</td></tr>
+            <tr><td>"A negociação coletiva já resolve."</td><td>Ela é parte da solução. O piso legal deve impedir que tempo e salário dependam apenas da assimetria de cada mesa.</td></tr>
+            <tr><td>"Uma regra nacional ficaria rígida."</td><td>O princípio pode ser nacional e a transição pode ser setorial: teto, compensação, proteção salarial e condição mais favorável.</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="section-intro">A contraprova não enfraquece a tese. Ela mostra por que a redação precisa combinar um piso comum com adaptação, dados e negociação pública.</p>
     </section>
 
-    <section class="section" id="proposta" aria-labelledby="proposal-title">
-      <div class="section-heading"><div class="section-index">06 · proposta</div><h2 id="proposal-title">A fórmula é simples. A implementação não é.</h2></div>
-      <p class="lede">Mesmo teto semanal por média + compensação em tempo + proteção salarial + negociação coletiva mais favorável.</p>
-      <div class="pillars">
-        <article class="pillar"><strong>Incluir expressamente o 12x36</strong><p>Nenhuma agenda de redução deve deixar a escala fora por silêncio.</p></article>
-        <article class="pillar"><strong>Devolver a diferença em tempo</strong><p>Folgas pagas, menos plantões ou redução equivalente de tempo.</p></article>
-        <article class="pillar"><strong>Não reduzir salário</strong><p>A redução do teto não pode virar perda remuneratória automática.</p></article>
-        <article class="pillar"><strong>Não trocar tudo por dinheiro</strong><p>Adicionais e indenizações continuam possíveis; não substituem integralmente recuperação.</p></article>
-        <article class="pillar"><strong>Preservar o mais favorável</strong><p>Convenções e acordos coletivos melhores permanecem protegidos.</p></article>
-        <article class="pillar"><strong>Negociar a transição</strong><p>Serviços contínuos precisam de implantação por setor e monitoramento.</p></article>
+    <section class="section" id="direito" aria-labelledby="law-title">
+      <div class="section-heading"><div class="section-index">06 · direito vigente</div><h2 id="law-title">A lei permite o 12x36; a pergunta agora é qual proteção o acompanha.</h2></div>
+      <p class="section-intro">O art. 59-A da CLT reconhece a jornada 12x36 por acordo individual escrito ou instrumento coletivo. A Reforma de 2017 também tratou de feriados, prorrogação noturna, intervalos e insalubridade. Esta seção situa o debate; não substitui parecer jurídico.</p>
+      <div class="wide-table">
+        <table>
+          <thead><tr><th>Ponto jurídico</th><th>O que a regra registra</th><th>Pergunta para a próxima etapa</th></tr></thead>
+          <tbody>
+            <tr><td>Art. 59-A da CLT</td><td>Admite 12 horas de trabalho por 36 de descanso, por acordo individual escrito, convenção ou acordo coletivo.</td><td>Como vincular a escala ao novo teto geral por média?</td></tr>
+            <tr><td>Reforma de 2017</td><td>Consolidou a previsão legal específica e seus efeitos sobre a organização do regime.</td><td>Quais salvaguardas precisam ser reavaliadas diante de uma redução geral?</td></tr>
+            <tr><td>Feriados e noite</td><td>A remuneração mensal e a prorrogação noturna recebem tratamento próprio na regra do regime.</td><td>Como garantir que tempo de recuperação não seja convertido em exceção permanente?</td></tr>
+            <tr><td>Intervalos e saúde</td><td>Intervalo e condições insalubres têm regras específicas, inclusive no art. 60, parágrafo único.</td><td>Como combinar redução, segurança e negociação sem apagar proteções existentes?</td></tr>
+            <tr><td>Súmula 444 do TST</td><td>A jurisprudência reconhece limites e condições para a validade da jornada 12x36.</td><td>Qual interpretação deve orientar a transição e o controle do novo teto?</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="formula-callout"><strong>O direito ao tempo deve alcançar a escala que conta por ciclo.</strong><p>Uma regra proporcional ao teto semanal, com proteção coletiva, é mais precisa do que abolir automaticamente uma forma de organizar serviços.</p></div>
+      <div class="source-note"><strong>Nuance necessária:</strong> a Reforma não encerra a conversa nem autoriza dizer que todos os direitos desapareceram. A vigência, a interpretação judicial e as cláusulas coletivas precisam ser lidas com o texto completo e assessoria especializada.</div>
+    </section>
+
+    <section class="section" id="desenho" aria-labelledby="design-title">
+      <div class="section-heading"><div class="section-index">07 · desenho normativo</div><h2 id="design-title">Uma fórmula política; uma redação ainda aberta.</h2></div>
+      <p class="lede">Mesmo teto semanal por média + compensação em tempo + salário preservado + negociação coletiva mais favorável.</p>
+      <div class="formula-callout"><strong>A matemática demonstra a exclusão possível. A política decide que ninguém deve ser excluído do direito ao tempo.</strong><p>O desenho abaixo é uma base de trabalho para assessoria legislativa, sindicatos e especialistas. Não é texto legal pronto.</p></div>
       <div class="draft">
-        <h3>Minuta conceitual para debate</h3>
-        <p><strong>§ 1º</strong> A jornada organizada em regime de 12 (doze) horas de trabalho por 36 (trinta e seis) horas ininterruptas de descanso observará, na média do período de referência, o limite semanal constitucional ou legal aplicável.</p>
-        <p><strong>§ 2º</strong> A diferença entre o limite semanal aplicável e a jornada média efetivamente realizada será compensada por descanso remunerado, redução de plantões ou equivalente redução de tempo, sem redução salarial.</p>
-        <p><strong>§ 3º</strong> A compensação em tempo não será substituída integralmente por pagamento em dinheiro, sem prejuízo dos adicionais legais ou coletivos devidos.</p>
-        <p><strong>§ 4º</strong> Permanecem preservadas as condições mais favoráveis previstas em convenção ou acordo coletivo de trabalho.</p>
+        <h3>Quatro regras para testar</h3>
+        <p><strong>1.</strong> A jornada organizada em regime de 12x36 observará, na média do período de referência, o limite semanal constitucional ou legal aplicável.</p>
+        <p><strong>2.</strong> A diferença entre o limite aplicável e a jornada média efetivamente realizada será compensada por descanso remunerado, redução de plantões ou equivalente redução de tempo, sem redução salarial.</p>
+        <p><strong>3.</strong> A compensação em tempo não será substituída integralmente por pagamento em dinheiro, sem prejuízo dos adicionais legais ou coletivos devidos.</p>
+        <p><strong>4.</strong> Permanecem preservadas as condições mais favoráveis previstas em convenção ou acordo coletivo, com transição setorial, monitoramento e revisão.</p>
       </div>
+      <div class="source-note"><strong>Dependência jurídica:</strong> qualquer redação final exige análise de Constituição, CLT, jurisprudência, segurança e saúde, orçamento de pessoal, continuidade do serviço e impactos por setor.</div>
     </section>
 
-    <section class="section" id="caminho" aria-labelledby="path-title">
-      <div class="section-heading"><div class="section-index">07 · caminho institucional</div><h2 id="path-title">Antes da lei, vem a prova de desenho.</h2></div>
-      <p class="section-intro">A proposta é uma contribuição técnica independente. Para virar política pública, precisa de triagem jurídica, escuta de quem trabalha, dados comparáveis e redação que não esconda os custos de transição.</p>
+    <section class="section" id="encaminhar" aria-labelledby="path-title">
+      <div class="section-heading"><div class="section-index">08 · caminho institucional</div><h2 id="path-title">Da proposta ao trabalho legislativo.</h2></div>
+      <p class="section-intro">A contribuição pode ser útil quando vira pergunta verificável. O mandato ou órgão responsável precisa decidir se há uma agenda de redução e como testar a inclusão das escalas especiais.</p>
       <div class="steps">
-        <div class="step"><b>01</b><strong>Triagem jurídica</strong><p>Constituição, CLT, Súmula 444 e efeitos da regra.</p></div>
-        <div class="step"><b>02</b><strong>Mapa setorial</strong><p>Onde a escala é necessária, qual a média e quais riscos.</p></div>
-        <div class="step"><b>03</b><strong>Escuta tripartite</strong><p>Trabalhadores, empregadores, sindicatos e serviços.</p></div>
-        <div class="step"><b>04</b><strong>Boas práticas</strong><p>Comparar folgas, trocas, plantões e proteção noturna.</p></div>
-        <div class="step"><b>05</b><strong>Mesa técnica</strong><p>Testar cenários de 40h e 36h antes da redação final.</p></div>
-        <div class="step"><b>06</b><strong>Transição</strong><p>Definir prazo, monitoramento, revisão e dados públicos.</p></div>
+        <div class="step"><b>01</b><strong>Fazer a triagem</strong><p>Encaminhar a tese à assessoria trabalhista e constitucional.</p></div>
+        <div class="step"><b>02</b><strong>Mapear e escutar</strong><p>Ouvir trabalhadores, sindicatos, empregadores e serviços contínuos.</p></div>
+        <div class="step"><b>03</b><strong>Comparar práticas</strong><p>Reunir escalas, trocas, folgas, riscos e cláusulas coletivas existentes.</p></div>
+        <div class="step"><b>04</b><strong>Testar transição</strong><p>Modelar 40h e 36h, prazo, contratação, monitoramento e revisão.</p></div>
       </div>
       <div class="data-gaps">
-        <div><h3>Dados que ainda faltam</h3><ul><li>prevalência nacional do 12x36 por setor e turno;</li><li>horas reais de deslocamento, cuidado e recuperação;</li><li>efeito de diferentes arranjos sobre segurança, renda e continuidade.</li></ul></div>
-        <div><h3>O que esta página não afirma</h3><ul><li>não é texto legal final;</li><li>não é posição oficial de partido, mandato ou empregador;</li><li>não prova apoio, leitura, recebimento ou adoção por terceiros.</li></ul></div>
+        <div><h3>Três lacunas para preencher</h3><ul><li>prevalência nacional do 12x36 por setor e turno;</li><li>horas reais de deslocamento, cuidado, sono e recuperação;</li><li>efeito de diferentes arranjos sobre segurança, renda e continuidade.</li></ul></div>
+        <div><h3>Mandato da próxima etapa</h3><ul><li>não vender a nota como projeto de lei final;</li><li>não falar em apoio, leitura, recebimento ou adoção por terceiros;</li><li>produzir uma redação com dados, transição e controle público.</li></ul></div>
       </div>
-    </section>
-
-    <section class="section" id="encaminhar" aria-labelledby="cta-title">
-      <div class="cta-box">
-        <div><h2 id="cta-title">Leve esta pergunta à política do trabalho.</h2><p>Se você atua com políticas trabalhistas, serviço contínuo ou negociação coletiva, encaminhe esta página para avaliação. O pedido é concreto: estudar como incluir o 12x36 na redução da jornada, com compensação em tempo, salário preservado e transição negociada.</p><p class="contact-line">WhatsApp: (41) 9 9222-8411</p></div>
-        <a class="button" href="https://wa.me/5541992228411?text=Ol%C3%A1%2C%20Lua.%20Li%20a%20proposta%20sobre%20jornada%2012x36%20e%20direito%20ao%20tempo." target="_blank" rel="noopener">falar com Lua</a>
-      </div>
-      <p class="closing">O direito ao tempo não pode terminar na porta do plantão. Se o país reduzir a jornada, a escala 12x36 deve reduzir junto - por meio de folgas, menos plantões e proteção coletiva, não pela invisibilidade de uma exceção.</p>
-      <div class="about-grid">
-        <div><h3>Sobre a autora</h3><p>Lua Helena Moon Martins Cardoso é psicóloga hospitalar e socióloga de formação. A reflexão que originou esta nota começou em seu TCC sobre trabalho noturno e regime 12x36 e em sua experiência de um ano e quatro meses como controladora de acesso em jornada 12x36 noturna. É filiada ao PSOL Limeira e atua também com arquitetura contextual em IA.</p></div>
-        <div><h3>Autoria e limite institucional</h3><p>Esta é uma contribuição técnica independente, de autoria de Lua Helena Moon Martins Cardoso. Não representa oficialmente o PSOL, qualquer mandato, órgão público, sindicato ou empregador, e não implica apoio, leitura, recebimento ou adoção por terceiros. A publicação serve como base de estudo e debate.</p></div>
+      <div class="cta-box" style="margin-top:22px">
+        <div><h2>Leve esta pergunta à política do trabalho.</h2><p>Como incluir o 12x36 na redução da jornada, com compensação em tempo, salário preservado e transição negociada?</p><p class="contact-line">WhatsApp: (41) 9 9222-8411</p></div>
+        <a class="button" href="https://wa.me/5541992228411?text=Ol%C3%A1%2C%20Lua.%20Li%20a%20proposta%20sobre%20jornada%2012x36%20e%20direito%20ao%20tempo." target="_blank" rel="noopener">encaminhar a pergunta</a>
       </div>
     </section>
 
     <section class="section" id="fontes" aria-labelledby="refs-title">
-      <div class="section-heading"><div class="section-index">08 · fontes</div><h2 id="refs-title">Leia a conta, a lei e os limites.</h2></div>
+      <div class="section-heading"><div class="section-index">09 · método e fontes</div><h2 id="refs-title">Leia a proposta, a lei e os limites.</h2></div>
+      <div class="about-grid" style="margin-top:0">
+        <div><h3>O que esta nota afirma</h3><p>A redução geral da jornada deve alcançar também o 12x36; a escala pode ser preservada onde fizer sentido; o novo teto deve produzir compensação em tempo, salário preservado e proteção coletiva.</p></div>
+        <div><h3>O que esta nota não afirma</h3><p>Não mede prevalência nacional, não prova causalidade em todos os setores, não hierarquiza sofrimentos e não representa oficialmente partido, mandato, órgão público, sindicato ou empregador.</p></div>
+      </div>
       <ol class="references">
         <li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm" target="_blank" rel="noopener">Decreto-Lei nº 5.452/1943 - CLT</a>, especialmente arts. 59-A e 60.</li>
         <li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13467.htm" target="_blank" rel="noopener">Lei nº 13.467/2017</a>, Reforma Trabalhista.</li>
@@ -546,14 +564,12 @@
         <li>CARDOSO, Lua Helena Moon Martins. <em>Trabalho noturno e regime 12/36: precarização da saúde e direitos dos vigias e vigilantes em Limeira (SP)</em>. TCC, conforme nota técnica original.</li>
         <li>ROGERS, A. E. et al. The working hours of hospital staff nurses and patient safety. <em>Health Affairs</em>, 23(4), 202-212, 2004. <a href="https://doi.org/10.1377/hlthaff.23.4.202" target="_blank" rel="noopener">DOI</a>.</li>
         <li>DALL'ORA, C. et al. Characteristics of shift work and their relationship with fatigue and work performance. <em>BMJ Open</em>, 5, e008331, 2015. <a href="https://doi.org/10.1136/bmjopen-2015-008331" target="_blank" rel="noopener">DOI</a>.</li>
-        <li>JEONG, I. et al. Estudo sobre trabalho em turnos e saúde, conforme referências da nota técnica original. <em>Safety and Health at Work</em>, 2019.</li>
-        <li>MAURO, M. Y. C. et al. Estudo brasileiro sobre trabalho noturno, conforme referências da nota técnica original. <em>Revista Enfermagem UERJ</em>, 2019. <a href="https://doi.org/10.12957/reuerj.2019.31273" target="_blank" rel="noopener">DOI</a>.</li>
         <li>IARC. <a href="https://www.iarc.who.int/news-events/iarc-monographs-volume-124-night-shift-work/" target="_blank" rel="noopener"><em>Night Shift Work</em>, Monographs volume 124</a>, 2020.</li>
         <li>NIOSH. <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/05.html" target="_blank" rel="noopener">Training for Nurses on Shift Work and Long Work Hours</a>, 2015.</li>
         <li>PEGA, F. et al. Global, regional, and national burdens of ischemic heart disease and stroke attributable to exposure to long working hours. <em>Environment International</em>, 2021. <a href="https://doi.org/10.1016/j.envint.2021.106595" target="_blank" rel="noopener">DOI</a>.</li>
-        <li>ANTUNES, R.; PRAUN, L. A sociedade dos adoecimentos no trabalho. 2015; e GALVÃO, A. et al. <em>Dossiê Reforma Trabalhista</em>, 2017, conforme referências da nota técnica original.</li>
       </ol>
-      <div class="hero-actions" style="margin-top:28px"><a class="button" href="assets/12x36-direito-ao-tempo-booklet-v2-reader.pdf" download>livreto A5 (leitura)</a><a class="button secondary" href="assets/12x36-direito-ao-tempo-booklet-v2-print-a4.pdf" download>impressão A4 (duplex)</a><a class="button quiet" href="assets/12x36-direito-ao-tempo-artefato.pdf" download>artefato anterior v1 (A4)</a><a class="button quiet" href="assets/nota-tecnica-12x36-direito-ao-tempo.pdf" download>fonte original em PDF</a><a class="button quiet" href="https://www.luahelena.com.br/" target="_blank" rel="noopener">voltar ao portal</a></div>
+      <div class="hero-actions" style="margin-top:28px"><a class="button quiet" href="assets/nota-tecnica-12x36-direito-ao-tempo.pdf" download>baixar nota original (PDF)</a><a class="button quiet" href="https://www.luahelena.com.br/" target="_blank" rel="noopener">voltar ao portal</a></div>
+      <p class="closing">O direito ao tempo não pode terminar na porta do plantão.</p>
     </section>
   </main>
 
