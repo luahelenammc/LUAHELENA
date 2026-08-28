@@ -24,6 +24,8 @@ from reportlab.platypus import (
     Table,
     TableStyle,
 )
+from pypdf import PdfReader, PdfWriter
+from pypdf.generic import BooleanObject, DictionaryObject, NameObject, TextStringObject
 
 
 ROOT = Path(__file__).resolve().parent
@@ -203,6 +205,33 @@ def on_page(canvas, doc):
     canvas.drawString(doc.leftMargin, 8 * mm, "12x36: o ponto cego da redução da jornada")
     canvas.drawRightString(width - doc.rightMargin, 8 * mm, f"Lua Helena Moon  |  {canvas.getPageNumber():02d}")
     canvas.restoreState()
+
+
+def mark_pdf_accessible():
+    """Preserve selectable text and add document language/marked metadata."""
+    reader = PdfReader(str(OUTPUT))
+    writer = PdfWriter()
+    for page in reader.pages:
+        writer.add_page(page)
+    writer.add_metadata({
+        "/Title": "12x36: o ponto cego da redução da jornada",
+        "/Author": "Lua Helena Moon Martins Cardoso",
+        "/Subject": "Artefato editorial da Nota Técnica 01/2026",
+        "/Language": "pt-BR",
+    })
+    writer._root_object.update({
+        NameObject("/Lang"): TextStringObject("pt-BR"),
+        NameObject("/MarkInfo"): DictionaryObject({
+            NameObject("/Marked"): BooleanObject(True),
+        }),
+        NameObject("/ViewerPreferences"): DictionaryObject({
+            NameObject("/DisplayDocTitle"): BooleanObject(True),
+        }),
+    })
+    tagged_output = OUTPUT.with_name(OUTPUT.stem + ".tagged.pdf")
+    with tagged_output.open("wb") as handle:
+        writer.write(handle)
+    tagged_output.replace(OUTPUT)
 
 
 def title_block(number, title, intro=None):
@@ -477,6 +506,7 @@ def build():
     story.append(p("Contribuição técnica independente · Lua Helena Moon Martins Cardoso · Limeira, julho de 2026", "Small"))
 
     doc.build(story)
+    mark_pdf_accessible()
     print(OUTPUT)
 
 
