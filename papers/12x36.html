@@ -578,7 +578,8 @@
   <script>
     (function () {
       var printButtons = [document.getElementById('print-page'), document.getElementById('hero-print')];
-      printButtons.forEach(function (button) { if (button) button.addEventListener('click', function () { window.print(); }); });
+      var printPage = function () { if (typeof window.print === 'function') window.print(); };
+      printButtons.forEach(function (button) { if (button) button.addEventListener('click', printPage); });
       var copy = document.getElementById('copy-link');
       if (copy) copy.addEventListener('click', function () {
         var original = copy.textContent;
