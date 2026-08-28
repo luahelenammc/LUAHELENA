@@ -285,6 +285,27 @@
     .references { columns: 2; column-gap: 28px; margin: 22px 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .79rem; }
     .references li { break-inside: avoid; margin-bottom: 10px; }
     .print-meta { display: none; }
+    html.print-preview, html.print-preview body { background: #fff; }
+    html.print-preview body::before, html.print-preview .skip-link, html.print-preview .top-nav, html.print-preview .hero-actions, html.print-preview .site-footer { display: none !important; }
+    html.print-preview .site-header, html.print-preview main { width: 100%; }
+    html.print-preview .site-header { padding: 0 0 8mm; }
+    html.print-preview main { padding-bottom: 0; }
+    html.print-preview .hero { grid-template-columns: 1.2fr .8fr; padding: 9mm 0 7mm; gap: 10mm; }
+    html.print-preview h1 { font-size: 45pt; }
+    html.print-preview .hero-note, html.print-preview .calculation, html.print-preview .note-box, html.print-preview .proposal-box, html.print-preview .cta-box, html.print-preview .evidence-card, html.print-preview .about-grid > div, html.print-preview .wide-table, html.print-preview .quick-read { box-shadow: none; }
+    html.print-preview .print-meta { display: block; margin: 0 0 5mm; color: var(--ink-soft); font-size: 8pt; }
+    html.print-preview .quick-read { margin-bottom: 8mm; }
+    html.print-preview .section { padding: 10mm 0; break-inside: avoid; }
+    html.print-preview .section-heading { margin-bottom: 5mm; break-after: avoid; }
+    html.print-preview .section-heading h2 { font-size: 25pt; break-after: avoid; }
+    html.print-preview .section-intro { margin-top: -2mm; margin-left: 0; max-width: none; }
+    html.print-preview .wide-table { overflow: visible; }
+    html.print-preview .wide-table table { min-width: 0; font-size: 7.3pt; }
+    html.print-preview .wide-table th, html.print-preview .wide-table td { padding: 6pt; }
+    html.print-preview .pillars { grid-template-columns: repeat(3, 1fr); }
+    html.print-preview .steps { grid-template-columns: repeat(2, 1fr); }
+    html.print-preview .references { font-size: 7.3pt; }
+    html.print-preview a { color: inherit; }
     .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 22px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
     .site-footer p { margin: 0; }
 
@@ -577,6 +598,7 @@
 
   <script>
     (function () {
+      if (window.location.search.indexOf('print-preview=1') !== -1) document.documentElement.classList.add('print-preview');
       var printButtons = [document.getElementById('print-page'), document.getElementById('hero-print')];
       var printPage = function () { if (typeof window.print === 'function') window.print(); };
       printButtons.forEach(function (button) { if (button) button.addEventListener('click', printPage); });
