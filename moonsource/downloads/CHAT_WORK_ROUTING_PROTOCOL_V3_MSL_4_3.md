@@ -582,9 +582,7 @@ This is an independent operating protocol. It is not official OpenAI documentati
 
 V3 supersedes the current-routing status of V2 while preserving V2 as historical lineage.
 
-V2 remains recoverable at:
-
-`portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V2.md`
+Prior Chat–Work generations remain recoverable through Git history. The current repository tree intentionally exposes only the latest Chat–Work portable generation as an active file.
 
 V2's key contribution was already the correct seed: Return Contract + Chat Re-entry and Acceptance. V3 makes that seed loadbearing by turning postflight, repair, acceptance and re-entry into a closed operational machine.
 
