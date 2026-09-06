@@ -11,13 +11,14 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_3.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 4.1-public
+- **version:** 4.2-public
 - **language:** English
 - **protocol semantics as of:** 2026-09-06
 - **product/model calibration as of:** 2026-09-06; recheck official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
+- **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol V4, version 4.0-public, while retaining the V4 public generation and canonical filename
+- **supersedes:** Chat–Work Routing Protocol V4, version 4.1-public, while retaining the V4 public generation and canonical filename
 - **MSL dependency:** Moon Source Language 4.3; MSL remains unchanged by this subversion
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
@@ -29,7 +30,7 @@
 
 1. Mother law and core sentence
 2. Execution Profile Setup
-3. The tri-surface model and object geometry
+3. The tri-surface model and workload-shaped object routing
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
@@ -44,9 +45,9 @@
 
 The stable sentence is:
 
-> **Chat understands and decides. Work produces. Codex builds. Chat accepts and integrates.**
+> **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.1 subversion adds a second stable principle:
+The V4.2 subversion adds a second stable principle:
 
 > **The route starts from the task, but the feasible route is conditioned by the user's execution profile and current resource state.**
 
@@ -58,7 +59,7 @@ A task is complete only after a verified delta, an explicit acceptance state and
 
 ### 2.1 Why setup exists
 
-V4.0 routed budget qualitatively but still assumed too much about the user's starting resource posture. V4.1 makes that posture explicit and configurable.
+V4.0 routed budget qualitatively but still assumed too much about the user's starting resource posture. V4.1 made that posture explicit and configurable; V4.2 hardens first use, surface availability and handoff transport.
 
 A subscription plan or workspace entitlement is only one input. It does not by itself determine the correct model, effort, fanout or budget policy. Two users on the same plan can rationally choose different routes; the same user can choose differently near a reset, after buying credits, under deadline pressure or for a quality-critical task.
 
@@ -80,6 +81,66 @@ The protocol supports three setup modes:
 
 Do not turn setup into questionnaire debt. Unknown fields may remain `unknown` until they matter.
 
+### 2.2.1 First-use defaults and AUTO disclosure
+
+A first use should be low-friction and conservative. The router may begin with this logical default without claiming that any field is stored or that an unknown surface is available:
+
+```yaml
+execution_profile:
+  profile_id: default
+  persistence: ephemeral
+  entitlement_hint: unknown
+
+  surfaces:
+    chat:
+      state: available
+      enabled: true
+    work:
+      state: unknown
+      enabled: auto
+    codex:
+      state: unknown
+      enabled: false
+
+  accessible_tiers: unknown
+  resource_posture: adaptive
+  optimization_priority: balanced
+  burn_tolerance: medium
+
+  reasoning_policy:
+    preferred: adaptive
+    ceiling: adaptive
+
+  frontier_policy: gated
+  native_parallelism: bounded
+  checkpoint_policy: proportional
+```
+
+AUTO is low-friction, not invisible. For non-trivial work, disclose the minimum routing state that materially shaped the decision:
+
+```text
+Setup: AUTO
+Observed: Chat available; Work unknown; Codex disabled
+Resource posture: adaptive
+Optimization: balanced
+Unknowns affecting route: allowance state
+```
+
+The disclosure is a run-level observation, not a promise that the inferred settings persist.
+
+A one-run override may request Codex without changing a reusable profile:
+
+```yaml
+run_override:
+  surfaces:
+    codex:
+      enabled: true
+```
+
+Enabling does not prove availability; the router still probes the surface before routing work to it.
+
+
+
 ### 2.3 Portable profile schema
 
 A reusable profile can be represented as:
@@ -87,18 +148,21 @@ A reusable profile can be represented as:
 ```yaml
 execution_profile:
   profile_id: balanced-default
+  persistence: persistence_unknown
   entitlement_hint: unknown
 
   surfaces:
-    chat: true
-    work: auto
-    codex: auto
+    chat:
+      state: unknown
+      enabled: auto
+    work:
+      state: unknown
+      enabled: auto
+    codex:
+      state: unknown
+      enabled: false
 
-  accessible_tiers:
-    - efficient
-    - balanced
-    - strong
-    - frontier
+  accessible_tiers: unknown
 
   resource_posture: adaptive
   optimization_priority: balanced
@@ -128,6 +192,12 @@ execution_profile:
 
 Stable values are qualitative by design.
 
+For surfaces, `state` means observed availability and uses `available | unavailable | unknown`. `enabled` means activation intent and uses `true | false | auto`. Enabling a surface does not prove that it is available; availability does not imply consent to use it. The stable tier taxonomy is separate from the tiers actually accessible in the current environment. Until probed, `accessible_tiers` remains `unknown` or `auto`, never a list inferred from a plan label.
+
+### Profile Persistence Law
+
+A named Execution Profile is reusable only if it is actually stored in a persistent location available to the current environment, such as user instructions, a project source, a repository instruction file, a connected document, a native setting or explicitly re-supplied configuration. A profile named inside one prompt is `ephemeral_profile` unless persistence is evidenced. Use `persistent_profile` only when storage is verified; use `persistence_unknown` when the storage boundary cannot be established. The profile field may use `ephemeral | persistent | unknown`; the claim labels are `ephemeral_profile | persistent_profile | persistence_unknown`. Never claim that a profile was saved without evidence.
+
 Recommended vocabularies:
 
 - `resource_posture`: `conserve | balanced | ample | adaptive`
@@ -152,9 +222,15 @@ run_state:
   models_observed: unknown
   urgency: normal
   interruption_risk: unknown
+  resource_pools:
+    agentic:
+      state: unknown
+      members: unknown
 ```
 
-`allowance_state` uses `unknown | tight | adequate | abundant`.
+`allowance_state` uses `unknown | tight | adequate | abundant`. Resource-pool state uses `unknown | independent | shared`; `members` may remain `unknown` until observed. If surfaces share a pool, record the observed members rather than inventing separate batteries.
+
+> **Surface change does not imply budget reset.** A `REROUTE_SURFACE` outcome changes the executor, not the allowance source. Shared Work/Codex usage belongs in dated product calibration; the shared-pool concept is stable protocol law.
 
 Do not invent precise token forecasts or convert a UI percentage into a universal cost law. If exact usage data is visible, it may be recorded as evidence for that run without promoting it into protocol doctrine.
 
@@ -254,11 +330,17 @@ A named profile should describe strategy, not pretend to describe every subscrib
 
 ## 3. The tri-surface model
 
-Chat, Work and Codex are specialized execution surfaces, not ranks in a prestige ladder.
+Chat, Work and Codex are specialized execution surfaces, not ranks in a prestige ladder. Codex is optional and its presence in the model does not establish installation, availability, enablement or user consent.
 
 ### Chat
 
 Chat owns understanding, judgment, clarification, comparison, architecture, bounded correction, acceptance and integration. Chat may perform bounded direct mutation when the required action is actually available and verifiable.
+
+### Bounded Direct Action Exception
+
+Object geometry determines the default sovereign surface. Chat may directly execute a delta when the operation is atomic or tightly bounded, already authorized, supported by an actually available tool, independently verifiable, low in continuity and coordination burden, and not materially improved by handoff to Work or Codex. The exception changes the executor, not the evidence standard.
+
+Examples that normally remain in Chat when directly executable include changing one README sentence, sending one authorized email, modifying one calendar event, updating one spreadsheet cell, rewriting one paragraph or performing one bounded connector action. Sustained implementation, multi-file production or a task whose coordination burden is load-bearing still routes to the surface that owns that workload.
 
 ### Work
 
@@ -266,30 +348,43 @@ Work owns sustained execution over knowledge artifacts and office-style delivera
 
 ### Codex
 
-Codex owns executable systems: repositories, code, tests, builds, terminals, runtime behavior, refactors, migrations and debugging.
+Codex owns executable systems: repositories, code, tests, builds, terminals, runtime behavior, refactors, migrations and debugging, when it is actually available and enabled.
+
+### Codex Optionality Law
+
+Codex is an optional execution capability, not a protocol prerequisite. Route to Codex only when it is observed as available, permitted by the active profile or a one-run override, and materially beneficial for the sovereign object. If Codex is unavailable or disabled, do not treat that as protocol failure: choose the best real fallback, preserve the claim ceiling and distinguish an unavailable ideal harness from an impossible task. AUTO must not silently assume Codex.
 
 ### The cycle
 
 A common route is:
 
-**Chat → Work → Codex → Chat**
+**Chat → Work → Codex (when enabled and available) → Chat**
 
 It is not mandatory. Route each stage by the sovereign object that must change.
 
-## 4. Route by object geometry
+## 4. Route by object geometry and workload shape
 
-| Object or responsibility | Sovereign surface |
+**Sovereign object = the state that must actually change for the task to count as done.** Object labels are routing clues, not the completion criterion.
+
+Examples:
+- “Explain this code” → understanding → Chat.
+- “Change this repo and pass tests” → repository/runtime state → Codex if enabled and available.
+- “Produce a researched report” → artifact → Work when available and appropriate.
+- “Send one email” → external message state; the Bounded Direct Action Exception may keep execution in Chat.
+
+| Default task geometry | Default sovereign surface |
 |---|---|
-| Meaning, judgment, architecture, comparison, clarification or bounded correction | Chat |
-| Knowledge artifact, document, research body, office file, connector operation or final report | Work |
-| Repository, code, test, build, terminal, runtime, executable system or code migration | Codex |
+| Meaning, judgment, architecture, comparison, clarification, acceptance or bounded correction | Chat |
+| Atomic text/document transformation or connector action with low continuity burden | Chat under the Bounded Direct Action Exception |
+| Sustained knowledge-artifact production, multi-source research, office/document execution or coordination-heavy connector workflow | Work |
+| Repository, code, test, build, terminal, runtime, executable system or code migration | Codex when available and enabled |
 | Acceptance, claim ceiling, residual classification and final integration | Chat |
 
-When several objects are present, decompose the task into explicit stages and name each owner.
+When several objects are present, decompose the task into explicit stages and name each owner. When object type and workload shape point to different surfaces, prefer the smallest available surface that can complete and verify the delta without losing material continuity, control, feedback or evidence.
 
 ## 5. Routing dimensions
 
-V4.1 records seven dimensions:
+V4.2 records eight dimensions:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
@@ -297,7 +392,8 @@ V4.1 records seven dimensions:
 4. **Capability tier and model** — `efficient | balanced | strong | frontier`;
 5. **Reasoning effort** — independent from model capability;
 6. **Continuity and locality** — persistence, local state and handoff requirements;
-7. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback.
+7. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
+8. **Operation mode** — whether the run executes, only routes or audits a previous route.
 
 ### Harness Specialization Law
 
@@ -306,6 +402,32 @@ Capability overlap does not imply harness equivalence. Prefer the surface whose 
 ### Logical plurality is not physical fanout
 
 Multiple expert perspectives can be produced within one bounded execution. Native subagents or worktrees are justified only when the work units are materially independent, convergence is explicit and the budget can carry the coordination cost.
+
+### Operation modes
+
+Record one stable operation mode in the Route Card and Execution Handoff:
+
+- `ROUTE_AND_EXECUTE` — default when tools or surfaces exist, authority exists and no user decision is required;
+- `ROUTE_ONLY` — use when the user asks only for routing or handoff, the executor is unavailable or execution authority is absent;
+- `AUDIT_ROUTE` — use when reviewing a previous route, handoff, model/surface decision or Chat Postflight route audit.
+
+### Route Card
+
+For non-trivial tasks, manifest routing in a compact form:
+
+```text
+Route Card
+Surface: Work
+Why: sustained multi-source report production
+Mode: ROUTE_AND_EXECUTE
+Tier: efficient
+Effort: high
+Budget: PASS_PHASED
+Codex: disabled / not needed
+Next boundary: return receipt → Chat Postflight
+```
+
+The card must state the selected surface, why it fits, operation mode, capability tier, reasoning effort, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
 
 ## 6. Availability and Capability Floor
 
@@ -320,7 +442,7 @@ Then resolve the task capability floor. Fix non-cognitive failures first:
 - workflow/fanout failure;
 - budget/resource failure.
 
-A stronger model is not a substitute for a missing source, tool, permission or acceptance rule.
+A stronger model is not a substitute for a missing source, tool, permission or acceptance rule. A missing or disabled Codex surface is a routing condition, not a user failure; use the best real fallback or report a truthful blocked condition when the requested verification cannot be performed elsewhere.
 
 ## 7. Budget Survivability Gate
 
@@ -353,6 +475,20 @@ Outcomes:
 
 The gate is qualitative. Reassess when the live resource posture materially changes.
 
+### Observable burden signals
+
+Low burden usually means a bounded task, small authoritative context, no physical fanout, short output, one verification pass and a reversible mutation.
+
+Elevated burden usually means many sources or files, large context, long expected output, multiple tools, repeated tests, physical agents, frontier tier, max/xhigh reasoning, an uncertain environment or a likely retry loop.
+
+Guidance remains qualitative:
+- mostly low signals → `PASS_DIRECT`;
+- multiple elevated signals → prefer `PASS_PHASED`;
+- frontier plus elevated burden under constrained resources → `PASS_FRONTIER_BURST` or downroute/phase;
+- tight or unknown resource state with high interruption risk → checkpoint before sustained work.
+
+The Route Card should expose the selected outcome and the shortest reason it survived this gate.
+
 ### Budget Adaptation Law
 
 A resource-constrained profile should first remove waste, not intelligence that is loadbearing. Prefer, in order when safe:
@@ -382,7 +518,7 @@ Progressively retrieve only what a named uncertainty requires. Compression must 
 
 ### Chat gate
 
-Use Chat for meaning, decision, comparison, architecture, bounded correction and acceptance. When an answer materially depends on live state, retrieve it before claiming it.
+Use Chat for meaning, decision, comparison, architecture, bounded correction, atomic connector actions and acceptance. When an answer materially depends on live state, retrieve it before claiming it.
 
 ### Work gate
 
@@ -390,15 +526,17 @@ Use Work for long research, multi-file knowledge production, connector-mediated 
 
 ### Codex gate
 
-Use Codex for repository mutation, code, tests, builds, terminals, runtime diagnosis, refactors and migrations. Inspect applicable `AGENTS.md` or equivalent repository instructions before mutation.
+Use Codex for repository mutation, code, tests, builds, terminals, runtime diagnosis, refactors and migrations only when it is actually available and enabled. Inspect applicable `AGENTS.md` or equivalent repository instructions before mutation.
 
 ### Surface Availability Probe
 
-Choose from the surfaces actually available. If the ideal harness is missing, name the fallback and preserve the claim ceiling.
+Choose from surfaces whose `state` is observed as `available` and whose `enabled` value permits use. `auto` may trigger a bounded probe; it must not silently turn an unknown surface into an assumed capability. If the ideal harness is missing, disabled or declined, name the fallback and preserve the claim ceiling. A surface transition never proves a budget reset.
 
 ## 10. Capability economics and dated calibration
 
 Stable tiers are qualitative:
+
+`accessible_tiers` is an observed Run State field, not a plan-derived entitlement list. The stable taxonomy below can remain known while current access remains `unknown` until a probe or explicit evidence establishes availability.
 
 - **efficient:** clear, bounded, repeatable work;
 - **balanced:** ordinary multi-step work with moderate ambiguity;
@@ -469,6 +607,7 @@ A ready handoff contains:
 
 - identity and objective;
 - sovereign object and observable delta;
+- operation mode and Route Card;
 - baseline and authority;
 - active profile plus any run override;
 - Run State fields that materially affected routing;
@@ -477,14 +616,26 @@ A ready handoff contains:
 - Budget Survivability outcome;
 - context diet, tools, fanout, checkpoints and fallback;
 - exact delivery and verification;
-- return contract and claim ceiling.
+- return contract and claim ceiling;
+- transport capsule sufficient for the next surface to continue without hidden context.
 
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
 ## 15. Portable Execution Handoff
 
+### Transport Law
+
+A route is not transferred until the next surface receives the minimum execution capsule required to preserve the objective, authority, baseline, constraints, profile snapshot, Run State, selected route, evidence, acceptance criteria and claim ceiling. If surfaces do not share context, emit a copyable capsule, name the destination, include required files or refs and never assume hidden context follows the user.
+
+Typical transports:
+- Chat → Work: handoff, required sources and profile/Run State snapshot;
+- Chat → Codex: repository, path, branch, delta, tests, repository instructions and the Codex-enabled/available condition;
+- executor → Chat: evidence-bearing receipt, after which Chat independently refreshes state.
+
 ```yaml
 execution_handoff:
+  operation_mode: ROUTE_AND_EXECUTE
+
   identity:
     task: null
     owner: null
@@ -497,6 +648,7 @@ execution_handoff:
 
   profile_snapshot:
     profile_id: null
+    persistence: persistence_unknown
     resource_posture: null
     optimization_priority: null
     run_overrides: []
@@ -505,6 +657,20 @@ execution_handoff:
     allowance_state: unknown
     surfaces_observed: unknown
     models_observed: unknown
+    resource_pools:
+      agentic:
+        state: unknown
+        members: unknown
+
+  route_card:
+    surface: null
+    why: null
+    operation_mode: null
+    capability_tier: null
+    reasoning_effort: null
+    budget_outcome: null
+    unavailable_or_disabled_surfaces: []
+    next_boundary: null
 
   route:
     surface: null
@@ -512,6 +678,21 @@ execution_handoff:
     capability_tier: null
     reasoning_effort: null
     budget_outcome: null
+
+  transport:
+    destination: null
+    context_shared: unknown
+    capsule:
+      - objective
+      - authority
+      - baseline
+      - constraints
+      - profile_snapshot
+      - run_state
+      - selected_route
+      - evidence
+      - acceptance_criteria
+      - claim_ceiling
 
   envelope:
     authority: []
@@ -541,7 +722,7 @@ Every executor returns an evidence-bearing receipt with:
 - claim ceiling;
 - next route;
 - `new_execution_required`;
-- **profile snapshot and material run overrides used for routing**.
+- **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**.
 
 A successful tool response proves only that tool response, not completion of the objective.
 
@@ -553,7 +734,7 @@ Chat Postflight is mandatory after an executor returns.
 
 1. **Refresh real state.** Read the current source, document, repository, artifact or deployment independently of the executor narrative.
 2. **Audit claim against evidence.** Compare requested delivery with observed delta and verification.
-3. **Audit route against profile.** Confirm that profile preferences were applied without violating capability floor, authority or evidence requirements.
+3. **Audit route against profile.** Confirm that profile preferences and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
 4. **Classify residuals.** `none | bounded_chat_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`.
 5. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only the irreducible delta on the surface that owns it.
 
@@ -625,9 +806,9 @@ The smallest unresolved delta determines re-entry.
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol V4 remains the current public generation;
-- `4.1-public` is a semantic subversion of that generation, not a new V5 title or filename;
-- `4.0-public` is superseded by this subversion and remains recoverable through Git history;
-- V3 remains historical lineage;
+- `4.2-public` is a semantic subversion of that generation, not a new V5 title or filename;
+- `4.1-public` is superseded by this subversion and remains recoverable through Git history;
+- `4.0-public` and V3 remain historical lineage;
 - the live repository and website each expose one canonical V4 file;
 - MSL remains 4.3;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
@@ -635,8 +816,11 @@ The smallest unresolved delta determines re-entry.
 ## 23. Safe operating rules
 
 - Read before mutation; refresh before claiming current state.
-- Resolve profile without confusing entitlement with live resource posture.
-- Route by sovereign object; choose harness by specialization.
+- Resolve profile without confusing entitlement with live resource posture; never claim persistence without evidence.
+- Route by sovereign object and workload shape; choose the smallest available harness that can verify the delta.
+- Treat Codex as optional and surface enablement as distinct from observed availability.
+- Treat a surface change as an executor change, not a budget reset.
+- Transport the minimum execution capsule; hidden context does not follow by default.
 - Enforce capability floor before honoring model preference.
 - Separate model capability from reasoning effort.
 - Treat connector access as access, not authority.
@@ -653,14 +837,26 @@ The smallest unresolved delta determines re-entry.
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol V4. Start in AUTO setup unless I provide a named Execution Profile. Resolve my reusable preferences separately from the current Run State and task requirements. Route by sovereign object across Chat, Work and Codex. Enforce the task capability floor before honoring model preference. Choose model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and evidence-bearing handoffs. After every executor return, perform Chat Postflight and create another execution only for an unresolved irreducible delta.
+> Use Chat–Work Routing Protocol V4. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. After every executor return, perform Chat Postflight and create another execution only for an unresolved irreducible delta.
 
 Optional reusable setup:
 
 ```yaml
 execution_profile:
   profile_id: my-profile
+  persistence: persistence_unknown
   entitlement_hint: unknown
+  surfaces:
+    chat:
+      state: unknown
+      enabled: auto
+    work:
+      state: unknown
+      enabled: auto
+    codex:
+      state: unknown
+      enabled: false
+  accessible_tiers: unknown
   resource_posture: adaptive
   optimization_priority: balanced
   burn_tolerance: medium
@@ -679,7 +875,7 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 ## Final Law
 
-> **Route by the state that must change. Resolve the user's profile without mistaking plan for budget. Enforce the capability floor. Spend intelligence where it changes the outcome. Preserve enough state that interruption does not erase the work. Execute with receipts. Return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
