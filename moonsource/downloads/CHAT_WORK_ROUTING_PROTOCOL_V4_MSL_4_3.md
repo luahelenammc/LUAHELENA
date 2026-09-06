@@ -20,6 +20,7 @@
 - **supersedes:** Chat–Work Routing Protocol V3, version 3.0-public
 - **MSL dependency:** Moon Source Language 4.3; MSL remains unchanged by this promotion
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
+- **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
 - **AI-assisted coauthorial development:** Áurion
 - **adaptation policy:** share or adapt with appropriate credit, a license link and an indication of changes; do not imply endorsement
