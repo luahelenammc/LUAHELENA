@@ -1,10 +1,12 @@
-# Moon Source Setup 3.0
+# Moon Source Setup
+
+*Adaptive context routing for humans and AI*
 
 An adaptive context router for making AI collaboration more useful, specific and continuous.
 
 This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available.
 
-The **Adaptive Preflight** described below is Setup 3.0's specialization of the broader [Moon Source Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/docs/PREFLIGHT.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
+The **Adaptive Preflight** described below is Moon Source Setup's specialization of the broader [Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/docs/PREFLIGHT.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
 
 ## Public metadata
 
@@ -50,7 +52,7 @@ You do not need to know Moon Source vocabulary before receiving value.
 
 ## 1. The central shift
 
-Moon Source Setup 3.0 is not a large questionnaire that produces a predefined family of profiles.
+Moon Source Setup is not a large questionnaire that produces a predefined family of profiles. The current public version is **3.0**.
 
 It is a context router.
 
@@ -103,7 +105,7 @@ This means:
 
 ## 2. What this portable does
 
-Setup 3.0 can help a user:
+Moon Source Setup can help a user:
 
 - make an AI less generic without learning prompt-engineering jargon;
 - separate general answer behavior from one project's context;
@@ -646,7 +648,8 @@ Prefer human-facing names:
 When formal versioning is genuinely needed, use a separate metadata field:
 
 ~~~text
-created_with: Moon Source Setup 3.0
+created_with: Moon Source Setup
+setup_version: 3.0
 schema_version: 1
 last_updated: YYYY-MM-DD
 ~~~

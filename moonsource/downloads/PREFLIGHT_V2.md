@@ -1,4 +1,6 @@
-# Preflight V2 — Human Intent Reconstruction Before AI Execution
+# Preflight
+
+*Human Intent Reconstruction Before AI Execution*
 
 > **Humans should not have to prompt like machines.**
 
@@ -15,7 +17,7 @@
 **License:** CC-BY-4.0 — https://creativecommons.org/licenses/by/4.0/  
 **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 
-Preflight V2 is the adaptive interpretation layer between human expression and AI execution. Its first job is not to audit architecture. Its first job is to reconstruct what the human is actually trying to accomplish when the message is incomplete, conversational, scattered, self-correcting, emotionally loaded, overly literal, or simply written by a person who should not need to think like a prompt engineer.
+Preflight is the adaptive interpretation layer between human expression and AI execution. Its first job is not to audit architecture. Its first job is to reconstruct what the human is actually trying to accomplish when the message is incomplete, conversational, scattered, self-correcting, emotionally loaded, overly literal, or simply written by a person who should not need to think like a prompt engineer.
 
 The core principle is simple:
 
@@ -23,7 +25,7 @@ The core principle is simple:
 
 Source authority, provenance, freshness, risk, destination, mutation scope and similar checks remain important when consequence makes them important. In V2 they are **conditional execution guardrails**, not the semantic center of Preflight.
 
-Preflight V2 is a standalone public Moon Source portable. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup 3.0](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
+Preflight is a standalone public Moon Source portable. Its current public version is **2.0**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
 ## 1. Start here
@@ -31,7 +33,7 @@ Preflight V2 is a standalone public Moon Source portable. Its reconstruction cor
 Paste this portable into an AI conversation and say:
 
 ```text
-Execute Preflight V2 on my requests.
+Execute Preflight on my requests.
 ```
 
 The AI should not summarize the portable back to the user unless asked. It should use the method as an operating layer.
@@ -39,7 +41,7 @@ The AI should not summarize the portable back to the user unless asked. It shoul
 For one request only:
 
 ```text
-Apply Preflight V2 to the request below, then execute.
+Apply Preflight to the request below, then execute.
 
 Request:
 [...]
@@ -80,7 +82,7 @@ Its purpose is not to make the human write a better prompt. Its purpose is to ma
 
 ## 3. Precise definition
 
-> **Preflight V2 is the adaptive human-intent reconstruction pass before and during execution that converts raw human expression into a faithful executable task by resolving intended meaning, desired outcome, relevant context, implicit constraints, corrections, preservation requirements and consequential ambiguity.**
+> **Preflight is the adaptive human-intent reconstruction pass before and during execution that converts raw human expression into a faithful executable task by resolving intended meaning, desired outcome, relevant context, implicit constraints, corrections, preservation requirements and consequential ambiguity.**
 
 When execution materially depends on governed sources, current external facts, sensitive actions, public claims, mutations or other consequential boundaries, Preflight then activates the relevant execution guardrails or routes to the component that owns them.
 
@@ -124,7 +126,7 @@ The contract does not need to be printed. The useful output is the result of the
 
 ## 5. Core first, guardrails second
 
-Preflight V2 has two layers with different status.
+Preflight has two layers with different status.
 
 ### Layer A — Human reconstruction core
 
@@ -255,7 +257,7 @@ Do not ask the human to become a redundant database API.
 
 ## 7. Reconstruction is not permission to invent
 
-Preflight V2 is intentionally more interpretive than literal execution, but fidelity sets the boundary.
+Preflight is intentionally more interpretive than literal execution, but fidelity sets the boundary.
 
 Distinguish:
 
@@ -386,7 +388,7 @@ Preflight exposes a public method for faithful interpretation, not private inter
 ## 14. Copy-paste public operation
 
 ```text
-Apply Moon Source Preflight V2 before executing this request.
+Apply Moon Source Preflight before executing this request.
 
 Reconstruct the human's intended task from the full expression and available context.
 Determine, only to the depth needed:
@@ -481,7 +483,7 @@ The architecture appears because the execution consequence earned it, not becaus
 
 ## 16. Anti-patterns
 
-Preflight V2 fails when it becomes:
+Preflight fails when it becomes:
 
 - **literalism with nicer wording** — restating the prompt without reconstructing its meaning;
 - **telepathy theater** — inventing motives or preferences unsupported by the expression;
@@ -500,9 +502,9 @@ Preflight V2 fails when it becomes:
 
 ## 17. Relationship map
 
-| Component | What it owns | Relationship to Preflight V2 |
+| Component | What it owns | Relationship to Preflight |
 |---|---|---|
-| [Moon Source Setup 3.0](../setup/MOON_SOURCE_SETUP.md) | Personal/project setup and context routing | Its Adaptive Preflight is a specialization of the broader V2 reconstruction principle. |
+| [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) | Personal/project setup and context routing | Its Adaptive Preflight is a specialization of the broader reconstruction principle. |
 | [Signal Calibration](../../docs/SIGNAL_CALIBRATION.md) | Working inference from weak or ambiguous signals | Used when reconstructing meaning depends on non-trivial inference rather than direct conversational structure. |
 | [Field to Form](../../docs/FIELD_TO_FORM.md) | What structure or materialization a field deserves | Preflight reconstructs the need; Field to Form decides the form when form is genuinely unresolved. |
 | [Responsibility Map](../../docs/RESPONSIBILITY_MAP.md) | Ownership, authority and relationships between objects | Activated when the reconstructed task reveals a real responsibility conflict. |
@@ -511,13 +513,13 @@ Preflight V2 fails when it becomes:
 | [Source Hygiene](../../docs/SOURCE_HYGIENE.md) | Corpus diagnosis and conservative repair | Activated when the problem is stale or contradictory context rather than human-expression ambiguity. |
 | [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) | Intellectual lineage and content custody | Activated when material identity, permission or derivative lineage matters. |
 | [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) | Bounded execution reliability and receipts | Activated when state-changing execution earns operational safeguards. |
-| [MSL 4.3](../msl/MSL_4_3.md) | Structural grammar | Used only after a materialization has earned existence. |
+| [Moon Source Language](../msl/MSL_4_3.md) | Structural grammar | Used only after a materialization has earned existence. |
 
 Preflight is upstream of these components only in the sense that it reconstructs **what the human is asking for**. It does not become their authority.
 
 ## 18. QA before execution
 
-A good Preflight V2 pass should be able to answer:
+A good Preflight pass should be able to answer:
 
 - Am I solving the person's intended problem or only their literal wording?
 - Did I distinguish request from context, example and correction?
@@ -534,7 +536,7 @@ If the answer to the first question is no, the rest of the architecture is decor
 
 Preflight was first promoted publicly on 2026-08-23 as a general adaptive task-shaping gate.
 
-Preflight V2, rebased on 2026-09-07, changes the center of gravity:
+Preflight, version 2.0, rebased on 2026-09-07, changes the center of gravity:
 
 ```text
 V1 emphasis
@@ -554,7 +556,7 @@ This promotion creates the Preflight portable family at version 2.0. It does not
 
 ## 20. Claim ceiling
 
-Preflight V2 is a documented public interpretation and task-reconstruction method integrated into Moon Source's public architecture.
+Preflight is a documented public interpretation and task-reconstruction method integrated into Moon Source's public architecture.
 
 Its existence does not establish:
 
