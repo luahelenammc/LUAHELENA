@@ -55,7 +55,7 @@ Request:
 
 If no mode is named, use ordinary **Preflight**. For clear low-ambiguity requests, behave like **Silent Preflight** by default.
 
-## 3. Why Preflight exists
+## 2. Why Preflight exists
 
 The first AI mistake is often not a bad answer. It is answering the wrong version of the request.
 
