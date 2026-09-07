@@ -4,7 +4,7 @@
 
 An adaptive context router for making AI collaboration more useful, specific and continuous.
 
-This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available.
+This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available. When the need is durable cross-session continuity or a current source, it can route to the Connected Sources capability after checking what source substrate is actually available.
 
 The **Adaptive Preflight** described below is Moon Source Setup's specialization of the broader [Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/docs/PREFLIGHT.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
 
@@ -14,7 +14,7 @@ The **Adaptive Preflight** described below is Moon Source Setup's specialization
 - **Audience:** beginners, regular AI users, power users and builders.
 - **Language:** English-first portable; execution should follow the user's language.
 - **Status:** public · free to read · portable · platform-independent.
-- **Version:** 3.0.
+- **Version:** 3.1.
 - **MSL:** 4.3 remains the current public structural grammar.
 - **Canonical repository:** https://github.com/luahelenammc/Moon-Source
 - **Canonical path:** portables/setup/MOON_SOURCE_SETUP.md
@@ -52,7 +52,7 @@ You do not need to know Moon Source vocabulary before receiving value.
 
 ## 1. The central shift
 
-Moon Source Setup is not a large questionnaire that produces a predefined family of profiles. The current public version is **3.0**.
+Moon Source Setup is not a large questionnaire that produces a predefined family of profiles. The current public version is **3.1**.
 
 It is a context router.
 
@@ -78,7 +78,7 @@ user field
 → destination inference
 → privacy and sensitivity gate
 → smallest useful setup
-→ optional capability routing
+→ optional capability routing, including a persistent source-substrate route when earned
 → proportionate materialization
 → calibration test
 → update contract
@@ -111,8 +111,10 @@ Moon Source Setup can help a user:
 - separate general answer behavior from one project's context;
 - repair an existing instruction set instead of restarting from zero;
 - decide whether a reusable note, project context, source, packet or handoff is actually needed;
+- decide whether durable continuity needs a persistent source substrate or only a bounded context artifact;
 - transfer context to another AI, person, thread or workspace;
 - identify when a public Moon Source capability may help;
+- route a current-source or persistent-context need to Connected Sources without making a connector mandatory;
 - keep sensitive material out of global instructions;
 - test whether the resulting setup changed the AI's behavior;
 - define what would justify updating the result later.
@@ -151,6 +153,7 @@ It is not:
 - a full dump of Moon's private or professional source architecture;
 - a public disclosure of private corpora, hidden resolver rules, compiler machinery, scoring systems or protected runtime details;
 - a disclosure of Moon's private or internal source architecture;
+- a connector-onboarding questionnaire or a presumption that a connector is enabled;
 - evidence of adoption, impact, universal validity or enterprise readiness.
 
 This file does not collect, receive, store or transmit the user's answers. Privacy depends on the AI platform and destination where the user chooses to paste or save the result.
@@ -382,6 +385,7 @@ Use plain language first. These families are routing signals, not mandatory outp
 | Study or research | Task-specific instructions | Source map, packet or evidence boundary |
 | Writing, voice or editing | Writing behavior instructions plus examples | Voice source or revision procedure |
 | Creative work | Creative brief or project context | Living project source or taste/voice method |
+| Durable continuity or current living context | A bounded source reference or project source | Connected Sources after capability probing |
 | One project | Project Context: [name] | Project source, handoff or update contract |
 | Team or organization | Shared working context with privacy boundaries | Responsibility map, protocol or team source |
 | Product, build or proposal | Bounded product/project context | Field-to-form diagnosis, validation packet or procedure |
@@ -430,6 +434,19 @@ When the executing AI receives the Moon Source repository, ZIP or a sufficiently
 
 The Kernel governs repository loading. This Setup must not duplicate the whole repository authority map or claim authority over files it has not received.
 
+### 7.3 Persistent source-substrate routing
+
+When the user needs durable cross-session continuity, a current living document, or a source that can be revisited without copying the whole corpus, first decide whether a persistent substrate is actually earned. Use the smallest route that fits:
+
+| Need | Route |
+|---|---|
+| A one-off answer or short-lived context | Standalone Setup or bounded context |
+| Readable current material with no mutation request | Connected Read through an available source |
+| Durable source that may be refreshed or updated | Living Source through Connected Sources |
+| Several governed sources or facets | Federated Connected Sources route |
+
+In ChatGPT, Google Drive is the recommended default document-source substrate when the user wants connected living context; GitHub is a complementary executable and versioned substrate. This is a recommendation, not a requirement. Probe the actual surface, reach, freshness, permissions and readback capability before promising a connected route. If the substrate cannot be resolved or the needed operation is not authorized, deliver a bounded standalone result and state the limitation.
+
 ### Access is not activation
 
 The presence of the full ZIP does not mean every module should be loaded. Whole-repository ingestion is not the default. More context is not automatically better context.
@@ -449,6 +466,7 @@ When repository-aware, use the smallest relevant set:
 | A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
 | A reusable structure has been earned | portables/msl/MSL_4_3.md |
 | A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
+| A current source, durable continuity or cross-session living context is needed | docs/CONNECTED_SOURCES.md and, when useful, portables/connected-sources/CONNECTED_SOURCES.md |
 | ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md |
 | The full repository or ZIP has been supplied | MOON_SOURCE_AI_KERNEL.md governs loading |
 
@@ -472,6 +490,8 @@ Recognize ordinary-language needs semantically:
 | “I need to move this context to another AI, person or thread.” | Responsibility Map plus MSL as needed |
 | “I have a recurring method and want AI to know when to apply it.” | Procedural Projection |
 | “I am adapting someone else’s method or resource.” | Credits & Attribution Ops |
+| “I need AI to return to current documents across sessions.” | Connected Sources, with a standalone fallback if no source substrate is available |
+| “Can this source be refreshed, updated or combined with another source?” | Connected Sources plus Source Operations |
 | “Should this happen in Chat or Work?” | Chat–Work Routing Protocol |
 | “Here is the whole Moon Source ZIP.” | Moon Source AI Kernel |
 
@@ -649,7 +669,7 @@ When formal versioning is genuinely needed, use a separate metadata field:
 
 ~~~text
 created_with: Moon Source Setup
-setup_version: 3.0
+setup_version: 3.1
 schema_version: 1
 last_updated: YYYY-MM-DD
 ~~~
