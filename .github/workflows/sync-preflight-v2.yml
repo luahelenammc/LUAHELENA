@@ -50,10 +50,9 @@ jobs:
                   raise SystemExit(f'{label}: expected {count}, found {n}')
               t=t.replace(old,new)
 
-          # Preflight V2: human-intent semantics and current canonical route.
           rep('https://github.com/luahelenammc/Moon-Source/blob/main/docs/PREFLIGHT.md','https://github.com/luahelenammc/Moon-Source/blob/main/portables/preflight/PREFLIGHT_V2.md','old Preflight links')
-          rep('Preflight: moldar a tarefa antes da tarefa moldar a resposta.','Preflight V2: entender o humano antes de executar.','PT method title',1)
-          rep('Antes da execução, o Preflight pode verificar intenção, autoridade, fatos ausentes, risco, destino e forma adequada — e então seguir, perguntar ou redirecionar.','A pessoa fala como pessoa; o Preflight reconstrói intenção, resultado, correções e limites. Governança mais pesada só entra quando a consequência realmente exige.','PT method copy',1)
+          rep('Preflight: moldar a tarefa antes da tarefa moldar a resposta.','Preflight V2: entender o humano antes de executar.','PT method title',2)
+          rep('Antes da execução, o Preflight pode verificar intenção, autoridade, fatos ausentes, risco, destino e forma adequada — e então seguir, perguntar ou redirecionar.','A pessoa fala como pessoa; o Preflight reconstrói intenção, resultado, correções e limites. Governança mais pesada só entra quando a consequência realmente exige.','PT method copy',2)
           rep('Preflight: shape the task before the task shapes the response.','Preflight V2: understand the human before execution.','EN method title',1)
           rep('Before execution, Preflight can check intent, authority, missing facts, risk, destination, and proportionate form — then proceed, ask, or reroute.','People speak like people; Preflight reconstructs intent, outcome, corrections, and constraints. Heavier governance activates only when consequence actually requires it.','EN method copy',1)
 
@@ -63,7 +62,6 @@ jobs:
           rep('The request is vague, sensitive, or heading to the wrong place.','I want AI to understand what I mean without writing like a prompt engineer.','EN start title',1)
           rep('Shape the task before execution and decide whether to ask, route, or act.','Reconstruct human intent first; ask only when an ambiguity would materially change the result.','EN start copy',1)
 
-          # Preflight leaves the component grid; Source Operations takes the missing current component slot.
           pattern=r'<article class="component"><span class="tag">Preflight</span>.*?</article>'
           replacement='<article class="component"><span class="tag">Source Operations</span><h3 data-i18n="components.c1t">Operar fontes sem confundir leitura, transformação e mudança.</h3><p data-i18n="components.c1c">Retrieve, process, metabolize, promote, sucessão e readback.</p><a href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/SOURCE_OPERATIONS.md" target="_blank" rel="noopener">GitHub ↗</a></article>'
           t,n=re.subn(pattern,replacement,t,count=1)
@@ -74,7 +72,6 @@ jobs:
           rep('Intent, authority, risk, missing facts, destination, and form.','Retrieve, process, metabolize, promote, succession, and readback.','EN c1 copy',1)
           rep('<time>2026-08-23</time><strong>Preflight</strong>','<time>2026-09-04</time><strong>Source Operations</strong>','update strip',1)
 
-          # Portable status and download surface: 4 current portable families.
           rep('grid-template-columns:1.1fr repeat(3,.7fr)','grid-template-columns:1.1fr repeat(4,.7fr)','status grid',1)
           status_anchor='<div class="status-cell"><span class="status-label" data-i18n="status.registry">Registry público</span><span class="status-value" data-i18n="status.regval">9 componentes atuais · schema 1.1</span></div>'
           rep(status_anchor,status_anchor+'<div class="status-cell"><span class="status-label">Preflight</span><span class="status-value">2.0</span></div>','Preflight status',1)
@@ -87,7 +84,6 @@ jobs:
           preflight_card='<article class="download"><span class="tag">Preflight 2.0</span><h3 data-i18n="downloads.d4t">Reconstrução de intenção humana</h3><p data-i18n="downloads.d4c">Para falar naturalmente e deixar a IA reconstruir a tarefa antes de executar.</p><a href="downloads/PREFLIGHT_V2.md" download data-i18n="downloads.get">Baixar .md ↓</a></article>'
           rep(setup_card,setup_card+preflight_card,'Preflight download card',1)
 
-          # Add bilingual text keys for the new portable card.
           rep('"downloads.d3c":"Para rotear por objeto, capacidade, esforço e orçamento no ChatGPT.",','"downloads.d3c":"Para rotear por objeto, capacidade, esforço e orçamento no ChatGPT.","downloads.d4t":"Reconstrução de intenção humana","downloads.d4c":"Para falar naturalmente e deixar a IA reconstruir a tarefa antes de executar.",','PT d4 keys',1)
           rep('"downloads.d3c":"Route by object, capability, effort, and budget in ChatGPT.",','"downloads.d3c":"Route by object, capability, effort, and budget in ChatGPT.","downloads.d4t":"Human intent reconstruction","downloads.d4c":"Speak naturally and let AI reconstruct the task before execution.",','EN d4 keys',1)
 
@@ -103,7 +99,6 @@ jobs:
           grep -q 'Os quatro portables' moonsource/index.html
           grep -q 'The four portables' moonsource/index.html
           grep -q 'Source Operations' moonsource/index.html
-          test ! -e .github/workflows/DOES_NOT_EXIST
       - name: Remove one-shot workflow and commit clean website state
         run: |
           rm .github/workflows/sync-preflight-v2.yml
