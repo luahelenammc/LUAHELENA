@@ -1,0 +1,44 @@
+name: Sync corrected Preflight V2 mirror
+
+on:
+  push:
+    branches: [sync-preflight-v2-heading-fix-20260907]
+    paths:
+      - ".github/workflows/sync-preflight-v2-heading-fix.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-verify-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: sync-preflight-v2-heading-fix-20260907
+          fetch-depth: 0
+      - name: Mirror corrected canonical Preflight bytes
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/luahelenammc/Moon-Source/main/portables/preflight/PREFLIGHT_V2.md -o moonsource/downloads/PREFLIGHT_V2.md
+          curl -fsSL https://raw.githubusercontent.com/luahelenammc/Moon-Source/main/registry/public-portables.json -o /tmp/public-portables.json
+          EXPECTED=$(python - <<'PY'
+          import json
+          data=json.load(open('/tmp/public-portables.json',encoding='utf-8'))
+          print(next(p['canonical_sha256'] for p in data['portables'] if p['id']=='preflight'))
+          PY
+          )
+          ACTUAL=$(sha256sum moonsource/downloads/PREFLIGHT_V2.md | cut -d' ' -f1)
+          test "$EXPECTED" = "$ACTUAL"
+          grep -q '^## 1\. Start here$' moonsource/downloads/PREFLIGHT_V2.md
+          grep -q '^## 2\. Why Preflight exists$' moonsource/downloads/PREFLIGHT_V2.md
+          grep -q '^## 3\. Precise definition$' moonsource/downloads/PREFLIGHT_V2.md
+          echo "Preflight mirror SHA-256 verified: $ACTUAL"
+      - name: Remove one-shot workflow and commit clean mirror
+        run: |
+          rm .github/workflows/sync-preflight-v2-heading-fix.yml
+          git config user.name "Lua H. Moon M. C."
+          git config user.email "luahelenammc@gmail.com"
+          git add -A
+          git status --short
+          git commit -m "Sync corrected Preflight V2 mirror"
+          git push origin HEAD:sync-preflight-v2-heading-fix-20260907
