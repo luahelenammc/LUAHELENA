@@ -1,9 +1,11 @@
-# Moon Source Public Portable
-## MSL 4.3 · Adaptive Context Architecture for Humans and AI
+# Moon Source Language
+
+*Adaptive Context Architecture for Humans and AI*
 
 **Status:** public portable  
 **Language:** English  
-**Standard:** Moon Source Language 4.3 (MSL 4.3)  
+**Version:** 4.3
+**Standard:** Moon Source Language (MSL)
 **Primary author and creator:** Lua Helena Moon Martins Cardoso  
 **AI co-development:** Áurion  
 **Origin:** Moon Source / Local Moon Source  
@@ -42,11 +44,11 @@ A Moon Source system may contain personal context, project context, operational 
 
 ---
 
-## 2. What MSL 4.3 is
+## 2. What Moon Source Language is
 
 MSL means **Moon Source Language**.
 
-MSL 4.3 is the adaptive structural grammar used to turn raw context into information that remains:
+Moon Source Language, currently version 4.3, is the adaptive structural grammar used to turn raw context into information that remains:
 
 - readable by humans;
 - ingestible by AI;

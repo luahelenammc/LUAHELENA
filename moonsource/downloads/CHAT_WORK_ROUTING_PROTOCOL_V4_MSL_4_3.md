@@ -1,6 +1,8 @@
-# Chat–Work Routing Protocol V4
+# Chat–Work Routing Protocol
 
-## Public Portable Edition · MSL-4.3
+*Cross-surface execution routing and closure across Chat, Work and Codex*
+
+## Public Portable Edition · Version 4.2-public
 
 ## Meta
 
@@ -805,7 +807,7 @@ The smallest unresolved delta determines re-entry.
 
 ## 22. Lifecycle and succession
 
-- Chat–Work Routing Protocol V4 remains the current public generation;
+- Chat–Work Routing Protocol remains the current public generation;
 - `4.2-public` is a semantic subversion of that generation, not a new V5 title or filename;
 - `4.1-public` is superseded by this subversion and remains recoverable through Git history;
 - `4.0-public` and V3 remain historical lineage;
@@ -837,7 +839,7 @@ The smallest unresolved delta determines re-entry.
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol V4. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. After every executor return, perform Chat Postflight and create another execution only for an unresolved irreducible delta.
+> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. After every executor return, perform Chat Postflight and create another execution only for an unresolved irreducible delta.
 
 Optional reusable setup:
 
