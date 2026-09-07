@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 4.2-public
+## Public Portable Edition · Version 4.3-public
 
 ## Meta
 
@@ -13,14 +13,14 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_3.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 4.2-public
+- **version:** 4.3-public
 - **language:** English
-- **protocol semantics as of:** 2026-09-06
+- **protocol semantics as of:** 2026-09-07
 - **product/model calibration as of:** 2026-09-06; recheck official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol V4, version 4.1-public, while retaining the V4 public generation and canonical filename
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol V4, version 4.2-public, while retaining the V4 public generation and canonical filename
 - **MSL dependency:** Moon Source Language 4.3; MSL remains unchanged by this subversion
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
@@ -36,7 +36,7 @@
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
-7. Capability economics, effort and frontier control
+7. Capability economics, effort, distillation and frontier control
 8. Handoff, return and Chat Postflight
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
@@ -49,9 +49,9 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion adds a second stable principle:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 adds a distillation principle:
 
-> **The route starts from the task, but the feasible route is conditioned by the user's execution profile and current resource state.**
+> **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
 This is a routing and closure protocol. It does not grant permissions, invent unavailable tools, guarantee a model result, or turn a plan, surface label or model preference into a capability that the current environment does not expose.
 
@@ -61,7 +61,7 @@ A task is complete only after a verified delta, an explicit acceptance state and
 
 ### 2.1 Why setup exists
 
-V4.0 routed budget qualitatively but still assumed too much about the user's starting resource posture. V4.1 made that posture explicit and configurable; V4.2 hardens first use, surface availability and handoff transport.
+V4.0 routed budget qualitatively but still assumed too much about the user's starting resource posture. V4.1 made that posture explicit and configurable; V4.2 hardened first use, surface availability and handoff transport. V4.3 generalizes bounded capability escalation into a tier-neutral distillation loop.
 
 A subscription plan or workspace entitlement is only one input. It does not by itself determine the correct model, effort, fanout or budget policy. Two users on the same plan can rationally choose different routes; the same user can choose differently near a reset, after buying credits, under deadline pressure or for a quality-critical task.
 
@@ -386,7 +386,7 @@ When several objects are present, decompose the task into explicit stages and na
 
 ## 5. Routing dimensions
 
-V4.2 records eight dimensions:
+The protocol records eight routing dimensions:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
@@ -502,6 +502,8 @@ A resource-constrained profile should first remove waste, not intelligence that 
 5. lower tier for phases below the task's capability floor;
 6. narrow high-capability bursts for the irreducible hard slice.
 
+The final item is governed by the Intelligence Distillation Ladder below. It is not a frontier-only instruction and does not authorize sending the whole task to a stronger tier.
+
 ## 8. Context Diet
 
 Load the smallest set that establishes authority, objective, baseline, constraints, evidence and acceptance.
@@ -515,6 +517,8 @@ Failure modes:
 - **duplication** — repeated copies create cost without evidence.
 
 Progressively retrieve only what a named uncertainty requires. Compression must preserve authority, decisions, constraints, failure state, evidence and next action.
+
+For IDL escalation, the context capsule should be decision-relevant rather than merely short: preserve load-bearing authority, hard constraints, verified evidence and material uncertainty, while excluding recoverable history and settled implementation bulk.
 
 ## 9. Surface gates
 
@@ -575,6 +579,176 @@ The profile may express a preferred effort and ceiling, but the task still deter
 
 A low-budget profile may rationally prefer an efficient model at high effort when observed quality-per-allowance is good for that user's workload. That is a configurable preference, not a universal law.
 
+### Intelligence Distillation Ladder (IDL)
+
+The **Intelligence Distillation Ladder** generalizes bounded capability escalation across the qualitative tiers `efficient | balanced | strong | frontier`. It is an operational routing heuristic, not a benchmark, model ranking, product policy or promise of savings or quality.
+
+The IDL gives operational form to the mother law above:
+
+> **Escalate only the irreducible delta; return only the decision-bearing delta.**
+
+Do bulk work on the cheapest sufficient tier. When a named unresolved question survives specification repair, evidence gathering, tool checks and an appropriate reasoning-effort adjustment, isolate that question, purchase only the capability needed to resolve it, then return to the lowest sufficient tier for implementation and verification.
+
+#### Irreducible Delta
+
+An **irreducible delta** is the smallest unresolved question whose answer could materially change the route, architecture, judgment or correctness of the task after non-cognitive failures have been excluded.
+
+```yaml
+irreducible_delta:
+  delta_id: null
+  unresolved_question: null
+
+  blocked_by:
+    one_of:
+      - reasoning_effort
+      - capability
+      - evidence
+      - tool
+      - authority
+      - workflow
+      - unknown
+
+  current_tier: null
+  current_effort: null
+
+  evidence_of_insufficiency: null
+  consequence_if_wrong: null
+  verification_after_ruling: null
+```
+
+Use these distinctions:
+
+- missing source, permission, tool, authority or factual evidence is not automatically a capability problem;
+- ambiguity caused by a bad specification should be repaired before escalation;
+- an important task is not automatically a high-tier task;
+- a large task is not automatically a frontier task;
+- escalation is justified by the unresolved reasoning density of a named delta, not by the emotional importance of the request.
+
+#### Effort versus Capability
+
+Before changing capability tier, ask:
+
+1. Is the current tier below the capability floor for this delta?
+2. Is the failure instead insufficient reasoning effort within a tier that should be capable?
+3. Is the failure non-cognitive and therefore not repairable by a stronger model?
+4. Would one bounded higher-tier ruling unblock lower-tier execution?
+
+When the current tier remains plausibly sufficient, increasing reasoning effort may be more coherent than changing models. When the delta genuinely exceeds the current tier, escalate the delta rather than the whole task. The protocol remains qualitative; it does not prescribe universal numeric thresholds.
+
+#### Decision Capsule
+
+A **Decision Capsule** is smaller than an Execution Handoff. It carries only what the target tier needs to make one bounded ruling while preserving authority, hard constraints, verified truth, material uncertainty and enough provenance to avoid reconstruction by guesswork.
+
+```yaml
+decision_capsule:
+  delta_id: null
+  decision_objective: null
+  unresolved_question: null
+
+  verified_facts: []
+  hard_constraints: []
+  live_uncertainties: []
+  candidate_paths: []
+
+  current_route:
+    surface: null
+    capability_tier: null
+    reasoning_effort: null
+
+  why_current_route_is_insufficient: null
+  requested_capability: null
+
+  requested_return:
+    - ruling
+    - decisive_reason
+    - uncertainty_or_failure_condition
+    - next_action
+
+  output_boundary: bounded
+  default_mode: read_only_judgment
+```
+
+Do not carry the full conversation or repository merely because it is available. Exclude duplicated history, settled implementation bulk, raw tool logs, already-closed questions and speculative context without a named role. Compression is invalid if it removes load-bearing authority, constraints, evidence, uncertainty or provenance.
+
+#### Tier ROI and No Mandatory Staircase
+
+**Capability tiers are not toll booths.** The router need not attempt every intermediate tier. All of these are legal when the selected target is the least-expensive available tier reasonably expected to resolve the specific delta and Budget Survivability passes:
+
+`efficient → balanced`, `efficient → strong`, `efficient → frontier`, `balanced → strong`, `balanced → frontier` and `strong → frontier`.
+
+The target decision considers the delta's capability floor, expected marginal value, live resource posture, output and verification burden, interruption risk and whether a bounded ruling is sufficient. It does not derive a universal conversion ratio from model names, plan labels or token counts.
+
+#### Micro-burst Gate
+
+A **micro-burst** is a bounded higher-tier reasoning call whose purpose is to resolve a named irreducible delta, not to inherit the whole execution.
+
+Use a micro-burst only when:
+
+- the delta is explicit;
+- the Decision Capsule is sufficient;
+- the target tier is expected to materially improve the ruling;
+- the output can be bounded;
+- lower-tier execution can resume afterward;
+- downstream verification exists.
+
+Reject or postpone it when the real blocker is evidence, authority, tool access, workflow or specification; when the capsule omits load-bearing facts; when the tier is being selected for prestige; when the task is already resolved; or when no justified route survives Budget Survivability.
+
+#### Return Capsule and Lower-tier Re-entry
+
+The higher-tier return is a **Return Capsule**: a compact ruling that the lower-tier executor can implement and verify.
+
+```yaml
+return_capsule:
+  delta_id: null
+  ruling: null
+  decisive_reason: null
+  uncertainty_or_failure_condition: null
+  assumptions_changed: []
+  next_action: null
+  re_escalate_if: null
+```
+
+The receiving executor must:
+
+1. integrate the ruling;
+2. restore only the additional context needed for implementation;
+3. perform the mutation or work;
+4. verify the observable delta;
+5. re-escalate only if a **new** irreducible delta appears.
+
+A higher-tier ruling is not task completion. Executor completion and cycle completion remain distinct; Chat Postflight still refreshes state, audits evidence and closes or re-enters the route.
+
+#### Optional Distillation Receipt
+
+For non-trivial cycles, the following qualitative observables may be recorded. They are optional for tiny tasks and must not become fake precision:
+
+```yaml
+distillation_receipt:
+  delta_id: null
+  escalation_needed: true
+  escalation_avoided_by_effort_change: false
+  source_tier: null
+  target_tier: null
+  direct_jump_used: false
+
+  capsule:
+    context_class: minimal | bounded | expanded
+    missing_loadbearing_context_detected: false
+
+  return:
+    ruling_resolved_delta: unknown
+    underfit_after_burst: false
+    overkill_suspected: false
+    returned_to_lower_tier: true
+
+  verification:
+    downstream_verification_passed: unknown
+    re_escalation_required: false
+    re_escalation_reason: null
+```
+
+Track underfit, overkill, capsule loss, effort changes that avoided escalation, direct jumps and re-escalation qualitatively where evidence exists. Do not turn anecdotal observations into fixed cost, savings or performance claims.
+
 ## 12. Frontier ROI Gate
 
 Frontier is not the automatic rung after strong.
@@ -583,13 +757,15 @@ Ask what irreducible part materially improves from frontier capability, whether 
 
 ### Frontier Burst
 
+Frontier Burst is the frontier-tier specialization of the general IDL micro-burst pattern. It is not a competing doctrine and frontier is not the default destination.
+
 Under constrained resources, prefer:
 
-**efficient/strong preparation → bounded Decision Capsule → frontier burst → efficient/strong implementation → Chat Postflight**
+**lowest sufficient preparation → bounded Decision Capsule → frontier micro-burst → lowest sufficient implementation → verification → Chat Postflight**
 
-A Decision Capsule should contain one decision objective, verified truth, hard constraints, unresolved hard question, candidate paths, minimum evidence, requested ruling, read-only default, minimum tools, physical subagents `0` by default, bounded output and a fallback.
+Use the IDL Decision Capsule and Return Capsule contracts. The frontier call should make one bounded ruling; retrieval, file mutation, formatting and routine verification remain with the cheaper adequate route.
 
-A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, the gain over strong is material and salvage/checkpoints exist.
+A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, sustained frontier capability is materially load-bearing and salvage/checkpoints exist.
 
 ## 13. Native Parallelism Gate
 
@@ -622,6 +798,18 @@ A ready handoff contains:
 - transport capsule sufficient for the next surface to continue without hidden context.
 
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
+
+When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier and the Return Capsule boundary. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
+
+```yaml
+distillation:
+  active: false
+  delta_id: null
+  unresolved_question: null
+  target_tier: null
+  decision_capsule: null
+  return_capsule_required: false
+```
 
 ## 15. Portable Execution Handoff
 
@@ -681,6 +869,14 @@ execution_handoff:
     reasoning_effort: null
     budget_outcome: null
 
+  distillation:
+    active: false
+    delta_id: null
+    target_tier: null
+    decision_capsule: null
+    return_capsule: null
+    reentry_owner: null
+
   transport:
     destination: null
     context_shared: unknown
@@ -724,7 +920,8 @@ Every executor returns an evidence-bearing receipt with:
 - claim ceiling;
 - next route;
 - `new_execution_required`;
-- **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**.
+- **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**;
+- when an IDL cycle was active, the Return Capsule, ruling boundary and downstream re-entry state.
 
 A successful tool response proves only that tool response, not completion of the objective.
 
@@ -738,7 +935,8 @@ Chat Postflight is mandatory after an executor returns.
 2. **Audit claim against evidence.** Compare requested delivery with observed delta and verification.
 3. **Audit route against profile.** Confirm that profile preferences and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
 4. **Classify residuals.** `none | bounded_chat_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`.
-5. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only the irreducible delta on the surface that owns it.
+5. **If an IDL ruling returned, integrate and verify it.** A ruling does not replace implementation, mutation checks or downstream verification.
+6. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
 
 ## 18. Acceptance states
 
@@ -808,8 +1006,9 @@ The smallest unresolved delta determines re-entry.
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `4.2-public` is a semantic subversion of that generation, not a new V5 title or filename;
-- `4.1-public` is superseded by this subversion and remains recoverable through Git history;
+- `4.3-public` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `4.2-public` is superseded by this subversion and remains recoverable through Git history;
+- `4.1-public` and earlier 4.x subversions remain historical lineage recoverable through Git history;
 - `4.0-public` and V3 remain historical lineage;
 - the live repository and website each expose one canonical V4 file;
 - MSL remains 4.3;
@@ -824,7 +1023,9 @@ The smallest unresolved delta determines re-entry.
 - Treat a surface change as an executor change, not a budget reset.
 - Transport the minimum execution capsule; hidden context does not follow by default.
 - Enforce capability floor before honoring model preference.
-- Separate model capability from reasoning effort.
+- Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
+- Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
+- Treat capability tiers as non-ritual; do not force a mandatory staircase.
 - Treat connector access as access, not authority.
 - Prefer smallest sufficient context and reversible delta.
 - Use physical fanout only when independence and ROI justify it.
@@ -833,13 +1034,14 @@ The smallest unresolved delta determines re-entry.
 - Use tests, hashes, readback and runtime evidence where available.
 - Never convert anecdotes into universal cost ratios.
 - Never claim hidden reasoning was recovered during salvage.
+- Apply the IDL mother law: escalate only the irreducible delta and return only the decision-bearing delta.
 - Chat closes the loop.
 
 ## 24. Installation and use
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. After every executor return, perform Chat Postflight and create another execution only for an unresolved irreducible delta.
+> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, return to the lowest sufficient tier and verify. After every executor return, perform Chat Postflight and create another execution only for a new unresolved irreducible delta.
 
 Optional reusable setup:
 
@@ -877,7 +1079,7 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 ## Final Law
 
-> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Escalate only the irreducible delta and return only the decision-bearing delta. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
