@@ -350,7 +350,7 @@ Preflight V1 gave these concerns too much semantic weight. V2 keeps them, but pu
 
 When the reconstructed task materially depends on governed context, activate the appropriate route:
 
-- [Connected Sources](../../docs/CONNECTED_SOURCES.md) for connector-aware access, source/data and instruction authority, retrieval scope, freshness and mutation boundaries;
+- [Connected Sources](../connected-sources/CONNECTED_SOURCES.md) for connector-aware access, source/data and instruction authority, retrieval scope, freshness and mutation boundaries;
 - [Source Operations](../../docs/SOURCE_OPERATIONS.md) for retrieve, process, metabolize, promote, succession and readback;
 - [Responsibility Map](../../docs/RESPONSIBILITY_MAP.md) for ownership or authority collisions;
 - [Source Hygiene](../../docs/SOURCE_HYGIENE.md) for stale, contradictory, duplicated or bloated corpora;
@@ -508,7 +508,7 @@ Preflight fails when it becomes:
 | [Signal Calibration](../../docs/SIGNAL_CALIBRATION.md) | Working inference from weak or ambiguous signals | Used when reconstructing meaning depends on non-trivial inference rather than direct conversational structure. |
 | [Field to Form](../../docs/FIELD_TO_FORM.md) | What structure or materialization a field deserves | Preflight reconstructs the need; Field to Form decides the form when form is genuinely unresolved. |
 | [Responsibility Map](../../docs/RESPONSIBILITY_MAP.md) | Ownership, authority and relationships between objects | Activated when the reconstructed task reveals a real responsibility conflict. |
-| [Connected Sources](../../docs/CONNECTED_SOURCES.md) | Connector-aware source operation | Activated when external source access materially matters. |
+| [Connected Sources](../connected-sources/CONNECTED_SOURCES.md) | Connector-aware source operation | Activated when external source access materially matters. |
 | [Source Operations](../../docs/SOURCE_OPERATIONS.md) | Retrieve, process, metabolize and promote | Activated when the request is an operation on governed source material. |
 | [Source Hygiene](../../docs/SOURCE_HYGIENE.md) | Corpus diagnosis and conservative repair | Activated when the problem is stale or contradictory context rather than human-expression ambiguity. |
 | [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) | Intellectual lineage and content custody | Activated when material identity, permission or derivative lineage matters. |
@@ -587,3 +587,4 @@ For repository-wide licensing details, use https://github.com/luahelenammc/Moon-
 ---
 
 > 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+
