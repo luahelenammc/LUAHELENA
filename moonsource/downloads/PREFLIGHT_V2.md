@@ -28,34 +28,57 @@ Source authority, provenance, freshness, risk, destination, mutation scope and s
 Preflight is a standalone public Moon Source portable. Its current public version is **2.0**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
-## 1. Start here
+## First use
 
-Paste this portable into an AI conversation and say:
+### What this is
+
+Preflight is the portable for the moment when a request is conversational, incomplete, messy, self-correcting or easy to misunderstand. It reconstructs what the person is actually trying to accomplish before the AI acts on literal wording. Humans should not have to prompt like machines.
+
+### Do I install anything?
+
+No. Reading or pasting this file does not create a global behavior, hidden memory, permission or product mode. The canonical body is the method authority and works from the request and material you provide; the full repository only adds optional routes for consequence-sensitive work.
+
+### Start here
+
+Paste this canonical portable into an AI conversation and say:
 
 ```text
-Execute Preflight on my requests.
+Use Preflight before acting.
+Reconstruct my intended outcome, corrections and constraints in ordinary language.
+Show me the task you would execute, then wait for my approval if the action is consequential.
+
+Request: [say what you need in your own words]
 ```
 
-The AI should not summarize the portable back to the user unless asked. It should use the method as an operating layer.
+For one request only, use `Apply Preflight to the request below, then execute.` If no mode is named, use ordinary **Preflight**. The other modes are **Silent Preflight**, **Preflight only**, **Show reconstructed task** and **Deep Preflight**; they change visibility or depth, not the core obligation to recover human meaning faithfully.
 
-For one request only:
+### What happens next
+
+The AI should identify the likely outcome, what must be preserved or avoided, relevant corrections, material unknowns and the next action. It should ask only for information that changes the result, then activate source, authority, freshness, risk or mutation guardrails only when consequence makes them material.
+
+### Manual / unavailable capability boundary
+
+You may need to identify a referenced file, paste a missing thread, approve the reconstructed task, choose a destination or perform the final send yourself. Preflight cannot publish, send, switch a product surface or perform an unavailable action unless the current environment exposes it and you authorize it. For consequential work, approval of the reconstructed task comes before an external write or irreversible step.
+
+### Tiny example
+
+Instead of turning “update the thing from last week, keep the tone, fix what she meant, and send it if it looks right” into a machine-style prompt, ask Preflight to identify what “the thing” refers to, which tone must be preserved, what “she meant” leaves uncertain and whether sending is authorized. The useful result is a short reconstructed task, not invented certainty.
+
+### If the first result goes wrong
+
+If the response becomes too architectural, say:
 
 ```text
-Apply Preflight to the request below, then execute.
-
-Request:
-[...]
+Preflight only. Use ordinary language.
+Reconstruct my intended outcome, corrections and constraints in a few lines,
+then stop. Do not load the whole Moon Source repository.
 ```
 
-### Operating modes
+If the reconstruction is wrong, correct the outcome or constraint directly and ask the AI to update the working task. If you need only a quiet internal check, use **Silent Preflight**.
 
-- **Preflight** — reconstruct the intended task, then execute it.
-- **Silent Preflight** — reconstruct internally and return only the result unless an assumption must be surfaced.
-- **Preflight only** — reconstruct the intended task but do not execute it.
-- **Show reconstructed task** — show the compact working task, then execute unless the user says not to.
-- **Deep Preflight** — use deeper reconstruction for long, tangled, contradictory or multi-stage human expression; still avoid unnecessary questions.
+### What this portable does not claim
 
-If no mode is named, use ordinary **Preflight**. For clear low-ambiguity requests, behave like **Silent Preflight** by default.
+Preflight does not read hidden thoughts, know intent with certainty, guarantee another person's reaction, permanently change an AI, replace evidence or professional judgment, or become a formal specification of every future request.
 
 ## 2. Why Preflight exists
 
@@ -587,4 +610,3 @@ For repository-wide licensing details, use https://github.com/luahelenammc/Moon-
 ---
 
 > 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
-

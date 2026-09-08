@@ -25,17 +25,59 @@ A portable method for reaching persistent sources through connectors without con
 - **Connected-mode dependency:** a persistent substrate and a connector or other legitimate access surface are required for the capabilities claimed in that mode.
 - **Freshness:** stable method; product-specific connector behavior is volatile and must be checked before being treated as current.
 
-## Start here
+## First use
 
-Paste this file into an AI conversation, provide the relevant source locator when you have one and say:
+### What this is
+
+Connected Sources helps an AI work from material that may continue to change while keeping access, authority, freshness, permission and readback distinct. It is a protocol portable, not a connector onboarding tutorial.
+
+### Do I install anything?
+
+No. Reading or pasting this file does not install Google Drive, GitHub or another connector, synchronization or write permission. A product may expose a connector, but that capability must be checked in the current environment and authorized by you. Standalone work from material you supply is always a valid route.
+
+### Start here
+
+Provide the relevant source locator when you have one and say:
 
 ~~~text
 Use Connected Sources for this task.
+First tell me whether you can operate in:
+1. Standalone Mode from the material I provide,
+2. Connected Read Mode for a reachable source,
+3. Living Source Mode for an authorized write with readback,
+or 4. Federated Source Mode across distinct authorities.
+
+Do not assume a connector, write permission or freshness.
+Task: [describe the source and need]
 ~~~
 
-The AI should first determine whether the task actually needs a connected source. If it does, it should resolve the source, check the source's role and freshness, retrieve only the required scope, and distinguish reading from authorized mutation.
+### What happens next
 
-This portable is not a connector onboarding tutorial. It is a decision and verification layer that can sit above Google Drive, GitHub or another suitable substrate.
+The AI should identify the source locator, what the source actually governs, the requested operation, coverage and freshness, the mutation boundary and the fallback if the source cannot be reached. Access is not authority; read is not write; a write is not complete until readback confirms the resulting state.
+
+### Manual / unavailable capability boundary
+
+You may need to connect an account, authorize a scope, provide a locator, approve a bounded mutation, inspect the readback or perform the edit yourself. A tool result, cached excerpt or search hit is not proof of freshness or authority by itself. Google Drive is a useful ChatGPT document-source route and GitHub can complement it for versioned public material, but neither is mandatory.
+
+### Tiny example
+
+For a project brief that may have changed, ask the AI to read the current locator, identify which parts govern the task and tell you whether it has read-only or authorized write access. Do not let a search excerpt silently become the source of truth.
+
+### If the first result goes wrong
+
+If a connector is unavailable, say:
+
+~~~text
+Use Standalone Mode.
+Work only from the material I paste or attach.
+List what would need to be checked manually for a connected or write route.
+~~~
+
+If a write was reported, ask for readback of the exact changed locator and verify the resulting state before treating the operation as complete.
+
+### What this portable does not claim
+
+It does not provide universal connector support or automatic synchronization, exhaustive retrieval, autonomous mutation or a guarantee that reachable material is authoritative or current.
 
 ## 1. The central distinction
 
