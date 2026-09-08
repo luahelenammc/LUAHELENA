@@ -2,18 +2,19 @@
 
 *Living Source Protocol*
 
-A portable method for reaching persistent sources through connectors without confusing access with authority.
+A public capability for reaching persistent sources through connectors without confusing access with authority.
 
 ## Public metadata
 
 - **Function:** govern source reach, authority, freshness, retrieval scope, mutation boundaries and readback for connected living sources.
 - **Audience:** people and builders who need AI to return to current external material across interactions.
-- **Language:** English-first portable; execution may follow the user's language.
-- **Status:** public · free to read · portable · platform-independent.
+- **Language:** English-first capability; execution may follow the user's language.
+- **Status:** public · free to read · standalone-capable · platform-independent.
 - **Version:** 1.1-public.
+- **Architectural role:** structural crown jewel / Living Source Protocol.
 - **Canonical repository:** https://github.com/luahelenammc/Moon-Source
-- **Canonical path:** portables/connected-sources/CONNECTED_SOURCES.md
-- **Canonical active semantic body:** this file; it is both the Connected Sources method authority and its portable distribution surface.
+- **Canonical path:** docs/CONNECTED_SOURCES.md
+- **Canonical active semantic body:** this file; its standalone package and website mirror are delivery surfaces for these exact bytes.
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **Professional context:** https://www.luahelena.com.br/ia/?lang=en
 - **Creator and final human authority:** Lua Helena Moon Martins Cardoso (Moon).
@@ -29,7 +30,7 @@ A portable method for reaching persistent sources through connectors without con
 
 ### What this is
 
-Connected Sources helps an AI work from material that may continue to change while keeping access, authority, freshness, permission and readback distinct. It is a protocol portable, not a connector onboarding tutorial.
+Connected Sources helps an AI work from material that may continue to change while keeping access, authority, freshness, permission and readback distinct. It is a public capability with a supported standalone distribution, not a connector onboarding tutorial.
 
 ### Do I install anything?
 
@@ -75,7 +76,7 @@ List what would need to be checked manually for a connected or write route.
 
 If a write was reported, ask for readback of the exact changed locator and verify the resulting state before treating the operation as complete.
 
-### What this portable does not claim
+### What this capability does not claim
 
 It does not provide universal connector support or automatic synchronization, exhaustive retrieval, autonomous mutation or a guarantee that reachable material is authoritative or current.
 
@@ -385,13 +386,13 @@ Moon Source remains useful in Standalone Mode. Connected Sources explains the st
 
 ## 13. ChatGPT reference adapter
 
-Product behavior, plan availability, app naming, synchronization semantics and action surfaces are volatile. The stable method remains vendor-portable. Consult [Connected Sources — ChatGPT Adapter Notes](../../docs/CONNECTED_SOURCES_CHATGPT_ADAPTER.md) only when current ChatGPT product behavior is materially relevant; do not load it for generic source governance.
+Product behavior, plan availability, app naming, synchronization semantics and action surfaces are volatile. The stable method remains vendor-portable. Consult [Connected Sources — ChatGPT Adapter Notes](CONNECTED_SOURCES_CHATGPT_ADAPTER.md) only when current ChatGPT product behavior is materially relevant; do not load it for generic source governance.
 
 The adapter is a dated reference, not a second Connected Sources method, registry identity or authority map.
 
 ## 14. Claim ceiling and public boundary
 
-This portable supports the claim that Moon Source publishes an independently readable method for connector-aware living-source operation, with source locators, facet-scoped authority, capability probing, proportional retrieval, mutation boundaries and readback.
+This capability supports the claim that Moon Source publishes an independently readable method for connector-aware living-source operation, with source locators, facet-scoped authority, capability probing, proportional retrieval, mutation boundaries and readback.
 
 It does not establish:
 
@@ -403,7 +404,7 @@ It does not establish:
 - permission, ownership, authorship or endorsement merely from public access;
 - a private Moon Source runtime, resolver, corpus or credential path.
 
-For current public identity, licensing and release state, use the [portable registry](https://github.com/luahelenammc/Moon-Source/blob/main/registry/PUBLIC_PORTABLES.md). For volatile ChatGPT product facts, use the subordinate [adapter notes](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CONNECTED_SOURCES_CHATGPT_ADAPTER.md) and recheck them before relying on them.
+For current public identity, licensing and release state, use the [public capability registry](https://github.com/luahelenammc/Moon-Source/blob/main/registry/PUBLIC_CAPABILITIES.md). For volatile ChatGPT product facts, use the subordinate [adapter notes](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CONNECTED_SOURCES_CHATGPT_ADAPTER.md) and recheck them before relying on them.
 
 ## 15. Quick acceptance test
 
@@ -421,7 +422,7 @@ If these checks are not satisfied, the smallest repair is usually to narrow the 
 
 ## 16. Use and attribution
 
-This file is the canonical public Connected Sources body and a portable distribution surface. It may be shared or adapted under CC BY 4.0 with appropriate credit, a license link and an indication of material changes.
+This file is the canonical public Connected Sources body. Its supported standalone package and website mirror distribute these exact bytes. It may be shared or adapted under CC BY 4.0 with appropriate credit, a license link and an indication of material changes.
 
 Preserve:
 
@@ -429,7 +430,7 @@ Preserve:
 - Moon Source as the original public method and canonical repository;
 - Lua Helena Moon Martins Cardoso (Moon) as creator and final human authority;
 - the bounded AI-assisted coauthorial role of Áurion;
-- the relationship between this portable's structural and transport roles;
+- the relationship between this capability's structural responsibility and its standalone distribution role;
 - relevant permission and disclosure boundaries.
 
 Attribution does not itself grant permission. The applicable license and any third-party terms remain controlling.
