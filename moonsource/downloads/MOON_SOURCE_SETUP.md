@@ -502,7 +502,7 @@ When repository-aware, use the smallest relevant set:
 | A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
 | A reusable structure has been earned | portables/msl/MSL_4_3.md |
 | A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
-| A current source, durable continuity or cross-session living context is needed | portables/connected-sources/CONNECTED_SOURCES.md; load the subordinate ChatGPT adapter only for volatile product facts |
+| A current source, durable continuity or cross-session living context is needed | docs/CONNECTED_SOURCES.md; load the subordinate ChatGPT adapter only for volatile product facts |
 | ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md |
 | The full repository or ZIP has been supplied | MOON_SOURCE_AI_KERNEL.md governs loading |
 
