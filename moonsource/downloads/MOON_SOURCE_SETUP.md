@@ -28,25 +28,61 @@ The **Adaptive Preflight** described below is Moon Source Setup's specialization
 - **Dependencies:** none in standalone mode.
 - **Freshness:** general method; if a repository-aware route depends on current product facts, verify the relevant public source before presenting them as current.
 
-## Start here
+## First use
 
-Paste this file into an AI conversation and say:
+### What this is
+
+Moon Source Setup is the smallest useful starting point when you want an AI to understand a person, project or working context without making you learn a vocabulary first. It is a public method portable, not an installed application or background memory service.
+
+### Do I install anything?
+
+No. Reading or pasting this file does not install software, create persistent memory, connect a source or change the AI globally. The portable works by itself from material you provide. A connector or persistent source is considered only when the current environment actually exposes and authorizes one.
+
+### Start here
+
+Paste this canonical file into an AI conversation and say:
 
 ~~~text
-Execute.
+Use Moon Source Setup for this task.
+Inspect what I already have, infer the smallest useful context setup,
+and tell me what should remain standalone or become persistent.
+Do not make me learn the vocabulary before giving me a useful next step.
+Task: [describe what you want AI to do better]
 ~~~
 
-The AI should not summarize this file back to you. It should use it as an adaptive interface:
+For a very short first run, `Execute.` is enough. The AI should use the file as an adaptive interface, not summarize it back to you.
 
-1. understand what you want AI to do better;
-2. inspect any relevant context or material already available;
-3. infer a provisional level of AI-use maturity;
-4. identify the first useful use-case and destination;
-5. apply the smallest privacy-safe setup;
-6. produce a usable result;
-7. give you one proportionate test and an update rule.
+### What happens next
 
-You do not need to know Moon Source vocabulary before receiving value.
+The Setup should understand the need, inspect useful existing material, infer only the structure the situation earns, separate general behavior from project context when useful, produce an output sized for its destination and give you one proportionate test plus an update rule. Simple needs should stay simple; durable continuity or a current living source should be routed to Connected Sources only when that substrate is actually available and justified.
+
+### Manual / unavailable capability boundary
+
+You may still need to choose a destination, attach material, connect or authorize an account, approve a scope or save the resulting artifact yourself. Access is not activation. Setup cannot create a connector, permanent memory, authority or synchronization merely because a route is described. Google Drive is a recommended ChatGPT document-source route when available; GitHub can complement it for versioned public material, but neither is mandatory.
+
+### Tiny example
+
+For notes such as “the team has a new launch date, the owner is unclear and the existing instructions are partly stale,” provide the notes and ask Setup to inspect what already exists. A useful result may be a small project-context note plus one explicit unknown, not a complete architecture.
+
+### If the first result goes wrong
+
+For an ordinary-language standalone pass, say:
+
+~~~text
+Use Moon Source Setup in standalone mode.
+Inspect only the material I provide and recommend the smallest useful next step.
+~~~
+
+For repair, say:
+
+~~~text
+Inspect what already works, diagnose only the material problems,
+preserve the useful parts and show the smallest repair before changing anything.
+~~~
+
+### What this portable does not claim
+
+It does not require a parser, runtime, connector or whole-repository load; create permanent memory or synchronization by itself; assume reachable material is current or governing; or replace human authorization, privacy judgment or source ownership.
 
 ---
 
@@ -927,4 +963,3 @@ Remember:
 ---
 
 > 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
-

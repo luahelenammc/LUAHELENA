@@ -26,6 +26,63 @@
 - **adaptation policy:** share or adapt with appropriate credit, a license link and an indication of changes; do not imply endorsement
 - **claim ceiling:** a bounded contextual-reading method, not mind-reading, psychological diagnosis, validated interpersonal prediction or guaranteed recipient reaction
 
+## First use
+
+### What this is
+
+Be My Eyes is for messages, threads, screenshots, meeting notes, posts, drafts and other interactions where relationship, subtext, overread, likely reception or response posture matters. It reads the scene around the words without pretending to read hidden minds.
+
+### Do I install anything?
+
+No. Reading or pasting this file does not create visual access, retrieve private context or diagnose anyone. If the current AI surface cannot see an image or interface, attach the screenshot, paste the thread, transcribe the audio or describe the missing details.
+
+### Start here
+
+For a received or observed scene, say:
+
+```text
+Use Be My Eyes to read this scene.
+Separate what is observed, what is inferred, the plausible subtext,
+the risk of overreading, and what response posture would fit.
+
+Scene: [paste, attach or describe the material]
+```
+
+For an outgoing message or action, ask for an inverse read:
+
+```text
+Use Be My Eyes for an inverse read.
+Tell me how this may land, what is clear, what may be overread,
+and what response posture the draft invites.
+
+Draft: [paste the message or describe the action]
+```
+
+### What happens next
+
+The AI should reconstruct the scene, identify actors and relationship where supported, distinguish observation from inference, keep plausible subtext separate from fact, note unknowns and offer a proportionate response axis before polishing words.
+
+### Manual / unavailable capability boundary
+
+You may need to attach the screenshot, paste the thread, transcribe audio or describe missing visual details. Be My Eyes cannot retrieve private context the current surface cannot access and cannot send a response unless a separate authorized action exists. In a high-stakes situation, treat the reading as a working aid and seek stronger evidence or qualified help.
+
+### Tiny example
+
+For “Sure, send it over when you get a chance,” provide the surrounding thread if it matters and ask for a forward read. A useful result distinguishes literal acceptance, urgency, relationship context and the temptation to invent irritation that the sentence alone does not prove.
+
+### If the first result goes wrong
+
+Say:
+
+```text
+Redo this with four labels: observed, inferred, working hypothesis, unknown.
+List the evidence for each inference and identify any likely overread.
+```
+
+### What this portable does not claim
+
+It does not provide access to hidden motives or internal states, psychological diagnosis, guaranteed reception or a substitute for evidence, consent or professional judgment.
+
 ## 1. What this portable does
 
 **Be My Eyes** helps an AI read human communication as a **scene**, not as isolated sentences.

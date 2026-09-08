@@ -41,6 +41,50 @@
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
 
+## First use
+
+### What this is
+
+Chat–Work is an instruction-level routing and closure protocol. It helps an AI read the task, separate surface, model, reasoning effort, capability and context, coordinate execution across Chat, Work and optional Codex, and return a decision-bearing result for acceptance.
+
+### Do I install anything?
+
+No. Loading or attaching this file does not install a native ChatGPT router, create privileged OpenAI access or switch a surface, model or reasoning setting. The protocol can only use capabilities that the current product surface actually exposes.
+
+### Start here
+
+Read this canonical file and say:
+
+```text
+Read and apply the Chat–Work Routing Protocol to this task.
+Start in AUTO.
+Before execution, tell me the recommended surface/model/reasoning route and clearly tell me if I need to make any manual switch in the UI.
+
+Task: [describe what you want done]
+```
+
+You do not need a frontier model just to initialize the protocol. Start in Chat with a sufficiently capable, sustainable model and let the protocol escalate only when the task's capability floor or reasoning demand actually requires it.
+
+### What happens next
+
+The protocol should disclose the route that materially shaped the decision, prepare a bounded handoff when another surface is needed, distinguish a requested switch from a switch that actually occurred, let the executor produce the work and return the result to Chat for postflight, acceptance and closure.
+
+### Manual / unavailable capability boundary
+
+You may need to change the surface, model or reasoning setting manually, attach the canonical file, approve an external action or provide a connector/source. `AUTO` means “let the protocol route this task”; it does not mean the interface will switch itself. If a surface or model is unavailable, the protocol must say so and give the closest honest route rather than pretending that a switch happened.
+
+### Tiny example
+
+For a multi-file documentation change, ask Chat–Work to recommend the execution route, make any UI change it identifies, let the available executor perform the bounded edit and return the result to Chat for verification and closure. The presence of a ZIP or a prestigious model label does not decide the route by itself.
+
+### If the first result goes wrong
+
+If the response only audits the session, provide a concrete task and explicitly ask it to apply the protocol operationally. If the route is too expensive or overbuilt, ask for the smallest sustainable route that still passes the task's capability floor and preserves the return/closure loop.
+
+### What this portable does not claim
+
+It does not guarantee access to Work, Codex or frontier models, automatic model or surface switching, entitlement or allowance changes, universal token savings or quality gains, or that model routing itself was invented here.
+
 ## 1. Mother law and core sentence
 
 > **Executor completion is not cycle completion. Execution returns; Chat closes the loop.**

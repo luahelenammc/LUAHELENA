@@ -20,6 +20,57 @@
 
 > **Attribution and license:** if you share, reuse, adapt, fork, or teach from this portable, preserve clear credit to **Lua Helena Moon Martins Cardoso / Moon Source**, link **CC BY 4.0**, indicate material changes and keep visible lineage for later adaptations.
 
+## First use
+
+### What this is
+
+Moon Source Language helps a person or AI decide what form a piece of context has earned: a source, handoff, packet, procedure, protocol, registry or archive. It is a method and grammar, not a parser, runtime or universal standard.
+
+### Do I install anything?
+
+No. Reading or pasting this file does not install a runtime, memory system, synchronization service or governance engine. MSL can be applied directly to material you provide; it does not store, publish or govern that material by itself.
+
+### Start here
+
+Give the material to an AI and say:
+
+```text
+Use Moon Source Language for this material.
+First identify what the material needs to do, who must rely on it,
+and what must remain uncertain. Choose the smallest proportionate form.
+Do not introduce a maximal schema unless the material earns it.
+
+Material: [paste or attach the notes, facts or draft]
+```
+
+Begin with field before form, facts before interpretation, responsibility before decoration and decision before operation. You do not need to learn the whole grammar before receiving a useful result.
+
+### What happens next
+
+The AI may recommend a short handoff, decision record, source note, procedure, protocol, registry or archive. It should preserve unresolved facts as explicit unknowns and avoid freezing exploratory material into rigid structure merely because a schema is available.
+
+### Manual / unavailable capability boundary
+
+You may need to choose the destination, provide missing facts, approve the form, save it in the right source or run a later freshness check. MSL does not invent a source authority, owner, deadline or decision merely to complete a template.
+
+### Tiny example
+
+If the notes say that Jo owns the rollout, the team agreed to start next week, the deadline is missing and the source link is unchecked, a short handoff or decision record is proportionate. A registry or full operational protocol has not yet been earned.
+
+### If the first result goes wrong
+
+Say:
+
+```text
+Use the smallest MSL form that can carry the current responsibility.
+Preserve unresolved facts as explicit unknowns.
+Do not create a maximal schema, registry or protocol yet.
+```
+
+### What this portable does not claim
+
+It is not a programming-language runtime or universal data standard, does not automatically create durable memory or synchronized sources, and does not replace human authority, provenance or freshness checks.
+
 ---
 
 ## 1. What Moon Source is
