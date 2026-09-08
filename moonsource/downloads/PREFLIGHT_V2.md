@@ -380,7 +380,7 @@ When the reconstructed task materially depends on governed context, activate the
 - [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) for intellectual lineage, custody, permission and derivative boundaries;
 - [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) for consequential execution, failures, state changes and receipts;
 - [Signal Calibration](../../docs/SIGNAL_CALIBRATION.md) when the unresolved issue is inference from weak or convergent signals;
-- [Field to Form](../../docs/FIELD_TO_FORM.md) when the real problem is what structure the field deserves;
+- [🏗️ Field-to-Form diagnostic](../../ARCHITECTURE.md#field-to-form) when the real problem is what structure the field deserves;
 - [Chat–Work Routing](../chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md) when execution surface, model or reasoning effort materially affects the work.
 
 Preflight should route to specialized governance rather than swallowing it.
@@ -480,7 +480,7 @@ The later correction supersedes literal global shortening.
 Outcome = continuity across AI instances.
 The user delegated form selection.
 → reconstruct the needed transport contract.
-→ route to Field to Form / Responsibility Map only if needed.
+→ route to the Field-to-Form diagnostic / Responsibility Map only if needed.
 → do not ask the user to choose between Moon Source artifact names.
 ```
 
@@ -529,7 +529,7 @@ Preflight fails when it becomes:
 |---|---|---|
 | [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) | Personal/project setup and context routing | Its Adaptive Preflight is a specialization of the broader reconstruction principle. |
 | [Signal Calibration](../../docs/SIGNAL_CALIBRATION.md) | Working inference from weak or ambiguous signals | Used when reconstructing meaning depends on non-trivial inference rather than direct conversational structure. |
-| [Field to Form](../../docs/FIELD_TO_FORM.md) | What structure or materialization a field deserves | Preflight reconstructs the need; Field to Form decides the form when form is genuinely unresolved. |
+| [🏗️ Field-to-Form diagnostic](../../ARCHITECTURE.md#field-to-form) | What structure or materialization a field deserves | Preflight reconstructs the need; the Field-to-Form diagnostic decides the form when form is genuinely unresolved. |
 | [Responsibility Map](../../docs/RESPONSIBILITY_MAP.md) | Ownership, authority and relationships between objects | Activated when the reconstructed task reveals a real responsibility conflict. |
 | [Connected Sources](../../docs/CONNECTED_SOURCES.md) | Connector-aware source operation | Activated when external source access materially matters. |
 | [Source Operations](../../docs/SOURCE_OPERATIONS.md) | Retrieve, process, metabolize and promote | Activated when the request is an operation on governed source material. |
