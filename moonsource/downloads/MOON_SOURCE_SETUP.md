@@ -496,7 +496,7 @@ When repository-aware, use the smallest relevant set:
 | Situation | First public reference |
 |---|---|
 | Simple personal calibration | This Setup |
-| Field unclear or structure not yet chosen | docs/FIELD_TO_FORM.md |
+| Field unclear or structure not yet chosen | ARCHITECTURE.md#field-to-form |
 | Ownership, authority or duplicated responsibility is unclear | docs/RESPONSIBILITY_MAP.md |
 | Existing context is stale, contradictory, duplicated or bloated | docs/SOURCE_HYGIENE.md |
 | A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
@@ -520,7 +520,7 @@ Recognize ordinary-language needs semantically:
 |---|---|
 | “I just want AI to stop sounding generic with me.” | Setup alone |
 | “I have several documents and do not know which should be the source of truth.” | Responsibility Map |
-| “I have lots of material and do not know what structure it needs.” | Field to Form |
+| “I have lots of material and do not know what structure it needs.” | Field-to-Form diagnostic |
 | “My instructions are huge, contradictory or stale.” | Source Hygiene |
 | “I need a reusable structure for this.” | MSL 4.3, but only after the field earns materialization |
 | “I need to move this context to another AI, person or thread.” | Responsibility Map plus MSL as needed |
@@ -558,7 +558,7 @@ Possible outcomes:
 - convert a snapshot into an updateable source;
 - create a bounded handoff or packet;
 - route to Source Hygiene;
-- route to Field to Form;
+- route to the Field-to-Form diagnostic;
 - replace an obsolete structure only when the evidence and authority justify it.
 
 Current user correction overrides stored context. Unknown information may remain unknown.
