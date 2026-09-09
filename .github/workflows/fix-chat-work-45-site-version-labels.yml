@@ -1,0 +1,48 @@
+name: Fix Chat-Work 4.5 site version labels
+
+on:
+  push:
+    branches:
+      - fix/chat-work-45-site-version-labels-20260909
+    paths:
+      - .github/workflows/fix-chat-work-45-site-version-labels.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/chat-work-45-site-version-labels-20260909
+          fetch-depth: 0
+
+      - name: Advance Chat–Work visible version labels only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('moonsource/index.html')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              ('MSL 5.0 · Chat–Work 4.4-public', 'MSL 5.0 · Chat–Work 4.5-public'),
+              ('<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.4-public</span>', '<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.5-public</span>'),
+          ]
+          for old, new in replacements:
+              if text.count(old) != 1:
+                  raise SystemExit(f'expected exactly one match for {old!r}, got {text.count(old)}')
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          if 'Chat–Work 4.4-public' in text or '<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.4-public</span>' in text:
+              raise SystemExit('stale Chat–Work 4.4 site label remains')
+          PY
+
+      - name: Remove one-shot workflow and commit
+        run: |
+          rm .github/workflows/fix-chat-work-45-site-version-labels.yml
+          git config user.name "luahelena-site-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix Chat–Work 4.5 site version labels"
+          git push origin HEAD:fix/chat-work-45-site-version-labels-20260909
