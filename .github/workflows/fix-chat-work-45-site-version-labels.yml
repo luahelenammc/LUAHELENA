@@ -25,16 +25,14 @@ jobs:
           from pathlib import Path
           path = Path('moonsource/index.html')
           text = path.read_text(encoding='utf-8')
-          replacements = [
-              ('MSL 5.0 · Chat–Work 4.4-public', 'MSL 5.0 · Chat–Work 4.5-public'),
-              ('<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.4-public</span>', '<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.5-public</span>'),
-          ]
-          for old, new in replacements:
-              if text.count(old) != 1:
-                  raise SystemExit(f'expected exactly one match for {old!r}, got {text.count(old)}')
-              text = text.replace(old, new, 1)
+          old = '4.4-public'
+          new = '4.5-public'
+          count = text.count(old)
+          if count != 2:
+              raise SystemExit(f'expected exactly two stale Chat–Work 4.4 labels, got {count}')
+          text = text.replace(old, new)
           path.write_text(text, encoding='utf-8')
-          if 'Chat–Work 4.4-public' in text or '<span class="tag">Chat–Work Routing Protocol</span><span class="version">4.4-public</span>' in text:
+          if old in text:
               raise SystemExit('stale Chat–Work 4.4 site label remains')
           PY
 
@@ -47,4 +45,4 @@ jobs:
           git commit -m "Fix Chat–Work 4.5 site version labels"
           git push origin HEAD:fix/chat-work-45-site-version-labels-20260909
 
-# one-shot trigger
+# retry trigger
