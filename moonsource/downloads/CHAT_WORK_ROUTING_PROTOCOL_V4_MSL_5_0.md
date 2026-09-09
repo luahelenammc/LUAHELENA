@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 4.9
+## Public Portable Edition · Version 5.0
 
 ## Meta
 
@@ -10,18 +10,18 @@
 - **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_9.md
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_5_0.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 4.9
+- **version:** 5.0
 - **language:** English
 - **protocol semantics as of:** 2026-09-09
 - **product/model calibration as of:** 2026-09-09; recheck official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 4.8; 4.9 adds an auditable Decision Trace for material higher-tier rulings while preserving the boundary against hidden chain-of-thought or private scratchpad extraction
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 4.9.
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol 4.9; 5.0 adds an optional explicitly activated Sprint Mode and a bounded Decision Sprint sibling-delta exception while preserving the boundary against hidden chain-of-thought or private scratchpad extraction
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.0.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -36,7 +36,7 @@
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
-7. Capability economics, effort, distillation and frontier control
+7. Capability economics, effort, distillation, Sprint and frontier control
 8. Handoff, return and Chat Postflight
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
@@ -45,7 +45,7 @@
 
 ### What this is
 
-Chat–Work is an instruction-level routing and closure protocol. It helps an AI read the task, separate surface, model, reasoning effort, capability and context, coordinate execution across Chat, Work and optional Codex, and return a decision-bearing result for acceptance.
+Chat–Work is an instruction-level routing and closure protocol. It helps an AI read the task, separate surface, model, reasoning effort, capability and context, coordinate execution across Chat, Work and optional Codex, and return a decision-bearing result for acceptance. Its optional Sprint Mode is an explicitly activated, ephemeral run-level pacing overlay for a finite objective; it does not create a native product feature or expose allowance economics.
 
 ### Do I install anything?
 
@@ -69,6 +69,24 @@ You do not need a frontier model just to initialize the protocol. Start in Chat 
 
 The protocol should disclose the route that materially shaped the decision, prepare a bounded handoff when another surface is needed, distinguish a requested switch from a switch that actually occurred, let the executor produce the work and return the result to Chat for postflight, acceptance and closure.
 
+### Optional Sprint Mode
+
+Sprint Mode is a run-level resource and pacing overlay, not a fourth setup mode, capability tier, model, persistent profile or native ChatGPT feature. It may activate only through `explicit_user` activation or `recommended_then_user_confirmed` activation. It ends when the objective or explicit stop condition is reached, resources or authority block continuation, the user disables it or Chat Postflight begins.
+
+Use it only with a named objective, a finite docket or bounded execution envelope and a visible stop condition:
+
+```text
+Use Chat–Work in Sprint Mode for this task.
+Objective: [one sovereign objective]
+Docket: [finite pre-named items, if applicable]
+Stop when: [acceptance boundary, horizon or blocking condition]
+Return the Sprint Receipt and perform Chat Postflight.
+```
+
+Short form: `Sprint this bounded docket: [items]. Stop when [condition].`
+
+Sprint Mode may account qualitatively for perishable capacity whose future value can fall after a stated or otherwise evidenced horizon. It must optimize verified useful delta before that horizon, not spend for its own sake, and must not invent prices, reset times, allowance visibility, guaranteed savings or guaranteed fuller use.
+
 ### Manual / unavailable capability boundary
 
 You may need to change the surface, model or reasoning setting manually, attach the canonical file, approve an external action or provide a connector/source. `AUTO` means “let the protocol route this task”; it does not mean the interface will switch itself. If a surface or model is unavailable, the protocol must say so and give the closest honest route rather than pretending that a switch happened.
@@ -83,7 +101,7 @@ If the response only audits the session, provide a concrete task and explicitly 
 
 ### What this portable does not claim
 
-It does not guarantee access to Work, Codex or frontier models, automatic model or surface switching, entitlement or allowance changes, universal token savings or quality gains, or that model routing itself was invented here.
+It does not guarantee access to Work, Codex or frontier models, automatic model or surface switching, silent Sprint activation, visibility into entitlement/allowance/reset state, universal token savings or quality gains, fuller use of a quota, or that model routing itself was invented here.
 
 ## 1. Mother law and core sentence
 
@@ -93,7 +111,7 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, and V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, and V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception:
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
@@ -132,6 +150,8 @@ The protocol supports three setup modes:
 - **RUN_OVERRIDE** — temporarily override one or more profile fields for the current run without mutating the reusable profile.
 
 Do not turn setup into questionnaire debt. Unknown fields may remain `unknown` until they matter.
+
+Sprint Mode is not a fourth setup mode. It is a conditional run-level overlay that may be attached to AUTO, PROFILE or RUN_OVERRIDE only after the user explicitly activates it or confirms a recommendation. It must never be inferred from a deadline, a plan label, an allowance signal or an executor's preference.
 
 ### 2.2.1 First-use defaults and AUTO disclosure
 
@@ -273,6 +293,8 @@ run_state:
   surfaces_observed: unknown
   models_observed: unknown
   urgency: normal
+  sprint_active: false
+  sprint_reason: null
   interruption_risk: unknown
   resource_pools:
     agentic:
@@ -436,7 +458,7 @@ When several objects are present, decompose the task into explicit stages and na
 
 ## 5. Routing dimensions
 
-The protocol records eight routing dimensions:
+The protocol records eight routing dimensions plus an optional Sprint overlay:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
@@ -463,6 +485,8 @@ Record one stable operation mode in the Route Card and Execution Handoff:
 - `ROUTE_ONLY` — use when the user asks only for routing or handoff, the executor is unavailable or execution authority is absent;
 - `AUDIT_ROUTE` — use when reviewing a previous route, handoff, model/surface decision or Chat Postflight route audit.
 
+Sprint Mode does not add an operation mode. It overlays one of these modes for the current run and must be disclosed separately as `Sprint: ON` with its activation, objective, budget character and stop condition.
+
 ### Route Card
 
 For non-trivial tasks, manifest routing in a compact form:
@@ -480,6 +504,8 @@ Next boundary: return receipt → Chat Postflight
 ```
 
 The card must state the selected surface, why it fits, operation mode, capability tier, reasoning effort, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
+
+When Sprint Mode is active, the Route Card also states the finite docket or bounded envelope, whether capacity is perishable or otherwise bounded, the lower-tier re-entry owner and the fact that the overlay exits at the stated stop boundary or Chat Postflight.
 
 ## 6. Availability and Capability Floor
 
@@ -553,6 +579,39 @@ A resource-constrained profile should first remove waste, not intelligence that 
 6. narrow high-capability bursts for the irreducible hard slice.
 
 The final item is governed by the Intelligence Distillation Ladder below. It is not a frontier-only instruction and does not authorize sending the whole task to a stronger tier.
+
+### Sprint Mode law
+
+Sprint Mode is an optional, explicitly activated, ephemeral run-level resource and pacing overlay. It is not a new operation mode, model, capability tier, entitlement, persistent profile or native product feature. It may be attached to AUTO, PROFILE or RUN_OVERRIDE only when:
+
+1. the user directly activates it (`explicit_user`); or
+2. the router recommends it and the user confirms it (`recommended_then_user_confirmed`).
+
+The router must not silently activate Sprint Mode because a task is urgent, a plan has a particular label, capacity appears available or a model prefers a broader run. A recommendation is not activation. If confirmation is absent, Sprint remains off.
+
+An active Sprint requires a single sovereign objective, a finite docket or bounded execution envelope, a named stop condition and a return receipt. It exits when the objective or stop condition is reached, the resource or authority boundary blocks continuation, the user disables it or Chat Postflight begins. It does not persist into a later run unless separately activated again.
+
+```yaml
+sprint_envelope:
+  active: false
+  activation: none | explicit_user | recommended_then_user_confirmed
+  sprint_kind: decision | bounded_execution | other
+  objective: null
+  horizon: unknown
+  budget_character: unknown | bounded_allocated | perishable
+  docket:
+    finite: true
+    items: []
+  optimization_target: verified_useful_delta_before_horizon
+  stop_condition: null
+  exit_policy: ephemeral_run_only
+```
+
+When capacity is explicitly known to be perishable, or its future value is otherwise shown to fall after a stated horizon, unused capacity can have lower future value. The router may then prioritize verified useful delta before that horizon inside the authorized envelope. This qualitative law does not authorize invented prices, reset times, allowance visibility or economic constants.
+
+> **Spend is not the objective. Verified useful delta is the objective.**
+
+Budget Survivability still governs Sprint Mode. Perishable capacity can justify a bounded `PASS_FRONTIER_BURST` or another higher-capability slice only when the named delta, capability floor, verification and stop condition survive the gate. It never justifies waste, open-ended scope, automatic escalation or physical fanout by itself.
 
 ## 8. Context Diet
 
@@ -757,6 +816,47 @@ Recovery order for `scope_amplification_failure`:
 
 > **Scope blowout is not itself evidence that the delta needs a stronger model. Constrain first; escalate only if the bounded delta still exceeds the current route.**
 
+#### Decision Sprint: bounded sibling-delta exception
+
+The ordinary IDL default remains one irreducible delta. Sprint Mode may use a **Decision Sprint** only as a narrow sibling-delta exception when all of the following are true:
+
+1. there is one sovereign objective and one governing authority/context;
+2. every docket item is pre-named before execution;
+3. the docket is finite and has an explicit stop condition;
+4. cross-item consistency materially matters;
+5. splitting the items would create meaningful repeated context/reconstruction cost or lose coherence;
+6. each item can independently resolve, defer, remain frozen or be rejected without silently deciding its siblings;
+7. newly discovered classes do not join the docket automatically;
+8. material decisions use the Decision Trace contract below when its trigger fires;
+9. lower-tier implementation or verification and Chat Postflight remain available;
+10. Sprint Mode was explicitly activated or recommended and confirmed by the user.
+
+This exception permits logical plurality, not automatic physical fanout. Native agents, branches and worktrees still require the Native Parallelism Gate. A Decision Sprint is not permission to turn a finite docket into an exhaustive investigation.
+
+Each docket item returns exactly one of these statuses:
+
+- `DECIDE_NOW` — decide inside the current bounded envelope;
+- `DEFER_TO_EVIDENCE` — name the decision rule, the exact missing evidence and the re-entry condition;
+- `ALREADY_FROZEN` — preserve the existing decision unless the named re-entry condition or new governing evidence changes it;
+- `OUT_OF_SCOPE` — do not execute it inside this Sprint or add it to the docket by discovery.
+
+Before return, run one cross-item consistency pass against the sovereign objective, authority, constraints, acceptance boundary and stop condition. The pass does not require uniform answers; it requires that the answers do not silently contradict the shared frame.
+
+```yaml
+decision_sprint:
+  active: false
+  sovereign_object: null
+  authority_or_context: null
+  docket:
+    - item_id: null
+      status: DECIDE_NOW | DEFER_TO_EVIDENCE | ALREADY_FROZEN | OUT_OF_SCOPE
+      decision_rule: null
+      missing_evidence: null
+      reentry_condition: null
+  cross_item_consistency_passed: unknown
+  stop_condition: null
+```
+
 #### Tier ROI and No Mandatory Staircase
 
 **Capability tiers are not toll booths.** The router need not attempt every intermediate tier. All of these are legal when the selected target is the least-expensive available tier reasonably expected to resolve the specific delta and Budget Survivability passes:
@@ -802,6 +902,8 @@ A compact Return Capsule is sufficient for routine rulings. When a higher-tier r
 > **Show the decision boundary, not the private deliberation.**
 
 A Decision Trace is a decision-bearing summary. It is **not** chain-of-thought, a hidden scratchpad, a token-by-token rationale or a transcript of private reasoning. The protocol never requires a model to expose unavailable or protected internal reasoning.
+
+When a Decision Sprint is active, apply this contract independently to every materially consequential docket item whose trigger fires. A shared consistency pass does not replace the item-level trace, and the trace never authorizes hidden reasoning disclosure.
 
 ```yaml
 decision_trace:
@@ -907,6 +1009,8 @@ Use the IDL Decision Capsule, Return Capsule and, when triggered, Decision Trace
 
 A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, sustained frontier capability is materially load-bearing and salvage/checkpoints exist. When the selected frontier route shows literal scope-expansion pressure, apply the Bounded Exhaustiveness Guard before authorizing the run.
 
+An explicitly activated Sprint may justify a bounded frontier burst when capacity is perishable and the frontier slice is the least-cost route expected to produce verified useful delta before the horizon. The burst remains bounded by the Sprint objective, docket, Decision Capsule or Decision Sprint contract, stop condition and downstream verification; it does not authorize spending merely to consume capacity or continuing after the Sprint exit boundary.
+
 ## 13. Native Parallelism Gate
 
 Use physical agents, branches or worktrees only when:
@@ -941,6 +1045,8 @@ A ready handoff contains:
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
 When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary, whether a Decision Trace is required and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
+
+When Sprint Mode is active, the handoff additionally names the activation path, Sprint kind, sovereign objective, budget character, finite docket or bounded envelope, stop condition, exit policy, lower-tier re-entry owner and required Sprint Receipt. These fields are run-level and ephemeral; they do not become profile defaults.
 
 ```yaml
 distillation:
@@ -991,6 +1097,9 @@ execution_handoff:
 
   run_state:
     allowance_state: unknown
+    sprint_active: false
+    sprint_reason: null
+    reset_horizon: unknown
     surfaces_observed: unknown
     models_observed: unknown
     resource_pools:
@@ -1014,6 +1123,17 @@ execution_handoff:
     capability_tier: null
     reasoning_effort: null
     budget_outcome: null
+
+  sprint_envelope:
+    active: false
+    activation: none
+    sprint_kind: null
+    objective: null
+    budget_character: unknown
+    docket: null
+    stop_condition: null
+    exit_policy: ephemeral_run_only
+    lower_tier_reentry: null
 
   distillation:
     active: false
@@ -1089,10 +1209,38 @@ Every executor returns an evidence-bearing receipt with:
 - **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**;
 - when a source transport was used, the governing source or family, locator/facet, requested operation, coverage, freshness or revision, mutation authorization, readback result and fallback state;
 - when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state.
+- when Sprint Mode was active or recommended, the Sprint Receipt, activation evidence, docket statuses, consistency result, stop/exit state and lower-tier re-entry state.
 
 A successful tool response proves only that tool response, not completion of the objective.
 
 Historical V2/V3/V4.0 receipts remain valid lineage records and are not rewritten.
+
+### Sprint Receipt
+
+When Sprint Mode is active or was active during the executor run, return at least this evidence-bearing closure object. A receipt may report `sprint_active: false` after the overlay exits; that is not evidence that Sprint was silently carried forward.
+
+```yaml
+sprint_receipt:
+  sprint_active: false
+  activation: none | explicit_user | recommended_then_user_confirmed
+  sprint_kind: null
+  objective: null
+  budget_character: unknown | bounded_allocated | perishable
+  docket:
+    resolved: []
+    deferred: []
+    already_frozen: []
+    out_of_scope: []
+  cross_item_consistency_passed: unknown
+  stop_condition_reached: false
+  material_decision_traces_present: false
+  claim_ceiling: null
+  next_surface: null
+  lower_tier_reentry: null
+  postflight_required: true
+```
+
+`DEFER_TO_EVIDENCE` entries are incomplete unless their decision rule, exact missing evidence and re-entry condition are carried in the receipt or an attached item record. Capacity consumption is not a completion signal; Chat Postflight must refresh the observable state and accept, repair or re-enter the route.
 
 ## 17. Chat Postflight
 
@@ -1103,7 +1251,8 @@ Chat Postflight is mandatory after an executor returns.
 3. **Audit route against profile.** Confirm that profile preferences and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
 4. **Classify residuals.** `none | bounded_chat_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`.
 5. **If an IDL ruling returned, integrate and verify it.** When the Decision Trace trigger fired, inspect the decisive comparison, adversarial correction, falsifier/test and uncertainty before treating the ruling as governing. A ruling does not replace implementation, mutation checks or downstream verification.
-6. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
+6. **If Sprint Mode was active, audit the Sprint Receipt.** Confirm explicit or confirmed activation, the finite docket, each item status, any required item-level Decision Trace, the cross-item consistency pass, the stop condition and ephemeral exit. Do not treat capacity consumed or capacity left unused as completion by itself.
+7. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
 
 ## 18. Acceptance states
 
@@ -1119,7 +1268,7 @@ Chat Postflight is mandatory after an executor returns.
 Complex work uses:
 
 0. **Profile resolution and reconnaissance** — resolve profile, live state, sources and availability;
-1. **Hard judgment** — capability floor, route, effort, budget and acceptance;
+1. **Hard judgment** — capability floor, route, effort, budget and acceptance; activate Sprint only through explicit user activation or confirmed recommendation and compile its bounded envelope;
 2. **Bounded mutation** — smallest authorized source delta;
 3. **Verification** — tests, validators, readback, hashes or runtime checks;
 4. **Chat Postflight** — refresh, audit, repair/classify, accept or re-enter.
@@ -1137,6 +1286,7 @@ Classify failures as:
 - `context_failure`
 - `workflow_or_fanout_failure`
 - `scope_amplification_failure`
+- `sprint_boundary_failure`
 - `budget_or_resource_failure`
 - `cognitive_failure`
 
@@ -1170,16 +1320,17 @@ Preferred fallback order, subject to capability floor:
 8. request allowance, credits or user decision;
 9. stop with a truthful blocked receipt.
 
-The smallest unresolved delta determines re-entry.
+The smallest unresolved delta determines re-entry. A Sprint overlay does not carry forward automatically; a later run must activate it again.
 
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `4.9` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `4.8` is superseded by this subversion and remains recoverable through Git history;
+- `5.0` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `4.9` is superseded by this subversion and remains recoverable through Git history;
 - earlier 4.x subversions remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical V4 file; website delivery is a separate mirror surface and may lag until its own verified sync;
-- MSL is currently 5.1; this protocol remains independently versioned at 4.9;
+- MSL is currently 5.1; this protocol remains independently versioned at 5.0;
+- Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
 ## 23. Safe operating rules
@@ -1207,6 +1358,12 @@ The smallest unresolved delta determines re-entry.
 - Never convert anecdotes into universal cost ratios.
 - Never claim hidden reasoning was recovered during salvage.
 - Apply the IDL mother law: escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, preserve the smallest auditable decision trace that makes the ruling inspectable.
+- Keep ordinary IDL singular by default; use a Decision Sprint sibling-delta exception only for one sovereign objective, one authority/context, a finite pre-named docket, material consistency need, meaningful reconstruction cost, independent item statuses, explicit stop, lower-tier re-entry and user activation/confirmation.
+- Require `DECIDE_NOW`, `DEFER_TO_EVIDENCE`, `ALREADY_FROZEN` or `OUT_OF_SCOPE` for each Decision Sprint item; `DEFER_TO_EVIDENCE` must carry its decision rule, exact missing evidence and re-entry condition.
+- Treat logical plurality as distinct from physical fanout; Sprint Mode does not waive the Native Parallelism Gate.
+- Never silently activate Sprint Mode, carry it into a later run, or turn perishable capacity into an invented price, reset fact, quota guarantee or reason to spend.
+- Optimize verified useful delta before a real or evidenced horizon; spend is not the objective, and unused capacity is not a failure by itself.
+- Return a Sprint Receipt with claim ceiling, docket disposition, consistency result, stop state, lower-tier re-entry and `postflight_required: true`; Chat Postflight must independently refresh and close the run.
 - Chat closes the loop.
 
 ## 24. Installation and use
@@ -1214,6 +1371,10 @@ The smallest unresolved delta determines re-entry.
 Attach or paste this file into ChatGPT and say:
 
 > Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, and, when that ruling could materially change route, architecture, governance, policy, acceptance or a stop condition, request the smallest auditable Decision Trace rather than a hidden reasoning transcript. Return to the lowest sufficient tier and verify. Before expensive frontier execution, compile open-ended completeness language into an explicit coverage mode, ceiling, stop condition and scope-expansion rule. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
+
+Optional Sprint activation:
+
+> Use Chat–Work in Sprint Mode for this task only. Activate only because I explicitly requested it. Objective: [one sovereign objective]. Docket: [finite pre-named items, if any]. Budget character: [perishable, bounded or unknown]. Stop when: [acceptance boundary, horizon or block]. Return the Sprint Receipt, preserve item-level Decision Traces when material, exit the overlay after the run and perform Chat Postflight.
 
 Optional reusable setup:
 
@@ -1247,11 +1408,11 @@ Change only the fields that matter to you. The router can leave the rest adaptiv
 
 This portable is a public projection of the Moon Source architecture, created by Lua Helena Moon Martins Cardoso (Moon) with AI-assisted coauthorial development by Áurion. It is licensed under CC BY 4.0 as described in the repository licensing guide.
 
-The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement or proof of adoption. It is not an OpenAI policy, native ChatGPT skill, universal benchmark, scientific validation or guarantee of safe execution. Decision Trace requests are bounded decision summaries and do not create access to hidden chain-of-thought, private scratchpads or unavailable internal model state.
+The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement, allowance/reset visibility or proof of adoption. It is not an OpenAI policy, native ChatGPT skill or native Sprint Mode feature, universal benchmark, scientific validation or guarantee of safe execution, savings, quota use or quality. Decision Trace requests are bounded decision summaries and do not create access to hidden chain-of-thought, private scratchpads or unavailable internal model state.
 
 ## Final Law
 
-> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
