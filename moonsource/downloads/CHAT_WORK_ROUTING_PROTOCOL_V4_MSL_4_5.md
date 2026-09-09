@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 4.4-public
+## Public Portable Edition · Version 4.5-public
 
 ## Meta
 
@@ -10,18 +10,18 @@
 - **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_4.md
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 4.4-public
+- **version:** 4.5-public
 - **language:** English
-- **protocol semantics as of:** 2026-09-07
-- **product/model calibration as of:** 2026-09-06; recheck official documentation before relying on volatile names, availability, limits or pricing
+- **protocol semantics as of:** 2026-09-09
+- **product/model calibration as of:** 2026-09-09; recheck official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol V4, version 4.3-public, while retaining the V4 public generation and canonical filename
-- **MSL dependency:** Moon Source Language 5.0; the protocol remains independently versioned at 4.4-public.
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, bounded exhaustiveness, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol V4, version 4.4-public, while retaining the V4 public generation and canonical filename
+- **MSL dependency:** Moon Source Language 5.0; the protocol remains independently versioned at 4.5-public.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -93,11 +93,13 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 adds a connector-aware source transport contract:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. V4.5 adds bounded exhaustiveness and scope-amplification recovery:
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
 > **Transport source references with authority, freshness and fallback; a locator is not authority.**
+
+> **Bound completeness before expensive execution; discovering scope is not permission to execute all of it.**
 
 This is a routing and closure protocol. It does not grant permissions, invent unavailable tools, guarantee a model result, or turn a plan, surface label or model preference into a capability that the current environment does not expose.
 
@@ -617,6 +619,8 @@ Useful current references:
 
 Community reports can reveal operational failure modes such as unexpectedly rapid allowance burn, but anecdotes never become fixed pricing or performance constants in the protocol.
 
+As a dated field calibration on 2026-09-09, a trusted community report described Astra expanding open-ended completeness instructions into very large edge-case and test sweeps. Treat this as anecdotal operational evidence, not a benchmark or universal model property. When Astra is selected for sustained or frontier execution, prefer explicit scope ceilings and stop conditions over vague requests to "be balanced."
+
 ## 11. Reasoning Effort Law
 
 Reasoning effort follows irreducible reasoning density, not emotional importance or model prestige.
@@ -716,6 +720,38 @@ decision_capsule:
 
 Do not carry the full conversation or repository merely because it is available. Exclude duplicated history, settled implementation bulk, raw tool logs, already-closed questions and speculative context without a named role. Compression is invalid if it removes load-bearing authority, constraints, evidence, uncertainty or provenance.
 
+#### Bounded Exhaustiveness Guard
+
+Open-ended completeness language can amplify scope even when the selected model is cognitively sufficient. Before expensive sustained execution or a frontier burst, compile phrases such as `all edge cases`, `exhaustive`, `fully comprehensive`, `cover everything` or equivalent wording into an explicit coverage contract.
+
+```yaml
+bounded_exhaustiveness:
+  coverage_mode: representative_risk_weighted | exhaustive_bounded
+  coverage_ceiling:
+    named_domains: []
+    max_new_case_classes: null
+    test_budget_or_growth_rule: null
+  stop_condition: null
+  scope_expansion: explicit_authorization_required
+  discovered_out_of_scope: defer_and_report
+```
+
+The default is `representative_risk_weighted`: cover the highest-risk and decision-relevant classes first, then stop when the named acceptance boundary is satisfied. Use `exhaustive_bounded` only when exhaustiveness is genuinely required and the bounded domain is explicit. "Be balanced" may be useful conversational guidance, but it is not a computable execution boundary and must not substitute for these fields when runaway completeness would be costly.
+
+Enumeration is not execution. A model may map a wider edge-case landscape without gaining authority to investigate, implement or test every discovered branch. Newly discovered classes outside the active ceiling go to `deferred_candidates` unless scope expansion is explicitly authorized.
+
+If the run materially expands investigation, testing or implementation beyond the decision-bearing delta without an explicit ceiling or authorization, classify the incident as `scope_amplification_failure`. This is distinct from `cognitive_failure` and from raw `budget_or_resource_failure`: resource burn may be a consequence of an unbounded objective rather than evidence that the model lacks capability.
+
+Recovery order for `scope_amplification_failure`:
+
+1. preserve verified work and salvageable artifacts;
+2. redistill the irreducible delta;
+3. narrow the coverage envelope;
+4. set an explicit stop condition and scope-expansion rule;
+5. resume on the same or lower sufficient tier unless independent evidence shows a genuine capability deficit.
+
+> **Scope blowout is not itself evidence that the delta needs a stronger model. Constrain first; escalate only if the bounded delta still exceeds the current route.**
+
 #### Tier ROI and No Mandatory Staircase
 
 **Capability tiers are not toll booths.** The router need not attempt every intermediate tier. All of these are legal when the selected target is the least-expensive available tier reasonably expected to resolve the specific delta and Budget Survivability passes:
@@ -785,6 +821,7 @@ distillation_receipt:
     ruling_resolved_delta: unknown
     underfit_after_burst: false
     overkill_suspected: false
+    scope_amplification_detected: false
     returned_to_lower_tier: true
 
   verification:
@@ -811,7 +848,7 @@ Under constrained resources, prefer:
 
 Use the IDL Decision Capsule and Return Capsule contracts. The frontier call should make one bounded ruling; retrieval, file mutation, formatting and routine verification remain with the cheaper adequate route.
 
-A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, sustained frontier capability is materially load-bearing and salvage/checkpoints exist.
+A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, sustained frontier capability is materially load-bearing and salvage/checkpoints exist. When the selected frontier route shows literal scope-expansion pressure, apply the Bounded Exhaustiveness Guard before authorizing the run.
 
 ## 13. Native Parallelism Gate
 
@@ -846,7 +883,7 @@ A ready handoff contains:
 
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
-When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier and the Return Capsule boundary. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
+When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
 
 ```yaml
 distillation:
@@ -855,6 +892,10 @@ distillation:
   unresolved_question: null
   target_tier: null
   decision_capsule: null
+  coverage_mode: representative_risk_weighted
+  coverage_ceiling: null
+  stop_condition: null
+  scope_expansion: explicit_authorization_required
   return_capsule_required: false
 ```
 
@@ -921,6 +962,10 @@ execution_handoff:
     delta_id: null
     target_tier: null
     decision_capsule: null
+    coverage_mode: representative_risk_weighted
+    coverage_ceiling: null
+    stop_condition: null
+    scope_expansion: explicit_authorization_required
     return_capsule: null
     reentry_owner: null
 
@@ -1031,6 +1076,7 @@ Classify failures as:
 - `tool_or_environment_failure`
 - `context_failure`
 - `workflow_or_fanout_failure`
+- `scope_amplification_failure`
 - `budget_or_resource_failure`
 - `cognitive_failure`
 
@@ -1043,7 +1089,8 @@ When execution stops:
 3. distinguish observable evidence from unavailable private reasoning;
 4. reconstruct only the missing delta;
 5. reroute according to the current profile and Run State;
-6. record a Budget Incident Receipt when resource conditions materially shaped the failure.
+6. if scope amplification occurred, redistill and bound coverage before retry;
+7. record a Budget Incident Receipt when resource conditions materially shaped the failure.
 
 ### Budget Incident Receipt
 
@@ -1068,12 +1115,12 @@ The smallest unresolved delta determines re-entry.
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `4.4-public` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `4.3-public` is superseded by this subversion and remains recoverable through Git history;
-- `4.2-public`, `4.1-public` and earlier 4.x subversions remain historical lineage recoverable through Git history;
+- `4.5-public` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `4.4-public` is superseded by this subversion and remains recoverable through Git history;
+- `4.3-public`, `4.2-public`, `4.1-public` and earlier 4.x subversions remain historical lineage recoverable through Git history;
 - `4.0-public` and V3 remain historical lineage;
 - the live repository and website each expose one canonical V4 file;
-- MSL is currently 5.0; this protocol remains independently versioned at 4.4-public;
+- MSL is currently 5.0; this protocol remains independently versioned at 4.5-public;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
 ## 23. Safe operating rules
@@ -1087,6 +1134,7 @@ The smallest unresolved delta determines re-entry.
 - Enforce capability floor before honoring model preference.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
 - Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
+- Compile open-ended completeness into a bounded coverage mode, ceiling, stop condition and explicit scope-expansion rule before expensive sustained or frontier execution.
 - Treat capability tiers as non-ritual; do not force a mandatory staircase.
 - Treat connector access as access, not authority.
 - When source-backed work is routed, transport governing source/family, locator, facet, operation, coverage, freshness, mutation authorization, readback and an explicit fallback; never treat a locator as authority.
@@ -1105,7 +1153,7 @@ The smallest unresolved delta determines re-entry.
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, return to the lowest sufficient tier and verify. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
+> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, return to the lowest sufficient tier and verify. Before expensive frontier execution, compile open-ended completeness language into an explicit coverage mode, ceiling, stop condition and scope-expansion rule. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
 
 Optional reusable setup:
 
@@ -1143,7 +1191,7 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 ## Final Law
 
-> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Escalate only the irreducible delta and return only the decision-bearing delta. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
