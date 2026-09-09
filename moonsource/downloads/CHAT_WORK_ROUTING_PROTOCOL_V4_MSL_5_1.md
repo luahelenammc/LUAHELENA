@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 5.0
+## Public Portable Edition · Version 5.1
 
 ## Meta
 
@@ -10,18 +10,18 @@
 - **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_5_0.md
-- **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_5_1.md
+- **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 5.0
+- **version:** 5.1
 - **language:** English
 - **protocol semantics as of:** 2026-09-09
-- **product/model calibration as of:** 2026-09-09; recheck official documentation before relying on volatile names, availability, limits or pricing
+- **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 4.9; 5.0 adds an optional explicitly activated Sprint Mode and a bounded Decision Sprint sibling-delta exception while preserving the boundary against hidden chain-of-thought or private scratchpad extraction
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.0.
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol 5.0; 5.1 adds a model-neutral strategy-adapter boundary and the subordinate Astra Strategy Adapter while preserving Sprint, IDL, Decision Trace and the boundary against hidden chain-of-thought or private scratchpad extraction
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.1.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -36,7 +36,7 @@
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
-7. Capability economics, effort, distillation, Sprint and frontier control
+7. Capability economics, model strategy adapters, effort, distillation, Sprint and frontier control
 8. Handoff, return and Chat Postflight
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
@@ -111,7 +111,7 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, and V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception, and V5.1 adds a model-neutral strategy-adapter boundary with subordinate model-specific guidance:
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
@@ -658,31 +658,63 @@ Stable tiers are qualitative:
 - **strong:** difficult synthesis, architecture, debugging or high-consequence judgment;
 - **frontier:** work whose material value depends on the strongest available reasoning and whose resource posture can sustain it.
 
-As a dated calibration on 2026-09-06:
+The core intentionally does not encode a current model-to-surface mapping, plan
+behavior, allowance/reset fact, price, UI detail, tool exposure or model-specific
+ergonomic preference. Those are volatile Run State or subordinate adapter inputs,
+not stable routing law. Recheck the relevant official product documentation when
+such facts materially affect a route.
 
-| Tier | Illustrative current route |
-|---|---|
-| efficient | Luna |
-| balanced | Terra |
-| strong | Sol |
-| frontier | Astra |
+### Model Strategy Adapter Boundary
 
-This is not a permanent ranking, price table or plan guarantee. Current OpenAI documentation states that Chat, Work and Codex are distinct experiences; Work and Codex share the same usage structure; Plus includes limited Astra usage in Work and Codex as rollout permits; and Astra can consume allowance faster than Sol depending on task, input/output size, reasoning settings and Fast mode. Recheck official sources whenever volatile product facts affect routing.
+Chat–Work remains model-neutral. A named frontier model may have a subordinate
+strategy adapter that organizes model-specific role, autonomy, context/corpus
+geometry, coverage topology, direction-constraint density, mutation authority,
+return geometry, surface ergonomics and dated calibration. The adapter is
+optional guidance, not a second semantic authority, and it may be used only when
+the model and required surface are actually available.
 
-Useful current references:
+The adapter must be compiled from task geometry and observed capability rather
+than model prestige or stereotype. It may propose a strategy, but it cannot
+override user authority, source authority, safety, privacy, capability floor,
+scope ceiling, mutation permission, evidence, verification, claim ceiling,
+Native Parallelism Gate or Chat Postflight. On conflict, this canonical body
+wins.
 
-- https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex
-- https://learn.chatgpt.com/docs/pricing
-- https://learn.chatgpt.com/docs/models
-- https://developers.openai.com/api/docs/guides/reasoning
-- https://learn.chatgpt.com/docs/agent-configuration/agents-md
-- https://learn.chatgpt.com/docs/codex/cli
+Preserve these separations explicitly:
 
-Community reports can reveal operational failure modes such as unexpectedly rapid allowance burn, but anecdotes never become fixed pricing or performance constants in the protocol.
+> **Model capability does not determine autonomy geometry.**
 
-As a dated field calibration on 2026-09-09, a trusted community report described Astra expanding open-ended completeness instructions into very large edge-case and test sweeps. Treat this as anecdotal operational evidence, not a benchmark or universal model property. When Astra is selected for sustained or frontier execution, prefer explicit scope ceilings and stop conditions over vague requests to "be balanced."
+> **Reasoning depth is not execution autonomy.**
 
-**Calibration disclaimer:** distillation pressure is not permanent doctrine. If Astra or a successor frontier tier becomes materially cheaper or more efficient per verified useful delta, later dated revisions may loosen compression or coverage ceilings while preserving explicit stop conditions, scope authorization and capability-floor discipline.
+> **Context breadth is not mutation authority.**
+
+> **Frontier capability is not a frontier full run.**
+
+> **High autonomy is not unbounded scope.**
+
+> **Sprint is not an Astra mode.**
+
+> **Decision Trace is not Astra-only.**
+
+> **An IDL brain burst is one strategy, not a model's identity.**
+
+Decision Capsules and Return Capsules remain generic strategy instruments, not
+mandatory wrappers for every frontier invocation. Sprint remains a generic
+run-level overlay, Decision Trace remains model-neutral and physical fanout
+still obeys the Native Parallelism Gate. Direction-constraint density governs
+method freedom inside an authorized task; it never expands the objective or
+authority envelope.
+
+The current optional Astra strategy adapter is documented at
+[docs/CHAT_WORK_ASTRA_ADAPTER.md](../../docs/CHAT_WORK_ASTRA_ADAPTER.md). Its
+volatile notes are dated and replaceable; they cannot turn a temporary product
+observation into a permanent core rule.
+
+**Calibration disclaimer:** distillation pressure is not permanent doctrine. If a
+frontier tier becomes materially cheaper or more efficient per verified useful
+delta, a later dated adapter or protocol revision may loosen compression or
+coverage ceilings while preserving explicit stop conditions, scope authorization
+and capability-floor discipline.
 
 ## 11. Reasoning Effort Law
 
@@ -1325,11 +1357,12 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `5.0` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `4.9` is superseded by this subversion and remains recoverable through Git history;
+- `5.1` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `5.0` is superseded by this subversion and remains recoverable through Git history;
 - earlier 4.x subversions remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical V4 file; website delivery is a separate mirror surface and may lag until its own verified sync;
-- MSL is currently 5.1; this protocol remains independently versioned at 5.0;
+- MSL is currently 5.1; this protocol remains independently versioned at 5.1;
+- the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
