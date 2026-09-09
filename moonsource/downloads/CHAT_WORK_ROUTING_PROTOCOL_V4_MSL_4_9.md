@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 4.5-public
+## Public Portable Edition · Version 4.9
 
 ## Meta
 
@@ -10,18 +10,18 @@
 - **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_9.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 4.5-public
+- **version:** 4.9
 - **language:** English
 - **protocol semantics as of:** 2026-09-09
 - **product/model calibration as of:** 2026-09-09; recheck official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, bounded exhaustiveness, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol V4, version 4.4-public, while retaining the V4 public generation and canonical filename
-- **MSL dependency:** Moon Source Language 5.0; the protocol remains independently versioned at 4.5-public.
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol 4.8; 4.9 adds an auditable Decision Trace for material higher-tier rulings while preserving the boundary against hidden chain-of-thought or private scratchpad extraction
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 4.9.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -93,13 +93,15 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. V4.5 adds bounded exhaustiveness and scope-amplification recovery:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, and V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought:
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
 > **Transport source references with authority, freshness and fallback; a locator is not authority.**
 
 > **Bound completeness before expensive execution; discovering scope is not permission to execute all of it.**
+
+> **Show the decision boundary, not the private deliberation.**
 
 This is a routing and closure protocol. It does not grant permissions, invent unavailable tools, guarantee a model result, or turn a plan, surface label or model preference into a capability that the current environment does not expose.
 
@@ -621,6 +623,8 @@ Community reports can reveal operational failure modes such as unexpectedly rapi
 
 As a dated field calibration on 2026-09-09, a trusted community report described Astra expanding open-ended completeness instructions into very large edge-case and test sweeps. Treat this as anecdotal operational evidence, not a benchmark or universal model property. When Astra is selected for sustained or frontier execution, prefer explicit scope ceilings and stop conditions over vague requests to "be balanced."
 
+**Calibration disclaimer:** distillation pressure is not permanent doctrine. If Astra or a successor frontier tier becomes materially cheaper or more efficient per verified useful delta, later dated revisions may loosen compression or coverage ceilings while preserving explicit stop conditions, scope authorization and capability-floor discipline.
+
 ## 11. Reasoning Effort Law
 
 Reasoning effort follows irreducible reasoning density, not emotional importance or model prestige.
@@ -713,6 +717,7 @@ decision_capsule:
     - decisive_reason
     - uncertainty_or_failure_condition
     - next_action
+    - decision_trace_when_material
 
   output_boundary: bounded
   default_mode: read_only_judgment
@@ -790,13 +795,63 @@ return_capsule:
   re_escalate_if: null
 ```
 
+#### Decision Trace for Material Judgments
+
+A compact Return Capsule is sufficient for routine rulings. When a higher-tier ruling can materially change **route, architecture, governance, policy, acceptance or a stop condition**, the return must also include the smallest **Decision Trace** needed to audit why that ruling should govern the next step.
+
+> **Show the decision boundary, not the private deliberation.**
+
+A Decision Trace is a decision-bearing summary. It is **not** chain-of-thought, a hidden scratchpad, a token-by-token rationale or a transcript of private reasoning. The protocol never requires a model to expose unavailable or protected internal reasoning.
+
+```yaml
+decision_trace:
+  candidates_considered: []
+  ruling: null
+
+  decisive_comparison:
+    selected_because: null
+    rejected:
+      - path: null
+        decisive_reason: null
+
+  adversarial_correction: null
+  falsifier_or_discriminating_test: null
+  uncertainty_or_failure_condition: null
+  assumptions_changed: []
+  next_action: null
+  re_escalate_if: null
+```
+
+Use the Decision Trace when at least one of these conditions is true:
+
+- plausible alternatives would lead to materially different actions;
+- the ruling changes architecture, route, governance, policy, acceptance or a stop condition;
+- accepting the ruling without the decisive comparison would create a material false-positive, overfit or authority risk;
+- auditability itself changes whether the receiving executor should accept, implement or re-escalate the ruling.
+
+Keep the trace bounded:
+
+- `candidates_considered` names only materially live alternatives, not every imaginable option;
+- `rejected` preserves only rejection reasons needed to understand the ruling;
+- `adversarial_correction` states the strongest relevant correction or objection to the current framing without performing contrarianism for its own sake;
+- `falsifier_or_discriminating_test` identifies what evidence or test would overturn or distinguish the ruling when such a test exists.
+
+Skip the trace for trivial or routine judgments when these fields would not change execution, acceptance or verification.
+
+The distiller should request **a decision trace, not a hidden reasoning transcript**. A target model may use any natural format; the contract is semantic rather than YAML-dependent. Inability or refusal to reveal private reasoning is not a protocol failure if the model can return a sufficient decision-bearing summary.
+
+The Decision Trace extends rather than replaces the Return Capsule. The refined IDL rule is:
+
+> **Escalate only the irreducible delta; return the decision-bearing ruling — and, when the ruling is material, the smallest auditable decision trace that makes the ruling inspectable.**
+
 The receiving executor must:
 
 1. integrate the ruling;
-2. restore only the additional context needed for implementation;
-3. perform the mutation or work;
-4. verify the observable delta;
-5. re-escalate only if a **new** irreducible delta appears.
+2. when a Decision Trace was required, audit the decisive comparison, adversarial correction, uncertainty and falsifier before treating the ruling as governing;
+3. restore only the additional context needed for implementation;
+4. perform the mutation or work;
+5. verify the observable delta;
+6. re-escalate only if a **new** irreducible delta appears.
 
 A higher-tier ruling is not task completion. Executor completion and cycle completion remain distinct; Chat Postflight still refreshes state, audits evidence and closes or re-enters the route.
 
@@ -819,6 +874,8 @@ distillation_receipt:
 
   return:
     ruling_resolved_delta: unknown
+    decision_trace_required: false
+    decision_trace_sufficient: unknown
     underfit_after_burst: false
     overkill_suspected: false
     scope_amplification_detected: false
@@ -830,7 +887,7 @@ distillation_receipt:
     re_escalation_reason: null
 ```
 
-Track underfit, overkill, capsule loss, effort changes that avoided escalation, direct jumps and re-escalation qualitatively where evidence exists. Do not turn anecdotal observations into fixed cost, savings or performance claims.
+Track underfit, overkill, capsule loss, effort changes that avoided escalation, direct jumps, Decision Trace sufficiency and re-escalation qualitatively where evidence exists. Do not turn anecdotal observations into fixed cost, savings or performance claims.
 
 ## 12. Frontier ROI Gate
 
@@ -846,7 +903,7 @@ Under constrained resources, prefer:
 
 **lowest sufficient preparation → bounded Decision Capsule → frontier micro-burst → lowest sufficient implementation → verification → Chat Postflight**
 
-Use the IDL Decision Capsule and Return Capsule contracts. The frontier call should make one bounded ruling; retrieval, file mutation, formatting and routine verification remain with the cheaper adequate route.
+Use the IDL Decision Capsule, Return Capsule and, when triggered, Decision Trace contracts. The frontier call should make one bounded ruling; retrieval, file mutation, formatting and routine verification remain with the cheaper adequate route.
 
 A Frontier Full Run is justified only when decomposition would destroy coherence, the Budget Survivability Gate passes, sustained frontier capability is materially load-bearing and salvage/checkpoints exist. When the selected frontier route shows literal scope-expansion pressure, apply the Bounded Exhaustiveness Guard before authorizing the run.
 
@@ -883,7 +940,7 @@ A ready handoff contains:
 
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
-When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
+When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary, whether a Decision Trace is required and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
 
 ```yaml
 distillation:
@@ -892,6 +949,7 @@ distillation:
   unresolved_question: null
   target_tier: null
   decision_capsule: null
+  decision_trace_required: false
   coverage_mode: representative_risk_weighted
   coverage_ceiling: null
   stop_condition: null
@@ -962,11 +1020,13 @@ execution_handoff:
     delta_id: null
     target_tier: null
     decision_capsule: null
+    decision_trace_required: false
     coverage_mode: representative_risk_weighted
     coverage_ceiling: null
     stop_condition: null
     scope_expansion: explicit_authorization_required
     return_capsule: null
+    decision_trace: null
     reentry_owner: null
 
   sources:
@@ -1028,7 +1088,7 @@ Every executor returns an evidence-bearing receipt with:
 - `new_execution_required`;
 - **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**;
 - when a source transport was used, the governing source or family, locator/facet, requested operation, coverage, freshness or revision, mutation authorization, readback result and fallback state;
-- when an IDL cycle was active, the Return Capsule, ruling boundary and downstream re-entry state.
+- when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state.
 
 A successful tool response proves only that tool response, not completion of the objective.
 
@@ -1042,7 +1102,7 @@ Chat Postflight is mandatory after an executor returns.
 2. **Audit claim against evidence.** Compare requested delivery with observed delta and verification.
 3. **Audit route against profile.** Confirm that profile preferences and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
 4. **Classify residuals.** `none | bounded_chat_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`.
-5. **If an IDL ruling returned, integrate and verify it.** A ruling does not replace implementation, mutation checks or downstream verification.
+5. **If an IDL ruling returned, integrate and verify it.** When the Decision Trace trigger fired, inspect the decisive comparison, adversarial correction, falsifier/test and uncertainty before treating the ruling as governing. A ruling does not replace implementation, mutation checks or downstream verification.
 6. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
 
 ## 18. Acceptance states
@@ -1115,12 +1175,11 @@ The smallest unresolved delta determines re-entry.
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `4.5-public` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `4.4-public` is superseded by this subversion and remains recoverable through Git history;
-- `4.3-public`, `4.2-public`, `4.1-public` and earlier 4.x subversions remain historical lineage recoverable through Git history;
-- `4.0-public` and V3 remain historical lineage;
-- the live repository and website each expose one canonical V4 file;
-- MSL is currently 5.0; this protocol remains independently versioned at 4.5-public;
+- `4.9` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `4.8` is superseded by this subversion and remains recoverable through Git history;
+- earlier 4.x subversions remain historical lineage recoverable through Git history;
+- the live repository exposes one canonical V4 file; website delivery is a separate mirror surface and may lag until its own verified sync;
+- MSL is currently 5.1; this protocol remains independently versioned at 4.9;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
 ## 23. Safe operating rules
@@ -1134,6 +1193,7 @@ The smallest unresolved delta determines re-entry.
 - Enforce capability floor before honoring model preference.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
 - Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
+- For material higher-tier rulings, request the smallest auditable Decision Trace needed to inspect alternatives, decisive comparison, adversarial correction, falsifier/test and uncertainty; never request hidden chain-of-thought or private scratchpad disclosure.
 - Compile open-ended completeness into a bounded coverage mode, ceiling, stop condition and explicit scope-expansion rule before expensive sustained or frontier execution.
 - Treat capability tiers as non-ritual; do not force a mandatory staircase.
 - Treat connector access as access, not authority.
@@ -1146,14 +1206,14 @@ The smallest unresolved delta determines re-entry.
 - Use tests, hashes, readback and runtime evidence where available.
 - Never convert anecdotes into universal cost ratios.
 - Never claim hidden reasoning was recovered during salvage.
-- Apply the IDL mother law: escalate only the irreducible delta and return only the decision-bearing delta.
+- Apply the IDL mother law: escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, preserve the smallest auditable decision trace that makes the ruling inspectable.
 - Chat closes the loop.
 
 ## 24. Installation and use
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, return to the lowest sufficient tier and verify. Before expensive frontier execution, compile open-ended completeness language into an explicit coverage mode, ceiling, stop condition and scope-expansion rule. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
+> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, and, when that ruling could materially change route, architecture, governance, policy, acceptance or a stop condition, request the smallest auditable Decision Trace rather than a hidden reasoning transcript. Return to the lowest sufficient tier and verify. Before expensive frontier execution, compile open-ended completeness language into an explicit coverage mode, ceiling, stop condition and scope-expansion rule. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
 
 Optional reusable setup:
 
@@ -1187,14 +1247,14 @@ Change only the fields that matter to you. The router can leave the rest adaptiv
 
 This portable is a public projection of the Moon Source architecture, created by Lua Helena Moon Martins Cardoso (Moon) with AI-assisted coauthorial development by Áurion. It is licensed under CC BY 4.0 as described in the repository licensing guide.
 
-The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement or proof of adoption. It is not an OpenAI policy, native ChatGPT skill, universal benchmark, scientific validation or guarantee of safe execution.
+The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement or proof of adoption. It is not an OpenAI policy, native ChatGPT skill, universal benchmark, scientific validation or guarantee of safe execution. Decision Trace requests are bounded decision summaries and do not create access to hidden chain-of-thought, private scratchpads or unavailable internal model state.
 
 ## Final Law
 
-> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Spend intelligence where it changes the outcome. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
