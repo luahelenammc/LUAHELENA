@@ -1,0 +1,54 @@
+name: Sync Chat-Work 4.5 website mirror
+
+on:
+  push:
+    branches:
+      - sync/chat-work-4.5-mirror-20260909
+    paths:
+      - .github/workflows/sync-chat-work-45-mirror.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync-mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: sync/chat-work-4.5-mirror-20260909
+          fetch-depth: 0
+
+      - name: Copy exact canonical Chat–Work 4.5 bytes
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/luahelenammc/Moon-Source/main/portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md \
+            -o moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md
+          echo "ef8dcce2446478a651c03a03fcc3942a278675319752691dac91fc502cd0915c  moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md" | sha256sum -c -
+          grep -q '^## Public Portable Edition · Version 4.5-public$' moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md
+
+      - name: Advance live site route and retire superseded mirror
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('moonsource/index.html')
+          text = path.read_text(encoding='utf-8')
+          old = 'downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_4.md'
+          new = 'downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_5.md'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one live Chat–Work 4.4 route, got {text.count(old)}')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          rm moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_4.md
+          if grep -R --exclude-dir=.git -n 'CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_4_4' moonsource; then
+            echo 'superseded Chat–Work 4.4 live reference remains' >&2
+            exit 1
+          fi
+
+      - name: Remove one-shot workflow and commit
+        run: |
+          rm .github/workflows/sync-chat-work-45-mirror.yml
+          git config user.name "luahelena-mirror-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync Chat–Work 4.5 website mirror"
+          git push origin HEAD:sync/chat-work-4.5-mirror-20260909
