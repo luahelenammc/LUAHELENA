@@ -21,7 +21,7 @@
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, budget survival, distillation, return closure and claim ceiling
 - **supersedes:** Chat–Work Routing Protocol V4, version 4.3-public, while retaining the V4 public generation and canonical filename
-- **MSL dependency:** Moon Source Language 4.3; MSL remains unchanged by this subversion
+- **MSL dependency:** Moon Source Language 5.0; the protocol remains independently versioned at 4.4-public.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -1073,7 +1073,7 @@ The smallest unresolved delta determines re-entry.
 - `4.2-public`, `4.1-public` and earlier 4.x subversions remain historical lineage recoverable through Git history;
 - `4.0-public` and V3 remain historical lineage;
 - the live repository and website each expose one canonical V4 file;
-- MSL remains 4.3;
+- MSL is currently 5.0; this protocol remains independently versioned at 4.4-public;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
 ## 23. Safe operating rules

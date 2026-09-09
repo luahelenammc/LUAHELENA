@@ -15,7 +15,7 @@ The **Adaptive Preflight** described below is Moon Source Setup's specialization
 - **Language:** English-first portable; execution should follow the user's language.
 - **Status:** public · free to read · portable · platform-independent.
 - **Version:** 3.1.
-- **MSL:** 4.3 remains the current public structural grammar.
+- **MSL:** 5.0 is the current public structural/context grammar.
 - **Canonical repository:** https://github.com/luahelenammc/Moon-Source
 - **Canonical path:** portables/setup/MOON_SOURCE_SETUP.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
@@ -500,7 +500,7 @@ When repository-aware, use the smallest relevant set:
 | Ownership, authority or duplicated responsibility is unclear | docs/RESPONSIBILITY_MAP.md |
 | Existing context is stale, contradictory, duplicated or bloated | docs/SOURCE_HYGIENE.md |
 | A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
-| A reusable structure has been earned | portables/msl/MSL_4_3.md |
+| A reusable structure has been earned | portables/msl/MSL_5_0.md |
 | A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
 | A current source, durable continuity or cross-session living context is needed | docs/CONNECTED_SOURCES.md; load the subordinate ChatGPT adapter only for volatile product facts |
 | ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md |
@@ -522,7 +522,7 @@ Recognize ordinary-language needs semantically:
 | “I have several documents and do not know which should be the source of truth.” | Responsibility Map |
 | “I have lots of material and do not know what structure it needs.” | Field-to-Form diagnostic |
 | “My instructions are huge, contradictory or stale.” | Source Hygiene |
-| “I need a reusable structure for this.” | MSL 4.3, but only after the field earns materialization |
+| “I need a reusable structure for this.” | MSL 5.0, but only after the field earns materialization |
 | “I need to move this context to another AI, person or thread.” | Responsibility Map plus MSL as needed |
 | “I have a recurring method and want AI to know when to apply it.” | Procedural Projection |
 | “I am adapting someone else’s method or resource.” | Credits & Attribution Ops |

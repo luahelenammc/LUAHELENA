@@ -536,7 +536,7 @@ Preflight fails when it becomes:
 | [Source Hygiene](../../docs/SOURCE_HYGIENE.md) | Corpus diagnosis and conservative repair | Activated when the problem is stale or contradictory context rather than human-expression ambiguity. |
 | [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) | Intellectual lineage and content custody | Activated when material identity, permission or derivative lineage matters. |
 | [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) | Bounded execution reliability and receipts | Activated when state-changing execution earns operational safeguards. |
-| [Moon Source Language](../msl/MSL_4_3.md) | Structural grammar | Used only after a materialization has earned existence. |
+| [Moon Source Language](../msl/MSL_5_0.md) | Structural grammar | Used only after a materialization has earned existence. |
 
 Preflight is upstream of these components only in the sense that it reconstructs **what the human is asking for**. It does not become their authority.
 
@@ -575,7 +575,7 @@ The V1 contribution is not discarded. Its authority, freshness, risk, destinatio
 
 The superseded V1 body remains recoverable through Git history. On 2026-09-07, V2 was promoted from a repository component into a standalone public portable. Its current canonical identity is `portables/preflight/PREFLIGHT_V2.md`. The former `docs/PREFLIGHT.md` body is superseded; that path now exists only as a lightweight succession pointer, while historical bodies remain recoverable through Git history.
 
-This promotion creates the Preflight portable family at version 2.0. It does not change MSL 4.3, Setup 3.0 or Chat–Work V4.
+This promotion created the Preflight portable family at version 2.0. At the time of that promotion it did not change the then-current MSL 4.3, Setup 3.0 or Chat–Work V4; MSL is now current at 5.0 after the 2026-09-09 release.
 
 ## 20. Claim ceiling
 
