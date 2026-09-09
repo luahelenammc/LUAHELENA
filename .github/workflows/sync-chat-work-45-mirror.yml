@@ -52,3 +52,5 @@ jobs:
           git add -A
           git commit -m "Sync Chat–Work 4.5 website mirror"
           git push origin HEAD:sync/chat-work-4.5-mirror-20260909
+
+# one-shot trigger
