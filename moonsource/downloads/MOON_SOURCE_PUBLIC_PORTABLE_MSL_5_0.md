@@ -373,12 +373,33 @@ Inspiration is not adoption. Adaptation is not endorsement. A credit is not a tr
 
 ## 13. Native Markdown and proportional structure
 
-MSL is comfortable in readable Markdown because the artifact should remain inspectable by people as well as machines. Use headings, tables, bullets and code blocks when they improve navigation or copyability.
+Formatting is part of MSL's operational contract, not a cosmetic post-processing layer. Semantic quality and surface quality are governed together: raw readability, proportion, navigation and rendered clarity affect whether meaning survives.
 
-Do not force every object into pseudo-code. Do not add a field merely because a schema can hold it. Keep a field when removing it would change interpretation, responsibility, consequence, routing, freshness, provenance or auditability.
+### Markdown-native default
 
-A document can be structurally light and semantically strong. It can also be structurally elaborate and semantically empty. The field decides.
+MSL defaults to readable Markdown with no fence. Use headings for major fields and blocks, bold labels for human keys, bullets for lists and arrays, mapping lists for maps, section cards for repeated entities and blockquotes for laws or warnings.
 
+Object dissolving is the default for human-readable destinations. If an object can be expressed clearly as headings, labels, bullets, a mapping list, a section card or prose, dissolve it instead of forcing YAML, JSON or pseudo-code.
+
+### Fences and literal content
+
+Code fences are exceptions for genuine literal or executable content: code, commands, JSON, YAML, schemas, copy/paste payloads, long literal prompts or raw technical output. When a fence is needed, use the real syntax label of the content. A fence labelled `msl` is a formal hard fail.
+
+Preserve literal form only when identity, execution, copy/paste or interoperability depends on it. A semantic MSL body is not made more formal by being fenced.
+
+### Tables, naming and hierarchy
+
+Pipe tables are exceptional. Use one only when a real comparison gains precision or readability; do not use tables as the default for lists, states or metadata.
+
+Human prose uses spaces. Underscores are reserved for IDs, paths, variables, schemas, filenames and machine keys. An active source has one sovereign H1 and a real heading hierarchy; version state belongs in dedicated metadata, not in the human-facing title.
+
+### Vertical hygiene and proportionality
+
+Use one blank line between major blocks, no ornamental spacing between compact lists or consecutive metadata, and no AI-spacing inflation. Do not compress so far that reading becomes cement.
+
+A small human request should remain a small human request. It should not acquire schema, YAML/JSON, registry, provenance or governance ceremony unless the field, destination, risk or consequence truly requires it. The smallest sufficient form is the correct form.
+
+> MSL governs semantic quality and surface quality together: if the surface changes what a recipient can infer, do the readback before delivery.
 ## 14. Source mutation hygiene
 
 A healthy mutation has a bounded target, a declared authority, a meaningful delta and a recovery path. Prefer this order:
