@@ -1,10 +1,10 @@
-# Preflight
+# 🛫 Preflight — Moon Source portable
 
 *Human Intent Reconstruction Before AI Execution*
 
 > **Humans should not have to prompt like machines.**
 
-**Version:** 2.1  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.  
+**Version:** 2.2  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.  
 
 **Status:** current public portable  
 **Public since:** 2026-08-23  
@@ -26,7 +26,7 @@ The core principle is simple:
 
 Source authority, provenance, freshness, risk, destination, mutation scope and similar checks remain important when consequence makes them important. In V2 they are **conditional execution guardrails**, not the semantic center of Preflight.
 
-Preflight is a standalone public Moon Source portable. Its current public version is **2.1**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
+Preflight is a standalone public Moon Source portable. Its current public version is **2.2**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
 ## First use
@@ -385,6 +385,12 @@ When the reconstructed task materially depends on governed context, activate the
 - [Chat–Work Routing](../chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md) when execution surface, model or reasoning effort materially affects the work.
 
 Preflight should route to specialized governance rather than swallowing it.
+
+### Active-frame correction during execution
+
+Preflight may remain in the loop during execution when a material mismatch shows that the active source, jurisdiction, artifact variant, version, ontology, authority or runtime surface is wrong. When evidence is sufficient, correct the working frame before continuing and emit a bounded operator receipt.
+
+The source/jurisdiction route should report **jurisdiction_fit: pass | corrected | conflict**, corrected source/frame, mismatch type, evidence, confidence, persistence relevance and next operator. A corrected frame changes the task instance; it does not silently mutate a source, bridge, mirror or public package. No user-facing mandatory field is added for this behavior. Persistent local writeback and public promotion still require their own authority, gate and readback, and no background scan or publication is implied.
 
 ## 13. Preflight as a reconstructed working prompt
 

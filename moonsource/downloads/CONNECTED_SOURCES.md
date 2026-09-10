@@ -1,4 +1,4 @@
-# Connected Sources
+# 🔗 Connected Sources — Moon Source component / portable
 
 *Living Source Protocol*
 

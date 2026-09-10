@@ -1,4 +1,4 @@
-# Moon Source Setup
+# 🧭 Setup — Moon Source portable
 
 *Adaptive context routing for humans and AI*
 
