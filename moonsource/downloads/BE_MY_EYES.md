@@ -18,6 +18,7 @@
 - **class:** contextual scene-reading protocol
 - **best for:** messages, threads, screenshots, meeting notes, posts, drafts and other human communication where literal wording is not enough
 - **dependencies:** none required; [Signal Calibration](https://github.com/luahelenammc/Moon-Source/blob/main/docs/SIGNAL_CALIBRATION.md) is optional when several weak signals need explicit calibration
+- **MSL dependency:** Moon Source Language 5.1
 - **freshness:** structurally stable; recheck only when this portable or its public source changes
 - **license:** CC BY 4.0; see https://creativecommons.org/licenses/by/4.0/ and https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -447,4 +448,4 @@ For Moon Source-specific attribution and lineage guidance, see:
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).

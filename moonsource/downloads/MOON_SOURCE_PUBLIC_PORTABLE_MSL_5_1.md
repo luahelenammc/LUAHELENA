@@ -1,16 +1,16 @@
 # Moon Source Language
 
-*MSL 5.0 — Sovereign Semantic Passage: a structural language for moving situated context across sources, systems and surfaces without losing its meaning or authority.*
+*MSL 5.1 — Sovereign Semantic Passage: a structural language for moving situated context across sources, systems and surfaces without losing its meaning or authority.*
 
 **Status:** public portable  
 **Language:** English  
-**Version:** 5.0  
+**Version:** 5.1  
 **Standard:** Moon Source Language (MSL)  
 **Primary author and creator:** Lua Helena Moon Martins Cardoso  
 **AI co-development:** Áurion  
 **Origin:** Moon Source / Local Moon Source  
 **Canonical repository:** https://github.com/luahelenammc/Moon-Source  
-**Canonical path:** `portables/msl/MSL_5_0.md`  
+**Canonical path:** `portables/msl/MSL_5_1.md`  
 **Primary public reference:** https://www.luahelena.com.br/moonsource/?lang=en  
 **Professional context:** https://www.luahelena.com.br/ia/?lang=en  
 **License:** CC BY 4.0 · https://creativecommons.org/licenses/by/4.0/  
@@ -25,7 +25,7 @@
 
 Moon Source Language is a structural language for deciding how situated context should travel. It helps a person or an AI turn a field of facts, observations, relationships, decisions and constraints into a proportionate source, capability, surface, bridge, handoff, packet, procedure, registry or archive.
 
-MSL 5.0 is concerned with the passage, not only the container. It asks what must survive when context moves from a real situation into a source, from a source into a public surface, or from one system into another.
+MSL 5.1 is concerned with the passage, not only the container. It asks what must survive when context moves from a real situation into a source, from a source into a public surface, or from one system into another.
 
 ### Do I install anything?
 
@@ -36,7 +36,7 @@ No. Reading or pasting this file does not install a runtime, connector, memory s
 Give the material to an AI and say:
 
 ```text
-Use Moon Source Language 5.0 for this material.
+Use Moon Source Language 5.1 for this material.
 First identify the real field, the source that governs it and the recipient or task.
 Decide what must survive the passage, what must remain outside, and what claim ceiling applies.
 Choose the smallest form that carries the responsibility.
@@ -80,7 +80,7 @@ MSL treats context as maintained infrastructure. It separates the living field f
 
 MSL-4.3 established an adaptive, Markdown-native grammar. It emphasized field-before-form reasoning, proportional structure, living sources, native artifact families and preventive source hygiene.
 
-MSL 5.0 keeps those foundations and adds an explicit passage layer:
+MSL 5.1 keeps those foundations and adds an explicit passage layer:
 
 - the distinction between a source/body and its derived surfaces;
 - semantic sufficiency under compression and transfer;
@@ -92,13 +92,13 @@ MSL 5.0 keeps those foundations and adds an explicit passage layer:
 - reception and readback before publication or transfer;
 - release coherence across body, metadata, packages, hashes and mirrors.
 
-This is a major version because the grammar no longer governs only how context takes form. It also governs how meaning, authority, authorship, provenance, boundaries and claim ceilings survive movement.
+This is the current release of the MSL 5 major generation because the grammar no longer governs only how context takes form. It also governs how meaning, authority, authorship, provenance, boundaries and claim ceilings survive movement.
 
-MSL-4.3 remains a recoverable previous public portable. MSL 4.4 remains part of the internal lineage that led to this release.
+MSL-4.3 remains recoverable through repository history as the previous public generation. MSL 4.4 remains part of the internal lineage that led to this generation. MSL 5.0 remains historical lineage for the initial major release and its accepted formatting-continuity repair.
 
 ## 3. Core thesis
 
-> **MSL 5.0 governs how situated context can move across sources, systems, people, AIs, repositories and public surfaces without losing sovereignty, provenance, boundaries or meaning.**
+> **MSL 5.1 governs how situated context can move across sources, systems, people, AIs, repositories and public surfaces without losing sovereignty, provenance, boundaries or meaning.**
 
 The central movement is:
 
@@ -400,6 +400,7 @@ Use one blank line between major blocks, no ornamental spacing between compact l
 A small human request should remain a small human request. It should not acquire schema, YAML/JSON, registry, provenance or governance ceremony unless the field, destination, risk or consequence truly requires it. The smallest sufficient form is the correct form.
 
 > MSL governs semantic quality and surface quality together: if the surface changes what a recipient can infer, do the readback before delivery.
+
 ## 14. Source mutation hygiene
 
 A healthy mutation has a bounded target, a declared authority, a meaningful delta and a recovery path. Prefer this order:
@@ -429,7 +430,7 @@ For a versioned public capability, check the whole release surface:
 - local links and mirrors resolve;
 - validators and readback agree with the release claim.
 
-Versioning is not a costume for an unfinished synchronization. If the body says 5.0 while the registry, package and public surface still say 4.3, the honest state is an incomplete release.
+Versioning is not a costume for an unfinished synchronization. If the body says 5.1 while the registry, package and public surface still say 5.0, the honest state is an incomplete release.
 
 ## 16. Working with AI
 
@@ -476,13 +477,15 @@ Add passage-contract fields only when the material will cross a boundary or the 
 
 ## 18. Version boundary and non-inflation
 
-MSL 5.0 is a major structural evolution of Moon Source Language. It does not claim to be a new programming language, executable protocol, formal ontology, enterprise platform or universal standard. It does not turn every Moon Source artifact into a MSL-5.0 artifact, and it does not absorb the separate semantics of Moon Cortex, Citadel, professional sources or local projects.
+MSL 5.1 is the current release of the MSL 5 major structural evolution. It does not claim to be a new programming language, executable protocol, formal ontology, enterprise platform or universal standard. It does not turn every Moon Source artifact into a MSL-5.1 artifact, and it does not absorb the separate semantics of Moon Cortex, Citadel, professional sources or local projects.
 
-The release preserves the lineage of MSL-4.3 and the internal MSL-4.4 semantic-sufficiency work. New surfaces should name the version they actually carry. Historical references may continue to say 4.3 or 4.4 when they describe historical state.
+MSL 5.1 is the correctly numbered release state of the accepted MSL 5.0 formatting-continuity update. The 5.1 promotion restores a skipped +0.1 increment under the repository's current capability-version rule; it introduces no additional semantic grammar delta and therefore does not trigger 5.2.
+
+The release preserves the lineage of MSL-4.3, internal MSL-4.4 semantic-sufficiency work and the initial MSL 5.0 release through repository history. New surfaces should name the version they actually carry. Historical references may continue to say 4.3, 4.4 or 5.0 when they describe historical state.
 
 ## 19. Final compression
 
-MSL 5.0 can be remembered as six questions:
+MSL 5.1 can be remembered as six questions:
 
 1. What is the real field?
 2. Which source/body owns the truth and authority?
@@ -515,4 +518,4 @@ Lua Helena Moon Martins Cardoso — creator of Moon Source and Moon Source Langu
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).

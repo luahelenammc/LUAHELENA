@@ -4,7 +4,8 @@
 
 > **Humans should not have to prompt like machines.**
 
-**Version:** 2.0  
+**Version:** 2.1  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.  
+
 **Status:** current public portable  
 **Public since:** 2026-08-23  
 **V2 rebase:** 2026-09-07  
@@ -25,7 +26,7 @@ The core principle is simple:
 
 Source authority, provenance, freshness, risk, destination, mutation scope and similar checks remain important when consequence makes them important. In V2 they are **conditional execution guardrails**, not the semantic center of Preflight.
 
-Preflight is a standalone public Moon Source portable. Its current public version is **2.0**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
+Preflight is a standalone public Moon Source portable. Its current public version is **2.1**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
 ## First use
@@ -536,7 +537,7 @@ Preflight fails when it becomes:
 | [Source Hygiene](../../docs/SOURCE_HYGIENE.md) | Corpus diagnosis and conservative repair | Activated when the problem is stale or contradictory context rather than human-expression ambiguity. |
 | [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) | Intellectual lineage and content custody | Activated when material identity, permission or derivative lineage matters. |
 | [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) | Bounded execution reliability and receipts | Activated when state-changing execution earns operational safeguards. |
-| [Moon Source Language](../msl/MSL_5_0.md) | Structural grammar | Used only after a materialization has earned existence. |
+| [Moon Source Language](../msl/MSL_5_1.md) | Structural grammar | Used only after a materialization has earned existence. |
 
 Preflight is upstream of these components only in the sense that it reconstructs **what the human is asking for**. It does not become their authority.
 
@@ -575,7 +576,7 @@ The V1 contribution is not discarded. Its authority, freshness, risk, destinatio
 
 The superseded V1 body remains recoverable through Git history. On 2026-09-07, V2 was promoted from a repository component into a standalone public portable. Its current canonical identity is `portables/preflight/PREFLIGHT_V2.md`. The former `docs/PREFLIGHT.md` body is superseded; that path now exists only as a lightweight succession pointer, while historical bodies remain recoverable through Git history.
 
-This promotion created the Preflight portable family at version 2.0. At the time of that promotion it did not change the then-current MSL 4.3, Setup 3.0 or Chat–Work V4; MSL is now current at 5.0 after the 2026-09-09 release.
+This promotion created the Preflight portable family at version 2.0. At the time of that promotion it did not change the then-current MSL 4.3, Setup 3.0 or Chat–Work V4; MSL is now current at 5.1 after the 2026-09-09 release.
 
 ## 20. Claim ceiling
 
@@ -609,4 +610,4 @@ For repository-wide licensing details, use https://github.com/luahelenammc/Moon-
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
