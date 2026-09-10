@@ -1,4 +1,4 @@
-# Moon Source Language
+# 🧱 Moon Source Language — Moon Source portable
 
 *MSL 5.1 — Sovereign Semantic Passage: a structural language for moving situated context across sources, systems and surfaces without losing its meaning or authority.*
 
