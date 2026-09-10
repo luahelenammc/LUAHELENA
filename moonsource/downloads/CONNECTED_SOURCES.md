@@ -11,6 +11,7 @@ A public capability for reaching persistent sources through connectors without c
 - **Language:** English-first capability; execution may follow the user's language.
 - **Status:** public · free to read · standalone-capable · platform-independent.
 - **Version:** 1.1-public.
+- **MSL dependency:** Moon Source Language 5.1.
 - **Architectural role:** structural crown jewel / Living Source Protocol.
 - **Canonical repository:** https://github.com/luahelenammc/Moon-Source
 - **Canonical path:** docs/CONNECTED_SOURCES.md
@@ -439,4 +440,4 @@ Attribution does not itself grant permission. The applicable license and any thi
 
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip)
+> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
