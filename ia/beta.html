@@ -1,7 +1,8 @@
 ---
 layout: null
+permalink: /ia/beta/
 ---
-{%- capture core -%}{% include_relative ../index-core.html %}{%- endcapture -%}
+{%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
 {%- assign old_toggle = '<div class="lang-toggle"><button data-lang="pt" class="active">PT</button><button data-lang="en">EN</button></div>' -%}
 {%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
