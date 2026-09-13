@@ -8,8 +8,9 @@ permalink: /ia/beta/
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V10 beta' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Arquitetura contextual para que a IA responda com base sólida e a solução funcione na realidade institucional e para as pessoas.' -%}
-{%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Fontes confiáveis, critérios responsáveis e adoção humana para soluções de IA mais úteis.' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Lua Helena Moon estrutura fontes, autoridade, critérios e fluxos para que a IA responda com base sólida e funcione no trabalho real.' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — Arquitetura de Contexto Humano-IA', 'Lua Helena Moon · Arquitetura Contextual e Auditoria de IA · V10 beta' -%}
+{%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Contexto governado para respostas mais confiáveis e soluções de IA que funcionem no trabalho real.' -%}
 {%- capture head_assets -%}
 <meta name="robots" content="noindex,nofollow,noarchive" />
 <link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />
@@ -25,7 +26,7 @@ permalink: /ia/beta/
 <link rel="stylesheet" href="/ia/beta-sector-fields.css?v=3" />
 <link rel="stylesheet" href="/ia/beta-audience-cards.css?v=1" />
 <link rel="stylesheet" href="/ia/entry-section-fix.css?v=1" />
-<link rel="stylesheet" href="/ia/beta/v10.css?v=10" />
+<link rel="stylesheet" href="/ia/beta/v10.css?v=11" />
 {%- endcapture -%}
 {%- capture body_assets -%}
 <script src="/ia/semantic-delta.js?v=7.0"></script>
@@ -42,7 +43,7 @@ permalink: /ia/beta/
 <script src="/ia/circuit-line-semantics.js?v=2"></script>
 <script src="/ia/beta-sector-fields.js?v=3"></script>
 <script src="/ia/beta-audience-cards.js?v=1"></script>
-<script src="/ia/beta/v10.js?v=10"></script>
+<script src="/ia/beta/v10.js?v=11"></script>
 {%- endcapture -%}
 {%- assign head_injection = head_assets | append: '</head>' -%}
 {%- assign body_injection = body_assets | append: '</body>' -%}
