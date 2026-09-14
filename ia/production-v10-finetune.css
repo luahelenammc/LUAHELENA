@@ -1,0 +1,18 @@
+/* V10 production fine-tuning: hierarchy, rhythm, and active navigation. */
+.positioning-stack{max-width:780px}
+.market-position-detail{max-width:760px;line-height:1.52}
+.v10-credential-line{max-width:760px;line-height:1.42}
+.hero-proof-links{margin-top:13px}
+#entrada,#campos,#lastro{padding-top:30px;padding-bottom:30px}
+#campos .section-lead{max-width:820px}
+#campos .sector-card p{line-height:1.52}
+.v10-method-head,.v10-proof>h2,.v10-proof-lead{max-width:820px}
+details.v10-drawer[open]{border-color:rgba(232,201,122,.18);background:rgba(255,255,255,.032)}
+details.v10-drawer[open]>summary{color:var(--txt)}
+.nav-links a{position:relative;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.nav-links a.is-active{color:var(--txt);background:rgba(232,201,122,.075)}
+.nav-links a.is-active:after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.85}
+#contact .contact-panel{border-color:rgba(232,201,122,.18);background:linear-gradient(145deg,rgba(232,201,122,.045),rgba(159,135,255,.035),rgba(255,255,255,.025))}
+#contact .quote{max-width:760px}
+@media(max-width:620px){#entrada,#campos,#lastro{padding-top:26px;padding-bottom:26px}.nav-links a.is-active:after{left:9px;right:9px}.market-position-detail{line-height:1.5}}
+@media(prefers-reduced-motion:reduce){.nav-links a{transition:none!important}}
