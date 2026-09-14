@@ -4,28 +4,28 @@
       nav: 'Aplicações',
       label: 'Aplicações',
       title: 'Onde esse trabalho se aplica.',
-      lead: 'Problemas de contexto aparecem em diferentes áreas. O método continua o mesmo: entender, estruturar, validar e manter.',
+      lead: 'O domínio muda; o problema de contexto se repete. Eu organizo o que governa, como o trabalho realmente acontece e onde a IA pode entrar sem criar mais ruído.',
       cards: [
-        {tone:'cyan',icon:'messages-square',title:'Atendimento e jornadas',keywords:['canais','encaminhamentos','continuidade'],text:'Organizar a experiência de quem pede, recebe e encaminha.'},
-        {tone:'rose',icon:'heart-pulse',title:'Saúde e cuidado',keywords:['informação sensível','equipes multi','decisões críticas'],text:'Dar clareza a fluxos, responsabilidades e comunicação.'},
-        {tone:'mint',icon:'workflow',title:'Gestão e processos',keywords:['fluxo real','papéis','handoffs'],text:'Reduzir retrabalho, ambiguidade e memória individual.'},
-        {tone:'gold',icon:'scan-search',title:'Transparência e auditoria',keywords:['fontes','rastreabilidade','revisão'],text:'Explicitar o que sustenta respostas, decisões e indicadores.'},
-        {tone:'violet',icon:'users-round',title:'Pessoas e aprendizagem',keywords:['autonomia','capacitação','adoção'],text:'Conectar tecnologia, responsabilidade e rotina.'},
-        {tone:'blue',icon:'database',title:'Conhecimento e dados',keywords:['documentação viva','indicadores','memória'],text:'Transformar informação dispersa em base utilizável.'}
+        {tone:'cyan',icon:'messages-square',title:'Atendimento e jornadas',keywords:['canais','encaminhamentos','continuidade'],text:'Organizar fontes, critérios e encaminhamentos para reduzir respostas inconsistentes e perdas de contexto.'},
+        {tone:'rose',icon:'heart-pulse',title:'Saúde e cuidado',keywords:['informação sensível','equipes multiprofissionais','decisões críticas'],text:'Tornar legíveis fluxos, responsabilidades e limites de informação em contextos sensíveis.'},
+        {tone:'mint',icon:'workflow',title:'Gestão e processos',keywords:['fluxo real','papéis','passagens'],text:'Explicitar o fluxo real, as exceções e as passagens de responsabilidade antes de automatizar.'},
+        {tone:'gold',icon:'scan-search',title:'Transparência e auditoria',keywords:['fontes','rastreabilidade','revisão'],text:'Ligar respostas e decisões às fontes, aos critérios e aos pontos de revisão que as sustentam.'},
+        {tone:'violet',icon:'users-round',title:'Pessoas e aprendizagem',keywords:['autonomia','capacitação','adoção'],text:'Transformar adoção de IA em prática compreensível, treinável e revisável dentro da rotina.'},
+        {tone:'blue',icon:'database',title:'Conhecimento e dados',keywords:['autoridade','atualidade','memória'],text:'Dar autoridade, atualidade e destino ao conhecimento disperso para que ele continue utilizável.'}
       ]
     },
     en: {
       nav: 'Applications',
       label: 'Applications',
       title: 'Where this work applies.',
-      lead: 'Context problems appear across different areas. The method remains the same: understand, structure, validate, and maintain.',
+      lead: 'The domain changes; the context problem repeats. I organize what governs, how the work actually happens, and where AI can enter without creating more noise.',
       cards: [
-        {tone:'cyan',icon:'messages-square',title:'Service and journeys',keywords:['channels','referrals','continuity'],text:'Organize the experience of requesting, receiving, and routing service.'},
-        {tone:'rose',icon:'heart-pulse',title:'Healthcare and care',keywords:['sensitive information','multidisciplinary teams','critical decisions'],text:'Bring clarity to workflows, accountability, and communication.'},
-        {tone:'mint',icon:'workflow',title:'Management and processes',keywords:['real workflow','roles','handoffs'],text:'Reduce rework, ambiguity, and dependence on individual memory.'},
-        {tone:'gold',icon:'scan-search',title:'Transparency and auditing',keywords:['sources','traceability','review'],text:'Make the grounding of answers, decisions, and indicators explicit.'},
-        {tone:'violet',icon:'users-round',title:'People and learning',keywords:['autonomy','enablement','adoption'],text:'Connect technology, accountability, and routine.'},
-        {tone:'blue',icon:'database',title:'Knowledge and data',keywords:['living documentation','indicators','memory'],text:'Turn scattered information into a usable foundation.'}
+        {tone:'cyan',icon:'messages-square',title:'Service and journeys',keywords:['channels','routing','continuity'],text:'Organize sources, criteria, and routing so service loses less context and produces fewer inconsistent answers.'},
+        {tone:'rose',icon:'heart-pulse',title:'Healthcare and care',keywords:['sensitive information','multidisciplinary teams','critical decisions'],text:'Make workflows, accountability, and information boundaries legible in sensitive settings.'},
+        {tone:'mint',icon:'workflow',title:'Management and processes',keywords:['real workflow','roles','transitions'],text:'Make the real workflow, exceptions, and responsibility transitions explicit before automating.'},
+        {tone:'gold',icon:'scan-search',title:'Transparency and auditing',keywords:['sources','traceability','review'],text:'Connect answers and decisions to the sources, criteria, and review points that support them.'},
+        {tone:'violet',icon:'users-round',title:'People and learning',keywords:['autonomy','enablement','adoption'],text:'Turn AI adoption into a practice people can understand, learn, review, and sustain in real work.'},
+        {tone:'blue',icon:'database',title:'Knowledge and data',keywords:['authority','freshness','memory'],text:'Give scattered knowledge authority, freshness, and a clear destination so it stays usable.'}
       ]
     }
   };
