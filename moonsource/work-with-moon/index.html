@@ -226,6 +226,7 @@ document.title=title;
 document.querySelector('meta[name="description"]').setAttribute("content",desc);
 document.querySelector('meta[property="og:title"]').setAttribute("content",title);
 document.querySelector('meta[property="og:description"]').setAttribute("content",desc);
+document.querySelector('meta[property="og:locale"]').setAttribute("content",lang==="en"?"en_US":"pt_BR");
 const url=new URL(location.href);
 if(lang==="en")url.searchParams.set("lang","en");else url.searchParams.delete("lang");
 history.replaceState(null,"",url.pathname+(url.search||"")+url.hash);
