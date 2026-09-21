@@ -706,9 +706,11 @@ method freedom inside an authorized task; it never expands the objective or
 authority envelope.
 
 The current optional Astra strategy adapter is documented at
-[docs/CHAT_WORK_ASTRA_ADAPTER.md](../../docs/CHAT_WORK_ASTRA_ADAPTER.md). Its
+[portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md](../../portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md). Its
 volatile notes are dated and replaceable; they cannot turn a temporary product
 observation into a permanent core rule.
+
+A subordinate model adapter may require its own setup gate. Chat–Work's existing Execution Profile, Run State and Profile Persistence laws remain governing: the router may recommend or prefill model-specific preferences, but it must not silently instantiate a user's role, autonomy, reasoning, context, parallelism or return preferences. An explicit adaptive/AUTO choice is a setup choice, not permission to assume a reference preset.
 
 **Calibration disclaimer:** distillation pressure is not permanent doctrine. If a
 frontier tier becomes materially cheaper or more efficient per verified useful
