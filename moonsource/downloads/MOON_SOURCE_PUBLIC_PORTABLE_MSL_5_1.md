@@ -8,7 +8,7 @@
 **Standard:** Moon Source Language (MSL)  
 **Primary author and creator:** Lua Helena Moon Martins Cardoso  
 **AI co-development:** Áurion  
-**Origin:** Moon Source / Local Moon Source  
+**Origin:** Moon Source
 **Canonical repository:** https://github.com/luahelenammc/Moon-Source  
 **Canonical path:** `portables/msl/MSL_5_1.md`  
 **Primary public reference:** https://www.luahelena.com.br/moonsource/?lang=en  
