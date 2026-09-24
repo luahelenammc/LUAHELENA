@@ -708,12 +708,12 @@ method freedom inside an authorized task; it never expands the objective or
 authority envelope.
 
 The current optional Astra strategy adapter is documented at
-[portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md](../../portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md). Its
+[portables/chat-work/adapters/CHAT_WORK_ASTRA_ADAPTER.md](../../portables/chat-work/adapters/CHAT_WORK_ASTRA_ADAPTER.md). Its
 volatile notes are dated and replaceable; they cannot turn a temporary product
 observation into a permanent core rule.
 
 The current GPT-6 Sol/Luna execution calibration is documented at
-[portables/chat-work/gpt-6/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md](../../portables/chat-work/gpt-6/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md). It treats Luna and Sol as observed executor options in Work/Codex where available, keeps Chat as a separate controller surface when those models are not exposed there, and keeps API pricing/context facts explicitly separate from ChatGPT allowance economics.
+[portables/chat-work/adapters/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md](../../portables/chat-work/adapters/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md). It treats Luna and Sol as observed executor options in Work/Codex where available, keeps Chat as a separate controller surface when those models are not exposed there, and keeps API pricing/context facts explicitly separate from ChatGPT allowance economics.
 
 A subordinate model adapter may require its own setup gate. Chat–Work's existing Execution Profile, Run State and Profile Persistence laws remain governing: the router may recommend or prefill model-specific preferences, but it must not silently instantiate a user's role, autonomy, reasoning, context, parallelism or return preferences. An explicit adaptive/AUTO choice is a setup choice, not permission to assume a reference preset.
 
