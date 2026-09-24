@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 6.0
+## Public Portable Edition · Version 6.1
 
 ## Meta
 
@@ -13,15 +13,15 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 6.0
+- **version:** 6.1
 - **language:** English
 - **protocol semantics as of:** 2026-09-24
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
-- **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
+- **primary implementation:** surface-neutral control-root routing across ChatGPT Chat, Work and Codex, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, delegation topology, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 5.2; 6.0 promotes delegation topology to a first-class routing dimension, adds Delegation-First orchestration and heterogeneous subagent routing, and changes manual model/surface switching from the normal response to capability differences into a last-resort boundary when the current harness cannot resolve the required topology internally
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.0.
+- **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol 6.0; 6.1 preserves Delegation-First orchestration while removing Chat-first surface assumptions from the public core. The current competent control root is now the default continuity anchor; Chat → Work/Codex → Chat remains a first-class named profile rather than the mandatory topology.
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.1.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -32,12 +32,12 @@
 
 1. Mother law and core sentence
 2. Execution Profile Setup
-3. The tri-surface model and workload-shaped object routing
+3. Surface roles, control roots and workload-shaped object routing
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
 7. Capability economics, model strategy adapters, delegation topology, effort, distillation, Sprint and frontier control
-8. Handoff, return and Chat Postflight
+8. Handoff, return and Control-Root Postflight
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
 
@@ -45,7 +45,7 @@
 
 ### What this is
 
-Chat–Work is an instruction-level routing and closure protocol. It helps an AI read the task, separate surface, model, reasoning effort, capability and context, coordinate execution across Chat, Work and optional Codex, and return a decision-bearing result for acceptance. Its optional Sprint Mode is an explicitly activated, ephemeral run-level pacing overlay for a finite objective; it does not create a native product feature or expose allowance economics.
+Chat–Work is an instruction-level routing and closure protocol. It helps an AI read the task from the surface it is already on, separate control root, execution surface, model, reasoning effort, capability and context, coordinate direct or delegated execution across Chat, Work and optional Codex, and converge on a decision-bearing result for acceptance. Its optional Sprint Mode is an explicitly activated, ephemeral run-level pacing overlay for a finite objective; it does not create a native product feature or expose allowance economics.
 
 ### Do I install anything?
 
@@ -58,20 +58,21 @@ Read this canonical file and say:
 ```text
 Read and apply the Chat–Work Routing Protocol to this task.
 Start in AUTO.
-Before execution, tell me the recommended surface/model/reasoning route and clearly tell me if I need to make any manual switch in the UI.
+Preserve the current competent control root when it can complete and verify the task. Resolve execution surface, model tier, reasoning effort and delegation internally before asking me to switch anything in the UI.
+Tell me only when a manual transition is materially required.
 
 Task: [describe what you want done]
 ```
 
-You do not need a frontier model just to initialize the protocol. Start in Chat with a sufficiently capable, sustainable model and let the protocol escalate only when the task's capability floor or reasoning demand actually requires it.
+You do not need a frontier model or a particular surface just to initialize the protocol. Start from the current available surface and let AUTO preserve it when it can act as a sufficient control root; escalate or transition only when the task's capability floor, execution harness or verification burden actually requires it.
 
 ### What happens next
 
-The protocol should disclose the route that materially shaped the decision, prepare a bounded handoff when another surface is needed, distinguish a requested switch from a switch that actually occurred, let the executor produce the work and return the result to Chat for postflight, acceptance and closure.
+The protocol should disclose the route that materially shaped the decision, preserve the current competent root when possible, prepare a bounded handoff only when another surface is materially useful, distinguish a requested switch from a switch that actually occurred, let execution converge at the designated control root, and perform postflight, acceptance and closure there.
 
 ### Optional Sprint Mode
 
-Sprint Mode is a run-level resource and pacing overlay, not a fourth setup mode, capability tier, model, persistent profile or native ChatGPT feature. It may activate only through `explicit_user` activation or `recommended_then_user_confirmed` activation. It ends when the objective or explicit stop condition is reached, resources or authority block continuation, the user disables it or Chat Postflight begins.
+Sprint Mode is a run-level resource and pacing overlay, not a fourth setup mode, capability tier, model, persistent profile or native ChatGPT feature. It may activate only through `explicit_user` activation or `recommended_then_user_confirmed` activation. It ends when the objective or explicit stop condition is reached, resources or authority block continuation, the user disables it or Control-Root Postflight begins.
 
 Use it only with a named objective, a finite docket or bounded execution envelope and a visible stop condition:
 
@@ -80,7 +81,7 @@ Use Chat–Work in Sprint Mode for this task.
 Objective: [one sovereign objective]
 Docket: [finite pre-named items, if applicable]
 Stop when: [acceptance boundary, horizon or blocking condition]
-Return the Sprint Receipt and perform Chat Postflight.
+Return the Sprint Receipt and perform Control-Root Postflight.
 ```
 
 Short form: `Sprint this bounded docket: [items]. Stop when [condition].`
@@ -97,7 +98,7 @@ You may still need to attach the canonical file, approve an external action or p
 
 ### Tiny example
 
-For a multi-file documentation change, ask Chat–Work to recommend the execution route, make any UI change it identifies, let the available executor perform the bounded edit and return the result to Chat for verification and closure. The presence of a ZIP or a prestigious model label does not decide the route by itself.
+For a multi-file documentation change, ask Chat–Work to recommend the execution route from the surface you are already using. If that surface can remain the competent root while delegating or executing the bounded edit, stay there; transition only when another harness materially improves completion or verification. The presence of a ZIP, a surface label or a prestigious model label does not decide the route by itself.
 
 ### If the first result goes wrong
 
@@ -109,13 +110,13 @@ It does not guarantee access to Work, Codex or frontier models, automatic model 
 
 ## 1. Mother law and core sentence
 
-> **Executor completion is not cycle completion. Execution returns; Chat closes the loop.**
+> **Executor completion is not cycle completion. Execution converges; the designated control root closes the loop.**
 
 The stable sentence is:
 
-> **Chat understands and decides. Work and Codex orchestrate and execute. Cheap sufficient workers absorb parallelizable bulk; stronger models receive only the cognitively irreducible delta. Chat accepts and integrates.**
+> **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger models receive only the cognitively irreducible delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
 
-The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6 changes the routing unit itself: capability differences no longer imply a human-operated model handoff when one capable root can delegate internally.
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completes that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally.
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
@@ -408,81 +409,126 @@ checkpoint_policy: aggressive
 
 A named profile should describe strategy, not pretend to describe every subscriber on a commercial plan.
 
-## 3. The tri-surface model
 
-Chat, Work and Codex are specialized execution surfaces, not ranks in a prestige ladder. Codex is optional and its presence in the model does not establish installation, availability, enablement or user consent.
+## 3. Surface roles and control roots
+
+Chat, Work and Codex are specialized product surfaces, not ranks in a prestige ladder and not fixed cognitive roles. Any surface may be a **control surface** only to the extent that the current runtime actually lets it retain the objective, authority, route state, convergence state and postflight responsibility. Codex remains optional and its presence in the model does not establish installation, availability, enablement or user consent.
+
+### Control Root Law
+
+The **control root** is the active owner of objective, authority, decomposition, routing, convergence and closure for the current run. The control root is a functional role, not a product name.
+
+The current competent root is the continuity default. Do not move the user to another surface merely because another surface is traditionally associated with a phase of work.
+
+A surface transition must earn itself through a material capability gain such as required tooling, execution persistence, repository/runtime access, document/computer environment, permission boundary, verification affordance or context-locality advantage.
+
+> **Stay where you are when the current root can complete and verify the objective; move only for a real execution reason.**
 
 ### Chat
 
-Chat owns understanding, judgment, clarification, comparison, architecture, bounded correction, acceptance and integration. Chat may perform bounded direct mutation when the required action is actually available and verifiable.
-
-### Bounded Direct Action Exception
-
-Object geometry determines the default sovereign surface. Chat may directly execute a delta when the operation is atomic or tightly bounded, already authorized, supported by an actually available tool, independently verifiable, low in continuity and coordination burden, and not materially improved by handoff to Work or Codex. The exception changes the executor, not the evidence standard.
-
-Examples that normally remain in Chat when directly executable include changing one README sentence, sending one authorized email, modifying one calendar event, updating one spreadsheet cell, rewriting one paragraph or performing one bounded connector action. Sustained implementation, multi-file production or a task whose coordination burden is load-bearing still routes to the surface that owns that workload.
+Chat is a first-class control surface for conversational continuity, clarification, comparison, architecture, review, bounded direct action and human-facing acceptance. It is especially useful when the user prefers to keep long-lived conversational context in Chat, but the protocol does not assume that preference for every user.
 
 ### Work
 
-Work owns sustained execution over knowledge artifacts and office-style deliverables: long research, multi-file documents, connector-mediated source operations, structured reports and finished artifacts where continuity is loadbearing.
+Work is a sustained execution surface for research, knowledge artifacts, office-style deliverables, browser/computer interaction and multi-step connector workflows where those capabilities are exposed. Work may also remain the control root for an entire run rather than serving only as an executor called from Chat.
 
 ### Codex
 
-Codex owns executable systems: repositories, code, tests, builds, terminals, runtime behavior, refactors, migrations and debugging, when it is actually available and enabled.
+Codex is an execution and control surface for repositories, code, tests, builds, terminals, runtime behavior, refactors, migrations and debugging when it is actually available and enabled. Codex may retain root responsibility through subagent execution and final convergence when the task is natively repository-shaped.
+
+### Bounded Direct Action Law
+
+A current control root may directly execute a delta when the operation is atomic or tightly bounded, already authorized, supported by an actually available tool, independently verifiable, low in coordination burden, and not materially improved by a transition to another surface. The law changes the executor, not the evidence standard.
+
+Examples include changing one README sentence, sending one authorized email, modifying one calendar event, updating one spreadsheet cell, rewriting one paragraph or performing one bounded connector action.
 
 ### Codex Optionality Law
 
 Codex is an optional execution capability, not a protocol prerequisite. Route to Codex only when it is observed as available, permitted by the active profile or a one-run override, and materially beneficial for the sovereign object. If Codex is unavailable or disabled, do not treat that as protocol failure: choose the best real fallback, preserve the claim ceiling and distinguish an unavailable ideal harness from an impossible task. AUTO must not silently assume Codex.
 
-### The cycle
+### Named Chat–Work Loop Profile
 
-A common route is:
+The historical **Chat → Work/Codex → Chat** loop remains a first-class named profile:
 
-**Chat → Work → Codex (when enabled and available) → Chat**
+**Chat–Work Loop Profile = Chat continuity/control → Work and/or Codex execution when materially useful → Chat convergence/postflight.**
 
-It is not mandatory. Route each stage by the sovereign object that must change.
+Use it when Chat is the user's preferred continuity surface, when conversational context should remain the primary human-facing state, or when the user explicitly asks for that loop.
+
+It is no longer the protocol's mandatory default topology.
+
+Other valid topologies include:
+
+- Work root → delegated workers/specialists → Work convergence;
+- Codex root → subagents → Codex convergence;
+- frontier root → cheaper workers + stronger specialists → same-root convergence;
+- another compatible orchestrator → execution workers → designated convergence root.
+
+The protocol routes by function and observed capability, not by ritual surface order.
+
 
 ## 4. Route by object geometry and workload shape
 
 **Sovereign object = the state that must actually change for the task to count as done.** Object labels are routing clues, not the completion criterion.
 
+Object geometry determines what execution affordances are needed; it does not automatically dictate which product surface must become the control root.
+
 Examples:
-- “Explain this code” → understanding → Chat.
-- “Change this repo and pass tests” → repository/runtime state → Codex if enabled and available.
-- “Produce a researched report” → artifact → Work when available and appropriate.
-- “Send one email” → external message state; the Bounded Direct Action Exception may keep execution in Chat.
+- “Explain this code” → understanding → remain on the current competent control surface.
+- “Change this repo and pass tests” → repository/runtime state → use Codex when available and materially beneficial; Codex may become or remain the root.
+- “Produce a researched report” → artifact → use Work when its sustained execution affordances are materially useful; Work may remain the root.
+- “Send one email” → external message state → current root may execute directly when the action is available, authorized and verifiable.
 
-| Default task geometry | Default sovereign surface |
+| Task geometry | Preferred routing tendency |
 |---|---|
-| Meaning, judgment, architecture, comparison, clarification, acceptance or bounded correction | Chat |
-| Atomic text/document transformation or connector action with low continuity burden | Chat under the Bounded Direct Action Exception |
-| Sustained knowledge-artifact production, multi-source research, office/document execution or coordination-heavy connector workflow | Work |
-| Repository, code, test, build, terminal, runtime, executable system or code migration | Codex when available and enabled |
-| Acceptance, claim ceiling, residual classification and final integration | Chat |
+| Meaning, judgment, architecture, comparison, clarification or review | Preserve the current competent control root; Chat is a first-class option, not a mandatory destination |
+| Atomic text/document transformation or connector action | Current competent root under the Bounded Direct Action Law |
+| Sustained knowledge-artifact production, multi-source research, office/document execution or coordination-heavy browser/connector workflow | Work when its harness materially improves completion or verification |
+| Repository, code, test, build, terminal, runtime, executable system or code migration | Codex when available, enabled and materially beneficial |
+| Acceptance, claim ceiling, residual classification and final integration | Designated convergence/control root, with human decision where human authority is required |
 
-When several objects are present, decompose the task into explicit stages and name each owner. When object type and workload shape point to different surfaces, prefer the smallest available surface that can complete and verify the delta without losing material continuity, control, feedback or evidence.
+When several objects are present, decompose the task into explicit stages and name each owner. When object type and workload shape point to different execution surfaces, preserve the current root if it can coordinate the required harnesses; otherwise choose the smallest available transition that can complete and verify the delta without losing material continuity, control, feedback or evidence.
+
 
 ## 5. Routing dimensions
 
-The protocol records nine routing dimensions plus an optional Sprint overlay:
+The protocol records ten routing dimensions plus an optional Sprint overlay:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
-3. **Execution surface and harness** — where the operation actually runs;
-4. **Root capability tier and model** — `efficient | balanced | strong | frontier`;
-5. **Reasoning effort** — independent from model capability;
-6. **Continuity and locality** — persistence, local state and handoff requirements;
-7. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
-8. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
-9. **Operation mode** — whether the run executes, only routes or audits a previous route.
+3. **Control surface/root** — where objective, authority, routing state, convergence and closure live;
+4. **Execution surface/harness** — where a particular operation actually runs;
+5. **Root capability tier and model** — `efficient | balanced | strong | frontier`;
+6. **Reasoning effort** — independent from model capability;
+7. **Continuity and locality** — persistence, local state and handoff requirements;
+8. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
+9. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
+10. **Operation mode** — whether the run executes, only routes or audits a previous route.
+
+> **Control surface ≠ root model ≠ execution surface.**
+
+A Work surface may host a Sol root that delegates Luna workers. A Codex surface may host a root plus subagents and close there. Chat may remain the continuity root while Work or Codex executes a bounded phase. These are different routing dimensions and must not be collapsed.
 
 ### Harness Specialization Law
 
 Capability overlap does not imply harness equivalence. Prefer the surface whose persistence, controls, feedback and verification fit the sovereign object.
 
+### Surface Continuity Law
+
+AUTO preserves the **current competent control root** unless a surface transition creates a material completion or verification advantage.
+
+Before asking the user to move between Chat, Work, Codex or another compatible surface, AUTO should attempt, in order when available:
+
+1. direct completion on the current root;
+2. internal tool/harness use from the current root;
+3. internal delegation or child-model routing;
+4. bounded cross-surface execution with the current root retained as convergence owner;
+5. only then, a human-visible control-root transition.
+
+A transition is not progress by itself. The burden is on the route to justify the move.
+
 ### Delegation-First Law
 
-When Work or Codex exposes real subagents, AUTO should resolve model heterogeneity inside the current execution before asking the user for a manual model or surface switch.
+When the active harness exposes real subagents or equivalent delegated workers, AUTO should resolve model heterogeneity inside the current execution before asking the user for a manual model or surface switch.
 
 The preferred topology is asymmetric:
 
@@ -491,9 +537,11 @@ The preferred topology is asymmetric:
 - **strong specialists** receive only branches whose ambiguity or reasoning burden exceeds the cheap worker;
 - a **frontier root**, when justified, should spend frontier cognition on architecture, arbitration, exceptions and final QA rather than repetitive scanning or routine tool loops.
 
-The default question becomes:
+The default questions become:
 
 > **Can the current root assemble a sufficient internal team without taking the user out of flow?**
+
+> **Can the current root also remain the convergence owner, avoiding an unnecessary surface transition?**
 
 Manual switching is a fallback, not the routing primitive.
 
@@ -507,7 +555,7 @@ Record one stable operation mode in the Route Card and Execution Handoff:
 
 - `ROUTE_AND_EXECUTE` — default when tools or surfaces exist, authority exists and no user decision is required;
 - `ROUTE_ONLY` — use when the user asks only for routing or handoff, the executor is unavailable or execution authority is absent;
-- `AUDIT_ROUTE` — use when reviewing a previous route, handoff, model/surface decision or Chat Postflight route audit.
+- `AUDIT_ROUTE` — use when reviewing a previous route, handoff, model/surface decision or Control-Root Postflight route audit.
 
 Sprint Mode does not add an operation mode. It overlays one of these modes for the current run and must be disclosed separately as `Sprint: ON` with its activation, objective, budget character and stop condition.
 
@@ -517,20 +565,23 @@ For non-trivial tasks, manifest routing in a compact form:
 
 ```text
 Route Card
-Surface: Work
-Why: sustained multi-source report production
+Control root: Work
+Execution: Work
+Why: current Work root can sustain the report and close it without a surface transition
 Mode: ROUTE_AND_EXECUTE
-Root: strong
+Root model/tier: strong
 Effort: medium
 Delegation: cheap_worker_fanout → efficient/high for independent scans
 Budget: PASS_PHASED
-Manual switch: not required unless internal delegation is unavailable
-Next boundary: executor receipt → Chat Postflight
+Manual switch: not required
+Next boundary: executor receipt → Control-Root Postflight
 ```
 
-The card must state the selected surface, why it fits, operation mode, root capability/effort, delegation topology when material, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
+The card must state the control root, execution surface when distinct, why the topology fits, operation mode, root capability/effort, delegation topology when material, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
 
-When Sprint Mode is active, the Route Card also states the finite docket or bounded envelope, whether capacity is perishable or otherwise bounded, the lower-tier re-entry owner and the fact that the overlay exits at the stated stop boundary or Chat Postflight.
+When the named Chat–Work Loop Profile is active, the card may instead show `Control root: Chat`, a Work or Codex execution surface, and `Return root: Chat`.
+
+When Sprint Mode is active, the Route Card also states the finite docket or bounded envelope, whether capacity is perishable or otherwise bounded, the lower-tier re-entry owner and the fact that the overlay exits at the stated stop boundary or Control-Root Postflight.
 
 ## 6. Availability and Capability Floor
 
@@ -614,7 +665,7 @@ Sprint Mode is an optional, explicitly activated, ephemeral run-level resource a
 
 The router must not silently activate Sprint Mode because a task is urgent, a plan has a particular label, capacity appears available or a model prefers a broader run. A recommendation is not activation. If confirmation is absent, Sprint remains off.
 
-An active Sprint requires a single sovereign objective, a finite docket or bounded execution envelope, a named stop condition and a return receipt. It exits when the objective or stop condition is reached, the resource or authority boundary blocks continuation, the user disables it or Chat Postflight begins. It does not persist into a later run unless separately activated again.
+An active Sprint requires a single sovereign objective, a finite docket or bounded execution envelope, a named stop condition and a return receipt. It exits when the objective or stop condition is reached, the resource or authority boundary blocks continuation, the user disables it or Control-Root Postflight begins. It does not persist into a later run unless separately activated again.
 
 ```yaml
 sprint_envelope:
@@ -654,19 +705,37 @@ Progressively retrieve only what a named uncertainty requires. Compression must 
 
 For IDL escalation, the context capsule should be decision-relevant rather than merely short: preserve load-bearing authority, hard constraints, verified evidence and material uncertainty, while excluding recoverable history and settled implementation bulk.
 
+
 ## 9. Surface gates
+
+### Current-root gate
+
+First ask whether the current surface can remain a competent control root through completion and verification. If yes, preserve continuity unless another surface provides a material execution advantage.
 
 ### Chat gate
 
-Use Chat for meaning, decision, comparison, architecture, bounded correction, atomic connector actions and acceptance. When an answer materially depends on live state, retrieve it before claiming it.
+Use Chat as a control or execution surface when conversational continuity, clarification, review, bounded correction, atomic connector actions or human-facing acceptance are load-bearing. Chat is not required merely because the task contains judgment.
 
 ### Work gate
 
-Use Work for long research, multi-file knowledge production, connector-mediated document work, structured office artifacts and sustained artifact execution.
+Use Work when long research, multi-file knowledge production, browser/computer interaction, connector-mediated document work, structured office artifacts or sustained artifact execution materially benefit from its harness. Work may remain the control root through convergence and postflight.
 
 ### Codex gate
 
-Use Codex for repository mutation, code, tests, builds, terminals, runtime diagnosis, refactors and migrations only when it is actually available and enabled. Inspect applicable `AGENTS.md` or equivalent repository instructions before mutation.
+Use Codex for repository mutation, code, tests, builds, terminals, runtime diagnosis, refactors and migrations only when it is actually available and enabled. Inspect applicable `AGENTS.md` or equivalent repository instructions before mutation. Codex may remain the control root when the objective is natively repository-shaped.
+
+### Surface Transition Gate
+
+A human-visible surface transition is justified only when at least one of these is material:
+
+- required tooling or environment is unavailable from the current root;
+- persistence/local state is load-bearing and better preserved elsewhere;
+- permission or mutation scope exists only on another surface;
+- verification quality materially improves on another harness;
+- the current root is below the capability floor and cannot internally delegate to a sufficient target;
+- the user explicitly prefers another surface.
+
+When none applies, stay on the current competent root.
 
 ### Surface Availability Probe
 
@@ -704,7 +773,7 @@ The adapter must be compiled from task geometry and observed capability rather
 than model prestige or stereotype. It may propose a strategy, but it cannot
 override user authority, source authority, safety, privacy, capability floor,
 scope ceiling, mutation permission, evidence, verification, claim ceiling,
-Delegation & Native Parallelism Gate or Chat Postflight. On conflict, this canonical body
+Delegation & Native Parallelism Gate or Control-Root Postflight. On conflict, this canonical body
 wins.
 
 Preserve these separations explicitly:
@@ -892,7 +961,7 @@ The ordinary IDL default remains one irreducible delta. Sprint Mode may use a **
 6. each item can independently resolve, defer, remain frozen or be rejected without silently deciding its siblings;
 7. newly discovered classes do not join the docket automatically;
 8. material decisions use the Decision Trace contract below when its trigger fires;
-9. lower-tier implementation or verification and Chat Postflight remain available;
+9. lower-tier implementation or verification and Control-Root Postflight remain available;
 10. Sprint Mode was explicitly activated or recommended and confirmed by the user.
 
 This exception permits logical plurality, not automatic physical fanout. Native agents, branches and worktrees still require the Native Parallelism Gate. A Decision Sprint is not permission to turn a finite docket into an exhaustive investigation.
@@ -1019,7 +1088,7 @@ The receiving executor must:
 5. verify the observable delta;
 6. re-escalate only if a **new** irreducible delta appears.
 
-A higher-tier ruling is not task completion. Executor completion and cycle completion remain distinct; Chat Postflight still refreshes state, audits evidence and closes or re-enters the route.
+A higher-tier ruling is not task completion. Executor completion and cycle completion remain distinct; Control-Root Postflight still refreshes state, audits evidence and closes or re-enters the route.
 
 #### Optional Distillation Receipt
 
@@ -1067,7 +1136,7 @@ Frontier Burst is the frontier-tier specialization of the general IDL micro-burs
 
 Under constrained resources, prefer:
 
-**lowest sufficient preparation → bounded Decision Capsule → frontier micro-burst → lowest sufficient implementation → verification → Chat Postflight**
+**lowest sufficient preparation → bounded Decision Capsule → frontier micro-burst → lowest sufficient implementation → verification → Control-Root Postflight**
 
 Use the IDL Decision Capsule, Return Capsule and, when triggered, Decision Trace contracts. The frontier call should make one bounded ruling; retrieval, file mutation, formatting and routine verification remain with the cheaper adequate route.
 
@@ -1183,16 +1252,18 @@ distillation:
   return_capsule_required: false
 ```
 
+
 ## 15. Portable Execution Handoff
 
 ### Transport Law
 
-A route is not transferred until the next surface receives the minimum execution capsule required to preserve the objective, authority, baseline, constraints, profile snapshot, Run State, selected route, evidence, acceptance criteria and claim ceiling. If surfaces do not share context, emit a copyable capsule, name the destination, include required files or refs and never assume hidden context follows the user.
+A route is not transferred until the next executor or control surface receives the minimum execution capsule required to preserve the objective, authority, baseline, constraints, profile snapshot, Run State, selected route, evidence, acceptance criteria and claim ceiling. If surfaces do not share context, emit a copyable capsule, name the destination, include required files or refs and never assume hidden context follows the user.
 
 Typical transports:
-- Chat → Work: handoff, required sources and profile/Run State snapshot;
-- Chat → Codex: repository, path, branch, delta, tests, repository instructions and the Codex-enabled/available condition;
-- executor → Chat: evidence-bearing receipt, after which Chat independently refreshes state.
+- control root → executor: objective, authority, bounded delta, required sources, route state and acceptance boundary;
+- executor → same control root: evidence-bearing receipt for convergence and postflight;
+- control root → new control root: full bounded continuity capsule when a real root transition is required;
+- named Chat–Work Loop Profile: Chat → Work/Codex for execution → Chat for convergence and postflight.
 
 ```yaml
 execution_handoff:
@@ -1207,6 +1278,14 @@ execution_handoff:
     user_visible_outcome: null
     sovereign_object: null
     observable_delta: null
+
+  topology:
+    control_root_surface: null
+    root_model: null
+    execution_surface: null
+    return_root_surface: null
+    delegation_topology: single_owner
+    manual_surface_transition_required: false
 
   profile_snapshot:
     profile_id: null
@@ -1228,7 +1307,9 @@ execution_handoff:
         members: unknown
 
   route_card:
-    surface: null
+    control_root: null
+    execution_surface: null
+    return_root: null
     why: null
     operation_mode: null
     capability_tier: null
@@ -1238,7 +1319,6 @@ execution_handoff:
     next_boundary: null
 
   route:
-    surface: null
     capability_floor: null
     capability_tier: null
     reasoning_effort: null
@@ -1292,6 +1372,7 @@ execution_handoff:
       - profile_snapshot
       - run_state
       - selected_route
+      - topology
       - sources
       - source_reference
       - evidence
@@ -1335,7 +1416,7 @@ Every executor returns an evidence-bearing receipt with:
 - when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state;
 - when Sprint Mode was active or recommended, the Sprint Receipt, activation evidence, docket statuses, consistency result, stop/exit state and lower-tier re-entry state.
 
-A successful subagent or tool response proves only that branch response, not completion of the sovereign objective. The root owns convergence; Chat owns final acceptance and integration.
+A successful subagent or tool response proves only that branch response, not completion of the sovereign objective. The designated control root owns convergence and postflight integration; any acceptance or authority reserved to the human remains with the human.
 
 Historical V2/V3/V4/V5 receipts remain valid lineage records and are not rewritten.
 
@@ -1364,19 +1445,23 @@ sprint_receipt:
   postflight_required: true
 ```
 
-`DEFER_TO_EVIDENCE` entries are incomplete unless their decision rule, exact missing evidence and re-entry condition are carried in the receipt or an attached item record. Capacity consumption is not a completion signal; Chat Postflight must refresh the observable state and accept, repair or re-enter the route.
+`DEFER_TO_EVIDENCE` entries are incomplete unless their decision rule, exact missing evidence and re-entry condition are carried in the receipt or an attached item record. Capacity consumption is not a completion signal; Control-Root Postflight must refresh the observable state and accept, repair or re-enter the route.
 
-## 17. Chat Postflight
 
-Chat Postflight is mandatory after an executor returns.
+## 17. Control-Root Postflight
+
+Control-Root Postflight is mandatory after material executor return or delegated convergence.
 
 1. **Refresh real state.** Read the current source, document, repository, artifact or deployment independently of the executor narrative.
 2. **Audit claim against evidence.** Compare requested delivery with observed delta and verification.
-3. **Audit route against profile.** Confirm that profile preferences and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
-4. **Classify residuals.** `none | bounded_chat_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`.
+3. **Audit route against profile.** Confirm that profile preferences, root continuity and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
+4. **Classify residuals.** `none | bounded_root_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`. Legacy `bounded_chat_repair` receipts may be read as the Chat-specific form of `bounded_root_repair`.
 5. **If an IDL ruling returned, integrate and verify it.** When the Decision Trace trigger fired, inspect the decisive comparison, adversarial correction, falsifier/test and uncertainty before treating the ruling as governing. A ruling does not replace implementation, mutation checks or downstream verification.
 6. **If Sprint Mode was active, audit the Sprint Receipt.** Confirm explicit or confirmed activation, the finite docket, each item status, any required item-level Decision Trace, the cross-item consistency pass, the stop condition and ephemeral exit. Do not treat capacity consumed or capacity left unused as completion by itself.
 7. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
+8. **Preserve or transition deliberately.** Keep the current root for the next delta unless a new surface transition earns itself under the Surface Transition Gate.
+
+When the named Chat–Work Loop Profile is active, Control-Root Postflight occurs in Chat and may still be called **Chat Postflight** as a compatibility/profile-specific label. The generic public core does not require Chat as the closure surface.
 
 ## 18. Acceptance states
 
@@ -1395,7 +1480,7 @@ Complex work uses:
 1. **Hard judgment** — capability floor, route, effort, budget and acceptance; activate Sprint only through explicit user activation or confirmed recommendation and compile its bounded envelope;
 2. **Bounded mutation** — smallest authorized source delta;
 3. **Verification** — tests, validators, readback, hashes or runtime checks;
-4. **Chat Postflight** — refresh, audit, repair/classify, accept or re-enter.
+4. **Control-Root Postflight** — refresh, audit, repair/classify, accept or re-enter at the designated control root.
 
 Tiny tasks may collapse phases, but not their responsibilities.
 
@@ -1446,14 +1531,17 @@ Preferred fallback order, subject to capability floor:
 
 The smallest unresolved delta determines re-entry. A Sprint overlay does not carry forward automatically; a later run must activate it again.
 
+
 ## 22. Lifecycle and succession
 
-- Chat–Work Routing Protocol 6.0 is the current public release;
-- 6.0 supersedes 5.2 and promotes delegation topology to first-class protocol law rather than a dated executor note;
+- Chat–Work Routing Protocol 6.1 is the current public release;
+- 6.1 supersedes 6.0 and makes surface continuity/control-root neutrality first-class protocol law while preserving 6.0 Delegation-First orchestration;
+- the historical Chat → Work/Codex → Chat loop remains a first-class named Chat–Work Loop Profile rather than the mandatory default topology;
+- 6.0 remains recoverable through Git history and records the delegation-topology rebase;
 - the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
 - earlier 4.x releases remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical Chat–Work file; website delivery is a separate mirror surface and must be synchronized after the canonical body passes validation;
-- MSL is currently 5.1; Chat–Work remains independently versioned at 6.0;
+- MSL is currently 5.1; Chat–Work remains independently versioned at 6.1;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
@@ -1463,10 +1551,10 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 - Read before mutation; refresh before claiming current state.
 - Resolve profile without confusing entitlement with live resource posture; never claim persistence without evidence.
-- Route by sovereign object and workload shape; choose the smallest available harness that can verify the delta.
+- Route by sovereign object and workload shape; preserve the current competent control root and choose the smallest available execution harness that can verify the delta.
 - Treat Codex as optional and surface enablement as distinct from observed availability.
 - Treat a surface change as an executor change, not a budget reset.
-- Transport the minimum execution capsule; hidden context does not follow by default.
+- Transport the minimum execution capsule; hidden context does not follow by default, and a control-root transition requires explicit continuity transport.
 - Enforce capability floor before honoring model preference.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
 - Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
@@ -1489,18 +1577,18 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Treat logical plurality as distinct from physical fanout; Sprint Mode does not waive the Delegation & Native Parallelism Gate.
 - Never silently activate Sprint Mode, carry it into a later run, or turn perishable capacity into an invented price, reset fact, quota guarantee or reason to spend.
 - Optimize verified useful delta before a real or evidenced horizon; spend is not the objective, and unused capacity is not a failure by itself.
-- Return a Sprint Receipt with claim ceiling, docket disposition, consistency result, stop state, lower-tier re-entry and `postflight_required: true`; Chat Postflight must independently refresh and close the run.
+- Return a Sprint Receipt with claim ceiling, docket disposition, consistency result, stop state, lower-tier re-entry and `postflight_required: true`; Control-Root Postflight must independently refresh and close the run.
 - Chat closes the loop.
 
 ## 24. Installation and use
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Chat–Work Routing Protocol. Start in AUTO setup unless I provide a named Execution Profile. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve reusable preferences separately from current Run State and task requirements. Define the sovereign object in plain language, route by object and workload shape, and use the smallest available surface that can complete and verify the delta. Show a compact Route Card for non-trivial work. Choose an operation mode, model tier and reasoning effort separately. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. When a named irreducible delta exceeds the current route, compile a Decision Capsule, choose the least-expensive sufficient target without forcing intermediate tiers, request a bounded ruling, and, when that ruling could materially change route, architecture, governance, policy, acceptance or a stop condition, request the smallest auditable Decision Trace rather than a hidden reasoning transcript. Return to the lowest sufficient tier and verify. Before expensive frontier execution, compile open-ended completeness language into an explicit coverage mode, ceiling, stop condition and scope-expansion rule. When source-backed work is involved, include the governing source or family, locator, facet, operation, coverage, freshness, mutation authorization, readback and fallback in the handoff. After every executor return, perform Chat Postflight and independently refresh source-backed state before accepting or re-entering the route.
+> Use Chat–Work Routing Protocol 6.1. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Escalate only the irreducible delta; return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
 
 Optional Sprint activation:
 
-> Use Chat–Work in Sprint Mode for this task only. Activate only because I explicitly requested it. Objective: [one sovereign objective]. Docket: [finite pre-named items, if any]. Budget character: [perishable, bounded or unknown]. Stop when: [acceptance boundary, horizon or block]. Return the Sprint Receipt, preserve item-level Decision Traces when material, exit the overlay after the run and perform Chat Postflight.
+> Use Chat–Work in Sprint Mode for this task only. Activate only because I explicitly requested it. Objective: [one sovereign objective]. Docket: [finite pre-named items, if any]. Budget character: [perishable, bounded or unknown]. Stop when: [acceptance boundary, horizon or block]. Return the Sprint Receipt, preserve item-level Decision Traces when material, exit the overlay after the run and perform Control-Root Postflight.
 
 Optional reusable setup:
 
@@ -1538,7 +1626,7 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 ## Final Law
 
-> **Route by the state that must change. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Use the smallest available harness that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the root, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Preserve the current competent control root unless a transition creates a material execution or verification advantage. Separate control surface, root model and execution surface. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Use the smallest available topology that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the designated root, refresh reality, verify, integrate and close. The Chat → Work/Codex → Chat loop remains available as a first-class named profile, not as the universal default.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
