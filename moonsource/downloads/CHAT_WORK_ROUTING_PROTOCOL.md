@@ -1578,7 +1578,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Never silently activate Sprint Mode, carry it into a later run, or turn perishable capacity into an invented price, reset fact, quota guarantee or reason to spend.
 - Optimize verified useful delta before a real or evidenced horizon; spend is not the objective, and unused capacity is not a failure by itself.
 - Return a Sprint Receipt with claim ceiling, docket disposition, consistency result, stop state, lower-tier re-entry and `postflight_required: true`; Control-Root Postflight must independently refresh and close the run.
-- Chat closes the loop.
+- The designated control root closes the loop; in the named Chat–Work Loop Profile, that root is Chat.
 
 ## 24. Installation and use
 
