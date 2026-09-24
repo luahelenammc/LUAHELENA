@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#070916">
+  <meta name="description" content="An interactive visual comparison of GPT-5.6 and GPT-6 API prices: Luna, Sol, and Astra.">
+  <title>GPT Price Geometry — Luna, Sol & Astra</title>
+  <style>
+    :root{
+      --bg:#050713;
+      --panel:rgba(15,18,42,.72);
+      --panel-2:rgba(23,28,62,.72);
+      --line:rgba(255,255,255,.11);
+      --text:#f7f7ff;
+      --muted:#aeb5cf;
+      --luna56:#9aa9ff;
+      --luna6:#59e1ff;
+      --sol56:#ffc85c;
+      --sol6:#ff7d45;
+      --astra:#e85cff;
+      --good:#68f3b2;
+      --cyan:#6be8ff;
+      --shadow:0 24px 80px rgba(0,0,0,.32);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(89,225,255,.16), transparent 28rem),
+        radial-gradient(circle at 82% 12%, rgba(232,92,255,.17), transparent 30rem),
+        radial-gradient(circle at 52% 75%, rgba(255,125,69,.09), transparent 34rem),
+        linear-gradient(180deg,#050713 0%,#090b1a 52%,#050713 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body:before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; opacity:.38;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.72) 0 1px, transparent 1.25px),
+        radial-gradient(circle at 77% 22%, rgba(255,255,255,.5) 0 1px, transparent 1.2px),
+        radial-gradient(circle at 45% 66%, rgba(255,255,255,.38) 0 1px, transparent 1.2px),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,.5) 0 1px, transparent 1.2px);
+      background-size:230px 230px,310px 310px,270px 270px,380px 380px;
+      mask-image:linear-gradient(to bottom,#000 0%,transparent 72%);
+    }
+
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:24px 0 8px;position:relative;z-index:2
+    }
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;font-weight:800;letter-spacing:-.02em}
+    .brand-dot{
+      width:28px;height:28px;border-radius:50%;
+      background:conic-gradient(from 215deg,var(--luna6),var(--astra),var(--sol6),var(--luna6));
+      box-shadow:0 0 32px rgba(89,225,255,.35)
+    }
+    .back{
+      color:var(--muted);text-decoration:none;font-size:.88rem;border:1px solid var(--line);
+      padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.035)
+    }
+    .back:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+
+    header{padding:80px 0 58px;position:relative}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(107,232,255,.25);
+      background:rgba(89,225,255,.06);
+      color:#c8f7ff;font-size:.82rem;font-weight:760;letter-spacing:.08em;text-transform:uppercase
+    }
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--luna6);box-shadow:0 0 0 6px rgba(89,225,255,.09)}
+    h1{
+      margin:22px 0 18px;max-width:970px;font-size:clamp(3.2rem,8.2vw,7.7rem);
+      line-height:.86;letter-spacing:-.075em;font-weight:900
+    }
+    .gradient-word{
+      background:linear-gradient(100deg,var(--luna6) 0%,#a9abff 33%,var(--astra) 56%,var(--sol6) 84%,#ffd67b 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .lede{
+      max-width:790px;color:#c5cae0;font-size:clamp(1.06rem,2vw,1.3rem);line-height:1.65;margin:0
+    }
+    .hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .chip{
+      padding:9px 13px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(255,255,255,.04);color:#cdd3e8;font-size:.86rem
+    }
+
+    .hero-orbit{
+      margin-top:46px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+      align-items:center;gap:16px;padding:26px;border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(135deg,rgba(13,17,42,.86),rgba(12,13,31,.72));box-shadow:var(--shadow)
+    }
+    .planet{text-align:center}
+    .orb{
+      width:clamp(72px,9vw,110px);aspect-ratio:1;border-radius:50%;margin:0 auto 14px;
+      display:grid;place-items:center;font-weight:900;font-size:.86rem;position:relative
+    }
+    .orb:after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
+    .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 50px rgba(89,225,255,.3)}
+    .orb.sol{background:radial-gradient(circle at 34% 30%,#fff5bc,#ffc860 28%,var(--sol6) 65%,#8b273b);box-shadow:0 0 54px rgba(255,125,69,.36)}
+    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 58px rgba(232,92,255,.38)}
+    .planet strong{display:block;font-size:1.1rem}.planet span{color:var(--muted);font-size:.85rem}
+    .gap{
+      min-width:86px;text-align:center;color:#fff;font-size:1.55rem;font-weight:900;
+      border-top:1px dashed rgba(255,255,255,.2);padding-top:7px
+    }
+    .gap small{display:block;color:var(--muted);font-size:.65rem;font-weight:650;margin-top:4px;letter-spacing:.04em;text-transform:uppercase}
+
+    section{padding:54px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
+    .section-head h2{font-size:clamp(2rem,4vw,3.6rem);line-height:.98;letter-spacing:-.055em;margin:0}
+    .section-head p{max-width:520px;margin:0;color:var(--muted);line-height:1.55}
+    .card{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(145deg,rgba(18,22,52,.78),rgba(10,12,28,.78));
+      box-shadow:var(--shadow)
+    }
+
+    .controls{display:flex;flex-wrap:wrap;gap:8px}
+    .seg{
+      display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035)
+    }
+    .seg button{
+      border:0;color:var(--muted);background:transparent;padding:9px 13px;border-radius:10px;cursor:pointer;font-weight:760;font-size:.83rem
+    }
+    .seg button.active{background:#fff;color:#090b18;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+
+    .price-chart{padding:26px}
+    .bar-chart{display:grid;gap:15px;margin-top:12px}
+    .bar-row{display:grid;grid-template-columns:150px 1fr 116px;align-items:center;gap:14px}
+    .bar-label{display:flex;align-items:center;gap:10px;font-weight:780;font-size:.92rem}
+    .swatch{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 16px color-mix(in srgb,var(--c) 55%,transparent)}
+    .track{height:42px;border-radius:13px;background:rgba(255,255,255,.045);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.055)}
+    .fill{
+      position:absolute;left:0;top:0;bottom:0;width:var(--w);
+      background:linear-gradient(90deg,color-mix(in srgb,var(--c) 70%,#11162d),var(--c));
+      border-radius:12px;transition:width .6s cubic-bezier(.22,.8,.25,1);min-width:8px
+    }
+    .fill:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.24),transparent 62%);
+      transform:translateX(-100%);animation:sheen 5s ease-in-out infinite
+    }
+    @keyframes sheen{0%,72%{transform:translateX(-100%)}90%,100%{transform:translateX(100%)}}
+    .bar-value{text-align:right}
+    .bar-value strong{display:block;font-size:1rem}.bar-value span{color:var(--muted);font-size:.75rem}
+    .axis-note{color:var(--muted);font-size:.78rem;margin:15px 0 0 164px}
+
+    .raw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .price-card{padding:20px;position:relative;overflow:hidden;min-height:180px}
+    .price-card:before{
+      content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-42px;top:-48px;
+      background:var(--c);filter:blur(38px);opacity:.18
+    }
+    .model-kicker{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-weight:760}
+    .model-name{font-size:1.25rem;font-weight:860;letter-spacing:-.025em;margin:5px 0 22px}
+    .price-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .price-pair div{padding:10px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.05)}
+    .price-pair span{display:block;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+    .price-pair strong{display:block;margin-top:5px;font-size:1.08rem}
+
+    .big-fact{
+      padding:38px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;overflow:hidden;position:relative
+    }
+    .big-fact:after{
+      content:"100×";position:absolute;right:-2vw;bottom:-7vw;font-weight:950;font-size:clamp(7rem,20vw,17rem);
+      color:rgba(255,255,255,.025);letter-spacing:-.09em;pointer-events:none
+    }
+    .big-number{font-size:clamp(5rem,13vw,10rem);line-height:.8;letter-spacing:-.085em;font-weight:950}
+    .big-number span{font-size:.35em;color:var(--astra)}
+    .big-copy h3{margin:0 0 10px;font-size:1.55rem}.big-copy p{color:var(--muted);line-height:1.6;margin:0}
+
+    .gen-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .gen-card{padding:28px}
+    .gen-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
+    .gen-card h3{margin:0;font-size:1.45rem;letter-spacing:-.025em}
+    .cut{font-size:.75rem;padding:7px 9px;border-radius:999px;color:#08150f;background:var(--good);font-weight:850}
+    .flow{display:grid;grid-template-columns:1fr 44px 1fr;gap:12px;align-items:center;margin-top:28px}
+    .flow-box{padding:16px;border-radius:17px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
+    .flow-box small{display:block;color:var(--muted);font-size:.72rem;margin-bottom:6px}
+    .flow-box strong{font-size:1.35rem}
+    .arrow{text-align:center;color:var(--muted);font-size:1.4rem}
+    .split-cuts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .split-cuts div{padding:12px;border-radius:14px;background:rgba(104,243,178,.07);border:1px solid rgba(104,243,178,.16)}
+    .split-cuts small{display:block;color:#9dd9bd}.split-cuts strong{display:block;margin-top:2px;color:var(--good);font-size:1.15rem}
+
+    .astra-scale{padding:30px}
+    .scale-line{height:11px;border-radius:99px;background:linear-gradient(90deg,var(--luna6) 0 1%,rgba(89,225,255,.18) 1% 20%,var(--sol6) 20% 21%,rgba(255,125,69,.16) 21% 99%,var(--astra) 99% 100%);position:relative;margin:54px 18px 70px}
+    .scale-pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:0 0 0 7px color-mix(in srgb,var(--c) 13%,transparent),0 0 28px color-mix(in srgb,var(--c) 40%,transparent)}
+    .scale-pin:before{content:attr(data-value);position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-weight:920;font-size:1.2rem;white-space:nowrap}
+    .scale-pin:after{content:attr(data-name);position:absolute;top:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:700}
+
+    .budget-card{padding:30px}
+    .budget-top{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-bottom:26px}
+    .budget-top p{color:var(--muted);margin:0}
+    .budget-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end}
+    .budget-item{text-align:center}
+    .budget-bubble{
+      margin:0 auto 13px;width:var(--s);height:var(--s);max-width:130px;max-height:130px;min-width:28px;min-height:28px;
+      border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--c) 50%,#fff),var(--c) 42%,color-mix(in srgb,var(--c) 60%,#10152c));
+      box-shadow:0 0 34px color-mix(in srgb,var(--c) 20%,transparent);transition:.4s
+    }
+    .budget-item strong{display:block}.budget-item span{display:block;color:var(--muted);font-size:.75rem;margin-top:3px}
+
+    .matrix-card{padding:25px;overflow:auto}
+    .matrix{display:grid;gap:7px;min-width:760px}
+    .matrix-row{display:grid;grid-template-columns:135px repeat(5,1fr);gap:7px}
+    .matrix-cell,.matrix-label{
+      min-height:68px;border-radius:14px;border:1px solid rgba(255,255,255,.065);display:flex;flex-direction:column;justify-content:center;padding:10px 12px
+    }
+    .matrix-label{background:rgba(255,255,255,.035);font-weight:770}
+    .matrix-head{min-height:auto;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;border-color:transparent;background:transparent}
+    .matrix-cell{background:rgba(255,255,255,var(--heat));position:relative}
+    .matrix-cell strong{font-size:1.05rem}.matrix-cell span{font-size:.66rem;color:var(--muted);margin-top:3px}
+    .matrix-cell.equal{background:rgba(255,255,255,.035)}
+    .matrix-cell.cheaper{outline:1px solid rgba(89,225,255,.06)}
+    .matrix-cell.costlier{outline:1px solid rgba(232,92,255,.06)}
+
+    .takeaways{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .takeaway{padding:24px}
+    .takeaway b{font-size:2.7rem;line-height:1;letter-spacing:-.06em;display:block;margin-bottom:15px}
+    .takeaway h3{font-size:1.05rem;margin:0 0 8px}.takeaway p{margin:0;color:var(--muted);line-height:1.55;font-size:.91rem}
+
+    .method{padding:28px;color:var(--muted);line-height:1.65}
+    .method strong{color:#fff}
+    .source-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .source-links a{font-size:.78rem;text-decoration:none;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035)}
+    .source-links a:hover{border-color:rgba(255,255,255,.28);color:#fff}
+
+    footer{padding:28px 0 50px;color:#8790ae;font-size:.8rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{text-decoration:none;color:#c7cee7}
+
+    @media (max-width:900px){
+      .hero-orbit{grid-template-columns:1fr;gap:22px}
+      .gap{border-top:0;border-left:1px dashed rgba(255,255,255,.2);padding:3px 0;min-width:0}
+      .gap small{display:inline;margin-left:8px}
+      .raw-grid{grid-template-columns:repeat(2,1fr)}
+      .big-fact{grid-template-columns:1fr}
+      .gen-grid{grid-template-columns:1fr}
+      .budget-grid{grid-template-columns:repeat(3,1fr);row-gap:24px}
+      .takeaways{grid-template-columns:1fr}
+    }
+    @media (max-width:620px){
+      header{padding-top:54px}
+      .topbar .brand span:last-child{display:none}
+      .section-head{align-items:start;flex-direction:column}
+      .bar-row{grid-template-columns:112px 1fr}
+      .bar-value{grid-column:2;text-align:left;margin-top:-9px}
+      .axis-note{margin-left:126px}
+      .raw-grid{grid-template-columns:1fr}
+      .budget-grid{grid-template-columns:repeat(2,1fr)}
+      .flow{grid-template-columns:1fr}
+      .arrow{transform:rotate(90deg)}
+      .scale-line{margin-left:10px;margin-right:10px}
+      .big-fact,.price-chart,.gen-card,.astra-scale,.budget-card,.matrix-card,.method{padding:21px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topbar" aria-label="Page navigation">
+      <a class="brand" href="/ia/"><span class="brand-dot" aria-hidden="true"></span><span>Lua Helena · AI</span></a>
+      <a class="back" href="/ia/">← Back to /ia</a>
+    </nav>
+
+    <header>
+      <div class="eyebrow"><span class="pulse"></span> API pricing · September 23, 2026</div>
+      <h1>The <span class="gradient-word">price geometry</span> of GPT.</h1>
+      <p class="lede">Five models, two generations, one surprisingly dramatic cost landscape. This page turns the raw API prices into distances you can actually feel.</p>
+      <div class="hero-chips">
+        <span class="chip">Standard processing</span>
+        <span class="chip">Short context</span>
+        <span class="chip">USD per 1M text tokens</span>
+        <span class="chip">Input + output compared separately</span>
+      </div>
+
+      <div class="hero-orbit" aria-label="GPT-6 price ladder">
+        <div class="planet">
+          <div class="orb luna">LUNA</div>
+          <strong>GPT-6 Luna</strong><span>the 1× baseline</span>
+        </div>
+        <div class="gap">20×<small>price jump</small></div>
+        <div class="planet">
+          <div class="orb sol">SOL</div>
+          <strong>GPT-6 Sol</strong><span>20× Luna</span>
+        </div>
+        <div class="gap">5×<small>price jump</small></div>
+        <div class="planet">
+          <div class="orb astra">ASTRA</div>
+          <strong>GPT-6 Astra</strong><span>100× Luna</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="raw-prices">
+      <div class="section-head">
+        <div><h2>Start with the raw prices.</h2></div>
+        <p>The entire story below is generated from these official standard API rates. No blended “average” price is invented.</p>
+      </div>
+      <div class="raw-grid" id="rawGrid"></div>
+    </section>
+
+    <section id="compare">
+      <div class="section-head">
+        <div>
+          <h2>See the canyon.</h2>
+          <p style="margin-top:10px">Switch metric and scale. Linear is financially honest; logarithmic is visually merciful.</p>
+        </div>
+        <div class="controls">
+          <div class="seg" aria-label="Price metric">
+            <button class="metric-btn active" data-metric="input">Input</button>
+            <button class="metric-btn" data-metric="output">Output</button>
+          </div>
+          <div class="seg" aria-label="Chart scale">
+            <button class="scale-btn active" data-scale="log">Log scale</button>
+            <button class="scale-btn" data-scale="linear">Linear</button>
+          </div>
+        </div>
+      </div>
+      <div class="card price-chart">
+        <div class="bar-chart" id="barChart"></div>
+        <p class="axis-note" id="axisNote">Bar length uses a logarithmic scale so Luna remains visible.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="card big-fact">
+        <div>
+          <div class="big-number">100<span>×</span></div>
+        </div>
+        <div class="big-copy">
+          <h3>Astra costs one hundred Lunas.</h3>
+          <p>For both input and output, GPT-6 Astra is exactly 100× the standard short-context token price of GPT-6 Luna. Luna is therefore 99% cheaper than Astra.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="generation">
+      <div class="section-head">
+        <div><h2>Generation 6 cut prices hard.</h2></div>
+        <p>The most useful comparison is like-for-like: Luna to Luna, Sol to Sol.</p>
+      </div>
+      <div class="gen-grid">
+        <article class="card gen-card">
+          <div class="gen-head"><h3>Luna · 5.6 → 6</h3><span class="cut">cheaper</span></div>
+          <div class="flow">
+            <div class="flow-box"><small>GPT-5.6 Luna</small><strong>$0.20 / $1.20</strong></div>
+            <div class="arrow">→</div>
+            <div class="flow-box"><small>GPT-6 Luna</small><strong>$0.10 / $0.50</strong></div>
+          </div>
+          <div class="split-cuts">
+            <div><small>Input</small><strong>−50%</strong></div>
+            <div><small>Output</small><strong>−58.3%</strong></div>
+          </div>
+        </article>
+        <article class="card gen-card">
+          <div class="gen-head"><h3>Sol · 5.6 → 6</h3><span class="cut">half price</span></div>
+          <div class="flow">
+            <div class="flow-box"><small>GPT-5.6 Sol</small><strong>$4 / $20</strong></div>
+            <div class="arrow">→</div>
+            <div class="flow-box"><small>GPT-6 Sol</small><strong>$2 / $10</strong></div>
+          </div>
+          <div class="split-cuts">
+            <div><small>Input</small><strong>−50%</strong></div>
+            <div><small>Output</small><strong>−50%</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="astra-normalized">
+      <div class="section-head">
+        <div><h2>Normalize Astra to 100%.</h2></div>
+        <p>The GPT-6 family is not an evenly spaced staircase. Luna lives at 1%, Sol at 20%, Astra at 100% of Astra's token price.</p>
+      </div>
+      <div class="card astra-scale">
+        <div class="scale-line" aria-label="GPT-6 prices as a percentage of Astra">
+          <span class="scale-pin" style="left:1%;--c:var(--luna6)" data-value="1%" data-name="GPT-6 Luna"></span>
+          <span class="scale-pin" style="left:20%;--c:var(--sol6)" data-value="20%" data-name="GPT-6 Sol"></span>
+          <span class="scale-pin" style="left:100%;--c:var(--astra)" data-value="100%" data-name="GPT-6 Astra"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="budget">
+      <div class="section-head">
+        <div><h2>Flip the question: same money, how many tokens?</h2></div>
+        <p>For intuition, spend the same budget on every model and watch capacity expand or collapse.</p>
+      </div>
+      <div class="card budget-card">
+        <div class="budget-top">
+          <p id="budgetCopy">With a $10 input-token budget:</p>
+          <div class="seg">
+            <button class="budget-btn active" data-budget-metric="input">Input · $10</button>
+            <button class="budget-btn" data-budget-metric="output">Output · $50</button>
+          </div>
+        </div>
+        <div class="budget-grid" id="budgetGrid"></div>
+      </div>
+    </section>
+
+    <section id="matrix">
+      <div class="section-head">
+        <div><h2>Every pairwise ratio.</h2></div>
+        <p>Read across: “column model costs <em>x</em> times the row model.” This exposes all pairwise proportions, not only the headline ones.</p>
+      </div>
+      <div class="controls" style="margin-bottom:12px">
+        <div class="seg">
+          <button class="matrix-btn active" data-matrix-metric="input">Input ratios</button>
+          <button class="matrix-btn" data-matrix-metric="output">Output ratios</button>
+        </div>
+      </div>
+      <div class="card matrix-card">
+        <div class="matrix" id="ratioMatrix"></div>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <div class="section-head">
+        <div><h2>The shape, in three numbers.</h2></div>
+      </div>
+      <div class="takeaways">
+        <article class="card takeaway">
+          <b style="color:var(--luna6)">−58.3%</b>
+          <h3>Luna output got dramatically cheaper</h3>
+          <p>GPT-6 Luna output is only 41.7% of GPT-5.6 Luna's output price.</p>
+        </article>
+        <article class="card takeaway">
+          <b style="color:var(--sol6)">20×</b>
+          <h3>Luna → Sol is the giant economic jump</h3>
+          <p>Within GPT-6, Sol costs twenty times Luna on both input and output.</p>
+        </article>
+        <article class="card takeaway">
+          <b style="color:var(--astra)">5×</b>
+          <h3>Sol → Astra is smaller in relative terms</h3>
+          <p>Astra is five times Sol, making Sol much closer to Astra than to Luna on the price ladder.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="methodology">
+      <div class="card method">
+        <strong>Methodology.</strong> Prices shown are official OpenAI API <strong>Standard processing, short-context text-token rates</strong>, per 1 million tokens, checked September 23, 2026. Cached input, cache writes, Batch, Flex, Fast mode, regional processing and long-context uplifts are intentionally excluded so the comparison remains apples-to-apples. GPT-5.6 Sol's current promotional pricing is stated by OpenAI as available at least through November 21, 2026. These are API prices, not a conversion formula for ChatGPT plan allowances.
+        <div class="source-links">
+          <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna" target="_blank" rel="noopener">GPT-5.6 Luna ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol" target="_blank" rel="noopener">GPT-5.6 Sol ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">GPT-6 Luna ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">GPT-6 Astra ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Visualized by Lua Helena · data snapshot 2026-09-23</span>
+      <a href="/ia/">luahelena.com.br/ia/</a>
+    </footer>
+  </div>
+
+  <script>
+    const models = [
+      { id:"luna56", name:"GPT-5.6 Luna", family:"5.6", input:.20, output:1.20, color:"#9aa9ff" },
+      { id:"luna6",  name:"GPT-6 Luna",   family:"6",   input:.10, output:.50, color:"#59e1ff" },
+      { id:"sol56",  name:"GPT-5.6 Sol",  family:"5.6", input:4.00, output:20.00, color:"#ffc85c" },
+      { id:"sol6",   name:"GPT-6 Sol",    family:"6",   input:2.00, output:10.00, color:"#ff7d45" },
+      { id:"astra6", name:"GPT-6 Astra",  family:"6",   input:10.00,output:50.00, color:"#e85cff" }
+    ];
+
+    const money = n => n < 1 ? "$" + n.toFixed(2) : "$" + (Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2));
+    const ratioLabel = r => {
+      if (Math.abs(r - 1) < .00001) return "1×";
+      if (r >= 10) return (Math.round(r * 10) / 10).toString().replace(".0","") + "×";
+      if (r >= 1) return (Math.round(r * 100) / 100).toString().replace(".00","") + "×";
+      return (Math.round(r * 1000) / 1000).toString().replace(/0+$/,"").replace(/\.$/,"") + "×";
+    };
+
+    const rawGrid = document.getElementById("rawGrid");
+    rawGrid.innerHTML = models.map(m => `
+      <article class="card price-card" style="--c:${m.color}">
+        <div class="model-kicker">GPT ${m.family}</div>
+        <div class="model-name">${m.name.replace("GPT-"+m.family+" ","")}</div>
+        <div class="price-pair">
+          <div><span>Input</span><strong>${money(m.input)}</strong></div>
+          <div><span>Output</span><strong>${money(m.output)}</strong></div>
+        </div>
+      </article>`).join("");
+
+    let currentMetric = "input";
+    let currentScale = "log";
+
+    function renderBars(){
+      const values = models.map(m=>m[currentMetric]);
+      const max = Math.max(...values), min = Math.min(...values);
+      const baseline = models.find(m=>m.id==="luna6")[currentMetric];
+      const width = v => currentScale === "linear"
+        ? (v/max)*100
+        : ((Math.log10(v)-Math.log10(min)+.18)/(Math.log10(max)-Math.log10(min)+.18))*100;
+      document.getElementById("barChart").innerHTML = models.map(m=>`
+        <div class="bar-row">
+          <div class="bar-label"><span class="swatch" style="--c:${m.color}"></span>${m.name}</div>
+          <div class="track"><div class="fill" style="--w:${Math.max(width(m[currentMetric]),1.2)}%;--c:${m.color}"></div></div>
+          <div class="bar-value"><strong>${money(m[currentMetric])}</strong><span>${ratioLabel(m[currentMetric]/baseline)} Luna 6</span></div>
+        </div>`).join("");
+      document.getElementById("axisNote").textContent = currentScale === "log"
+        ? "Bar length uses a logarithmic scale so Luna remains visible."
+        : "Linear scale: financially literal, visually ruthless.";
+    }
+
+    document.querySelectorAll(".metric-btn").forEach(btn=>btn.addEventListener("click",()=>{
+      document.querySelectorAll(".metric-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active"); currentMetric=btn.dataset.metric; renderBars();
+    }));
+    document.querySelectorAll(".scale-btn").forEach(btn=>btn.addEventListener("click",()=>{
+      document.querySelectorAll(".scale-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active"); currentScale=btn.dataset.scale; renderBars();
+    }));
+    renderBars();
+
+    function renderBudget(metric){
+      const budget = metric==="input" ? 10 : 50;
+      const capacities = models.map(m=>({ ...m, cap:budget/m[metric] }));
+      const maxCap = Math.max(...capacities.map(x=>x.cap));
+      document.getElementById("budgetCopy").textContent = `With a $${budget} ${metric}-token budget:`;
+      document.getElementById("budgetGrid").innerHTML = capacities.map(m=>{
+        const diameter = 34 + Math.sqrt(m.cap/maxCap)*92;
+        return `<div class="budget-item">
+          <div class="budget-bubble" style="--s:${diameter}px;--c:${m.color}"></div>
+          <strong>${m.cap.toLocaleString(undefined,{maximumFractionDigits:1})}M tokens</strong>
+          <span>${m.name}</span>
+        </div>`;
+      }).join("");
+    }
+    document.querySelectorAll(".budget-btn").forEach(btn=>btn.addEventListener("click",()=>{
+      document.querySelectorAll(".budget-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active"); renderBudget(btn.dataset.budgetMetric);
+    }));
+    renderBudget("input");
+
+    function renderMatrix(metric){
+      const el=document.getElementById("ratioMatrix");
+      let out='<div class="matrix-row"><div class="matrix-label matrix-head">baseline ↓ / target →</div>';
+      out += models.map(m=>`<div class="matrix-label matrix-head">${m.name}</div>`).join("")+'</div>';
+      models.forEach(row=>{
+        out += `<div class="matrix-row"><div class="matrix-label">${row.name}<small style="color:var(--muted);margin-top:4px">${money(row[metric])}</small></div>`;
+        models.forEach(col=>{
+          const r=col[metric]/row[metric];
+          const cls=Math.abs(r-1)<.00001?"equal":r>1?"costlier":"cheaper";
+          const heat=Math.min(.17,.035+Math.abs(Math.log10(r||1))*.045).toFixed(3);
+          const detail = r===1 ? "same price" : r>1 ? "target costs more" : "target costs less";
+          out += `<div class="matrix-cell ${cls}" style="--heat:${heat}"><strong>${ratioLabel(r)}</strong><span>${detail}</span></div>`;
+        });
+        out += '</div>';
+      });
+      el.innerHTML=out;
+    }
+    document.querySelectorAll(".matrix-btn").forEach(btn=>btn.addEventListener("click",()=>{
+      document.querySelectorAll(".matrix-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active"); renderMatrix(btn.dataset.matrixMetric);
+    }));
+    renderMatrix("input");
+  </script>
+</body>
+</html>
