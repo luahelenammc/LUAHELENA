@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 5.1
+## Public Portable Edition · Version 5.2
 
 ## Meta
 
@@ -13,15 +13,15 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_5_1.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 5.1
+- **version:** 5.2
 - **language:** English
-- **protocol semantics as of:** 2026-09-09
+- **protocol semantics as of:** 2026-09-23
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits or pricing
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 5.0; 5.1 adds a model-neutral strategy-adapter boundary and the subordinate Astra Strategy Adapter while preserving Sprint, IDL, Decision Trace and the boundary against hidden chain-of-thought or private scratchpad extraction
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.1.
+- **supersedes:** Chat–Work Routing Protocol 5.1; 5.2 adds a dated GPT-6 Sol/Luna execution adapter and makes explicit that semantic capability tiers do not require one-to-one named-model counterparts, while preserving the model-neutral core, Astra adapter boundary, Sprint, IDL, Decision Trace and the boundary against hidden chain-of-thought or private scratchpad extraction
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.2.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -111,7 +111,7 @@ The stable sentence is:
 
 > **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception, and V5.1 adds a model-neutral strategy-adapter boundary with subordinate model-specific guidance:
+The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception, V5.1 adds a model-neutral strategy-adapter boundary with subordinate model-specific guidance, and V5.2 adds a dated GPT-6 Sol/Luna execution adapter plus the stable rule that semantic tiers need not correspond one-to-one to named models:
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
@@ -658,6 +658,8 @@ Stable tiers are qualitative:
 - **strong:** difficult synthesis, architecture, debugging or high-consequence judgment;
 - **frontier:** work whose material value depends on the strongest available reasoning and whose resource posture can sustain it.
 
+A semantic capability tier does not require a dedicated named model. A product family may expose no model literally named `balanced`, and one named model may span more than one semantic tier as reasoning effort and task geometry change. Map the observed model + effort combination to the task's capability floor; never invent a missing product tier or force a ceremonial model staircase.
+
 The core intentionally does not encode a current model-to-surface mapping, plan
 behavior, allowance/reset fact, price, UI detail, tool exposure or model-specific
 ergonomic preference. Those are volatile Run State or subordinate adapter inputs,
@@ -709,6 +711,9 @@ The current optional Astra strategy adapter is documented at
 [portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md](../../portables/chat-work/astra/CHAT_WORK_ASTRA_ADAPTER.md). Its
 volatile notes are dated and replaceable; they cannot turn a temporary product
 observation into a permanent core rule.
+
+The current GPT-6 Sol/Luna execution calibration is documented at
+[portables/chat-work/gpt-6/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md](../../portables/chat-work/gpt-6/CHAT_WORK_GPT6_SOL_LUNA_ADAPTER.md). It treats Luna and Sol as observed executor options in Work/Codex where available, keeps Chat as a separate controller surface when those models are not exposed there, and keeps API pricing/context facts explicitly separate from ChatGPT allowance economics.
 
 A subordinate model adapter may require its own setup gate. Chat–Work's existing Execution Profile, Run State and Profile Persistence laws remain governing: the router may recommend or prefill model-specific preferences, but it must not silently instantiate a user's role, autonomy, reasoning, context, parallelism or return preferences. An explicit adaptive/AUTO choice is a setup choice, not permission to assume a reference preset.
 
@@ -1359,12 +1364,13 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 ## 22. Lifecycle and succession
 
 - Chat–Work Routing Protocol remains the current public generation;
-- `5.1` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `5.0` is superseded by this subversion and remains recoverable through Git history;
+- `5.2` is the current semantic subversion of that generation, not a new V5 title or filename;
+- `5.1` is superseded by this subversion and remains recoverable through Git history;
 - earlier 4.x subversions remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical V4 file; website delivery is a separate mirror surface and may lag until its own verified sync;
 - MSL is currently 5.1; this protocol remains independently versioned at 5.1;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
+- the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
