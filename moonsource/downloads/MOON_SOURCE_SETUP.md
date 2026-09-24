@@ -6,7 +6,7 @@ An adaptive context router for making AI collaboration more useful, specific and
 
 This portable helps an AI understand what the user actually needs before deciding how much context, structure or Moon Source capability should be used. It works as a standalone file and becomes more capable when the public Moon Source repository or ZIP is available. When the need is durable cross-session continuity or a current source, it can route to the Connected Sources capability after checking what source substrate is actually available.
 
-The **Adaptive Preflight** described below is Moon Source Setup's specialization of the broader [Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/portables/preflight/PREFLIGHT_V2.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
+The **Adaptive Preflight** described below is Moon Source Setup's specialization of the broader [Preflight](https://github.com/luahelenammc/Moon-Source/blob/main/portables/preflight/PREFLIGHT.md) mechanism. The general mechanism shapes any request before execution; Setup applies that logic specifically to personal and project-context setup, maturity inference, privacy and capability routing.
 
 ## Public metadata
 
@@ -500,10 +500,10 @@ When repository-aware, use the smallest relevant set:
 | Ownership, authority or duplicated responsibility is unclear | docs/RESPONSIBILITY_MAP.md |
 | Existing context is stale, contradictory, duplicated or bloated | docs/SOURCE_HYGIENE.md |
 | A recurring method needs reusable triggers, boundaries and QA | docs/PROCEDURAL_PROJECTION.md |
-| A reusable structure has been earned | portables/msl/MSL_5_1.md |
+| A reusable structure has been earned | portables/msl/MOON_SOURCE_LANGUAGE.md |
 | A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
 | A current source, durable continuity or cross-session living context is needed | docs/CONNECTED_SOURCES.md; load the subordinate ChatGPT adapter only for volatile product facts |
-| ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md |
+| ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL.md |
 | The full repository or ZIP has been supplied | MOON_SOURCE_AI_KERNEL.md governs loading |
 
 This list is a route, not a reading assignment.

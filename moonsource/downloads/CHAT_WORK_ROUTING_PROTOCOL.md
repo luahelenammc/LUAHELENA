@@ -10,7 +10,7 @@
 - **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_MSL_5_1.md
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
 - **version:** 5.2
