@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 5.2
+## Public Portable Edition · Version 6.0
 
 ## Meta
 
@@ -13,15 +13,15 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
-- **version:** 5.2
+- **version:** 6.0
 - **language:** English
-- **protocol semantics as of:** 2026-09-23
-- **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits or pricing
+- **protocol semantics as of:** 2026-09-24
+- **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
 - **primary implementation:** ChatGPT Chat, Work and Codex surfaces, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 5.1; 5.2 adds a dated GPT-6 Sol/Luna execution adapter and makes explicit that semantic capability tiers do not require one-to-one named-model counterparts, while preserving the model-neutral core, Astra adapter boundary, Sprint, IDL, Decision Trace and the boundary against hidden chain-of-thought or private scratchpad extraction
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 5.2.
+- **governed dimensions:** execution profile, object geometry, execution surface, capability tier, reasoning effort, continuity/locality, delegation topology, execution envelope, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
+- **supersedes:** Chat–Work Routing Protocol 5.2; 6.0 promotes delegation topology to a first-class routing dimension, adds Delegation-First orchestration and heterogeneous subagent routing, and changes manual model/surface switching from the normal response to capability differences into a last-resort boundary when the current harness cannot resolve the required topology internally
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.0.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -36,7 +36,7 @@
 4. Routing dimensions and precedence
 5. Availability, capability floor and Budget Survivability
 6. Context Diet and surface gates
-7. Capability economics, model strategy adapters, effort, distillation, Sprint and frontier control
+7. Capability economics, model strategy adapters, delegation topology, effort, distillation, Sprint and frontier control
 8. Handoff, return and Chat Postflight
 9. Phased execution, failure and salvage
 10. Lifecycle, installation and claim ceiling
@@ -89,7 +89,11 @@ Sprint Mode may account qualitatively for perishable capacity whose future value
 
 ### Manual / unavailable capability boundary
 
-You may need to change the surface, model or reasoning setting manually, attach the canonical file, approve an external action or provide a connector/source. `AUTO` means “let the protocol route this task”; it does not mean the interface will switch itself. If a surface or model is unavailable, the protocol must say so and give the closest honest route rather than pretending that a switch happened.
+AUTO should not ask the user to bounce between models merely because different parts of one task have different capability needs. When the selected Work or Codex harness exposes subagents and compatible model controls, the root should first try to assemble the smallest sufficient internal delegation topology.
+
+A manual surface, model or reasoning switch is justified only when the current root cannot delegate to the required capability, the needed harness or permission is unavailable, the sovereign object genuinely changes surface, or the root itself is below the task's capability floor. The protocol must distinguish an internal delegation from a UI switch and must never pretend that either occurred when the runtime did not expose it.
+
+You may still need to attach the canonical file, approve an external action or provide a connector/source. AUTO means “route and orchestrate with the capabilities actually exposed,” not “invent invisible control over the interface.”
 
 ### Tiny example
 
@@ -109,11 +113,13 @@ It does not guarantee access to Work, Codex or frontier models, automatic model 
 
 The stable sentence is:
 
-> **Chat understands and decides. Work produces. Codex builds when available and enabled. Chat accepts and integrates.**
+> **Chat understands and decides. Work and Codex orchestrate and execute. Cheap sufficient workers absorb parallelizable bulk; stronger models receive only the cognitively irreducible delta. Chat accepts and integrates.**
 
-The V4.2 subversion added the profile-conditioned route principle. V4.3 added a distillation principle. V4.4 added a connector-aware source transport contract. Under the corrected +0.1 lineage, V4.5 accounts for the self-onboarding canonical-body integration, V4.6 for the MSL 5.0 canonical dependency/reference alignment, V4.7 adds bounded exhaustiveness and scope-amplification recovery, V4.8 adds a dated calibration disclaimer so economic guardrails can relax when frontier economics materially improve without weakening structural scope controls, V4.9 adds an auditable Decision Trace for material higher-tier rulings without requesting private chain-of-thought, V5.0 adds optional Sprint Mode with a bounded Decision Sprint exception, V5.1 adds a model-neutral strategy-adapter boundary with subordinate model-specific guidance, and V5.2 adds a dated GPT-6 Sol/Luna execution adapter plus the stable rule that semantic tiers need not correspond one-to-one to named models:
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6 changes the routing unit itself: capability differences no longer imply a human-operated model handoff when one capable root can delegate internally.
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
+
+> **Delegate the reducible bulk before escalating the human-visible route.**
 
 > **Transport source references with authority, freshness and fallback; a locator is not authority.**
 
@@ -121,7 +127,7 @@ The V4.2 subversion added the profile-conditioned route principle. V4.3 added a 
 
 > **Show the decision boundary, not the private deliberation.**
 
-This is a routing and closure protocol. It does not grant permissions, invent unavailable tools, guarantee a model result, or turn a plan, surface label or model preference into a capability that the current environment does not expose.
+This is a routing and closure protocol. It does not grant permissions, invent unavailable tools, guarantee a model result, or turn a plan, surface label, subagent request or model preference into a capability that the current environment does not expose.
 
 A task is complete only after a verified delta, an explicit acceptance state and a truthful claim ceiling.
 
@@ -458,24 +464,42 @@ When several objects are present, decompose the task into explicit stages and na
 
 ## 5. Routing dimensions
 
-The protocol records eight routing dimensions plus an optional Sprint overlay:
+The protocol records nine routing dimensions plus an optional Sprint overlay:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
 3. **Execution surface and harness** — where the operation actually runs;
-4. **Capability tier and model** — `efficient | balanced | strong | frontier`;
+4. **Root capability tier and model** — `efficient | balanced | strong | frontier`;
 5. **Reasoning effort** — independent from model capability;
 6. **Continuity and locality** — persistence, local state and handoff requirements;
-7. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
-8. **Operation mode** — whether the run executes, only routes or audits a previous route.
+7. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
+8. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
+9. **Operation mode** — whether the run executes, only routes or audits a previous route.
 
 ### Harness Specialization Law
 
 Capability overlap does not imply harness equivalence. Prefer the surface whose persistence, controls, feedback and verification fit the sovereign object.
 
+### Delegation-First Law
+
+When Work or Codex exposes real subagents, AUTO should resolve model heterogeneity inside the current execution before asking the user for a manual model or surface switch.
+
+The preferred topology is asymmetric:
+
+- the **root/orchestrator** owns the objective, authority, decomposition, dependencies, convergence and final judgment;
+- **cheap sufficient workers** receive narrow, independent, verifiable units with the minimum context they need;
+- **strong specialists** receive only branches whose ambiguity or reasoning burden exceeds the cheap worker;
+- a **frontier root**, when justified, should spend frontier cognition on architecture, arbitration, exceptions and final QA rather than repetitive scanning or routine tool loops.
+
+The default question becomes:
+
+> **Can the current root assemble a sufficient internal team without taking the user out of flow?**
+
+Manual switching is a fallback, not the routing primitive.
+
 ### Logical plurality is not physical fanout
 
-Multiple expert perspectives can be produced within one bounded execution. Native subagents or worktrees are justified only when the work units are materially independent, convergence is explicit and the budget can carry the coordination cost.
+Multiple expert perspectives can still be produced within one bounded execution. Physical subagents are valuable when they isolate noisy intermediate work, reduce context pollution, save elapsed time on independent units or let cheaper models absorb high-volume work. They are not automatically valuable when the task is small, tightly coupled, sequential or write-conflicted.
 
 ### Operation modes
 
@@ -496,14 +520,15 @@ Route Card
 Surface: Work
 Why: sustained multi-source report production
 Mode: ROUTE_AND_EXECUTE
-Tier: efficient
-Effort: high
+Root: strong
+Effort: medium
+Delegation: cheap_worker_fanout → efficient/high for independent scans
 Budget: PASS_PHASED
-Codex: disabled / not needed
-Next boundary: return receipt → Chat Postflight
+Manual switch: not required unless internal delegation is unavailable
+Next boundary: executor receipt → Chat Postflight
 ```
 
-The card must state the selected surface, why it fits, operation mode, capability tier, reasoning effort, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
+The card must state the selected surface, why it fits, operation mode, root capability/effort, delegation topology when material, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
 
 When Sprint Mode is active, the Route Card also states the finite docket or bounded envelope, whether capacity is perishable or otherwise bounded, the lower-tier re-entry owner and the fact that the overlay exits at the stated stop boundary or Chat Postflight.
 
@@ -679,7 +704,7 @@ The adapter must be compiled from task geometry and observed capability rather
 than model prestige or stereotype. It may propose a strategy, but it cannot
 override user authority, source authority, safety, privacy, capability floor,
 scope ceiling, mutation permission, evidence, verification, claim ceiling,
-Native Parallelism Gate or Chat Postflight. On conflict, this canonical body
+Delegation & Native Parallelism Gate or Chat Postflight. On conflict, this canonical body
 wins.
 
 Preserve these separations explicitly:
@@ -703,7 +728,7 @@ Preserve these separations explicitly:
 Decision Capsules and Return Capsules remain generic strategy instruments, not
 mandatory wrappers for every frontier invocation. Sprint remains a generic
 run-level overlay, Decision Trace remains model-neutral and physical fanout
-still obeys the Native Parallelism Gate. Direction-constraint density governs
+still obeys the Delegation & Native Parallelism Gate. Direction-constraint density governs
 method freedom inside an authorized task; it never expands the objective or
 authority envelope.
 
@@ -1050,17 +1075,55 @@ A Frontier Full Run is justified only when decomposition would destroy coherence
 
 An explicitly activated Sprint may justify a bounded frontier burst when capacity is perishable and the frontier slice is the least-cost route expected to produce verified useful delta before the horizon. The burst remains bounded by the Sprint objective, docket, Decision Capsule or Decision Sprint contract, stop condition and downstream verification; it does not authorize spending merely to consume capacity or continuing after the Sprint exit boundary.
 
-## 13. Native Parallelism Gate
+## 13. Delegation & Native Parallelism Gate
 
-Use physical agents, branches or worktrees only when:
+Subagents are execution infrastructure, not ceremony. When the harness exposes them and work units are independent, use the smallest fanout that improves **total work to accepted state** through lower-cost execution, lower root-context pollution, lower elapsed time or better specialization.
 
-- work units are materially independent;
-- write ownership does not conflict;
-- convergence and acceptance boundaries are explicit;
-- fanout cost is justified by expected progress;
-- the current profile and Run State can carry the coordination burden.
+Prefer cheap-worker delegation for read-heavy or bounded units such as:
 
-Logical multi-perspective reasoning does not require physical subagents.
+- repository or document exploration;
+- source retrieval and evidence gathering;
+- extraction, classification and transformation;
+- test, log and CI analysis;
+- documentation checks;
+- repetitive verification;
+- narrowly specified implementation whose acceptance criteria are already clear.
+
+Use mixed-tier delegation when only a minority of branches require stronger reasoning. Escalate that branch rather than the whole run.
+
+Physical delegation remains gated by:
+
+- materially independent work units;
+- non-conflicting write ownership, or an explicit merge/convergence plan;
+- bounded context duplication;
+- explicit acceptance boundaries;
+- a fanout ceiling and, when relevant, a recursion/depth ceiling;
+- expected gain that exceeds coordination overhead;
+- an observed runtime path that actually exposes the requested subagent/model controls.
+
+Parallel write-heavy work deserves extra caution because shared-object edits can create conflicts and coordination cost. A single capable owner remains preferable for tightly coupled, sequential or small tasks.
+
+### Heterogeneous delegation law
+
+When model selection for children is exposed, prefer the cheapest child model that can responsibly satisfy that child's acceptance boundary. The root model is not automatically the child model.
+
+Current dated adapters may map this generic law to named models, for example a strong root delegating focused bulk work to an efficient child model, or a frontier root delegating ordinary branches to efficient workers and difficult branches to strong specialists. Named mappings remain adapter-level calibration, not permanent core doctrine.
+
+### Context isolation law
+
+Subagents should absorb noisy intermediate material and return decision-bearing summaries, evidence references or bounded artifacts. Do not copy the entire parent context into every child merely because the runtime permits it.
+
+### Manual-switch last resort
+
+Ask the user to change model or surface only when:
+
+1. internal delegation cannot select or reach the required capability;
+2. the required harness, permission or tool is unavailable to the current root;
+3. the sovereign object changes to another surface whose state model is load-bearing;
+4. the root itself is below the irreducible capability floor; or
+5. an explicit user preference requires the switch.
+
+If none applies, keep the user in the current flow and orchestrate internally.
 
 ## 14. Executor Readiness Gate
 
@@ -1072,20 +1135,38 @@ A ready handoff contains:
 - baseline and authority;
 - active profile plus any run override;
 - Run State fields that materially affected routing;
-- selected surface, capability tier and reasoning effort;
+- selected surface, root capability tier/model and reasoning effort;
 - capability floor;
+- delegation topology and, when material, child capability/model/effort policy;
+- fanout and recursion ceilings, write ownership and convergence plan when physical delegation is used;
+- the condition that would justify a manual user-visible switch;
 - Budget Survivability outcome;
-- context diet, tools, fanout, checkpoints and fallback;
+- context diet, tools, checkpoints and fallback;
 - when sources are involved, a source transport contract with governing source or family, locator, facet, requested operation, coverage, freshness, mutation authorization and readback;
 - exact delivery and verification;
 - return contract and claim ceiling;
-- transport capsule sufficient for the next surface to continue without hidden context.
+- transport capsule sufficient for the next surface or child to continue without hidden context.
 
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
 When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary, whether a Decision Trace is required and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
 
 When Sprint Mode is active, the handoff additionally names the activation path, Sprint kind, sovereign objective, budget character, finite docket or bounded envelope, stop condition, exit policy, lower-tier re-entry owner and required Sprint Receipt. These fields are run-level and ephemeral; they do not become profile defaults.
+
+```yaml
+delegation:
+  topology: single_owner
+  root_tier: strong
+  root_model: adaptive
+  child_policy: cheapest_sufficient
+  child_model: adaptive
+  child_effort: adaptive
+  max_fanout: bounded
+  max_depth: bounded
+  write_ownership: single_owner
+  convergence: root
+  manual_switch_condition: internal_topology_insufficient
+```
 
 ```yaml
 distillation:
@@ -1246,13 +1327,17 @@ Every executor returns an evidence-bearing receipt with:
 - next route;
 - `new_execution_required`;
 - **profile snapshot, persistence status, operation mode, Route Card and material run overrides used for routing**;
+- root surface/model/tier/effort actually used when observable;
+- subagent count, child model/tier/effort and delegation topology actually used when observable;
+- deviations from the planned fanout, write ownership or convergence path;
+- whether a manual switch was requested and the concrete runtime reason;
 - when a source transport was used, the governing source or family, locator/facet, requested operation, coverage, freshness or revision, mutation authorization, readback result and fallback state;
-- when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state.
+- when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state;
 - when Sprint Mode was active or recommended, the Sprint Receipt, activation evidence, docket statuses, consistency result, stop/exit state and lower-tier re-entry state.
 
-A successful tool response proves only that tool response, not completion of the objective.
+A successful subagent or tool response proves only that branch response, not completion of the sovereign objective. The root owns convergence; Chat owns final acceptance and integration.
 
-Historical V2/V3/V4.0 receipts remain valid lineage records and are not rewritten.
+Historical V2/V3/V4/V5 receipts remain valid lineage records and are not rewritten.
 
 ### Sprint Receipt
 
@@ -1363,14 +1448,14 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 ## 22. Lifecycle and succession
 
-- Chat–Work Routing Protocol remains the current public generation;
-- `5.2` is the current semantic subversion of that generation, not a new V5 title or filename;
-- `5.1` is superseded by this subversion and remains recoverable through Git history;
-- earlier 4.x subversions remain historical lineage recoverable through Git history;
-- the live repository exposes one canonical Chat–Work file; website delivery is a separate mirror surface and may lag until its own verified sync;
-- MSL is currently 5.1; this protocol remains independently versioned at 5.1;
+- Chat–Work Routing Protocol 6.0 is the current public release;
+- 6.0 supersedes 5.2 and promotes delegation topology to first-class protocol law rather than a dated executor note;
+- the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
+- earlier 4.x releases remain historical lineage recoverable through Git history;
+- the live repository exposes one canonical Chat–Work file; website delivery is a separate mirror surface and must be synchronized after the canonical body passes validation;
+- MSL is currently 5.1; Chat–Work remains independently versioned at 6.0;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
-- the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor choices without turning model names or API economics into stable protocol law;
+- the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
 - an installed native skill, if any, is a separate object requiring its own update and verification.
 
@@ -1392,7 +1477,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - When source-backed work is routed, transport governing source/family, locator, facet, operation, coverage, freshness, mutation authorization, readback and an explicit fallback; never treat a locator as authority.
 - Probe source reach and capability before promising connected continuity; use bounded context when the source cannot be resolved.
 - Prefer smallest sufficient context and reversible delta.
-- Use physical fanout only when independence and ROI justify it.
+- Prefer internal delegation before a user-visible model switch when the harness can satisfy the capability floor; use the smallest physical fanout whose total-work gain exceeds coordination cost.
 - Keep volatile product calibration outside stable protocol law.
 - Preserve provenance, lineage, user decisions and claim ceilings.
 - Use tests, hashes, readback and runtime evidence where available.
@@ -1401,7 +1486,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Apply the IDL mother law: escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, preserve the smallest auditable decision trace that makes the ruling inspectable.
 - Keep ordinary IDL singular by default; use a Decision Sprint sibling-delta exception only for one sovereign objective, one authority/context, a finite pre-named docket, material consistency need, meaningful reconstruction cost, independent item statuses, explicit stop, lower-tier re-entry and user activation/confirmation.
 - Require `DECIDE_NOW`, `DEFER_TO_EVIDENCE`, `ALREADY_FROZEN` or `OUT_OF_SCOPE` for each Decision Sprint item; `DEFER_TO_EVIDENCE` must carry its decision rule, exact missing evidence and re-entry condition.
-- Treat logical plurality as distinct from physical fanout; Sprint Mode does not waive the Native Parallelism Gate.
+- Treat logical plurality as distinct from physical fanout; Sprint Mode does not waive the Delegation & Native Parallelism Gate.
 - Never silently activate Sprint Mode, carry it into a later run, or turn perishable capacity into an invented price, reset fact, quota guarantee or reason to spend.
 - Optimize verified useful delta before a real or evidenced horizon; spend is not the objective, and unused capacity is not a failure by itself.
 - Return a Sprint Receipt with claim ceiling, docket disposition, consistency result, stop state, lower-tier re-entry and `postflight_required: true`; Chat Postflight must independently refresh and close the run.
@@ -1453,10 +1538,11 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 ## Final Law
 
-> **Route by the state that must change. Use the smallest available surface that can complete and verify it. Resolve the user's profile without mistaking plan for budget, and never mistake enablement for availability. Codex is optional. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, return to Chat. Chat refreshes, accepts and integrates.**
+> **Route by the state that must change. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Use the smallest available harness that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the root, return to Chat. Chat refreshes, accepts and integrates.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
 ---
 
 > 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
+
