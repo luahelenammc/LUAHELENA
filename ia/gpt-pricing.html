@@ -202,7 +202,7 @@
     .scale-pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:0 0 0 7px color-mix(in srgb,var(--c) 13%,transparent),0 0 28px color-mix(in srgb,var(--c) 40%,transparent)}
     .scale-pin:before{content:attr(data-value);position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-weight:920;font-size:1.2rem;white-space:nowrap}
     .scale-pin:after{content:attr(data-name);position:absolute;top:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:700}
-
+.scale-pin:first-child:before,.scale-pin:first-child:after{left:-2px;transform:none}\n.scale-pin:last-child:before,.scale-pin:last-child:after{left:auto;right:-2px;transform:none}\n
     .budget-card{padding:30px}
     .budget-top{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-bottom:26px}
     .budget-top p{color:var(--muted);margin:0}
