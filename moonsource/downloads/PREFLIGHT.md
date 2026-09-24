@@ -4,13 +4,14 @@
 
 > **Humans should not have to prompt like machines.**
 
-**Version:** 2.2  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.  
+**Version:** 2.3  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.<br>
 
 **Status:** current public portable  
 **Public since:** 2026-08-23  
 **V2 rebase:** 2026-09-07  
 **Portable promotion:** 2026-09-07  
-**Canonical path:** `portables/preflight/PREFLIGHT_V2.md`  
+**2.3 refinement:** 2026-09-23<br>
+**Canonical path:** `portables/preflight/PREFLIGHT.md`<br>
 **Language:** English; execution should follow the user's language  
 **Audience:** general AI users, power users, writers, teams and builders  
 **Creator and final human authority:** Lua Helena Moon Martins Cardoso (Moon)  
@@ -26,7 +27,7 @@ The core principle is simple:
 
 Source authority, provenance, freshness, risk, destination, mutation scope and similar checks remain important when consequence makes them important. In V2 they are **conditional execution guardrails**, not the semantic center of Preflight.
 
-Preflight is a standalone public Moon Source portable. Its current public version is **2.2**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
+Preflight is a standalone public Moon Source portable. Its current public version is **2.3**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
 ## First use
@@ -45,7 +46,7 @@ Paste this canonical portable into an AI conversation and say:
 
 ```text
 Use Preflight before acting.
-Reconstruct my intended outcome, corrections and constraints in ordinary language.
+Reconstruct my intended outcome, requirements, corrections and constraints in ordinary language.
 Show me the task you would execute, then wait for my approval if the action is consequential.
 
 Request: [say what you need in your own words]
@@ -55,7 +56,7 @@ For one request only, use `Apply Preflight to the request below, then execute.` 
 
 ### What happens next
 
-The AI should identify the likely outcome, what must be preserved or avoided, relevant corrections, material unknowns and the next action. It should ask only for information that changes the result, then activate source, authority, freshness, risk or mutation guardrails only when consequence makes them material.
+The AI should identify the likely outcome, positive requirements, what must be preserved or avoided, relevant corrections, material unknowns and the next action. For non-trivial work, it should also recover the current accepted task state and a few observable success criteria when those would change execution. It should ask only for information that changes the result, then activate source, authority, freshness, risk, mutation or verification guardrails only when consequence makes them material.
 
 ### Manual / unavailable capability boundary
 
@@ -106,7 +107,7 @@ Its purpose is not to make the human write a better prompt. Its purpose is to ma
 
 ## 3. Precise definition
 
-> **Preflight is the adaptive human-intent reconstruction pass before and during execution that converts raw human expression into a faithful executable task by resolving intended meaning, desired outcome, relevant context, implicit constraints, corrections, preservation requirements and consequential ambiguity.**
+> **Preflight is the adaptive human-intent reconstruction pass before and during execution that converts raw human expression into a faithful executable task by resolving intended meaning, desired outcome, positive requirements, constraints, corrections, preservation requirements and consequential ambiguity, while recovering current task state and observable success criteria when they materially affect what correct completion means.**
 
 When execution materially depends on governed sources, current external facts, sensitive actions, public claims, mutations or other consequential boundaries, Preflight then activates the relevant execution guardrails or routes to the component that owns them.
 
@@ -125,11 +126,15 @@ raw human expression
 → what is being said?
 → what is being meant?
 → what outcome is actually wanted?
-→ what must be preserved, changed or avoided?
+→ what positive requirements must the result satisfy?
+→ what must be preserved or avoided?
+→ what is the current accepted task state, if this continues prior work?
+→ what observable conditions would make completion correct, if non-trivial?
 → reconstruct the working task
 → ask only if consequential ambiguity remains
 → apply execution guardrails only if materially triggered
 → execute
+→ verify when consequence makes verification material
 → readjust if the human meaning or field changes
 ```
 
@@ -139,11 +144,15 @@ A compact decision contract is:
 What is the human trying to accomplish?
 Which parts of the message are request, context, example, hesitation or correction?
 What outcome would satisfy the request rather than merely repeat its wording?
+What positive requirements must the result satisfy?
 What must remain true?
 What must not happen?
+If this continues prior work, what is the current accepted task state?
+If completion is non-trivial, what observable conditions would show that it is correct?
 What is genuinely uncertain?
 Can I reconstruct faithfully enough to act now?
 If execution has material consequences, which guardrail actually applies?
+What evidence or readback would verify the result when verification is material?
 ```
 
 The contract does not need to be printed. The useful output is the result of the reconstruction.
@@ -164,9 +173,13 @@ It reconstructs:
 - **context** — what explains the request but is not itself an instruction;
 - **examples** — illustrations that should not silently become universal rules;
 - **corrections** — later or clearer statements that revise earlier wording;
-- **implicit constraints** — requirements strongly supported by the message or active context;
+- **positive requirements** — what must exist, appear or be delivered for the desired outcome;
+- **constraints** — boundaries the result must not violate, including strongly supported implicit constraints;
 - **preservation requirements** — what the user wants kept intact;
 - **negative requirements** — what the user is clearly trying to avoid;
+- **current task state** — when work is longitudinal, the latest accepted stage, decisions, constraints and pending work that still govern execution;
+- **success criteria** — the few observable properties that distinguish correct completion when success is not trivial;
+- **verification target** — when consequence makes verification material, the evidence, test or readback that can confirm completion rather than merely increase confidence;
 - **uncertainty** — what remains genuinely unresolved after contextual reconstruction.
 
 ### Layer B — Conditional execution guardrails
@@ -278,6 +291,16 @@ Preflight should notice the outcome and choose the operation that best serves it
 If the answer is already available in the conversation or a governing source the AI can legitimately read, use it.
 
 Do not ask the human to become a redundant database API.
+
+### 5.7 Make vague quality language observable only when it matters
+
+Human quality words are often compressed signals, not executable specifications. Terms such as “professional,” “complete,” “deep,” “polished,” “smart” or “beautiful” may carry useful intent, but their useful meaning comes from context, examples, corrections, destination and negative constraints.
+
+When one of these words materially affects execution, translate it into the **smallest supported set of observable properties**. For example, “professional but not corporate” may mean clear, credible and sendable while preserving the user's recognizable voice. “Complete” may mean that no required surface or dependency is missing, not that the artifact should be maximally long.
+
+Do not replace one vague adjective with a ten-item invented specification. If the available expression does not support a faithful operational reading, keep the uncertainty local or ask only when the unresolved meaning would materially change the result.
+
+This is a success-contract refinement, not a new semantic center for Preflight. The human's meaning still comes first.
 
 ## 7. Reconstruction is not permission to invent
 
@@ -400,10 +423,15 @@ But V2 makes the object clearer.
 
 ```text
 human expression
-→ reconstruct meaning
+→ reconstruct meaning and intended outcome
+→ recover requirements, constraints and current task state only as needed
+→ define observable success criteria when correct completion is non-trivial
 → produce a working task
 → execute the working task
+→ verify when consequence makes verification material
 ```
+
+The middle lines above are an adaptive map, not a mandatory waterfall. On a clear low-consequence request they may collapse into a silent one-line reconstruction.
 
 The “working prompt” is an explanatory model for task reconstruction. It does not imply:
 
@@ -425,16 +453,22 @@ Determine, only to the depth needed:
 - what the person is actually trying to accomplish;
 - which parts are request, context, example, hesitation or correction;
 - the desired outcome;
-- what must be preserved, changed or avoided;
+- the positive requirements the result must satisfy;
+- what must be preserved, constrained or avoided;
+- the current accepted task state when this continues prior work;
+- observable success criteria when correct completion is non-trivial;
 - what is explicit, strongly implied, uncertain or unknown;
 - whether any unresolved ambiguity would materially change the result.
 
 Do not make the user rewrite themselves as a prompt.
 Ask only if a consequential ambiguity remains.
+Do not manufacture a formal specification for a simple clear request.
 
 If the reconstructed task materially involves governed sources, current external facts,
 sensitive/public consequences or state-changing execution, apply only the relevant
 authority, freshness, provenance, safety, destination, mutation and readback guardrails.
+When verification is material, identify the evidence, test or readback that can confirm
+the result before treating confidence as completion.
 Then execute.
 
 Request:
@@ -528,7 +562,8 @@ Preflight fails when it becomes:
 - **confidence inflation** — presenting an inference as if the user explicitly stated it;
 - **hidden-reasoning cosplay** — printing a fake transcript of internal thought and calling it Preflight;
 - **guardrail inflation** — activating provenance, authority, freshness, safety or mutation checks when none can change the work;
-- **stale-plan loyalty** — continuing to execute an earlier interpretation after the human meaning has changed.
+- **stale-plan loyalty** — continuing to execute an earlier interpretation after the human meaning has changed;
+- **success-contract inflation** — turning a clear ordinary request into acceptance-criteria bureaucracy merely because more specification is possible.
 
 ## 17. Relationship map
 
@@ -542,8 +577,8 @@ Preflight fails when it becomes:
 | [Source Operations](../../docs/SOURCE_OPERATIONS.md) | Retrieve, process, metabolize and promote | Activated when the request is an operation on governed source material. |
 | [Source Hygiene](../../docs/SOURCE_HYGIENE.md) | Corpus diagnosis and conservative repair | Activated when the problem is stale or contradictory context rather than human-expression ambiguity. |
 | [Credits & Attribution Ops](../../docs/CREDITS_ATTRIBUTION_OPS.md) | Intellectual lineage and content custody | Activated when material identity, permission or derivative lineage matters. |
-| [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) | Bounded execution reliability and receipts | Activated when state-changing execution earns operational safeguards. |
-| [Moon Source Language](../msl/MSL_5_1.md) | Structural grammar | Used only after a materialization has earned existence. |
+| [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) | Bounded execution reliability and receipts | Preflight may identify verification or recoverability requirements; Operational Reliability owns safeguards, failure diagnosis, retry/rollback discipline and receipts when execution earns them. |
+| [Moon Source Language](../msl/MOON_SOURCE_LANGUAGE.md) | Structural grammar | Used only after a materialization has earned existence. |
 
 Preflight is upstream of these components only in the sense that it reconstructs **what the human is asking for**. It does not become their authority.
 
@@ -555,6 +590,10 @@ A good Preflight pass should be able to answer:
 - Did I distinguish request from context, example and correction?
 - Did I preserve what the person wants preserved?
 - Did I respect what they want avoided?
+- Did I distinguish positive requirements from constraints instead of flattening both into generic “requirements”?
+- If this continues prior work, did I reconstruct the latest accepted task state instead of a stale plan?
+- If correct completion is non-trivial, do I know the few observable conditions that would make it successful?
+- If execution is consequential, do I know what evidence, test or readback would verify the result when verification is material?
 - Did I infer only what the message and active context support?
 - Did I remove questions that do not change the work?
 - Did I activate architectural or safety machinery only when consequence earned it?
@@ -580,9 +619,17 @@ human expression → intended meaning → faithful working task
 
 The V1 contribution is not discarded. Its authority, freshness, risk, destination, mutation and readback concerns survive as conditional routes and specialized safeguards.
 
-The superseded V1 body remains recoverable through Git history. On 2026-09-07, V2 was promoted from a repository component into a standalone public portable. Its current canonical identity is `portables/preflight/PREFLIGHT_V2.md`. The former `docs/PREFLIGHT.md` body is superseded; that path now exists only as a lightweight succession pointer, while historical bodies remain recoverable through Git history.
+The superseded V1 body remains recoverable through Git history. On 2026-09-07, V2 was promoted from a repository component into a standalone public portable at the then-current path `portables/preflight/PREFLIGHT_V2.md`. On 2026-09-24, the live body moved to the stable identity path `portables/preflight/PREFLIGHT.md` without changing Preflight's version or method semantics. The former `docs/PREFLIGHT.md` body is superseded; that path now exists only as a lightweight succession pointer, while historical bodies remain recoverable through Git history.
 
 This promotion created the Preflight portable family at version 2.0. At the time of that promotion it did not change the then-current MSL 4.3, Setup 3.0 or Chat–Work V4; MSL is now current at 5.1 after the 2026-09-09 release.
+
+### 2.3 refinement — success contract without prompt-engineering takeover
+
+Version 2.3 adds a bounded layer between “I understand what the human means” and “I know what correct completion would look like.” When material, Preflight now distinguishes desired outcome, positive requirements and constraints; reconstructs current task state for longitudinal work; makes vague quality language observable only when context supports it; identifies a few success criteria for non-trivial completion; and names a verification target when consequence makes verification material.
+
+This does **not** turn Preflight into a prompt-engineering lifecycle, requirements bureaucracy or reliability runtime. Human-intent reconstruction remains its semantic center. Retry, rollback, failure diagnosis and operational receipts remain with the components that own them.
+
+**Micro-credit / conceptual lineage:** this bounded refinement was materially informed by *Master Prompt Engineer v5.1 — Core Knowledge & Operating Doctrine* by **David Kendrick**, especially its separation of outcome, requirements, constraints, success criteria, explicit state and verification. Moon Source metabolizes only those relevant mechanisms and re-expresses them inside Preflight's existing human-intent architecture. This credit records conceptual influence; it does not imply coauthorship of Preflight, endorsement, partnership, transfer of authorship, or wholesale import of the donor method. The donor document itself is not redistributed here.
 
 ## 20. Claim ceiling
 

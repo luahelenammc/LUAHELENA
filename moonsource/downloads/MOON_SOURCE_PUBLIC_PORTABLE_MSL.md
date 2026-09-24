@@ -10,7 +10,7 @@
 **AI co-development:** Áurion  
 **Origin:** Moon Source
 **Canonical repository:** https://github.com/luahelenammc/Moon-Source  
-**Canonical path:** `portables/msl/MSL_5_1.md`  
+**Canonical path:** `portables/msl/MOON_SOURCE_LANGUAGE.md`<br>
 **Primary public reference:** https://www.luahelena.com.br/moonsource/?lang=en  
 **Professional context:** https://www.luahelena.com.br/ia/?lang=en  
 **License:** CC BY 4.0 · https://creativecommons.org/licenses/by/4.0/  
