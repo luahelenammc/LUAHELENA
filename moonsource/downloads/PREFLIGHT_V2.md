@@ -382,7 +382,7 @@ When the reconstructed task materially depends on governed context, activate the
 - [Operational Reliability](../../docs/OPERATIONAL_RELIABILITY.md) for consequential execution, failures, state changes and receipts;
 - [Signal Calibration](../../docs/SIGNAL_CALIBRATION.md) when the unresolved issue is inference from weak or convergent signals;
 - [🏗️ Field-to-Form diagnostic](../../ARCHITECTURE.md#field-to-form) when the real problem is what structure the field deserves;
-- [Chat–Work Routing](../chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md) when execution surface, model or reasoning effort materially affects the work.
+- [Chat–Work Routing](../chat-work/CHAT_WORK_ROUTING_PROTOCOL.md) when execution surface, model or reasoning effort materially affects the work.
 
 Preflight should route to specialized governance rather than swallowing it.
 

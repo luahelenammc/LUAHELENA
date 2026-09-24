@@ -7,10 +7,10 @@
 ## Meta
 
 - **canonical repository:** https://github.com/luahelenammc/Moon-Source
-- **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL_V4.md
+- **canonical path:** portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
-- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_V4_MSL_5_1.md
+- **website mirror:** https://www.luahelena.com.br/moonsource/downloads/CHAT_WORK_ROUTING_PROTOCOL_MSL_5_1.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that a native Chat–Work router skill is installed
 - **status:** public portable protocol
 - **version:** 5.2
@@ -1367,7 +1367,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - `5.2` is the current semantic subversion of that generation, not a new V5 title or filename;
 - `5.1` is superseded by this subversion and remains recoverable through Git history;
 - earlier 4.x subversions remain historical lineage recoverable through Git history;
-- the live repository exposes one canonical V4 file; website delivery is a separate mirror surface and may lag until its own verified sync;
+- the live repository exposes one canonical Chat–Work file; website delivery is a separate mirror surface and may lag until its own verified sync;
 - MSL is currently 5.1; this protocol remains independently versioned at 5.1;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor choices without turning model names or API economics into stable protocol law;
