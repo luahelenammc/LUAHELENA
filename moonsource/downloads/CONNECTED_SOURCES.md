@@ -360,7 +360,7 @@ There is no universal `Drive > GitHub` rule. If the sources disagree, identify t
 - **Moon Source Setup** recommends a persistent source substrate when durable continuity, current-source resolution or maintainable living context is actually needed. It never makes connector setup a prerequisite for immediate value.
 - **Source Operations** determines whether the operation is retrieve, process, metabolize or promote and what authority effect follows.
 - **Source Hygiene** diagnoses stale, contradictory, duplicated or bloated corpus material; Connected Sources supplies the access and freshness boundary around that diagnosis.
-- **Chat–Work Routing Protocol** transports source references when the next surface can resolve them; if it cannot, the handoff carries the smallest sufficient bounded context.
+- **Adaptive Orchestration Protocol** transports source references when the next surface can resolve them; if it cannot, the handoff carries the smallest sufficient bounded context.
 - **MSL** supplies structural grammar when a source reference, handoff or other durable form has earned existence. Connected Sources does not add new syntax.
 - **Operational Reliability** governs dependency checks, partial failure, receipts and recovery when the operation is consequential.
 
