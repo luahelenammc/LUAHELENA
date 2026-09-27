@@ -134,7 +134,7 @@ This means:
 - Responsibility Map is unnecessary when ownership is not in dispute;
 - Source Hygiene is unnecessary merely because an instruction set is long;
 - Credits activate when lineage, adaptation, mirroring or permission scope matters;
-- Chat–Work activates only when surface, model or reasoning routing is the actual question;
+- Adaptive Orchestration activates only when surface, model or reasoning routing is the actual question;
 - the full repository is never a reason to load the full repository.
 
 ---
@@ -503,7 +503,7 @@ When repository-aware, use the smallest relevant set:
 | A reusable structure has been earned | portables/msl/MOON_SOURCE_LANGUAGE.md |
 | A source, method, mirror or output needs lineage or permission boundaries | docs/CREDITS_ATTRIBUTION_OPS.md |
 | A current source, durable continuity or cross-session living context is needed | docs/CONNECTED_SOURCES.md; load the subordinate ChatGPT adapter only for volatile product facts |
-| ChatGPT surface, model or reasoning routing is the actual question | portables/chat-work/CHAT_WORK_ROUTING_PROTOCOL.md |
+| ChatGPT surface, model or reasoning routing is the actual question | portables/adaptive-orchestration/ADAPTIVE_ORCHESTRATION_PROTOCOL.md |
 | The full repository or ZIP has been supplied | MOON_SOURCE_AI_KERNEL.md governs loading |
 
 This list is a route, not a reading assignment.
@@ -528,7 +528,7 @@ Recognize ordinary-language needs semantically:
 | “I am adapting someone else’s method or resource.” | Credits & Attribution Ops |
 | “I need AI to return to current documents across sessions.” | Connected Sources, with a standalone fallback if no source substrate is available |
 | “Can this source be refreshed, updated or combined with another source?” | Connected Sources plus Source Operations |
-| “Should this happen in Chat or Work?” | Chat–Work Routing Protocol |
+| “Should this happen in Chat or Work?” | Adaptive Orchestration Protocol |
 | “Here is the whole Moon Source ZIP.” | Moon Source AI Kernel |
 
 This is conceptual guidance, not a brittle keyword parser. A word match without the underlying need is not enough to activate a component.
