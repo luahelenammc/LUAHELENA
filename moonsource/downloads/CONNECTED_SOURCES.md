@@ -1,4 +1,4 @@
-# 🔗 Connected Sources — Moon Source component / portable
+# 🔗 Connected Sources — Moon Source structural component
 
 *Living Source Protocol*
 
