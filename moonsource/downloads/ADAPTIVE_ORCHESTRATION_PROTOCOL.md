@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 6.1
+## Public Portable Edition · Version 6.2
 
 ## Meta
 
@@ -13,16 +13,16 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that the native adaptive-orchestration Personal Skill is installed
 - **status:** public portable protocol
-- **version:** 6.1
+- **version:** 6.2
 - **language:** English
-- **protocol semantics as of:** 2026-09-24
+- **protocol semantics as of:** 2026-09-29
 - **canonical identity migration:** 2026-09-27; formerly Chat–Work Routing Protocol, Chat–Work Router and Chat–Work; identity and paths changed while the 6.1 doctrine remained unchanged, under the repository naming/versioning rule
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
 - **primary implementation:** surface-neutral control-root routing across ChatGPT Chat, Work and Codex, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Chat–Work Routing Protocol 6.0; version 6.1 preserves Delegation-First orchestration while removing Chat-first surface assumptions from the public core. The current competent control root is the default continuity anchor; Chat → Work/Codex → Chat remains a first-class named profile rather than the mandatory topology.
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.1.
+- **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
+- **supersedes:** Adaptive Orchestration Protocol 6.1; version 6.2 preserves the V6 surface-neutral, Delegation-First architecture and adds Behavioral Fit as a first-class routing constraint. Capability sufficiency is necessary but not sufficient: a route must also fit the task's observable behavioral acceptance boundary.
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.2.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -31,7 +31,7 @@
 
 ## Canonical identity and compatibility
 
-Adaptive Orchestration Protocol is the sole current semantic authority. Its former names were Chat–Work Routing Protocol, Chat–Work Router and Chat–Work. The old registry id chat-work-routing, Personal Skill slug chat-work-router, GitHub directory, adapter paths, package path and website mirror remain compatibility routes that point here. The identity migration does not create a new semantic release: version 6.1 and the Astra 1.6 and GPT-6 Sol/Luna 1.3 adapter versions remain unchanged.
+Adaptive Orchestration Protocol is the sole current semantic authority. Its former names were Chat–Work Routing Protocol, Chat–Work Router and Chat–Work. The old registry id chat-work-routing, Personal Skill slug chat-work-router, GitHub directory, adapter paths, package path and website mirror remain compatibility routes that point here. The 2026-09-27 identity migration itself did not create a semantic release: at that migration checkpoint the core remained 6.1, Astra was 1.6 and GPT-6 Sol/Luna was 1.3. Version 6.2 is a later semantic update and does not retroactively change that lineage.
 
 ## Skeleton
 
@@ -39,7 +39,7 @@ Adaptive Orchestration Protocol is the sole current semantic authority. Its form
 2. Execution Profile Setup
 3. Surface roles, control roots and workload-shaped object routing
 4. Routing dimensions and precedence
-5. Availability, capability floor and Budget Survivability
+5. Availability, capability floor, Behavioral Fit and Budget Survivability
 6. Context Diet and surface gates
 7. Capability economics, model strategy adapters, delegation topology, effort, distillation, Sprint and frontier control
 8. Handoff, return and Control-Root Postflight
@@ -73,7 +73,7 @@ You do not need a frontier model or a particular surface just to initialize the 
 
 ### What happens next
 
-The protocol should disclose the route that materially shaped the decision, preserve the current competent root when possible, prepare a bounded handoff only when another surface is materially useful, distinguish a requested switch from a switch that actually occurred, let execution converge at the designated control root, and perform postflight, acceptance and closure there.
+The protocol should disclose the route that materially shaped the decision, preserve the current competent root when possible, prepare a bounded handoff only when another surface is materially useful, distinguish a requested switch from a switch that actually occurred, let execution converge at the designated control root, and perform postflight, acceptance and closure there. When model behavior is load-bearing, it should also distinguish capability sufficiency from behavioral fit rather than treating a more capable model as automatically more suitable.
 
 ### Optional Sprint Mode
 
@@ -121,11 +121,13 @@ The stable sentence is:
 
 > **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger models receive only the cognitively irreducible delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
 
-The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completes that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally.
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary.
 
 > **Escalate only the irreducible delta; return only the decision-bearing delta.**
 
 > **Delegate the reducible bulk before escalating the human-visible route.**
+
+> **Side-route for behavioral fit before up-routing for capability when the failure is behavioral rather than cognitive.**
 
 > **Transport source references with authority, freshness and fallback; a locator is not authority.**
 
@@ -329,12 +331,16 @@ task_requirements:
   sovereign_object: null
   observable_delta: null
   capability_floor: efficient
+  behavioral_fit: adaptive
+  behavior_contract: null
   verification_burden: normal
   consequence_level: normal
   continuity_need: normal
 ```
 
 The `capability_floor` is the lowest capability tier that can responsibly attempt the irreducible task after specification, source, context and tool failures have been repaired.
+
+`behavioral_fit` records whether observable model behavior is material to acceptance. Use `adaptive` unless the task clearly requires stricter properties such as source-bound transformation, style/voice fidelity, tool-use restraint, bounded initiative, persona/role consistency or a particular verification appetite. When those properties matter, encode the smallest explicit `behavior_contract` that can be tested from the output or tool trace.
 
 ### 2.6 Profile Precedence Law
 
@@ -363,7 +369,7 @@ Examples:
 - a tight allowance near a reset may prefer phasing or deferral;
 - a quality-first profile may prefer a stronger model while still using Context Diet and bounded fanout.
 
-The resolver maximizes useful outcome subject to capability floor, resource ceiling, surface availability, evidence burden and user preference. It does not require a fake numeric utility score.
+The resolver maximizes useful outcome subject to capability floor, behavioral acceptance fit, resource ceiling, surface availability, evidence burden and user preference. It does not require a fake numeric utility score.
 
 ### 2.8 Example profiles
 
@@ -496,18 +502,19 @@ When several objects are present, decompose the task into explicit stages and na
 
 ## 5. Routing dimensions
 
-The protocol records ten routing dimensions plus an optional Sprint overlay:
+The protocol records eleven routing dimensions plus an optional Sprint overlay:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
 3. **Control surface/root** — where objective, authority, routing state, convergence and closure live;
 4. **Execution surface/harness** — where a particular operation actually runs;
 5. **Root capability tier and model** — `efficient | balanced | strong | frontier`;
-6. **Reasoning effort** — independent from model capability;
-7. **Continuity and locality** — persistence, local state and handoff requirements;
-8. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
-9. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
-10. **Operation mode** — whether the run executes, only routes or audits a previous route.
+6. **Behavioral fit** — whether the executor's observable behavior matches the task's acceptance boundary;
+7. **Reasoning effort** — independent from model capability;
+8. **Continuity and locality** — persistence, local state and handoff requirements;
+9. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
+10. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
+11. **Operation mode** — whether the run executes, only routes or audits a previous route.
 
 > **Control surface ≠ root model ≠ execution surface.**
 
@@ -516,6 +523,32 @@ A Work surface may host a Sol root that delegates Luna workers. A Codex surface 
 ### Harness Specialization Law
 
 Capability overlap does not imply harness equivalence. Prefer the surface whose persistence, controls, feedback and verification fit the sovereign object.
+
+### Behavioral Fit Gate
+
+Capability sufficiency is necessary, not sufficient. A model can clear the cognitive capability floor and still be a poor executor for a task because its observable behavior conflicts with the acceptance boundary.
+
+Behavioral fit can include:
+
+- style and voice fidelity;
+- source-bound transformation fidelity;
+- restraint around unsolicited browsing, fact-checking or tool use when governing rules do not require it;
+- initiative/autonomy level;
+- persona or role consistency;
+- verification appetite and tendency to over-expand scope;
+- obedience to approval, mutation and surface boundaries.
+
+When behavior is load-bearing:
+
+1. define the smallest observable behavior contract;
+2. if a model or model release is new, materially changed or uncertain for that workload, prefer a bounded representative micro-probe over a full sacrificial run when feasible;
+3. if the probe or live run misses the contract, first tighten the contract when the mismatch is instruction-remediable;
+4. if mismatch persists while cognition remains sufficient, use `SIDE_ROUTE_MODEL_FOR_FIT` to another available model/effort/surface with better observed fit;
+5. use capability escalation only when the remaining failure is actually cognitive or when the higher tier is independently justified.
+
+Community anecdotes, launch-day reactions and single-run impressions may generate hypotheses for the probe. They do not become permanent model rankings or universal behavioral facts.
+
+> **Side-route before up-route when the failure is behavioral rather than cognitive.**
 
 ### Surface Continuity Law
 
@@ -575,6 +608,7 @@ Execution: Work
 Why: current Work root can sustain the report and close it without a surface transition
 Mode: ROUTE_AND_EXECUTE
 Root model/tier: strong
+Behavior fit: PASS_FIT
 Effort: medium
 Delegation: cheap_worker_fanout → efficient/high for independent scans
 Budget: PASS_PHASED
@@ -582,7 +616,7 @@ Manual switch: not required
 Next boundary: executor receipt → Control-Root Postflight
 ```
 
-The card must state the control root, execution surface when distinct, why the topology fits, operation mode, root capability/effort, delegation topology when material, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
+The card must state the control root, execution surface when distinct, why the topology fits, operation mode, root capability/effort, behavioral-fit outcome when material, delegation topology when material, Budget Survivability outcome, any material unavailable or disabled surface and the next boundary. Tiny tasks may suppress the card, but not the underlying route decision or evidence standard.
 
 When the named Chat–Work Loop Profile is active, the card may instead show `Control root: Chat`, a Work or Codex execution surface, and `Return root: Chat`.
 
@@ -599,9 +633,10 @@ Then resolve the task capability floor. Fix non-cognitive failures first:
 - unavailable surface or permission;
 - context starvation or clash;
 - workflow/fanout failure;
-- budget/resource failure.
+- budget/resource failure;
+- behavioral-fit mismatch that can be repaired by a tighter behavior contract or lateral route.
 
-A stronger model is not a substitute for a missing source, tool, permission or acceptance rule. A missing or disabled Codex surface is a routing condition, not a user failure; use the best real fallback or report a truthful blocked condition when the requested verification cannot be performed elsewhere.
+A stronger model is not a substitute for a missing source, tool, permission or acceptance rule. Nor is higher benchmark capability proof of better style, source fidelity, tool restraint or role behavior for a particular workload. If the task is cognitively within floor but behaviorally mismatched, apply the Behavioral Fit Gate before capability escalation. A missing or disabled Codex surface is a routing condition, not a user failure; use the best real fallback or report a truthful blocked condition when the requested verification cannot be performed elsewhere.
 
 ## 7. Budget Survivability Gate
 
@@ -1539,14 +1574,15 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 ## 22. Lifecycle and succession
 
-- Adaptive Orchestration Protocol 6.1 is the current public release;
-- 6.1 supersedes 6.0 and makes surface continuity/control-root neutrality first-class protocol law while preserving 6.0 Delegation-First orchestration;
+- Adaptive Orchestration Protocol 6.2 is the current public release;
+- 6.2 supersedes 6.1 by adding Behavioral Fit as a first-class routing constraint while preserving 6.1 surface continuity/control-root neutrality and 6.0 Delegation-First orchestration;
+- 6.1 remains recoverable through Git history and records the surface-neutral control-root rebase;
 - the historical Chat → Work/Codex → Chat loop remains a first-class named Chat–Work Loop Profile rather than the mandatory default topology;
 - 6.0 remains recoverable through Git history and records the delegation-topology rebase;
 - the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
 - earlier 4.x releases remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical Adaptive Orchestration file; website delivery is a separate mirror surface and must be synchronized after the canonical body passes validation;
-- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.1;
+- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.2;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
@@ -1561,6 +1597,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Treat a surface change as an executor change, not a budget reset.
 - Transport the minimum execution capsule; hidden context does not follow by default, and a control-root transition requires explicit continuity transport.
 - Enforce capability floor before honoring model preference.
+- Enforce Behavioral Fit separately from capability: define observable behavior requirements when material, micro-probe uncertain/new model behavior on representative work, and side-route before capability escalation when the failure is behavioral.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
 - Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
 - For material higher-tier rulings, request the smallest auditable Decision Trace needed to inspect alternatives, decisive comparison, adversarial correction, falsifier/test and uncertainty; never request hidden chain-of-thought or private scratchpad disclosure.
@@ -1589,7 +1626,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Adaptive Orchestration Protocol 6.1. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Escalate only the irreducible delta; return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
+> Use Adaptive Orchestration Protocol 6.2. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Escalate only the irreducible delta; return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
 
 Optional Sprint activation:
 
