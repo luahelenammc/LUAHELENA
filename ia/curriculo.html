@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Lua Helena Moon Martins Cardoso">
+<meta name="description" content="Arquitetura de Contexto Humano-IA · Adoção de IA · Workflow Design · Governança do Conhecimento">
+<title>Currículo — Lua Helena Moon Martins Cardoso</title>
+<style>
+/* Systems Folio. Fonte visual canônica do CV V2. Fonts: local only; no external dependencies.
+   Grid: A4 / 18mm side margins / 10mm numbering rail / one semantic reading flow.
+   Type: Nimbus Sans (Arial fallback) + Bitstream Charter (Georgia fallback).
+   Scale: 30 / 17 / 14 / 11 / 10.2 / 8.3 / 7.5 pt. Body line-height 1.36.
+   Cases: title, classification, challenge, authorship/construction, inspectable proof.
+   Main accent darkens the /ia/ cyan for paper; gold appears only as a small header rule. */
+:root{--sans:"Nimbus Sans",Arial,Helvetica,sans-serif;--serif:"Bitstream Charter",Georgia,serif;--ink:#171922;--paper:#fff;--dark:#141620;--on-dark:#fff8ee;--accent:#176575;--light-accent:#86c7d6;--gold:#e8c97a;--muted:#515866;--line:#cfd6d9;--tint:#f1f5f5;--body:10.2pt;--leading:1.36;--section:6mm;--block:4mm;--side:18mm}
+*{box-sizing:border-box}html{background:#e8ebed}body{margin:0;color:var(--ink);font-family:var(--sans);font-size:var(--body);line-height:var(--leading);font-kerning:normal}main{max-width:210mm;margin:24px auto}.page{background:var(--paper);width:210mm;height:297mm;position:relative;overflow:visible;box-shadow:0 8px 30px #17192218;margin-bottom:24px}p,h1,h2,h3,ul,dl,dd{margin:0}a{color:var(--accent);text-decoration:none}a:hover,a:focus-visible{text-decoration:underline;text-underline-offset:3px}a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}b,strong{font-weight:700}
+.hero{background:var(--dark);color:var(--on-dark);padding:13mm var(--side) 8mm;position:relative}.hero:before{content:"";display:block;width:9mm;height:.7mm;background:var(--gold);margin-bottom:4mm}.hero h1{font-family:var(--serif);font-size:30pt;font-weight:400;letter-spacing:-.65pt;line-height:1.03;margin-bottom:4mm}.hero h1 span{display:block}.role{font-size:11pt;font-weight:700;line-height:1.25}.specialisms{font-size:8.3pt;letter-spacing:.65pt;color:var(--light-accent);margin-top:2mm}.thesis{font-size:10.6pt;line-height:1.32;max-width:166mm;margin-top:4mm}.contact{margin-top:5mm;padding-top:3mm;border-top:.25mm solid #ffffff28;font-size:8.3pt;line-height:1.5;color:#d1d8dd}.contact a{color:var(--light-accent)}.contact .row{display:flex;flex-wrap:wrap;gap:0 4mm}.contact .identity{color:var(--on-dark)}.contact .row+.row{margin-top:1mm}.contact .recover{font-size:7.6pt;color:#d1d8dd;margin-left:1mm}
+.body{padding:6mm var(--side) 0}.section{position:relative;padding-left:13mm;margin-top:var(--section)}.section:first-child{margin-top:0}.section h2{font-family:var(--serif);font-size:17pt;font-weight:400;letter-spacing:-.15pt;line-height:1.15;margin-bottom:3mm}.section-number{position:absolute;left:0;top:1.1mm;font-family:var(--sans);font-size:9pt;letter-spacing:.7pt;color:var(--accent)}.summary{max-width:160mm;margin-bottom:3.5mm}.value-list{list-style:none;padding:3mm 0 3mm 4mm;border-left:.6mm solid var(--accent);background:linear-gradient(90deg,var(--tint),var(--paper))}.value-list li+li{margin-top:1.7mm}.value-list strong{font-size:9.5pt;display:inline-block;min-width:45mm}.value-list span{font-size:9.4pt;color:var(--muted)}.practice-intro{font-size:9.5pt;margin-bottom:3mm}.practice-intro strong{font-size:9.5pt}.practice-date{font-size:8.3pt;letter-spacing:.35pt;color:var(--accent);display:block;margin-bottom:2mm}.case{padding:3.5mm 0 3mm;border-top:.25mm solid var(--line);break-inside:avoid}.case.anchor{background:var(--tint);border-left:.7mm solid var(--accent);border-top:0;padding:3.5mm 4mm;margin-left:-4mm;margin-bottom:1mm}.case h3{font-size:14pt;font-weight:500;letter-spacing:-.3pt;line-height:1.15;margin-bottom:1.3mm}.classification{font-size:7.6pt;line-height:1.3;letter-spacing:.85pt;color:var(--accent);text-transform:uppercase;margin-bottom:2.5mm}.case dl{font-size:9.6pt;line-height:1.32}.case .field{display:flex;align-items:baseline;margin-top:1.6mm;gap:2mm}.case dt{font-size:8.3pt;color:var(--muted);font-weight:700;min-width:18mm;flex:0 0 18mm}.case dd{flex:1;min-width:0}.proof{font-size:8.3pt;line-height:1.4;margin-top:2.5mm}.proof .label{font-size:7.2pt;letter-spacing:1pt;color:var(--muted);margin-right:2mm}.proof small{font-size:7.6pt;color:var(--muted);margin-left:1.5mm}.method{font-size:8.5pt;color:var(--muted);border-top:.25mm solid var(--line);padding-top:2.5mm;margin-top:2mm}.method strong{color:var(--ink)}
+.running{margin:0 var(--side);padding:10mm 0 4mm;border-bottom:.25mm solid var(--line);font-size:8.3pt;color:var(--muted);display:flex;justify-content:space-between;gap:3mm}.running span:last-child{color:var(--accent);letter-spacing:.65pt}.page-two .body{padding-top:6mm}.job{margin-bottom:4mm;break-inside:avoid}.job h3{font-size:11pt;font-weight:700;line-height:1.25;margin-bottom:1mm}.job .meta{font-size:8.5pt;line-height:1.4;color:var(--accent);margin-bottom:1.8mm}.job ul{padding-left:3.5mm;font-size:10pt;line-height:1.34}.job li+li{margin-top:1.4mm}.minor-heading{font-size:7.8pt;letter-spacing:.9pt;color:var(--accent);text-transform:uppercase;margin:4mm 0 2.5mm}.additional{list-style:none;padding:0;font-size:9.5pt;line-height:1.34}.additional li{padding:1.4mm 0;border-bottom:.25mm solid #e6eaec}.additional li:last-child{border:0}.additional .meta{font-size:8.5pt;color:var(--muted)}.recognition{list-style:none;padding:0;font-size:9.5pt;line-height:1.34}.recognition li{margin-bottom:2.5mm}.recognition strong{display:block;font-size:10pt}.recognition .meta{font-size:8.5pt;color:var(--accent)}.education{list-style:none;padding:0;font-size:9.5pt;line-height:1.34}.education li+li{margin-top:2.3mm}.education strong{font-size:10pt}.education .meta{font-size:8.5pt;color:var(--muted);display:block}.languages{font-size:9.5pt;margin-top:4mm;padding-top:3mm;border-top:.25mm solid var(--line)}.languages strong{color:var(--accent);font-size:8.3pt;letter-spacing:.6pt;margin-right:3mm}.footer{position:absolute;left:var(--side);right:var(--side);bottom:9mm;border-top:.25mm solid var(--line);padding-top:2.5mm;display:flex;justify-content:space-between;gap:5mm;font-size:7.5pt;line-height:1.2;color:var(--muted)}
+/* Composition refinement after first full proof: recover page budget from repetition and packaging. */
+.hero{padding-top:8mm;padding-bottom:5mm}.hero:before{margin-bottom:2mm}.hero h1{margin-bottom:2mm}.role{font-size:10.5pt}.specialisms{margin-top:1mm}.thesis{margin-top:2mm}.contact{margin-top:3mm;padding-top:2mm;line-height:1.3}.contact .row+.row{margin-top:.5mm}
+.section{margin-top:4.5mm}.section h2{margin-bottom:2mm}.section h2 .section-number{position:static;display:inline-block;width:13mm;margin-left:-13mm;vertical-align:middle;line-height:1}
+.summary{margin-bottom:2.5mm}.value-list{padding-top:2mm;padding-bottom:2mm}.value-list li+li{margin-top:.8mm}
+.case{padding-top:2.5mm;padding-bottom:2.5mm}.case.anchor{padding-top:3mm;padding-bottom:3mm}.classification{margin-bottom:2mm}.proof{margin-top:2mm}
+.running{padding-top:8mm}.job{margin-bottom:3mm}.minor-heading{margin-top:3mm;margin-bottom:2mm}.recognition li{margin-bottom:2mm}.education li+li{margin-top:1.8mm}.languages{margin-top:3mm;padding-top:2.5mm}
+/* Final polish: canonical name as one text node; single-line additional roles;
+   recognition as an editorial inset; enlarged case rhythm without extra pages. */
+.hero h1{font-size:26pt;letter-spacing:-.6pt}.page-one .section{margin-top:5.5mm}.page-one .section:first-child{margin-top:0}.value-list{padding-top:2.5mm;padding-bottom:2.5mm}.case{padding-top:3mm;padding-bottom:3mm}.case.anchor{padding-top:3.5mm;padding-bottom:3.5mm}.case .field{margin-top:1.8mm}
+.page-two .section:nth-child(2){background:var(--tint);padding-top:3mm;padding-bottom:2mm;padding-right:4mm}.page-two .section:nth-child(2) h2 .section-number{padding-left:2mm}.page-two .section:nth-child(2) h2{font-size:16.5pt}.additional li{padding-top:1.8mm;padding-bottom:1.8mm}
+@page{size:A4;margin:0}
+@media print{html,body{background:var(--paper)}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}main{margin:0;max-width:none}.page{margin:0;box-shadow:none;break-after:page}.page:last-child{break-after:auto}a{text-decoration:none}.value-list{background:var(--tint)}}
+@media screen and (max-width:720px){html{background:var(--paper)}body{font-size:15px}main{width:100%;margin:0}.page{width:100%;height:auto;min-height:0;margin:0;box-shadow:none}.hero{padding:32px 24px 28px}.hero h1{font-size:36px}.role{font-size:15px}.specialisms{font-size:11px;line-height:1.6}.thesis{font-size:15px;margin-top:18px}.contact{font-size:12px}.contact .recover{font-size:11px}.contact .row{gap:3px 14px}.body{padding:26px 24px}.section{padding-left:0;margin-top:28px}.section h2{font-size:26px;padding-left:32px}.section-number{font-size:12px}.section h2 .section-number{width:32px;margin-left:-32px}.summary{font-size:15px}.value-list{padding:12px 14px}.value-list strong{display:block;font-size:14px;min-width:0}.value-list span{font-size:14px}.value-list li+li{margin-top:10px}.practice-date,.practice-intro,.practice-intro strong{font-size:13px}.case{padding:18px 0}.case.anchor{padding:18px 14px;margin-left:0}.case h3{font-size:23px}.classification{font-size:10px}.case dl{font-size:14px}.case .field{display:block;margin-top:10px}.case dt{font-size:11px;margin-bottom:3px}.proof{font-size:12px}.proof small{font-size:11px;display:block;margin:3px 0 0}.method{font-size:12px;line-height:1.5}.running{margin:0 24px;padding:20px 0 12px;font-size:11px;flex-wrap:wrap}.job h3{font-size:17px}.job .meta{font-size:12px}.job ul{font-size:14px;padding-left:18px}.minor-heading{font-size:11px}.additional,.recognition,.education{font-size:14px}.additional .meta,.recognition .meta,.education .meta{font-size:12px}.recognition strong,.education strong{font-size:15px}.languages{font-size:14px}.languages strong{font-size:11px;display:block;margin-bottom:7px}.footer{position:static;margin:10px 24px 24px;font-size:10px}.page-one .footer{display:none}.page-two .section:nth-child(2){padding:18px 14px}.page-two .section:nth-child(2) h2{font-size:25px}.page-two .section:nth-child(2) h2 .section-number{padding-left:0}.page-one .section{margin-top:28px}.page-one .section:first-child{margin-top:0}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.value-list strong{padding-right:2mm}
+.web-tools{max-width:210mm;margin:24px auto -10px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 2px;font-size:13px;line-height:1.4}
+.web-tools .actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.lang-toggle{display:flex;gap:6px}.lang-toggle a{display:flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;color:var(--muted);font-size:11px;font-weight:700;text-decoration:none}.lang-toggle a[aria-current="true"]{border-color:var(--accent);background:var(--tint);color:var(--accent)}.lang-toggle img{display:block;width:26px;height:18px}.web-tools a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media screen and (max-width:720px){.web-tools{margin:0;padding:16px 24px;flex-wrap:wrap;gap:12px}.web-tools .actions{gap:14px}.lang-toggle a{padding:7px 8px}main{margin:0}}
+@media print{.web-tools{display:none}}
+</style>
+<link rel="canonical" href="https://www.luahelena.com.br/ia/curriculo.html">
+<link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/curriculo.html?lang=pt">
+<link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/curriculo.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/ia/curriculo.html">
+<meta name="theme-color" content="#141620">
+</head>
+<body>
+<nav class="web-tools" aria-label="Navegação do currículo"><div class="actions"><a class="back-link" href="/ia/">← Portfolio IA</a><a href="https://drive.google.com/file/d/1Q0ti9VtuJmgQ7tFqs_aCTVujqUybGhno/view?usp=drivesdk">PDF · PT-BR ↗</a></div><div class="lang-toggle" aria-label="Seleção de idioma"><a data-lang="pt" href="?lang=pt" aria-label="Português do Brasil" title="Português do Brasil" aria-current="true"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAyMiIgcm9sZT0iaW1nIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMjIiIHJ4PSIzIiBmaWxsPSIjMmI5YjU1Ii8+PHBhdGggZD0iTTE2IDIuNSAyOSAxMSAxNiAxOS41IDMgMTFaIiBmaWxsPSIjZjRkNjRhIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxMSIgcj0iNC4zNSIgZmlsbD0iIzI2NWNhOCIvPjxwYXRoIGQ9Ik0xMi4xIDkuOWMyLjUtLjcgNS42LS41NSA3Ljc1LjM1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iLjY1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4K" alt="" aria-hidden="true" width="26" height="18"><span>PT-BR</span></a><a data-lang="en" href="?lang=en" aria-label="English, United States" title="English, United States" aria-current="false"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAyMiIgcm9sZT0iaW1nIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMjIiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMGgzMnYySDB6bTAgNGgzMnYySDB6bTAgNGgzMnYySDB6bTAgNGgzMnYySDB6bTAgNGgzMnYySDB6bTAgNGgzMnYySDB6IiBmaWxsPSIjYzk0YzU4Ii8+PHBhdGggZD0iTTAgMGgxMy43djExSDB6IiBmaWxsPSIjMzE1YTliIi8+PGcgZmlsbD0iI2ZmZiI+PGNpcmNsZSBjeD0iMi4zIiBjeT0iMiIgcj0iLjQ1Ii8+PGNpcmNsZSBjeD0iNSIgY3k9IjIiIHI9Ii40NSIvPjxjaXJjbGUgY3g9IjcuNyIgY3k9IjIiIHI9Ii40NSIvPjxjaXJjbGUgY3g9IjEwLjQiIGN5PSIyIiByPSIuNDUiLz48Y2lyY2xlIGN4PSIzLjYiIGN5PSI0LjEiIHI9Ii40NSIvPjxjaXJjbGUgY3g9IjYuMyIgY3k9IjQuMSIgcj0iLjQ1Ii8+PGNpcmNsZSBjeD0iOSIgY3k9IjQuMSIgcj0iLjQ1Ii8+PGNpcmNsZSBjeD0iMTEuNyIgY3k9IjQuMSIgcj0iLjQ1Ii8+PGNpcmNsZSBjeD0iMi4zIiBjeT0iNi4yIiByPSIuNDUiLz48Y2lyY2xlIGN4PSI1IiBjeT0iNi4yIiByPSIuNDUiLz48Y2lyY2xlIGN4PSI3LjciIGN5PSI2LjIiIHI9Ii40NSIvPjxjaXJjbGUgY3g9IjEwLjQiIGN5PSI2LjIiIHI9Ii40NSIvPjxjaXJjbGUgY3g9IjMuNiIgY3k9IjguMyIgcj0iLjQ1Ii8+PGNpcmNsZSBjeD0iNi4zIiBjeT0iOC4zIiByPSIuNDUiLz48Y2lyY2xlIGN4PSI5IiBjeT0iOC4zIiByPSIuNDUiLz48Y2lyY2xlIGN4PSIxMS43IiBjeT0iOC4zIiByPSIuNDUiLz48L2c+PC9zdmc+Cg==" alt="" aria-hidden="true" width="26" height="18"><span>EN</span></a></div></nav>
+<main aria-label="Currículo de Lua Helena Moon Martins Cardoso">
+<div class="page page-one">
+<header class="hero">
+<h1>Lua Helena Moon Martins Cardoso</h1>
+<p class="role">Arquiteta de Contexto Humano-IA · Psicóloga Hospitalar</p>
+<p class="specialisms">AI Adoption · Workflow Design · Knowledge Governance</p>
+<p class="thesis">Transformo conhecimento, fluxos e decisões dispersas em contexto que pessoas e sistemas de IA conseguem usar.</p>
+<address class="contact" style="font-style:normal">
+<div class="row identity"><span>Limeira/SP · trabalho remoto</span><span><a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span><span><a href="https://wa.me/5541992228411">+55 41 99222-8411</a></span></div>
+<div class="row"><span><a href="https://www.luahelena.com.br/ia/">Portfolio IA ↗</a> <span class="recover">luahelena.com.br/ia</span></span><span><a href="https://github.com/luahelenammc">GitHub ↗</a> <span class="recover">@luahelenammc</span></span><span><a href="https://www.linkedin.com/in/luahelena/">LinkedIn ↗</a> <span class="recover">in/luahelena</span></span></div>
+</address>
+</header>
+<div class="body">
+<section class="section" aria-labelledby="perfil"><h2 id="perfil"><span class="section-number" aria-hidden="true">01</span>Perfil</h2>
+<p class="summary">Psicóloga hospitalar em sistemas institucionais complexos, com prática independente em IA desde 2022. Conecto contexto e workflows ao trabalho de produto, equipes técnicas e áreas institucionais.</p>
+<ul class="value-list" aria-label="Onde gero valor">
+<li><strong>Contexto & continuidade</strong> <span>Fontes, autoridade e memória utilizável.</span></li>
+<li><strong>Fluxos & documentação</strong> <span>Rotinas, exceções e passagens de responsabilidade.</span></li>
+<li><strong>Adoção & aprendizagem</strong> <span>Uso de IA compreensível dentro do trabalho real.</span></li>
+<li><strong>Avaliação & governança</strong> <span>Critérios de aceitação, limites e revisão humana.</span></li>
+</ul></section>
+<section class="section" aria-labelledby="pratica"><h2 id="pratica"><span class="section-number" aria-hidden="true">02</span>Prática em IA</h2>
+<span class="practice-date">TRABALHO INDEPENDENTE · 2022–ATUAL</span>
+
+<article class="case anchor" aria-labelledby="moon-source"><h3 id="moon-source">Moon Source</h3><p class="classification">Arquitetura de contexto · projeto-âncora</p>
+<dl><div class="field"><dt>Desafio</dt><dd>Conhecimento disperso, fontes conflitantes e perda de continuidade no trabalho com IA.</dd></div><div class="field"><dt>Construção</dt><dd>Criei uma arquitetura de fontes, autoridade, memória e protocolos; documentei perfis, handoffs e pacotes de contexto reutilizáveis.</dd></div></dl>
+<p class="proof"><span class="label">PROVA</span><a href="https://github.com/luahelenammc/Moon-Source">Repositório e portáveis públicos ↗</a> <small>github.com/luahelenammc/Moon-Source</small></p></article>
+<article class="case" aria-labelledby="aop"><h3 id="aop">Adaptive Orchestration Protocol</h3><p class="classification">Método de execução · portável do Moon Source</p>
+<dl><div class="field"><dt>Desafio</dt><dd>Escolher superfície, capacidade e esforço de IA sem gerar retrabalho ou perder o controle da tarefa.</dd></div><div class="field"><dt>Construção</dt><dd>Desenhei e documentei um protocolo de roteamento, delegação, verificação e fechamento, com critérios explícitos para aceitar o resultado.</dd></div></dl>
+<p class="proof"><span class="label">PROVA</span><a href="https://github.com/luahelenammc/Moon-Source/tree/main/portables/adaptive-orchestration">Protocolo público ↗</a> <small>Moon-Source / portables / adaptive-orchestration</small></p></article>
+<article class="case" aria-labelledby="cluster"><h3 id="cluster">3D Cluster Engine</h3><p class="classification">Protótipo web · interface espacial de conhecimento</p>
+<dl><div class="field"><dt>Desafio</dt><dd>Explorar relações e clusters de conhecimento mantendo o dataset separado da visualização.</dd></div><div class="field"><dt>Construção</dt><dd>Direção de arquitetura e especificação, integração e QA em prototipagem assistida por IA. Aplicação em React, TypeScript e Three.js, com busca, inspector e importação/exportação com validação.</dd></div></dl>
+<p class="proof"><span class="label">PROVA</span><a href="https://luahelenammc.github.io/3D-Cluster-Engine/?dataset=demo">Demo pública ↗</a> · <a href="https://github.com/luahelenammc/3D-Cluster-Engine">Código e arquitetura ↗</a> <small>luahelenammc.github.io/3D-Cluster-Engine</small></p></article>
+</section>
+</div>
+<footer class="footer"><span>Lua Helena Moon Martins Cardoso · CV IA · out. 2026</span><span>01 / 02</span></footer>
+</div>
+<div class="page page-two">
+<div class="running"><span>Lua Helena Moon Martins Cardoso</span><span>TRAJETÓRIA & BASE PROFISSIONAL</span></div>
+<div class="body">
+<section class="section" aria-labelledby="experiencia"><h2 id="experiencia"><span class="section-number" aria-hidden="true">03</span>Experiência</h2>
+<article class="job"><h3>Psicóloga Hospitalar</h3><p class="meta">Hapvida NotreDame Intermédica · Hospital Medical · Limeira/SP · out. 2023–atual</p><ul><li>Atendimento em UTI, enfermarias e pronto atendimento; acolhimento de famílias, manejo de crise, risco suicida e luto.</li><li>Mediação com equipes multiprofissionais, comunicação em situações sensíveis e registros para continuidade do cuidado.</li></ul></article>
+<article class="job"><h3>Consultora Técnica de Saúde Mental para Assessoria de Imprensa</h3><p class="meta">Hapvida NotreDame Intermédica · remoto · jan. 2025–atual</p><ul><li>Conteúdo técnico para artigos institucionais, entrevistas de rádio e respostas a jornalistas; tradução de saúde mental para comunicação pública.</li></ul></article>
+<article class="job"><h3>Estagiária Docente em Sociologia</h3><p class="meta">Governo do Estado de São Paulo · Limeira/SP · mai.–nov. 2024</p><ul><li>Metodologias ativas e facilitação dialógica em Educação de Jovens e Adultos (EJA).</li></ul></article>
+<h3 class="minor-heading">Experiência adicional</h3>
+<ul class="additional">
+<li><strong>Psicóloga Clínica</strong> <span class="meta">· particular, remoto · mai. 2023–atual</span></li>
+<li><strong>Controladora de Acesso</strong> <span class="meta">· PREVSEG · mai. 2022–set. 2023</span></li>
+<li><strong>Estagiária em Psicologia do Trabalho</strong> <span class="meta">· Sindipetro PR/SC · jun. 2021–mai. 2022</span></li>
+<li><strong>Estagiária em Psicologia Clínica</strong> <span class="meta">· Centro de Psicologia Aplicada / UFPR · jun. 2021–mai. 2022</span></li>
+</ul></section>
+<section class="section" aria-labelledby="reconhecimento"><h2 id="reconhecimento"><span class="section-number" aria-hidden="true">04</span>Liderança & reconhecimento</h2>
+<ul class="recognition">
+<li><strong>Vice-presidenta da CIPA</strong><span class="meta">Hospital Medical · nov. 2024–out. 2025</span><br>Eleita entre as candidaturas mais votadas; participação em saúde e segurança do trabalho.</li>
+<li><strong>Referência nacional · Projeto de Humanização Cine Pipoca</strong><span class="meta">Hapvida NotreDame Intermédica · jul.–set. 2024</span><br>Iniciativa inter-hospitalar de humanização concebida para replicação.</li>
+<li><strong>Coautoria e apresentação · Congresso Internacional SOBREXP 2024</strong><span class="meta">Sociedade Brasileira de Experiência do Paciente · set. 2024</span><br>Apresentação de projeto de humanização e cuidado centrado na pessoa.</li>
+</ul></section>
+<section class="section" aria-labelledby="formacao"><h2 id="formacao"><span class="section-number" aria-hidden="true">05</span>Formação & idiomas</h2>
+<ul class="education">
+<li><strong>Bacharelado em Psicologia</strong><span class="meta">Universidade Federal do Paraná (UFPR) · 2017–2023</span></li>
+<li><strong>Formação em Sociologia</strong><span class="meta">UNINTER · 2023–2025</span></li>
+<li><strong>Pós-graduação em Psicologia Organizacional</strong><span class="meta">UniFatecie · 2023–2025 · curso concluído</span></li>
+<li><strong>Pós-graduação em Psicopedagogia Clínica e Institucional</strong><span class="meta">UniFatecie · 2023–2025 · curso concluído</span></li>
+</ul>
+<p class="languages"><strong>IDIOMAS</strong> Português nativo · Inglês avançado</p>
+</section>
+</div>
+<footer class="footer"><span>Lua Helena Moon Martins Cardoso · CV IA · out. 2026</span><span>02 / 02</span></footer>
+</div>
+</main>
+<script>
+
+(() => {
+  'use strict';
+  const EN = {"Arquitetura de Contexto Humano-IA · Adoção de IA · Workflow Design · Governança do Conhecimento": "Human–AI Context Architecture · AI Adoption · Workflow Design · Knowledge Governance", "Currículo — Lua Helena Moon Martins Cardoso": "Résumé — Lua Helena Moon Martins Cardoso", "Arquiteta de Contexto Humano-IA · Psicóloga Hospitalar": "Human–AI Context Architect · Hospital Psychologist", "Transformo conhecimento, fluxos e decisões dispersas em contexto que pessoas e sistemas de IA conseguem usar.": "I turn scattered knowledge, workflows, and decisions into context that people and AI systems can use.", "Limeira/SP · trabalho remoto": "Limeira, São Paulo, Brazil · remote work", "Portfolio IA ↗": "AI Portfolio ↗", "Currículo de Lua Helena Moon Martins Cardoso": "Résumé of Lua Helena Moon Martins Cardoso", "Perfil": "Profile", "Psicóloga hospitalar em sistemas institucionais complexos, com prática independente em IA desde 2022. Conecto contexto e workflows ao trabalho de produto, equipes técnicas e áreas institucionais.": "Hospital psychologist working in complex institutional systems, with independent AI practice since 2022. I connect context and workflows with product work, technical teams, and institutional departments.", "Onde gero valor": "Where I create value", "Contexto & continuidade": "Context & continuity", "Fontes, autoridade e memória utilizável.": "Sources, authority, and usable memory.", "Fluxos & documentação": "Workflows & documentation", "Rotinas, exceções e passagens de responsabilidade.": "Routines, exceptions, and handoffs.", "Adoção & aprendizagem": "Adoption & learning", "Uso de IA compreensível dentro do trabalho real.": "AI use that makes sense in everyday work.", "Avaliação & governança": "Evaluation & governance", "Critérios de aceitação, limites e revisão humana.": "Acceptance criteria, boundaries, and human review.", "Prática em IA": "AI Practice", "TRABALHO INDEPENDENTE · 2022–ATUAL": "INDEPENDENT PRACTICE · 2022–PRESENT", "Arquitetura de contexto · projeto-âncora": "Context architecture · flagship project", "Desafio": "Challenge", "Conhecimento disperso, fontes conflitantes e perda de continuidade no trabalho com IA.": "Scattered knowledge, conflicting sources, and loss of continuity in work with AI.", "Construção": "My work", "Criei uma arquitetura de fontes, autoridade, memória e protocolos; documentei perfis, handoffs e pacotes de contexto reutilizáveis.": "Created an architecture for sources, authority, memory, and protocols; documented profiles, handoffs, and reusable context packages.", "PROVA": "EVIDENCE", "Repositório e portáveis públicos ↗": "Public repository and portable resources ↗", "Método de execução · portável do Moon Source": "Execution method · portable resource from Moon Source", "Escolher superfície, capacidade e esforço de IA sem gerar retrabalho ou perder o controle da tarefa.": "Choose the AI interface, capability, and effort without creating rework or losing control of the task.", "Desenhei e documentei um protocolo de roteamento, delegação, verificação e fechamento, com critérios explícitos para aceitar o resultado.": "Designed and documented a protocol for routing, delegation, verification, and closure, with explicit criteria for accepting the result.", "Protocolo público ↗": "Public protocol ↗", "Protótipo web · interface espacial de conhecimento": "Web prototype · spatial knowledge interface", "Explorar relações e clusters de conhecimento mantendo o dataset separado da visualização.": "Explore relationships and knowledge clusters while keeping the dataset separate from the visualization.", "Direção de arquitetura e especificação, integração e QA em prototipagem assistida por IA. Aplicação em React, TypeScript e Three.js, com busca, inspector e importação/exportação com validação.": "Architecture direction and specification, integration, and QA in AI-assisted prototyping. Application built with React, TypeScript, and Three.js, with search, an inspector, and validated import/export.", "Demo pública ↗": "Public demo ↗", "Código e arquitetura ↗": "Code and architecture ↗", "Lua Helena Moon Martins Cardoso · CV IA · out. 2026": "Lua Helena Moon Martins Cardoso · AI Résumé · Oct. 2026", "TRAJETÓRIA & BASE PROFISSIONAL": "CAREER & PROFESSIONAL FOUNDATION", "Experiência": "Experience", "Psicóloga Hospitalar": "Hospital Psychologist", "Hapvida NotreDame Intermédica · Hospital Medical · Limeira/SP · out. 2023–atual": "Hapvida NotreDame Intermédica · Hospital Medical · Limeira, São Paulo, Brazil · Oct. 2023–present", "Atendimento em UTI, enfermarias e pronto atendimento; acolhimento de famílias, manejo de crise, risco suicida e luto.": "Care in the ICU, inpatient wards, and emergency department; supporting families and addressing crises, suicide risk, and bereavement.", "Mediação com equipes multiprofissionais, comunicação em situações sensíveis e registros para continuidade do cuidado.": "Coordination with multidisciplinary teams, communication in sensitive situations, and documentation to support continuity of care.", "Consultora Técnica de Saúde Mental para Assessoria de Imprensa": "Mental Health Technical Consultant for Media Relations", "Hapvida NotreDame Intermédica · remoto · jan. 2025–atual": "Hapvida NotreDame Intermédica · remote · Jan. 2025–present", "Conteúdo técnico para artigos institucionais, entrevistas de rádio e respostas a jornalistas; tradução de saúde mental para comunicação pública.": "Technical content for institutional articles, radio interviews, and responses to journalists; translating mental health topics for public communication.", "Estagiária Docente em Sociologia": "Sociology Teaching Intern", "Governo do Estado de São Paulo · Limeira/SP · mai.–nov. 2024": "Government of the State of São Paulo · Limeira, São Paulo, Brazil · May–Nov. 2024", "Metodologias ativas e facilitação dialógica em Educação de Jovens e Adultos (EJA).": "Active learning methods and dialogic facilitation in Youth and Adult Education (EJA).", "Experiência adicional": "Additional Experience", "Psicóloga Clínica": "Clinical Psychologist", "· particular, remoto · mai. 2023–atual": "· private practice, remote · May 2023–present", "Controladora de Acesso": "Access Control Officer", "· PREVSEG · mai. 2022–set. 2023": "· PREVSEG · May 2022–Sep. 2023", "Estagiária em Psicologia do Trabalho": "Occupational Psychology Intern", "· Sindipetro PR/SC · jun. 2021–mai. 2022": "· Sindipetro PR/SC · Jun. 2021–May 2022", "Estagiária em Psicologia Clínica": "Clinical Psychology Intern", "· Centro de Psicologia Aplicada / UFPR · jun. 2021–mai. 2022": "· Center for Applied Psychology / UFPR · Jun. 2021–May 2022", "Liderança & reconhecimento": "Leadership & Recognition", "Vice-presidenta da CIPA": "CIPA Vice-Chair (elected workplace safety committee)", "Hospital Medical · nov. 2024–out. 2025": "Hospital Medical · Nov. 2024–Oct. 2025", "Eleita entre as candidaturas mais votadas; participação em saúde e segurança do trabalho.": "Among the candidates receiving the most votes; contributed to workplace health and safety.", "Referência nacional · Projeto de Humanização Cine Pipoca": "National reference · Cine Pipoca Humanization Project", "Hapvida NotreDame Intermédica · jul.–set. 2024": "Hapvida NotreDame Intermédica · Jul.–Sep. 2024", "Iniciativa inter-hospitalar de humanização concebida para replicação.": "Inter-hospital humanization initiative designed for replication.", "Coautoria e apresentação · Congresso Internacional SOBREXP 2024": "Co-author and Presenter · SOBREXP 2024 International Congress", "Sociedade Brasileira de Experiência do Paciente · set. 2024": "Brazilian Society for Patient Experience · Sep. 2024", "Apresentação de projeto de humanização e cuidado centrado na pessoa.": "Presented a project on humanization and person-centered care.", "Formação & idiomas": "Education & Languages", "Bacharelado em Psicologia": "Bachelor's Degree in Psychology", "Universidade Federal do Paraná (UFPR) · 2017–2023": "Federal University of Paraná (UFPR) · 2017–2023", "Formação em Sociologia": "Studies in Sociology", "UNINTER · 2023–2025": "UNINTER · 2023–2025", "Pós-graduação em Psicologia Organizacional": "Postgraduate Studies in Organizational Psychology", "UniFatecie · 2023–2025 · curso concluído": "UniFatecie · 2023–2025 · completed", "Pós-graduação em Psicopedagogia Clínica e Institucional": "Postgraduate Studies in Clinical and Institutional Psychopedagogy", "IDIOMAS": "LANGUAGES", "Português nativo · Inglês avançado": "Native Portuguese · Advanced English", "← Portfolio IA": "← AI portfolio"};
+  const preferenceKey = 'lua-ia-v65-lang';
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const texts = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (node.parentElement.closest('script,style')) continue;
+    const key = node.nodeValue.trim();
+    if (Object.prototype.hasOwnProperty.call(EN, key)) {
+      const original = node.nodeValue;
+      texts.push({node, original, english: original.replace(key, () => EN[key])});
+    }
+  }
+  const attributes = [
+    [document.querySelector('main'), 'aria-label', 'Currículo de Lua Helena Moon Martins Cardoso', 'Résumé of Lua Helena Moon Martins Cardoso'],
+    [document.querySelector('.value-list'), 'aria-label', 'Onde gero valor', 'Where I create value'],
+    [document.querySelector('.web-tools'), 'aria-label', 'Navegação do currículo', 'Résumé navigation'],
+    [document.querySelector('.lang-toggle'), 'aria-label', 'Seleção de idioma', 'Language selection']
+  ];
+  function getLanguage() {
+    const parameter = new URLSearchParams(location.search).get('lang');
+    if (parameter === 'en' || parameter === 'pt' || parameter === 'pt-br') return parameter === 'en' ? 'en' : 'pt';
+    try { const saved = localStorage.getItem(preferenceKey); if (saved === 'en' || saved === 'pt') return saved; } catch (_) {}
+    return navigator.language && navigator.language.toLowerCase().startsWith('en') ? 'en' : 'pt';
+  }
+  function applyLanguage(language) {
+    document.documentElement.lang = language === 'en' ? 'en' : 'pt-BR';
+    texts.forEach(item => { item.node.nodeValue = language === 'en' ? item.english : item.original; });
+    attributes.forEach(([element, attribute, pt, en]) => { if (element) element.setAttribute(attribute, language === 'en' ? en : pt); });
+    document.querySelectorAll('[data-lang]').forEach(link => link.setAttribute('aria-current', String(link.dataset.lang === language)));
+    document.querySelector('.back-link').href = language === 'en' ? '/ia/?lang=en' : '/ia/';
+    const portfolio = document.querySelector('.contact a[href^="https://www.luahelena.com.br/ia/"]');
+    if (portfolio) portfolio.href = language === 'en' ? 'https://www.luahelena.com.br/ia/?lang=en' : 'https://www.luahelena.com.br/ia/';
+    document.title = (language === 'en' ? 'Résumé' : 'Currículo') + ' — Lua Helena Moon Martins Cardoso';
+    document.querySelector('meta[name="description"]').content = language === 'en' ? 'Human–AI Context Architecture · AI Adoption · Workflow Design · Knowledge Governance' : 'Arquitetura de Contexto Humano-IA · Adoção de IA · Workflow Design · Governança do Conhecimento';
+    try { localStorage.setItem(preferenceKey, language); } catch (_) {}
+  }
+  document.querySelectorAll('[data-lang]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const url = new URL(location.href);
+      url.searchParams.set('lang', link.dataset.lang);
+      history.pushState(null, '', url);
+      applyLanguage(link.dataset.lang);
+    });
+  });
+  window.addEventListener('popstate', () => applyLanguage(getLanguage()));
+  applyLanguage(getLanguage());
+})();
+
+</script>
+</body>
+</html>
