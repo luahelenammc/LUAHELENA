@@ -1,18 +1,75 @@
 ---
 layout: null
-permalink: /ia/beta/
+permalink: /ia/beta.html
 ---
 {%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
 {%- assign old_toggle = '<div class="lang-toggle"><button data-lang="pt" class="active">PT</button><button data-lang="en">EN</button></div>' -%}
-{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
+{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/flag-br.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/flag-us.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V10 beta' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V10' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Lua Helena Moon estrutura fontes, autoridade, critérios e fluxos para que a IA responda com base sólida e funcione no trabalho real.' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — Arquitetura de Contexto Humano-IA', 'Lua Helena Moon · Arquitetura Contextual e Auditoria de IA · V10 beta' -%}
+{%- assign page_html = page_html | replace: 'Lua Helena Moon — Arquitetura de Contexto Humano-IA', 'Lua Helena Moon · Arquitetura Contextual e Auditoria de IA' -%}
 {%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Contexto governado para respostas mais confiáveis e soluções de IA que funcionem no trabalho real.' -%}
 {%- capture head_assets -%}
-<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta name="robots" content="noindex,follow" />
+<style>
+/* Beta design rebase: scoped, after the production cascade. */
+body.design-beta{--bg:#12121b;--txt:#f6f1e8;--muted:#d3cedb;--quiet:#b4aabd;background:radial-gradient(ellipse at 80% 0,rgba(159,135,255,.09),transparent 42rem),#12121b!important}
+.design-beta .bg-glows{opacity:.18!important;animation:none!important}
+.design-beta #starfield{opacity:.22}
+.design-beta .rim{display:none}
+.design-beta .wrap,.design-beta .nav-inner{width:min(1180px,calc(100% - 64px))!important}
+.design-beta .nav{background:rgba(18,18,27,.94)!important;border-bottom:1px solid rgba(255,255,255,.1)}
+.design-beta .nav-inner{min-height:82px;gap:24px}
+.design-beta .mark{box-shadow:none}
+.design-beta .nav-links a{font-size:.84rem;padding:10px 9px}
+.design-beta .nav-right .btn{box-shadow:none;font-size:.8rem;min-height:42px}
+.design-beta .hero{grid-template-columns:minmax(0,1.45fr) minmax(260px,.65fr)!important;gap:64px!important;padding:100px 0 88px!important;align-items:center}
+.design-beta h1{font-size:clamp(3rem,5.4vw,4.6rem)!important;line-height:1.07!important;letter-spacing:-.035em!important;max-width:850px}
+.design-beta .accent{background:none!important;color:var(--gold)!important}
+.design-beta .hero-eyebrow{font-size:.7rem;letter-spacing:.15em}
+.design-beta .positioning-stack{margin-top:28px;max-width:650px}
+.design-beta .market-position-detail{max-width:60ch;line-height:1.65}
+.design-beta .v10-credential-line{margin-top:16px;line-height:1.6}
+.design-beta .v4-deco{min-height:300px!important;opacity:.72}
+.design-beta .v4-orbital{width:100%;max-width:330px}
+.design-beta .hero-meta{gap:8px;margin-top:26px}
+.design-beta .pill{background:transparent;box-shadow:none;font-size:.8rem;padding:7px 10px}
+.design-beta .hero-cta{gap:12px;margin-top:28px}
+.design-beta .hero-proof-link{border:0;border-radius:0;padding:6px 0;margin-right:14px;background:none;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(232,201,122,.3)}
+.design-beta main>.block,.design-beta .v10-method,.design-beta .v10-proof{padding:64px 0!important;border-top:1px solid rgba(255,255,255,.1)}
+.design-beta .section-title,.design-beta .v10-method h2,.design-beta .v10-proof h2{font-size:clamp(2rem,3.3vw,2.8rem)!important;line-height:1.16!important;letter-spacing:-.025em}
+.design-beta .section-lead,.design-beta .v10-method-head p,.design-beta .v10-proof-lead{max-width:70ch!important;line-height:1.7}
+.design-beta .card-grid,.design-beta .triple-grid,.design-beta .sector-grid,.design-beta .v10-proof-grid{gap:20px!important;margin-top:28px}
+.design-beta .card,.design-beta .phase-card,.design-beta .proof-card,.design-beta .sector-card,.design-beta .audience-card,.design-beta .v10-proof-card,.design-beta .v10-step{border-radius:16px!important;background:rgba(255,255,255,.025)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:none!important;transition:border-color .18s,background .18s!important;will-change:auto!important;padding:26px!important}
+.design-beta .card:hover,.design-beta .phase-card:hover,.design-beta .proof-card:hover,.design-beta .sector-card:hover{transform:none!important;border-color:rgba(232,201,122,.35)!important;background:rgba(255,255,255,.045)!important;box-shadow:none!important}
+.design-beta .card:before,.design-beta .card:after,.design-beta .phase-card:before,.design-beta .phase-card:after,.design-beta .proof-card:after,.design-beta .sector-card:after{display:none!important}
+.design-beta .card p,.design-beta .sector-card p,.design-beta .v10-proof-card>p{line-height:1.65!important;font-size:.94rem!important}
+.design-beta .v10-steps{gap:0;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden}
+.design-beta .v10-step{border:0!important;border-radius:0!important;background:transparent!important}
+.design-beta .v10-step+.v10-step{border-left:1px solid rgba(255,255,255,.12)!important}
+.design-beta .v10-step-num{border:0;background:none;width:auto;justify-content:start;font-size:1.4rem}
+.design-beta .v10-step p{font-size:.92rem;line-height:1.65}
+.design-beta .v10-method-drawers{margin-top:24px;gap:10px}
+.design-beta details.v10-drawer{border-radius:12px;background:transparent}
+.design-beta details.v10-drawer>summary{padding:18px 20px;min-height:54px}
+.design-beta .v10-drawer-body{padding:0 20px 22px;line-height:1.7}
+.design-beta .v10-proof-card h3{font-size:1.8rem}
+.design-beta .v10-proof-actions{margin-top:24px}
+.design-beta .btn{box-shadow:none!important;transition:background .18s,border-color .18s!important}
+.design-beta .btn:hover{transform:none!important}
+.design-beta .btn-primary{background:var(--gold)!important;color:#201b13!important;border-color:var(--gold)!important}
+.design-beta .contact{padding:64px 0 80px}
+.design-beta .contact-panel{border-radius:20px!important;padding:40px!important;box-shadow:none!important}
+.design-beta .foot{padding:26px 0}
+.design-beta a:focus-visible,.design-beta button:focus-visible,.design-beta summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+@media(min-width:981px){.design-beta .sector-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:1100px){.design-beta .nav-inner{flex-wrap:wrap;gap:10px;padding:12px 0}.design-beta .nav-links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}.design-beta .nav-links a{white-space:nowrap}.design-beta .nav-right{margin-left:auto;width:auto!important}.design-beta .hero{gap:30px!important}}
+@media(max-width:980px){.design-beta .hero{grid-template-columns:1fr!important;padding:64px 0!important}.design-beta .v4-deco{display:none}.design-beta .hero-text{max-width:800px}.design-beta .v10-step+.v10-step{border-left:0!important;border-top:1px solid rgba(255,255,255,.12)!important}}
+@media(max-width:620px){.design-beta .wrap,.design-beta .nav-inner{width:calc(100% - 36px)!important}.design-beta .hero{padding:48px 0 52px!important}.design-beta h1{font-size:clamp(2.5rem,10vw,3.6rem)!important}.design-beta main>.block,.design-beta .v10-method,.design-beta .v10-proof{padding:42px 0!important}.design-beta .card,.design-beta .sector-card,.design-beta .v10-proof-card,.design-beta .v10-step{padding:22px!important}.design-beta .contact-panel{padding:24px!important}.design-beta .lang-toggle button{min-height:40px;min-width:40px}.design-beta .nav-links a{min-height:44px}.design-beta .hero-proof-links{display:flex}.design-beta .hero-proof-link{width:auto}.design-beta .contact-links .btn{flex:1 1 140px}}
+@media(prefers-reduced-motion:reduce){.design-beta *, .design-beta *:before,.design-beta *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 <link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />
 <link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />
 <link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />
@@ -26,7 +83,14 @@ permalink: /ia/beta/
 <link rel="stylesheet" href="/ia/beta-sector-fields.css?v=3" />
 <link rel="stylesheet" href="/ia/beta-audience-cards.css?v=1" />
 <link rel="stylesheet" href="/ia/entry-section-fix.css?v=1" />
-<link rel="stylesheet" href="/ia/beta/v10.css?v=11" />
+<link rel="stylesheet" href="/ia/beta/v10.css?v=12" />
+<style>
+#lastro .cv-entry{margin-top:22px}
+#lastro .cv-link{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(232,201,122,.24);border-radius:999px;color:var(--muted);font-size:.88rem;font-weight:500;line-height:1.4;text-decoration:none;background:transparent;transition:color .18s,border-color .18s,background .18s}
+#lastro .cv-link:hover{color:var(--txt);border-color:rgba(232,201,122,.5);background:rgba(232,201,122,.06)}
+#lastro .cv-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#lastro .cv-link{transition:none}}
+</style>
 {%- endcapture -%}
 {%- capture body_assets -%}
 <script src="/ia/semantic-delta.js?v=7.0"></script>
@@ -41,10 +105,37 @@ permalink: /ia/beta/
 <script src="/ia/beta-v8-event-learning.js?v=3"></script>
 <script src="/ia/beta-problem-cards.js?v=3"></script>
 <script src="/ia/circuit-line-semantics.js?v=2"></script>
-<script src="/ia/beta-sector-fields.js?v=3"></script>
+<script src="/ia/beta-sector-fields.js?v=4"></script>
 <script src="/ia/beta-audience-cards.js?v=1"></script>
-<script src="/ia/beta/v10.js?v=11"></script>
+<script src="/ia/beta/v10.js?v=12"></script>
+<script src="/ia/production-v10.js?v=2"></script>
+<script>
+(() => {
+  function initCurriculumLink() {
+    const section = document.querySelector('#lastro .block-grid > div:last-child');
+    if (!section || document.getElementById('curriculum-link')) return;
+    const entry = document.createElement('p');
+    entry.className = 'cv-entry';
+    const link = document.createElement('a');
+    link.id = 'curriculum-link';
+    link.className = 'cv-link';
+    entry.appendChild(link);
+    section.appendChild(entry);
+    function sync() {
+      const english = document.documentElement.lang.startsWith('en');
+      link.textContent = english ? 'View résumé ↗' : 'Ver currículo ↗';
+      link.href = english ? '/ia/curriculo?lang=en' : '/ia/curriculo?lang=pt';
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCurriculumLink, {once:true});
+  else initCurriculumLink();
+})();
+</script>
+
 {%- endcapture -%}
+{%- assign page_html = page_html | replace_first: '<body>', '<body class="design-beta">' -%}
 {%- assign head_injection = head_assets | append: '</head>' -%}
 {%- assign body_injection = body_assets | append: '</body>' -%}
 {%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
