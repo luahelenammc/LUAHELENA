@@ -25,6 +25,13 @@ layout: null
 <link rel="stylesheet" href="/ia/beta-audience-cards.css?v=1" />
 <link rel="stylesheet" href="/ia/entry-section-fix.css?v=1" />
 <link rel="stylesheet" href="/ia/beta/v10.css?v=12" />
+<style>
+#lastro .cv-entry{margin-top:22px}
+#lastro .cv-link{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(232,201,122,.24);border-radius:999px;color:var(--muted);font-size:.88rem;font-weight:500;line-height:1.4;text-decoration:none;background:transparent;transition:color .18s,border-color .18s,background .18s}
+#lastro .cv-link:hover{color:var(--txt);border-color:rgba(232,201,122,.5);background:rgba(232,201,122,.06)}
+#lastro .cv-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#lastro .cv-link{transition:none}}
+</style>
 {%- endcapture -%}
 {%- capture body_assets -%}
 <script src="/ia/semantic-delta.js?v=7.0"></script>
@@ -43,6 +50,31 @@ layout: null
 <script src="/ia/beta-audience-cards.js?v=1"></script>
 <script src="/ia/beta/v10.js?v=12"></script>
 <script src="/ia/production-v10.js?v=2"></script>
+<script>
+(() => {
+  function initCurriculumLink() {
+    const section = document.querySelector('#lastro .block-grid > div:last-child');
+    if (!section || document.getElementById('curriculum-link')) return;
+    const entry = document.createElement('p');
+    entry.className = 'cv-entry';
+    const link = document.createElement('a');
+    link.id = 'curriculum-link';
+    link.className = 'cv-link';
+    entry.appendChild(link);
+    section.appendChild(entry);
+    function sync() {
+      const english = document.documentElement.lang.startsWith('en');
+      link.textContent = english ? 'View résumé ↗' : 'Ver currículo ↗';
+      link.href = english ? '/ia/curriculo?lang=en' : '/ia/curriculo?lang=pt';
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCurriculumLink, {once:true});
+  else initCurriculumLink();
+})();
+</script>
+
 {%- endcapture -%}
 {%- assign head_injection = head_assets | append: '</head>' -%}
 {%- assign body_injection = body_assets | append: '</body>' -%}
