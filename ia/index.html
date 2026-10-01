@@ -3,7 +3,7 @@ layout: null
 ---
 {%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
 {%- assign old_toggle = '<div class="lang-toggle"><button data-lang="pt" class="active">PT</button><button data-lang="en">EN</button></div>' -%}
-{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/brazil.png" alt="" aria-hidden="true" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/usa.png" alt="" aria-hidden="true" /></button></div>{%- endcapture -%}
+{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/flag-br.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/flag-us.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button></div>{%- endcapture -%}
 {%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
 {%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
 {%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V10' -%}
