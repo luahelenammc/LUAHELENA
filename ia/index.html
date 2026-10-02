@@ -240,7 +240,7 @@ const label=(lang==='en'?'More information about ':'Mais informações sobre ')+
 return '<span class="sr-only">'+label+'</span><svg class="expand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path class="expand-vertical" d="M12 8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
 }
 function render(){
-const expanded=[...document.querySelectorAll("details[data-detail][open]")].map(e=>e.dataset.detail);
+const expanded=[...document.querySelectorAll("details[data-detail][open]")].filter(e=>disclosureMotion.get(e)?.opening!==false).map(e=>e.dataset.detail);
 const c=copy[lang];document.querySelector('.nav-links').setAttribute('aria-label',lang==='en'?'Main navigation':'Navegação principal');document.documentElement.lang=lang==='en'?'en':'pt-BR';document.title=lang==='en'?'Lua Helena · AI Context Architecture':'Lua Helena · Arquitetura Contextual de IA';
 document.querySelectorAll('[data-t]').forEach(e=>e.textContent=c[e.dataset.t]);document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=c[e.dataset.h]);
 document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
