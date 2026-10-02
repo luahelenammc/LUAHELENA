@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 6.2
+## Public Portable Edition · Version 6.3
 
 ## Meta
 
@@ -13,16 +13,16 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that the native adaptive-orchestration Personal Skill is installed
 - **status:** public portable protocol
-- **version:** 6.2
+- **version:** 6.3
 - **language:** English
-- **protocol semantics as of:** 2026-09-29
+- **protocol semantics as of:** 2026-10-01
 - **canonical identity migration:** 2026-09-27; formerly Chat–Work Routing Protocol, Chat–Work Router and Chat–Work; identity and paths changed while the 6.1 doctrine remained unchanged, under the repository naming/versioning rule
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
 - **primary implementation:** surface-neutral control-root routing across ChatGPT Chat, Work and Codex, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
-- **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Adaptive Orchestration Protocol 6.1; version 6.2 preserves the V6 surface-neutral, Delegation-First architecture and adds Behavioral Fit as a first-class routing constraint. Capability sufficiency is necessary but not sufficient: a route must also fit the task's observable behavioral acceptance boundary.
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.2.
+- **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, commitment geometry, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
+- **supersedes:** Adaptive Orchestration Protocol 6.2; version 6.3 preserves the V6 surface-neutral, Delegation-First architecture and Behavioral Fit, and adds Commitment Geometry to route high-leverage solution choices before dependent work scales.
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.3.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -31,7 +31,7 @@
 
 ## Canonical identity and compatibility
 
-Adaptive Orchestration Protocol is the sole current semantic authority. Its former names were Chat–Work Routing Protocol, Chat–Work Router and Chat–Work. The old registry id chat-work-routing, Personal Skill slug chat-work-router, GitHub directory, adapter paths, package path and website mirror remain compatibility routes that point here. The 2026-09-27 identity migration itself did not create a semantic release: at that migration checkpoint the core remained 6.1, Astra was 1.6 and GPT-6 Sol/Luna was 1.3. Version 6.2 is a later semantic update and does not retroactively change that lineage.
+Adaptive Orchestration Protocol is the sole current semantic authority. Its former names were Chat–Work Routing Protocol, Chat–Work Router and Chat–Work. The old registry id chat-work-routing, Personal Skill slug chat-work-router, GitHub directory, adapter paths, package path and website mirror remain compatibility routes that point here. The 2026-09-27 identity migration itself did not create a semantic release: at that migration checkpoint the core remained 6.1, Astra was 1.6 and GPT-6 Sol/Luna was 1.3. Versions 6.2 and 6.3 are later semantic updates and do not retroactively change that lineage.
 
 ## Skeleton
 
@@ -63,7 +63,7 @@ Read this canonical file and say:
 ```text
 Read and apply the Adaptive Orchestration Protocol to this task.
 Start in AUTO.
-Preserve the current competent control root when it can complete and verify the task. Resolve execution surface, model tier, reasoning effort and delegation internally before asking me to switch anything in the UI.
+Preserve the current competent control root when it can complete and verify the task. Resolve execution surface, model tier, reasoning effort and delegation internally before asking me to switch anything in the UI. Before scaling work behind a materially open, costly-to-reverse solution choice, use the Decision Commitment Gate; probe, branch, side-route or up-route only when that lowers total work to acceptance.
 Tell me only when a manual transition is materially required.
 
 Task: [describe what you want done]
@@ -73,7 +73,7 @@ You do not need a frontier model or a particular surface just to initialize the 
 
 ### What happens next
 
-The protocol should disclose the route that materially shaped the decision, preserve the current competent root when possible, prepare a bounded handoff only when another surface is materially useful, distinguish a requested switch from a switch that actually occurred, let execution converge at the designated control root, and perform postflight, acceptance and closure there. When model behavior is load-bearing, it should also distinguish capability sufficiency from behavioral fit rather than treating a more capable model as automatically more suitable.
+The protocol should disclose the route that materially shaped the decision, preserve the current competent root when possible, prepare a bounded handoff only when another surface is materially useful, distinguish a requested switch from a switch that actually occurred, let execution converge at the designated control root, and perform postflight, acceptance and closure there. When model behavior is load-bearing, it should distinguish capability sufficiency from behavioral fit; when a solution choice carries high downstream leverage, it should resolve or probe that commitment before scaling dependent work.
 
 ### Optional Sprint Mode
 
@@ -119,15 +119,25 @@ It does not guarantee access to Work, Codex or frontier models, automatic model 
 
 The stable sentence is:
 
-> **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger models receive only the cognitively irreducible delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
+> **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger or differently fitted executors receive only the irreducible execution, judgment or commitment delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
 
-The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary.
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary. V6.3 adds Commitment Geometry so a solution-defining choice can be probed, explored or routed to a suitable decision-maker before dependent work scales.
 
-> **Escalate only the irreducible delta; return only the decision-bearing delta.**
+> **Escalate only the irreducible execution, judgment or commitment delta; return only the decision-bearing delta.**
 
 > **Delegate the reducible bulk before escalating the human-visible route.**
 
 > **Side-route for behavioral fit before up-routing for capability when the failure is behavioral rather than cognitive.**
+
+> **Executor suitability does not imply commitment authority.**
+
+> **Route execution, judgment and commitment independently.**
+
+> **A cheap commitment that causes expensive replay is not a cheap route.**
+
+> **When evidence shows that a solution-defining commitment is wrong, reopen it instead of polishing the implementation indefinitely.**
+
+Commitment authority here means that an executor is suitable to close a choice **within the authority and mandate already granted**. It never grants approval, mutation permission, human decision authority or a broader scope.
 
 > **Transport source references with authority, freshness and fallback; a locator is not authority.**
 
@@ -333,6 +343,7 @@ task_requirements:
   capability_floor: efficient
   behavioral_fit: adaptive
   behavior_contract: null
+  commitment_geometry: adaptive
   verification_burden: normal
   consequence_level: normal
   continuity_need: normal
@@ -341,6 +352,19 @@ task_requirements:
 The `capability_floor` is the lowest capability tier that can responsibly attempt the irreducible task after specification, source, context and tool failures have been repaired.
 
 `behavioral_fit` records whether observable model behavior is material to acceptance. Use `adaptive` unless the task clearly requires stricter properties such as source-bound transformation, style/voice fidelity, tool-use restraint, bounded initiative, persona/role consistency or a particular verification appetite. When those properties matter, encode the smallest explicit `behavior_contract` that can be tested from the output or tool trace.
+
+`commitment_geometry` records whether a pending solution-defining choice needs a separate closure route before dependent work scales. It is `adaptive` by default; trivial or tightly constrained tasks need no additional commitment object or Route Card field. When the gate materially changes the plan, record only the bounded state and dimensions that affected it:
+
+```yaml
+commitment:
+  state: unresolved | resolved | reopened | not_material
+  route: COMMIT_DIRECTLY | PROBE_THEN_COMMIT | EXPLORE_THEN_SELECT | SIDE_ROUTE_COMMITMENT | UPROUTE_COMMITMENT | REOPEN_COMMITMENT
+  downstream_leverage: low | medium | high | unknown
+  reversibility: easy | moderate | costly | unknown
+  solution_openness: narrow | plural | unknown
+```
+
+Omit this object when commitment geometry does not materially change the route. A trivial or tightly constrained task implicitly takes `COMMIT_DIRECTLY` without opening a commitment questionnaire or showing the route on its card. `route` names the next action, not an exclusive strategy for the whole cycle; distinct outcomes may compose in sequence. A Route Card shows the commitment route only when it materially changed the plan.
 
 ### 2.6 Profile Precedence Law
 
@@ -502,7 +526,7 @@ When several objects are present, decompose the task into explicit stages and na
 
 ## 5. Routing dimensions
 
-The protocol records eleven routing dimensions plus an optional Sprint overlay:
+The protocol records twelve routing dimensions plus an optional Sprint overlay:
 
 1. **Execution Profile** — reusable resource and optimization preferences;
 2. **Object geometry** — sovereign object and observable delta;
@@ -510,11 +534,12 @@ The protocol records eleven routing dimensions plus an optional Sprint overlay:
 4. **Execution surface/harness** — where a particular operation actually runs;
 5. **Root capability tier and model** — `efficient | balanced | strong | frontier`;
 6. **Behavioral fit** — whether the executor's observable behavior matches the task's acceptance boundary;
-7. **Reasoning effort** — independent from model capability;
-8. **Continuity and locality** — persistence, local state and handoff requirements;
-9. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
-10. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
-11. **Operation mode** — whether the run executes, only routes or audits a previous route.
+7. **Commitment geometry** — whether, when and by whom a solution-defining choice should be closed before dependent work scales;
+8. **Reasoning effort** — independent from model capability;
+9. **Continuity and locality** — persistence, local state and handoff requirements;
+10. **Delegation topology** — `single_owner | cheap_worker_fanout | mixed_tier | frontier_orchestrator`;
+11. **Execution envelope** — allowance, tools, permissions, fanout, tests, checkpoints, reversibility and fallback;
+12. **Operation mode** — whether the run executes, only routes or audits a previous route.
 
 > **Control surface ≠ root model ≠ execution surface.**
 
@@ -549,6 +574,48 @@ When behavior is load-bearing:
 Community anecdotes, launch-day reactions and single-run impressions may generate hypotheses for the probe. They do not become permanent model rankings or universal behavioral facts.
 
 > **Side-route before up-route when the failure is behavioral rather than cognitive.**
+
+### Decision Commitment Gate
+
+Capability and behavioral fit do not by themselves determine whether a solution-defining choice should be closed now, by this executor, before substantial dependent work proceeds. The **Decision Commitment Gate** evaluates that choice separately from bulk execution.
+
+Use the gate when the choice could materially constrain the solution space or determine substantial downstream work. Consider, qualitatively:
+
+- **reversibility** — the cost of undoing the choice;
+- **downstream leverage** — how much later work depends on it;
+- **solution openness** — whether several materially different directions remain plausible;
+- **evaluation latency** — how late weakness would become visible;
+- **judgment load** — whether success depends on architecture, taste, synthesis, strategy or holistic integration;
+- **external consequence** — whether the result is public, high-stakes, reputation-bearing or expensive to repair.
+
+Unknowns may remain adaptive until they matter. Do not score these factors numerically, turn trivial tasks into questionnaires or infer that consequence alone requires branching or frontier routing. `COMMIT_DIRECTLY` is appropriate when the joint geometry is sufficiently constrained, reversible or low-leverage; easy reversibility alone does not cancel substantial dependent work.
+
+Commitment routes:
+
+- `COMMIT_DIRECTLY` — close the choice without more exploration or routing when the combined factors make those costs unlikely to reduce total work; low consequence or easy reversal alone is not decisive;
+- `PROBE_THEN_COMMIT` — test one representative direction when a cheap probe can validate it before scale;
+- `EXPLORE_THEN_SELECT` — compare a bounded set of materially distinct directions when the cost of exploration is lower than likely replay;
+- `SIDE_ROUTE_COMMITMENT` — keep the current executor as root or implementer, while an available executor with better observed fit closes only this choice;
+- `UPROUTE_COMMITMENT` — route only this choice to stronger cognition when it exceeds the current executor's capability floor;
+- `REOPEN_COMMITMENT` — return to the smallest affected choice boundary after later evidence shows that the commitment is inadequate.
+
+These outcomes may compose over one route, such as side-routing a bounded exploration and then probing the selected direction. Record the next action rather than pretending the outcomes are mutually exclusive. A side-route is not automatically a capability escalation, and an up-route never expands execution authority.
+
+### Branch Before Build
+
+When several legitimate solution directions remain open, downstream leverage is high and bounded alternatives cost less than full replay, use **Branch Before Build**:
+
+1. produce a small number of structurally distinct representative probes;
+2. keep each probe bounded;
+3. compare them against the actual acceptance boundary;
+4. select or synthesize a direction;
+5. scale material execution only after that commitment is sufficiently resolved.
+
+Two or three probes are a practical example, not a quota. Do not branch where the solution is already constrained enough that exploration costs more than likely correction. A probe may be preparation authorized by the current mandate; it does not silently authorize broader mutation.
+
+The route minimizes total work to acceptance, which may include exploration, execution, verification, correction, replay and convergence overhead. **The cheapest first execution is not the cheapest route when it predictably increases correction or replay.**
+
+Commitment Geometry is distinct from Behavioral Fit: Behavioral Fit asks whether an executor's observable behavior suits the task; this gate asks whether a solution-defining choice should be closed, when, and by which suitably authorized executor. A result may be capable, behaviorally suitable, competently executed and technically passing while its upstream commitment is still wrong.
 
 ### Surface Continuity Law
 
@@ -871,13 +938,21 @@ The **Intelligence Distillation Ladder** generalizes bounded capability escalati
 
 The IDL gives operational form to the mother law above:
 
-> **Escalate only the irreducible delta; return only the decision-bearing delta.**
+> **Escalate only the irreducible execution, judgment or commitment delta; return only the decision-bearing delta.**
 
 Do bulk work on the cheapest sufficient tier. When a named unresolved question survives specification repair, evidence gathering, tool checks and an appropriate reasoning-effort adjustment, isolate that question, purchase only the capability needed to resolve it, then return to the lowest sufficient tier for implementation and verification.
 
 #### Irreducible Delta
 
 An **irreducible delta** is the smallest unresolved question whose answer could materially change the route, architecture, judgment or correctness of the task after non-cognitive failures have been excluded.
+
+Name which routing dimension is irreducible before choosing what to escalate:
+
+- **Execution delta** — the material work to be performed;
+- **Judgment delta** — difficult reasoning needed during execution;
+- **Commitment delta** — a solution-defining choice that constrains what substantial downstream execution will follow.
+
+These dimensions can overlap. A commitment may require judgment, but it is not a second distillation ladder or a separate capability tier. A cheaper sufficient executor may remain root and own most work while a stronger or differently fitted executor resolves only the commitment-bearing delta. If that choice is still open and costly to replay, run the Decision Commitment Gate before scaling dependent execution.
 
 ```yaml
 irreducible_delta:
@@ -925,6 +1000,8 @@ When the current tier remains plausibly sufficient, increasing reasoning effort 
 
 A **Decision Capsule** is smaller than an Execution Handoff. It carries only what the target tier needs to make one bounded ruling while preserving authority, hard constraints, verified truth, material uncertainty and enough provenance to avoid reconstruction by guesswork.
 
+When the target delta is a material commitment, populate `commitment_boundary`, `acceptance_criteria` and `dependent_work_at_risk` with only the decision boundary, decisive criteria and downstream work that could be affected. Keep the ruling inside the existing mandate; an unresolved choice does not grant permission to implement it.
+
 ```yaml
 decision_capsule:
   delta_id: null
@@ -935,6 +1012,10 @@ decision_capsule:
   hard_constraints: []
   live_uncertainties: []
   candidate_paths: []
+  commitment_boundary: null
+  commitment_route: null
+  acceptance_criteria: []
+  dependent_work_at_risk: []
 
   current_route:
     surface: null
@@ -1070,7 +1151,7 @@ return_capsule:
 
 #### Decision Trace for Material Judgments
 
-A compact Return Capsule is sufficient for routine rulings. When a higher-tier ruling can materially change **route, architecture, governance, policy, acceptance or a stop condition**, the return must also include the smallest **Decision Trace** needed to audit why that ruling should govern the next step.
+A compact Return Capsule is sufficient for routine rulings. When a higher-tier, side-routed or otherwise material commitment ruling can change **route, architecture, governance, policy, acceptance or a stop condition**, the return must also include the smallest **Decision Trace** needed to audit why that ruling should govern the next step.
 
 > **Show the decision boundary, not the private deliberation.**
 
@@ -1082,6 +1163,7 @@ When a Decision Sprint is active, apply this contract independently to every mat
 decision_trace:
   candidates_considered: []
   ruling: null
+  acceptance_criteria: []
 
   decisive_comparison:
     selected_because: null
@@ -1093,6 +1175,7 @@ decision_trace:
   falsifier_or_discriminating_test: null
   uncertainty_or_failure_condition: null
   assumptions_changed: []
+  downstream_assumptions: []
   next_action: null
   re_escalate_if: null
 ```
@@ -1107,9 +1190,11 @@ Use the Decision Trace when at least one of these conditions is true:
 Keep the trace bounded:
 
 - `candidates_considered` names only materially live alternatives, not every imaginable option;
+- `acceptance_criteria` names the decisive criteria when the ruling closes a material commitment;
 - `rejected` preserves only rejection reasons needed to understand the ruling;
 - `adversarial_correction` states the strongest relevant correction or objection to the current framing without performing contrarianism for its own sake;
-- `falsifier_or_discriminating_test` identifies what evidence or test would overturn or distinguish the ruling when such a test exists.
+- `falsifier_or_discriminating_test` identifies what evidence or test would overturn or distinguish the ruling when such a test exists;
+- `downstream_assumptions` records only what dependent execution may now assume; `re_escalate_if` includes the condition that would reopen a commitment when relevant.
 
 Skip the trace for trivial or routine judgments when these fields would not change execution, acceptance or verification.
 
@@ -1117,7 +1202,7 @@ The distiller should request **a decision trace, not a hidden reasoning transcri
 
 The Decision Trace extends rather than replaces the Return Capsule. The refined IDL rule is:
 
-> **Escalate only the irreducible delta; return the decision-bearing ruling — and, when the ruling is material, the smallest auditable decision trace that makes the ruling inspectable.**
+> **Escalate only the irreducible execution, judgment or commitment delta; return the decision-bearing ruling — and, when it is material, the smallest auditable decision trace that makes the ruling inspectable.**
 
 The receiving executor must:
 
@@ -1259,6 +1344,8 @@ A ready handoff contains:
 Unknowns must be named, investigated or left as blocked conditions rather than guessed.
 
 When an IDL cycle is active, the handoff additionally names the irreducible delta, the Decision Capsule, the selected target tier, the Return Capsule boundary, whether a Decision Trace is required and any Bounded Exhaustiveness contract that materially limits the run. These fields are conditional; tiny tasks do not need an empty distillation ceremony.
+
+When the commitment gate is material, carry its smallest decision boundary, current route and downstream assumptions in the handoff. Do not scale substantial dependent execution while that commitment remains unresolved; bounded preparation or probes may proceed when already authorized.
 
 When Sprint Mode is active, the handoff additionally names the activation path, Sprint kind, sovereign objective, budget character, finite docket or bounded envelope, stop condition, exit policy, lower-tier re-entry owner and required Sprint Receipt. These fields are run-level and ephemeral; they do not become profile defaults.
 
@@ -1454,6 +1541,7 @@ Every executor returns an evidence-bearing receipt with:
 - whether a manual switch was requested and the concrete runtime reason;
 - when a source transport was used, the governing source or family, locator/facet, requested operation, coverage, freshness or revision, mutation authorization, readback result and fallback state;
 - when an IDL cycle was active, the Return Capsule, ruling boundary, Decision Trace when triggered, and downstream re-entry state;
+- when commitment geometry materially changed the route, the commitment boundary, selected direction, acceptance criteria, downstream assumptions and any condition to reopen it;
 - when Sprint Mode was active or recommended, the Sprint Receipt, activation evidence, docket statuses, consistency result, stop/exit state and lower-tier re-entry state.
 
 A successful subagent or tool response proves only that branch response, not completion of the sovereign objective. The designated control root owns convergence and postflight integration; any acceptance or authority reserved to the human remains with the human.
@@ -1496,7 +1584,7 @@ Control-Root Postflight is mandatory after material executor return or delegated
 2. **Audit claim against evidence.** Compare requested delivery with observed delta and verification.
 3. **Audit route against profile.** Confirm that profile preferences, root continuity and surface enablement were applied without violating capability floor, authority or evidence requirements; do not infer persistence from a named profile.
 4. **Classify residuals.** `none | bounded_root_repair | new_execution_required | user_decision_required | blocked_external_condition | optional_next_step`. Legacy `bounded_chat_repair` receipts may be read as the Chat-specific form of `bounded_root_repair`.
-5. **If an IDL ruling returned, integrate and verify it.** When the Decision Trace trigger fired, inspect the decisive comparison, adversarial correction, falsifier/test and uncertainty before treating the ruling as governing. A ruling does not replace implementation, mutation checks or downstream verification.
+5. **If an IDL or commitment ruling returned, integrate and verify it.** When the Decision Trace trigger fired, inspect the decisive comparison, acceptance criteria, adversarial correction, falsifier/test, uncertainty and downstream assumptions before treating the ruling as governing. Verify that dependent work still serves the objective and the commitment's stated boundary, not only that it passes locally. A ruling does not replace implementation, mutation checks or downstream verification.
 6. **If Sprint Mode was active, audit the Sprint Receipt.** Confirm explicit or confirmed activation, the finite docket, each item status, any required item-level Decision Trace, the cross-item consistency pass, the stop condition and ephemeral exit. Do not treat capacity consumed or capacity left unused as completion by itself.
 7. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
 8. **Preserve or transition deliberately.** Keep the current root for the next delta unless a new surface transition earns itself under the Surface Transition Gate.
@@ -1538,8 +1626,11 @@ Classify failures as:
 - `sprint_boundary_failure`
 - `budget_or_resource_failure`
 - `cognitive_failure`
+- `premature_commitment_failure`
 
 Repair non-cognitive causes before model escalation.
+
+`premature_commitment_failure` means a result may be locally coherent, technically correct or verification-passing while evidence tied to the objective, acceptance boundary or a newly observed discriminator shows that an upstream solution-defining choice was inadequate. Do not use the class for an ungrounded preference, behavioral mismatch, capability shortfall, source or tool failure, or ordinary verification failure; those retain their existing failure routes.
 
 When execution stops:
 
@@ -1550,6 +1641,8 @@ When execution stops:
 5. reroute according to the current profile and Run State;
 6. if scope amplification occurred, redistill and bound coverage before retry;
 7. record a Budget Incident Receipt when resource conditions materially shaped the failure.
+
+For `premature_commitment_failure`, identify the smallest commitment boundary that caused the weakness, preserve valid evidence and implementation, apply `REOPEN_COMMITMENT`, and rerun the Decision Commitment Gate. Do not polish a strategy that evidence has invalidated because work has already been spent; replay only the dependent delta that must change.
 
 ### Budget Incident Receipt
 
@@ -1574,15 +1667,16 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 ## 22. Lifecycle and succession
 
-- Adaptive Orchestration Protocol 6.2 is the current public release;
-- 6.2 supersedes 6.1 by adding Behavioral Fit as a first-class routing constraint while preserving 6.1 surface continuity/control-root neutrality and 6.0 Delegation-First orchestration;
+- Adaptive Orchestration Protocol 6.3 is the current public release;
+- 6.3 supersedes 6.2 by adding Commitment Geometry while preserving the Behavioral Fit constraint from 6.2, the surface continuity/control-root neutrality from 6.1 and the Delegation-First orchestration from 6.0;
+- 6.2 remains recoverable through Git history and records Behavioral Fit as a separate routing constraint;
 - 6.1 remains recoverable through Git history and records the surface-neutral control-root rebase;
 - the historical Chat → Work/Codex → Chat loop remains a first-class named Chat–Work Loop Profile rather than the mandatory default topology;
 - 6.0 remains recoverable through Git history and records the delegation-topology rebase;
 - the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
 - earlier 4.x releases remain historical lineage recoverable through Git history;
 - the live repository exposes one canonical Adaptive Orchestration file; website delivery is a separate mirror surface and must be synchronized after the canonical body passes validation;
-- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.2;
+- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.3;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
@@ -1598,9 +1692,11 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Transport the minimum execution capsule; hidden context does not follow by default, and a control-root transition requires explicit continuity transport.
 - Enforce capability floor before honoring model preference.
 - Enforce Behavioral Fit separately from capability: define observable behavior requirements when material, micro-probe uncertain/new model behavior on representative work, and side-route before capability escalation when the failure is behavioral.
+- Apply the Decision Commitment Gate to materially open choices before scaling dependent work; route commitment separately from execution and judgment, and reopen only the smallest affected boundary when objective-linked evidence shows it was wrong.
+- Preserve the distinction between commitment routing and authority: the gate does not approve a choice, expand mutation scope or transfer a decision reserved to the human.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
-- Apply IDL: isolate the irreducible delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
-- For material higher-tier rulings, request the smallest auditable Decision Trace needed to inspect alternatives, decisive comparison, adversarial correction, falsifier/test and uncertainty; never request hidden chain-of-thought or private scratchpad disclosure.
+- Apply IDL: isolate the irreducible execution, judgment or commitment delta, choose the least-expensive sufficient target, allow justified direct tier jumps and return only the decision-bearing ruling.
+- For material higher-tier, side-routed or commitment rulings, request the smallest auditable Decision Trace needed to inspect alternatives, acceptance criteria, decisive comparison, adversarial correction, falsifier/test, uncertainty and downstream assumptions; never request hidden chain-of-thought or private scratchpad disclosure.
 - Compile open-ended completeness into a bounded coverage mode, ceiling, stop condition and explicit scope-expansion rule before expensive sustained or frontier execution.
 - Treat capability tiers as non-ritual; do not force a mandatory staircase.
 - Treat connector access as access, not authority.
@@ -1626,7 +1722,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Adaptive Orchestration Protocol 6.2. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Escalate only the irreducible delta; return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
+> Use Adaptive Orchestration Protocol 6.3. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, commitment geometry, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before scaling work behind a materially open, costly-to-reverse solution choice, apply the Decision Commitment Gate; probe, branch, side-route or up-route only when it lowers total work to acceptance. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Route execution, judgment and commitment independently; escalate only the irreducible delta and return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
 
 Optional Sprint activation:
 
@@ -1664,15 +1760,14 @@ Change only the fields that matter to you. The router can leave the rest adaptiv
 
 This portable is a public projection of the Moon Source architecture, created by Lua Helena Moon Martins Cardoso (Moon) with AI-assisted coauthorial development by Áurion. It is licensed under CC BY 4.0 as described in the repository licensing guide.
 
-The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement, allowance/reset visibility or proof of adoption. It is not an OpenAI policy, native ChatGPT skill or native Sprint Mode feature, universal benchmark, scientific validation or guarantee of safe execution, savings, quota use or quality. Decision Trace requests are bounded decision summaries and do not create access to hidden chain-of-thought, private scratchpads or unavailable internal model state.
+The protocol may be shared and adapted with appropriate credit, a license link and an indication of changes. The file does not grant repository access, connector permissions, model availability, product entitlement, allowance/reset visibility or proof of adoption. It is not an OpenAI policy, native ChatGPT skill or native Sprint Mode feature, universal benchmark, scientific validation or guarantee of safe execution, savings, quota use, quality or optimal commitment. Commitment Geometry is a routing heuristic for reducing avoidable replay, not a promise that a selected direction will be best. Decision Trace requests are bounded decision summaries and do not create access to hidden chain-of-thought, private scratchpads or unavailable internal model state.
 
 ## Final Law
 
-> **Route by the state that must change. Preserve the current competent control root unless a transition creates a material execution or verification advantage. Separate control surface, root model and execution surface. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Use the smallest available topology that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when the ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the designated root, refresh reality, verify, integrate and close. The Chat → Work/Codex → Chat loop remains available as a first-class named profile, not as the universal default.**
+> **Route by the state that must change. Preserve the current competent control root unless a transition creates a material execution or verification advantage. Separate control surface, root model and execution surface. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Route execution, judgment and commitment independently; identify high-leverage solution choices before scaling work that depends on them. Probe or explore only when that lowers total work to acceptance, and reopen a wrong commitment at the smallest affected boundary. Use the smallest available topology that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when a ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the designated root, refresh reality, verify, integrate and close. The Chat → Work/Codex → Chat loop remains available as a first-class named profile, not as the universal default.**
 
 <!-- MOON-SOURCE-PUBLIC-STAMP -->
 
 ---
 
 > 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
-
