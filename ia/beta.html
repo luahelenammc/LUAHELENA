@@ -28,11 +28,99 @@ section.chapter{padding:90px 0}.section-head{display:grid;grid-template-columns:
 @media(max-width:760px){.shell{width:calc(100% - 36px)}.nav{min-height:70px;flex-wrap:wrap;padding:13px 0;gap:8px}.brand{font-size:22px}.languages{margin-left:auto;border:0;padding:0}.nav-links{order:3;width:100%;margin:8px 0 0;overflow:auto;gap:22px;padding-bottom:5px;white-space:nowrap}.nav-links a{min-height:32px;display:flex;align-items:center}.hero-inner{grid-template-columns:1fr;padding:45px 0 35px;gap:12px}h1{font-size:clamp(40px,9.4vw,62px);margin:22px 0}.hero-intro{font-size:15px}.constellation{max-width:260px;margin:12px auto 0}.hero-bottom{flex-direction:column;gap:8px;padding:20px 0}.section-head{grid-template-columns:1fr;gap:22px;margin-bottom:28px}section.chapter{padding:58px 0}.problem-grid,.method-grid,.work-grid,.foundation-grid{grid-template-columns:1fr}.problem{padding:24px}.glyph{margin-bottom:16px}.bridge{gap:15px}.bridge p{font-size:19px}.method-grid{gap:30px}.work-grid{gap:18px}.project{padding:27px;min-height:320px}.application-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.application{padding-right:14px;grid-template-columns:20px 1fr;gap:8px}.foundation-grid{gap:36px}.contact-section{padding:65px 0}.footer-inner{flex-direction:column;gap:8px}}
 @media(max-width:420px){.application-grid{grid-template-columns:1fr}.hero-actions .button{flex:1 1 150px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Finishing system: hierarchy, material, interaction and touch ergonomics. */
+:root{--muted:#c7bed7;--line:rgba(215,203,241,.15)}
+body{font-kerning:normal}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+.skip-link{position:fixed;top:12px;left:20px;z-index:100;padding:12px 20px;border-radius:8px;background:var(--gold);color:var(--bg);transform:translateY(-160%)}
+.skip-link:focus{transform:none}
+.nav{min-height:84px}.nav-links{font-size:14px;gap:24px}
+.nav-links a{position:relative;padding:10px 0;transition:color .2s}
+.nav-links a[aria-current="location"]{color:var(--gold)}
+.nav-links a:after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a:hover:after,.nav-links a[aria-current="location"]:after{transform:scaleX(1)}
+.languages button{width:42px;height:42px;transition:background .2s,border-color .2s}
+.hero{background:radial-gradient(ellipse at 82% 35%,rgba(149,109,201,.14),transparent 52%),radial-gradient(ellipse at 12% 5%,rgba(237,204,133,.065),transparent 45%),var(--bg)}
+.hero-inner{padding:88px 0 68px;gap:50px}
+.hero h1{font-size:clamp(46px,5.6vw,76px);line-height:1.07;letter-spacing:-.037em;margin:27px 0 28px}
+.hero h1 em{background:linear-gradient(105deg,#f4dda9 15%,#edcc85 60%,#c8acec);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-intro{font-size:17px;line-height:1.85;max-width:57ch}
+.hero-note{font-size:13px;line-height:1.7;max-width:62ch;margin-top:28px}
+.hero-bottom{font-size:13px;padding:24px 0}
+.button{border-radius:10px;padding:14px 22px;transition:background .22s,border-color .22s,transform .22s,box-shadow .22s}
+.button.primary{background:linear-gradient(115deg,#f1d798,#e6c27e);box-shadow:inset 0 1px 0 #fff6,0 5px 22px #edcc8510}
+.button.primary:hover{box-shadow:inset 0 1px 0 #fff6,0 8px 28px #edcc8522}
+.button:not(.primary):hover{background:#ffffff06}
+.button>span:last-child{transition:transform .22s}.button:hover>span:last-child{transform:translate(2px,-2px)}
+.constellation{max-width:410px}
+.constellation:after{content:'';position:absolute;inset:4%;border:1px solid #af98ef0e;border-radius:50%;z-index:-1}
+.core{box-shadow:0 0 55px #edcc8535,0 0 110px #af98ef1a,inset -4px -5px 14px #37234835;animation:moon-breathe 7s ease-in-out infinite}
+.satellite{padding:9px 14px;border-color:#d5c0f22a;background:linear-gradient(130deg,#292135ee,#181322ee);font-size:12px;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 #ffffff08,0 12px 35px #0003}
+.s1{left:10%}.s2{right:-2%}.s3{left:9%}
+.star{animation:twinkle 5s ease-in-out infinite}.star.b{animation-delay:1.5s}.star.c{animation-delay:3s}
+.chapter .kicker b{font-weight:500}
+.kicker{font-size:12px;letter-spacing:.13em}
+.section-head{margin-bottom:42px}
+.section-head p{font-size:16px;line-height:1.8}
+.problem{padding:30px;background:linear-gradient(145deg,#ffffff07,#ffffff02);border-color:#d5c0f224;box-shadow:inset 0 1px 0 #ffffff05;transition:transform .25s,border-color .25s}
+.problem:before{content:'';position:absolute;top:0;left:30px;right:30px;height:1px;background:linear-gradient(90deg,transparent,#edcc8570,transparent)}
+.problem:nth-child(2):before{background:linear-gradient(90deg,transparent,#af98ef80,transparent)}
+.problem:nth-child(3):before{background:linear-gradient(90deg,transparent,#8bced880,transparent)}
+.problem:hover{transform:translateY(-4px);border-color:#d5c0f24a}
+.glyph{width:48px;height:48px;display:grid;place-items:center;border:1px solid #edcc8530;border-radius:13px;background:#edcc8509;font-size:29px;margin-bottom:25px}
+.problem:nth-child(2) .glyph{border-color:#af98ef35;background:#af98ef0a}
+.problem:nth-child(3) .glyph{border-color:#8bced835;background:#8bced80a}
+.problem h3{font-size:18px}.problem p{font-size:15px;line-height:1.75}
+.bridge{padding:24px 0 28px}
+.method-section{background:radial-gradient(ellipse at 20% 0,#af98ef08,transparent 60%),#191526}
+.method-step{padding-top:29px}
+.method-step h3{font-size:19px}
+.method-step p{font-size:15px;line-height:1.8}
+.method-step details{font-size:14px}
+summary{list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:'+';font-size:20px;font-weight:400;color:var(--muted)}
+details[open] summary:after{content:'−'}
+summary:hover{color:var(--paper)}
+.project{min-height:380px;padding:38px;overflow:hidden;box-shadow:inset 0 1px 0 #ffffff08;transition:border-color .25s,transform .25s}
+.project:after{content:'☾';position:absolute;right:24px;top:14px;font:150px/1 var(--serif);color:#edcc8508;pointer-events:none}
+.project.cortex:after{content:'◈';color:#af98ef0a}
+.project:hover{border-color:#edcc8570;transform:translateY(-3px)}
+.project.cortex:hover{border-color:#af98ef80}
+.project-name{position:relative;z-index:1;font-size:13px}
+.project h3{position:relative;z-index:1;font-size:34px;letter-spacing:-.02em}
+.project p{font-size:15px;line-height:1.8}
+.project-links{font-size:14px;gap:26px}
+.project-links a{padding:8px 0;transition:color .2s}
+.evidence-note{font-size:13px;line-height:1.75;margin-top:24px}
+.application{padding:30px 28px 30px 0;transition:background .2s}
+.application h3{font-size:16px}.application p{font-size:14px;line-height:1.75;max-width:33ch}
+.application .symbol{font-size:23px}
+.audience{font-size:14px;margin-top:28px}
+.foundation{background:radial-gradient(ellipse at 0 50%,#af98ef0d,transparent 55%),linear-gradient(130deg,#211a32,#161420)}
+.foundation-intro p{font-size:16px;line-height:1.85;margin:27px 0}
+.credentials{border-top:1px solid var(--line)}
+.credential,.credential:first-child{padding:22px 0}
+.credential h3{font-size:15px}
+.credential p{font-size:14px;line-height:1.8}
+.contact-section .kicker{margin-bottom:24px}
+.contact-section p{font-size:16px;line-height:1.8}
+.packet{font-size:13px;padding:12px 4px;min-height:44px}
+.packet:hover{color:var(--gold)}
+footer{font-size:12px;line-height:1.7}
+@keyframes moon-breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.14)}}
+@keyframes twinkle{0%,100%{opacity:.5}50%{opacity:1}}
+@media(max-width:1000px){.nav-links{gap:18px}.hero-inner{gap:32px}.project{padding:30px}.project h3{font-size:30px}}
+@media(max-width:760px){html{scroll-padding-top:130px}.nav{min-height:70px;padding:12px 0}.nav-links{font-size:13px;margin-top:3px;gap:24px}.nav-links a{min-height:44px;padding:10px 0}.hero-inner{padding:42px 0 25px;gap:0}.hero h1{font-size:clamp(41px,10vw,62px);line-height:1.09}.hero-intro{font-size:16px;line-height:1.8}.hero-note{font-size:12px}.constellation{max-width:260px;margin:24px auto 8px}.hero-bottom{font-size:12px;padding:22px 0}.section-head{margin-bottom:30px}.section-head p{font-size:15px}.problem{padding:26px}.problem .glyph{margin-bottom:22px}.problem p{font-size:14px}.project{min-height:330px;padding:28px}.project h3{font-size:30px}.project p{font-size:14px}.method-step p{font-size:14px}.application{padding:24px 18px 24px 0}.application h3{font-size:15px}.application p{font-size:13px}.contact-links .button{flex:1 1 145px;max-width:230px}.credentials{margin-top:4px}.contact-section .kicker{font-size:11px}.contact-section p{font-size:15px}footer{font-size:11px}.s2{right:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body id="top">
+<a class="skip-link" href="#main" data-t="skip">Ir ao conteúdo</a>
 <header><div class="shell nav"><a class="brand" href="#top"><span>☾</span>Lua Helena</a><nav class="nav-links" aria-label="Principal"><a href="#contexto" data-t="navProblem">Contexto</a><a href="#metodo" data-t="navMethod">Método</a><a href="#projetos" data-t="navProjects">Projetos</a><a href="#sobre" data-t="navAbout">Sobre</a><a href="#contato" data-t="navContact">Contato</a></nav><div class="languages"><button data-lang="pt" aria-label="Português do Brasil" aria-pressed="true"><img src="/images/flag-br.svg" alt=""></button><button data-lang="en" aria-label="English" aria-pressed="false"><img src="/images/flag-us.svg" alt=""></button></div></div></header>
-<main>
+<main id="main">
 <section class="hero"><div class="shell"><div class="hero-inner"><div><div class="eyebrow" data-t="eyebrow">Arquitetura contextual de IA</div><h1 data-h="title">Entre a realidade<br>e a resposta,<br>existe <em>contexto.</em></h1><p class="hero-intro" data-t="intro">Eu construo essa ponte: organizo fontes, critérios e conhecimento institucional para que a IA tenha base sólida e faça sentido no trabalho real.</p><div class="hero-actions"><a class="button primary" href="#projetos"><span data-t="seeWork">Conheça meu trabalho</span><span aria-hidden="true">↗</span></a><a class="button" href="#contato"><span data-t="talk">Vamos conversar</span><span aria-hidden="true">↗</span></a></div><p class="hero-note" data-t="heroNote">Lua Helena Moon · Psicologia, Sociologia e prática hospitalar em sistemas complexos.</p></div><div class="constellation" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div><div class="core">☾</div><div class="satellite s1" data-t="sources">Fontes</div><div class="satellite s2" data-t="criteria">Critérios</div><div class="satellite s3" data-t="people">Pessoas</div><i class="star a"></i><i class="star b"></i><i class="star c"></i></div></div><div class="hero-bottom"><span data-h="availability"><strong>Brasil · trabalho remoto</strong> · contextos humanos e institucionais</span><span><a href="https://github.com/luahelenammc/Moon-Source">Moon Source ↗</a> &nbsp; / &nbsp; <a href="https://github.com/luahelenammc/Moon-Cortex">Moon Cortex ↗</a></span></div></div></section>
 <section class="chapter shell" id="contexto"><div class="section-head"><div><div class="kicker"><span>01 /</span><b data-t="problemKicker">O ponto de partida</b></div><h2 data-t="problemTitle">Uma resposta convincente ainda pode estar errada.</h2></div><p data-t="problemLead">Fontes dispersas, regras implícitas e fluxos invisíveis não desaparecem quando uma IA entra na rotina. Passam a fazer parte das respostas dela.</p></div><div class="problem-grid" id="problems"></div><div class="bridge"><p data-t="bridge">Confiabilidade da resposta e funcionamento da solução: meu trabalho conecta os dois.</p></div></section>
 <section class="chapter method-section" id="metodo"><div class="shell"><div class="section-head"><div><div class="kicker"><span>02 /</span><b data-t="methodKicker">Do campo à forma</b></div><h2 data-t="methodTitle">Primeiro a realidade.<br>Depois, a ferramenta.</h2></div><p data-t="methodLead">A forma acompanha o problema. Pode ser uma fonte viva, um protocolo, uma base de conhecimento, um handoff ou a especificação de um assistente.</p></div><div class="method-grid" id="steps"></div></div></section>
@@ -44,14 +132,14 @@ section.chapter{padding:90px 0}.section-head{display:grid;grid-template-columns:
 <footer><div class="shell footer-inner"><span>© <span id="year"></span> Lua Helena Moon Martins Cardoso</span><span data-t="footer">Arquitetura Contextual de IA · Limeira/SP</span><a href="#top" data-t="top">Voltar ao topo ↑</a></div></footer>
 <script>
 const copy={
-pt:{
+pt:{skip:'Ir ao conteúdo',
 navProblem:'Contexto',navMethod:'Método',navProjects:'Projetos',navAbout:'Sobre',navContact:'Contato',eyebrow:'Arquitetura contextual de IA',title:'Entre a realidade<br>e a resposta,<br>existe <em>contexto.</em>',intro:'Eu construo essa ponte: organizo fontes, critérios e conhecimento institucional para que a IA tenha base sólida e faça sentido no trabalho real.',seeWork:'Conheça meu trabalho',talk:'Vamos conversar',heroNote:'Lua Helena Moon · Psicologia, Sociologia e prática hospitalar em sistemas complexos.',sources:'Fontes',criteria:'Critérios',people:'Pessoas',availability:'<strong>Brasil · trabalho remoto</strong> · contextos humanos e institucionais',problemKicker:'O ponto de partida',problemTitle:'Uma resposta convincente ainda pode estar errada.',problemLead:'Fontes dispersas, regras implícitas e fluxos invisíveis não desaparecem quando uma IA entra na rotina. Passam a fazer parte das respostas dela.',bridge:'Confiabilidade da resposta e funcionamento da solução: meu trabalho conecta os dois.',methodKicker:'Do campo à forma',methodTitle:'Primeiro a realidade. Depois, a ferramenta.',methodLead:'A forma acompanha o problema. Pode ser uma fonte viva, um protocolo, uma base de conhecimento, um handoff ou a especificação de um assistente.',projectKicker:'Trabalho aberto',projectTitle:'Arquiteturas que você pode inspecionar.',projectLead:'Dois projetos públicos mostram partes complementares do meu trabalho: governar contexto e construir sistemas a partir de um domínio real.',sourceTitle:'Contexto com estrutura, autoridade e continuidade.',sourceText:'Uma arquitetura para decidir o que governa, o que pode viajar entre sistemas e o que precisa continuar atual para pessoas e IA.',cortexTitle:'Sistemas moldados pelo campo em que vivem.',cortexText:'Sistemas de domínio que ativam o contexto necessário e mantêm o resultado sob controle local do usuário.',exploreSource:'Explorar projeto ↗',exploreCortex:'Explorar repositório ↗',evidence:'Os repositórios demonstram arquitetura, documentação e sistemas inspecionáveis. Adoção externa e impacto medido exigem evidências próprias.',applicationKicker:'Onde isso encontra o mundo',applicationTitle:'O domínio muda. A necessidade de contexto permanece.',applicationLead:'Onde há pessoas, conhecimento disperso e decisões com consequência, há trabalho antes e depois da automação.',audience:'Em <strong>empresas, serviços públicos e organizações do terceiro setor.</strong>',aboutKicker:'A leitura que eu trago',aboutTitle:'Entender instituições é entender quem vive dentro delas.',aboutText:'Minha base cruza Psicologia, Sociologia, linguagem e prática hospitalar. Trabalho na camada em que IA encontra pessoas, decisões, responsabilidade e rotina, em diálogo com equipes técnicas e institucionais.',cv:'Ver currículo',contactKicker:'Uma conversa pode ser o primeiro mapa',contactTitle:'O que precisa fazer sentido na sua realidade?',contactText:'Podemos começar pelo cenário: o que está disperso, onde a IA falha e o que as pessoas precisam para trabalhar melhor.',packet:'Baixar apresentação estruturada para IA ↓',footer:'Arquitetura Contextual de IA · Limeira/SP',top:'Voltar ao topo ↑',more:'Na prática',
 problems:[['◇','Contexto frágil','Faltam fatos, regras, histórico ou uma fonte clara do que vale agora.'],['⌁','Solução fora da realidade','A ferramenta não acompanha o fluxo, as exceções ou a linguagem de quem vai usá-la.'],['◎','IA sem critério','Não há limites, responsáveis ou uma definição compartilhada de resposta útil.']],
 steps:[['Entender o campo','Apurar fontes, pessoas, fluxos, contradições e conhecimento tácito.','Mapear autoridade, responsabilidades, exceções e limites antes de escolher uma solução.'],['Estruturar o contexto','Dar ao conhecimento a menor forma útil, legível e governável.','Definir fontes, critérios, papéis, memória e passagens de responsabilidade em artefatos proporcionais.'],['Validar e manter','Testar o uso real e acompanhar o que muda.','Revisar respostas, ouvir as pessoas, corrigir falhas e atualizar a base quando a realidade muda.']],
 applications:[['↗','Atendimento e jornadas','Fontes, critérios e encaminhamentos para preservar continuidade.'],['✳','Saúde e cuidado','Fluxos e limites de informação em contextos sensíveis.'],['⌘','Gestão e processos','Papéis, exceções e passagens de responsabilidade visíveis.'],['◎','Transparência e auditoria','Respostas ligadas às fontes e aos pontos de revisão.'],['⌁','Pessoas e aprendizagem','Adoção de IA compreensível, treinável e revisável.'],['◇','Conhecimento e dados','Autoridade e atualidade para o conhecimento disperso.']],
 credentials:[['Psicologia Hospitalar','Crise, informação sensível e decisões com consequência humana.'],['Psicologia Organizacional','Papéis, cultura, comunicação, autonomia e mudança.'],['Psicopedagogia Institucional','Aprendizagem conectada à rotina e às condições reais de uso.'],['Sociologia e investigação contextual','Instituições, relações, fontes e conhecimento tácito.']]
 },
-en:{
+en:{skip:'Skip to content',
 navProblem:'Context',navMethod:'Method',navProjects:'Projects',navAbout:'About',navContact:'Contact',eyebrow:'AI context architecture',title:'Between reality<br>and an answer,<br>there is <em>context.</em>',intro:'I build that bridge: organizing sources, criteria, and institutional knowledge so AI has solid ground and makes sense in real work.',seeWork:'Explore my work',talk:'Let’s talk',heroNote:'Lua Helena Moon · Psychology, Sociology, and hospital practice in complex systems.',sources:'Sources',criteria:'Criteria',people:'People',availability:'<strong>Brazil · remote work</strong> · human and institutional contexts',problemKicker:'The starting point',problemTitle:'A convincing answer can still be wrong.',problemLead:'Scattered sources, implicit rules, and invisible workflows do not disappear when AI enters daily work. They become part of its answers.',bridge:'Reliable answers and solutions that work: my practice connects both.',methodKicker:'From field to form',methodTitle:'Reality first. The tool comes next.',methodLead:'The form follows the problem: a living source, a protocol, a knowledge base, a handoff, or an assistant specification.',projectKicker:'Open work',projectTitle:'Architectures you can inspect.',projectLead:'Two public projects show complementary parts of my work: governing context and building systems around a real domain.',sourceTitle:'Context with structure, authority, and continuity.',sourceText:'An architecture for deciding what governs, what can travel between systems, and what must stay current for people and AI.',cortexTitle:'Systems shaped by the field they inhabit.',cortexText:'Domain systems that activate the context they need and keep the result under the user’s local control.',exploreSource:'Explore project ↗',exploreCortex:'Explore repository ↗',evidence:'These repositories demonstrate inspectable architecture, documentation, and systems. External adoption and measured impact require their own evidence.',applicationKicker:'Where this meets the world',applicationTitle:'Domains change. The need for context remains.',applicationLead:'Where people, scattered knowledge, and consequential decisions meet, there is work before and after automation.',audience:'Across <strong>companies, public services, and nonprofit organizations.</strong>',aboutKicker:'The perspective I bring',aboutTitle:'Understanding institutions means understanding the people inside them.',aboutText:'My foundation combines Psychology, Sociology, language, and hospital practice. I work where AI meets people, decisions, accountability, and daily operations, alongside technical and institutional teams.',cv:'View résumé',contactKicker:'A conversation can be the first map',contactTitle:'What needs to make sense in your reality?',contactText:'We can start with the situation: what is scattered, where AI fails, and what people need to work better.',packet:'Download a structured introduction for AI ↓',footer:'AI Context Architecture · Limeira, Brazil',top:'Back to top ↑',more:'In practice',
 problems:[['◇','Fragile context','Facts, rules, history, or a clear source of what is current are missing.'],['⌁','Disconnected solutions','The tool does not fit workflows, exceptions, or the language of its users.'],['◎','AI without criteria','Boundaries, owners, and a shared definition of useful answers are missing.']],
 steps:[['Understand the field','Investigate sources, people, workflows, contradictions, and tacit knowledge.','Map authority, responsibilities, exceptions, and boundaries before choosing a solution.'],['Structure context','Give knowledge the smallest useful, legible, governable form.','Define sources, criteria, roles, memory, and responsibility transitions through proportionate artifacts.'],['Validate and maintain','Test real use and follow what changes.','Review answers, listen to people, correct failures, and update the foundation as reality changes.']],
@@ -60,7 +148,7 @@ credentials:[['Hospital Psychology','Crises, sensitive information, and decision
 }};
 let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'pt';
 function render(){
-const c=copy[lang];document.documentElement.lang=lang==='en'?'en':'pt-BR';document.title=lang==='en'?'Lua Helena · AI Context Architecture':'Lua Helena · Arquitetura Contextual de IA';
+const c=copy[lang];document.querySelector('.nav-links').setAttribute('aria-label',lang==='en'?'Main navigation':'Navegação principal');document.documentElement.lang=lang==='en'?'en':'pt-BR';document.title=lang==='en'?'Lua Helena · AI Context Architecture':'Lua Helena · Arquitetura Contextual de IA';
 document.querySelectorAll('[data-t]').forEach(e=>e.textContent=c[e.dataset.t]);document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=c[e.dataset.h]);
 document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
 document.getElementById('problems').innerHTML=c.problems.map(x=>'<article class="problem"><div class="glyph" aria-hidden="true">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></article>').join('');
@@ -71,6 +159,19 @@ document.getElementById('cv').href='/ia/curriculo?lang='+lang;document.querySele
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;const u=new URL(location.href);u.searchParams.set('lang',lang);history.replaceState(null,'',u);render()}));
 window.addEventListener('popstate',()=>{lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'pt';render()});
+
+const navLinks=[...document.querySelectorAll('.nav-links a')];
+if('IntersectionObserver' in window){
+const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const visible=new Map();
+const io=new IntersectionObserver(entries=>{
+entries.forEach(e=>visible.set(e.target.id,e.isIntersecting));
+const current=sections.find(s=>visible.get(s.id));
+if(current)navLinks.forEach(a=>{if(a.hash==='#'+current.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+},{rootMargin:'-20% 0px -45% 0px',threshold:0});
+sections.forEach(s=>io.observe(s));
+}
+
 document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('discord').addEventListener('click',async function(){try{await navigator.clipboard.writeText('moon_aurea');this.textContent=lang==='en'?'Copied: moon_aurea':'Copiado: moon_aurea';setTimeout(()=>this.textContent='Discord · moon_aurea',2500)}catch{this.textContent='moon_aurea'}});
 document.getElementById('packet').addEventListener('click',()=>{const c=copy[lang];const lines=['# Lua Helena Moon Martins Cardoso',c.eyebrow,'',c.intro,'',c.aboutText,'',...c.steps.map(x=>'## '+x[0]+'\n'+x[1]+' '+x[2]),'','## Moon Source',c.sourceText,'https://github.com/luahelenammc/Moon-Source','','## Moon Cortex',c.cortexText,'https://github.com/luahelenammc/Moon-Cortex','',c.evidence,'','Email: luahelenammc@gmail.com','WhatsApp: +55 41 99222-8411','Discord: moon_aurea','https://www.linkedin.com/in/luahelena/'];const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Lua_Helena_Context_Architecture_'+lang+'.md';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)});
