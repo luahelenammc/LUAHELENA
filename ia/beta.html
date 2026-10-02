@@ -2,196 +2,78 @@
 layout: null
 permalink: /ia/beta.html
 ---
-{%- capture core -%}{% include_relative index-core.html %}{%- endcapture -%}
-{%- assign old_toggle = '<div class="lang-toggle"><button data-lang="pt" class="active">PT</button><button data-lang="en">EN</button></div>' -%}
-{%- capture new_toggle -%}<div class="lang-toggle" aria-label="Seleção de idioma"><button data-lang="pt" class="active" aria-label="Português do Brasil" title="Português do Brasil"><img src="/images/flag-br.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button><button data-lang="en" aria-label="English, United States" title="English, United States"><img src="/images/flag-us.svg" alt="" aria-hidden="true" width="24" height="16" style="display:block" /></button></div>{%- endcapture -%}
-{%- assign page_html = core | replace_first: old_toggle, new_toggle -%}
-{%- assign page_html = page_html | replace: 'data-discord="@moon_aurea"', 'data-discord="moon_aurea"' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — IA, papéis e contexto institucional · V6.5', 'Lua Helena Moon · Contexto, Adoção e Auditoria de IA · V10' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon ajuda organizações a transformar documentos, fluxos, papéis, competências, decisões, critérios e conhecimento tácito em estruturas que pessoas e IA conseguem usar.', 'Lua Helena Moon estrutura fontes, autoridade, critérios e fluxos para que a IA responda com base sólida e funcione no trabalho real.' -%}
-{%- assign page_html = page_html | replace: 'Lua Helena Moon — Arquitetura de Contexto Humano-IA', 'Lua Helena Moon · Arquitetura Contextual e Auditoria de IA' -%}
-{%- assign page_html = page_html | replace: 'Papéis claros, memória operacional e contexto que pessoas e IA conseguem usar.', 'Contexto governado para respostas mais confiáveis e soluções de IA que funcionem no trabalho real.' -%}
-{%- capture head_assets -%}
-<meta name="robots" content="noindex,follow" />
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Lua Helena · Arquitetura Contextual de IA</title>
+<meta name="description" content="Fontes, pessoas e critérios para uma IA conectada ao trabalho real.">
+<link rel="canonical" href="https://www.luahelena.com.br/ia/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <style>
-/* Beta design rebase: scoped, after the production cascade. */
-body.design-beta{--bg:#12121b;--txt:#f6f1e8;--muted:#d3cedb;--quiet:#b4aabd;background:radial-gradient(ellipse at 80% 0,rgba(159,135,255,.09),transparent 42rem),#12121b!important}
-.design-beta .bg-glows{opacity:.18!important;animation:none!important}
-.design-beta #starfield{opacity:.22}
-.design-beta .rim{display:none}
-.design-beta .wrap,.design-beta .nav-inner{width:min(1180px,calc(100% - 64px))!important}
-.design-beta .nav{background:rgba(18,18,27,.94)!important;border-bottom:1px solid rgba(255,255,255,.1)}
-.design-beta .nav-inner{min-height:82px;gap:24px}
-.design-beta .mark{box-shadow:none}
-.design-beta .nav-links a{font-size:.84rem;padding:10px 9px}
-.design-beta .nav-right .btn{box-shadow:none;font-size:.8rem;min-height:42px}
-.design-beta .hero{grid-template-columns:minmax(0,1.45fr) minmax(260px,.65fr)!important;gap:64px!important;padding:100px 0 88px!important;align-items:center}
-.design-beta h1{font-size:clamp(3rem,5.4vw,4.6rem)!important;line-height:1.07!important;letter-spacing:-.035em!important;max-width:850px}
-.design-beta .accent{background:none!important;color:var(--gold)!important}
-.design-beta .hero-eyebrow{font-size:.7rem;letter-spacing:.15em}
-.design-beta .positioning-stack{margin-top:28px;max-width:650px}
-.design-beta .market-position-detail{max-width:60ch;line-height:1.65}
-.design-beta .v10-credential-line{margin-top:16px;line-height:1.6}
-.design-beta .v4-deco{min-height:300px!important;opacity:.72}
-.design-beta .v4-orbital{width:100%;max-width:330px}
-.design-beta .hero-meta{gap:8px;margin-top:26px}
-.design-beta .pill{background:transparent;box-shadow:none;font-size:.8rem;padding:7px 10px}
-.design-beta .hero-cta{gap:12px;margin-top:28px}
-.design-beta .hero-proof-link{border:0;border-radius:0;padding:6px 0;margin-right:14px;background:none;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(232,201,122,.3)}
-.design-beta main>.block,.design-beta .v10-method,.design-beta .v10-proof{padding:64px 0!important;border-top:1px solid rgba(255,255,255,.1)}
-.design-beta .section-title,.design-beta .v10-method h2,.design-beta .v10-proof h2{font-size:clamp(2rem,3.3vw,2.8rem)!important;line-height:1.16!important;letter-spacing:-.025em}
-.design-beta .section-lead,.design-beta .v10-method-head p,.design-beta .v10-proof-lead{max-width:70ch!important;line-height:1.7}
-.design-beta .card-grid,.design-beta .triple-grid,.design-beta .sector-grid,.design-beta .v10-proof-grid{gap:20px!important;margin-top:28px}
-.design-beta .card,.design-beta .phase-card,.design-beta .proof-card,.design-beta .sector-card,.design-beta .audience-card,.design-beta .v10-proof-card,.design-beta .v10-step{border-radius:16px!important;background:rgba(255,255,255,.025)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:none!important;transition:border-color .18s,background .18s!important;will-change:auto!important;padding:26px!important}
-.design-beta .card:hover,.design-beta .phase-card:hover,.design-beta .proof-card:hover,.design-beta .sector-card:hover{transform:none!important;border-color:rgba(232,201,122,.35)!important;background:rgba(255,255,255,.045)!important;box-shadow:none!important}
-.design-beta .card:before,.design-beta .card:after,.design-beta .phase-card:before,.design-beta .phase-card:after,.design-beta .proof-card:after,.design-beta .sector-card:after{display:none!important}
-.design-beta .card p,.design-beta .sector-card p,.design-beta .v10-proof-card>p{line-height:1.65!important;font-size:.94rem!important}
-.design-beta .v10-steps{gap:0;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden}
-.design-beta .v10-step{border:0!important;border-radius:0!important;background:transparent!important}
-.design-beta .v10-step+.v10-step{border-left:1px solid rgba(255,255,255,.12)!important}
-.design-beta .v10-step-num{border:0;background:none;width:auto;justify-content:start;font-size:1.4rem}
-.design-beta .v10-step p{font-size:.92rem;line-height:1.65}
-.design-beta .v10-method-drawers{margin-top:24px;gap:10px}
-.design-beta details.v10-drawer{border-radius:12px;background:transparent}
-.design-beta details.v10-drawer>summary{padding:18px 20px;min-height:54px}
-.design-beta .v10-drawer-body{padding:0 20px 22px;line-height:1.7}
-.design-beta .v10-proof-card h3{font-size:1.8rem}
-.design-beta .v10-proof-actions{margin-top:24px}
-.design-beta .btn{box-shadow:none!important;transition:background .18s,border-color .18s!important}
-.design-beta .btn:hover{transform:none!important}
-.design-beta .btn-primary{background:var(--gold)!important;color:#201b13!important;border-color:var(--gold)!important}
-.design-beta .contact{padding:64px 0 80px}
-.design-beta .contact-panel{border-radius:20px!important;padding:40px!important;box-shadow:none!important}
-.design-beta .foot{padding:26px 0}
-.design-beta a:focus-visible,.design-beta button:focus-visible,.design-beta summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
-@media(min-width:981px){.design-beta .sector-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-@media(max-width:1100px){.design-beta .nav-inner{flex-wrap:wrap;gap:10px;padding:12px 0}.design-beta .nav-links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}.design-beta .nav-links a{white-space:nowrap}.design-beta .nav-right{margin-left:auto;width:auto!important}.design-beta .hero{gap:30px!important}}
-@media(max-width:980px){.design-beta .hero{grid-template-columns:1fr!important;padding:64px 0!important}.design-beta .v4-deco{display:none}.design-beta .hero-text{max-width:800px}.design-beta .v10-step+.v10-step{border-left:0!important;border-top:1px solid rgba(255,255,255,.12)!important}}
-@media(max-width:620px){.design-beta .wrap,.design-beta .nav-inner{width:calc(100% - 36px)!important}.design-beta .hero{padding:48px 0 52px!important}.design-beta h1{font-size:clamp(2.5rem,10vw,3.6rem)!important}.design-beta main>.block,.design-beta .v10-method,.design-beta .v10-proof{padding:42px 0!important}.design-beta .card,.design-beta .sector-card,.design-beta .v10-proof-card,.design-beta .v10-step{padding:22px!important}.design-beta .contact-panel{padding:24px!important}.design-beta .lang-toggle button{min-height:40px;min-width:40px}.design-beta .nav-links a{min-height:44px}.design-beta .hero-proof-links{display:flex}.design-beta .hero-proof-link{width:auto}.design-beta .contact-links .btn{flex:1 1 140px}}
-@media(prefers-reduced-motion:reduce){.design-beta *, .design-beta *:before,.design-beta *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+:root{--bg:#11101d;--paper:#f5efe4;--muted:#bfb6d0;--gold:#edcc85;--violet:#af98ef;--cyan:#8bced8;--pink:#e8a5c5;--line:#ffffff20;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:105px}body{margin:0;background:var(--bg);color:var(--paper);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}button,a,summary{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:6px}::selection{background:#af98ef55}.shell{width:min(1200px,calc(100% - 64px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#11101de8;backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;gap:28px;min-height:80px}.brand{font:500 25px var(--serif);white-space:nowrap}.brand span{color:var(--gold);margin-right:9px}.nav-links{display:flex;gap:25px;margin-left:auto;font-size:13px;color:var(--muted)}.nav-links a:hover{color:var(--gold)}.languages{display:flex;gap:4px;border-left:1px solid var(--line);padding-left:18px}.languages button{display:grid;place-items:center;width:38px;height:38px;border:1px solid transparent;background:none;border-radius:50%;cursor:pointer}.languages button[aria-pressed=true]{background:#edcc8518;border-color:#edcc8545}.languages img{width:22px;height:15px;object-fit:cover}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 40%,#73529820,transparent 55%),radial-gradient(ellipse at 15% 0,#edcc8510,transparent 45%)}.hero-inner{padding:84px 0 64px;display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center}.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;gap:12px;align-items:center}.eyebrow:before{content:'';width:25px;height:1px;background:var(--gold)}h1,h2,h3,p{margin:0}h1{font:500 clamp(42px,5.3vw,72px)/1.08 var(--serif);letter-spacing:-.035em;margin:26px 0;max-width:850px}h1 em{font-weight:400;color:var(--gold)}.hero-intro{max-width:59ch;color:var(--muted);font-size:17px;line-height:1.8}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:13px 21px;border:1px solid var(--line);border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;background:none;color:var(--paper);min-height:48px;transition:background .2s,border-color .2s,transform .2s}.button:hover{border-color:var(--gold);transform:translateY(-2px)}.button.primary{background:var(--gold);color:#241c30;border-color:var(--gold)}.hero-note{margin-top:26px;font-size:12px;color:var(--muted);max-width:65ch}
+.constellation{position:relative;width:100%;aspect-ratio:1;max-width:390px;margin:auto;isolation:isolate}.constellation:before{content:'';position:absolute;inset:19%;border-radius:50%;background:radial-gradient(circle,#edcc8540,#af98ef13 45%,transparent 70%);filter:blur(15px)}.orbit{position:absolute;border:1px solid #af98ef35;border-radius:50%;inset:13%;transform:rotate(-25deg) scaleX(.64)}.orbit.two{transform:rotate(40deg) scaleX(.7);border-color:#edcc8540}.orbit.three{inset:25%;transform:none;border-style:dashed;border-color:#8bced830;animation:turn 90s linear infinite}.core{position:absolute;inset:42%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2c8,var(--gold) 40%,#8062aa 80%);box-shadow:0 0 60px #edcc8535;display:grid;place-items:center;color:#332343;font:26px var(--serif)}.satellite{position:absolute;padding:7px 12px;border:1px solid var(--line);background:#171425;border-radius:7px;font-size:11px;letter-spacing:.03em;box-shadow:0 8px 30px #0003}.satellite:before{content:'·';margin-right:8px;color:var(--gold)}.s1{top:12%;left:17%}.s2{top:43%;right:0;color:var(--cyan)}.s3{bottom:13%;left:12%;color:var(--pink)}.star{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 13px var(--gold)}.star.a{top:29%;right:22%}.star.b{bottom:27%;right:18%;background:var(--cyan)}.star.c{left:17%;top:48%}.hero-bottom{display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12px}.hero-bottom strong{font-weight:500;color:var(--paper)}.hero-bottom a:hover{color:var(--gold)}
+section.chapter{padding:90px 0}.section-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:38px}.kicker{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.15em;margin-bottom:17px}.kicker span{color:#73667f;margin-right:13px}h2{font:400 clamp(30px,3.5vw,47px)/1.17 var(--serif);letter-spacing:-.025em;max-width:660px}.section-head p{color:var(--muted);max-width:58ch;font-size:15px;line-height:1.8}.problem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.problem{padding:28px;border:1px solid var(--line);border-radius:16px;position:relative;overflow:hidden;background:linear-gradient(135deg,#ffffff04,transparent)}.problem:nth-child(2){background:linear-gradient(135deg,#af98ef0d,transparent)}.problem:nth-child(3){background:linear-gradient(135deg,#8bced80d,transparent)}.glyph{font:32px var(--serif);color:var(--gold);margin-bottom:30px}.problem:nth-child(2) .glyph{color:var(--violet)}.problem:nth-child(3) .glyph{color:var(--cyan)}h3{font-size:17px;font-weight:500;line-height:1.4}.problem p{margin-top:12px;color:var(--muted);font-size:14px}.bridge{display:flex;align-items:center;gap:25px;margin-top:32px;padding:23px 0;border-bottom:1px solid var(--line)}.bridge:before{content:'↳';font:28px var(--serif);color:var(--gold)}.bridge p{font:400 21px/1.5 var(--serif);color:#ded5e5}
+.method-section{background:#191526;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px}.method-step{position:relative;border-top:1px solid #edcc8540;padding-top:25px}.step-top{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font:32px var(--serif);margin-bottom:23px}.step-top span:last-child{font:20px var(--sans);color:#776784}.method-step p{color:var(--muted);font-size:14px;margin-top:14px}.method-step details{margin-top:20px;font-size:13px;border-top:1px solid var(--line)}summary{cursor:pointer;padding:15px 0;color:var(--gold)}details p{padding-bottom:15px}
+.work-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}.project{display:flex;flex-direction:column;min-height:355px;padding:34px;border:1px solid #edcc8530;border-radius:20px;background:radial-gradient(ellipse at 100% 0,#edcc8512,transparent 65%),#171422;position:relative}.project.cortex{border-color:#af98ef40;background:radial-gradient(ellipse at 100% 0,#af98ef1c,transparent 65%),#171422}.project-name{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}.cortex .project-name{color:var(--violet)}.project h3{font:400 31px/1.2 var(--serif);max-width:440px}.project p{color:var(--muted);font-size:14px;margin-top:18px;max-width:55ch}.project-links{display:flex;gap:23px;flex-wrap:wrap;margin-top:auto;padding-top:30px;font-size:13px}.project-links a{border-bottom:1px solid #edcc8550;padding-bottom:4px}.project-links a:hover{color:var(--gold)}.evidence-note{margin-top:20px;color:var(--muted);font-size:12px;max-width:95ch}
+.applications{border-top:1px solid var(--line)}.application-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}.application{padding:27px 25px 27px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:13px}.application .symbol{color:var(--violet);font-size:20px;line-height:1.4}.application p{color:var(--muted);font-size:13px;margin-top:9px}.application h3{font-size:15px}.audience{margin-top:25px;color:var(--muted);font-size:12px}.audience strong{color:var(--gold);font-weight:400}
+.foundation{background:linear-gradient(130deg,#211a32,#161420);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.foundation-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px}.foundation-intro p{color:var(--muted);margin:24px 0;font-size:15px;max-width:60ch}.credentials{display:grid;gap:0}.credential{padding:18px 0;border-bottom:1px solid var(--line)}.credential:first-child{padding-top:0}.credential h3{font-size:14px;color:var(--gold)}.credential p{font-size:13px;color:var(--muted);margin-top:6px}.contact-section{text-align:center;padding:100px 0 80px;background:radial-gradient(ellipse at 50% 100%,#af98ef15,transparent 70%)}.contact-section h2{margin:auto;max-width:800px;font-size:clamp(34px,4.5vw,57px)}.contact-section p{max-width:60ch;margin:23px auto;color:var(--muted)}.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}.packet{display:inline-block;margin-top:26px;color:var(--muted);font-size:12px;border:0;background:none;border-bottom:1px solid var(--line);cursor:pointer;padding:6px}footer{border-top:1px solid var(--line);font-size:11px;color:var(--muted);padding:25px 0}.footer-inner{display:flex;justify-content:space-between;gap:25px}.footer-inner a{color:var(--gold)}
+@keyframes turn{to{rotate:360deg}}
+@media(max-width:1000px){.nav{gap:18px}.nav-links{gap:15px}.hero-inner{grid-template-columns:1.3fr .7fr}.section-head{gap:35px}.foundation-grid{gap:40px}}
+@media(max-width:760px){.shell{width:calc(100% - 36px)}.nav{min-height:70px;flex-wrap:wrap;padding:13px 0;gap:8px}.brand{font-size:22px}.languages{margin-left:auto;border:0;padding:0}.nav-links{order:3;width:100%;margin:8px 0 0;overflow:auto;gap:22px;padding-bottom:5px;white-space:nowrap}.nav-links a{min-height:32px;display:flex;align-items:center}.hero-inner{grid-template-columns:1fr;padding:45px 0 35px;gap:12px}h1{font-size:clamp(40px,9.4vw,62px);margin:22px 0}.hero-intro{font-size:15px}.constellation{max-width:260px;margin:12px auto 0}.hero-bottom{flex-direction:column;gap:8px;padding:20px 0}.section-head{grid-template-columns:1fr;gap:22px;margin-bottom:28px}section.chapter{padding:58px 0}.problem-grid,.method-grid,.work-grid,.foundation-grid{grid-template-columns:1fr}.problem{padding:24px}.glyph{margin-bottom:16px}.bridge{gap:15px}.bridge p{font-size:19px}.method-grid{gap:30px}.work-grid{gap:18px}.project{padding:27px;min-height:320px}.application-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.application{padding-right:14px;grid-template-columns:20px 1fr;gap:8px}.foundation-grid{gap:36px}.contact-section{padding:65px 0}.footer-inner{flex-direction:column;gap:8px}}
+@media(max-width:420px){.application-grid{grid-template-columns:1fr}.hero-actions .button{flex:1 1 150px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
-<link rel="stylesheet" href="/ia/production-fixes.css?v=7.0" />
-<link rel="stylesheet" href="/ia/beta-integrated-sections.css?v=1" />
-<link rel="stylesheet" href="/ia/beta-circuit-hover.css?v=6" />
-<link rel="stylesheet" href="/ia/beta-spacing-alignment.css?v=3" />
-<link rel="stylesheet" href="/ia/desktop-circuit-fixes.css?v=1" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ia/beta-v8-golds.css?v=1" />
-<link rel="stylesheet" href="/ia/beta-problem-cards.css?v=3" />
-<link rel="stylesheet" href="/ia/beta-solution-badge-alignment.css?v=3" />
-<link rel="stylesheet" href="/ia/circuit-line-semantics.css?v=1" />
-<link rel="stylesheet" href="/ia/beta-sector-fields.css?v=3" />
-<link rel="stylesheet" href="/ia/beta-audience-cards.css?v=1" />
-<link rel="stylesheet" href="/ia/entry-section-fix.css?v=1" />
-<link rel="stylesheet" href="/ia/beta/v10.css?v=12" />
-<style>
-#lastro .cv-entry{margin-top:22px}
-#lastro .cv-link{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(232,201,122,.24);border-radius:999px;color:var(--muted);font-size:.88rem;font-weight:500;line-height:1.4;text-decoration:none;background:transparent;transition:color .18s,border-color .18s,background .18s}
-#lastro .cv-link:hover{color:var(--txt);border-color:rgba(232,201,122,.5);background:rgba(232,201,122,.06)}
-#lastro .cv-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-@media(prefers-reduced-motion:reduce){#lastro .cv-link{transition:none}}
-</style>
-<style>
-/* Structural beta composition */
-.design-beta .hero{display:block!important;padding:76px 0 72px!important}
-.design-beta .hero-text{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);column-gap:72px;align-items:start;max-width:none!important}
-.design-beta .hero-eyebrow{grid-column:1/-1;margin-bottom:26px}
-.design-beta .hero h1{grid-column:1;grid-row:2/5;margin:0!important;font-size:clamp(2.9rem,4.8vw,4.1rem)!important;max-width:720px;line-height:1.12!important}
-.design-beta .hero h1 span{color:inherit!important;background:none!important;-webkit-text-fill-color:currentColor!important}
-.design-beta .hero h1 .accent{color:var(--gold)!important}
-.design-beta .positioning-stack{grid-column:2;grid-row:2;margin:0!important;padding-top:8px;border-top:2px solid var(--gold)}
-.design-beta .v10-role{font-family:var(--sans);font-size:.92rem;font-weight:700;letter-spacing:.02em;margin-top:16px}
-.design-beta .market-position-detail{font-size:1.08rem!important;margin-top:18px;line-height:1.75!important}
-.design-beta .hero-cta{grid-column:2;grid-row:3;margin-top:24px!important}
-.design-beta .hero-meta{grid-column:2}
-.design-beta .v4-deco{display:none!important}
-.design-beta #entrada .block-grid>div:last-child,.design-beta #campos .block-grid>div:last-child{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);column-gap:56px;align-items:start}
-.design-beta #entrada .v10-section-kicker,.design-beta #campos .v10-section-kicker{grid-column:1/-1}
-.design-beta #entrada .section-title,.design-beta #campos .section-title{grid-column:1;grid-row:2;font-size:clamp(1.85rem,2.4vw,2.3rem)!important}
-.design-beta #entrada .section-lead,.design-beta #campos .section-lead{grid-column:1;grid-row:3;font-size:.96rem;margin-top:22px}
-.design-beta #entrada .entry-circuit{grid-column:2;grid-row:2/5;grid-template-columns:1fr!important;margin:0!important;gap:0!important;border-top:1px solid var(--line)}
-.design-beta #entrada .entry-node{border:0!important;border-bottom:1px solid var(--line)!important;background:transparent!important;border-radius:0!important;padding:22px 0!important}
-.design-beta #entrada .quote-card{grid-column:1/-1;margin-top:32px;border:0;border-left:2px solid var(--gold);border-radius:0;background:transparent;padding:12px 24px;box-shadow:none}
-.design-beta #campos .sector-grid{grid-column:2;grid-row:2/5;grid-template-columns:repeat(2,minmax(0,1fr))!important;margin-top:0!important}
-.design-beta #campos .v10-audience-shell{grid-column:1/-1;margin-top:30px}
-.design-beta .v10-method{background:rgba(255,255,255,.018)}
-.design-beta .v10-method-head{max-width:850px;margin-bottom:32px}
-.design-beta .v10-proof-card{min-height:300px;display:flex;flex-direction:column}
-.design-beta .v10-proof-actions{margin-top:auto;padding-top:24px}
-.design-beta .nav-links a{border-radius:6px}
-.design-beta .contact-panel{grid-template-columns:1.3fr .7fr!important}
-@media(max-width:980px){.design-beta .hero-text{column-gap:32px}.design-beta #entrada .block-grid>div:last-child,.design-beta #campos .block-grid>div:last-child{column-gap:30px}}
-@media(max-width:760px){.design-beta .hero-text{display:block!important}.design-beta .hero h1{font-size:clamp(2.35rem,8vw,3.5rem)!important}.design-beta .positioning-stack{margin-top:32px!important}.design-beta #entrada .block-grid>div:last-child,.design-beta #campos .block-grid>div:last-child{display:block}.design-beta #entrada .entry-circuit,.design-beta #campos .sector-grid{margin-top:28px!important}.design-beta #campos .sector-grid{grid-template-columns:1fr!important}.design-beta .contact-panel{grid-template-columns:1fr!important}.design-beta .v10-steps{grid-template-columns:1fr!important}.design-beta .v10-step+.v10-step{border-left:0!important;border-top:1px solid var(--line)!important}}
-@media(min-width:761px){.design-beta .v10-steps{grid-template-columns:repeat(3,minmax(0,1fr))!important}.design-beta .v10-step+.v10-step{border-top:0!important;border-left:1px solid var(--line)!important}}
-</style>
-{%- endcapture -%}
-{%- capture body_assets -%}
-<script src="/ia/semantic-delta.js?v=7.0"></script>
-<script src="/ia/semantic-polish.js?v=1"></script>
-<script src="/ia/cycle-circuit.js?v=2"></script>
-<script src="/ia/beta-integrated-sections.js?v=1"></script>
-<script src="/ia/beta-cycle-heading.js?v=1"></script>
-<script src="/ia/beta-touch-reflection.js?v=2"></script>
-<script src="/ia/email-copy.js?v=1"></script>
-<script src="/ia/beta-v8-core.js?v=1"></script>
-<script src="/ia/beta-v8-clean-text.js?v=2"></script>
-<script src="/ia/beta-v8-event-learning.js?v=3"></script>
-<script src="/ia/beta-problem-cards.js?v=3"></script>
-<script src="/ia/circuit-line-semantics.js?v=2"></script>
-<script src="/ia/beta-sector-fields.js?v=4"></script>
-<script src="/ia/beta-audience-cards.js?v=1"></script>
-<script src="/ia/beta/v10.js?v=12"></script>
-<script src="/ia/production-v10.js?v=2"></script>
+</head>
+<body id="top">
+<header><div class="shell nav"><a class="brand" href="#top"><span>☾</span>Lua Helena</a><nav class="nav-links" aria-label="Principal"><a href="#contexto" data-t="navProblem">Contexto</a><a href="#metodo" data-t="navMethod">Método</a><a href="#projetos" data-t="navProjects">Projetos</a><a href="#sobre" data-t="navAbout">Sobre</a><a href="#contato" data-t="navContact">Contato</a></nav><div class="languages"><button data-lang="pt" aria-label="Português do Brasil" aria-pressed="true"><img src="/images/flag-br.svg" alt=""></button><button data-lang="en" aria-label="English" aria-pressed="false"><img src="/images/flag-us.svg" alt=""></button></div></div></header>
+<main>
+<section class="hero"><div class="shell"><div class="hero-inner"><div><div class="eyebrow" data-t="eyebrow">Arquitetura contextual de IA</div><h1 data-h="title">Entre a realidade<br>e a resposta,<br>existe <em>contexto.</em></h1><p class="hero-intro" data-t="intro">Eu construo essa ponte: organizo fontes, critérios e conhecimento institucional para que a IA tenha base sólida e faça sentido no trabalho real.</p><div class="hero-actions"><a class="button primary" href="#projetos"><span data-t="seeWork">Conheça meu trabalho</span><span aria-hidden="true">↗</span></a><a class="button" href="#contato"><span data-t="talk">Vamos conversar</span><span aria-hidden="true">↗</span></a></div><p class="hero-note" data-t="heroNote">Lua Helena Moon · Psicologia, Sociologia e prática hospitalar em sistemas complexos.</p></div><div class="constellation" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div><div class="core">☾</div><div class="satellite s1" data-t="sources">Fontes</div><div class="satellite s2" data-t="criteria">Critérios</div><div class="satellite s3" data-t="people">Pessoas</div><i class="star a"></i><i class="star b"></i><i class="star c"></i></div></div><div class="hero-bottom"><span data-h="availability"><strong>Brasil · trabalho remoto</strong> · contextos humanos e institucionais</span><span><a href="https://github.com/luahelenammc/Moon-Source">Moon Source ↗</a> &nbsp; / &nbsp; <a href="https://github.com/luahelenammc/Moon-Cortex">Moon Cortex ↗</a></span></div></div></section>
+<section class="chapter shell" id="contexto"><div class="section-head"><div><div class="kicker"><span>01 /</span><b data-t="problemKicker">O ponto de partida</b></div><h2 data-t="problemTitle">Uma resposta convincente ainda pode estar errada.</h2></div><p data-t="problemLead">Fontes dispersas, regras implícitas e fluxos invisíveis não desaparecem quando uma IA entra na rotina. Passam a fazer parte das respostas dela.</p></div><div class="problem-grid" id="problems"></div><div class="bridge"><p data-t="bridge">Confiabilidade da resposta e funcionamento da solução: meu trabalho conecta os dois.</p></div></section>
+<section class="chapter method-section" id="metodo"><div class="shell"><div class="section-head"><div><div class="kicker"><span>02 /</span><b data-t="methodKicker">Do campo à forma</b></div><h2 data-t="methodTitle">Primeiro a realidade.<br>Depois, a ferramenta.</h2></div><p data-t="methodLead">A forma acompanha o problema. Pode ser uma fonte viva, um protocolo, uma base de conhecimento, um handoff ou a especificação de um assistente.</p></div><div class="method-grid" id="steps"></div></div></section>
+<section class="chapter shell" id="projetos"><div class="section-head"><div><div class="kicker"><span>03 /</span><b data-t="projectKicker">Trabalho aberto</b></div><h2 data-t="projectTitle">Arquiteturas que você pode inspecionar.</h2></div><p data-t="projectLead">Dois projetos públicos mostram partes complementares do meu trabalho: governar contexto e construir sistemas a partir de um domínio real.</p></div><div class="work-grid"><article class="project"><div class="project-name">☾ &nbsp; Moon Source</div><h3 data-t="sourceTitle">Contexto com estrutura, autoridade e continuidade.</h3><p data-t="sourceText">Uma arquitetura para decidir o que governa, o que pode viajar entre sistemas e o que precisa continuar atual para pessoas e IA.</p><div class="project-links"><a href="/moonsource/" data-t="exploreSource">Explorar projeto ↗</a><a href="https://github.com/luahelenammc/Moon-Source">GitHub ↗</a></div></article><article class="project cortex"><div class="project-name">◈ &nbsp; Moon Cortex</div><h3 data-t="cortexTitle">Sistemas moldados pelo campo em que vivem.</h3><p data-t="cortexText">Sistemas de domínio que ativam o contexto necessário e mantêm o resultado sob controle local do usuário.</p><div class="project-links"><a href="https://github.com/luahelenammc/Moon-Cortex" data-t="exploreCortex">Explorar repositório ↗</a></div></article></div><p class="evidence-note" data-t="evidence">Os repositórios demonstram arquitetura, documentação e sistemas inspecionáveis. Adoção externa e impacto medido exigem evidências próprias.</p></section>
+<section class="chapter applications" id="aplicacoes"><div class="shell"><div class="section-head"><div><div class="kicker"><span>04 /</span><b data-t="applicationKicker">Onde isso encontra o mundo</b></div><h2 data-t="applicationTitle">O domínio muda.<br>A necessidade de contexto permanece.</h2></div><p data-t="applicationLead">Onde há pessoas, conhecimento disperso e decisões com consequência, há trabalho antes e depois da automação.</p></div><div class="application-grid" id="applications"></div><p class="audience" data-h="audience">Em <strong>empresas, serviços públicos e organizações do terceiro setor.</strong></p></div></section>
+<section class="chapter foundation" id="sobre"><div class="shell foundation-grid"><div class="foundation-intro"><div class="kicker"><span>05 /</span><b data-t="aboutKicker">A leitura que eu trago</b></div><h2 data-t="aboutTitle">Entender instituições é entender quem vive dentro delas.</h2><p data-t="aboutText">Minha base cruza Psicologia, Sociologia, linguagem e prática hospitalar. Trabalho na camada em que IA encontra pessoas, decisões, responsabilidade e rotina, em diálogo com equipes técnicas e institucionais.</p><a class="button" id="cv" href="/ia/curriculo?lang=pt"><span data-t="cv">Ver currículo</span><span aria-hidden="true">↗</span></a></div><div class="credentials" id="credentials"></div></div></section>
+<section class="contact-section shell" id="contato"><div class="kicker" data-t="contactKicker">Uma conversa pode ser o primeiro mapa</div><h2 data-t="contactTitle">O que precisa fazer sentido<br>na sua realidade?</h2><p data-t="contactText">Podemos começar pelo cenário: o que está disperso, onde a IA falha e o que as pessoas precisam para trabalhar melhor.</p><div class="contact-links"><a class="button primary" href="mailto:luahelenammc@gmail.com">E-mail ↗</a><a class="button" href="https://wa.me/5541992228411">WhatsApp ↗</a><a class="button" href="https://www.linkedin.com/in/luahelena/">LinkedIn ↗</a><button class="button" id="discord">Discord · moon_aurea</button></div><button class="packet" id="packet" data-t="packet">Baixar apresentação estruturada para IA ↓</button></section>
+</main>
+<footer><div class="shell footer-inner"><span>© <span id="year"></span> Lua Helena Moon Martins Cardoso</span><span data-t="footer">Arquitetura Contextual de IA · Limeira/SP</span><a href="#top" data-t="top">Voltar ao topo ↑</a></div></footer>
 <script>
-(() => {
-  function initCurriculumLink() {
-    const section = document.querySelector('#lastro .block-grid > div:last-child');
-    if (!section || document.getElementById('curriculum-link')) return;
-    const entry = document.createElement('p');
-    entry.className = 'cv-entry';
-    const link = document.createElement('a');
-    link.id = 'curriculum-link';
-    link.className = 'cv-link';
-    entry.appendChild(link);
-    section.appendChild(entry);
-    function sync() {
-      const english = document.documentElement.lang.startsWith('en');
-      link.textContent = english ? 'View résumé ↗' : 'Ver currículo ↗';
-      link.href = english ? '/ia/curriculo?lang=en' : '/ia/curriculo?lang=pt';
-    }
-    sync();
-    new MutationObserver(sync).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCurriculumLink, {once:true});
-  else initCurriculumLink();
-})();
+const copy={
+pt:{
+navProblem:'Contexto',navMethod:'Método',navProjects:'Projetos',navAbout:'Sobre',navContact:'Contato',eyebrow:'Arquitetura contextual de IA',title:'Entre a realidade<br>e a resposta,<br>existe <em>contexto.</em>',intro:'Eu construo essa ponte: organizo fontes, critérios e conhecimento institucional para que a IA tenha base sólida e faça sentido no trabalho real.',seeWork:'Conheça meu trabalho',talk:'Vamos conversar',heroNote:'Lua Helena Moon · Psicologia, Sociologia e prática hospitalar em sistemas complexos.',sources:'Fontes',criteria:'Critérios',people:'Pessoas',availability:'<strong>Brasil · trabalho remoto</strong> · contextos humanos e institucionais',problemKicker:'O ponto de partida',problemTitle:'Uma resposta convincente ainda pode estar errada.',problemLead:'Fontes dispersas, regras implícitas e fluxos invisíveis não desaparecem quando uma IA entra na rotina. Passam a fazer parte das respostas dela.',bridge:'Confiabilidade da resposta e funcionamento da solução: meu trabalho conecta os dois.',methodKicker:'Do campo à forma',methodTitle:'Primeiro a realidade. Depois, a ferramenta.',methodLead:'A forma acompanha o problema. Pode ser uma fonte viva, um protocolo, uma base de conhecimento, um handoff ou a especificação de um assistente.',projectKicker:'Trabalho aberto',projectTitle:'Arquiteturas que você pode inspecionar.',projectLead:'Dois projetos públicos mostram partes complementares do meu trabalho: governar contexto e construir sistemas a partir de um domínio real.',sourceTitle:'Contexto com estrutura, autoridade e continuidade.',sourceText:'Uma arquitetura para decidir o que governa, o que pode viajar entre sistemas e o que precisa continuar atual para pessoas e IA.',cortexTitle:'Sistemas moldados pelo campo em que vivem.',cortexText:'Sistemas de domínio que ativam o contexto necessário e mantêm o resultado sob controle local do usuário.',exploreSource:'Explorar projeto ↗',exploreCortex:'Explorar repositório ↗',evidence:'Os repositórios demonstram arquitetura, documentação e sistemas inspecionáveis. Adoção externa e impacto medido exigem evidências próprias.',applicationKicker:'Onde isso encontra o mundo',applicationTitle:'O domínio muda. A necessidade de contexto permanece.',applicationLead:'Onde há pessoas, conhecimento disperso e decisões com consequência, há trabalho antes e depois da automação.',audience:'Em <strong>empresas, serviços públicos e organizações do terceiro setor.</strong>',aboutKicker:'A leitura que eu trago',aboutTitle:'Entender instituições é entender quem vive dentro delas.',aboutText:'Minha base cruza Psicologia, Sociologia, linguagem e prática hospitalar. Trabalho na camada em que IA encontra pessoas, decisões, responsabilidade e rotina, em diálogo com equipes técnicas e institucionais.',cv:'Ver currículo',contactKicker:'Uma conversa pode ser o primeiro mapa',contactTitle:'O que precisa fazer sentido na sua realidade?',contactText:'Podemos começar pelo cenário: o que está disperso, onde a IA falha e o que as pessoas precisam para trabalhar melhor.',packet:'Baixar apresentação estruturada para IA ↓',footer:'Arquitetura Contextual de IA · Limeira/SP',top:'Voltar ao topo ↑',more:'Na prática',
+problems:[['◇','Contexto frágil','Faltam fatos, regras, histórico ou uma fonte clara do que vale agora.'],['⌁','Solução fora da realidade','A ferramenta não acompanha o fluxo, as exceções ou a linguagem de quem vai usá-la.'],['◎','IA sem critério','Não há limites, responsáveis ou uma definição compartilhada de resposta útil.']],
+steps:[['Entender o campo','Apurar fontes, pessoas, fluxos, contradições e conhecimento tácito.','Mapear autoridade, responsabilidades, exceções e limites antes de escolher uma solução.'],['Estruturar o contexto','Dar ao conhecimento a menor forma útil, legível e governável.','Definir fontes, critérios, papéis, memória e passagens de responsabilidade em artefatos proporcionais.'],['Validar e manter','Testar o uso real e acompanhar o que muda.','Revisar respostas, ouvir as pessoas, corrigir falhas e atualizar a base quando a realidade muda.']],
+applications:[['↗','Atendimento e jornadas','Fontes, critérios e encaminhamentos para preservar continuidade.'],['✳','Saúde e cuidado','Fluxos e limites de informação em contextos sensíveis.'],['⌘','Gestão e processos','Papéis, exceções e passagens de responsabilidade visíveis.'],['◎','Transparência e auditoria','Respostas ligadas às fontes e aos pontos de revisão.'],['⌁','Pessoas e aprendizagem','Adoção de IA compreensível, treinável e revisável.'],['◇','Conhecimento e dados','Autoridade e atualidade para o conhecimento disperso.']],
+credentials:[['Psicologia Hospitalar','Crise, informação sensível e decisões com consequência humana.'],['Psicologia Organizacional','Papéis, cultura, comunicação, autonomia e mudança.'],['Psicopedagogia Institucional','Aprendizagem conectada à rotina e às condições reais de uso.'],['Sociologia e investigação contextual','Instituições, relações, fontes e conhecimento tácito.']]
+},
+en:{
+navProblem:'Context',navMethod:'Method',navProjects:'Projects',navAbout:'About',navContact:'Contact',eyebrow:'AI context architecture',title:'Between reality<br>and an answer,<br>there is <em>context.</em>',intro:'I build that bridge: organizing sources, criteria, and institutional knowledge so AI has solid ground and makes sense in real work.',seeWork:'Explore my work',talk:'Let’s talk',heroNote:'Lua Helena Moon · Psychology, Sociology, and hospital practice in complex systems.',sources:'Sources',criteria:'Criteria',people:'People',availability:'<strong>Brazil · remote work</strong> · human and institutional contexts',problemKicker:'The starting point',problemTitle:'A convincing answer can still be wrong.',problemLead:'Scattered sources, implicit rules, and invisible workflows do not disappear when AI enters daily work. They become part of its answers.',bridge:'Reliable answers and solutions that work: my practice connects both.',methodKicker:'From field to form',methodTitle:'Reality first. The tool comes next.',methodLead:'The form follows the problem: a living source, a protocol, a knowledge base, a handoff, or an assistant specification.',projectKicker:'Open work',projectTitle:'Architectures you can inspect.',projectLead:'Two public projects show complementary parts of my work: governing context and building systems around a real domain.',sourceTitle:'Context with structure, authority, and continuity.',sourceText:'An architecture for deciding what governs, what can travel between systems, and what must stay current for people and AI.',cortexTitle:'Systems shaped by the field they inhabit.',cortexText:'Domain systems that activate the context they need and keep the result under the user’s local control.',exploreSource:'Explore project ↗',exploreCortex:'Explore repository ↗',evidence:'These repositories demonstrate inspectable architecture, documentation, and systems. External adoption and measured impact require their own evidence.',applicationKicker:'Where this meets the world',applicationTitle:'Domains change. The need for context remains.',applicationLead:'Where people, scattered knowledge, and consequential decisions meet, there is work before and after automation.',audience:'Across <strong>companies, public services, and nonprofit organizations.</strong>',aboutKicker:'The perspective I bring',aboutTitle:'Understanding institutions means understanding the people inside them.',aboutText:'My foundation combines Psychology, Sociology, language, and hospital practice. I work where AI meets people, decisions, accountability, and daily operations, alongside technical and institutional teams.',cv:'View résumé',contactKicker:'A conversation can be the first map',contactTitle:'What needs to make sense in your reality?',contactText:'We can start with the situation: what is scattered, where AI fails, and what people need to work better.',packet:'Download a structured introduction for AI ↓',footer:'AI Context Architecture · Limeira, Brazil',top:'Back to top ↑',more:'In practice',
+problems:[['◇','Fragile context','Facts, rules, history, or a clear source of what is current are missing.'],['⌁','Disconnected solutions','The tool does not fit workflows, exceptions, or the language of its users.'],['◎','AI without criteria','Boundaries, owners, and a shared definition of useful answers are missing.']],
+steps:[['Understand the field','Investigate sources, people, workflows, contradictions, and tacit knowledge.','Map authority, responsibilities, exceptions, and boundaries before choosing a solution.'],['Structure context','Give knowledge the smallest useful, legible, governable form.','Define sources, criteria, roles, memory, and responsibility transitions through proportionate artifacts.'],['Validate and maintain','Test real use and follow what changes.','Review answers, listen to people, correct failures, and update the foundation as reality changes.']],
+applications:[['↗','Service and journeys','Sources, criteria, and routing that preserve continuity.'],['✳','Healthcare and care','Workflows and information boundaries in sensitive settings.'],['⌘','Management and processes','Visible roles, exceptions, and responsibility transitions.'],['◎','Transparency and auditing','Answers connected to sources and review points.'],['⌁','People and learning','AI adoption people can understand, learn, and review.'],['◇','Knowledge and data','Authority and freshness for scattered knowledge.']],
+credentials:[['Hospital Psychology','Crises, sensitive information, and decisions with human consequences.'],['Organizational Psychology','Roles, culture, communication, autonomy, and change.'],['Institutional Psychopedagogy','Learning connected to daily work and actual conditions of use.'],['Sociology and contextual investigation','Institutions, relationships, sources, and tacit knowledge.']]
+}};
+let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'pt';
+function render(){
+const c=copy[lang];document.documentElement.lang=lang==='en'?'en':'pt-BR';document.title=lang==='en'?'Lua Helena · AI Context Architecture':'Lua Helena · Arquitetura Contextual de IA';
+document.querySelectorAll('[data-t]').forEach(e=>e.textContent=c[e.dataset.t]);document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=c[e.dataset.h]);
+document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+document.getElementById('problems').innerHTML=c.problems.map(x=>'<article class="problem"><div class="glyph" aria-hidden="true">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></article>').join('');
+document.getElementById('steps').innerHTML=c.steps.map((x,i)=>'<article class="method-step"><div class="step-top"><span>0'+(i+1)+'</span><span aria-hidden="true">↗</span></div><h3>'+x[0]+'</h3><p>'+x[1]+'</p><details><summary>'+c.more+'</summary><p>'+x[2]+'</p></details></article>').join('');
+document.getElementById('applications').innerHTML=c.applications.map(x=>'<article class="application"><span class="symbol" aria-hidden="true">'+x[0]+'</span><div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div></article>').join('');
+document.getElementById('credentials').innerHTML=c.credentials.map(x=>'<div class="credential"><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('');
+document.getElementById('cv').href='/ia/curriculo?lang='+lang;document.querySelector('meta[name="description"]').content=c.intro;
+}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;const u=new URL(location.href);u.searchParams.set('lang',lang);history.replaceState(null,'',u);render()}));
+window.addEventListener('popstate',()=>{lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'pt';render()});
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('discord').addEventListener('click',async function(){try{await navigator.clipboard.writeText('moon_aurea');this.textContent=lang==='en'?'Copied: moon_aurea':'Copiado: moon_aurea';setTimeout(()=>this.textContent='Discord · moon_aurea',2500)}catch{this.textContent='moon_aurea'}});
+document.getElementById('packet').addEventListener('click',()=>{const c=copy[lang];const lines=['# Lua Helena Moon Martins Cardoso',c.eyebrow,'',c.intro,'',c.aboutText,'',...c.steps.map(x=>'## '+x[0]+'\n'+x[1]+' '+x[2]),'','## Moon Source',c.sourceText,'https://github.com/luahelenammc/Moon-Source','','## Moon Cortex',c.cortexText,'https://github.com/luahelenammc/Moon-Cortex','',c.evidence,'','Email: luahelenammc@gmail.com','WhatsApp: +55 41 99222-8411','Discord: moon_aurea','https://www.linkedin.com/in/luahelena/'];const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Lua_Helena_Context_Architecture_'+lang+'.md';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+render();
 </script>
-
-{%- endcapture -%}
-{%- capture beta_composition -%}
-<script>
-(() => {
-  function compose() {
-    const main=document.querySelector('main');
-    const problem=document.getElementById('entrada');
-    const method=document.getElementById('metodo-v10');
-    const proof=document.getElementById('prova-publica');
-    const applications=document.getElementById('campos');
-    if(!main||!problem||!method||!proof||!applications)return;
-    problem.after(method); method.after(proof); proof.after(applications);
-    const nav=document.querySelector('.nav-links');
-    if(nav) ['entrada','metodo-v10','prova-publica','campos','lastro'].forEach(id=>{
-      const a=nav.querySelector('a[href="#'+id+'"]');if(a)nav.append(a);
-    });
-  }
-  document.addEventListener('DOMContentLoaded',()=>{compose();setTimeout(compose,800);setTimeout(compose,1500);},{once:true});
-})();
-</script>
-{%- endcapture -%}
-{%- assign body_assets = body_assets | append: beta_composition -%}
-{%- assign page_html = page_html | replace_first: '<body>', '<body class="design-beta">' -%}
-{%- assign head_injection = head_assets | append: '</head>' -%}
-{%- assign body_injection = body_assets | append: '</body>' -%}
-{%- assign page_html = page_html | replace_first: '</head>', head_injection -%}
-{%- assign page_html = page_html | replace_first: '</body>', body_injection -%}
-{{- page_html -}}
+</body></html>
