@@ -1,0 +1,31 @@
+name: Governed Knowledge Demo
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "ia/demos/governed-knowledge/**"
+      - ".github/workflows/governed-knowledge-demo.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "ia/demos/governed-knowledge/**"
+      - ".github/workflows/governed-knowledge-demo.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  fixtures:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run governed routing fixtures
+        run: node --test ia/demos/governed-knowledge/tests.mjs

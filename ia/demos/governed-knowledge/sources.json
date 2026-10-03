@@ -1,0 +1,182 @@
+{
+  "asOf": "2026-10-03",
+  "notice": "Fictional training data. No employer, employee, patient, or client source is represented.",
+  "sources": [
+    {
+      "id": "NORTHSTAR-TRAVEL-03",
+      "authority": {
+        "level": 5,
+        "label_pt": "Política aprovada",
+        "label_en": "Approved policy"
+      },
+      "version": "3.0",
+      "effectiveDate": "2026-08-01",
+      "lastReviewedAt": "2026-09-20",
+      "staleAfterDays": 90,
+      "status": "active",
+      "updatePath": "Fictional source register / operations / travel-policy",
+      "supersedes": [
+        "NORTHSTAR-TRAVEL-02"
+      ],
+      "topic": "travel",
+      "keywords": [
+        "hospedagem",
+        "hotel",
+        "viagem",
+        "travel",
+        "lodging",
+        "hotel",
+        "reimbursement",
+        "reembolso"
+      ],
+      "answer_pt": "A política vigente limita o reembolso de hospedagem a US$ 180 por noite, antes de impostos. Despesas fora da regra precisam de aprovação prévia da Operações.",
+      "answer_en": "The current policy caps lodging reimbursement at US$180 per night before taxes. Exceptions require prior Operations approval.",
+      "escalationRequired": false,
+      "title_pt": "Política de viagens e hospedagem",
+      "title_en": "Travel and lodging policy",
+      "owner_pt": "Escritório Fictício de Políticas Operacionais",
+      "owner_en": "Fictional Operations Policy Office",
+      "updatePath_pt": "Registro sintético / operações / política-de-viagens",
+      "updatePath_en": "Synthetic register / operations / travel-policy"
+    },
+    {
+      "id": "NORTHSTAR-TRAVEL-FAQ-01",
+      "authority": {
+        "level": 2,
+        "label_pt": "FAQ de suporte",
+        "label_en": "Support FAQ"
+      },
+      "version": "1.0",
+      "effectiveDate": "2026-08-15",
+      "lastReviewedAt": "2026-09-15",
+      "staleAfterDays": 120,
+      "status": "active",
+      "updatePath": "Fictional source register / support / travel-faq",
+      "supersedes": [],
+      "topic": "travel",
+      "keywords": [
+        "hospedagem",
+        "hotel",
+        "viagem",
+        "travel",
+        "lodging",
+        "hotel",
+        "reimbursement",
+        "reembolso"
+      ],
+      "answer_pt": "A FAQ informa um limite de US$ 200 por noite.",
+      "answer_en": "The FAQ lists a US$200 per-night limit.",
+      "escalationRequired": false,
+      "title_pt": "Perguntas frequentes sobre viagens",
+      "title_en": "Travel FAQ",
+      "owner_pt": "Central Fictícia de Suporte a Viagens",
+      "owner_en": "Fictional Travel Support Desk",
+      "updatePath_pt": "Registro sintético / suporte / faq-de-viagens",
+      "updatePath_en": "Synthetic register / support / travel-faq"
+    },
+    {
+      "id": "NORTHSTAR-TRAVEL-02",
+      "authority": {
+        "level": 5,
+        "label_pt": "Política aprovada",
+        "label_en": "Approved policy"
+      },
+      "version": "2.0",
+      "effectiveDate": "2025-03-01",
+      "lastReviewedAt": "2025-03-01",
+      "staleAfterDays": 90,
+      "status": "superseded",
+      "updatePath": "Fictional source register / operations / travel-policy/archive",
+      "supersedes": [],
+      "topic": "travel",
+      "keywords": [
+        "hospedagem",
+        "hotel",
+        "viagem",
+        "travel",
+        "lodging",
+        "hotel",
+        "reimbursement",
+        "reembolso"
+      ],
+      "answer_pt": "A versão antiga limitava o reembolso a US$ 150 por noite.",
+      "answer_en": "The older version capped reimbursement at US$150 per night.",
+      "escalationRequired": false,
+      "title_pt": "Política anterior de viagens e hospedagem",
+      "title_en": "Previous travel and lodging policy",
+      "owner_pt": "Escritório Fictício de Políticas Operacionais",
+      "owner_en": "Fictional Operations Policy Office",
+      "updatePath_pt": "Registro sintético / operações / arquivo-de-viagens",
+      "updatePath_en": "Synthetic register / operations / travel-policy-archive"
+    },
+    {
+      "id": "NORTHSTAR-PRIVACY-01",
+      "authority": {
+        "level": 5,
+        "label_pt": "Política aprovada",
+        "label_en": "Approved policy"
+      },
+      "version": "1.0",
+      "effectiveDate": "2024-01-01",
+      "lastReviewedAt": "2024-01-01",
+      "staleAfterDays": 365,
+      "status": "active",
+      "updatePath": "Fictional source register / privacy / information-handling",
+      "supersedes": [],
+      "topic": "privacy",
+      "keywords": [
+        "privacidade",
+        "privacy",
+        "dados pessoais",
+        "personal data",
+        "informação",
+        "information"
+      ],
+      "answer_pt": "A política antiga exige acesso mínimo necessário e revisão pela equipe de Privacidade para usos secundários. O conteúdo está vencido para revisão.",
+      "answer_en": "The older policy requires minimum necessary access and Privacy review for secondary use. This content is overdue for review.",
+      "escalationRequired": false,
+      "title_pt": "Política de tratamento de informações",
+      "title_en": "Information handling policy",
+      "owner_pt": "Escritório Fictício de Privacidade",
+      "owner_en": "Fictional Privacy Office",
+      "updatePath_pt": "Registro sintético / privacidade / tratamento-de-informações",
+      "updatePath_en": "Synthetic register / privacy / information-handling"
+    },
+    {
+      "id": "NORTHSTAR-ACCOMMODATION-01",
+      "authority": {
+        "level": 4,
+        "label_pt": "Guia operacional aprovado",
+        "label_en": "Approved operating guide"
+      },
+      "version": "1.2",
+      "effectiveDate": "2026-07-01",
+      "lastReviewedAt": "2026-09-10",
+      "staleAfterDays": 180,
+      "status": "active",
+      "updatePath": "Fictional source register / people / accommodation-routing",
+      "supersedes": [],
+      "topic": "accommodation",
+      "keywords": [
+        "adaptação",
+        "accommodation",
+        "workplace",
+        "ajuste",
+        "accessibility",
+        "acessibilidade",
+        "request",
+        "pedido"
+      ],
+      "answer_pt": "Encaminhe o pedido à equipe fictícia de People Operations para avaliação individual. Esta fonte descreve o caminho de revisão; ela não decide elegibilidade nem aprova o pedido.",
+      "answer_en": "Route the request to fictional People Operations for individual review. This source describes the review path; it does not determine eligibility or approve the request.",
+      "escalationRequired": true,
+      "escalationOwner": "Fictional People Operations",
+      "title_pt": "Guia de encaminhamento para adaptações no trabalho",
+      "title_en": "Workplace accommodation routing guide",
+      "owner_pt": "Operações de Pessoas Fictícias",
+      "owner_en": "Fictional People Operations",
+      "updatePath_pt": "Registro sintético / pessoas / encaminhamento-de-adaptações",
+      "updatePath_en": "Synthetic register / people / accommodation-routing"
+    }
+  ]
+}
