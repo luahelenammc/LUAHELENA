@@ -262,6 +262,40 @@ section.chapter{padding:84px 0}.kicker{color:var(--gold)}.kicker span{color:#776
 @media(max-width:1000px){.hero-inner{grid-template-columns:1.2fr 1fr;gap:24px}.method-grid{gap:20px}.project{padding:30px}}
 @media(max-width:760px){.hero-inner{grid-template-columns:1fr;padding:40px 0 28px;gap:12px}.hero h1{font-size:clamp(41px,10vw,62px)}.knowledge-garden{max-width:300px;margin:10px auto 0}.garden-terrain{opacity:.4}.garden-labels{font-size:10px}.hero-bottom{padding:20px 0}.section-head{gap:22px}section.chapter{padding:58px 0}.method-grid{gap:24px}.method-step{padding:22px}.project{padding:28px}.project:after{width:100px;height:100px;bottom:-50px;opacity:.6}.problem-grid{gap:25px}.contact-section{padding-top:58px}.capability-list>.application{grid-template-columns:32px minmax(0,1fr);gap:14px}.capability-order{width:32px;height:32px;font-size:18px}.scroll-reveal{transform:translateY(12px)}.touch-active{box-shadow:none!important;border-color:#7438a1!important}.touch-active .glyph{transform:translateY(-2px)!important}}
 @media(prefers-reduced-motion:reduce){.garden-route{stroke-dashoffset:0;animation:none}.scroll-reveal{opacity:1;transform:none}.button:hover,.project:hover,.method-step:hover,.problem:hover{transform:none}}
+/* Beta refinement · one pigment family, etched routes and quiet tactile feedback. */
+:root{--leaf:#e7f8d5;--lilac:#eee0f8;--apricot:#ffe3d2;--sea:#d7f7e6;--sheet:#fffcf5;--underprint:#e2d4e8}
+.hero{background:var(--bg)}.project{background:var(--leaf);box-shadow:5px 5px 0 #b9cba9}.project.cortex{background:var(--lilac);box-shadow:5px 5px 0 #cdb8da}
+.project:after{box-shadow:0 0 0 9px var(--leaf),0 0 0 10px #35243b25,0 0 0 19px var(--leaf),0 0 0 20px #35243b25}
+.project.cortex:after{box-shadow:0 0 0 9px var(--lilac),0 0 0 10px #35243b25,0 0 0 19px var(--lilac),0 0 0 20px #35243b25}
+.method-section{background:#eee3f8}.method-step{background:#fff7e9a6}.audiences{background:#fff0e6}.foundation{background:#f1eee4}
+.problem,.problem:nth-child(2),.problem:nth-child(3),.audience-card,.application,.application:first-child,.domain-grid .application{background:var(--sheet)}
+.glyph{background:var(--leaf)}.problem:nth-child(2) .glyph,.capability-order{background:var(--lilac)}.problem:nth-child(3) .glyph{background:var(--sea)}
+.audience-icon{background:var(--apricot)}.audience-card:nth-child(2) .audience-icon,.domain-icon{background:var(--sea)}.audience-card:nth-child(3) .audience-icon,.domain-card:nth-child(3n+2) .domain-icon{background:var(--lilac)}.domain-card:nth-child(3n) .domain-icon{background:var(--apricot)}
+.problem,.project,.method-step,.application,.audience-card{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background-color .28s ease}
+.surface-light{opacity:0;background:repeating-linear-gradient(140deg,transparent 0 8px,#7438a112 8px 9px);mask-image:radial-gradient(ellipse 260px 180px at var(--light-x) var(--light-y),#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 260px 180px at var(--light-x) var(--light-y),#000,transparent 75%);transition:opacity .3s}
+.surface-light:after{display:none}
+.problem:before{transition:width .3s ease,background-color .3s ease}.glyph{transition:transform .28s ease,background-color .28s ease;transform-origin:50% 75%}
+.method-step:after{content:'';position:absolute;top:-3px;left:0;right:0;height:3px;background:linear-gradient(90deg,#33ffa0,#9b53c4);transform:scaleX(.15);transform-origin:left;opacity:0;transition:transform .45s ease,opacity .25s}
+.step-top span:first-child{transition:transform .3s ease,background-color .3s ease,box-shadow .3s ease}
+.project:after{transition:transform .4s ease,opacity .3s ease}.project-links a{transition:color .25s,border-color .25s}.audience-icon,.domain-icon{transition:transform .28s ease,background-color .28s ease,border-color .28s ease,box-shadow .28s ease}
+.button:before{background:linear-gradient(110deg,transparent 43%,#fffaf044 50%,transparent 57%)}.button.primary:hover{background:#a5ff6f;box-shadow:5px 5px 0 var(--ink)}
+article:focus-within .surface-light{opacity:.6}.project:focus-within{border-color:#7438a1}.project:focus-within:after{transform:translate(-5px,-4px)}
+@media(hover:hover) and (pointer:fine){
+.problem:hover,.project:hover,.audience-card:hover,.application:hover,.method-step:hover{transform:translateY(-3px);border-color:#7438a1}
+.problem:hover{box-shadow:5px 6px 0 var(--underprint)}.project:hover{box-shadow:7px 8px 0 #b9cba9}.project.cortex:hover{box-shadow:7px 8px 0 #cdb8da}
+.audience-card:hover,.application:hover{box-shadow:3px 4px 0 #e2d4e880}.method-step:hover{background:#fffaf0;box-shadow:0 3px 0 #ccb5dc70}
+.problem:hover .surface-light,.project:hover .surface-light,.method-step:hover .surface-light,.application:hover .surface-light,.audience-card:hover .surface-light{opacity:.6}
+.problem:hover:before{width:96px}.problem:hover .glyph{transform:translateY(-2px) rotate(-3deg)}
+.method-step:hover:after{opacity:1;transform:scaleX(1)}.method-step:hover .step-top span:first-child{transform:translateX(3px);background:#a5ffb8;box-shadow:-3px 0 0 #35243b25}
+.project:hover:after{transform:translate(-5px,-4px)}.project-links a:hover{color:#513264;border-color:#7438a1}
+.audience-card:hover .audience-icon,.domain-card:hover .domain-icon{transform:translateY(-2px) rotate(-2deg);box-shadow:2px 3px 0 #35243b20;text-shadow:none;border-color:#7438a1}
+.domain-card:hover .domain-icon{background:var(--sea);color:#126c60}.domain-card:nth-child(3n+2):hover .domain-icon{background:var(--lilac);color:#7438a1}.domain-card:nth-child(3n):hover .domain-icon{background:var(--apricot);color:#743d29}
+}
+@media(hover:none) and (pointer:coarse){
+.touch-active{transform:translateY(-2px)!important;box-shadow:3px 4px 0 #e2d4e880!important}.touch-active .surface-light{opacity:.6}.touch-active.problem:before{width:96px}.touch-active.method-step:after{opacity:1;transform:scaleX(1)}.touch-active .step-top span:first-child{background:#a5ffb8;transform:translateX(3px)}.touch-active.project:after{transform:translate(-5px,-4px)}
+.touch-active .audience-icon,.touch-active .domain-icon{transform:translateY(-2px) rotate(-2deg);box-shadow:2px 3px 0 #35243b20;text-shadow:none}.touch-active .domain-icon{background:var(--sea);color:#126c60}.domain-card:nth-child(3n+2).touch-active .domain-icon{background:var(--lilac);color:#7438a1}.domain-card:nth-child(3n).touch-active .domain-icon{background:var(--apricot);color:#743d29}
+}
+@media(prefers-reduced-motion:reduce){.surface-light{display:none}.problem:hover,.project:hover,.audience-card:hover,.application:hover,.method-step:hover,.touch-active{transform:none!important}.problem:hover .glyph,.audience-card:hover .audience-icon,.domain-card:hover .domain-icon,.touch-active .glyph,.touch-active .domain-icon,.touch-active .audience-icon,.project:hover:after,.project:focus-within:after,.touch-active.project:after,.method-step:hover .step-top span:first-child,.touch-active .step-top span:first-child{transform:none!important}.method-step:after{transition:none}.problem:before,.project:after{transition:none}}
 </style>
 </head>
 <body id="top">
@@ -363,3 +397,4 @@ document.addEventListener('pointerup',e=>{
 document.addEventListener('pointercancel',()=>{touchStart=null},{passive:true});
 </script>
 </body></html>
+
