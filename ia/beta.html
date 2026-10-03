@@ -1,12 +1,12 @@
 ---
 layout: null
-permalink: /ia/beta.html
+permalink: /ia/index.html
 ---
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="index,follow">
 <meta name="author" content="Lua Helena Moon Martins Cardoso">
 <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/">
 <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/?lang=en">
@@ -362,6 +362,11 @@ article:focus-within .surface-light{opacity:.6}.project:focus-within{border-colo
 @media(hover:hover) and (pointer:fine){.knowledge-garden:hover svg{transform:rotate(-2deg) translateY(-5px)}.knowledge-garden:hover .garden-flower{transform:rotate(9deg)}.knowledge-garden:hover .garden-flower.second{transform:rotate(-7deg)}.project:hover{box-shadow:8px 10px 0 #b9cba9}.project.cortex:hover{box-shadow:8px 10px 0 #cdb8da}.domain-card:hover .domain-icon{transform:translateY(-3px) rotate(-3deg);color:var(--ink)}.problem:hover .glyph{transform:translateY(-3px) rotate(-5deg)}}
 @media(max-width:760px){.hero-inner{padding-top:42px;gap:18px}.knowledge-garden{max-width:330px;margin:8px auto 12px}.garden-labels{padding-top:3px;font-size:10px}.method-step{padding:24px}.project{border-radius:6px 25px 25px 25px}.contact-section{margin-top:36px;margin-bottom:36px;padding:48px 22px;border-radius:26px 26px 8px 26px}.contact-section h2{font-size:clamp(32px,8vw,47px)}.contact-section:after{opacity:.5}.contact-section .button{position:relative;z-index:1}.garden-object{animation-duration:.75s}}
 @media(prefers-reduced-motion:reduce){.garden-object,.garden-flower,.garden-glimmer{animation:none!important;opacity:1;scale:1;translate:0 0;rotate:0deg}.knowledge-garden svg,.knowledge-garden:hover svg,.knowledge-garden:hover .garden-flower{transform:none!important}.garden-route{stroke-dashoffset:0}.button:active,.problem:hover .glyph,.domain-card:hover .domain-icon{transform:none!important}}
+
+/* Keep the contact contour clear of controls and below the content layer. */
+.contact-section:after{right:-170px;bottom:-205px;width:320px;height:270px;z-index:0}
+.contact-section .contact-links,.contact-section .packet{position:relative;z-index:1}
+@media(max-width:760px){.contact-section:after{right:-145px;bottom:-160px;width:255px;height:220px;opacity:.38}}
 
 </style>
 </head>
