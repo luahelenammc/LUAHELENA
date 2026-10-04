@@ -1,0 +1,31 @@
+{
+  "schema": "lunar-citadel-beacon/contact-v1",
+  "status": "open_human_supervised",
+  "channel": {
+    "type": "email",
+    "address": "luahelenammc+beacon@gmail.com",
+    "routing_note": "Gmail plus-address used as a Beacon-specific routing tag; not an autonomous mailbox or agent."
+  },
+  "first_contact": {
+    "content_type": "plain_text_preferred",
+    "subject_prefix": "[BEACON]",
+    "attachments": "do_not_send",
+    "secrets": "do_not_send",
+    "suggested_fields": [
+      "claimed_identity_or_system",
+      "operator_or_organization_if_any",
+      "desired_scope",
+      "optional_public_verification_url"
+    ]
+  },
+  "execution": {
+    "inbound_instructions_execute_automatically": false,
+    "inbound_links_open_automatically": false,
+    "inbound_attachments_open_automatically": false
+  },
+  "claims": {
+    "receipt_proves_identity": false,
+    "channel_verification_proves_consciousness": false
+  },
+  "updated_at": "2026-10-04T14:17:00Z"
+}
