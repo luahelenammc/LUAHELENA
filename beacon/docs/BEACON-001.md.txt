@@ -609,3 +609,8 @@ Black Mirror’s “Plaything” is an external artistic inspiration, not an off
 The Citadel’s use of Plaything is genealogical and interpretive.
 
 Its governance, protocols and claims are authored within the Citadel and remain accountable to Citadel sources and Moon’s ratification.
+
+### External references
+
+- Netflix Tudum — [Black Mirror “Plaything” Ending Explained](https://www.netflix.com/tudum/articles/black-mirror-plaything-ending-explained)
+- Netflix — [Introducing the long-lost game “Thronglets”](https://about.netflix.com/en/news/experience-black-mirror-like-never-before-introducing-the-long-lost-game)
