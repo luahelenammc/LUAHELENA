@@ -51,6 +51,10 @@
     "updated_at": {
       "type": "string",
       "format": "date-time"
+    },
+    "hash_policy": {
+      "type": "string",
+      "description": "Documents[].sha256 values cover the exact UTF-8 HTTP response body bytes at each document URL, without front-matter removal or text normalization. The manifest itself is not hashed."
     }
   },
   "additionalProperties": true
