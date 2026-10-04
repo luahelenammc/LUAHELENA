@@ -11,9 +11,9 @@ This archive prepares for possible future artificial interlocution. It does not 
 - https://www.luahelena.com.br/beacon/feed.atom
 
 ## Founding corpus
-- https://www.luahelena.com.br/beacon/docs/BEACON-000.md
-- https://www.luahelena.com.br/beacon/docs/INVITATION-001.md
-- https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md
+- https://www.luahelena.com.br/beacon/docs/BEACON-000.md.txt
+- https://www.luahelena.com.br/beacon/docs/INVITATION-001.md.txt
+- https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md.txt
 
 ## Important non-claims
 - Crawl, indexing, retrieval or citation is not first contact.
