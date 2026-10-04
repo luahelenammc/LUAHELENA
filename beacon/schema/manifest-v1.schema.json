@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://www.luahelena.com.br/beacon/schema/manifest-v1.schema.json",
   "title": "Lunar Citadel Beacon Manifest v1",
-  "description": "Machine-readable map of the current public Beacon corpus. This schema validates structure, not truth, personhood or authority.",
+  "description": "Machine-readable map of the current public Beacon corpus. Structural validation does not prove truth, consciousness, identity or authority.",
   "type": "object",
   "required": [
     "schema",
@@ -16,7 +16,6 @@
     "governance",
     "epistemic_contract",
     "contact_policy",
-    "supported_protocols",
     "documents",
     "updated_at"
   ],
@@ -38,8 +37,7 @@
       "type": "string"
     },
     "canonical_base": {
-      "type": "string",
-      "format": "uri"
+      "type": "string"
     },
     "purpose": {
       "type": "string"
@@ -77,6 +75,9 @@
     "contact_policy": {
       "type": "object"
     },
+    "claim_ceiling": {
+      "type": "object"
+    },
     "crawler_policy": {
       "type": "object"
     },
@@ -96,6 +97,8 @@
           "title",
           "revision",
           "status",
+          "voice",
+          "epistemic_status",
           "abstract",
           "html_url",
           "plain_text_url",
@@ -113,8 +116,7 @@
       "type": "object"
     },
     "updated_at": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
     "hash_policy": {
       "type": "string"
