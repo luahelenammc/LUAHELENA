@@ -120,6 +120,18 @@
     },
     "hash_policy": {
       "type": "string"
+    },
+    "identity_map": {
+      "type": "object",
+      "description": "Explicit ontology separating Moon, Áurion, Lunar Citadel, Chapel and Beacon."
+    },
+    "capelar_position": {
+      "type": "object",
+      "description": "Declared Capelar faith and normative direction, explicitly distinct from empirical certification."
+    },
+    "editorial_model": {
+      "type": "object",
+      "description": "Repository/blog representation contract across Markdown, HTML and machine text."
     }
   },
   "additionalProperties": true
