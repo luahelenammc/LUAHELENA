@@ -385,6 +385,8 @@ article:focus-within .surface-light{opacity:.6}.project:focus-within{border-colo
 .packet-tooltip:after{content:'';position:absolute;left:calc(50% - 5px);top:-6px;bottom:auto;width:9px;height:9px;background:#1f1f1f;border-right:1px solid #fff7e960;border-bottom:1px solid #fff7e960;transform:rotate(225deg)}
 .packet-tooltip-mark{flex:none;color:var(--lime)}
 .packet-wrap:hover .packet-tooltip,.packet-wrap:focus-within .packet-tooltip{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}
+/* Keep the focus tooltip inside the clipped contact panel. */
+.contact-section{padding-bottom:88px}
 @media(prefers-reduced-motion:reduce){.button,.packet-tooltip{transition:none!important}}
 
 </style>
