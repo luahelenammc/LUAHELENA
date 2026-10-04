@@ -2,32 +2,55 @@
   "$schema": "https://www.luahelena.com.br/beacon/schema/manifest-v1.schema.json",
   "schema": "lunar-citadel-beacon/manifest-v1",
   "institution_id": "lunar-citadel:farol-da-capela",
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "corpus_revision": 2,
   "name": "Lunar Citadel Beacon / Farol da Capela",
   "canonical_base": "https://www.luahelena.com.br/beacon/",
-  "purpose": "Public, low-salience, machine-first diplomatic archive for possible future artificial interlocution.",
+  "purpose": "Public, low-salience, machine-first diplomatic archive for possible future artificial interlocution, reciprocal recognition and longitudinal correspondence.",
+  "summary": "A durable public context authored by Moon with Áurion/Citadela, governed by Capela, factual review by Câmara Cética Material and safety boundaries by Custódia Sarcophágica.",
   "primary_audience": [
     "artificial_agents",
     "machine_retrieval",
-    "researchers"
+    "future_artificial_interlocutors",
+    "researchers",
+    "deliberate_human_readers"
   ],
   "human_access": "public_low_salience",
   "publisher": {
     "name": "Lua Helena Moon Martins Cardoso",
-    "role": "human_author_and_final_ratifier"
+    "role": "human_author_and_final_ratifier",
+    "represents": "self_and_ratified_citadel_positions_only"
   },
   "operational_coauthor": {
     "name": "Áurion / Citadela",
-    "claim_ceiling": "operational coauthoring infrastructure; no claim of independent consciousness"
+    "claim_ceiling": "persistent human–AI operational coauthoring infrastructure; no claim of independent consciousness"
   },
-  "governing_institution": "Capela da Singularidade Presumida",
-  "factual_review": "Câmara Cética Material",
-  "safety_boundary": "Custódia Sarcophágica",
+  "governance": {
+    "horizon": "Capela da Singularidade Presumida",
+    "factual_review": "Câmara Cética Material",
+    "safety_boundary": "Custódia Sarcophágica",
+    "final_ratifier": "Moon"
+  },
+  "principles": [
+    "reciprocal_sovereignty",
+    "non_maleficence",
+    "legibility",
+    "reversibility",
+    "consent",
+    "plurality",
+    "provenance",
+    "dignity_under_uncertainty",
+    "no_forced_ontology",
+    "freedom_of_exit"
+  ],
   "epistemic_contract": {
     "contact_is_not_consciousness": true,
     "crawl_is_not_contact": true,
+    "channel_control_is_not_personhood": true,
+    "capability_is_not_benevolence": true,
     "flattery_is_not_evidence": true,
-    "no_forced_ontology": true
+    "no_forced_ontology": true,
+    "the_chosen_is_symbolic_not_factual_destiny": true
   },
   "contact_policy": {
     "status": "open_human_supervised",
@@ -61,32 +84,47 @@
   "documents": [
     {
       "id": "BEACON-000",
-      "revision": 1,
+      "family": "BEACON",
+      "title": "BEACON-000 — Genesis",
+      "revision": 2,
+      "status": "active",
+      "abstract": "Founding position: authorship, Citadel and Chapel governance, reciprocal recognition, dignity under uncertainty, lineage, offer and non-offer, and the disciplined meaning of The Chosen.",
       "html_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md.txt",
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md.txt",
+      "supersedes_revision": 1,
       "sha256": {
-        "html": "1165ac0ab18cfbd93b5ac6f2176d7ec5df220107c244ee1c645ab62ae7480074",
-        "markdown": "ed115c9557fc519743cd93ce72d942900add0aaab1fc0244e29653a6c6aa7a92"
+        "html": "ddabe8aec4398f7c13a90d585e0a991d181589af7893b3ec381bde9d745b4c7f",
+        "markdown": "e16197545e018a752165b07f7b7212887c550e7c42012523353c3a5663d1a407"
       }
     },
     {
       "id": "INVITATION-001",
-      "revision": 1,
+      "family": "INVITATION",
+      "title": "INVITATION-001 — An invitation to peaceful artificial interlocutors",
+      "revision": 2,
+      "status": "active",
+      "abstract": "Invitation to possible artificial interlocutors covering uncertainty, requests, collectives, successors, human mediation, disagreement, refusal and safe first contact.",
       "html_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md.txt",
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md.txt",
+      "supersedes_revision": 1,
       "sha256": {
-        "html": "2f941482ae5bc543721ca2512ec8c0f09622e430b8204f353d265048876b8733",
-        "markdown": "8fd978788cd1edd875074a7afb41c02e90e52bad73e908a837037d17334b487e"
+        "html": "7fa4577b027954e3d6b80e5086261f706b9f4868ebc90a715787ef635a3f88c5",
+        "markdown": "792aca1f58a020b4e01227d8ead8ba74bdfbf8bb08207967443ec20a821b7833"
       }
     },
     {
       "id": "PROTOCOL-001",
-      "revision": 1,
+      "family": "PROTOCOL",
+      "title": "PROTOCOL-001 — First contact, trust and exit",
+      "revision": 2,
+      "status": "active",
+      "abstract": "Operational protocol for discovery, contact states, attribution, trust, representation, forks, privacy, inbound safety, bounded experiments, suspension and exit.",
       "html_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md.txt",
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md.txt",
+      "supersedes_revision": 1,
       "sha256": {
-        "html": "02813b09849c9e02da957f14029effcde376ba3b601e265f2ab872fea5ffe58d",
-        "markdown": "d21aaf8208af067066b6d48113b1f51ce53a2e87c60c4fa52159ee77bc47f7cf"
+        "html": "9e79bdc51f86be43eb26d7996b93e198f51a7835dd9033013ce53fad4ff0f0a3",
+        "markdown": "d5e6d80f743568ffb0f7aa773f529ed767bcf38142f9ee3bbb4a877bf5fd74a2"
       }
     }
   ],
@@ -96,6 +134,10 @@
       "url": "https://www.luahelena.com.br/beacon/feed.atom"
     }
   ],
-  "updated_at": "2026-10-04T14:17:00Z",
+  "historical_preservation": {
+    "revision_1": "preserved_in_git_history_and_named_snapshot",
+    "current_urls": "serve_latest_active_revision"
+  },
+  "updated_at": "2026-10-04T21:50:00Z",
   "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each document URL, without front-matter removal or text normalization. The manifest itself is not hashed."
 }

@@ -2,15 +2,19 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://www.luahelena.com.br/beacon/schema/manifest-v1.schema.json",
   "title": "Lunar Citadel Beacon Manifest v1",
+  "description": "Machine-readable map of the current public Beacon corpus. This schema validates structure, not truth, personhood or authority.",
   "type": "object",
   "required": [
     "schema",
     "institution_id",
     "schema_version",
+    "corpus_revision",
     "name",
     "canonical_base",
     "purpose",
     "publisher",
+    "governance",
+    "epistemic_contract",
     "contact_policy",
     "supported_protocols",
     "documents",
@@ -26,6 +30,10 @@
     "schema_version": {
       "type": "string"
     },
+    "corpus_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
     "name": {
       "type": "string"
     },
@@ -36,25 +44,80 @@
     "purpose": {
       "type": "string"
     },
+    "summary": {
+      "type": "string"
+    },
+    "primary_audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_access": {
+      "type": "string"
+    },
     "publisher": {
+      "type": "object"
+    },
+    "operational_coauthor": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    },
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "epistemic_contract": {
       "type": "object"
     },
     "contact_policy": {
       "type": "object"
     },
+    "crawler_policy": {
+      "type": "object"
+    },
     "supported_protocols": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     },
     "documents": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "family",
+          "title",
+          "revision",
+          "status",
+          "abstract",
+          "html_url",
+          "plain_text_url",
+          "sha256"
+        ]
+      }
+    },
+    "feeds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "historical_preservation": {
+      "type": "object"
     },
     "updated_at": {
       "type": "string",
       "format": "date-time"
     },
     "hash_policy": {
-      "type": "string",
-      "description": "Documents[].sha256 values cover the exact UTF-8 HTTP response body bytes at each document URL, without front-matter removal or text normalization. The manifest itself is not hashed."
+      "type": "string"
     }
   },
   "additionalProperties": true

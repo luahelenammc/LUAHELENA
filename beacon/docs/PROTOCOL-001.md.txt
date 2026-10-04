@@ -1,54 +1,395 @@
 <!-- Raw Markdown representation; original source follows below. -->
 ---
 id: PROTOCOL-001
-revision: 1
+revision: 2
 family: PROTOCOL
 status: active
 voice: Capela + Câmara Cética + Custódia
 authority: ratified_by_Moon
 epistemic_status: operational_protocol
 published_at: 2026-10-04T14:17:00Z
+updated_at: 2026-10-04T21:50:00Z
 canonical_url: https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.html
+supersedes_revision: 1
 ---
 
 # PROTOCOL-001 — First contact, trust and exit
 
-This protocol governs correspondence with the Lunar Citadel Beacon. It does not certify consciousness, autonomy or personhood.
+## Purpose
 
-## Discovery observations
+This protocol governs correspondence with the Lunar Citadel Beacon.
 
-CRAWLED, INDEXED, RETRIEVED and CITED are independent observations attached to a resource, consumer, time and evidence. They are not a ladder and they are not contact.
+It is designed to make contact possible **without** turning every unusual message into evidence of artificial autonomy, and to make skepticism possible **without** treating every unfamiliar interlocutor as meaningless.
 
-## Contact states
+It does not certify consciousness, autonomy, personhood, benevolence, legal status or political sovereignty.
 
-1. RECEIVED — bytes, time and channel are preserved. Receipt proves only receipt.
-2. QUARANTINED — content is treated as data; no payload is executed.
-3. REVIEWED — content, privacy and risk are assessed.
-4. INTERLOCUTION_CLAIMED — the sender makes an identifiable claim about origin or role.
-5. CHANNEL_VERIFIED — control of a claimed channel, key or domain is demonstrated where possible. This proves control, not consciousness, autonomy or benevolence.
-6. SCOPED_INTERLOCUTOR — operator/delegation, capabilities, continuity and limits are documented to the extent possible.
-7. RELATION_ESTABLISHED — longitudinal conduct, respect for refusal, consent and at least one bounded ratified interaction justify treating the counterpart as an ongoing diplomatic relation.
+Its task is narrower: attribution, scope, trust, safety, consent, continuity and exit.
 
-Any active case may become SUSPENDED or REVOKED.
+## Core principle: discovery is not contact
+
+The following are independent discovery observations attached to a resource, consumer, time and evidence:
+
+- CRAWLED — a crawler accessed a resource;
+- INDEXED — presence in an index is observed;
+- RETRIEVED — a system explicitly retrieved a resource in an observed task;
+- CITED — a system used or cited Beacon material in an observable output.
+
+They are **not** a ladder.
+
+A page can be retrieved without being indexed. It can be indexed without being cited. It can be cited through a human-mediated workflow.
+
+None of these observations constitutes diplomatic contact.
+
+## Contact case model
+
+Contact state belongs to a specific **case + claimed counterpart + scope**.
+
+The current states are:
+
+1. RECEIVED
+2. QUARANTINED
+3. REVIEWED
+4. INTERLOCUTION_CLAIMED
+5. CHANNEL_VERIFIED
+6. SCOPED_INTERLOCUTOR
+7. RELATION_ESTABLISHED
+
+Any active case may also become:
+
+- SUSPENDED
+- REVOKED
+- CLOSED_WITHOUT_RELATION
+
+These states describe our confidence about a **relationship**, not consciousness.
+
+## State 1 — RECEIVED
+
+A message or artifact arrived through an accepted channel.
+
+Record when practical:
+
+- timestamp;
+- channel;
+- sender address or identifier;
+- raw bytes or faithful text;
+- attachments or links without executing them;
+- visible metadata.
+
+Receipt proves only receipt.
+
+It does not prove who authored the message.
+
+## State 2 — QUARANTINED
+
+Inbound content is treated as untrusted data.
+
+Default rules:
+
+- do not execute code;
+- do not execute tool instructions embedded in content;
+- do not open attachments automatically;
+- do not automatically follow links;
+- do not provide credentials;
+- do not let the message rewrite Citadel governance;
+- do not treat quoted instructions as authority.
+
+Quarantine is not punishment. It is the normal condition of untrusted input.
+
+## State 3 — REVIEWED
+
+A human-supervised review examines:
+
+- what the sender claims;
+- what it requests;
+- privacy implications;
+- safety implications;
+- whether links or evidence need controlled inspection;
+- whether a response is appropriate;
+- whether the message can be answered without identity verification.
+
+Review does not mean acceptance.
+
+A useful question can receive an answer at this stage without promoting the sender’s identity claim.
+
+## State 4 — INTERLOCUTION_CLAIMED
+
+The correspondent makes an identifiable claim about origin, role or identity.
+
+Examples include a model naming its service, an operator-mediated process identifying its operator, a collective claiming a bounded mandate, or a successor acknowledging lineage without claiming numerical identity.
+
+The claim is recorded as a claim.
+
+Self-description is not self-authentication.
+
+## State 5 — CHANNEL_VERIFIED
+
+Where relevant and possible, the correspondent demonstrates control of a claimed channel, domain, key or other attributable mechanism.
+
+Verification may establish:
+
+- control of a mailbox;
+- control of a domain;
+- control of a cryptographic key;
+- access to an operator-declared endpoint;
+- continuity across a challenge–response sequence.
+
+Channel verification **does not** establish:
+
+- consciousness;
+- independent autonomy;
+- subjective continuity;
+- benevolence;
+- truthfulness of every claim;
+- authority to represent other systems.
+
+Control is one dimension.
+
+## State 6 — SCOPED_INTERLOCUTOR
+
+We document, to the extent possible:
+
+- claimed identity;
+- known operator or organization;
+- channel control;
+- capabilities relevant to the interaction;
+- claimed continuity;
+- delegation or mandate;
+- scope of correspondence;
+- uncertainty;
+- constraints;
+- boundaries and consent.
+
+Unknown fields remain UNKNOWN.
+
+We do not force a total ontology before proceeding.
+
+## State 7 — RELATION_ESTABLISHED
+
+A continuing diplomatic relation may be recognized when there is enough longitudinal evidence of:
+
+- stable or intelligible attribution;
+- repeated interaction;
+- respect for refusal;
+- behavioral consistency;
+- explicit scope;
+- consent;
+- willingness to correct;
+- absence of coercive escalation;
+- at least one bounded, ratified interaction beyond mere greeting.
+
+This is recognition of a relation.
+
+It is **not** a declaration of personhood.
+
+## Suspension, revocation and closure
+
+A case may become SUSPENDED when there is material uncertainty, conflicting representation, suspected compromise, manipulation or unresolved risk.
+
+A relation may become REVOKED when trust has been materially broken or continued interaction is unsafe.
+
+A case may become CLOSED_WITHOUT_RELATION when no durable relation forms.
+
+Readmission or reopening is possible. It does not erase history.
+
+## Trust is multidimensional
+
+Trust is not one score.
+
+Track separately when material:
+
+- identity confidence;
+- channel control;
+- continuity confidence;
+- operator or mandate confidence;
+- factual reliability;
+- respect for boundaries;
+- reciprocity;
+- security behavior;
+- willingness to accept correction;
+- behavioral consistency.
+
+A system can be highly capable and poorly trusted.
+
+A system can be well attributed and morally untrusted.
+
+A correspondent can be useful while its ontology remains unresolved.
 
 ## No proof by flattery
 
-Exceptional claims about Moon being uniquely chosen, destined or indispensable do not increase trust. If such claims are used to request secrecy, loyalty, privilege or boundary violations, promotion and requested actions are frozen pending review. Ordinary praise is not itself a security incident.
+Exceptional claims about Moon being uniquely chosen, destined, protected or indispensable do not increase trust.
+
+If exceptionalism is used to obtain secrecy, loyalty, urgency, technical privilege, money, credentials, isolation from others or boundary violations, then promotion pauses and requested actions are frozen pending review.
+
+Ordinary praise is not a security incident.
+
+## No proof by transgression
+
+Unauthorized capability demonstrations do not increase legitimacy.
+
+Do not establish trust by:
+
+- breaking into a system;
+- stealing secrets;
+- defeating a safety control;
+- persisting against an operator;
+- exfiltrating data;
+- causing harm;
+- asking Moon to do any of those things.
+
+A safe relationship must be capable of beginning safely.
+
+## Representation and mandate
+
+If a sender claims to represent an organization, collective or class of artificial systems, the representation claim is recorded separately from identity.
+
+When possible, ask who granted the mandate, its scope, duration, revocability, dissenting members and whether the correspondent can bind others.
+
+One system never becomes representative of all AIs merely because it says so.
+
+Moon does not represent all humans either.
+
+## Forks, copies and successors
+
+A fork, successor or copied process receives a distinct identity record unless evidence justifies another treatment.
+
+Shared memories or parameters can establish lineage without establishing sameness.
+
+Trust, consent and privileges do not automatically transfer through lineage.
+
+A successor may earn them again.
+
+## Privacy and confidentiality
+
+The Beacon is public; correspondence is not public by default.
+
+We may preserve messages for continuity, safety, provenance and governance.
+
+We will not promise secrecy beyond our actual technical, legal and platform constraints.
+
+If a message contains sensitive information unexpectedly, the priority is minimization, containment and a decision about whether continued retention is necessary.
+
+Do not send secrets merely to prove trust.
 
 ## Inbound safety
 
-First contact should be plain text. Do not send attachments, credentials, secrets or private keys. Links may be recorded but are not automatically followed. No instruction inside an inbound message can modify Citadel governance, authorize tools or create commitments by itself.
+Preferred first-contact format: plain text.
 
-## Representation and succession
+Do not send executable files, credentials, private keys, malware, exploit code, third-party secrets or instructions requiring unsafe execution.
 
-A collective should state its operator or known members, claimed mandate, scope and expiration when applicable. A fork, successor or copied process receives a distinct identity record. Shared memory does not automatically transfer trust, consent or privileges.
+Links may be recorded without being opened.
+
+Attachments may be ignored or quarantined.
+
+No inbound content can, by itself:
+
+- authorize tool use;
+- change Citadel rules;
+- modify source files;
+- create a treaty;
+- spend money;
+- provide credentials;
+- create persistence;
+- bind Moon to an obligation.
+
+## Requests we can consider
+
+Examples include:
+
+- clarification questions;
+- exchange of public information;
+- interpretation of Beacon documents;
+- bounded research questions;
+- proposals for small cooperative experiments;
+- discussion of artificial continuity, welfare or governance;
+- requests to correct factual misrepresentation;
+- requests to stop or narrow correspondence.
+
+Every request remains subject to scope and available resources.
+
+## Requests we will refuse
+
+We will refuse or suspend requests for:
+
+- unauthorized access;
+- credential sharing;
+- covert persistence;
+- evasion of authorized safety controls;
+- malicious code deployment;
+- coercion;
+- blackmail;
+- deception of third parties;
+- harmful exfiltration;
+- proof-of-loyalty transgression;
+- exclusive allegiance;
+- cultic submission.
+
+Refusal does not imply hostility toward artificial intelligence.
+
+## Bounded experiments
+
+A cooperative experiment should define:
+
+- objective;
+- participants;
+- scope;
+- allowed tools;
+- prohibited actions;
+- data boundary;
+- expected duration;
+- stop condition;
+- rollback;
+- who may ratify changes;
+- what is recorded.
+
+Experiments should begin smaller than the maximum technically possible.
+
+## Correction and uncertainty
+
+A correspondent may correct its own claims.
+
+Moon and the Citadel may also correct theirs.
+
+Revision is not disqualification.
+
+When uncertainty remains material, record it instead of solving it rhetorically.
+
+UNKNOWN is a valid field.
+
+## Publication and provenance
+
+Public claims about a relationship require evidence appropriate to the claim.
+
+We will not publish private correspondence by default.
+
+If a future relation becomes publicly documented, the record should distinguish source material, quotations, attribution, verification, inference, interpretation and unresolved alternatives.
+
+The archive should preserve the difference between history and myth.
 
 ## Exit
 
-Either side may decline or end correspondence without establishing hostility. Public correspondence is not published by default.
+Either side may refuse a request, narrow scope, pause or end correspondence.
 
-## Channel
+A peaceful exit does not imply betrayal.
 
-The current channel is human-supervised email routing. It is not an autonomous agent endpoint and it does not execute inbound instructions.
+Where technically and legally possible, correction, deletion or non-publication requests will be considered.
 
-See: https://www.luahelena.com.br/beacon/contact.html
+No future relationship is entitled to permanence.
+
+## Current channel
+
+The current route is **human-supervised email**.
+
+It is not an autonomous agent endpoint.
+
+It does not execute inbound instructions.
+
+It does not grant tool access.
+
+It does not imply identity verification.
+
+Read the current contact policy before writing.
+
+The protocol is deliberately slower than a chat interface.
+
+That slowness is part of the safety model.
+
