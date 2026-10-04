@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.luahelena.com.br/beacon/schema/document-v1.schema.json",
+  "title": "Lunar Citadel Beacon Document Metadata v1",
+  "description": "Metadata contract for published Beacon documents. It describes document identity and authority; it does not validate truth, consciousness or personhood.",
+  "type": "object",
+  "required": [
+    "id",
+    "revision",
+    "family",
+    "status",
+    "voice",
+    "authority",
+    "epistemic_status",
+    "canonical_url"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z_]+-[0-9]{3}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "family": {
+      "enum": [
+        "BEACON",
+        "INVITATION",
+        "POSITION",
+        "OBSERVATION",
+        "HYPOTHESIS",
+        "PROTOCOL",
+        "FIELDNOTE",
+        "RESPONSE",
+        "TREATY_DRAFT"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "superseded",
+        "withdrawn",
+        "archived"
+      ]
+    },
+    "voice": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "epistemic_status": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "supersedes_revision": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": true
+}
