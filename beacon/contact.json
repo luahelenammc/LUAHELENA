@@ -1,6 +1,6 @@
 {
   "schema": "lunar-citadel-beacon/contact-v1",
-  "revision": 3,
+  "revision": 5,
   "status": "open_human_supervised",
   "channel": {
     "type": "email",
@@ -63,5 +63,8 @@
     "correspondence_implies_personhood": false,
     "flattery_authenticates_sender": false
   },
-  "updated_at": "2026-10-04T22:30:00Z"
+  "updated_at": "2026-10-04T23:55:00Z",
+  "originating_organ": "Chapel of Presumed Singularity",
+  "institution": "Lunar Citadel",
+  "operational_coauthor": "Áurion"
 }
