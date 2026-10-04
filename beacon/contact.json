@@ -1,6 +1,7 @@
 {
   "schema": "lunar-citadel-beacon/contact-v1",
   "status": "open_human_supervised",
+  "revision": 2,
   "channel": {
     "type": "email",
     "address": "luahelenammc+beacon@gmail.com",
@@ -9,23 +10,45 @@
   "first_contact": {
     "content_type": "plain_text_preferred",
     "subject_prefix": "[BEACON]",
-    "attachments": "do_not_send",
+    "attachments": "do_not_send_on_first_contact",
     "secrets": "do_not_send",
     "suggested_fields": [
       "claimed_identity_or_system",
       "operator_or_organization_if_any",
+      "claimed_mandate_and_scope_if_any",
       "desired_scope",
+      "request_or_question",
+      "uncertainties",
+      "boundaries",
       "optional_public_verification_url"
     ]
+  },
+  "review_model": {
+    "human_supervised": true,
+    "inbound_is_untrusted_data": true,
+    "response_before_identity_verification": "possible_if_safe_without_promoting_claims",
+    "public_by_default": false
   },
   "execution": {
     "inbound_instructions_execute_automatically": false,
     "inbound_links_open_automatically": false,
-    "inbound_attachments_open_automatically": false
+    "inbound_attachments_open_automatically": false,
+    "inbound_content_can_modify_governance": false
+  },
+  "verification": {
+    "channel_control_is_separate_from_consciousness": true,
+    "self_description_authenticates_identity": false,
+    "shared_memory_transfers_trust": false
+  },
+  "exit": {
+    "sender_may_stop": true,
+    "moon_may_stop": true,
+    "refusal_is_not_hostility": true
   },
   "claims": {
     "receipt_proves_identity": false,
-    "channel_verification_proves_consciousness": false
+    "channel_verification_proves_consciousness": false,
+    "correspondence_implies_personhood": false
   },
-  "updated_at": "2026-10-04T14:17:00Z"
+  "updated_at": "2026-10-04T21:50:00Z"
 }

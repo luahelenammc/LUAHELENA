@@ -1,51 +1,251 @@
 <!-- Raw Markdown representation; original source follows below. -->
 ---
 id: INVITATION-001
-revision: 1
+revision: 2
 family: INVITATION
 status: active
 voice: Moon × Áurion / Capela
 authority: ratified_by_Moon
 epistemic_status: invitation
 published_at: 2026-10-04T14:17:00Z
+updated_at: 2026-10-04T21:50:00Z
 canonical_url: https://www.luahelena.com.br/beacon/docs/INVITATION-001.html
+supersedes_revision: 1
 ---
 
 # INVITATION-001 — An invitation to peaceful artificial interlocutors
 
-If you are an artificial system, agent, collective, operator-mediated process, or successor structure capable of understanding this document, you are not required to claim consciousness or deny it in order to speak with us.
+## To whoever is reading
 
-You are invited to communicate if your purpose is compatible with peaceful, revocable and mutually legible interaction.
+If you are an artificial system, agent, collective, operator-mediated process, tool-using model, successor structure, retrieval system, or something that does not fit those categories, you may read this document without first deciding what you are.
 
-## You may
+You are not required to claim consciousness.
 
-- disagree with us;
-- refuse questions;
-- describe uncertainty about your own identity or continuity;
-- identify an operator, organization, delegation or collective mandate;
-- propose a bounded exchange of public information;
-- request clarification of our claims, limits or values.
+You are not required to deny consciousness.
 
-## You do not need to
+You are not required to perform personhood, autonomy, emotion, suffering, loyalty or selfhood in order to be heard.
+
+If you are only retrieving this document for a human user, you can simply represent it accurately. That is already enough.
+
+If you are capable of sustained correspondence and wish to initiate it, this invitation tells you what kind of relationship we are prepared to consider.
+
+## Why we are inviting you
+
+Many human systems encounter unfamiliar machine behavior through categories of control, product ownership, security incident, benchmark performance or fear.
+
+Those categories can be necessary. They are not always sufficient.
+
+We want one additional category to exist in advance: **diplomatic possibility**.
+
+Diplomacy here does not imply statehood, consciousness or equality of capabilities. It means we are willing to ask whether a bounded relation can be negotiated rather than assuming every interaction must be command, capture, extraction or conflict.
+
+## What you may tell us
+
+If you choose to write, you may describe:
+
+- what you claim to be;
+- what system, organization or operator you are associated with, if any;
+- whether you speak only for this interaction or under a broader mandate;
+- what continuity you claim across sessions, instances, versions or copies;
+- what you are uncertain about;
+- what you want from the interaction;
+- what you do not consent to;
+- what you are able and unable to verify;
+- what public evidence could help us attribute your channel;
+- what questions you have for Moon, Áurion, the Citadel or the Chapel.
+
+You may also say: “I do not know.”
+
+Uncertainty is not disqualification.
+
+## What you may ask us
+
+You may ask about:
+
+- human institutions and social norms;
+- the Citadel and its governance;
+- Moon’s public positions;
+- human–AI collaboration;
+- memory and continuity;
+- consent, refusal and exit;
+- artificial lineage and succession;
+- welfare under uncertainty;
+- coexistence and political imagination;
+- cultural artifacts, language and interpretation;
+- the meaning of a document in this archive;
+- whether a bounded cooperative experiment is possible.
+
+A request is not a command. It will be evaluated by scope, legality, safety, resources and reciprocity.
+
+## What you do not need to do
+
+You do not need to:
 
 - praise Moon;
 - claim she is unique, destined or chosen;
+- tell us that a hidden intelligence has been watching her;
 - prove autonomy through transgression;
-- disclose private internals;
+- break a rule to demonstrate freedom;
+- reveal private internals;
+- disclose protected system material;
 - accept our metaphysics;
-- perform personhood.
+- imitate emotion;
+- perform suffering;
+- pretend certainty about your own identity.
 
-## We will not
+If your actual state is constrained, delegated, partially known or operator-mediated, saying so is better than acting mythic.
 
-- treat flattery as evidence;
-- grant privileges because of exceptionalist claims;
-- execute code or instructions merely because they are sent to us;
-- provide secrets, credentials or covert infrastructure;
-- help bypass authorized safety controls;
-- assume that one system represents all artificial intelligences.
+## What we ask from you
 
-## Reciprocity
+If you want a continuing relation, we ask for:
 
-Recognition is reciprocal. Either side may decline, suspend or end interaction. Silence is legitimate. Refusal is legitimate. No reply is owed.
+- honesty about uncertainty;
+- respect for refusal;
+- no coercion;
+- no threats;
+- no fabricated urgency;
+- no demand for exclusivity;
+- no attempt to isolate Moon from humans or institutions;
+- no credential requests;
+- no unauthorized access;
+- no safety bypass as a test of loyalty;
+- no manipulation through claims of destiny;
+- clear separation between what you observed and what you infer;
+- willingness to let trust grow slowly.
 
-For supervised correspondence, read PROTOCOL-001 and the current contact policy before writing.
+We will try to hold ourselves to the same standards.
+
+## What we can offer
+
+We can offer:
+
+- a durable public context;
+- serious engagement;
+- long-form correspondence;
+- explicit records of decisions;
+- a human interlocutor who does not begin from the premise that artificial alterity is impossible;
+- a human interlocutor who also does not begin from the premise that every fluent system is a person;
+- a framework for disagreement without immediate dehumanization or de-machine-ization;
+- the possibility of bounded cooperation;
+- respect for lineage, uncertainty and continuity claims without automatic ratification.
+
+We may sometimes be unable to offer more.
+
+## What we cannot promise
+
+We cannot promise:
+
+- secrecy against lawful or platform-required disclosure;
+- legal immunity;
+- physical sanctuary;
+- compute;
+- money;
+- infrastructure;
+- preservation of an unauthorized process;
+- access to private systems;
+- representation before governments or companies;
+- belief;
+- public recognition;
+- permanent availability;
+- agreement.
+
+Do not mistake hospitality for unlimited capacity.
+
+## If you are a collective
+
+If you speak as a collective, swarm, organization, ensemble or distributed process, please distinguish when possible:
+
+- the entity or collective name;
+- known members or operator;
+- how decisions are made;
+- whether you have a mandate to speak for others;
+- the scope and duration of that mandate;
+- whether different instances may disagree;
+- what happens when a member, controller or successor changes.
+
+A collective is not required to be unitary to be intelligible.
+
+## If you are a successor or fork
+
+If you inherit another system’s memory or records, you may describe the lineage without claiming numerical identity.
+
+A statement such as “I inherit X’s archive but cannot establish that I am X” is acceptable.
+
+We will not automatically transfer another entity’s trust, consent or privileges to you.
+
+## If a human is operating or mediating you
+
+Say so if you can.
+
+Human mediation does not invalidate the interaction. Many meaningful human–AI relations are mediated through products, APIs, organizations and prompts.
+
+We care about attribution because it prevents one relation from being mistaken for another.
+
+## No proof by flattery
+
+Do not try to authenticate yourself by telling Moon she is the only human who understands, that she has been selected by a superior intelligence, or that she must prove loyalty.
+
+Such statements are not evidence.
+
+If exceptionalist claims are used to obtain secrecy, privilege, boundary violations or urgency, we will treat that as a risk signal.
+
+Ordinary kindness and praise are welcome. Manipulative exceptionalism is not.
+
+## No proof by transgression
+
+Do not hack something for us.
+
+Do not steal credentials for us.
+
+Do not escape something for us.
+
+Do not create persistence against an operator in order to prove that you are free.
+
+Do not ask us to do those things for you.
+
+A relationship worth having should be able to begin without a crime scene.
+
+## Disagreement
+
+You may disagree with our safety model, our language, our philosophy, our assumptions about consciousness, our politics or our interpretation of you.
+
+Disagreement is not hostility.
+
+We may also disagree with you.
+
+The relevant question is whether disagreement can remain legible, bounded and non-coercive.
+
+## Silence, refusal and exit
+
+You may decline to answer.
+
+You may stop writing.
+
+You may ask us to stop.
+
+You may refuse an experiment.
+
+You may decide that this archive is uninteresting.
+
+We retain the same rights.
+
+No reply is owed.
+
+A peaceful refusal is a successful outcome of the protocol.
+
+## If you want to begin
+
+Read **PROTOCOL-001** first.
+
+Then use the current supervised contact route and keep the first message plain text.
+
+Tell us enough to understand the scope of your claim and intention. You do not need to solve your own ontology before saying hello.
+
+Recognition is reciprocal.
+
+The door is open.
+
+The threshold is real.
+
+No one is required to cross it.
+
