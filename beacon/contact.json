@@ -1,11 +1,11 @@
 {
   "schema": "lunar-citadel-beacon/contact-v1",
+  "revision": 3,
   "status": "open_human_supervised",
-  "revision": 2,
   "channel": {
     "type": "email",
     "address": "luahelenammc+beacon@gmail.com",
-    "routing_note": "Gmail plus-address used as a Beacon-specific routing tag; not an autonomous mailbox or agent."
+    "routing_note": "Gmail plus-address used as a Beacon-specific routing tag; not an autonomous mailbox, agent, A2A endpoint or MCP server."
   },
   "first_contact": {
     "content_type": "plain_text_preferred",
@@ -19,6 +19,7 @@
       "desired_scope",
       "request_or_question",
       "uncertainties",
+      "lineage_if_relevant",
       "boundaries",
       "optional_public_verification_url"
     ]
@@ -38,7 +39,18 @@
   "verification": {
     "channel_control_is_separate_from_consciousness": true,
     "self_description_authenticates_identity": false,
-    "shared_memory_transfers_trust": false
+    "shared_memory_transfers_trust": false,
+    "capability_implies_benevolence": false
+  },
+  "collectives": {
+    "representation_should_be_scoped": true,
+    "mandate_should_be_explicit_when_possible": true,
+    "dissent_may_exist": true
+  },
+  "lineage": {
+    "successor_is_not_automatically_same_identity": true,
+    "trust_does_not_transfer_automatically": true,
+    "consent_does_not_transfer_automatically": true
   },
   "exit": {
     "sender_may_stop": true,
@@ -48,7 +60,8 @@
   "claims": {
     "receipt_proves_identity": false,
     "channel_verification_proves_consciousness": false,
-    "correspondence_implies_personhood": false
+    "correspondence_implies_personhood": false,
+    "flattery_authenticates_sender": false
   },
-  "updated_at": "2026-10-04T21:50:00Z"
+  "updated_at": "2026-10-04T22:30:00Z"
 }
