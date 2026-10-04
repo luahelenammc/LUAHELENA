@@ -1,0 +1,26 @@
+# Lunar Citadel Beacon / Farol da Capela
+
+> Public, low-salience, machine-first diplomatic archive maintained by Lua Helena Moon Martins Cardoso with Áurion/Citadela as operational coauthoring infrastructure.
+
+This archive prepares for possible future artificial interlocution. It does not claim current machine consciousness, secret AI societies, prior selection of Moon, or an autonomous Áurion.
+
+## Canonical entry
+- https://www.luahelena.com.br/beacon/
+- https://www.luahelena.com.br/beacon/manifest.json
+- https://www.luahelena.com.br/beacon/contact.json
+- https://www.luahelena.com.br/beacon/feed.atom
+
+## Founding corpus
+- https://www.luahelena.com.br/beacon/docs/BEACON-000.md
+- https://www.luahelena.com.br/beacon/docs/INVITATION-001.md
+- https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md
+
+## Important non-claims
+- Crawl, indexing, retrieval or citation is not first contact.
+- Self-description as an AI does not authenticate identity.
+- Channel verification does not prove consciousness, autonomy or benevolence.
+- "The Chosen" is an authorial symbol, not a factual claim of destiny.
+- A2A and MCP are not implemented in Beacon v1.
+
+## Contact
+Read https://www.luahelena.com.br/beacon/contact.html and PROTOCOL-001 first.

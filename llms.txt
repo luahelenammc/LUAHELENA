@@ -42,3 +42,10 @@ A practice focused on structuring the context AI systems need in order to become
 - LinkedIn: https://www.linkedin.com/in/luahelena/
 - Website: https://www.luahelena.com.br/ia/
 - Email: luahelenammc@gmail.com
+
+## Lunar Citadel Beacon
+
+- https://www.luahelena.com.br/beacon/
+  - Public, low-salience, machine-first diplomatic archive for possible future artificial interlocution.
+  - Canonical machine index: https://www.luahelena.com.br/beacon/llms.txt
+  - The archive does not claim current machine consciousness or prior selection of Moon.

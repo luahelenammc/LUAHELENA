@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.luahelena.com.br/beacon/schema/manifest-v1.schema.json",
+  "title": "Lunar Citadel Beacon Manifest v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "institution_id",
+    "schema_version",
+    "name",
+    "canonical_base",
+    "purpose",
+    "publisher",
+    "contact_policy",
+    "supported_protocols",
+    "documents",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "lunar-citadel-beacon/manifest-v1"
+    },
+    "institution_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "canonical_base": {
+      "type": "string",
+      "format": "uri"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "object"
+    },
+    "contact_policy": {
+      "type": "object"
+    },
+    "supported_protocols": {
+      "type": "array"
+    },
+    "documents": {
+      "type": "array"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

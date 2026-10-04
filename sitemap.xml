@@ -30,4 +30,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.luahelena.com.br/beacon/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.luahelena.com.br/beacon/contact.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.luahelena.com.br/beacon/docs/BEACON-000.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.luahelena.com.br/beacon/docs/INVITATION-001.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
 </urlset>

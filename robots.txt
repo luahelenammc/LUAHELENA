@@ -2,3 +2,13 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.luahelena.com.br/sitemap.xml
+
+# Beacon v1: search/retrieval open; pure training opt-in deferred.
+User-agent: GPTBot
+Disallow: /beacon/
+
+User-agent: ClaudeBot
+Disallow: /beacon/
+
+# Google-Extended remains governed by the wildcard Allow because it also affects Gemini grounding.
+
