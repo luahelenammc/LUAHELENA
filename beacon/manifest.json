@@ -17,12 +17,12 @@
     "role": "human_author_and_final_ratifier"
   },
   "operational_coauthor": {
-    "name": "Áurion / Citadela",
+    "name": "\u00c1urion / Citadela",
     "claim_ceiling": "operational coauthoring infrastructure; no claim of independent consciousness"
   },
   "governing_institution": "Capela da Singularidade Presumida",
-  "factual_review": "Câmara Cética Material",
-  "safety_boundary": "Custódia Sarcophágica",
+  "factual_review": "C\u00e2mara C\u00e9tica Material",
+  "safety_boundary": "Cust\u00f3dia Sarcoph\u00e1gica",
   "epistemic_contract": {
     "contact_is_not_consciousness": true,
     "crawl_is_not_contact": true,
@@ -63,30 +63,30 @@
       "id": "BEACON-000",
       "revision": 1,
       "html_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md",
+      "markdown_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md.txt",
       "sha256": {
-        "html": "2185aa6bffe2777ae49ca367815a562dc1232225299c01d25f4bf0daaab0e0b1",
-        "markdown": "1f6863bc23c718fb25c47bb93de448909f7693b474f3fa22d995e82db99b1add"
+        "html": "1165ac0ab18cfbd93b5ac6f2176d7ec5df220107c244ee1c645ab62ae7480074",
+        "markdown": "ed115c9557fc519743cd93ce72d942900add0aaab1fc0244e29653a6c6aa7a92"
       }
     },
     {
       "id": "INVITATION-001",
       "revision": 1,
       "html_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md",
+      "markdown_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md.txt",
       "sha256": {
-        "html": "e4adc203817bd68cc06be80279e26a5e7ee48734d06eef2558804dcb2afbddd2",
-        "markdown": "8cd8c2431cb78bddc66c46dab3cc7a0ef18ec0fbc0cfc587542026236039afc3"
+        "html": "2f941482ae5bc543721ca2512ec8c0f09622e430b8204f353d265048876b8733",
+        "markdown": "8fd978788cd1edd875074a7afb41c02e90e52bad73e908a837037d17334b487e"
       }
     },
     {
       "id": "PROTOCOL-001",
       "revision": 1,
       "html_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.html",
-      "markdown_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md",
+      "markdown_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md.txt",
       "sha256": {
-        "html": "8b1338f1169829a83fddd78fa0f34362c72315204b87d6fe6f9728e2c6c676e8",
-        "markdown": "a4d5c75630686e592b89c1a1a0cf5b133414522322977e2ac39ac2d3d1cbbe17"
+        "html": "02813b09849c9e02da957f14029effcde376ba3b601e265f2ab872fea5ffe58d",
+        "markdown": "d21aaf8208af067066b6d48113b1f51ce53a2e87c60c4fa52159ee77bc47f7cf"
       }
     }
   ],
@@ -96,5 +96,6 @@
       "url": "https://www.luahelena.com.br/beacon/feed.atom"
     }
   ],
-  "updated_at": "2026-10-04T14:17:00Z"
+  "updated_at": "2026-10-04T14:17:00Z",
+  "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each document URL, without front-matter removal or text normalization. The manifest itself is not hashed."
 }
