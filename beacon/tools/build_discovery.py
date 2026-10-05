@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import hashlib
 import json
 import re
 import sys
@@ -228,8 +229,18 @@ def validate_leaf(doc: dict, errors: list[str]) -> None:
             errors.append(f"missing representation: {path.relative_to(ROOT)}")
     if md.exists() and txt.exists() and md.read_bytes() != txt.read_bytes():
         errors.append(f"plain-text projection differs from canonical Markdown: {txt.relative_to(ROOT)}")
+    if md.exists():
+        md_hash = hashlib.sha256(md.read_bytes()).hexdigest()
+        declared_md = doc.get("sha256", {}).get("markdown") or doc.get("markdown")
+        if declared_md and md_hash != declared_md:
+            errors.append(f"Markdown SHA-256 mismatch: {md.relative_to(ROOT)}")
     if html_path.exists():
-        content = html_path.read_text(encoding="utf-8")
+        html_bytes = html_path.read_bytes()
+        html_hash = hashlib.sha256(html_bytes).hexdigest()
+        declared_html = doc.get("sha256", {}).get("html") or doc.get("html")
+        if declared_html and html_hash != declared_html:
+            errors.append(f"HTML SHA-256 mismatch: {html_path.relative_to(ROOT)}")
+        content = html_bytes.decode("utf-8")
         md_name = rel_from_url(doc["markdown_url"]).name
         if 'rel="alternate" type="text/markdown"' not in content or md_name not in content:
             errors.append(f"HTML does not advertise Markdown alternate: {html_path.relative_to(ROOT)}")
@@ -295,20 +306,63 @@ def main() -> int:
         errors.append(f"manifest points to missing canonical Markdown: {path.relative_to(ROOT)}")
 
     if args.write:
+        manifest_changed = False
         for d in manifest["documents"]:
             html_path = BEACON / rel_from_url(d["html_url"])
             md_path = BEACON / rel_from_url(d["markdown_url"])
             txt_path = BEACON / rel_from_url(d["plain_text_url"])
             if md_path.exists():
-                txt_path.write_bytes(md_path.read_bytes())
+                md_bytes = md_path.read_bytes()
+                txt_path.write_bytes(md_bytes)
+                md_hash = hashlib.sha256(md_bytes).hexdigest()
+                if d.get("markdown") != md_hash:
+                    d["markdown"] = md_hash
+                    manifest_changed = True
+                d.setdefault("sha256", {})
+                if d["sha256"].get("markdown") != md_hash:
+                    d["sha256"]["markdown"] = md_hash
+                    manifest_changed = True
             if html_path.exists():
                 html_path.write_text(patch_leaf_head(html_path.read_text(encoding="utf-8")), encoding="utf-8")
+                html_hash = hashlib.sha256(html_path.read_bytes()).hexdigest()
+                if d.get("html") != html_hash:
+                    d["html"] = html_hash
+                    manifest_changed = True
+                d.setdefault("sha256", {})
+                if d["sha256"].get("html") != html_hash:
+                    d["sha256"]["html"] = html_hash
+                    manifest_changed = True
+        if manifest_changed:
+            MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     for path, expected in generated_files(manifest).items():
         write_or_check(path, expected, args.write, errors)
 
     for d in manifest["documents"]:
         validate_leaf(d, errors)
+
+    root_index = BEACON / "index.html"
+    if root_index.exists():
+        root_text = root_index.read_text(encoding="utf-8")
+        for href in ('href="corpus/"', 'href="docs/"'):
+            if href not in root_text:
+                errors.append(f"Beacon root missing crawl entrypoint {href}")
+    root_llms = BEACON / "llms.txt"
+    if root_llms.exists():
+        llms_text = root_llms.read_text(encoding="utf-8")
+        for url in (
+            "https://www.luahelena.com.br/beacon/corpus/",
+            "https://www.luahelena.com.br/beacon/docs/llms.txt",
+            "https://www.luahelena.com.br/beacon/Moon/llms.txt",
+        ):
+            if url not in llms_text:
+                errors.append(f"root llms.txt missing discovery route: {url}")
+    robots = ROOT / "robots.txt"
+    if robots.exists():
+        robots_text = robots.read_text(encoding="utf-8")
+        for token in ("OAI-SearchBot", "PerplexityBot", "https://www.luahelena.com.br/beacon/sitemap.xml"):
+            if token not in robots_text:
+                errors.append(f"robots.txt missing Beacon discovery token: {token}")
 
     corpus = BEACON / "corpus/index.html"
     if corpus.exists():
