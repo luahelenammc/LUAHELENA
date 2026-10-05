@@ -2,8 +2,8 @@
 from __future__ import annotations
 
 import argparse
-import html
 import hashlib
+import html
 import json
 import re
 import sys
@@ -13,9 +13,10 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[2]
 BEACON = ROOT / "beacon"
 MANIFEST_PATH = BEACON / "manifest.json"
+CATALOG_PATH = BEACON / "catalog.json"
 
 DOC_ID_RE = re.compile(r"^[A-Z_]+-[0-9]{3}$")
-CANONICAL_MD_RE = re.compile(r"^(?:docs|Moon)/[A-Z_]+-[0-9]{3}\.md$")
+CANONICAL_MD_RE = re.compile(r"^(?:docs|Moon)/[A-Z_]+-[0-9]{3}\\.md$")
 
 
 def load_manifest() -> dict:
@@ -35,7 +36,106 @@ def esc(value: str) -> str:
 
 
 def strip_id(title: str) -> str:
-    return re.sub(r"^[A-Z_]+-[0-9]{3}\s+—\s+", "", title)
+    return re.sub(r"^[A-Z_]+-[0-9]{3}\\s+—\\s+", "", title)
+
+
+def inline_md(value: str) -> str:
+    value = esc(value)
+    value = re.sub(r"\\[([^\\]]+)\\]\\((https?://[^)]+)\\)", r'<a href="\\2" rel="noopener noreferrer">\\1</a>', value)
+    value = re.sub(r"\\*\\*([^*]+)\\*\\*", r"<strong>\\1</strong>", value)
+    return value
+
+
+def markdown_body(markdown: str) -> str:
+    body = re.sub(r"\\A---\\n.*?\\n---\\n*", "", markdown, count=1, flags=re.S)
+    out: list[str] = []
+    in_list = False
+    for raw in body.splitlines():
+        line = raw.rstrip()
+        if not line:
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            continue
+        if line.startswith("### "):
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            text = line[4:]
+            slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+            out.append(f'<h3 id="{esc(slug)}">{inline_md(text)}</h3>')
+        elif line.startswith("## "):
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            text = line[3:]
+            slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+            out.append(f'<h2 id="{esc(slug)}">{inline_md(text)}</h2>')
+        elif line.startswith("# "):
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            out.append(f"<h1>{inline_md(line[2:])}</h1>")
+        elif line.startswith("- "):
+            if not in_list:
+                out.append("<ul>")
+                in_list = True
+            out.append(f"<li>{inline_md(line[2:])}</li>")
+        else:
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            out.append(f"<p>{inline_md(line)}</p>")
+    if in_list:
+        out.append("</ul>")
+    return "".join(out)
+
+
+def render_leaf_html(doc: dict, markdown: str) -> str:
+    md_name = rel_from_url(doc["markdown_url"]).name
+    txt_name = rel_from_url(doc["plain_text_url"]).name
+    is_moon = doc["family"] == "MOON"
+    collection_label = "Moon" if is_moon else "docs"
+    body = markdown_body(markdown)
+    return (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<meta name="robots" content="index,follow">'
+        '<meta name="author" content="Lua Helena Moon Martins Cardoso">'
+        f'<title>{esc(doc["title"])} · Lunar Citadel Beacon</title>'
+        f'<meta name="description" content="{esc(doc["abstract"])}">'
+        f'<link rel="canonical" href="{esc(doc["html_url"])}">'
+        f'<link rel="alternate" type="text/markdown" href="{esc(md_name)}">'
+        f'<link rel="alternate" type="text/plain" href="{esc(txt_name)}">'
+        '<link rel="describedby" href="llms.txt">'
+        '<link rel="describedby" href="../manifest.json" type="application/json">'
+        '<link rel="index" href="index.html"><link rel="up" href="../">'
+        '<link rel="stylesheet" href="../assets/beacon.css"></head><body>'
+        '<div class="site-shell"><header class="repo-header">'
+        '<a class="brand" href="../">lunar-citadel / beacon</a><nav>'
+        '<a href="index.html">collection</a><a href="../corpus/">corpus</a>'
+        '<a href="../manifest.json">manifest</a><a href="llms.txt">llms.txt</a>'
+        '</nav></header>'
+        f'<div class="breadcrumb"><a href="../">beacon</a> / <a href="index.html">{esc(collection_label)}</a> / {esc(doc["id"])}</div>'
+        '<div class="layout"><article>'
+        f'<div class="eyebrow">{esc(doc["family"])} · revision {doc["revision"]} · {esc(doc["status"])}</div>'
+        '<div class="meta-grid">'
+        f'<div><span class="meta-label">voice</span><span class="meta-value">{esc(doc.get("voice", ""))}</span></div>'
+        f'<div><span class="meta-label">epistemic status</span><span class="meta-value">{esc(doc["epistemic_status"])}</span></div>'
+        '<div><span class="meta-label">authority</span><span class="meta-value">Moon ratification</span></div>'
+        f'</div>{body}'
+        '<div class="doc-footer">'
+        '<a href="index.html">collection index</a> · '
+        f'<a href="{esc(md_name)}">canonical Markdown</a> · '
+        f'<a href="{esc(txt_name)}">plain text</a> · '
+        '<a href="../manifest.json">manifest</a>'
+        '</div></article><aside class="sidebar"><h2>Discovery</h2><ul>'
+        '<li><a href="index.html">collection index</a></li>'
+        '<li><a href="llms.txt">collection llms.txt</a></li>'
+        '<li><a href="../corpus/">complete corpus</a></li>'
+        '<li><a href="../manifest.json">manifest</a></li>'
+        '</ul></aside></div></div></body></html>'
+    )
 
 
 def render_markdown_index(title: str, intro: str, docs: list[dict]) -> str:
@@ -191,10 +291,87 @@ def render_beacon_sitemap(manifest: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_catalog(manifest: dict) -> str:
+    families: list[str] = []
+    for d in manifest["documents"]:
+        if d["family"] not in families:
+            families.append(d["family"])
+    documents = []
+    for d in manifest["documents"]:
+        documents.append({
+            "id": d["id"],
+            "family": d["family"],
+            "title": d["title"],
+            "revision": d["revision"],
+            "status": d["status"],
+            "epistemic_status": d["epistemic_status"],
+            "abstract": d["abstract"],
+            "published_at": d.get("published_at"),
+            "updated_at": d.get("updated_at"),
+            "word_count": d.get("word_count", 0),
+            "urls": {
+                "html": d["html_url"],
+                "markdown": d["markdown_url"],
+                "plain_text": d["plain_text_url"],
+            },
+        })
+    collections = []
+    for c in manifest.get("collections", []):
+        collections.append({
+            "id": c["id"],
+            "url": c["url"],
+            "privacy": "sanitized_public_projection" if c.get("privacy") else None,
+        })
+    catalog = {
+        "schema": "lunar-citadel-beacon/catalog-v1",
+        "corpus_revision": manifest["corpus_revision"],
+        "updated_at": manifest["updated_at"],
+        "families": families,
+        "documents": documents,
+        "collections": collections,
+        "discovery": {
+            "corpus": "https://www.luahelena.com.br/beacon/corpus/",
+            "docs": "https://www.luahelena.com.br/beacon/docs/",
+            "moon": "https://www.luahelena.com.br/beacon/Moon/",
+            "llms": "https://www.luahelena.com.br/beacon/llms.txt",
+            "sitemap": "https://www.luahelena.com.br/beacon/sitemap.xml",
+        },
+    }
+    return json.dumps(catalog, indent=2, ensure_ascii=False) + "\n"
+
+
+def render_feed(manifest: dict) -> str:
+    lines = [
+        '<?xml version="1.0" encoding="utf-8"?>',
+        '<feed xmlns="http://www.w3.org/2005/Atom">',
+        '  <id>https://www.luahelena.com.br/beacon/</id>',
+        '  <title>Lunar Citadel Beacon</title>',
+        f'  <updated>{esc(manifest["updated_at"])}</updated>',
+        '  <link rel="self" href="https://www.luahelena.com.br/beacon/feed.atom"/>',
+        '  <link rel="alternate" href="https://www.luahelena.com.br/beacon/"/>',
+        '  <author><name>Lua Helena Moon Martins Cardoso</name></author>',
+    ]
+    for d in manifest["documents"]:
+        lines.append(
+            f'  <entry><id>urn:lunar-citadel:beacon:{esc(d["id"])}:r{d["revision"]}</id>'
+            f'<title>{esc(d["title"])}</title>'
+            f'<published>{esc(d.get("published_at") or d.get("updated_at") or manifest["updated_at"])}</published>'
+            f'<updated>{esc(d.get("updated_at") or manifest["updated_at"])}</updated>'
+            f'<link rel="alternate" href="{esc(d["html_url"])}"/>'
+            f'<link rel="alternate" type="text/markdown" href="{esc(d["markdown_url"])}"/>'
+            f'<link rel="alternate" type="text/plain" href="{esc(d["plain_text_url"])}"/>'
+            f'<summary>{esc(d["abstract"])}</summary></entry>'
+        )
+    lines.append("</feed>")
+    return "\n".join(lines) + "\n"
+
+
 def generated_files(manifest: dict) -> dict[Path, str]:
     docs = [d for d in manifest["documents"] if d["family"] != "MOON"]
     moon = [d for d in manifest["documents"] if d["family"] == "MOON"]
     return {
+        BEACON / "catalog.json": render_catalog(manifest),
+        BEACON / "feed.atom": render_feed(manifest),
         BEACON / "docs/index.md": render_markdown_index("Beacon documents — exhaustive index", "Canonical Markdown index for the non-Moon Beacon corpus. Every registered document is listed here with all public representations.", docs),
         BEACON / "docs/index.html": render_collection_html(manifest, "Beacon documents", "Exhaustive static crawl index for all non-Moon Beacon documents.", docs),
         BEACON / "docs/llms.txt": render_llms("Lunar Citadel Beacon / docs", "Exhaustive machine routing for the institutional Beacon document collection. Canonical editorial representation is Markdown.", docs),
@@ -255,8 +432,8 @@ def validate_leaf(doc: dict, errors: list[str]) -> None:
 
 
 def patch_leaf_head(content: str) -> str:
-    content = re.sub(r'<link rel="describedby" href="llms\.txt"(?: type="[^"]+")?>', '', content)
-    content = re.sub(r'<link rel="describedby" href="\.\./manifest\.json"(?: type="[^"]+")?>', '', content)
+    content = re.sub(r'<link rel="describedby" href="llms\\.txt"(?: type="[^"]+")?>', '', content)
+    content = re.sub(r'<link rel="describedby" href="\\.\\./manifest\\.json"(?: type="[^"]+")?>', '', content)
     content = re.sub(r'<link rel="index" href="[^"]+">', '', content)
     content = re.sub(r'<link rel="up" href="[^"]+">', '', content)
     bundle = (
@@ -313,6 +490,7 @@ def main() -> int:
             txt_path = BEACON / rel_from_url(d["plain_text_url"])
             if md_path.exists():
                 md_bytes = md_path.read_bytes()
+                txt_path.parent.mkdir(parents=True, exist_ok=True)
                 txt_path.write_bytes(md_bytes)
                 md_hash = hashlib.sha256(md_bytes).hexdigest()
                 if d.get("markdown") != md_hash:
@@ -322,13 +500,15 @@ def main() -> int:
                 if d["sha256"].get("markdown") != md_hash:
                     d["sha256"]["markdown"] = md_hash
                     manifest_changed = True
-            if html_path.exists():
-                html_path.write_text(patch_leaf_head(html_path.read_text(encoding="utf-8")), encoding="utf-8")
+                if not html_path.exists():
+                    html_path.parent.mkdir(parents=True, exist_ok=True)
+                    html_path.write_text(render_leaf_html(d, md_bytes.decode("utf-8")), encoding="utf-8")
+                else:
+                    html_path.write_text(patch_leaf_head(html_path.read_text(encoding="utf-8")), encoding="utf-8")
                 html_hash = hashlib.sha256(html_path.read_bytes()).hexdigest()
                 if d.get("html") != html_hash:
                     d["html"] = html_hash
                     manifest_changed = True
-                d.setdefault("sha256", {})
                 if d["sha256"].get("html") != html_hash:
                     d["sha256"]["html"] = html_hash
                     manifest_changed = True
