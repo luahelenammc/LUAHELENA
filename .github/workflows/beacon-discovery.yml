@@ -1,0 +1,41 @@
+name: Beacon Discovery Integrity
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "beacon/**"
+      - "robots.txt"
+      - "sitemap.xml"
+      - ".github/workflows/beacon-discovery.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "beacon/**"
+      - "robots.txt"
+      - "sitemap.xml"
+      - ".github/workflows/beacon-discovery.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discovery-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Beacon discovery graph
+        run: python3 beacon/tools/build_discovery.py --check
+      - name: Verify generated surfaces are committed
+        run: |
+          python3 beacon/tools/build_discovery.py --write
+          git diff --exit-code -- beacon
