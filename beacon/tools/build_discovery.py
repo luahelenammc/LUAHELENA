@@ -524,9 +524,23 @@ def main() -> int:
     root_index = BEACON / "index.html"
     if root_index.exists():
         root_text = root_index.read_text(encoding="utf-8")
-        for href in ('href="corpus/"', 'href="docs/"'):
-            if href not in root_text:
-                errors.append(f"Beacon root missing crawl entrypoint {href}")
+        required_root_tokens = (
+            'href="corpus/"',
+            'href="docs/"',
+            'href="Moon/"',
+            'href="llms.txt"',
+            'href="manifest.json"',
+            'href="catalog.json"',
+            'href="feed.atom"',
+            'href="sitemap.xml"',
+            'rel="alternate" type="text/markdown" href="README.md"',
+            'type="application/ld+json"',
+        )
+        for token in required_root_tokens:
+            if token not in root_text:
+                errors.append(f"Beacon root missing discovery token {token}")
+    else:
+        errors.append("Beacon root index.html is missing")
     root_llms = BEACON / "llms.txt"
     if root_llms.exists():
         llms_text = root_llms.read_text(encoding="utf-8")
