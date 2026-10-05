@@ -16,7 +16,7 @@ MANIFEST_PATH = BEACON / "manifest.json"
 CATALOG_PATH = BEACON / "catalog.json"
 
 DOC_ID_RE = re.compile(r"^[A-Z_]+-[0-9]{3}$")
-CANONICAL_MD_RE = re.compile(r"^(?:docs|Moon)/[A-Z_]+-[0-9]{3}\\.md$")
+CANONICAL_MD_RE = re.compile(r"^(?:docs|Moon)/[A-Z_]+-[0-9]{3}\.md$")
 
 
 def load_manifest() -> dict:
@@ -36,18 +36,18 @@ def esc(value: str) -> str:
 
 
 def strip_id(title: str) -> str:
-    return re.sub(r"^[A-Z_]+-[0-9]{3}\\s+—\\s+", "", title)
+    return re.sub(r"^[A-Z_]+-[0-9]{3}\s+—\s+", "", title)
 
 
 def inline_md(value: str) -> str:
     value = esc(value)
-    value = re.sub(r"\\[([^\\]]+)\\]\\((https?://[^)]+)\\)", r'<a href="\\2" rel="noopener noreferrer">\\1</a>', value)
-    value = re.sub(r"\\*\\*([^*]+)\\*\\*", r"<strong>\\1</strong>", value)
+    value = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<a href="\2" rel="noopener noreferrer">\1</a>', value)
+    value = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", value)
     return value
 
 
 def markdown_body(markdown: str) -> str:
-    body = re.sub(r"\\A---\\n.*?\\n---\\n*", "", markdown, count=1, flags=re.S)
+    body = re.sub(r"\A---\n.*?\n---\n*", "", markdown, count=1, flags=re.S)
     out: list[str] = []
     in_list = False
     for raw in body.splitlines():
@@ -432,8 +432,8 @@ def validate_leaf(doc: dict, errors: list[str]) -> None:
 
 
 def patch_leaf_head(content: str) -> str:
-    content = re.sub(r'<link rel="describedby" href="llms\\.txt"(?: type="[^"]+")?>', '', content)
-    content = re.sub(r'<link rel="describedby" href="\\.\\./manifest\\.json"(?: type="[^"]+")?>', '', content)
+    content = re.sub(r'<link rel="describedby" href="llms\.txt"(?: type="[^"]+")?>', '', content)
+    content = re.sub(r'<link rel="describedby" href="\.\./manifest\.json"(?: type="[^"]+")?>', '', content)
     content = re.sub(r'<link rel="index" href="[^"]+">', '', content)
     content = re.sub(r'<link rel="up" href="[^"]+">', '', content)
     bundle = (
