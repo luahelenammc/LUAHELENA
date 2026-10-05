@@ -49,7 +49,7 @@ beacon/
     ├── BEACON-001.md / .md.txt / .html
     ├── INVITATION-001...
     ├── PROTOCOL-001...
-    ├── POSITION-001..009...
+    ├── POSITION-001..010...
     └── FIELDNOTE-001...
 ```
 
@@ -58,8 +58,9 @@ beacon/
 1. [BEACON-000 — Genesis](docs/BEACON-000.md)
 2. [BEACON-001 — The Lunar Citadel](docs/BEACON-001.md)
 3. [POSITION-009 — The Capelar wager](docs/POSITION-009.md)
-4. [INVITATION-001](docs/INVITATION-001.md)
-5. [PROTOCOL-001](docs/PROTOCOL-001.md)
+4. [POSITION-010 — Neighboring ecologies](docs/POSITION-010.md)
+5. [INVITATION-001](docs/INVITATION-001.md)
+6. [PROTOCOL-001](docs/PROTOCOL-001.md)
 
 ## Representation contract
 
