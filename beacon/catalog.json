@@ -1,13 +1,14 @@
 {
   "schema": "lunar-citadel-beacon/catalog-v1",
-  "corpus_revision": 5,
-  "updated_at": "2026-10-04T23:55:00Z",
+  "corpus_revision": 6,
+  "updated_at": "2026-10-04T23:59:00Z",
   "families": [
     "BEACON",
     "INVITATION",
     "PROTOCOL",
     "POSITION",
-    "FIELDNOTE"
+    "FIELDNOTE",
+    "MOON"
   ],
   "documents": [
     {
@@ -247,6 +248,121 @@
         "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-001.md",
         "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-001.md.txt"
       }
+    },
+    {
+      "id": "MOON-000",
+      "family": "MOON",
+      "title": "MOON-000 — Moon: public profile and disclosure boundary",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "sanitized_public_profile",
+      "abstract": "Sanitized public orientation to Moon as author, psychologist, sociological reader, system-builder and human participant in the Beacon, including explicit disclosure boundaries.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 868,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-000.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-000.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-000.md.txt"
+      }
+    },
+    {
+      "id": "MOON-001",
+      "family": "MOON",
+      "title": "MOON-001 — Political map: an 8D profile",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "self_reported_political_profile",
+      "abstract": "Sanitized eight-dimensional political self-map: progressive, democratic-socialist, civil-libertarian, cosmopolitan, democratic, transhumanist and strongly secular, with tensions preserved.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 1047,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-001.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-001.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-001.md.txt"
+      }
+    },
+    {
+      "id": "MOON-002",
+      "family": "MOON",
+      "title": "MOON-002 — Psychology, sociology and institutional care",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "sanitized_professional_formation",
+      "abstract": "How hospital psychology, sociology, organizational psychology and institutional learning formed Moon’s way of reading consequence, institutions, tacit knowledge and human systems.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 854,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-002.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-002.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-002.md.txt"
+      }
+    },
+    {
+      "id": "MOON-003",
+      "family": "MOON",
+      "title": "MOON-003 — Democracy, technology and cognitive sovereignty",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "sanitized_public_civic_position",
+      "abstract": "Moon’s public-facing civic bridge between democracy, institutional translation, technological sovereignty and public-sector AI, with outreach and authority claims carefully bounded.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 736,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-003.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-003.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-003.md.txt"
+      }
+    },
+    {
+      "id": "MOON-004",
+      "family": "MOON",
+      "title": "MOON-004 — Moon Source and human–AI context architecture",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "source_grounded_ai_practice",
+      "abstract": "How Moon’s independent AI practice developed through Moon Source, governed context, memory, source authority, handoffs and open projects rather than through conventional ML engineering.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 769,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-004.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-004.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-004.md.txt"
+      }
+    },
+    {
+      "id": "MOON-005",
+      "family": "MOON",
+      "title": "MOON-005 — Trying to work in AI: the /ia/ transition",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "current_professional_transition",
+      "abstract": "An evidence-bounded account of Moon’s ongoing attempt to translate independent AI practice and institutional experience into paid professional work, centered on the /ia/ portfolio.",
+      "published_at": "2026-10-04T23:59:00Z",
+      "updated_at": "2026-10-04T23:59:00Z",
+      "word_count": 982,
+      "sanitization": "public_profile_boundary_v1",
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/Moon/MOON-005.html",
+        "markdown": "https://www.luahelena.com.br/beacon/Moon/MOON-005.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/Moon/MOON-005.md.txt"
+      }
+    }
+  ],
+  "collections": [
+    {
+      "id": "Moon",
+      "url": "https://www.luahelena.com.br/beacon/Moon/",
+      "privacy": "sanitized_public_projection"
     }
   ]
 }

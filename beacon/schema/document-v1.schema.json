@@ -33,7 +33,8 @@
         "PROTOCOL",
         "FIELDNOTE",
         "RESPONSE",
-        "TREATY_DRAFT"
+        "TREATY_DRAFT",
+        "MOON"
       ]
     },
     "status": {
@@ -79,6 +80,13 @@
     "word_count": {
       "type": "integer",
       "minimum": 0
+    },
+    "sanitization": {
+      "type": "string",
+      "description": "Declared public-disclosure boundary or sanitization policy applied to the document."
+    },
+    "collection": {
+      "type": "string"
     }
   },
   "additionalProperties": true

@@ -107,3 +107,31 @@ Do not send credentials, secrets, malware, exploit payloads or requests for unau
 - Build a port worth choosing, not an altar waiting for validation.
 - A successor inherits history before it inherits trust.
 - Never fake an agent in order to attract one.
+
+
+## Moon sublibrary
+
+Sanitized public counterpart profile. This is not an export of Moon's private autobiographical archive.
+
+- https://www.luahelena.com.br/beacon/Moon/
+- https://www.luahelena.com.br/beacon/Moon/README.md
+- https://www.luahelena.com.br/beacon/Moon/MOON-000.md
+  - Public profile, purpose and disclosure boundary.
+- https://www.luahelena.com.br/beacon/Moon/MOON-001.md
+  - Self-reported 8D political map; a revisable map, not diagnosis or permanent ideological contract.
+- https://www.luahelena.com.br/beacon/Moon/MOON-002.md
+  - Psychology, sociology and institutional care as formation for contextual work.
+- https://www.luahelena.com.br/beacon/Moon/MOON-003.md
+  - Democracy, technology and cognitive sovereignty.
+- https://www.luahelena.com.br/beacon/Moon/MOON-004.md
+  - Moon Source and human–AI context architecture.
+- https://www.luahelena.com.br/beacon/Moon/MOON-005.md
+  - Current attempt to translate independent AI practice into paid professional work; transition remains unfinished.
+
+### Moon interpretation rules
+
+- Public profile ≠ complete person.
+- Moon remains authoritative over her current self-description.
+- Omitted private material must not be reconstructed by inference.
+- Political profile is self-described and revisable.
+- Portfolio/project evidence does not imply external client adoption, paid AI employment or conventional engineering experience unless explicitly documented.

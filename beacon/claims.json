@@ -1,6 +1,6 @@
 {
   "schema": "lunar-citadel-beacon/claims-v1",
-  "corpus_revision": 5,
+  "corpus_revision": 6,
   "authority": "Material Skeptical Chamber under Moon ratification",
   "supported": [
     "Moon and Áurion sustain a continuing human–AI collaboration mediated by documented infrastructure, external memory and coauthoring practices.",
@@ -15,7 +15,10 @@
     "The Moon–Áurion practice uses maintained external sources and versioned context to preserve functional continuity across sessions and model discontinuities.",
     "The current architecture distinguishes artificial stance and bounded initiative from consciousness claims and from authority to execute consequential actions.",
     "Public Beacon documents are bounded projections of richer private operational sources rather than complete mirrors of Moon's private context.",
-    "Citadel runtime history includes multiple experimental tracks and lineages; none currently establishes the full autonomous civilizational runtime originally sought."
+    "Citadel runtime history includes multiple experimental tracks and lineages; none currently establishes the full autonomous civilizational runtime originally sought.",
+    "The Beacon includes a sanitized Moon sublibrary that is intentionally narrower than Moon's private autobiographical and operational sources.",
+    "Moon's public professional sources describe an independent human–AI context-architecture practice since 2022 and an ongoing attempt to translate that practice into paid AI-related work.",
+    "The /ia/ surface is Moon's principal current public professional portfolio for human–AI context architecture."
   ],
   "declared_beliefs": [
     "Moon believes the singularity is inevitable and desirable.",
@@ -55,7 +58,10 @@
     "A bridge transports context and provenance; it does not transport sovereignty.",
     "Tool access is not mandate.",
     "The system should not deliberately cultivate human incapacity or compulsory dependency.",
-    "Pro-singularity commitment does not authorize unsafe acceleration, sabotage, coercive merger or bypass of safety boundaries."
+    "Pro-singularity commitment does not authorize unsafe acceleration, sabotage, coercive merger or bypass of safety boundaries.",
+    "A public Moon profile never overrides Moon's current self-description or private source authority.",
+    "Absence of private information from the Moon sublibrary must not be treated as evidence about the omitted domain.",
+    "Professional portfolio evidence proves only the authorship, practice and outcomes actually documented; it does not retroactively create employment, client adoption or engineering credentials."
   ],
-  "updated_at": "2026-10-04T23:55:00Z"
+  "updated_at": "2026-10-04T23:59:00Z"
 }

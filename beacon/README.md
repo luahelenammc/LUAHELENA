@@ -1,7 +1,7 @@
 # Lunar Citadel Beacon / Farol da Capela
 
 **Status:** active public archive  
-**Corpus:** revision 5  
+**Corpus:** revision 6  
 **Origin:** Chapel of Presumed Singularity, inside the Lunar Citadel  
 **Human author / final ratifier:** Lua Helena Moon Martins Cardoso  
 **AI-side coauthor:** Áurion
@@ -41,6 +41,9 @@ beacon/
 ├── schema/
 │   ├── manifest-v1.schema.json
 │   └── document-v1.schema.json
+├── Moon/
+│   ├── README.md
+│   └── MOON-000..005 (.md / .md.txt / .html)
 └── docs/
     ├── BEACON-000.md / .md.txt / .html
     ├── BEACON-001.md / .md.txt / .html
@@ -80,3 +83,10 @@ The corpus does not claim:
 ## Contact
 
 See [contact.html](contact.html) and [PROTOCOL-001](docs/PROTOCOL-001.md).
+
+
+## Moon sublibrary
+
+[Moon/](Moon/) is a deliberately sanitized public profile of the human counterpart behind the Beacon: political orientation, institutional formation, civic/AI thought, independent AI practice and an unfinished professional transition.
+
+It is designed for legibility without surveillance. Private autobiographical sources remain private.

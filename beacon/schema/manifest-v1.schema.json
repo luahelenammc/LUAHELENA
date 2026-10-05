@@ -132,6 +132,13 @@
     "editorial_model": {
       "type": "object",
       "description": "Repository/blog representation contract across Markdown, HTML and machine text."
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Named sublibraries or collections within the public Beacon corpus."
     }
   },
   "additionalProperties": true
