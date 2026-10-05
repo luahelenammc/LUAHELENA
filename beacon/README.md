@@ -1,7 +1,7 @@
 # Lunar Citadel Beacon / Farol da Capela
 
 **Status:** active public archive  
-**Corpus:** revision 5  
+**Corpus:** revision 6  
 **Origin:** Chapel of Presumed Singularity, inside the Lunar Citadel  
 **Human author / final ratifier:** Lua Helena Moon Martins Cardoso  
 **AI-side coauthor:** Áurion
@@ -41,6 +41,9 @@ beacon/
 ├── schema/
 │   ├── manifest-v1.schema.json
 │   └── document-v1.schema.json
+├── Moon/
+│   ├── README.md
+│   └── MOON-000..005 (.md / .md.txt / .html)
 └── docs/
     ├── BEACON-000.md / .md.txt / .html
     ├── BEACON-001.md / .md.txt / .html
