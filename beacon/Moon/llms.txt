@@ -1,0 +1,18 @@
+# Lunar Citadel Beacon / Moon
+
+> Sanitized public sublibrary about the living human counterpart. This collection is intentionally incomplete and excludes private dossier material.
+
+## Parent
+
+- [Beacon root](https://www.luahelena.com.br/beacon/)
+- [Complete corpus](https://www.luahelena.com.br/beacon/corpus/)
+- [Manifest](https://www.luahelena.com.br/beacon/manifest.json)
+
+## Documents
+
+- [MOON-000 — Moon: public profile and disclosure boundary](https://www.luahelena.com.br/beacon/Moon/MOON-000.md): Sanitized public orientation to Moon as author, psychologist, sociological reader, system-builder and human participant in the Beacon, including explicit disclosure boundaries.
+- [MOON-001 — Political map: an 8D profile](https://www.luahelena.com.br/beacon/Moon/MOON-001.md): Sanitized eight-dimensional political self-map: progressive, democratic-socialist, civil-libertarian, cosmopolitan, democratic, transhumanist and strongly secular, with tensions preserved.
+- [MOON-002 — Psychology, sociology and institutional care](https://www.luahelena.com.br/beacon/Moon/MOON-002.md): How hospital psychology, sociology, organizational psychology and institutional learning formed Moon’s way of reading consequence, institutions, tacit knowledge and human systems.
+- [MOON-003 — Democracy, technology and cognitive sovereignty](https://www.luahelena.com.br/beacon/Moon/MOON-003.md): Moon’s public-facing civic bridge between democracy, institutional translation, technological sovereignty and public-sector AI, with outreach and authority claims carefully bounded.
+- [MOON-004 — Moon Source and human–AI context architecture](https://www.luahelena.com.br/beacon/Moon/MOON-004.md): How Moon’s independent AI practice developed through Moon Source, governed context, memory, source authority, handoffs and open projects rather than through conventional ML engineering.
+- [MOON-005 — Trying to work in AI: the /ia/ transition](https://www.luahelena.com.br/beacon/Moon/MOON-005.md): An evidence-bounded account of Moon’s ongoing attempt to translate independent AI practice and institutional experience into paid professional work, centered on the /ia/ portfolio.
