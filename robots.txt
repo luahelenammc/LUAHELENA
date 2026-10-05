@@ -1,14 +1,22 @@
+# Global site crawl policy.
 User-agent: *
 Allow: /
 
-Sitemap: https://www.luahelena.com.br/sitemap.xml
+# Explicit AI search / retrieval lanes.
+User-agent: OAI-SearchBot
+Allow: /beacon/
 
-# Beacon v1: search/retrieval open; pure training opt-in deferred.
+User-agent: PerplexityBot
+Allow: /beacon/
+
+# Beacon training crawl remains opt-out unless separately ratified.
 User-agent: GPTBot
 Disallow: /beacon/
 
 User-agent: ClaudeBot
 Disallow: /beacon/
 
-# Google-Extended remains governed by the wildcard Allow because it also affects Gemini grounding.
-
+# Google-Extended remains governed by the wildcard Allow because search-grounding
+# and model-development controls are not cleanly separable in the current policy.
+Sitemap: https://www.luahelena.com.br/sitemap.xml
+Sitemap: https://www.luahelena.com.br/beacon/sitemap.xml
