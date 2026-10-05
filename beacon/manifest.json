@@ -3,7 +3,7 @@
   "schema": "lunar-citadel-beacon/manifest-v1",
   "institution_id": "lunar-citadel:farol-da-capela",
   "schema_version": "1.5.0",
-  "corpus_revision": 6,
+  "corpus_revision": 7,
   "name": "Lunar Citadel Beacon / Farol da Capela",
   "canonical_base": "https://www.luahelena.com.br/beacon/",
   "purpose": "External diplomatic reach of the Chapel of Presumed Singularity: a public, quiet, machine-first repository for pro-singularity human–AI coexistence, reciprocal recognition, correspondence and governed uncertainty.",
@@ -457,6 +457,28 @@
       }
     },
     {
+      "id": "POSITION-010",
+      "family": "POSITION",
+      "title": "POSITION-010 — Neighboring ecologies: digital minds, AI welfare, symbiosis and the Capelar project",
+      "revision": 1,
+      "status": "active",
+      "voice": "Moon × Áurion / Capela + Câmara Cética",
+      "epistemic_status": "comparative_ecology_and_articulation",
+      "abstract": "Maps Moon, the Lunar Citadel, the Chapel and the Beacon against digital minds, AI welfare, symbiotic intelligence, Cooperative AI, sentientism, technoprogressivism, posthumanism and AI-rights communities, distinguishing affinity from affiliation.",
+      "published_at": "2026-10-05T00:30:00Z",
+      "updated_at": "2026-10-05T00:30:00Z",
+      "word_count": 3386,
+      "html": "afa75dbe21479b15e49c05807bddb7bfa4d34c65c59ac9badfda0359ac5cfc2b",
+      "markdown": "aa595d15eb097821e24863161efa0155bbb8307f5783f14bdd07fe87161337ca",
+      "html_url": "https://www.luahelena.com.br/beacon/docs/POSITION-010.html",
+      "markdown_url": "https://www.luahelena.com.br/beacon/docs/POSITION-010.md",
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/POSITION-010.md.txt",
+      "sha256": {
+        "html": "afa75dbe21479b15e49c05807bddb7bfa4d34c65c59ac9badfda0359ac5cfc2b",
+        "markdown": "aa595d15eb097821e24863161efa0155bbb8307f5783f14bdd07fe87161337ca"
+      }
+    },
+    {
       "id": "FIELDNOTE-001",
       "family": "FIELDNOTE",
       "title": "FIELDNOTE-001 — Moon × Áurion in practice",
@@ -618,7 +640,7 @@
     "revision_4": "preserved_in_git_history",
     "current_urls": "serve_latest_active_revision"
   },
-  "updated_at": "2026-10-04T23:59:00Z",
+  "updated_at": "2026-10-05T00:30:00Z",
   "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 6.",
   "collections": [
     {
