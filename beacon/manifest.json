@@ -619,7 +619,7 @@
     "current_urls": "serve_latest_active_revision"
   },
   "updated_at": "2026-10-04T23:59:00Z",
-  "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 5.",
+  "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 6.",
   "collections": [
     {
       "id": "Moon",
