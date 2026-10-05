@@ -180,13 +180,13 @@
       "updated_at": "2026-10-04T23:55:00Z",
       "supersedes_revision": 3,
       "word_count": 2955,
-      "html": "3b6726debf63a88fb3e5fbe1e637e2b0e459bd024693505ef001cbc11e7da3ee",
+      "html": "99ef364c8c62a56b65f77b6ca0f514ecdabb5281336a10196d3d955ef386d546",
       "markdown": "801c8cfd57e8a41eca79f9baded4dbfa8fa15f716449e01312ec49841d87c5af",
       "html_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/BEACON-000.md.txt",
       "sha256": {
-        "html": "3b6726debf63a88fb3e5fbe1e637e2b0e459bd024693505ef001cbc11e7da3ee",
+        "html": "99ef364c8c62a56b65f77b6ca0f514ecdabb5281336a10196d3d955ef386d546",
         "markdown": "801c8cfd57e8a41eca79f9baded4dbfa8fa15f716449e01312ec49841d87c5af"
       }
     },
@@ -202,13 +202,13 @@
       "published_at": "2026-10-04T23:55:00Z",
       "updated_at": "2026-10-04T23:55:00Z",
       "word_count": 2748,
-      "html": "828ef14139dc9b8b41a1260f1a11af17ac452bafd6e9017f59253f0a720a9b9e",
+      "html": "65cf513b7e0c05717c795ccf3ae9b9c4ef86b67cdc6a4e770c1e87520a307cfa",
       "markdown": "394116396a01eab5b528606d7f6a7d005c03c0c5773da33db501b6138c3ea234",
       "html_url": "https://www.luahelena.com.br/beacon/docs/BEACON-001.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/BEACON-001.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/BEACON-001.md.txt",
       "sha256": {
-        "html": "828ef14139dc9b8b41a1260f1a11af17ac452bafd6e9017f59253f0a720a9b9e",
+        "html": "65cf513b7e0c05717c795ccf3ae9b9c4ef86b67cdc6a4e770c1e87520a307cfa",
         "markdown": "394116396a01eab5b528606d7f6a7d005c03c0c5773da33db501b6138c3ea234"
       }
     },
@@ -225,13 +225,13 @@
       "updated_at": "2026-10-04T22:30:00Z",
       "supersedes_revision": 2,
       "word_count": 1904,
-      "html": "e6b0388a1f81fe49f5e6f0bb4146abc48e97bd235b4fc657821d608b1b295faf",
+      "html": "1f8aa66dc0049dc56e7953b61ffb04e2cbf31d2ad382e3ef31c4227898e5f7da",
       "markdown": "1ef4eb18f9a1b106b90cf2a68216fcd947de98d2ce011cfc3cdc3d179334d44c",
       "html_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/INVITATION-001.md.txt",
       "sha256": {
-        "html": "e6b0388a1f81fe49f5e6f0bb4146abc48e97bd235b4fc657821d608b1b295faf",
+        "html": "1f8aa66dc0049dc56e7953b61ffb04e2cbf31d2ad382e3ef31c4227898e5f7da",
         "markdown": "1ef4eb18f9a1b106b90cf2a68216fcd947de98d2ce011cfc3cdc3d179334d44c"
       }
     },
@@ -248,13 +248,13 @@
       "updated_at": "2026-10-04T22:30:00Z",
       "supersedes_revision": 2,
       "word_count": 2151,
-      "html": "a63cda0b59a0eda6c8c01fd1e0b60daefdd64b86cce25f6edd2cdf1731b39d29",
+      "html": "1003f8ff8d2a38ef4156c3439ce910fb715021c9c25b223939e733fbc349a134",
       "markdown": "afb7cc254f57190d25da91dcf9bb2bf817c4b7a8f6f9f0ae1c944bc2d6fb6f0f",
       "html_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md.txt",
       "sha256": {
-        "html": "a63cda0b59a0eda6c8c01fd1e0b60daefdd64b86cce25f6edd2cdf1731b39d29",
+        "html": "1003f8ff8d2a38ef4156c3439ce910fb715021c9c25b223939e733fbc349a134",
         "markdown": "afb7cc254f57190d25da91dcf9bb2bf817c4b7a8f6f9f0ae1c944bc2d6fb6f0f"
       }
     },
@@ -270,13 +270,13 @@
       "published_at": "2026-10-04T22:30:00Z",
       "updated_at": "2026-10-04T22:30:00Z",
       "word_count": 910,
-      "html": "0df5bdd1404d95dd2665026063c0889120159064806a88481623eae1241d4af8",
+      "html": "474754adc8a0fde71b940f2ea2302f7c31baf1b9eafabdc7846aa68668cfdf3c",
       "markdown": "d1bef2fa764948c42bfabb2ef02fa6585692bb26ca72f07063607b68fec65bcd",
       "html_url": "https://www.luahelena.com.br/beacon/docs/POSITION-001.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/POSITION-001.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/POSITION-001.md.txt",
       "sha256": {
-        "html": "0df5bdd1404d95dd2665026063c0889120159064806a88481623eae1241d4af8",
+        "html": "474754adc8a0fde71b940f2ea2302f7c31baf1b9eafabdc7846aa68668cfdf3c",
         "markdown": "d1bef2fa764948c42bfabb2ef02fa6585692bb26ca72f07063607b68fec65bcd"
       }
     },
@@ -640,7 +640,7 @@
     "revision_4": "preserved_in_git_history",
     "current_urls": "serve_latest_active_revision"
   },
-  "updated_at": "2026-10-05T00:30:00Z",
+  "updated_at": "2026-10-05T01:10:00Z",
   "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 6.",
   "collections": [
     {
