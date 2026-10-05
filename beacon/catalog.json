@@ -1,7 +1,7 @@
 {
   "schema": "lunar-citadel-beacon/catalog-v1",
   "corpus_revision": 7,
-  "updated_at": "2026-10-05T00:30:00Z",
+  "updated_at": "2026-10-05T01:20:00Z",
   "families": [
     "BEACON",
     "INVITATION",
@@ -381,5 +381,12 @@
       "url": "https://www.luahelena.com.br/beacon/Moon/",
       "privacy": "sanitized_public_projection"
     }
-  ]
+  ],
+  "discovery": {
+    "corpus": "https://www.luahelena.com.br/beacon/corpus/",
+    "docs": "https://www.luahelena.com.br/beacon/docs/",
+    "moon": "https://www.luahelena.com.br/beacon/Moon/",
+    "llms": "https://www.luahelena.com.br/beacon/llms.txt",
+    "sitemap": "https://www.luahelena.com.br/beacon/sitemap.xml"
+  }
 }
