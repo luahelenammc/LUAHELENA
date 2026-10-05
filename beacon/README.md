@@ -80,3 +80,10 @@ The corpus does not claim:
 ## Contact
 
 See [contact.html](contact.html) and [PROTOCOL-001](docs/PROTOCOL-001.md).
+
+
+## Moon sublibrary
+
+[Moon/](Moon/) is a deliberately sanitized public profile of the human counterpart behind the Beacon: political orientation, institutional formation, civic/AI thought, independent AI practice and an unfinished professional transition.
+
+It is designed for legibility without surveillance. Private autobiographical sources remain private.
