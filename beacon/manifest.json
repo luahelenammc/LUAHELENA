@@ -141,8 +141,17 @@
   },
   "crawler_policy": {
     "search_and_retrieval": "allow",
+    "explicit_search_bots": [
+      "OAI-SearchBot",
+      "PerplexityBot"
+    ],
     "pure_training_crawlers": "not_opted_in_for_beacon_v1",
-    "google_extended": "allowed_due_to_search_grounding_overlap__reviewable"
+    "blocked_on_beacon": [
+      "GPTBot",
+      "ClaudeBot"
+    ],
+    "google_extended": "allowed_due_to_search_grounding_overlap__reviewable",
+    "policy_source": "https://www.luahelena.com.br/robots.txt"
   },
   "supported_protocols": [
     {
@@ -646,7 +655,7 @@
     "revision_4": "preserved_in_git_history",
     "current_urls": "serve_latest_active_revision"
   },
-  "updated_at": "2026-10-05T01:10:00Z",
+  "updated_at": "2026-10-05T01:20:00Z",
   "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 6.",
   "collections": [
     {
@@ -657,5 +666,30 @@
       "purpose": "Sanitized public profile of Moon’s political orientation, professional formation, civic AI thinking, independent AI practice and current career transition.",
       "privacy": "sanitized_public_projection_not_private_archive"
     }
-  ]
+  ],
+  "discovery_graph": {
+    "invariant": "every public manifest document is reachable from /beacon/corpus/ and from its collection index with direct static links",
+    "max_html_hops_from_beacon_root": 2,
+    "corpus_index": "https://www.luahelena.com.br/beacon/corpus/",
+    "institutional_index": "https://www.luahelena.com.br/beacon/docs/",
+    "moon_index": "https://www.luahelena.com.br/beacon/Moon/",
+    "root_llms": "https://www.luahelena.com.br/beacon/llms.txt",
+    "docs_llms": "https://www.luahelena.com.br/beacon/docs/llms.txt",
+    "moon_llms": "https://www.luahelena.com.br/beacon/Moon/llms.txt",
+    "sitemap": "https://www.luahelena.com.br/beacon/sitemap.xml"
+  },
+  "build_contract": {
+    "registry": "manifest.json",
+    "canonical_editorial_representation": "Markdown",
+    "generated_or_verified_surfaces": [
+      ".md.txt",
+      "collection indexes",
+      "corpus index",
+      "collection llms.txt",
+      "Beacon sitemap"
+    ],
+    "validator": "beacon/tools/build_discovery.py",
+    "ci": ".github/workflows/beacon-discovery.yml",
+    "orphan_policy": "fail_closed"
+  }
 }
