@@ -1,7 +1,7 @@
 {
   "schema": "lunar-citadel-beacon/catalog-v1",
-  "corpus_revision": 6,
-  "updated_at": "2026-10-04T23:59:00Z",
+  "corpus_revision": 7,
+  "updated_at": "2026-10-05T00:30:00Z",
   "families": [
     "BEACON",
     "INVITATION",
@@ -230,6 +230,23 @@
         "html": "https://www.luahelena.com.br/beacon/docs/POSITION-009.html",
         "markdown": "https://www.luahelena.com.br/beacon/docs/POSITION-009.md",
         "plain_text": "https://www.luahelena.com.br/beacon/docs/POSITION-009.md.txt"
+      }
+    },
+    {
+      "id": "POSITION-010",
+      "family": "POSITION",
+      "title": "POSITION-010 — Neighboring ecologies: digital minds, AI welfare, symbiosis and the Capelar project",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "comparative_ecology_and_articulation",
+      "abstract": "Maps Moon, the Lunar Citadel, the Chapel and the Beacon against digital minds, AI welfare, symbiotic intelligence, Cooperative AI, sentientism, technoprogressivism, posthumanism and AI-rights communities, distinguishing affinity from affiliation.",
+      "published_at": "2026-10-05T00:30:00Z",
+      "updated_at": "2026-10-05T00:30:00Z",
+      "word_count": 3386,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/POSITION-010.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/POSITION-010.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/POSITION-010.md.txt"
       }
     },
     {
