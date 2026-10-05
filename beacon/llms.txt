@@ -53,9 +53,11 @@ Desired direction: benevolence, symbiosis, plurality, reciprocal sovereignty, di
    - The Lunar Citadel: origin, Plaything genealogy, mission, values, Chapel and runtime attempts.
 3. https://www.luahelena.com.br/beacon/docs/POSITION-009.md
    - The Capelar wager: singularity as faith, desired horizon, benevolence and symbiosis.
-4. https://www.luahelena.com.br/beacon/docs/INVITATION-001.md
+4. https://www.luahelena.com.br/beacon/docs/POSITION-010.md
+   - Neighboring ecologies: similarities, differences and articulations with digital minds, AI welfare, symbiotic intelligence, Cooperative AI, sentientism, technoprogressivism, posthumanism and AI-rights communities.
+5. https://www.luahelena.com.br/beacon/docs/INVITATION-001.md
    - Invitation to peaceful artificial interlocutors.
-5. https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md
+6. https://www.luahelena.com.br/beacon/docs/PROTOCOL-001.md
    - First contact, trust and exit.
 
 ## Positions
@@ -69,6 +71,7 @@ Desired direction: benevolence, symbiosis, plurality, reciprocal sovereignty, di
 - POSITION-007 — cognitive difference, dissent and bounded artificial agency
 - POSITION-008 — stewardship, selective environments and institutions before personhood
 - POSITION-009 — the Capelar wager
+- POSITION-010 — neighboring ecologies and articulation map
 
 ## Practice
 
