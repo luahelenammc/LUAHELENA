@@ -378,7 +378,106 @@ article:focus-within .surface-light{opacity:.6}.project:focus-within{border-colo
 .contact-section .button:not(.primary){background:transparent;color:#fff7e9;border-color:#fff7e960;box-shadow:2px 3px 0 #fff7e950}
 .contact-section .button:not(.primary):hover{background:#fff7e914;border-color:var(--pink);box-shadow:3px 4px 0 #fff7e950}
 .contact-section .button:focus-visible{outline-color:var(--lime)}
-#applications>.application{background:var(--sheet);border-color:#1f1f1f40;box-shadow:none}
+/* Core capability cards: Candy Gravure paper objects, consistent with the page's tactile visual language. */
+#applications>.application{
+  --card-accent:#7438a1;
+  --card-chip:#eee0f8;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  min-height:132px;
+  padding:27px 30px;
+  gap:24px;
+  align-items:center;
+  background:
+    radial-gradient(circle at 96% 18%,color-mix(in srgb,var(--card-accent) 10%,transparent),transparent 27%),
+    linear-gradient(145deg,#fffdf7,#fff9ef);
+  border:1.5px solid #1f1f1f38;
+  border-radius:7px 24px 24px 24px;
+  box-shadow:4px 5px 0 #e2d4e8;
+}
+#applications>.application:nth-child(2){--card-accent:#ff1fff;--card-chip:#ffd9fb}
+#applications>.application:nth-child(3){--card-accent:#78c900;--card-chip:#e5f8d2}
+#applications>.application:nth-child(4){--card-accent:#e58a67;--card-chip:#ffe3d2}
+#applications>.application:before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:28px;
+  width:76px;
+  height:8px;
+  border:1px solid #1f1f1f45;
+  border-top:0;
+  border-radius:0 0 5px 5px;
+  background:var(--card-accent);
+  opacity:.9;
+}
+#applications>.application:after{
+  content:'✦';
+  position:absolute;
+  right:23px;
+  bottom:9px;
+  z-index:-1;
+  font:44px/1 var(--serif);
+  color:var(--card-accent);
+  opacity:.11;
+  transform:rotate(10deg);
+  transition:transform .35s var(--motion),opacity .3s;
+}
+#applications>.application .capability-order{
+  width:46px;
+  height:46px;
+  flex:none;
+  border:1.5px solid var(--ink);
+  border-radius:15px 15px 6px 15px;
+  background:var(--card-chip);
+  color:var(--ink);
+  box-shadow:2px 2px 0 var(--ink);
+  font-size:20px;
+  transition:transform .3s var(--motion),box-shadow .3s,background .3s;
+}
+#applications>.application .capability-copy{padding-top:0}
+#applications>.application .capability-copy strong{
+  font-size:19px;
+  letter-spacing:-.012em;
+}
+#applications>.application .capability-copy>span{
+  max-width:72ch;
+  margin-top:9px;
+  color:var(--muted);
+  line-height:1.78;
+}
+@media(hover:hover) and (pointer:fine){
+  #applications>.application:hover{
+    transform:translateY(-3px);
+    border-color:var(--card-accent);
+    box-shadow:6px 7px 0 color-mix(in srgb,var(--card-accent) 22%,#e2d4e8);
+  }
+  #applications>.application:hover .capability-order{
+    transform:translateY(-2px) rotate(-3deg);
+    box-shadow:3px 4px 0 var(--ink);
+  }
+  #applications>.application:hover:after{opacity:.2;transform:rotate(0deg) scale(1.08)}
+}
+@media(hover:none) and (pointer:coarse){
+  #applications>.application.touch-active{
+    border-color:var(--card-accent)!important;
+    box-shadow:5px 6px 0 color-mix(in srgb,var(--card-accent) 22%,#e2d4e8)!important;
+  }
+  #applications>.application.touch-active .capability-order{transform:translateY(-2px) rotate(-3deg)}
+}
+@media(max-width:760px){
+  #applications>.application{min-height:0;padding:24px 20px;gap:16px;border-radius:6px 20px 20px 20px}
+  #applications>.application:before{left:20px;width:62px;height:7px}
+  #applications>.application .capability-order{width:38px;height:38px;font-size:17px;border-radius:12px 12px 5px 12px}
+  #applications>.application .capability-copy strong{font-size:17px}
+  #applications>.application .capability-copy>span{font-size:13px}
+  #applications>.application:after{right:15px;bottom:7px;font-size:36px}
+}
+@media(prefers-reduced-motion:reduce){
+  #applications>.application:after,#applications>.application .capability-order{transition:none}
+  #applications>.application:hover .capability-order,#applications>.application.touch-active .capability-order{transform:none}
+}
 .packet-wrap{position:relative;display:inline-block;margin-top:18px;z-index:2}
 .packet{position:relative;z-index:2;margin-top:0}
 .packet-tooltip{position:absolute;z-index:5;left:50%;top:calc(100% + 10px);bottom:auto;display:flex;align-items:flex-start;gap:9px;width:min(330px,calc(100vw - 44px));padding:13px 16px;border:1px solid #fff7e960;border-radius:13px;background:#1f1f1f;color:#fff7e9;text-align:left;font-size:12px;line-height:1.55;box-shadow:3px 4px 0 #d9c5e880;opacity:0;visibility:hidden;transform:translate(-50%,-7px) scale(.98);transform-origin:top center;transition:opacity .18s,transform .2s,visibility .18s;pointer-events:none}
