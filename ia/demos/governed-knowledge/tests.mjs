@@ -34,7 +34,7 @@ test("an unsupported question does not receive an invented answer", () => {
   const result = routeQuery("Qual é a política de licença médica?", base);
   assert.equal(result.status, "unsupported");
   assert.equal(result.selected.length, 0);
-  assert.match(result.answer, /Não infira/);
+  assert.match(result.answer, /não pode inferir/);
 });
 
 test("a superseded version is excluded and the current version is cited", () => {
@@ -107,4 +107,11 @@ test("the trace exposes match, exclusion, authority selection and final decision
   for (const expected of ["matched","excluded","eligible","highest","answered"])
     assert.ok(codes.includes(expected),expected);
   assert.ok(r.trace.find((x)=>x.code==="excluded").ids.includes("NORTHSTAR-TRAVEL-02"));
+});
+
+test("the interface offers five real reproducible scenarios with a decision trace", () => {
+  assert.equal((page.match(/data-label-pt=/g)||[]).length, 5);
+  assert.match(page, /Rastro da decisão/);
+  assert.match(page, /Inspect all seven fictional sources/);
+  assert.match(page, /noindex,follow/);
 });
