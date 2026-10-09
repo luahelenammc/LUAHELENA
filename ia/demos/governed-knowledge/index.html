@@ -103,7 +103,7 @@ footer .proof-links{display:flex;gap:20px;flex-wrap:wrap}
   </main>
   <footer class="shell">
     <p data-pt="A demonstração usa conteúdo ficcional criado para explicar autoridade, atualização e limites de resposta." data-en="This demonstrator uses fictional content created to explain authority, updates, and answer boundaries.">A demonstração usa conteúdo ficcional criado para explicar autoridade, atualização e limites de resposta.</p>
-    <div class="proof-links"><a href="/ia/" data-pt="Portfólio profissional ↗" data-en="Professional portfolio ↗">Portfólio profissional ↗</a><a href="https://github.com/luahelenammc/LUAHELENA/tree/main/ia/demos/governed-knowledge/" target="_blank" rel="noopener noreferrer" data-pt="Código e testes ↗" data-en="Source and tests ↗">Código e testes ↗</a><a href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.md" target="_blank" rel="noopener noreferrer" data-pt="Do método à implementação ↗" data-en="From method to implementation ↗">Do método à implementação ↗</a></div>
+    <div class="proof-links"><a href="/ia/" data-pt="Portfólio profissional ↗" data-en="Professional portfolio ↗">Portfólio profissional ↗</a><a href="https://github.com/luahelenammc/LUAHELENA/tree/main/ia/demos/governed-knowledge/" target="_blank" rel="noopener noreferrer" data-pt="Código e testes ↗" data-en="Source and tests ↗">Código e testes ↗</a><a id="proof-guide-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md" target="_blank" rel="noopener noreferrer" data-pt="Do método à implementação ↗" data-en="From method to implementation ↗">Do método à implementação ↗</a></div>
   </footer>
   <script type="module">
     import { routeQuery } from "./engine.mjs";
@@ -125,6 +125,7 @@ footer .proof-links{display:flex;gap:20px;flex-wrap:wrap}
       document.title = copy[next].title;
       document.querySelector('meta[name="description"]').content = copy[next].description;
       document.querySelectorAll("[data-pt][data-en]").forEach((node) => { node.textContent = node.dataset[next]; });
+      document.getElementById("proof-guide-link").href = next === "en" ? "https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.md" : "https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md";
       $("#query").placeholder = $("#query").dataset[`${next}Placeholder`];
       if (activeSample) $("#query").value=activeSample.dataset[`sample${next === "en" ? "En" : "Pt"}`];
       document.querySelectorAll("[data-sample-pt]").forEach((button) => { button.textContent = button.dataset[`label${next === "en" ? "En" : "Pt"}`]; });
