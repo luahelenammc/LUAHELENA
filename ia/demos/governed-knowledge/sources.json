@@ -1,6 +1,6 @@
 {
   "asOf": "2026-10-03",
-  "notice": "Fictional training data. No employer, employee, patient, or client source is represented.",
+  "notice": "Fictional, fixed-date test fixture. These are not live policies or real participant records.",
   "sources": [
     {
       "id": "NORTHSTAR-TRAVEL-03",
@@ -25,7 +25,6 @@
         "viagem",
         "travel",
         "lodging",
-        "hotel",
         "reimbursement",
         "reembolso"
       ],
@@ -60,7 +59,6 @@
         "viagem",
         "travel",
         "lodging",
-        "hotel",
         "reimbursement",
         "reembolso"
       ],
@@ -95,7 +93,6 @@
         "viagem",
         "travel",
         "lodging",
-        "hotel",
         "reimbursement",
         "reembolso"
       ],
@@ -128,9 +125,7 @@
         "privacidade",
         "privacy",
         "dados pessoais",
-        "personal data",
-        "informação",
-        "information"
+        "personal data"
       ],
       "answer_pt": "A política antiga exige acesso mínimo necessário e revisão pela equipe de Privacidade para usos secundários. O conteúdo está vencido para revisão.",
       "answer_en": "The older policy requires minimum necessary access and Privacy review for secondary use. This content is overdue for review.",
@@ -163,9 +158,7 @@
         "workplace",
         "ajuste",
         "accessibility",
-        "acessibilidade",
-        "request",
-        "pedido"
+        "acessibilidade"
       ],
       "answer_pt": "Encaminhe o pedido à equipe fictícia de People Operations para avaliação individual. Esta fonte descreve o caminho de revisão; ela não decide elegibilidade nem aprova o pedido.",
       "answer_en": "Route the request to fictional People Operations for individual review. This source describes the review path; it does not determine eligibility or approve the request.",
@@ -177,6 +170,70 @@
       "owner_en": "Fictional People Operations",
       "updatePath_pt": "Registro sintético / pessoas / encaminhamento-de-adaptações",
       "updatePath_en": "Synthetic register / people / accommodation-routing"
+    },
+    {
+      "id": "NORTHSTAR-REMOTE-01",
+      "authority": {
+        "level": 4,
+        "label_pt": "Procedimento aprovado",
+        "label_en": "Approved procedure"
+      },
+      "version": "1.0",
+      "effectiveDate": "2026-09-01",
+      "lastReviewedAt": "2026-09-20",
+      "staleAfterDays": 90,
+      "status": "active",
+      "updatePath": "Fictional source register / operations / remote-work",
+      "supersedes": [],
+      "topic": "remote-work",
+      "keywords": [
+        "trabalho remoto",
+        "home office",
+        "remote work",
+        "work from home",
+        "teletrabalho"
+      ],
+      "answer_pt": "O trabalho remoto exige aprovação do gestor antes de cada semana.",
+      "answer_en": "Remote work requires manager approval before each week.",
+      "escalationRequired": false,
+      "title_pt": "Procedimento de trabalho remoto A",
+      "title_en": "Remote work procedure A",
+      "owner_pt": "Equipe Fictícia de Operações",
+      "owner_en": "Fictional Operations Team",
+      "updatePath_pt": "Registro sintético / operações / trabalho-remoto",
+      "updatePath_en": "Synthetic register / operations / remote-work"
+    },
+    {
+      "id": "NORTHSTAR-REMOTE-02",
+      "authority": {
+        "level": 4,
+        "label_pt": "Procedimento aprovado",
+        "label_en": "Approved procedure"
+      },
+      "version": "1.1",
+      "effectiveDate": "2026-09-01",
+      "lastReviewedAt": "2026-09-20",
+      "staleAfterDays": 90,
+      "status": "active",
+      "updatePath": "Fictional source register / operations / remote-work",
+      "supersedes": [],
+      "topic": "remote-work",
+      "keywords": [
+        "trabalho remoto",
+        "home office",
+        "remote work",
+        "work from home",
+        "teletrabalho"
+      ],
+      "answer_pt": "O trabalho remoto pode ocorrer até três dias por semana sem aprovação prévia.",
+      "answer_en": "Remote work is allowed up to three days a week without advance approval.",
+      "escalationRequired": false,
+      "title_pt": "Procedimento de trabalho remoto B",
+      "title_en": "Remote work procedure B",
+      "owner_pt": "Equipe Fictícia de Pessoas",
+      "owner_en": "Fictional People Team",
+      "updatePath_pt": "Registro sintético / operações / trabalho-remoto",
+      "updatePath_en": "Synthetic register / operations / remote-work"
     }
   ]
 }

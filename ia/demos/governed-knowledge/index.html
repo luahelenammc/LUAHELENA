@@ -15,39 +15,69 @@
     @media(max-width:680px){.top{align-items:flex-start}.hero{padding-top:34px}.panel{padding:16px}.form{flex-direction:column}.flow{grid-template-columns:1fr 1fr}}
     @media(max-width:400px){.flow{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-  </style>
+  
+/* V2: the test and the evidence should be visible together. */
+:root{--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+body{font-family:var(--sans)}.hero h1{font-family:var(--serif);letter-spacing:-.02em}
+.top .back{font-size:13px;color:var(--muted);margin-right:15px;text-underline-offset:4px}
+.hero{padding:58px 0 22px}.hero h1{max-width:910px}.lead{max-width:79ch}
+.explore-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:17px;align-items:start}
+.explore-grid .panel{margin:6px 0 18px;min-height:340px}
+.explore-grid .panel h2{font-family:var(--serif);font-weight:400}
+.samples{display:grid;grid-template-columns:1fr;gap:8px}
+.samples button{text-align:left;border-radius:10px;padding:12px 14px;background:#11101d;line-height:1.45}
+.samples button:hover,.samples button[aria-pressed="true"]{border-color:var(--gold);background:#edcc8516}
+.status{font-weight:600}.result{border:0;padding-top:10px}
+.result .trace{list-style:none;padding:0;display:grid;gap:7px;margin:12px 0}
+.result .trace li{border-left:2px solid #edcc8555;padding:7px 11px;background:#ffffff06;font-size:12px;overflow-wrap:anywhere}
+.result .trace b{display:block;color:var(--gold);font-weight:600}
+.result .trace span{color:var(--muted)}
+.result .source-list{margin-top:12px}
+.details-panel{margin-top:10px}.details-panel summary{cursor:pointer;font:400 23px var(--serif);color:var(--paper,#f5efe4)}
+.details-panel[open] summary{margin-bottom:15px}.details-panel .source-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.panel-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.13em;font-size:11px;margin-bottom:10px}
+footer .proof-links{display:flex;gap:20px;flex-wrap:wrap}
+@media(max-width:800px){.explore-grid{grid-template-columns:1fr}.explore-grid .panel{min-height:0}.details-panel .source-list{grid-template-columns:1fr}}
+@media(max-width:680px){.hero{padding-top:32px}.top{flex-wrap:wrap;gap:12px}.top .back{margin-right:8px}}
+</style>
 </head>
 <body>
   <a class="skip" href="#main" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
   <header class="shell top">
-    <a class="brand" href="/ia/">Lua Helena · IA</a>
+    <a class="brand" href="/ia/">Lua Helena · IA</a><a class="back" href="/ia/" data-pt="Voltar ao portfólio ↗" data-en="Back to portfolio ↗">Voltar ao portfólio ↗</a>
     <div class="lang"><button id="language" type="button" aria-label="Mudar idioma">EN</button></div>
   </header>
   <main id="main" class="shell">
     <section class="hero">
       <div class="eyebrow" data-pt="Demonstração com dados sintéticos" data-en="Synthetic-data demonstrator">Demonstração com dados sintéticos</div>
-      <h1 data-pt="Uma resposta precisa saber de onde vem." data-en="A useful answer must know where it came from.">Uma resposta precisa saber de onde vem.</h1>
-      <p class="lead" data-pt="Este protótipo demonstra como uma base de conhecimento pode respeitar autoridade, versão, vigência e revisão antes de responder — e encaminhar a questão quando as fontes não sustentam uma resposta segura." data-en="This prototype shows how a knowledge base can respect authority, version, effective date, and review status before answering — and route a question when sources do not support a safe answer.">Este protótipo demonstra como uma base de conhecimento pode respeitar autoridade, versão, vigência e revisão antes de responder — e encaminhar a questão quando as fontes não sustentam uma resposta segura.</p>
-      <p class="notice" data-pt="Cenário ficcional e didático. Não representa empresa, política real, implantação, uso externo ou impacto medido." data-en="Fictional teaching scenario. It does not represent a real company, policy, deployment, external use, or measured impact.">Cenário ficcional e didático. Não representa empresa, política real, implantação, uso externo ou impacto medido.</p>
+      <h1 data-pt="Quando duas fontes discordam, qual governa a resposta?" data-en="When sources disagree, which one should govern the answer?">Quando duas fontes discordam, qual governa a resposta?</h1>
+      <p class="lead" data-pt="Teste cinco situações reais de governança usando apenas dados fictícios. Veja qual fonte foi escolhida, qual versão foi rejeitada e quando a decisão precisa voltar para uma pessoa." data-en="Test five source-governance situations with fictional records. See which source was selected, which version was rejected, and when a person must decide.">Teste cinco situações reais de governança usando apenas dados fictícios. Veja qual fonte foi escolhida, qual versão foi rejeitada e quando a decisão precisa voltar para uma pessoa.</p>
+      <p class="notice" data-pt="Cenário ficcional e didático, com fontes congeladas em 03/10/2026. Nenhum modelo de IA gera respostas: consultas por termos cadastrados, regras explícitas e nenhuma implantação real." data-en="Fictional teaching scenario using a source snapshot from Oct 3, 2026. No AI model generates answers: registered keyword matches, explicit rules, no real-world deployment.">Cenário ficcional e didático, com fontes congeladas em 03/10/2026. Nenhum modelo de IA gera respostas: consultas por termos cadastrados, regras explícitas e nenhuma implantação real.</p>
     </section>
 
-    <section class="panel" aria-labelledby="query-title">
-      <h2 id="query-title" data-pt="Teste uma pergunta" data-en="Try a question">Teste uma pergunta</h2>
-      <p class="small" data-pt="O mecanismo é determinístico e baseado em palavras-chave e regras explícitas. Nenhum modelo de IA gera respostas." data-en="The routing engine is deterministic and uses explicit keyword and policy rules. No AI model generates answers.">O mecanismo é determinístico e baseado em palavras-chave e regras explícitas. Nenhum modelo de IA gera respostas.</p>
-      <div class="samples" id="sample-prompts" aria-label="Exemplos de perguntas" data-pt-label="Exemplos de perguntas" data-en-label="Example questions">
-        <button type="button" data-sample-pt="Qual é o limite de reembolso para hotel?" data-sample-en="What is the hotel reimbursement limit?">Limite de hospedagem</button>
-        <button type="button" data-sample-pt="A política de privacidade ainda vale?" data-sample-en="Is the privacy policy still current?">Política vencida</button>
-        <button type="button" data-sample-pt="Como solicito uma adaptação no trabalho?" data-sample-en="How do I request a workplace accommodation?">Encaminhar para revisão</button>
-        <button type="button" data-sample-pt="Qual é a política de licença médica?" data-sample-en="What is the medical leave policy?">Sem fonte</button>
+    <div class="explore-grid"><section class="panel" aria-labelledby="query-title">
+      <div class="panel-kicker" data-pt="01 / Experimentar" data-en="01 / Experiment">01 / Experimentar</div>
+      <h2 id="query-title" data-pt="Escolha um cenário." data-en="Choose a scenario.">Escolha um cenário.</h2>
+      <p class="small" data-pt="Cada cenário consulta o mesmo registro sintético. Você também pode testar um termo cadastrado, mas isto não é um chatbot que interpreta qualquer pergunta." data-en="Every scenario checks the same synthetic register. You may also enter a registered term, but this is not a chatbot that interprets arbitrary questions.">Cada cenário consulta o mesmo registro sintético. Você também pode testar um termo cadastrado, mas isto não é um chatbot que interpreta qualquer pergunta.</p>
+      <div class="samples" id="sample-prompts" aria-label="Cenários de teste" data-pt-label="Cenários de teste" data-en-label="Test scenarios">
+        <button type="button" data-sample-pt="Qual é o limite de reembolso para hotel?" data-sample-en="What is the hotel reimbursement limit?" data-label-pt="01 · Qual versão rege o reembolso?" data-label-en="01 · Which reimbursement version applies?">01 · Qual versão rege o reembolso?</button>
+        <button type="button" data-sample-pt="A política de privacidade ainda vale?" data-sample-en="Is the privacy policy still current?" data-label-pt="02 · E se a revisão venceu?" data-label-en="02 · What if review is overdue?">02 · E se a revisão venceu?</button>
+        <button type="button" data-sample-pt="Como solicito uma adaptação no trabalho?" data-sample-en="How do I request a workplace accommodation?" data-label-pt="03 · Quem deve decidir?" data-label-en="03 · Who must decide?">03 · Quem deve decidir?</button>
+        <button type="button" data-sample-pt="Como funciona o trabalho remoto?" data-sample-en="How does remote work work?" data-label-pt="04 · Duas fontes igualmente autorizadas discordam" data-label-en="04 · Equally authoritative sources disagree">04 · Duas fontes igualmente autorizadas discordam</button>
+        <button type="button" data-sample-pt="Qual é a política de licença médica?" data-sample-en="What is the medical leave policy?" data-label-pt="05 · E quando não há fonte?" data-label-en="05 · What if there is no source?">05 · E quando não há fonte?</button>
       </div>
       <form id="query-form" class="form">
-        <label class="small" for="query" data-pt="Pergunta" data-en="Question">Pergunta</label>
+        <label class="small" for="query" data-pt="Ou teste um termo cadastrado" data-en="Or try a registered topic">Ou teste um termo cadastrado</label>
         <input id="query" name="query" required autocomplete="off" data-pt-placeholder="Digite uma pergunta sobre as fontes fictícias" data-en-placeholder="Ask about the fictional sources" placeholder="Digite uma pergunta sobre as fontes fictícias">
         <button class="submit" type="submit" data-pt="Consultar fontes" data-en="Check sources">Consultar fontes</button>
       </form>
-      <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true" data-pt-empty="Escolha um exemplo ou digite uma pergunta." data-en-empty="Choose an example or enter a question.">Escolha um exemplo ou digite uma pergunta.</div>
+      
     </section>
-
+    <section class="panel" aria-labelledby="result-title"><div class="panel-kicker" data-pt="02 / Verificar" data-en="02 / Verify">02 / Verificar</div>
+      <h2 id="result-title" data-pt="A resposta e seu caminho." data-en="The result and its path.">A resposta e seu caminho.</h2>
+      <p class="small" data-pt="O rastro mostra quais registros foram encontrados, descartados, priorizados e encaminhados." data-en="The trace shows which records were matched, excluded, prioritized and escalated.">O rastro mostra quais registros foram encontrados, descartados, priorizados e encaminhados.</p>
+      <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true" data-pt-empty="Escolha um dos cinco cenários." data-en-empty="Choose one of the five scenarios.">Escolha um dos cinco cenários.</div>
+    </section></div>
     <section class="panel">
       <h2 data-pt="O que o fluxo verifica" data-en="What the workflow checks">O que o fluxo verifica</h2>
       <div class="flow">
@@ -58,12 +88,12 @@
       </div>
     </section>
 
-    <section class="panel">
+    <details class="panel details-panel"><summary data-pt="Inspecionar as sete fontes fictícias" data-en="Inspect all seven fictional sources">Inspecionar as sete fontes fictícias</summary>
       <h2 data-pt="Registro das fontes sintéticas" data-en="Synthetic source register">Registro das fontes sintéticas</h2>
       <p class="small" id="as-of"></p>
       <p class="small" data-pt="Cada registro apresenta identificador, título, responsável, nível de autoridade, versão, vigência, status, caminho de atualização e relação de superação." data-en="Each record exposes its ID, title, owner, authority, version, effective date, status, update path, and supersession relation.">Cada registro apresenta identificador, título, responsável, nível de autoridade, versão, vigência, status, caminho de atualização e relação de superação.</p>
-      <div id="source-register" class="source-list" aria-live="polite"></div>
-    </section>
+      <div id="source-register" class="source-list"></div>
+    </details>
 
     <section class="panel">
       <h2 data-pt="Escopo e autoria" data-en="Scope and authorship">Escopo e autoria</h2>
@@ -73,7 +103,7 @@
   </main>
   <footer class="shell">
     <p data-pt="A demonstração usa conteúdo ficcional criado para explicar autoridade, atualização e limites de resposta." data-en="This demonstrator uses fictional content created to explain authority, updates, and answer boundaries.">A demonstração usa conteúdo ficcional criado para explicar autoridade, atualização e limites de resposta.</p>
-    <p><a href="/ia/" data-pt="Conheça o trabalho profissional" data-en="Explore the professional work">Conheça o trabalho profissional</a></p>
+    <div class="proof-links"><a href="/ia/" data-pt="Portfólio profissional ↗" data-en="Professional portfolio ↗">Portfólio profissional ↗</a><a href="https://github.com/luahelenammc/LUAHELENA/tree/main/ia/demos/governed-knowledge/" target="_blank" rel="noopener noreferrer" data-pt="Código e testes ↗" data-en="Source and tests ↗">Código e testes ↗</a><a href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.md" target="_blank" rel="noopener noreferrer" data-pt="Do método à implementação ↗" data-en="From method to implementation ↗">Do método à implementação ↗</a></div>
   </footer>
   <script type="module">
     import { routeQuery } from "./engine.mjs";
@@ -89,13 +119,15 @@
     let registerDate = "";
 
     function setLanguage(next) {
+      const activeSample = document.querySelector('#sample-prompts button[aria-pressed="true"]');
       language = next;
       document.documentElement.lang = next === "en" ? "en" : "pt-BR";
       document.title = copy[next].title;
       document.querySelector('meta[name="description"]').content = copy[next].description;
       document.querySelectorAll("[data-pt][data-en]").forEach((node) => { node.textContent = node.dataset[next]; });
       $("#query").placeholder = $("#query").dataset[`${next}Placeholder`];
-      document.querySelectorAll("[data-sample-pt]").forEach((button) => { button.textContent = button.dataset[`sample${next === "en" ? "En" : "Pt"}`]; });
+      if (activeSample) $("#query").value=activeSample.dataset[`sample${next === "en" ? "En" : "Pt"}`];
+      document.querySelectorAll("[data-sample-pt]").forEach((button) => { button.textContent = button.dataset[`label${next === "en" ? "En" : "Pt"}`]; });
       $("#sample-prompts").setAttribute("aria-label", $("#sample-prompts").dataset[`${next}Label`]);
       $("#language").textContent = next === "en" ? "PT" : "EN";
       $("#language").setAttribute("aria-label", next === "en" ? "Mudar idioma" : "Switch language");
@@ -133,7 +165,7 @@
       $("#source-register").innerHTML = sources.map(sourceCard).join("");
     }
     function renderResult(query) {
-      const outcome = routeQuery(query, sources, "2026-10-03", language);
+      const outcome = routeQuery(query, sources, registerDate || "2026-10-03", language);
       const t = copy[language];
       const selected = outcome.selected.length ? outcome.selected : [];
       const relevantIds = new Set([...selected, ...outcome.conflicts, ...outcome.excluded].map((source) => source.id));
@@ -141,19 +173,27 @@
       const statusLabel = t[outcome.status];
       const owner = outcome.escalationOwner ? `<p><b>${t.owner}:</b> ${escapeHTML(outcome.escalationOwner)}</p>` : "";
       const lower = outcome.conflicts.length && outcome.status === "answered"
-        ? `<p><b>${t.lowerConflict}:</b> ${escapeHTML(outcome.conflicts.map((source) => source.title).join(", "))}</p>` : "";
+        ? `<p><b>${t.lowerConflict}:</b> ${escapeHTML(outcome.conflicts.map((source) => language === "en" ? source.title_en : source.title_pt).join(", "))}</p>` : "";
       const old = outcome.excluded.length ? `<p><b>${t.superseded}:</b> ${escapeHTML(outcome.excluded.map((source) => `${source.id} v${source.version}`).join(", "))}</p>` : "";
+      const names={matched:language==="en"?"Matched":"Encontradas",excluded:language==="en"?"Excluded":"Excluídas",
+      eligible:language==="en"?"Effective and active":"Ativas e vigentes",highest:language==="en"?"Highest authority":"Maior autoridade",
+      stale:language==="en"?"Overdue review":"Revisão vencida",top_conflict:language==="en"?"Equal-authority conflict":"Conflito de autoridade igual",
+      human_required:language==="en"?"Human decision":"Decisão humana",lower_conflicts:language==="en"?"Lower-authority disagreement":"Divergência inferior",
+      answered:language==="en"?"Supported answer":"Resposta sustentada",no_current_source:language==="en"?"No current source":"Sem fonte vigente",
+      unsupported:language==="en"?"No topic matched":"Sem correspondência"};
+      const trace = outcome.trace.map(step => `<li><b>${escapeHTML(names[step.code] || step.code)}</b><span>${step.ids.length ? escapeHTML(step.ids.join(" · ")) : (language==="en"?"No records":"Nenhum registro")}</span></li>`).join("");
       result.dataset.hasResult = "true";
-      result.innerHTML = `<span class="status ${outcome.status}">${statusLabel}</span><p>${escapeHTML(outcome.answer)}</p>${owner}${lower}${old}${records.length ? `<h3>${t.sources}</h3>${records.map(sourceCard).join("")}` : ""}`;
+      result.innerHTML = `<span class="status ${outcome.status}">${statusLabel}</span><p>${escapeHTML(outcome.answer)}</p>${owner}${lower}${old}<h3>${language==="en"?"Decision trace":"Rastro da decisão"}</h3><ol class="trace">${trace}</ol>${records.length ? `<h3>${t.sources}</h3><div class="source-list">${records.map(sourceCard).join("")}</div>` : ""}`;
     }
 
     $("#query-form").addEventListener("submit", (event) => {
       event.preventDefault();
       const query = $("#query").value.trim();
-      if (query) renderResult(query);
+      if (query){document.querySelectorAll("[data-sample-pt]").forEach(b=>b.setAttribute("aria-pressed","false"));renderResult(query);}
     });
     document.querySelectorAll("[data-sample-pt]").forEach((button) => button.addEventListener("click", () => {
       $("#query").value = button.dataset[`sample${language === "en" ? "En" : "Pt"}`];
+      document.querySelectorAll("[data-sample-pt]").forEach(b=>b.setAttribute("aria-pressed",String(b===button)));
       renderResult($("#query").value);
     }));
     $("#language").addEventListener("click", () => setLanguage(language === "en" ? "pt" : "en"));
