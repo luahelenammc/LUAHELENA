@@ -490,29 +490,47 @@ article:focus-within .surface-light{opacity:.6}.project:focus-within{border-colo
 @media(prefers-reduced-motion:reduce){.button,.packet-tooltip{transition:none!important}}
 
 
-/* Evidence passage integrated with the project section (beta only). */
-.evidence-passage{position:relative;margin-top:29px;padding:34px 35px 29px;border:1px solid #edcc8540;border-radius:18px;background:radial-gradient(ellipse at 0 0,#edcc8510,transparent 65%),linear-gradient(145deg,#201a2b,#151321);overflow:hidden}
-.evidence-passage::before{content:"";position:absolute;top:0;left:35px;right:35px;height:1px;background:linear-gradient(90deg,var(--gold),#af98ef4a,transparent)}
+/* Evidence passage: dark local palette, independent of the light page tokens.
+   Regression guard: --paper/--gold/--muted are dark-valued in the main candy theme. */
+.evidence-passage{
+  --evidence-ink:#fff7e9;
+  --evidence-secondary:#e1d6e8;
+  --evidence-accent:#9eff1f;
+  --evidence-border:rgba(255,247,233,.24);
+  position:relative;
+  isolation:isolate;
+  margin-top:29px;
+  padding:34px 35px 29px;
+  color:var(--evidence-ink);
+  border:1px solid rgba(158,255,31,.26);
+  border-radius:18px;
+  background:radial-gradient(ellipse at 0 0,rgba(255,31,255,.11),transparent 67%),linear-gradient(145deg,#292032,#191621);
+  overflow:hidden;
+}
+.evidence-passage::before{content:"";position:absolute;top:0;left:35px;right:35px;height:2px;background:linear-gradient(90deg,var(--evidence-accent),#ff1fff80,transparent)}
 .evidence-intro{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:30px}
-.evidence-kicker{color:var(--gold);letter-spacing:.15em;font-size:11px;text-transform:uppercase;margin-bottom:11px}
-.evidence-intro h3{font:400 clamp(23px,2.65vw,35px)/1.25 var(--serif);max-width:560px;letter-spacing:-.02em}
-.evidence-intro p{color:var(--muted);font-size:14px;line-height:1.75;max-width:60ch}
-.evidence-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line);margin-top:26px}
-.evidence-stage{padding:22px 20px 17px 0;min-width:0;transition:transform .22s}
-.evidence-stage + .evidence-stage{padding-left:21px;border-left:1px solid var(--line)}
-.evidence-stage strong{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:500}
-.evidence-stage .number{color:var(--gold);font:23px/1 var(--serif)}
-.evidence-stage p{font-size:12.5px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:36ch}
-.evidence-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-top:20px;border-top:1px solid var(--line)}
-.evidence-footer p{color:var(--muted);font-size:12px;max-width:65ch}
+.evidence-kicker{color:var(--evidence-accent);letter-spacing:.15em;font-size:11px;text-transform:uppercase;margin-bottom:11px;font-weight:600}
+.evidence-intro h3{font:400 clamp(23px,2.65vw,35px)/1.25 var(--serif);max-width:560px;letter-spacing:-.02em;color:var(--evidence-ink)}
+.evidence-intro p{color:var(--evidence-secondary);font-size:14px;line-height:1.75;max-width:60ch}
+.evidence-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--evidence-border);margin-top:26px}
+.evidence-stage{padding:22px 20px 17px 0;min-width:0}
+.evidence-stage + .evidence-stage{padding-left:21px;border-left:1px solid var(--evidence-border)}
+.evidence-stage strong{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:600;color:var(--evidence-ink)}
+.evidence-stage strong span:last-child{color:var(--evidence-ink)}
+.evidence-stage .number{color:var(--evidence-accent);font:23px/1 var(--serif)}
+.evidence-stage p{font-size:12.5px;color:var(--evidence-secondary);line-height:1.7;margin-top:10px;max-width:36ch}
+.evidence-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-top:20px;border-top:1px solid var(--evidence-border)}
+.evidence-footer p{color:var(--evidence-secondary);font-size:12.5px;line-height:1.7;max-width:65ch}
 .evidence-actions{display:flex;align-items:center;flex-wrap:wrap;gap:11px}
-.evidence-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #edcc8555;border-radius:9px;padding:10px 16px;line-height:1.35;font-size:13px;text-align:center;transition:transform .2s,background .2s,border-color .2s}
-.evidence-actions a:first-child{background:var(--gold);border-color:var(--gold);color:#1f1f1f;font-weight:600}
-.evidence-actions a:last-child{color:var(--paper)}
-.evidence-actions a:hover{transform:translateY(-2px);border-color:var(--gold)}.evidence-actions a:last-child:hover{background:#edcc8510}
-@media(max-width:900px){.evidence-intro{grid-template-columns:1fr}.evidence-stages{grid-template-columns:1fr}.evidence-stage,.evidence-stage+.evidence-stage{padding:18px 0;border:0;border-top:1px solid var(--line)}.evidence-stage:first-child{border-top:0}}
-@media(max-width:600px){.evidence-passage{padding:27px 21px 24px}.evidence-passage::before{left:21px;right:21px}.evidence-actions{width:100%}.evidence-actions a{flex:1}}
-@media(prefers-reduced-motion:reduce){.evidence-actions a,.evidence-stage{transition:none}.evidence-actions a:hover{transform:none}}
+.evidence-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--evidence-border);border-radius:9px;padding:11px 16px;line-height:1.45;font-size:13px;text-align:center;transition:transform .2s,background .2s,border-color .2s}
+.evidence-actions a:first-child{background:var(--evidence-accent);border-color:var(--evidence-accent);color:#1f1f1f;font-weight:700}
+.evidence-actions a:last-child{background:rgba(255,247,233,.06);color:var(--evidence-ink);border-color:rgba(255,247,233,.52)}
+.evidence-actions a:first-child:hover{background:#d2ff8b;border-color:#d2ff8b}
+.evidence-actions a:last-child:hover{background:rgba(255,247,233,.15);border-color:var(--evidence-ink)}
+.evidence-actions a:focus-visible{outline:3px solid var(--evidence-accent);outline-offset:3px}
+@media(max-width:900px){.evidence-intro{grid-template-columns:1fr}.evidence-stages{grid-template-columns:1fr}.evidence-stage,.evidence-stage+.evidence-stage{padding:18px 0;border:0;border-top:1px solid var(--evidence-border)}.evidence-stage:first-child{border-top:0}}
+@media(max-width:600px){.evidence-passage{padding:27px 21px 24px}.evidence-passage::before{left:21px;right:21px}.evidence-actions{width:100%}.evidence-actions a{flex:1 1 180px}}
+@media(prefers-reduced-motion:reduce){.evidence-actions a{transition:none}.evidence-actions a:hover{transform:none}}
 </style>
 </head>
 <body id="top">
