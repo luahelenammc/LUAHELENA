@@ -119,12 +119,14 @@ footer .proof-links{display:flex;gap:20px;flex-wrap:wrap}
     let registerDate = "";
 
     function setLanguage(next) {
+      const activeSample = document.querySelector('#sample-prompts button[aria-pressed="true"]');
       language = next;
       document.documentElement.lang = next === "en" ? "en" : "pt-BR";
       document.title = copy[next].title;
       document.querySelector('meta[name="description"]').content = copy[next].description;
       document.querySelectorAll("[data-pt][data-en]").forEach((node) => { node.textContent = node.dataset[next]; });
       $("#query").placeholder = $("#query").dataset[`${next}Placeholder`];
+      if (activeSample) $("#query").value=activeSample.dataset[`sample${next === "en" ? "En" : "Pt"}`];
       document.querySelectorAll("[data-sample-pt]").forEach((button) => { button.textContent = button.dataset[`label${next === "en" ? "En" : "Pt"}`]; });
       $("#sample-prompts").setAttribute("aria-label", $("#sample-prompts").dataset[`${next}Label`]);
       $("#language").textContent = next === "en" ? "PT" : "EN";
