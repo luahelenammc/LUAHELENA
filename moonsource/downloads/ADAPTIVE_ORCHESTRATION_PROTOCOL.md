@@ -2,7 +2,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 6.3
+## Public Portable Edition · Version 6.4
 
 ## Meta
 
@@ -13,15 +13,15 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that the native adaptive-orchestration Personal Skill is installed
 - **status:** public portable protocol
-- **version:** 6.3
+- **version:** 6.4
 - **language:** English
-- **protocol semantics as of:** 2026-10-01
+- **protocol semantics as of:** 2026-10-10
 - **canonical identity migration:** 2026-09-27; formerly Chat–Work Routing Protocol, Chat–Work Router and Chat–Work; identity and paths changed while the 6.1 doctrine remained unchanged, under the repository naming/versioning rule
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
 - **primary implementation:** surface-neutral control-root routing across ChatGPT Chat, Work and Codex, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, commitment geometry, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Adaptive Orchestration Protocol 6.2; version 6.3 preserves the V6 surface-neutral, Delegation-First architecture and Behavioral Fit, and adds Commitment Geometry to route high-leverage solution choices before dependent work scales.
+- **supersedes:** Adaptive Orchestration Protocol 6.3; version 6.4 updates the dated Chat model-availability boundary without changing surface-neutral control roots, Delegation-First, Behavioral Fit or Commitment Geometry.
 - **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.3.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
@@ -121,7 +121,7 @@ The stable sentence is:
 
 > **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger or differently fitted executors receive only the irreducible execution, judgment or commitment delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
 
-The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary. V6.3 adds Commitment Geometry so a solution-defining choice can be probed, explored or routed to a suitable decision-maker before dependent work scales.
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary. V6.3 adds Commitment Geometry so a solution-defining choice can be probed, explored or routed to a suitable decision-maker before dependent work scales. V6.4 updates Chat model-availability calibration after the 2026-10-07 GPT-6 rollout without changing those routing laws.
 
 > **Escalate only the irreducible execution, judgment or commitment delta; return only the decision-bearing delta.**
 
@@ -914,7 +914,7 @@ volatile notes are dated and replaceable; they cannot turn a temporary product
 observation into a permanent core rule.
 
 The current GPT-6 Sol/Luna execution calibration is documented at
-[portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md](../../portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md). It treats Luna and Sol as observed executor options in Work/Codex where available, keeps Chat as a separate controller surface when those models are not exposed there, and keeps API pricing/context facts explicitly separate from ChatGPT allowance economics.
+[portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md](../../portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md). It calibrates Sol/Luna across Chat and Work/Codex according to observed plan, model-variant and harness availability; Chat GPT-6 Sol/Luna (October conversation-tuned models) must not be conflated with the September Work/Codex executor versions or assumed to expose their delegation/tool controls. API pricing/context facts remain separate from ChatGPT allowance economics.
 
 A subordinate model adapter may require its own setup gate. Adaptive Orchestration's existing Execution Profile, Run State and Profile Persistence laws remain governing: the router may recommend or prefill model-specific preferences, but it must not silently instantiate a user's role, autonomy, reasoning, context, parallelism or return preferences. An explicit adaptive/AUTO choice is a setup choice, not permission to assume a reference preset.
 
@@ -1670,6 +1670,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Adaptive Orchestration Protocol 6.3 is the current public release;
 - 6.3 supersedes 6.2 by adding Commitment Geometry while preserving the Behavioral Fit constraint from 6.2, the surface continuity/control-root neutrality from 6.1 and the Delegation-First orchestration from 6.0;
 - 6.2 remains recoverable through Git history and records Behavioral Fit as a separate routing constraint;
+- 6.3 remains recoverable through Git history and records Commitment Geometry; 6.4 changes only dated Chat-model availability calibration;
 - 6.1 remains recoverable through Git history and records the surface-neutral control-root rebase;
 - the historical Chat → Work/Codex → Chat loop remains a first-class named Chat–Work Loop Profile rather than the mandatory default topology;
 - 6.0 remains recoverable through Git history and records the delegation-topology rebase;
@@ -1722,7 +1723,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Adaptive Orchestration Protocol 6.3. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, commitment geometry, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before scaling work behind a materially open, costly-to-reverse solution choice, apply the Decision Commitment Gate; probe, branch, side-route or up-route only when it lowers total work to acceptance. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Route execution, judgment and commitment independently; escalate only the irreducible delta and return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
+> Use Adaptive Orchestration Protocol 6.4. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, commitment geometry, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before scaling work behind a materially open, costly-to-reverse solution choice, apply the Decision Commitment Gate; probe, branch, side-route or up-route only when it lowers total work to acceptance. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Route execution, judgment and commitment independently; escalate only the irreducible delta and return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
 
 Optional Sprint activation:
 
