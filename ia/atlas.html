@@ -32,16 +32,76 @@
 @media(max-width:620px){.site-head{padding-top:31px}.topline{align-items:flex-start}.topside{display:none}.wordmark{font-size:20px}.intro{padding:27px 0 23px}.intro-right{font-size:12px}.nav{display:grid;grid-template-columns:1fr 1fr}.tab{font-size:11px;padding:12px 10px;gap:7px}.main{padding-bottom:30px}.map-toolbar{padding:20px 17px}.map-title{font-size:24px}.map-shell{border-radius:15px}.scroll-area{min-height:550px;max-height:550px}.inspector-title{font-size:26px}.point-list{grid-template-columns:1fr}.guide-note{margin-left:16px}.bottom{display:block}.bottom div+div{margin-top:10px}.toplink{display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
 @media print{body:before,.nav,.actions,.topside,.inspector,.bottom,.guide-note{display:none!important}.site-head,.main{padding:20px 0}.map-shell{border:0;box-shadow:none}.map-body{display:block}.canvas-area{border:0}.scroll-area{overflow:visible;max-height:none;height:auto;min-height:0}.stage-host{page-break-inside:avoid}.map-toolbar{padding:10px 0}.node,.group,.edge-pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}.map-shell{overflow:visible}}
+
+/* Atlas 2.0: exploration, readable index, accessible navigation */
+:root{--focus-ring:#7135bd}
+.site-head .intro{position:relative}
+.intro:after{content:"";position:absolute;right:4px;top:18px;width:64px;height:64px;border:1px solid #3428381e;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 50% 50%,#ff1fff42 0 3px,transparent 4px)}
+.atlas-subnav{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap;margin:0 0 20px}
+.atlas-fact{border:1px solid #36222b29;border-radius:15px;background:#ffffff85;padding:13px 16px;min-width:160px;display:flex;flex-direction:column;gap:1px}
+.atlas-fact b{font:500 19px var(--serif);letter-spacing:-.025em}.atlas-fact span{color:#78626e;font-size:11px}
+.atlas-fact.primary{background:#1f1f1f;color:#fff8ea;border-color:#1f1f1f}
+.atlas-fact.primary b{color:var(--lime)}.atlas-fact.primary span{color:#e2d8e0}
+.atlas-search-wrap{display:flex;flex:1 1 230px;min-width:195px;max-width:340px;align-items:center;gap:8px;background:#fffdf8;border:1px solid #36232b4a;border-radius:12px;padding:0 12px;transition:border-color .2s,box-shadow .2s}
+.atlas-search-wrap:focus-within{border-color:#8c40b4;box-shadow:0 0 0 3px #ad70df2a}
+.atlas-search-wrap .search-symbol{font-size:18px;color:#89548d}
+#atlas-search{background:transparent;border:0;outline:0;width:100%;min-height:42px;color:var(--ink);font-size:12px}
+#atlas-search::-webkit-search-cancel-button{cursor:pointer}
+.atlas-toolbar-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.atlas-view-switch{display:inline-flex;border:1px solid #31272a44;border-radius:11px;overflow:hidden;background:#fffdf8}
+.atlas-view-switch button{border:0;padding:9px 13px;background:transparent;font-size:11px;font-weight:700;color:#675863}
+.atlas-view-switch button+button{border-left:1px solid #31272a25}
+.atlas-view-switch button[aria-pressed=true]{background:#1f1f1f;color:#fff8e9}
+.atlas-toolbar-note{font:600 10px var(--sans);color:#78616f;letter-spacing:.01em}
+.atlas-index{display:none;min-width:0;overflow:auto;padding:22px;background:#fff7ea;max-height:820px;scrollbar-color:#c4a5b9 #fff7ea;border-right:1px solid #2c202525}
+.atlas-list-mode .canvas-area{display:none}
+.atlas-list-mode .atlas-index{display:block}
+.atlas-index-summary{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;font-size:11px;color:#675a64}
+.atlas-index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.atlas-card{border:1px solid #34232932;border-radius:15px;background:#fffdf7;text-align:left;padding:17px;display:flex;flex-direction:column;gap:7px;min-height:130px;position:relative;transition:transform .16s,border-color .16s,background .16s}
+.atlas-card:before{content:"";height:4px;width:42px;border-radius:9px;background:var(--accent);display:block;margin-bottom:7px}
+.atlas-card:hover{border-color:#1f1f1f;transform:translateY(-2px)}
+.atlas-card[aria-pressed=true]{background:#f5ffd9;border-color:#6c951f;box-shadow:0 0 0 2px #9eff1f38}
+.atlas-card .card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;color:#775d73;text-transform:uppercase}
+.atlas-card .card-name{font:500 19px/1.12 var(--serif);letter-spacing:-.02em}
+.atlas-card .card-copy{font-size:12px;line-height:1.45;color:#655960}
+.atlas-card[hidden]{display:none}
+.node.query-miss{opacity:.17}
+.atlas-empty{display:none;border:1px dashed #ad70df;padding:20px;border-radius:12px;font-size:12px;color:#6e5b65}
+.atlas-empty.show{display:block}
+.rel-header{font:700 10px var(--sans);color:#8a667a;letter-spacing:.11em;text-transform:uppercase;margin:22px 0 9px}
+.rel-links{display:flex;flex-wrap:wrap;gap:7px}
+.rel-link{background:#ffffff;border:1px solid #42303b48;color:#392c39;border-radius:9px;padding:8px 9px;text-align:left;font-size:11px;line-height:1.22;max-width:100%}
+.rel-link:hover{background:#ebffd0;border-color:#9aba72}.rel-link small{display:block;color:#795a80;font-size:9px;margin-bottom:3px}
+.atlas-utilities{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.atlas-utilities .ctrl{min-height:35px}
+#atlas-announcement{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.skip-atlas{position:absolute;top:-100px;left:14px;z-index:100;background:var(--ink);color:white;padding:11px 17px;border-radius:10px;text-decoration:none}
+.skip-atlas:focus{top:13px}
+#atlas-svg{background:var(--lime);border-color:#609331}
+.node:focus-visible,.atlas-card:focus-visible,.rel-link:focus-visible,.ctrl:focus-visible,.tab:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+#atlas-reset-search{border:0;background:none;font-size:10px;text-decoration:underline;color:#724082;cursor:pointer}
+@media(max-width:1250px){.atlas-index-grid{grid-template-columns:1fr}}
+@media(max-width:950px){.atlas-index{border-right:0;border-bottom:1px solid #35202828;max-height:none}.atlas-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.atlas-index-grid{grid-template-columns:1fr}.atlas-subnav{gap:7px}.atlas-fact{flex:1;min-width:130px;padding:10px 12px}.atlas-fact b{font-size:16px}.atlas-toolbar-line{align-items:stretch}.atlas-search-wrap{max-width:none;flex-basis:100%}.map-toolbar{gap:11px}.map-descr{font-size:12px;line-height:1.5}.atlas-utilities{margin-top:12px}.intro:after{width:35px;height:35px;top:5px}}
+@media print{.atlas-index,.atlas-toolbar-line,.atlas-subnav,.atlas-utilities{display:none!important}.atlas-list-mode .canvas-area{display:block}}
+
 </style>
 </head>
 <body>
+
+<a href="#atlas-explorer" class="skip-atlas">Ir para o explorador</a>
+
 <header class="site-head"><div class="topline"><div class="identity"><div class="crest" aria-hidden="true">☾</div><div><div class="wordmark">Moon <span>/</span> Architecture Atlas</div><span class="eyebrow">Fonte · Sistema · Continuidade</span></div></div><div class="topside"><span class="status-dot"></span><span class="tiny">3 mapas · navegação interativa</span><a class="toplink" href="https://www.luahelena.com.br/ia/" target="_blank" rel="noopener">Conhecer /ia ↗</a></div></div>
 <div class="intro"><div><div class="intro-kicker">Atlas de sistemas públicos · 2026</div><h1>Dois corpos, <i>uma arquitetura</i> em diálogo.</h1></div><div class="intro-right">Explore a arquitetura pública de Moon Source e Moon Cortex. <strong>Clique nos componentes</strong> para entender suas responsabilidades e a ponte facultativa entre método e sistemas. As conexões mostram relações reais, não decoração.</div></div></header>
+<div class="atlas-subnav" aria-label="Resumo do atlas"><div class="atlas-fact primary"><b>3 mapas públicos</b><span>Método, sistemas e relação dual</span></div><div class="atlas-fact"><b>Corpos autônomos</b><span>Pontes sem fusão de autoridade</span></div><div class="atlas-fact"><b>Leitura dupla</b><span>Grafo visual ou índice acessível</span></div></div>
 <nav class="nav-frame" aria-label="Mapas do atlas"><div class="nav" id="tabs" role="tablist"></div></nav>
-<main class="main"><section class="map-shell" aria-label="Diagrama arquitetural interativo"><div class="map-toolbar"><div><div class="map-overline" id="map-overline">Mapa 01 / Moon Source</div><div class="map-title" id="map-title">Moon Source</div><div class="map-descr" id="map-descr"></div></div><div class="actions" aria-label="Controle de escala"><button class="ctrl" id="zoom-out" aria-label="Diminuir zoom">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="ctrl" id="zoom-in" aria-label="Aumentar zoom">+</button><button class="ctrl" id="zoom-fit" title="Ajustar mapa à largura disponível">Ajustar</button><button class="ctrl" id="zoom-reset" title="Escala padrão">1:1</button></div></div>
+<main class="main"><section id="atlas-explorer" class="map-shell" aria-label="Diagrama arquitetural interativo"><div class="map-toolbar"><div><div class="map-overline" id="map-overline">Mapa 01 / Moon Source</div><div class="map-title" id="map-title">Moon Source</div><div class="map-descr" id="map-descr"></div></div><div class="actions" aria-label="Controle de escala"><button class="ctrl" type="button" id="atlas-svg" title="Exportar o diagrama vetorial como SVG">SVG ↓</button><button class="ctrl" type="button" id="atlas-copy-link" title="Copiar link direto para o mapa ou nó selecionado">Copiar link</button><button class="ctrl" id="zoom-out" aria-label="Diminuir zoom">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="ctrl" id="zoom-in" aria-label="Aumentar zoom">+</button><button class="ctrl" id="zoom-fit" title="Ajustar mapa à largura disponível">Ajustar</button><button class="ctrl" id="zoom-reset" title="Escala padrão">1:1</button></div></div>
+
+<div class="atlas-toolbar-line"><label class="atlas-search-wrap"><span class="search-symbol" aria-hidden="true">⌕</span><input id="atlas-search" type="search" placeholder="Buscar componentes neste mapa…" autocomplete="off" aria-label="Buscar componentes neste mapa"></label><div class="atlas-view-switch" aria-label="Modo de visualização"><button id="atlas-show-map" type="button" aria-pressed="true">◇ Mapa</button><button id="atlas-show-index" type="button" aria-pressed="false">☷ Índice</button></div><span class="atlas-toolbar-note" id="atlas-search-count" aria-live="polite"></span><button type="button" hidden id="atlas-reset-search">Limpar busca</button></div>
 <div class="map-body"><div class="canvas-area"><div class="scroll-area" id="viewport" tabindex="0" aria-label="Mapa com rolagem horizontal e vertical"><div class="stage-host" id="stage-host"><div class="stage" id="stage"><svg class="edges" id="edges" aria-hidden="true"></svg><div id="groups"></div><div id="edge-labels"></div><div id="nodes"></div></div></div></div></div>
-<aside class="inspector" aria-live="polite" aria-label="Detalhes do elemento selecionado"><div class="inspector-top"><div class="inspector-label" id="detail-label">LEITURA ARQUITETURAL</div><div class="inspector-title" id="detail-title">Selecione um elemento.</div><div class="inspector-copy" id="detail-description">Escolha um nó para entender sua função.</div><div class="inspector-divider"></div><div class="point-list" id="detail-points"></div></div><div class="inspector-footer"><div class="meta-row"><span>Tipo de relação</span><strong id="detail-rel">Orientação</strong></div><div class="meta-row"><span>Autoridade</span><strong id="detail-authority">Separada por jurisdição</strong></div><a href="#" target="_blank" rel="noopener" class="source-link hidden" id="detail-link">Abrir fonte canônica <span>↗</span></a></div></aside></div></section>
-<div class="guide-note">Navegação: clique em um bloco para destacar as relações e abrir a ficha; clique novamente para limpar a seleção. Os mapas têm rolagem própria quando necessário. Traço contínuo = percurso principal; tracejado = ponte facultativa; pontilhado = revisão e retorno.</div><div class="bottom"><div class="notice"><span class="minitag">FRONTEIRA</span> Os mapas são <b>visualizações interpretativas</b> das fontes. A documentação canônica e o estado executável dos repositórios prevalecem; nenhum dado ou órgão do Local Moon Source é incluído nesta publicação.</div><div>Concepção: <b>Moon × Áurion</b> · Visual: <b>/ia/ Candy Gravure</b></div></div></main>
+<div class="atlas-index" id="atlas-index" aria-hidden="true"><div class="atlas-index-summary"><b>Índice navegável</b><span id="atlas-index-count"></span></div><div class="atlas-index-grid" id="atlas-index-grid"></div><div id="atlas-empty" class="atlas-empty">Nenhum componente corresponde à busca. Tente outra expressão.</div></div><aside class="inspector" aria-live="polite" aria-label="Detalhes do elemento selecionado"><div class="inspector-top"><div class="inspector-label" id="detail-label">LEITURA ARQUITETURAL</div><div class="inspector-title" id="detail-title">Selecione um elemento.</div><div class="inspector-copy" id="detail-description">Escolha um nó para entender sua função.</div><div class="inspector-divider"></div><div class="point-list" id="detail-points"></div><div id="atlas-relations" aria-label="Conexões do componente selecionado"></div></div><div class="inspector-footer"><div class="meta-row"><span>Tipo de relação</span><strong id="detail-rel">Orientação</strong></div><div class="meta-row"><span>Autoridade</span><strong id="detail-authority">Separada por jurisdição</strong></div><a href="#" target="_blank" rel="noopener" class="source-link hidden" id="detail-link">Abrir fonte canônica <span>↗</span></a></div></aside></div></section>
+<div class="guide-note">Navegação: clique em um bloco para destacar as relações e abrir a ficha; clique novamente para limpar a seleção. Os mapas têm rolagem própria quando necessário. Traço contínuo = percurso principal; tracejado = ponte facultativa; pontilhado = revisão e retorno.</div><div class="bottom"><div class="notice"><span class="minitag">FRONTEIRA</span> Os mapas são <b>visualizações interpretativas</b> das fontes. A documentação canônica e o estado executável dos repositórios prevalecem; nenhum dado ou órgão do Local Moon Source é incluído nesta publicação.</div><div>Concepção: <b>Moon × Áurion</b> · Visual: <b>/ia/ Candy Gravure</b></div></div><span id="atlas-announcement" role="status" aria-live="polite"></span></main>
 <script>
 (()=>{
 'use strict';
@@ -136,15 +196,123 @@ function draw(){stage.style.width=active.w+'px';stage.style.height=active.h+'px'
 function autoPort(a,b){let dx=(b.x+b.w/2)-(a.x+a.w/2),dy=(b.y+b.h/2)-(a.y+a.h/2);return Math.abs(dx)>Math.abs(dy)*1.15?(dx>0?'right':'left'):(dy>0?'bottom':'top')}
 function point(n,p){const midX=n.x+n.w/2,midY=n.y+n.h/2;return p==='left'?{x:n.x-7,y:midY}:p==='right'?{x:n.x+n.w+7,y:midY}:p==='top'?{x:midX,y:n.y-7}:{x:midX,y:n.y+n.h+7};}
 function roundedPath(pts){if(pts.length<2)return'';if(pts.length===2){let a=pts[0],b=pts[1];if(Math.abs(a.x-b.x)>100&&Math.abs(a.y-b.y)>70){const midY=(a.y+b.y)/2;pts=[a,{x:a.x,y:midY},{x:b.x,y:midY},b]}else return`M ${a.x} ${a.y} L ${b.x} ${b.y}`;}let s=`M ${pts[0].x} ${pts[0].y}`;for(let i=1;i<pts.length-1;i++){let a=pts[i-1],b=pts[i],c=pts[i+1],d1=Math.hypot(a.x-b.x,a.y-b.y),d2=Math.hypot(c.x-b.x,c.y-b.y),r=Math.min(12,d1/2,d2/2);if(!r){s+=` L ${b.x} ${b.y}`;continue;}let p={x:b.x+(a.x-b.x)/d1*r,y:b.y+(a.y-b.y)/d1*r},q={x:b.x+(c.x-b.x)/d2*r,y:b.y+(c.y-b.y)/d2*r};s+=` L ${p.x} ${p.y} Q ${b.x} ${b.y} ${q.x} ${q.y}`;}let z=pts[pts.length-1];return s+` L ${z.x} ${z.y}`;}
-function choose(id){selected=selected===id?null:id;for(let v of nodesRoot.querySelectorAll('.node')){const target=v.dataset.id,related=selected&&active.edges.some(l=>(l.from===selected&&l.to===target)||(l.to===selected&&l.from===target));v.classList.toggle('selected',!!selected&&target===selected);v.classList.toggle('related',!!selected&&related);v.classList.toggle('dim',!!selected&&target!==selected&&!related)}for(let v of edgesRoot.querySelectorAll('path:not([id])')){let yes=!!selected&&(v.dataset.from===selected||v.dataset.to===selected);v.classList.toggle('active',yes);v.classList.toggle('dim',!!selected&&!yes);v.setAttribute('marker-end',yes?'url(#arrow-active)':'url(#arrow-main)')}for(let v of labelsRoot.children){let yes=!!selected&&(v.dataset.from===selected||v.dataset.to===selected);v.classList.toggle('active',yes);v.classList.toggle('dim',!!selected&&!yes)}let node=active.nodes.find(v=>v.id===selected);detail(node||active.overview)}
+function choose(id){selected=selected===id?null:id;for(let v of nodesRoot.querySelectorAll('.node')){const target=v.dataset.id,related=selected&&active.edges.some(l=>(l.from===selected&&l.to===target)||(l.to===selected&&l.from===target));v.classList.toggle('selected',!!selected&&target===selected);v.classList.toggle('related',!!selected&&related);v.classList.toggle('dim',!!selected&&target!==selected&&!related)}for(let v of edgesRoot.querySelectorAll('path:not([id])')){let yes=!!selected&&(v.dataset.from===selected||v.dataset.to===selected);v.classList.toggle('active',yes);v.classList.toggle('dim',!!selected&&!yes);v.setAttribute('marker-end',yes?'url(#arrow-active)':'url(#arrow-main)')}for(let v of labelsRoot.children){let yes=!!selected&&(v.dataset.from===selected||v.dataset.to===selected);v.classList.toggle('active',yes);v.classList.toggle('dim',!!selected&&!yes)}let node=active.nodes.find(v=>v.id===selected);detail(node||active.overview);atlasRelationUpdate();atlasDirectorySelection();atlasRouteWrite()}
 function detail(v){$('detail-label').textContent=v.tag||'LEITURA ARQUITETURAL';$('detail-title').textContent=v.title;$('detail-description').textContent=v.detail||v.desc;$('detail-points').innerHTML=(v.points||[]).map(p=>`<div class="point">${safe(p)}</div>`).join('');$('detail-rel').textContent=v.rel||(selected?'Órgão selecionado':'Orientação');$('detail-authority').textContent=v.authority||'Fonte especializada';let a=$('detail-link');a.classList.toggle('hidden',!v.link);if(v.link){a.href=v.link;a.innerHTML='Consultar fonte <span>↗</span>'}else{a.removeAttribute('href')}}
 function scaleTo(z){zoom=Math.min(1.4,Math.max(.52,z));stage.style.transform=`scale(${zoom})`;$('stage-host').style.width=(active.w*zoom)+'px';$('stage-host').style.height=(active.h*zoom)+'px';$('zoom-value').textContent=Math.round(zoom*100)+'%'}
 function fit(){const newZoom=(viewport.clientWidth-28)/active.w;scaleTo(Math.max(.52,Math.min(1,newZoom)));viewport.scrollTo({left:0,top:0})}
-function load(key){active=MAPS.find(m=>m.key===key)||MAPS[0];selected=null;tabs();$('map-overline').textContent=`MAPA ${active.index} / ${active.kicker}`;$('map-title').textContent=active.title;$('map-descr').textContent=active.subtitle;draw();scaleTo(Math.min(1,Math.max(.74,(viewport.clientWidth-28)/active.w)));viewport.scrollTo({left:0,top:0});choose(null);history.replaceState(null,'','#'+active.key)}
+function load(key){active=MAPS.find(m=>m.key===key)||MAPS[0];selected=null;tabs();$('map-overline').textContent=`MAPA ${active.index} / ${active.kicker}`;$('map-title').textContent=active.title;$('map-descr').textContent=active.subtitle;draw();atlasDirectory();atlasSearchUpdate();scaleTo(Math.min(1,Math.max(.74,(viewport.clientWidth-28)/active.w)));viewport.scrollTo({left:0,top:0});choose(null);history.replaceState(null,'','#'+active.key)}
 $('zoom-in').addEventListener('click',()=>scaleTo(zoom+.10));$('zoom-out').addEventListener('click',()=>scaleTo(zoom-.10));$('zoom-fit').addEventListener('click',fit);$('zoom-reset').addEventListener('click',()=>scaleTo(1));
 $('tabs').addEventListener('keydown',ev=>{if(!['ArrowLeft','ArrowRight'].includes(ev.key))return;let i=MAPS.findIndex(m=>m.key===active.key);load(MAPS[(i+(ev.key==='ArrowRight'?1:MAPS.length-1))%MAPS.length].key);$('tab-'+active.key).focus();});
 let recentWidth=innerWidth;window.addEventListener('resize',()=>{if(innerWidth!==recentWidth){recentWidth=innerWidth;scaleTo(zoom)}},{passive:true});
-load((location.hash||'').slice(1));
+
+/* Progressive Atlas 2.0. Original maps and editorial content remain canonical to this page. */
+const atlasIndex=document.getElementById('atlas-index');
+const atlasSearch=document.getElementById('atlas-search');
+const atlasIndexCount=document.getElementById('atlas-index-count');
+const atlasSearchCount=document.getElementById('atlas-search-count');
+const atlasMapToggle=document.getElementById('atlas-show-map');
+const atlasListToggle=document.getElementById('atlas-show-index');
+const atlasRelations=document.getElementById('atlas-relations');
+const atlasAnnouncement=document.getElementById('atlas-announcement');
+let atlasView='map';
+const atlasNorm=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');
+function atlasViewSet(mode){
+ atlasView=mode==='list'?'list':'map';
+ document.body.classList.toggle('atlas-list-mode',atlasView==='list');
+ atlasMapToggle.setAttribute('aria-pressed',String(atlasView==='map'));
+ atlasListToggle.setAttribute('aria-pressed',String(atlasView==='list'));
+ atlasIndex.setAttribute('aria-hidden',String(atlasView!=='list'));
+ document.getElementById('viewport').setAttribute('aria-hidden',String(atlasView==='list'));
+ if(atlasView==='map'&&selected)atlasCenterNode(selected);
+}
+function atlasDirectory(){
+ const grid=document.getElementById('atlas-index-grid');
+ grid.innerHTML=active.nodes.map(v=>'<button type="button" class="atlas-card" data-id="'+safe(v.id)+'" aria-pressed="false" style="--accent:'+(col[v.accent]||col.butter)+'"><span class="card-tag">'+safe(v.tag||'COMPONENTE')+'</span><span class="card-name">'+safe(v.title)+'</span><span class="card-copy">'+safe(v.desc)+'</span></button>').join('');
+ grid.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.id;if(selected===id){choose(null)}else{choose(id)}atlasAnnouncement.textContent='Detalhes atualizados no painel de leitura.'}));
+ atlasIndexCount.textContent=active.nodes.length+' componentes';
+ atlasDirectorySelection();
+}
+function atlasDirectorySelection(){
+ atlasIndex.querySelectorAll('.atlas-card').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===selected)));
+}
+function atlasSearchUpdate(){
+ const query=atlasNorm(atlasSearch.value.trim());
+ let hits=0;
+ const found=new Set(active.nodes.filter(v=>!query||atlasNorm([v.title,v.desc,v.detail,v.tag,...(v.points||[])].join(' ')).includes(query)).map(v=>v.id));
+ hits=found.size;
+ document.querySelectorAll('.atlas-card').forEach(b=>{b.hidden=!found.has(b.dataset.id)});
+ nodesRoot.querySelectorAll('.node').forEach(b=>{b.classList.toggle('query-miss',!!query&&!found.has(b.dataset.id))});
+ atlasSearchCount.textContent=query?(hits+' de '+active.nodes.length+' encontrados'):(active.nodes.length+' componentes navegáveis');
+ document.getElementById('atlas-empty').classList.toggle('show',hits===0);
+ document.getElementById('atlas-reset-search').hidden=!query;
+}
+function atlasRelationUpdate(){
+ if(!selected){atlasRelations.innerHTML='<div class="rel-header">Como ler</div><div class="atlas-toolbar-note">Selecione um componente para descobrir conexões de entrada e saída.</div>';return}
+ const connections=active.edges.filter(e=>e.from===selected||e.to===selected);
+ const byId=Object.fromEntries(active.nodes.map(n=>[n.id,n]));
+ if(!connections.length){atlasRelations.innerHTML='';return}
+ atlasRelations.innerHTML='<div class="rel-header">Conexões · '+connections.length+'</div><div class="rel-links">'+connections.map(e=>{
+ const inbound=e.to===selected;const other=byId[inbound?e.from:e.to];if(!other)return'';
+ const label=(inbound?'← Recebe de':'→ Conecta a')+(e.optional?' · opcional':e.feedback?' · retorno':'');
+ return '<button type="button" class="rel-link" data-id="'+safe(other.id)+'"><small>'+safe(label)+'</small>'+safe(other.title)+'</button>';
+ }).join('')+'</div>';
+ atlasRelations.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{choose(b.dataset.id);if(atlasView==='map')atlasCenterNode(b.dataset.id)}));
+}
+function atlasRouteWrite(){
+ const h='#'+active.key+(selected?'/'+encodeURIComponent(selected):'');
+ if(location.hash!==h)history.replaceState(null,'',h);
+}
+function atlasCenterNode(id){
+ const v=active.nodes.find(n=>n.id===id);if(!v)return;
+ const left=(v.x+v.w/2)*zoom-viewport.clientWidth/2;
+ const top=(v.y+v.h/2)*zoom-viewport.clientHeight/2;
+ viewport.scrollTo({left:Math.max(0,left),top:Math.max(0,top),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+}
+function atlasFocusDirection(direction,current){
+ const c=active.nodes.find(v=>v.id===current);if(!c)return;
+ const vx=c.x+c.w/2,vy=c.y+c.h/2;
+ const possibilities=active.nodes.filter(v=>v.id!==c.id).map(v=>{
+ const dx=v.x+v.w/2-vx,dy=v.y+v.h/2-vy;
+ const signed=direction==='ArrowRight'?dx:direction==='ArrowLeft'?-dx:direction==='ArrowDown'?dy:-dy;
+ const lateral=(direction==='ArrowRight'||direction==='ArrowLeft')?Math.abs(dy):Math.abs(dx);
+ return {v,signed,score:Math.hypot(dx,dy)+lateral*.8};
+ }).filter(t=>t.signed>18).sort((a,b)=>a.score-b.score);
+ if(possibilities.length){choose(possibilities[0].v.id);atlasCenterNode(possibilities[0].v.id);nodesRoot.querySelector('[data-id="'+possibilities[0].v.id+'"]')?.focus({preventScroll:true})}
+}
+function atlasSvgExport(){
+ const esc=x=>safe(x);
+ const width=active.w,height=active.h;
+ const groupShapes=active.groups.map(g=>'<rect x="'+g.x+'" y="'+g.y+'" width="'+g.w+'" height="'+g.h+'" rx="23" fill="'+({lime:'#edffdf',pink:'#ffedf6',violet:'#f5ebff',butter:'#fff0cb',slate:'#f3eee9'}[g.tone]||'#f9f3ea')+'" stroke="#d0c2c6"/><text x="'+(g.x+17)+'" y="'+(g.y+29)+'" font-size="12" font-weight="700" fill="#6e5b62">'+esc(g.label)+'</text>').join('');
+ const paths=[...edgesRoot.querySelectorAll('path[data-from]')].map(p=>'<path d="'+esc(p.getAttribute('d'))+'" fill="none" stroke="'+(p.classList.contains('optional')?'#9368aa':p.classList.contains('feedback')?'#71922d':'#a18e92')+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'+(p.classList.contains('optional')?' stroke-dasharray="7 7"':p.classList.contains('feedback')?' stroke-dasharray="3 6"':'')+' marker-end="url(#v-arrow)"/>').join('');
+ const splitLines=(s,max,limit=3)=>{let words=String(s).split(/\s+/),lines=[],line='';for(const word of words){if((line+' '+word).trim().length>max&&line){lines.push(line);line=word}else line=(line+' '+word).trim()}if(line)lines.push(line);return lines.slice(0,limit)};
+ const shapes=active.nodes.map(v=>{const dark=!!v.feature,accent=col[v.accent]||col.butter,bg=dark?'#1f1f1f':'#fffdf8',fg=dark?'#fff9ee':'#242024',left=v.x+17;
+ const baseY=v.y+(v.size==='slim'?35:57);
+ const titleLines=splitLines(v.title,v.size==='small'?Math.max(14,Math.floor(v.w/8.8)):Math.max(15,Math.floor(v.w/11)),2);
+ const titleSize=v.hero?24:v.size==='small'||v.size==='slim'?15:19;
+ const title=titleLines.map((line,i)=>'<text x="'+left+'" y="'+(baseY+i*(titleSize+3))+'" fill="'+fg+'" font-family="Georgia,serif" font-size="'+titleSize+'">'+esc(line)+'</text>').join('');
+ const desc=splitLines(v.desc,Math.max(20,Math.floor(v.w/6.5)),3).map((line,i)=>'<text x="'+left+'" y="'+(baseY+titleLines.length*(titleSize+4)+8+i*15)+'" fill="'+(dark?'#e2d5da':'#655c61')+'" font-family="Arial,sans-serif" font-size="11">'+esc(line)+'</text>').join('');
+ return '<g><rect x="'+v.x+'" y="'+v.y+'" width="'+v.w+'" height="'+v.h+'" rx="16" fill="'+bg+'" stroke="'+(dark?'#1f1f1f':'#cbbfc3')+'" stroke-width="1.5"/><rect x="'+(v.x+18)+'" y="'+v.y+'" width="47" height="5" rx="3" fill="'+accent+'"/><text x="'+left+'" y="'+(v.y+24)+'" font-family="Arial,sans-serif" font-size="9" letter-spacing="1" fill="'+(dark?accent:'#82677b')+'">'+esc(v.tag||'CAMADA')+'</text>'+title+desc+'</g>'
+ }).join('');
+ const svg='<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" width="'+width+'" height="'+height+'" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="'+esc(active.title)+'"><title>'+esc(active.title)+'</title><desc>'+esc(active.subtitle)+'</desc><defs><marker id="v-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#8b777c" stroke-width="1.2"/></marker></defs><rect width="100%" height="100%" fill="#fff7e9"/>'+groupShapes+paths+shapes+'</svg>';
+ const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;a.download='moon-atlas-'+active.key+'.svg';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ atlasAnnouncement.textContent='SVG vetorial preparado para download.';
+}
+atlasMapToggle.addEventListener('click',()=>atlasViewSet('map'));
+atlasListToggle.addEventListener('click',()=>atlasViewSet('list'));
+atlasSearch.addEventListener('input',atlasSearchUpdate);
+document.getElementById('atlas-reset-search').addEventListener('click',()=>{atlasSearch.value='';atlasSearchUpdate();atlasSearch.focus()});
+document.getElementById('atlas-svg').addEventListener('click',atlasSvgExport);
+document.getElementById('atlas-copy-link').addEventListener('click',async()=>{const link=location.href;try{await navigator.clipboard.writeText(link);atlasAnnouncement.textContent='Link do componente copiado.';document.getElementById('atlas-copy-link').textContent='Copiado ✓';setTimeout(()=>{document.getElementById('atlas-copy-link').textContent='Copiar link'},1700)}catch{window.prompt('Copie o link:',link)}});
+nodesRoot.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();atlasFocusDirection(e.key,e.target.closest('.node')?.dataset.id)}});
+window.addEventListener('hashchange',()=>{const [key,id]=decodeURIComponent(location.hash.slice(1)).split('/');if(key!==active.key&&MAPS.some(m=>m.key===key))load(key);if(id&&active.nodes.some(n=>n.id===id)&&selected!==id){choose(id);if(atlasView==='map')atlasCenterNode(id)}else if(!id&&selected)choose(null)});
+const atlasInitialHash=decodeURIComponent(location.hash.slice(1));
+const [atlasInitialKey,atlasInitialNode]=atlasInitialHash.split('/');
+load(atlasInitialKey);
+if(atlasInitialNode&&active.nodes.some(n=>n.id===atlasInitialNode))choose(atlasInitialNode);
+if(window.matchMedia('(max-width: 620px)').matches)atlasViewSet('list');
+atlasSearchUpdate();
+
 })();
 </script>
 </body>
