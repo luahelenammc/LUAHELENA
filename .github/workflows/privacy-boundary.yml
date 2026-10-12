@@ -1,0 +1,70 @@
+name: Privacy boundary
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  prevent-personal-source-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject private-only paths and obvious credentials
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import subprocess
+          import sys
+
+          tracked = [p.decode() for p in subprocess.check_output(['git', 'ls-files', '-z']).split(b'\0') if p]
+          private_root = {
+              'exames.html', 'hormonios.html', 'estradiol.html', 'mounjaro.html',
+              'serasa.html', 'reparo.html', 'trans.html', 'transtotal.html',
+              'tati.html', 'luiza.html', 'salario.html', 'salario_old.html',
+              'pordia.html', 'sono.html', 'petalas.html', 'checklist.html',
+              'semana.html', 'ferias.html', 'feriado.html', 'finde.html',
+              'psi.html', 'psi/index.html',
+          }
+          private_exact = {
+              'moonverse/legacy-v0/data/notion-imports.json',
+              'webdesign/rc/index.html', 'webdesign/rc/psi/index.html',
+              'webdesign/rc/psi.html', 'webdesign/rc/CNAME',
+          }
+          private_prefixes = (
+              'moonverse/legacy-v0/data/notion/',
+              'legacy/interditado/',
+          )
+          secrets = [
+              re.compile(r'ghp_[A-Za-z0-9]{30,}'),
+              re.compile(r'github_pat_[A-Za-z0-9_]{50,}'),
+              re.compile(r'sk-proj-[A-Za-z0-9_-]{30,}'),
+              re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
+          ]
+          errors = []
+          for name in tracked:
+              if name in private_root or name in private_exact or any(name.startswith(p) for p in private_prefixes):
+                  errors.append(f'Private-only source path: {name}')
+              path = pathlib.Path(name)
+              if path.suffix.lower() not in {'.md', '.txt', '.py', '.js', '.json', '.html', '.css', '.yml', '.yaml', '.xml', '.ts', '.mjs'}:
+                  continue
+              if not path.is_file() or path.stat().st_size > 2_000_000:
+                  continue
+              try:
+                  body = path.read_text(encoding='utf-8')
+              except UnicodeError:
+                  continue
+              if any(pattern.search(body) for pattern in secrets):
+                  errors.append(f'Potential credential in: {name}')
+
+          if errors:
+              print('PUBLICATION BLOCKED: privacy boundary violated')
+              for error in errors:
+                  print(' - ' + error)
+              sys.exit(1)
+          print(f'Privacy boundary check passed for {len(tracked)} tracked paths.')
+          PY
