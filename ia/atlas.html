@@ -86,6 +86,16 @@
 @media(max-width:620px){.atlas-index-grid{grid-template-columns:1fr}.atlas-subnav{gap:7px}.atlas-fact{flex:1;min-width:130px;padding:10px 12px}.atlas-fact b{font-size:16px}.atlas-toolbar-line{align-items:stretch}.atlas-search-wrap{max-width:none;flex-basis:100%}.map-toolbar{gap:11px}.map-descr{font-size:12px;line-height:1.5}.atlas-utilities{margin-top:12px}.intro:after{width:35px;height:35px;top:5px}}
 @media print{.atlas-index,.atlas-toolbar-line,.atlas-subnav,.atlas-utilities{display:none!important}.atlas-list-mode .canvas-area{display:block}}
 
+
+/* Atlas 2.1 · responsive rhythm and inspector reachability */
+.atlas-subnav{max-width:1690px;padding:0 52px;margin:0 auto 21px}
+.map-toolbar{flex-wrap:wrap}
+.atlas-toolbar-line{padding:0 28px 17px;margin:0;background:#fff9ec;border-bottom:1px solid #35202828}
+.atlas-search-wrap{max-width:420px}
+.atlas-index{scrollbar-width:thin}
+@media(max-width:1250px){.atlas-subnav{padding-left:28px;padding-right:28px}}
+@media(max-width:950px){.atlas-subnav{padding-left:20px;padding-right:20px}.atlas-index{max-height:510px}}
+@media(max-width:620px){.atlas-toolbar-line{padding:2px 17px 17px}.atlas-subnav{padding-left:20px;padding-right:20px;gap:7px}.atlas-index{max-height:420px;padding:15px}.atlas-view-switch{width:100%}.atlas-view-switch button{flex:1}.actions{flex-wrap:wrap}.atlas-search-wrap{max-width:none}}
 </style>
 </head>
 <body>
@@ -101,7 +111,7 @@
 <div class="atlas-toolbar-line"><label class="atlas-search-wrap"><span class="search-symbol" aria-hidden="true">⌕</span><input id="atlas-search" type="search" placeholder="Buscar componentes neste mapa…" autocomplete="off" aria-label="Buscar componentes neste mapa"></label><div class="atlas-view-switch" aria-label="Modo de visualização"><button id="atlas-show-map" type="button" aria-pressed="true">◇ Mapa</button><button id="atlas-show-index" type="button" aria-pressed="false">☷ Índice</button></div><span class="atlas-toolbar-note" id="atlas-search-count" aria-live="polite"></span><button type="button" hidden id="atlas-reset-search">Limpar busca</button></div>
 <div class="map-body"><div class="canvas-area"><div class="scroll-area" id="viewport" tabindex="0" aria-label="Mapa com rolagem horizontal e vertical"><div class="stage-host" id="stage-host"><div class="stage" id="stage"><svg class="edges" id="edges" aria-hidden="true"></svg><div id="groups"></div><div id="edge-labels"></div><div id="nodes"></div></div></div></div></div>
 <div class="atlas-index" id="atlas-index" aria-hidden="true"><div class="atlas-index-summary"><b>Índice navegável</b><span id="atlas-index-count"></span></div><div class="atlas-index-grid" id="atlas-index-grid"></div><div id="atlas-empty" class="atlas-empty">Nenhum componente corresponde à busca. Tente outra expressão.</div></div><aside class="inspector" aria-live="polite" aria-label="Detalhes do elemento selecionado"><div class="inspector-top"><div class="inspector-label" id="detail-label">LEITURA ARQUITETURAL</div><div class="inspector-title" id="detail-title">Selecione um elemento.</div><div class="inspector-copy" id="detail-description">Escolha um nó para entender sua função.</div><div class="inspector-divider"></div><div class="point-list" id="detail-points"></div><div id="atlas-relations" aria-label="Conexões do componente selecionado"></div></div><div class="inspector-footer"><div class="meta-row"><span>Tipo de relação</span><strong id="detail-rel">Orientação</strong></div><div class="meta-row"><span>Autoridade</span><strong id="detail-authority">Separada por jurisdição</strong></div><a href="#" target="_blank" rel="noopener" class="source-link hidden" id="detail-link">Abrir fonte canônica <span>↗</span></a></div></aside></div></section>
-<div class="guide-note">Navegação: clique em um bloco para destacar as relações e abrir a ficha; clique novamente para limpar a seleção. Os mapas têm rolagem própria quando necessário. Traço contínuo = percurso principal; tracejado = ponte facultativa; pontilhado = revisão e retorno.</div><div class="bottom"><div class="notice"><span class="minitag">FRONTEIRA</span> Os mapas são <b>visualizações interpretativas</b> das fontes. A documentação canônica e o estado executável dos repositórios prevalecem; nenhum dado ou órgão do Local Moon Source é incluído nesta publicação.</div><div>Concepção: <b>Moon × Áurion</b> · Visual: <b>/ia/ Candy Gravure</b></div></div><span id="atlas-announcement" role="status" aria-live="polite"></span></main>
+<div class="guide-note">Navegação: clique em um bloco para destacar as relações e abrir a ficha; clique novamente para limpar a seleção. No celular, o índice fica disponível como leitura principal; no desktop, o grafo permite percorrer as conexões. Os mapas têm rolagem própria quando necessário. Traço contínuo = percurso principal; tracejado = ponte facultativa; pontilhado = revisão e retorno.</div><div class="bottom"><div class="notice"><span class="minitag">FRONTEIRA</span> Os mapas são <b>visualizações interpretativas</b> das fontes. A documentação canônica e o estado executável dos repositórios prevalecem; nenhum dado ou órgão do Local Moon Source é incluído nesta publicação.</div><div>Concepção: <b>Moon × Áurion</b> · Visual: <b>/ia/ Candy Gravure</b></div></div><span id="atlas-announcement" role="status" aria-live="polite"></span></main>
 <script>
 (()=>{
 'use strict';
@@ -228,7 +238,7 @@ function atlasViewSet(mode){
 function atlasDirectory(){
  const grid=document.getElementById('atlas-index-grid');
  grid.innerHTML=active.nodes.map(v=>'<button type="button" class="atlas-card" data-id="'+safe(v.id)+'" aria-pressed="false" style="--accent:'+(col[v.accent]||col.butter)+'"><span class="card-tag">'+safe(v.tag||'COMPONENTE')+'</span><span class="card-name">'+safe(v.title)+'</span><span class="card-copy">'+safe(v.desc)+'</span></button>').join('');
- grid.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.id;if(selected===id){choose(null)}else{choose(id)}atlasAnnouncement.textContent='Detalhes atualizados no painel de leitura.'}));
+ grid.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.id;if(selected===id){choose(null)}else{choose(id)}atlasAnnouncement.textContent='Detalhes atualizados no painel de leitura.';if(atlasView==='list'&&window.matchMedia('(max-width:950px)').matches){document.querySelector('.inspector')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})}}));
  atlasIndexCount.textContent=active.nodes.length+' componentes';
  atlasDirectorySelection();
 }
