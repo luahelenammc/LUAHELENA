@@ -5,158 +5,109 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,follow">
 <meta name="author" content="Lua Helena Moon Martins Cardoso">
-<meta name="description" content="Cinco cenários fictícios para explorar como autoridade de fontes, versões, vigência e revisão humana governam respostas. Demonstração determinística de Moon Source.">
+<meta name="description" content="Uma animação interativa para ver como fontes, versões e responsáveis governam respostas. Cinco exemplos fictícios de Moon Source.">
 <link rel="canonical" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
 <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
 <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
-<meta name="theme-color" content="#202022">
+<meta name="theme-color" content="#202024">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Laboratório de decisões · Moon Source | Lua Helena">
-<meta property="og:description" content="Quando as fontes discordam, a IA não deve adivinhar. Teste cinco decisões verificáveis com dados fictícios.">
-<title>Laboratório de decisões | Lua Helena · Moon Source</title>
+<meta property="og:title" content="De qual fonte vem a resposta? | Moon Source">
+<meta property="og:description" content="Veja documentos passarem por regras de autoridade e vigência, em cinco exemplos visuais.">
+<title>De qual fonte vem a resposta? | Moon Source</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./lab-v3.css?v=1">
+<link rel="stylesheet" href="./motion-v4.css?v=1">
 </head>
 <body>
-<a class="skip" href="#main" data-pt="Ir para o conteúdo" data-en="Skip to content">Ir para o conteúdo</a>
-<header class="site-header">
-  <div class="shell site-bar">
-    <a class="brand" href="/ia/" aria-label="Lua Helena · portfólio"><span class="brand-mark" aria-hidden="true">☾</span>Lua Helena</a>
-    <span class="header-label" data-pt="Moon Source / Laboratório" data-en="Moon Source / Laboratory">Moon Source / Laboratório</span>
-    <div class="header-actions">
-      <a class="portfolio-link" id="portfolio-top" href="/ia/" data-pt="Voltar ao portfólio ↗" data-en="Back to portfolio ↗">Voltar ao portfólio ↗</a>
-      <div class="languages" role="group" aria-label="Language / Idioma">
-        <button type="button" data-lang="pt" aria-pressed="true" aria-label="Português">PT</button>
-        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
-      </div>
-    </div>
+<a class="skip" href="#main" data-pt="Ir ao conteúdo" data-en="Skip to content">Ir ao conteúdo</a>
+<header class="site-head">
+ <div class="wrap head-inner">
+  <a href="/ia/" id="brand" class="brand"><b aria-hidden="true">☾</b> Lua Helena</a>
+  <span class="head-sub">Moon Source / <span data-pt="Demonstração" data-en="Demonstration">Demonstração</span></span>
+  <div class="head-actions">
+    <a href="/ia/" id="portfolio" class="back" data-pt="Portfólio ↗" data-en="Portfolio ↗">Portfólio ↗</a>
+    <div class="langs" role="group" aria-label="Idioma / Language"><button data-lang="pt" type="button" aria-pressed="true">PT</button><button data-lang="en" type="button" aria-pressed="false">EN</button></div>
   </div>
+ </div>
 </header>
 
 <main id="main">
-<section class="hero">
-  <div class="shell hero-grid">
-    <div>
-      <div class="overline" data-pt="Laboratório de decisões · 01" data-en="Decision laboratory · 01">Laboratório de decisões · 01</div>
-      <h1><span data-pt="Quando as fontes discordam," data-en="When sources disagree,">Quando as fontes discordam,</span> <em data-pt="a IA não deve adivinhar." data-en="AI must not guess.">a IA não deve adivinhar.</em></h1>
-      <p class="lead" data-pt="Uma demonstração interativa de como selecionar informações confiáveis, descartar versões antigas e reconhecer quando uma resposta precisa voltar para uma pessoa." data-en="An interactive demonstration of how to choose reliable sources, reject outdated versions, and recognize when a decision belongs with a person.">Uma demonstração interativa de como selecionar informações confiáveis, descartar versões antigas e reconhecer quando uma resposta precisa voltar para uma pessoa.</p>
-      <div class="flow-strip" aria-label="Fluxo do demonstrador">
-        <span class="flow-unit"><span class="num">01</span><span data-pt="Encontrar" data-en="Find">Encontrar</span></span>
-        <span class="flow-unit"><span class="num">02</span><span data-pt="Verificar" data-en="Verify">Verificar</span></span>
-        <span class="flow-unit"><span class="num">03</span><span data-pt="Decidir ou encaminhar" data-en="Answer or escalate">Decidir ou encaminhar</span></span>
-      </div>
-      <p class="hero-note" data-pt="Cenário ficcional e didático. Base congelada em 03/10/2026. Nenhum modelo de IA gera respostas: o motor usa apenas palavras-chave cadastradas e regras determinísticas." data-en="Fictional educational scenario. Fixed snapshot from Oct 3, 2026. No AI model generates answers: the engine uses only registered keywords and deterministic rules.">Cenário ficcional e didático. Base congelada em 03/10/2026. Nenhum modelo de IA gera respostas: o motor usa apenas palavras-chave cadastradas e regras determinísticas.</p>
-    </div>
-    <aside class="hero-aside">
-      <span data-pt="A pergunta certa" data-en="The useful question">A pergunta certa</span>
-      <strong data-pt="Não é só o que a IA diz. É de onde vem." data-en="Not just what AI says. Where it comes from.">Não é só o que a IA diz. É de onde vem.</strong>
-      <p data-pt="Fontes, versões, responsáveis e limites de decisão permanecem visíveis." data-en="Sources, versions, owners, and decision boundaries stay visible.">Fontes, versões, responsáveis e limites de decisão permanecem visíveis.</p>
-    </aside>
-  </div>
+<section class="hero wrap">
+ <div class="eyebrow" data-pt="Moon Source · Em movimento" data-en="Moon Source · In motion">Moon Source · Em movimento</div>
+ <h1><span data-pt="De qual documento vem" data-en="Which document should guide">De qual documento vem</span> <em data-pt="a resposta?" data-en="the answer?">a resposta?</em></h1>
+ <p data-pt="Veja os documentos passarem por um filtro de regras. Uma boa resposta precisa de uma boa fonte." data-en="Watch documents pass through a rule-based filter. A good answer needs a trustworthy source.">Veja os documentos passarem por um filtro de regras. Uma boa resposta precisa de uma boa fonte.</p>
 </section>
 
-<section class="lab-section shell" aria-labelledby="lab-title">
- <div class="section-intro">
-  <div>
-    <div class="section-kicker" data-pt="Explore por conta própria" data-en="Explore it yourself">Explore por conta própria</div>
-    <h2 id="lab-title" data-pt="Cinco situações. Um mesmo conjunto de regras." data-en="Five situations. One consistent set of rules.">Cinco situações. Um mesmo conjunto de regras.</h2>
+<div class="wrap">
+ <div class="select-zone" aria-label="Cenários" role="group">
+  <button type="button" class="case" data-case="travel" data-label-pt="Versões" data-label-en="Versions" data-query-pt="Qual é o limite de reembolso para hotel?" data-query-en="What is the hotel reimbursement limit?" aria-pressed="true"><small>01</small><span data-pt="Versões" data-en="Versions">Versões</span></button>
+  <button type="button" class="case" data-case="privacy" data-label-pt="Desatualizado" data-label-en="Outdated" data-query-pt="A política de privacidade ainda vale?" data-query-en="Is the privacy policy still current?" aria-pressed="false"><small>02</small><span data-pt="Desatualizado" data-en="Outdated">Desatualizado</span></button>
+  <button type="button" class="case" data-case="accommodation" data-label-pt="Pessoa decide" data-label-en="Human review" data-query-pt="Como solicito uma adaptação no trabalho?" data-query-en="How do I request a workplace accommodation?" aria-pressed="false"><small>03</small><span data-pt="Pessoa decide" data-en="Human review">Pessoa decide</span></button>
+  <button type="button" class="case" data-case="remote" data-label-pt="Conflito" data-label-en="Conflict" data-query-pt="Como funciona o trabalho remoto?" data-query-en="How does remote work work?" aria-pressed="false"><small>04</small><span data-pt="Conflito" data-en="Conflict">Conflito</span></button>
+  <button type="button" class="case" data-case="unsupported" data-label-pt="Sem fonte" data-label-en="No source" data-query-pt="Qual é a política de licença médica?" data-query-en="What is the medical leave policy?" aria-pressed="false"><small>05</small><span data-pt="Sem fonte" data-en="No source">Sem fonte</span></button>
+ </div>
+
+ <div class="movie" aria-label="Animação de verificação de fontes">
+  <div class="movie-top">
+   <span class="movie-flag"><i aria-hidden="true"></i><span data-pt="Simulação com fontes fictícias" data-en="Fictional source simulation">Simulação com fontes fictícias</span></span>
+   <button class="replay" id="replay" type="button" disabled data-pt="↻ Reproduzir" data-en="↻ Replay">↻ Reproduzir</button>
   </div>
-  <p class="intro-help" data-pt="Escolha um caso para ver a decisão e as evidências lado a lado." data-en="Choose a case to see its outcome and supporting evidence side by side.">Escolha um caso para ver a decisão e as evidências lado a lado.</p>
- </div>
-
- <div class="lab" id="laboratorio">
-  <aside class="lab-side" aria-labelledby="cases-title">
-   <div class="lab-topline"><span class="lab-status" data-pt="Simulação pronta" data-en="Simulation ready">Simulação pronta</span><span class="lab-count" data-pt="05 casos" data-en="05 cases">05 casos</span></div>
-   <h3 class="case-heading" id="cases-title" data-pt="Escolha um conflito." data-en="Choose a conflict.">Escolha um conflito.</h3>
-   <p class="case-help" data-pt="Cada cenário consulta os mesmos sete registros fictícios. O resultado muda porque as evidências mudam." data-en="Every scenario checks the same seven fictional records. Different evidence produces a different result.">Cada cenário consulta os mesmos sete registros fictícios. O resultado muda porque as evidências mudam.</p>
-   <nav class="scenarios" aria-label="Cenários">
-    <button class="scenario" type="button" data-case="travel" data-label-pt="Política contra FAQ" data-label-en="Policy versus FAQ" data-query-pt="Qual é o limite de reembolso para hotel?" data-query-en="What is the hotel reimbursement limit?" aria-pressed="true">
-      <span class="scenario-index">01</span><span><strong data-pt="Uma FAQ contradiz a política." data-en="A FAQ contradicts policy.">Uma FAQ contradiz a política.</strong><small data-pt="Hierarquia e versão vigente" data-en="Authority and current version">Hierarquia e versão vigente</small></span><span class="scenario-arrow" aria-hidden="true">↗</span>
-    </button>
-    <button class="scenario" type="button" data-case="privacy" data-label-pt="Revisão vencida" data-label-en="Overdue review" data-query-pt="A política de privacidade ainda vale?" data-query-en="Is the privacy policy still current?" aria-pressed="false">
-      <span class="scenario-index">02</span><span><strong data-pt="A revisão está vencida." data-en="The review is overdue.">A revisão está vencida.</strong><small data-pt="Vigência não é sinônimo de confiança" data-en="Active does not mean reviewed">Vigência não é sinônimo de confiança</small></span><span class="scenario-arrow" aria-hidden="true">↗</span>
-    </button>
-    <button class="scenario" type="button" data-case="accommodation" data-label-pt="Decisão humana obrigatória" data-label-en="Human decision required" data-query-pt="Como solicito uma adaptação no trabalho?" data-query-en="How do I request a workplace accommodation?" aria-pressed="false">
-      <span class="scenario-index">03</span><span><strong data-pt="Uma pessoa precisa decidir." data-en="A person must decide.">Uma pessoa precisa decidir.</strong><small data-pt="Limites e responsabilidade" data-en="Boundaries and responsibility">Limites e responsabilidade</small></span><span class="scenario-arrow" aria-hidden="true">↗</span>
-    </button>
-    <button class="scenario" type="button" data-case="remote" data-label-pt="Conflito de autoridade igual" data-label-en="Equal-authority conflict" data-query-pt="Como funciona o trabalho remoto?" data-query-en="How does remote work work?" aria-pressed="false">
-      <span class="scenario-index">04</span><span><strong data-pt="Duas fontes equivalentes discordam." data-en="Two equal sources disagree.">Duas fontes equivalentes discordam.</strong><small data-pt="Conflito sem desempate arbitrário" data-en="No arbitrary tie-break">Conflito sem desempate arbitrário</small></span><span class="scenario-arrow" aria-hidden="true">↗</span>
-    </button>
-    <button class="scenario" type="button" data-case="unsupported" data-label-pt="Sem fonte" data-label-en="No supporting source" data-query-pt="Qual é a política de licença médica?" data-query-en="What is the medical leave policy?" aria-pressed="false">
-      <span class="scenario-index">05</span><span><strong data-pt="O assunto não está na base." data-en="The topic is not registered.">O assunto não está na base.</strong><small data-pt="Não inventar o que não se sabe" data-en="Do not fabricate an answer">Não inventar o que não se sabe</small></span><span class="scenario-arrow" aria-hidden="true">↗</span>
-    </button>
-   </nav>
-   <details class="custom-query" id="query-details">
-     <summary data-pt="Ou experimente um termo cadastrado" data-en="Or test a registered keyword">Ou experimente um termo cadastrado</summary>
-     <p data-pt="Digite hotel, privacidade, adaptação ou trabalho remoto. Isto não é um chatbot: perguntas fora dos termos cadastrados podem não encontrar fontes." data-en="Try hotel, privacy, accommodation, or remote work. This is not a chatbot: questions outside registered keywords may not match.">Digite hotel, privacidade, adaptação ou trabalho remoto. Isto não é um chatbot: perguntas fora dos termos cadastrados podem não encontrar fontes.</p>
-     <form id="query-form" class="query-field">
-       <label for="query-input" data-pt="Pergunta para o registro" data-en="Query to the register">Pergunta para o registro</label>
-       <input id="query-input" required maxlength="220" autocomplete="off" placeholder="Ex.: hotel">
-       <button class="submit-query" type="submit" data-pt="Verificar fontes ↗" data-en="Check sources ↗">Verificar fontes ↗</button>
-     </form>
-   </details>
-  </aside>
-
-  <div class="stage" id="resultado">
-    <div class="stage-bar">
-      <div class="stage-bar-label" data-pt="Resultado verificável" data-en="Inspectable outcome">Resultado verificável</div>
-      <div id="asof" class="asof" data-pt="Base fictícia · 03/10/2026" data-en="Fictional register · 10/03/2026">Base fictícia · 03/10/2026</div>
-    </div>
-    <div id="decision" class="decision" role="status" aria-live="polite" aria-atomic="false" data-pt="Preparando sete fontes fictícias…" data-en="Preparing seven fictional sources…">Preparando sete fontes fictícias…</div>
-    <div class="stage-footer">
-      <span data-pt="Rastro da decisão disponível para inspeção" data-en="Decision trace available for inspection">Rastro da decisão disponível para inspeção</span>
-      <button class="copy-button" type="button" id="copy-button" disabled><span aria-hidden="true">⎘</span><span id="copy-label" data-pt="Copiar rastro" data-en="Copy decision trace">Copiar rastro</span></button>
-    </div>
-  </div>
- </div>
-
- <div class="after-lab">
-   <section class="explain-panel" aria-labelledby="method-title">
-     <div class="after-label" data-pt="Como o mecanismo funciona" data-en="How the mechanism works">Como o mecanismo funciona</div>
-     <h2 id="method-title" data-pt="Uma regra clara vale mais que uma resposta convincente." data-en="A clear rule beats a convincing guess.">Uma regra clara vale mais que uma resposta convincente.</h2>
-     <p data-pt="O demonstrador não improvisa políticas. Ele compara metadados dos registros e explicita em qual etapa uma resposta pode ou não ser apresentada." data-en="The demonstrator does not improvise policies. It compares source metadata and reveals at which step an answer may or may not be shown.">O demonstrador não improvisa políticas. Ele compara metadados dos registros e explicita em qual etapa uma resposta pode ou não ser apresentada.</p>
-     <div class="explain-steps">
-       <div class="explain-step"><b data-pt="01 · Correspondência" data-en="01 · Match">01 · Correspondência</b><span data-pt="Localiza os tópicos cadastrados, sem inventar equivalências." data-en="Finds registered topics without inventing equivalences.">Localiza os tópicos cadastrados, sem inventar equivalências.</span></div>
-       <div class="explain-step"><b data-pt="02 · Autoridade" data-en="02 · Authority">02 · Autoridade</b><span data-pt="Prioriza normas válidas e descarta versões superadas." data-en="Prioritizes valid authority and excludes superseded versions.">Prioriza normas válidas e descarta versões superadas.</span></div>
-       <div class="explain-step"><b data-pt="03 · Atualidade" data-en="03 · Freshness">03 · Atualidade</b><span data-pt="Examina prazos de revisão e conflitos entre fontes." data-en="Checks review windows and source conflicts.">Examina prazos de revisão e conflitos entre fontes.</span></div>
-       <div class="explain-step"><b data-pt="04 · Responsabilidade" data-en="04 · Accountability">04 · Responsabilidade</b><span data-pt="Entrega uma resposta sustentada ou encaminha a decisão." data-en="Shows a supported answer or escalates the decision.">Entrega uma resposta sustentada ou encaminha a decisão.</span></div>
-     </div>
-   </section>
-   <section class="explain-panel scope-panel" aria-labelledby="scope-title">
-     <div class="scope-tag" data-pt="Limite explícito" data-en="Explicit evidence boundary">Limite explícito</div>
-     <h2 id="scope-title" data-pt="É uma prova de método, não um sistema de produção." data-en="A method demonstration, not a production system.">É uma prova de método, não um sistema de produção.</h2>
-     <p data-pt="Os sete documentos e seus responsáveis são fictícios. O teste não consulta dados externos, não usa um modelo de linguagem e não estabelece eficácia empresarial, adequação jurídica ou impacto real." data-en="The seven documents and their owners are fictional. The demo does not read external data, run a language model, or establish enterprise effectiveness, legal compliance, or real-world impact.">Os sete documentos e seus responsáveis são fictícios. O teste não consulta dados externos, não usa um modelo de linguagem e não estabelece eficácia empresarial, adequação jurídica ou impacto real.</p>
-     <p class="scope-strong" data-pt="O que você pode avaliar: transparência das fontes, previsibilidade das regras e identificação dos limites de decisão." data-en="What you can evaluate: source transparency, predictable rules, and explicit decision boundaries.">O que você pode avaliar: transparência das fontes, previsibilidade das regras e identificação dos limites de decisão.</p>
-   </section>
- </div>
-
- <details class="registry" id="registry">
-   <summary><span class="summary-copy"><strong data-pt="Inspecionar as sete fontes fictícias" data-en="Inspect all seven fictional sources">Inspecionar as sete fontes fictícias</strong><small data-pt="Metadados, versões, autoridade, responsáveis e caminho de atualização" data-en="Metadata, versions, authority, owners and update paths">Metadados, versões, autoridade, responsáveis e caminho de atualização</small></span><span class="expand" aria-hidden="true">+</span></summary>
-   <div class="registry-body">
-      <p class="registry-intro" data-pt="Estes são os sete registros usados por todos os cenários. O conjunto é fixo e não representa políticas ou pessoas reais." data-en="These are the seven records behind all five scenarios. The fixture is fixed and does not represent real people or policies.">Estes são os sete registros usados por todos os cenários. O conjunto é fixo e não representa políticas ou pessoas reais.</p>
-      <div class="registry-grid" id="registry-grid"></div>
+  <div class="stage" id="stage" data-phase="0" data-outcome="answered">
+   <div class="stage-col">
+    <div class="col-caption"><span data-pt="Documentos" data-en="Documents">Documentos</span><span class="count" id="doc-count">00</span></div>
+    <div class="documents" id="documents"><span data-pt="Preparando animação…" data-en="Preparing animation…">Preparando animação…</span></div>
    </div>
- </details>
- <div class="provenance">
-   <p data-pt="Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação desenvolvida com assistência de IA." data-en="Architecture, specification, integration and QA: Lua Helena Moon Martins Cardoso. Implementation developed with AI assistance.">Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação desenvolvida com assistência de IA.</p>
-   <p data-pt="Esta demonstração sintética não comprova uso externo, impacto mensurado, conformidade jurídica nem prontidão para implantação. Os resultados são decisões de regras explícitas sobre um conjunto didático de fontes." data-en="This synthetic demonstration does not establish external adoption, measured impact, legal compliance, or deployment readiness. Results are the outputs of explicit rules applied to a teaching fixture.">Esta demonstração sintética não comprova uso externo, impacto mensurado, conformidade jurídica nem prontidão para implantação. Os resultados são decisões de regras explícitas sobre um conjunto didático de fontes.</p>
+   <div class="filter-col" aria-hidden="true">
+    <div class="track"></div>
+    <div class="filter-ring"><span class="filter-symbol">⌁</span></div>
+    <div class="filter-caption" data-pt="Regras de fonte" data-en="Source rules">Regras de fonte</div>
+   </div>
+   <div class="stage-col final-col">
+    <div class="col-caption"><span data-pt="Decisão" data-en="Decision">Decisão</span><span class="count">03 / 03</span></div>
+    <div id="result-visual" class="outcome" aria-hidden="true"></div>
+   </div>
+  </div>
+  <div class="stage-bottom">
+    <p id="motion-caption" data-pt="Os documentos chegam" data-en="Documents appear">Os documentos chegam</p>
+    <div class="stage-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
  </div>
-</section>
+ <p id="announce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+ <div class="below">
+  <p data-pt="Cenário ficcional e didático. Nenhum modelo de IA gera respostas: as decisões são determinadas por regras explícitas e por sete registros fictícios." data-en="Fictional educational scenario. No AI model generates answers: outcomes follow explicit rules applied to seven fictional records.">Cenário ficcional e didático. Nenhum modelo de IA gera respostas: as decisões são determinadas por regras explícitas e por sete registros fictícios.</p>
+  <div class="below-links"><a id="guide-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md" target="_blank" rel="noopener noreferrer" data-pt="Como funciona ↗" data-en="How it works ↗">Como funciona ↗</a></div>
+ </div>
+
+ <details class="details" id="technical">
+  <summary><span data-pt="Curiosidade? Veja as regras e as fontes por trás da animação." data-en="Curious? See the rules and sources behind the animation.">Curiosidade? Veja as regras e as fontes por trás da animação.</span><span aria-hidden="true">+</span></summary>
+  <div class="details-body">
+   <section class="detail-block">
+    <h2 data-pt="A decisão completa" data-en="Full outcome">A decisão completa</h2>
+    <p id="full-answer"></p>
+    <h2 style="margin-top:18px" data-pt="Fontes consideradas" data-en="Sources considered">Fontes consideradas</h2>
+    <ul id="source-explain" class="trace-items"></ul>
+   </section>
+   <section class="detail-block">
+    <h2 data-pt="Rastro da decisão" data-en="Decision trace">Rastro da decisão</h2>
+    <ol id="trace-explain" class="trace-items"></ol>
+    <details class="register">
+      <summary data-pt="Inspecionar as sete fontes fictícias" data-en="Inspect all seven fictional sources">Inspecionar as sete fontes fictícias</summary>
+      <ul id="source-register"></ul>
+    </details>
+   </section>
+  </div>
+ </details>
+</div>
 </main>
 
 <footer class="footer">
- <div class="shell footer-inner">
-  <div><span class="signature">☾ Lua Helena</span><div class="footer-note" data-pt="Moon Source · arquitetura contextual de IA" data-en="Moon Source · human–AI context architecture">Moon Source · arquitetura contextual de IA</div></div>
-  <div class="footer-links">
-   <a id="portfolio-foot" href="/ia/" data-pt="Portfólio central ↗" data-en="Central portfolio ↗">Portfólio central ↗</a>
-   <a href="https://github.com/luahelenammc/LUAHELENA/tree/main/ia/demos/governed-knowledge/" target="_blank" rel="noopener noreferrer" data-pt="Código e testes ↗" data-en="Source and tests ↗">Código e testes ↗</a>
-   <a id="proof-guide-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md" target="_blank" rel="noopener noreferrer" data-pt="Conhecer o método ↗" data-en="Explore the method ↗">Conhecer o método ↗</a>
-  </div>
- </div>
+ <div class="wrap foot-inner">
+  <p data-pt="Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação com assistência de IA. Esta demonstração não comprova eficácia em produção." data-en="Architecture, specification, integration and QA: Lua Helena Moon Martins Cardoso. Implementation developed with AI assistance. This demonstration does not establish production effectiveness.">Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação com assistência de IA. Esta demonstração não comprova eficácia em produção.</p>
+  <a id="portfolio-foot" href="/ia/" data-pt="Voltar ao portfólio ↗" data-en="Back to portfolio ↗">Voltar ao portfólio ↗</a>
+</div>
 </footer>
-<script type="module" src="./lab-v3.mjs?v=2"></script>
+<script type="module" src="./motion-v4.mjs?v=1"></script>
 </body>
 </html>
