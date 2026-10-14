@@ -1,0 +1,374 @@
+<!doctype html>
+<!-- Standalone HTML5 animated source flow: CSS, JS, decision engine and 7 fictional sources embedded. Google Fonts optional. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta name="author" content="Lua Helena Moon Martins Cardoso">
+<meta name="description" content="Uma animação interativa para ver como fontes, versões e responsáveis governam respostas. Cinco exemplos fictícios de Moon Source.">
+<link rel="canonical" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
+<link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/ia/demos/governed-knowledge/">
+<meta name="theme-color" content="#202024">
+<meta property="og:type" content="website">
+<meta property="og:title" content="De qual fonte vem a resposta? | Moon Source">
+<meta property="og:description" content="Veja documentos passarem por regras de autoridade e vigência, em cinco exemplos visuais.">
+<title>De qual fonte vem a resposta? | Moon Source</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style id="motion-v4-inline">
+/* Moon Source · source-flow animation V4 | lightweight CSS/SVG-style HTML5 motion, no rendering libraries */
+:root{color-scheme:light;--paper:#fff8ec;--ink:#202020;--muted:#665a68;--night:#202024;--night2:#2b2930;--line:#d8cec4;--lime:#9eff1f;--pink:#ff1fff;--green:#3c6d14;--gold:#a66d22;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}h1,h2,h3,p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:disabled{cursor:wait;opacity:.6}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #5d9c21;outline-offset:4px}::selection{background:#c3ff8e;color:#202020}.wrap{max-width:1210px;width:calc(100% - 64px);margin:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px}.skip:focus{left:20px;top:20px;z-index:1000;background:var(--lime);padding:10px 14px}
+.site-head{background:#1f1f1f;color:#fff7ea;border-bottom:1px solid #ffffff30}.head-inner{display:flex;gap:20px;align-items:center;min-height:78px}.brand{font:500 25px/1.2 var(--serif);white-space:nowrap}.brand b{color:var(--lime);font:32px/1 var(--serif);vertical-align:middle;margin-right:8px}.head-sub{border-left:1px solid #ffffff4c;padding-left:20px;font-size:11px;color:#cfc3d0;text-transform:uppercase;letter-spacing:.12em}.head-actions{display:flex;gap:16px;align-items:center;margin-left:auto}.back{color:#f4e9ef;font-size:13px;font-weight:650}.back:hover{color:var(--lime)}.langs{display:flex;gap:3px;border:1px solid #ffffff47;border-radius:99px;padding:3px}.langs button{border:0;border-radius:99px;background:transparent;color:#e1d7e0;font-size:11px;font-weight:800;padding:7px 10px}.langs button[aria-pressed=true]{color:#1b2413;background:var(--lime)}
+.hero{text-align:center;padding:62px 0 37px;position:relative;background:radial-gradient(ellipse 45% 130px at 50% 0,rgba(158,255,31,.14),transparent)}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:#476820;font-size:11px;font-weight:800;margin-bottom:14px}
+.hero h1{font:500 clamp(39px,5.3vw,68px)/1.06 var(--serif);letter-spacing:-.045em;max-width:940px;margin:0 auto 18px;text-wrap:balance}.hero h1 em{font-style:normal;color:#477417;position:relative;white-space:nowrap}.hero h1 em:after{content:"";height:4px;position:absolute;left:0;right:0;bottom:-6px;border-bottom:3px solid var(--pink);transform:rotate(-1deg)}
+.hero p{font-size:17px;color:#514552;max-width:640px;margin:auto}
+.select-zone{margin:25px auto 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px}.case{display:flex;align-items:center;gap:10px;border:1px solid #d5c8d3;background:#fffdf8;border-radius:99px;padding:11px 16px;color:#483a49;font-size:13px;font-weight:750;min-height:46px;transition:background .2s,box-shadow .2s,border-color .2s,transform .2s}.case:hover{border-color:#8ea978;transform:translateY(-2px)}.case[aria-pressed=true]{background:#25341d;border-color:#25341d;color:#e6ffcd;box-shadow:0 6px 20px #35552020}.case small{font-size:10px;color:#8c7a8e;font-weight:850}.case[aria-pressed=true] small{color:var(--lime)}
+.movie{overflow:hidden;background:#202024;color:#f7f5ef;border:1px solid #353036;border-radius:21px;box-shadow:0 20px 55px #27222923}
+.movie-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 25px;border-bottom:1px solid #ffffff24}.movie-flag{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#d7cbd9;font-weight:800}.movie-flag i{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 5px #9eff1f22}.replay{background:#ffffff12;color:#f2e8f2;border:1px solid #ffffff40;border-radius:8px;font-size:12px;font-weight:800;padding:8px 13px;transition:background .2s}.replay:hover{background:#ffffff23}
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) 164px minmax(0,1fr);min-height:420px;gap:0;align-items:stretch;padding:32px 36px 35px}
+.stage-col{min-width:0}.col-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#c3b7c6;font-size:10px;letter-spacing:.13em;font-weight:800;text-transform:uppercase;margin-bottom:20px}.count{color:#c5fc86}
+.documents{display:grid;gap:10px;min-height:263px;align-content:center}
+.doc{display:flex;align-items:center;gap:11px;padding:12px 14px;min-height:69px;border-radius:10px;background:#fffbf1;color:#242128;border:1px solid #d8d2c3;box-shadow:3px 5px 0 #12111540;opacity:0;transform:translate(-24px,9px) scale(.96);transition:opacity .48s ease,transform .55s cubic-bezier(.2,.85,.2,1),background .5s,border-color .5s,filter .5s;transition-delay:var(--delay,0ms)}
+.stage[data-phase="1"] .doc,.stage[data-phase="2"] .doc,.stage[data-phase="3"] .doc{opacity:1;transform:translate(0) scale(1)}
+.doc-mark{height:38px;width:35px;flex:0 0 auto;display:grid;place-items:center;border-radius:7px;background:#e8dfec;color:#604a64;font-size:17px;font-weight:700}
+.doc-copy{min-width:0;flex:1}.doc-copy strong{font-size:13px;font-weight:750;line-height:1.35;display:block;overflow-wrap:anywhere}.doc-copy small{display:block;font-size:10px;color:#665a65;line-height:1.5;margin-top:3px}
+.doc-value{font:600 18px/1 var(--serif);white-space:nowrap}
+.doc[data-role="chosen"]{border-color:#a5d073}.stage[data-phase="2"] .doc[data-role="chosen"],.stage[data-phase="3"] .doc[data-role="chosen"]{background:#e7ffcd;border-color:#9eff1f;box-shadow:0 0 0 2px #9eff1f23}
+.stage[data-phase="2"] .doc[data-role="excluded"],.stage[data-phase="3"] .doc[data-role="excluded"]{filter:grayscale(1);opacity:.45;transform:translateX(-9px) scale(.97)}
+.stage[data-phase="2"] .doc[data-role="conflict"],.stage[data-phase="3"] .doc[data-role="conflict"]{background:#ffe9dd;border-color:#eeaa81}
+.stage[data-phase="2"] .doc[data-role="review"],.stage[data-phase="3"] .doc[data-role="review"]{background:#fff2cc;border-color:#e0bd5b}
+.no-doc{border:1px dashed #ffffff57;border-radius:11px;padding:27px 20px;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#e8deeb;opacity:0;transform:scale(.92);transition:opacity .6s,transform .6s}.no-doc b{font:400 34px var(--serif);color:#e7c6d5}.no-doc span{color:#d0c4d1;font-size:13px}.stage[data-phase="1"] .no-doc,.stage[data-phase="2"] .no-doc,.stage[data-phase="3"] .no-doc{opacity:1;transform:scale(1)}
+.filter-col{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px}
+.track{height:2px;position:absolute;top:49%;left:-8px;right:-8px;background:linear-gradient(90deg,#ffffff00,#d6e5c253,#ffffff00)}.track:after{content:"";position:absolute;height:7px;width:7px;border-radius:50%;top:-2.5px;left:0;background:var(--lime);box-shadow:0 0 18px var(--lime);opacity:0}
+.stage[data-phase="2"] .track:after{opacity:1;animation:travel 1.15s ease-in-out infinite}.stage[data-phase="3"] .track:after{opacity:0}
+.filter-ring{height:116px;width:116px;border:1px solid #ffffff33;border-radius:50%;position:relative;z-index:1;display:grid;place-items:center;background:#252e24;box-shadow:0 0 0 12px #9eff1f08,0 0 0 24px #ffffff06;transition:background .4s,border-color .4s,box-shadow .4s}
+.filter-ring:before{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid transparent;border-top-color:var(--lime);border-right-color:var(--pink);opacity:0}
+.stage[data-phase="2"] .filter-ring:before{opacity:1;animation:spin 1.2s linear infinite}
+.stage[data-phase="3"] .filter-ring{background:#334e23;border-color:#a8e96f;box-shadow:0 0 0 13px #9eff1f0c,0 0 38px #9eff1f13}
+.stage[data-phase="3"][data-outcome="escalated"] .filter-ring{background:#5a4125;border-color:#e0ac6c}
+.stage[data-phase="3"][data-outcome="unsupported"] .filter-ring{background:#533344;border-color:#e5a1c9}
+.filter-symbol{font:500 48px/1 var(--serif);color:var(--lime)}.filter-caption{font-size:10px;color:#e0d3e4;font-weight:750;letter-spacing:.10em;text-transform:uppercase;margin-top:34px;text-align:center;position:relative;z-index:1}
+.final-col{display:flex;flex-direction:column}.outcome{margin:auto 0;opacity:0;transform:translate(20px,12px) scale(.94);transition:opacity .57s ease,transform .6s cubic-bezier(.2,.85,.2,1);position:relative}
+.stage[data-phase="3"] .outcome{opacity:1;transform:none}.result-badge{display:inline-block;background:#9eff1f;color:#233119;border-radius:99px;font-size:11px;font-weight:850;padding:7px 13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+.stage[data-outcome="escalated"] .result-badge{background:#ffd08a;color:#49300f}
+.stage[data-outcome="unsupported"] .result-badge{background:#f7b0d8;color:#51243e}
+.result-value{font:500 clamp(36px,3.6vw,52px)/1.08 var(--serif);letter-spacing:-.035em;margin-bottom:14px;overflow-wrap:anywhere}.result-sub{font-size:15px;color:#e0d7e1;line-height:1.6;max-width:30ch}.result-mark{display:block;color:var(--lime);font:400 38px/1 var(--serif);margin-bottom:8px}.stage[data-outcome="escalated"] .result-mark{color:#ffd08a}.stage[data-outcome="unsupported"] .result-mark{color:#f7b0d8}
+.stage-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid #ffffff26;padding:15px 25px;background:#28272c}.stage-bottom p{color:#d3c7d6;font-size:11px}.stage-progress{display:flex;align-items:center;gap:5px}.stage-progress i{display:block;height:5px;width:23px;border-radius:5px;background:#ffffff37;transition:background .3s}.stage[data-phase="1"]~.stage-bottom .stage-progress i:nth-child(1),.stage[data-phase="2"]~.stage-bottom .stage-progress i:nth-child(-n+2),.stage[data-phase="3"]~.stage-bottom .stage-progress i{background:var(--lime)}
+.below{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:17px 2px 22px}.below p{color:#625665;font-size:12px;max-width:79ch}.below-links{display:flex;gap:12px 20px;align-items:center;flex-wrap:wrap}.below a{font-size:12px;font-weight:800;color:#385d20}.below a:hover{text-decoration:underline;text-underline-offset:4px}
+.details{margin:8px auto 54px;border-top:1px solid #d7c8d5;border-bottom:1px solid #d7c8d5}.details>summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 3px;list-style:none;font-size:13px;font-weight:750;cursor:pointer;color:#4b394d}.details>summary::-webkit-details-marker{display:none}.details>summary span:last-child{font-size:24px;font-weight:400;color:#8b628a}.details[open]>summary span:last-child{transform:rotate(45deg)}.details-body{padding:0 2px 23px;display:grid;grid-template-columns:1fr 1fr;gap:24px}.detail-block{font-size:13px;color:#574b59;line-height:1.7}.detail-block strong{color:#29252a}.detail-block h2{font:500 23px var(--serif);margin-bottom:7px}.trace-items{font-size:12px;display:grid;gap:5px;margin:12px 0;padding-left:19px}.register{border-top:1px solid #e0d3df;margin-top:20px;padding-top:10px}.register summary{cursor:pointer;font-size:12px;font-weight:800;color:#4d3861}.register ul{padding-left:17px;font-size:11px;color:#706271;line-height:1.7}
+.footer{background:#202024;color:#e8deeb}.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;padding:26px 0}.foot-inner p{font-size:11px;color:#c5b9c8;max-width:73ch}.foot-inner a{font-size:12px;color:#d9fabb;font-weight:700}.foot-inner a:hover{text-decoration:underline}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes travel{0%{transform:translateX(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(153px);opacity:0}}
+@media(max-width:930px){.stage{grid-template-columns:minmax(0,1.05fr) 105px minmax(0,1fr);padding:25px 22px;min-height:390px}.filter-ring{width:80px;height:80px}.filter-symbol{font-size:36px}.filter-caption{font-size:9px}.doc-value{font-size:15px}.hero{padding:46px 0 28px}.head-sub{display:none}}
+@media(max-width:650px){.wrap{width:calc(100% - 30px)}.site-head .head-inner{min-height:66px;gap:12px}.brand{font-size:20px}.brand b{font-size:23px;margin-right:2px}.head-actions{gap:8px}.back{font-size:11px}.hero{padding:37px 0 23px}.eyebrow{font-size:10px}.hero h1{font-size:clamp(37px,10vw,52px)}.hero h1 em{white-space:normal}.hero p{font-size:15px}.select-zone{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:24px 0 17px}.case{border-radius:10px;justify-content:center;padding:10px 7px;font-size:11px;min-height:43px;gap:6px}.case:last-child{grid-column:1/-1}.movie{border-radius:15px}.movie-top{padding:12px 15px}.stage{grid-template-columns:1fr;gap:0;min-height:0;padding:21px 17px 23px}.col-caption{margin-bottom:11px}.documents{min-height:0}.doc{min-height:54px;padding:9px 11px;gap:10px}.doc-mark{height:30px;width:30px;font-size:14px}.doc-copy strong{font-size:12px}.doc-copy small{font-size:9px}.doc-value{font-size:16px}.filter-col{height:101px;padding:0}.track{width:2px;top:-12px;bottom:-12px;height:auto;left:calc(50% - 1px);right:auto;background:linear-gradient(#ffffff00,#9eff1f80,#ffffff00)}.filter-ring{height:66px;width:66px;box-shadow:0 0 0 9px #9eff1f08}.filter-ring:before{inset:-5px}.filter-symbol{font-size:30px}.filter-caption{position:absolute;top:79px;margin:0;font-size:9px;white-space:nowrap;background:#202024;padding:0 6px}.final-col .col-caption{margin:0 0 12px}.outcome{margin:0;min-height:145px;transform:translateY(14px) scale(.97)}.result-badge{margin-bottom:9px}.result-mark{display:none}.result-value{font-size:36px;margin-bottom:8px}.result-sub{max-width:none;font-size:13px}.stage-bottom{padding:12px 14px}.details-body{grid-template-columns:1fr;gap:11px}.below{align-items:start;flex-direction:column}.foot-inner{align-items:start;flex-direction:column}}
+@keyframes travelVertical{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(106px);opacity:0}}
+@media(max-width:650px){.track:after{left:-2.5px;top:0}.stage[data-phase="2"] .track:after{animation:travelVertical 1.15s ease-in-out infinite}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.doc,.outcome,.no-doc{transition:none!important}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-pt="Ir ao conteúdo" data-en="Skip to content">Ir ao conteúdo</a>
+<header class="site-head">
+ <div class="wrap head-inner">
+  <a href="https://www.luahelena.com.br/ia/" id="brand" class="brand"><b aria-hidden="true">☾</b> Lua Helena</a>
+  <span class="head-sub">Moon Source / <span data-pt="Demonstração" data-en="Demonstration">Demonstração</span></span>
+  <div class="head-actions">
+    <a href="https://www.luahelena.com.br/ia/" id="portfolio" class="back" data-pt="Portfólio ↗" data-en="Portfolio ↗">Portfólio ↗</a>
+    <div class="langs" role="group" aria-label="Idioma / Language"><button data-lang="pt" type="button" aria-pressed="true">PT</button><button data-lang="en" type="button" aria-pressed="false">EN</button></div>
+  </div>
+ </div>
+</header>
+
+<main id="main">
+<section class="hero wrap">
+ <div class="eyebrow" data-pt="Moon Source · Em movimento" data-en="Moon Source · In motion">Moon Source · Em movimento</div>
+ <h1><span data-pt="De qual documento vem" data-en="Which document should guide">De qual documento vem</span> <em data-pt="a resposta?" data-en="the answer?">a resposta?</em></h1>
+ <p data-pt="Veja os documentos passarem por um filtro de regras. Uma boa resposta precisa de uma boa fonte." data-en="Watch documents pass through a rule-based filter. A good answer needs a trustworthy source.">Veja os documentos passarem por um filtro de regras. Uma boa resposta precisa de uma boa fonte.</p>
+</section>
+
+<div class="wrap">
+ <div class="select-zone" aria-label="Cenários" role="group">
+  <button type="button" class="case" data-case="travel" data-label-pt="Versões" data-label-en="Versions" data-query-pt="Qual é o limite de reembolso para hotel?" data-query-en="What is the hotel reimbursement limit?" aria-pressed="true"><small>01</small><span data-pt="Versões" data-en="Versions">Versões</span></button>
+  <button type="button" class="case" data-case="privacy" data-label-pt="Desatualizado" data-label-en="Outdated" data-query-pt="A política de privacidade ainda vale?" data-query-en="Is the privacy policy still current?" aria-pressed="false"><small>02</small><span data-pt="Desatualizado" data-en="Outdated">Desatualizado</span></button>
+  <button type="button" class="case" data-case="accommodation" data-label-pt="Pessoa decide" data-label-en="Human review" data-query-pt="Como solicito uma adaptação no trabalho?" data-query-en="How do I request a workplace accommodation?" aria-pressed="false"><small>03</small><span data-pt="Pessoa decide" data-en="Human review">Pessoa decide</span></button>
+  <button type="button" class="case" data-case="remote" data-label-pt="Conflito" data-label-en="Conflict" data-query-pt="Como funciona o trabalho remoto?" data-query-en="How does remote work work?" aria-pressed="false"><small>04</small><span data-pt="Conflito" data-en="Conflict">Conflito</span></button>
+  <button type="button" class="case" data-case="unsupported" data-label-pt="Sem fonte" data-label-en="No source" data-query-pt="Qual é a política de licença médica?" data-query-en="What is the medical leave policy?" aria-pressed="false"><small>05</small><span data-pt="Sem fonte" data-en="No source">Sem fonte</span></button>
+ </div>
+
+ <div class="movie" aria-label="Animação de verificação de fontes">
+  <div class="movie-top">
+   <span class="movie-flag"><i aria-hidden="true"></i><span data-pt="Simulação com fontes fictícias" data-en="Fictional source simulation">Simulação com fontes fictícias</span></span>
+   <button class="replay" id="replay" type="button" disabled data-pt="↻ Reproduzir" data-en="↻ Replay">↻ Reproduzir</button>
+  </div>
+  <div class="stage" id="stage" data-phase="0" data-outcome="answered">
+   <div class="stage-col">
+    <div class="col-caption"><span data-pt="Documentos" data-en="Documents">Documentos</span><span class="count" id="doc-count">00</span></div>
+    <div class="documents" id="documents"><span data-pt="Preparando animação…" data-en="Preparing animation…">Preparando animação…</span></div>
+   </div>
+   <div class="filter-col" aria-hidden="true">
+    <div class="track"></div>
+    <div class="filter-ring"><span class="filter-symbol">⌁</span></div>
+    <div class="filter-caption" data-pt="Regras de fonte" data-en="Source rules">Regras de fonte</div>
+   </div>
+   <div class="stage-col final-col">
+    <div class="col-caption"><span data-pt="Decisão" data-en="Decision">Decisão</span><span class="count">03 / 03</span></div>
+    <div id="result-visual" class="outcome" aria-hidden="true"></div>
+   </div>
+  </div>
+  <div class="stage-bottom">
+    <p id="motion-caption" data-pt="Os documentos chegam" data-en="Documents appear">Os documentos chegam</p>
+    <div class="stage-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+ </div>
+ <p id="announce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+ <div class="below">
+  <p data-pt="Cenário ficcional e didático. Nenhum modelo de IA gera respostas: as decisões são determinadas por regras explícitas e por sete registros fictícios." data-en="Fictional educational scenario. No AI model generates answers: outcomes follow explicit rules applied to seven fictional records.">Cenário ficcional e didático. Nenhum modelo de IA gera respostas: as decisões são determinadas por regras explícitas e por sete registros fictícios.</p>
+  <div class="below-links"><a id="guide-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md" target="_blank" rel="noopener noreferrer" data-pt="Como funciona ↗" data-en="How it works ↗">Como funciona ↗</a></div>
+ </div>
+
+ <details class="details" id="technical">
+  <summary><span data-pt="Curiosidade? Veja as regras e as fontes por trás da animação." data-en="Curious? See the rules and sources behind the animation.">Curiosidade? Veja as regras e as fontes por trás da animação.</span><span aria-hidden="true">+</span></summary>
+  <div class="details-body">
+   <section class="detail-block">
+    <h2 data-pt="A decisão completa" data-en="Full outcome">A decisão completa</h2>
+    <p id="full-answer"></p>
+    <h2 style="margin-top:18px" data-pt="Fontes consideradas" data-en="Sources considered">Fontes consideradas</h2>
+    <ul id="source-explain" class="trace-items"></ul>
+   </section>
+   <section class="detail-block">
+    <h2 data-pt="Rastro da decisão" data-en="Decision trace">Rastro da decisão</h2>
+    <ol id="trace-explain" class="trace-items"></ol>
+    <details class="register">
+      <summary data-pt="Inspecionar as sete fontes fictícias" data-en="Inspect all seven fictional sources">Inspecionar as sete fontes fictícias</summary>
+      <ul id="source-register"></ul>
+    </details>
+   </section>
+  </div>
+ </details>
+</div>
+</main>
+
+<footer class="footer">
+ <div class="wrap foot-inner">
+  <p data-pt="Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação com assistência de IA. Esta demonstração não comprova eficácia em produção." data-en="Architecture, specification, integration and QA: Lua Helena Moon Martins Cardoso. Implementation developed with AI assistance. This demonstration does not establish production effectiveness.">Arquitetura, especificação, integração e QA: Lua Helena Moon Martins Cardoso. Implementação com assistência de IA. Esta demonstração não comprova eficácia em produção.</p>
+  <a id="portfolio-foot" href="https://www.luahelena.com.br/ia/" data-pt="Voltar ao portfólio ↗" data-en="Back to portfolio ↗">Voltar ao portfólio ↗</a>
+</div>
+</footer>
+<script id="motion-v4-inline">
+window.__MOON_FIXTURE__={"asOf":"2026-10-03","notice":"Fictional, fixed-date test fixture. These are not live policies or real participant records.","sources":[{"id":"NORTHSTAR-TRAVEL-03","authority":{"level":5,"label_pt":"Política aprovada","label_en":"Approved policy"},"version":"3.0","effectiveDate":"2026-08-01","lastReviewedAt":"2026-09-20","staleAfterDays":90,"status":"active","updatePath":"Fictional source register / operations / travel-policy","supersedes":["NORTHSTAR-TRAVEL-02"],"topic":"travel","keywords":["hospedagem","hotel","viagem","travel","lodging","reimbursement","reembolso"],"answer_pt":"A política vigente limita o reembolso de hospedagem a US$ 180 por noite, antes de impostos. Despesas fora da regra precisam de aprovação prévia da Operações.","answer_en":"The current policy caps lodging reimbursement at US$180 per night before taxes. Exceptions require prior Operations approval.","escalationRequired":false,"title_pt":"Política de viagens e hospedagem","title_en":"Travel and lodging policy","owner_pt":"Escritório Fictício de Políticas Operacionais","owner_en":"Fictional Operations Policy Office","updatePath_pt":"Registro sintético / operações / política-de-viagens","updatePath_en":"Synthetic register / operations / travel-policy"},{"id":"NORTHSTAR-TRAVEL-FAQ-01","authority":{"level":2,"label_pt":"FAQ de suporte","label_en":"Support FAQ"},"version":"1.0","effectiveDate":"2026-08-15","lastReviewedAt":"2026-09-15","staleAfterDays":120,"status":"active","updatePath":"Fictional source register / support / travel-faq","supersedes":[],"topic":"travel","keywords":["hospedagem","hotel","viagem","travel","lodging","reimbursement","reembolso"],"answer_pt":"A FAQ informa um limite de US$ 200 por noite.","answer_en":"The FAQ lists a US$200 per-night limit.","escalationRequired":false,"title_pt":"Perguntas frequentes sobre viagens","title_en":"Travel FAQ","owner_pt":"Central Fictícia de Suporte a Viagens","owner_en":"Fictional Travel Support Desk","updatePath_pt":"Registro sintético / suporte / faq-de-viagens","updatePath_en":"Synthetic register / support / travel-faq"},{"id":"NORTHSTAR-TRAVEL-02","authority":{"level":5,"label_pt":"Política aprovada","label_en":"Approved policy"},"version":"2.0","effectiveDate":"2025-03-01","lastReviewedAt":"2025-03-01","staleAfterDays":90,"status":"superseded","updatePath":"Fictional source register / operations / travel-policy/archive","supersedes":[],"topic":"travel","keywords":["hospedagem","hotel","viagem","travel","lodging","reimbursement","reembolso"],"answer_pt":"A versão antiga limitava o reembolso a US$ 150 por noite.","answer_en":"The older version capped reimbursement at US$150 per night.","escalationRequired":false,"title_pt":"Política anterior de viagens e hospedagem","title_en":"Previous travel and lodging policy","owner_pt":"Escritório Fictício de Políticas Operacionais","owner_en":"Fictional Operations Policy Office","updatePath_pt":"Registro sintético / operações / arquivo-de-viagens","updatePath_en":"Synthetic register / operations / travel-policy-archive"},{"id":"NORTHSTAR-PRIVACY-01","authority":{"level":5,"label_pt":"Política aprovada","label_en":"Approved policy"},"version":"1.0","effectiveDate":"2024-01-01","lastReviewedAt":"2024-01-01","staleAfterDays":365,"status":"active","updatePath":"Fictional source register / privacy / information-handling","supersedes":[],"topic":"privacy","keywords":["privacidade","privacy","dados pessoais","personal data"],"answer_pt":"A política antiga exige acesso mínimo necessário e revisão pela equipe de Privacidade para usos secundários. O conteúdo está vencido para revisão.","answer_en":"The older policy requires minimum necessary access and Privacy review for secondary use. This content is overdue for review.","escalationRequired":false,"title_pt":"Política de tratamento de informações","title_en":"Information handling policy","owner_pt":"Escritório Fictício de Privacidade","owner_en":"Fictional Privacy Office","updatePath_pt":"Registro sintético / privacidade / tratamento-de-informações","updatePath_en":"Synthetic register / privacy / information-handling"},{"id":"NORTHSTAR-ACCOMMODATION-01","authority":{"level":4,"label_pt":"Guia operacional aprovado","label_en":"Approved operating guide"},"version":"1.2","effectiveDate":"2026-07-01","lastReviewedAt":"2026-09-10","staleAfterDays":180,"status":"active","updatePath":"Fictional source register / people / accommodation-routing","supersedes":[],"topic":"accommodation","keywords":["adaptação","accommodation","workplace","ajuste","accessibility","acessibilidade"],"answer_pt":"Encaminhe o pedido à equipe fictícia de People Operations para avaliação individual. Esta fonte descreve o caminho de revisão; ela não decide elegibilidade nem aprova o pedido.","answer_en":"Route the request to fictional People Operations for individual review. This source describes the review path; it does not determine eligibility or approve the request.","escalationRequired":true,"escalationOwner":"Fictional People Operations","title_pt":"Guia de encaminhamento para adaptações no trabalho","title_en":"Workplace accommodation routing guide","owner_pt":"Operações de Pessoas Fictícias","owner_en":"Fictional People Operations","updatePath_pt":"Registro sintético / pessoas / encaminhamento-de-adaptações","updatePath_en":"Synthetic register / people / accommodation-routing"},{"id":"NORTHSTAR-REMOTE-01","authority":{"level":4,"label_pt":"Procedimento aprovado","label_en":"Approved procedure"},"version":"1.0","effectiveDate":"2026-09-01","lastReviewedAt":"2026-09-20","staleAfterDays":90,"status":"active","updatePath":"Fictional source register / operations / remote-work","supersedes":[],"topic":"remote-work","keywords":["trabalho remoto","home office","remote work","work from home","teletrabalho"],"answer_pt":"O trabalho remoto exige aprovação do gestor antes de cada semana.","answer_en":"Remote work requires manager approval before each week.","escalationRequired":false,"title_pt":"Procedimento de trabalho remoto A","title_en":"Remote work procedure A","owner_pt":"Equipe Fictícia de Operações","owner_en":"Fictional Operations Team","updatePath_pt":"Registro sintético / operações / trabalho-remoto","updatePath_en":"Synthetic register / operations / remote-work"},{"id":"NORTHSTAR-REMOTE-02","authority":{"level":4,"label_pt":"Procedimento aprovado","label_en":"Approved procedure"},"version":"1.1","effectiveDate":"2026-09-01","lastReviewedAt":"2026-09-20","staleAfterDays":90,"status":"active","updatePath":"Fictional source register / operations / remote-work","supersedes":[],"topic":"remote-work","keywords":["trabalho remoto","home office","remote work","work from home","teletrabalho"],"answer_pt":"O trabalho remoto pode ocorrer até três dias por semana sem aprovação prévia.","answer_en":"Remote work is allowed up to three days a week without advance approval.","escalationRequired":false,"title_pt":"Procedimento de trabalho remoto B","title_en":"Remote work procedure B","owner_pt":"Equipe Fictícia de Pessoas","owner_en":"Fictional People Team","updatePath_pt":"Registro sintético / operações / trabalho-remoto","updatePath_en":"Synthetic register / operations / remote-work"}]};
+// A deliberately small, deterministic routing fixture, not a natural-language model.
+// It decides from explicit source metadata. It cannot interpret intent or clinical meaning.
+const normalize = (v) => String(v ?? "").normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  .replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+
+const matchesKeyword = (normalizedQuery, keyword) => {
+  const term = normalize(keyword);
+  return term.length > 0 && (` ${normalizedQuery} `).includes(` ${term} `);
+};
+const daysBetween = (older, newer) => (Date.parse(`${newer}T00:00:00Z`) -
+  Date.parse(`${older}T00:00:00Z`)) / 86400000;
+const answerFor = (source, lang) => lang === "en" ? source.answer_en : source.answer_pt;
+
+function isSuperseded(source, allSources, today = "2026-10-03") {
+  if (source.status === "superseded") return true;
+  return allSources.some((candidate) =>
+    candidate.status === "active" && candidate.effectiveDate <= today &&
+    candidate.supersedes?.includes(source.id));
+}
+
+function routeQuery(query, sources, today = "2026-10-03", language = "pt") {
+  const en = language === "en";
+  const relevant = (sources || []).filter((source) =>
+    (source.keywords || []).some((keyword) => matchesKeyword(normalize(query), keyword)));
+  const trace = [];
+  const step = (code, records = []) => trace.push({code, ids: records.map((x) => x.id)});
+  step("matched", relevant);
+  const unsupported = {
+    status:"unsupported", answer:en
+      ? "No registered topic matches this query. This keyword fixture cannot infer a new answer."
+      : "Nenhum tópico cadastrado corresponde à consulta. Este teste por palavras-chave não pode inferir uma resposta.",
+    selected:[], conflicts:[], excluded:[], escalationOwner:null, trace
+  };
+  if (!relevant.length) { step("unsupported"); return unsupported; }
+
+  const excluded = relevant.filter((x) => isSuperseded(x, sources, today));
+  const eligible = relevant.filter((x) => x.status === "active"
+    && x.effectiveDate <= today && !isSuperseded(x, sources, today));
+  step("excluded", excluded); step("eligible", eligible);
+  const escalated = (answer, chosen, conflicts, owner, reason) => {
+    step(reason, chosen);
+    return {status:"escalated", answer, selected:chosen, conflicts, excluded,
+      escalationOwner:owner, trace};
+  };
+  if (!eligible.length) return escalated(
+    en ? "No current authorized source is available. Ask its owner for review."
+       : "Nenhuma fonte autorizada está vigente. Encaminhe para revisão pela pessoa responsável.",
+    [], [], relevant[0].owner_en || relevant[0].owner, "no_current_source"
+  );
+  const level = Math.max(...eligible.map((x) => x.authority.level));
+  const highest = eligible.filter((x) => x.authority.level === level);
+  step("highest", highest);
+  const stale = highest.filter((x) => daysBetween(x.lastReviewedAt, today) > x.staleAfterDays);
+  if (stale.length) return escalated(
+    en ? "The highest-authority source is overdue for review. Do not treat it as current."
+       : "A fonte de maior autoridade está vencida para revisão. Não trate seu conteúdo como atual.",
+    stale, [], (en ? stale[0].owner_en : stale[0].owner_pt) || stale[0].owner, "stale"
+  );
+  const different = new Set(highest.map((x) => answerFor(x, language)));
+  if (different.size > 1) return escalated(
+    en ? "Current sources with equal authority disagree. A human owner must reconcile them."
+       : "Fontes vigentes com a mesma autoridade entram em conflito. Uma pessoa responsável deve conciliá-las.",
+    highest, highest,
+    highest.map((x)=>(en?x.owner_en:x.owner_pt)||x.owner).join(" / "), "top_conflict"
+  );
+  const selected=[...highest].sort((a,b) => b.effectiveDate.localeCompare(a.effectiveDate)
+    || b.lastReviewedAt.localeCompare(a.lastReviewedAt))[0];
+  const conflicts=eligible.filter((x) => x.authority.level < level
+    && answerFor(x, language) !== answerFor(selected, language));
+  step("lower_conflicts", conflicts);
+  if (selected.escalationRequired) return escalated(
+    answerFor(selected, language), [selected], conflicts,
+    selected.escalationOwner || (en?selected.owner_en:selected.owner_pt), "human_required"
+  );
+  step("answered", [selected]);
+  return {status:"answered", answer:answerFor(selected, language), selected:[selected],
+    conflicts, excluded, escalationOwner:null, trace};
+}
+
+(function moonMotionV4(){
+ const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)],esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ let lang=new URLSearchParams(location.search).get("lang")==="en"?"en":"pt",registry=null,caseId="travel",outcome=null,timers=[];
+ const data={
+ pt:{
+  title:"De qual fonte vem a resposta? | Moon Source",
+  desc:"Cinco animações didáticas mostram como regras de fonte, versão e autoridade evitam respostas inventadas.",
+  stages:["Os documentos chegam","As regras verificam","A decisão aparece"],
+  statuses:{answered:"Resposta autorizada",escalated:"Revisão humana",unsupported:"Sem fonte"},
+  roles:{chosen:"Prioritária",review:"Revisar",conflict:"Divergente",excluded:"Superada",neutral:"Encontrada"},
+  docName:{"NORTHSTAR-TRAVEL-03":"Política aprovada","NORTHSTAR-TRAVEL-FAQ-01":"FAQ de suporte","NORTHSTAR-TRAVEL-02":"Política antiga","NORTHSTAR-PRIVACY-01":"Política de privacidade","NORTHSTAR-ACCOMMODATION-01":"Guia de adaptações","NORTHSTAR-REMOTE-01":"Procedimento A","NORTHSTAR-REMOTE-02":"Procedimento B"},
+  scenes:{
+   travel:{status:"answered",value:"US$ 180",summary:"A política aprovada prevalece. A FAQ e a versão antiga não decidem.",kind:"✓"},
+   privacy:{status:"escalated",value:"Revisão vencida",summary:"Uma política sem revisão atual não pode sustentar a resposta.",kind:"!"},
+   accommodation:{status:"escalated",value:"Decisão humana",summary:"O guia orienta, mas a aprovação é responsabilidade de uma pessoa.",kind:"!"},
+   remote:{status:"escalated",value:"Conflito detectado",summary:"Duas regras com a mesma autoridade dizem coisas diferentes.",kind:"!"},
+   unsupported:{status:"unsupported",value:"Sem evidência",summary:"Sem documento correspondente, nenhuma resposta é inventada.",kind:"×"}
+  },
+  explainer:"O que a regra verificou",sourceLabel:"Fontes consideradas",traceLabel:"Rastro da decisão",fullAnswer:"Resultado completo",empty:"Nenhuma fonte corresponde ao assunto.",loading:"Carregando fontes fictícias…",failed:"Não foi possível carregar as fontes.",count:"fontes",ask:"Base fictícia · 03/10/2026",
+  trace:{matched:"Encontrar registros",excluded:"Descartar versões antigas",eligible:"Verificar vigência",highest:"Comparar autoridade",stale:"Revisão vencida",top_conflict:"Conflito na mesma autoridade",human_required:"Decisão reservada a uma pessoa",lower_conflicts:"Registrar divergências",answered:"Resposta sustentada",no_current_source:"Sem fonte vigente",unsupported:"Nenhuma correspondência"},
+  sourceSuffix:"Autoridade",none:"nenhum registro",sourceIntro:"São documentos inventados para a demonstração. Nenhum dado real está envolvido."
+ },
+ en:{
+  title:"Where does an answer come from? | Moon Source",
+  desc:"Five visual scenarios show how source authority, freshness and version rules prevent invented answers.",
+  stages:["Documents appear","Rules check the sources","The outcome appears"],
+  statuses:{answered:"Source-backed answer",escalated:"Human review",unsupported:"No supporting source"},
+  roles:{chosen:"Governs",review:"Review",conflict:"Disagrees",excluded:"Outdated",neutral:"Matched"},
+  docName:{"NORTHSTAR-TRAVEL-03":"Approved policy","NORTHSTAR-TRAVEL-FAQ-01":"Support FAQ","NORTHSTAR-TRAVEL-02":"Old policy","NORTHSTAR-PRIVACY-01":"Privacy policy","NORTHSTAR-ACCOMMODATION-01":"Accommodation guide","NORTHSTAR-REMOTE-01":"Procedure A","NORTHSTAR-REMOTE-02":"Procedure B"},
+  scenes:{
+   travel:{status:"answered",value:"US$ 180",summary:"Approved policy prevails. Neither the FAQ nor the old version can override it.",kind:"✓"},
+   privacy:{status:"escalated",value:"Review overdue",summary:"A policy past its review deadline cannot support a current answer.",kind:"!"},
+   accommodation:{status:"escalated",value:"Human decision",summary:"The guide gives a route, but a person must approve the request.",kind:"!"},
+   remote:{status:"escalated",value:"Conflict found",summary:"Two equally authoritative procedures contradict each other.",kind:"!"},
+   unsupported:{status:"unsupported",value:"No evidence",summary:"Without a matching source, no answer is fabricated.",kind:"×"}
+  },
+  explainer:"What the rules checked",sourceLabel:"Sources considered",traceLabel:"Decision trace",fullAnswer:"Full outcome",empty:"No source in the register matches the topic.",loading:"Loading fictional sources…",failed:"Could not load the source register.",count:"sources",ask:"Fictional snapshot · 2026-10-03",
+  trace:{matched:"Find records",excluded:"Remove outdated versions",eligible:"Check effective sources",highest:"Compare authority",stale:"Review overdue",top_conflict:"Equal-authority conflict",human_required:"Human decision required",lower_conflicts:"Record disagreements",answered:"Sourced answer",no_current_source:"No current source",unsupported:"No keyword match"},
+  sourceSuffix:"Authority",none:"no records",sourceIntro:"These records are fictional. No real-world personal or organizational data is used."
+ }};
+ const L=()=>data[lang];
+ const cases=$(".case");
+ const rec=(id)=>registry.sources.find(s=>s.id===id);
+ const query=()=>cases.find(x=>x.dataset.case===caseId)?.dataset[lang==="en"?"queryEn":"queryPt"]||"";
+ const clear=()=>{timers.forEach(clearTimeout);timers=[]};
+ const phase=(n)=>{const s=$("#stage");s.dataset.phase=String(n);$("#motion-caption").textContent=n===0?L().stages[0]:L().stages[Math.max(0,n-1)];if(n===3){$("#result-visual").setAttribute("aria-hidden","false");$("#announce").textContent=L().scenes[caseId].value+" · "+L().scenes[caseId].summary;}};
+ const delay=(fn,ms)=>timers.push(setTimeout(fn,ms));
+ const matched=()=>{const ids=outcome?.trace.find(x=>x.code==="matched")?.ids||[];return ids.map(rec).filter(Boolean);};
+ function role(s){
+   if(outcome.excluded.some(x=>x.id===s.id))return "excluded";
+   if(outcome.conflicts.some(x=>x.id===s.id))return "conflict";
+   if(outcome.selected.some(x=>x.id===s.id))return outcome.status==="answered"?"chosen":"review";
+   return "neutral";
+ }
+ function docCard(s,i){
+   const tag=role(s);
+   const answer=s["answer_"+lang]||"";
+   const amount=answer.match(/US\$\s?(\d+)/);
+   const value=amount&&s.topic==="travel"?"US$ "+amount[1]:"";
+   return `<article class="doc" data-role="${esc(tag)}" style="--delay:${i*115}ms">
+     <span class="doc-mark" aria-hidden="true">${tag==="excluded"?"×":tag==="chosen"?"✓":tag==="conflict"?"!":"▤"}</span>
+     <span class="doc-copy"><strong>${esc(L().docName[s.id]||s["title_"+lang])}</strong><small>v${esc(s.version)} · ${esc(L().sourceSuffix)} ${Number(s.authority.level)}/5 · ${esc(L().roles[tag])}</small></span>
+     ${value?`<span class="doc-value">${esc(value)}</span>`:""}
+    </article>`;
+ }
+ function renderDetails(){
+   const list=matched();
+   $("#full-answer").textContent=outcome.answer;
+   $("#source-explain").innerHTML=list.length?list.map(s=>`<li><b>${esc(L().docName[s.id]||s["title_"+lang])}</b> · v${esc(s.version)} · ${esc(L().roles[role(s)])}</li>`).join(""):`<li>${esc(L().empty)}</li>`;
+   $("#trace-explain").innerHTML=outcome.trace.map(t=>`<li>${esc(L().trace[t.code]||t.code)}${t.ids.length?": "+esc(t.ids.map(id=>L().docName[id]||id).join(", ")):""}</li>`).join("");
+   $("#source-register").innerHTML=registry.sources.map(s=>`<li>${esc(s["title_"+lang])} · v${esc(s.version)} · ${esc(s.id)}</li>`).join("");
+ }
+ function render(){
+   if(!registry)return;
+   outcome=routeQuery(query(),registry.sources,registry.asOf,lang);
+   const selected=L().scenes[caseId];let display=selected;
+   if(outcome.status!==selected.status){display={status:outcome.status,value:L().statuses[outcome.status],summary:outcome.answer,kind:"!"};}
+   const docs=matched();
+   $("#documents").innerHTML=docs.length?docs.map(docCard).join(""):`<div class="no-doc"><b>∅</b><span>${esc(L().empty)}</span></div>`;
+   $("#doc-count").textContent=`${String(docs.length).padStart(2,"0")} ${L().count}`;
+   $("#result-visual").innerHTML=`<div class="result-mark" aria-hidden="true">${esc(display.kind)}</div><span class="result-badge">${esc(L().statuses[outcome.status])}</span><h2 class="result-value">${esc(display.value)}</h2><p class="result-sub">${esc(display.summary)}</p>`;
+   $("#result-visual").setAttribute("aria-hidden","true");
+   $("#stage").dataset.outcome=outcome.status;
+   $("#announce").textContent="";
+   renderDetails();
+ }
+ function play(){
+   if(!registry)return;clear();phase(0);render();
+   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){phase(3);return}
+   delay(()=>phase(1),70);
+   delay(()=>phase(2),1020);
+   delay(()=>phase(3),2360);
+ }
+ function select(id){
+   caseId=id;
+   cases.forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.case===id)));
+   play();
+ }
+ function translate(to){
+   lang=to;document.documentElement.lang=to==="en"?"en":"pt-BR";document.title=L().title;
+   $('meta[name="description"]').content=L().desc;
+   $("[data-pt][data-en]").forEach(x=>x.textContent=x.dataset[to]);
+   $(".langs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===to)));
+   const url="https://www.luahelena.com.br/ia/"+(to==="en"?"?lang=en":"");
+   $("#portfolio").href=url;$("#portfolio-foot").href=url;$("#brand").href=url;
+   $("#guide-link").href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION"+(to==="en"?"":".pt-BR")+".md";
+   try{const u=new URL(location.href);if(to==="en")u.searchParams.set("lang","en");else u.searchParams.delete("lang");history.replaceState(null,"",u.pathname+u.search+u.hash)}catch{}
+   if(registry)play();
+ }
+ function start(){
+   cases.forEach(b=>b.addEventListener("click",()=>select(b.dataset.case)));
+   $("#replay").addEventListener("click",play);
+   $(".langs button").forEach(b=>b.addEventListener("click",()=>translate(b.dataset.lang)));
+   window.addEventListener("popstate",()=>translate(new URLSearchParams(location.search).get("lang")==="en"?"en":"pt"));
+   translate(lang);$("#documents").textContent=L().loading;$("#replay").disabled=true;
+   Promise.resolve({ok:true,json:()=>Promise.resolve(window.__MOON_FIXTURE__)}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(data=>{
+     if(!Array.isArray(data?.sources)||data.sources.length!==7)throw Error("Invalid test fixture");
+     registry=data;$("#replay").disabled=false;select("travel");
+   }).catch(()=>{
+     $("#documents").textContent=L().failed;
+     $("#replay").disabled=true;
+   });
+ }
+ start();
+})();
+
+</script>
+</body>
+</html>
