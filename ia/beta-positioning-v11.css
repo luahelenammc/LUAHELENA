@@ -103,3 +103,21 @@ html.moon-portfolio-beta-v11{scroll-padding-top:108px}
 @media(prefers-reduced-motion:reduce){
  .moon-portfolio-beta-v11 .v11-actions .button,.moon-portfolio-beta-v11 .v11-offer .button{transition:none!important;transform:none!important}
 }
+
+/* V11 visual QA: neon pigments are accents, not text on pastel cards. */
+.moon-portfolio-beta-v11 .starting-point .problem:nth-child(3) .glyph,
+.moon-portfolio-beta-v11 .starting-point .problem:nth-child(3) .use-context,
+.moon-portfolio-beta-v11 .audiences .audience-card:nth-child(2) .audience-icon{color:#356a0a}
+.moon-portfolio-beta-v11 .starting-point .problem:nth-child(3) .glyph,
+.moon-portfolio-beta-v11 .audiences .audience-card:nth-child(2) .audience-icon{background:#e5f8cd}
+.moon-portfolio-beta-v11 .method-section .method-step,
+.moon-portfolio-beta-v11 .audiences .audience-card,
+.moon-portfolio-beta-v11 .applications .application{color:#1f1f1f}
+.moon-portfolio-beta-v11 .foundation .foundation-intro,
+.moon-portfolio-beta-v11 .foundation .credential{color:#1f1f1f}
+.moon-portfolio-beta-v11 #projetos .project h3{color:#1f1f1f}
+.moon-portfolio-beta-v11 #projetos .project p{color:#584d5d}
+.moon-portfolio-beta-v11 #projetos .project a{color:#242e24}
+.moon-portfolio-beta-v11 #projetos .project a:hover{color:#345b12}
+.moon-portfolio-beta-v11 .v11-proof .v11-trace-row{color:#f5f1ee}
+.moon-portfolio-beta-v11 .v11-proof .v11-trace-label{color:#cbe7c7}
