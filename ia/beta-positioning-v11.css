@@ -1,13 +1,13 @@
 /* Moon /ia/ beta v11: conversion architecture without changing the published index. */
 html.moon-portfolio-beta-v11{scroll-padding-top:108px}
 .moon-portfolio-beta-v11 .hero{background:
- radial-gradient(ellipse at 78% 32%,rgba(158,255,31,.075),transparent 51%),
- radial-gradient(ellipse at 13% 0,rgba(255,31,255,.065),transparent 43%),var(--bg)}
+ radial-gradient(ellipse at 80% 24%,rgba(158,255,31,.13),transparent 42%),
+ radial-gradient(ellipse at 9% 7%,rgba(255,31,255,.055),transparent 48%),var(--bg)}
 .moon-portfolio-beta-v11 .hero-inner{padding-top:94px;padding-bottom:64px;grid-template-columns:minmax(0,1.27fr) minmax(320px,.73fr);gap:32px}
 .moon-portfolio-beta-v11 .hero h1{font-size:clamp(43px,5.25vw,74px);line-height:1.09;letter-spacing:-.039em;max-width:850px}
-.moon-portfolio-beta-v11 .hero h1 em{color:#9eff1f;font-style:normal}
-.moon-portfolio-beta-v11 .hero-intro{font-size:clamp(17px,1.4vw,19px);max-width:61ch;color:#e1dbe7;line-height:1.7}
-.moon-portfolio-beta-v11 .hero-note{font-size:12px;line-height:1.6;max-width:76ch}
+.moon-portfolio-beta-v11 .hero h1 em{color:#356a0a;font-style:normal}
+.moon-portfolio-beta-v11 .hero-intro{font-size:clamp(17px,1.4vw,19px);max-width:61ch;color:#49414d;line-height:1.7}
+.moon-portfolio-beta-v11 .hero-note{font-size:12px;line-height:1.6;max-width:76ch;color:#5f5364}
 .moon-portfolio-beta-v11 .hero .button.primary{background:#9eff1f;color:#191b13;border-color:#9eff1f;box-shadow:0 10px 40px rgba(158,255,31,.095)}
 .moon-portfolio-beta-v11 .hero .button.primary:hover{background:#c2ff73;border-color:#c2ff73}
 .moon-portfolio-beta-v11 .nav-links a[href="#projetos"]{color:#d9ecb6}
@@ -17,27 +17,27 @@ html.moon-portfolio-beta-v11{scroll-padding-top:108px}
 .moon-portfolio-beta-v11 .v11-proof{
  position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.85fr);
  gap:clamp(28px,4.8vw,64px);align-items:center;padding:clamp(28px,5vw,58px);
- border:1px solid rgba(158,255,31,.31);border-radius:25px;overflow:hidden;
- background:radial-gradient(circle at 92% 2%,rgba(158,255,31,.115),transparent 37%),
- linear-gradient(130deg,#222129 0%,#1b1c20 54%,#1a2420 100%);
- box-shadow:0 22px 80px rgba(0,0,0,.17);
+ border:1px solid #c7d9ae;border-radius:25px;overflow:hidden;color:#212620;
+ background:radial-gradient(circle at 92% 2%,rgba(158,255,31,.22),transparent 39%),
+ linear-gradient(133deg,#fffcf6 0%,#f0f6e7 60%,#ebf3dc 100%);
+ box-shadow:0 16px 45px rgba(48,64,33,.08);
 }
 .moon-portfolio-beta-v11 .v11-proof:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
- background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-image:linear-gradient(rgba(46,70,34,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(46,70,34,.055) 1px,transparent 1px);
  background-size:44px 44px;mask-image:linear-gradient(90deg,transparent 25%,#000 100%)}
-.moon-portfolio-beta-v11 .v11-overline{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;font-size:11px;letter-spacing:.16em;font-weight:600;color:#b5f270}
-.moon-portfolio-beta-v11 .v11-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9eff1f;box-shadow:0 0 0 4px rgba(158,255,31,.10)}
-.moon-portfolio-beta-v11 .v11-proof h3{font:500 clamp(28px,3.2vw,46px)/1.17 var(--serif);letter-spacing:-.025em;margin:24px 0 19px;max-width:17ch}
-.moon-portfolio-beta-v11 .v11-description{color:#d3cddd;font-size:15px;max-width:59ch;line-height:1.75}
+.moon-portfolio-beta-v11 .v11-overline{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;font-size:11px;letter-spacing:.16em;font-weight:600;color:#376514}
+.moon-portfolio-beta-v11 .v11-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#407914;box-shadow:0 0 0 4px rgba(64,121,20,.13)}
+.moon-portfolio-beta-v11 .v11-proof h3{font:500 clamp(28px,3.2vw,46px)/1.17 var(--serif);letter-spacing:-.025em;margin:24px 0 19px;max-width:17ch;color:#1f1f1f}
+.moon-portfolio-beta-v11 .v11-description{color:#4e4652;font-size:15px;max-width:59ch;line-height:1.75}
 .moon-portfolio-beta-v11 .v11-actions{display:flex;align-items:center;gap:18px 22px;flex-wrap:wrap;margin-top:28px}
 .moon-portfolio-beta-v11 .v11-actions .button.primary,.moon-portfolio-beta-v11 .v11-offer .button.primary{
  background:#9eff1f;border-color:#9eff1f;color:#181d15;border-radius:9px;font-weight:650;min-height:49px;
  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
 }
 .moon-portfolio-beta-v11 .v11-actions .button.primary:hover,.moon-portfolio-beta-v11 .v11-offer .button.primary:hover{background:#c1ff71;border-color:#c1ff71;box-shadow:0 12px 34px rgba(158,255,31,.12);transform:translateY(-3px)}
-.moon-portfolio-beta-v11 .v11-text-link{font-size:13px;font-weight:600;color:#e7e1ee;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:5px}
-.moon-portfolio-beta-v11 .v11-text-link:hover{color:#bfff69}
-.moon-portfolio-beta-v11 .v11-evidence-note{font-size:12px;max-width:68ch;color:#b6adc2;line-height:1.65;margin-top:27px;border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
+.moon-portfolio-beta-v11 .v11-text-link{font-size:13px;font-weight:600;color:#344c27;text-decoration:underline;text-decoration-color:rgba(48,84,25,.48);text-underline-offset:5px}
+.moon-portfolio-beta-v11 .v11-text-link:hover{color:#1f5510}
+.moon-portfolio-beta-v11 .v11-evidence-note{font-size:12px;max-width:68ch;color:#62586a;line-height:1.65;margin-top:27px;border-top:1px solid rgba(50,82,32,.22);padding-top:16px}
 .moon-portfolio-beta-v11 .v11-trace{padding:28px 25px 22px;background:rgba(11,16,15,.48);border:1px solid rgba(255,255,255,.13);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.14)}
 .moon-portfolio-beta-v11 .v11-trace-label{display:block;color:#b9d4b1;letter-spacing:.12em;text-transform:uppercase;font-size:10px;font-weight:600;margin:0 0 20px}
 .moon-portfolio-beta-v11 .v11-trace-row{display:grid;grid-template-columns:32px 1fr 20px;gap:14px;align-items:center;min-height:62px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);border-radius:10px;padding:10px 14px;font-size:13px;color:#f5f1ee}
@@ -49,8 +49,10 @@ html.moon-portfolio-beta-v11{scroll-padding-top:108px}
 .moon-portfolio-beta-v11 .v11-trace-status{display:flex;align-items:center;gap:8px;padding-top:19px;font-size:11px;font-weight:600;color:#baf772}
 .moon-portfolio-beta-v11 .v11-trace-status span{font-size:9px}
 .moon-portfolio-beta-v11 .v11-project-note{font-size:12px;color:var(--muted);line-height:1.7;margin:19px 0 0;max-width:84ch}
-.moon-portfolio-beta-v11 #projetos .project{border-color:rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
-.moon-portfolio-beta-v11 #projetos .project:hover{border-color:rgba(158,255,31,.5)}
+.moon-portfolio-beta-v11 #projetos .project{border-color:#9fb88a;background:var(--leaf);color:var(--ink)}
+.moon-portfolio-beta-v11 #projetos .project.cortex{border-color:#c4acd7;background:var(--lilac)}
+.moon-portfolio-beta-v11 #projetos .project:hover{border-color:#5c823d}
+.moon-portfolio-beta-v11 #projetos .project.cortex:hover{border-color:#9868ba}
 .moon-portfolio-beta-v11 .v11-offer{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);gap:32px;
  background:linear-gradient(140deg,#e8e5db,#f4f1e8);color:#24252a;border:1px solid rgba(255,255,255,.5);border-radius:24px;padding:clamp(26px,4.8vw,54px);
  box-shadow:0 18px 60px rgba(0,0,0,.16);margin:0 0 44px}
@@ -69,7 +71,7 @@ html.moon-portfolio-beta-v11{scroll-padding-top:108px}
 .moon-portfolio-beta-v11 .v11-offer-scope li{counter-increment:scopes;display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:14px;line-height:1.6;color:#343a32}
 .moon-portfolio-beta-v11 .v11-offer-scope li:before{content:counter(scopes,decimal-leading-zero);font-size:11px;color:#647a4c;font-weight:700;margin-top:3px}
 .moon-portfolio-beta-v11 .v11-offer-limit{border-top:1px solid #d1cec5;padding-top:17px;margin-top:27px;font-size:12px;color:#66675f;line-height:1.65}
-.moon-portfolio-beta-v11 .v11-contact-hint{font-size:13px;color:var(--muted);margin-top:15px;letter-spacing:.015em}
+.moon-portfolio-beta-v11 .v11-contact-hint{font-size:13px;color:#e9e0ed;margin-top:15px;letter-spacing:.015em}
 .moon-portfolio-beta-v11 #contato .contact-section{text-align:left}
 .moon-portfolio-beta-v11 #contato h2{max-width:880px}
 .moon-portfolio-beta-v11 #contato .contact-links{margin-top:27px}
