@@ -198,7 +198,7 @@
           <p class="v11-description">${c.demoIntro}</p>
           <div class="v11-actions">
             <a class="button primary" href="/ia/demos/governed-knowledge/${langQuery()}">${c.demoButton}<span aria-hidden="true">↗</span></a>
-            <a class="v11-text-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION.md" target="_blank" rel="noopener noreferrer">${c.demoGuide}<span aria-hidden="true">↗</span></a>
+            <a class="v11-text-link" href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/${language()==='en'?'FROM_METHOD_TO_IMPLEMENTATION.md':'FROM_METHOD_TO_IMPLEMENTATION.pt-BR.md'}" target="_blank" rel="noopener noreferrer">${c.demoGuide}<span aria-hidden="true">↗</span></a>
           </div>
           <p class="v11-evidence-note">${c.demoCaption}</p>
         </div>
