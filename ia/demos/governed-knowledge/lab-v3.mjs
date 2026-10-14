@@ -90,6 +90,9 @@ import { routeQuery } from './engine.mjs';
    $$("[data-pt][data-en]").forEach(el=>el.textContent=el.dataset[lang]);
    $$(".languages button").forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.lang===lang)));
    $("#proof-guide-link").href="https://github.com/luahelenammc/Moon-Source/blob/main/docs/FROM_METHOD_TO_IMPLEMENTATION"+(lang==="en"?"":".pt-BR")+".md";
+   const portfolio="/ia/"+(lang==="en"?"?lang=en":"");
+   $("#portfolio-top").href=portfolio;$("#portfolio-foot").href=portfolio;$(".brand").href=portfolio;
+   $("#query-input").placeholder=lang==="en"?"e.g. hotel":"Ex.: hotel";
    if(registry){renderRegister();show(active==="custom"?lastQuery:readCase(active),active)}else $("#decision").textContent=T().loading;
  }
  function setUrl(){
