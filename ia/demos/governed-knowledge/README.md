@@ -1,46 +1,47 @@
-# Governed Knowledge · Decision Laboratory (V3)
+# Moon Source · Animated Source Flow (V4)
 
-**Live demonstration:** https://www.luahelena.com.br/ia/demos/governed-knowledge/  
-**Português / English:** `?lang=en` for English  
+**Live:** https://www.luahelena.com.br/ia/demos/governed-knowledge/  
+**English:** https://www.luahelena.com.br/ia/demos/governed-knowledge/?lang=en  
 **Central professional portfolio:** https://www.luahelena.com.br/ia/
 
-## Purpose and audience
+## Purpose
 
-This public, educational interactive laboratory makes a narrow form of knowledge governance inspectable. Visitors choose one of five fictional situations and immediately see an outcome, the source records considered, and the deterministic decision trace. The page is part of the public evidence presented by the central `/ia/` portfolio, not a separate commercial product.
+A small animated HTML5 illustration of one Moon Source idea: **a plausible answer is not enough; an answer needs a governing source**. Five buttons replay the same transparent sequence: document cards enter, a rule-based filter checks them, and the outcome appears. The interaction is intentionally visual, not an analytics dashboard.
 
-The five scenarios cover:
-1. A current approved policy overruling a lower-authority FAQ and a superseded policy.
-2. A policy whose review deadline has passed.
-3. A source that requires human judgment and routes the case to its owner.
-4. Conflicting current records with equal authority.
-5. A topic missing from the register.
+The five fictional cases show:
+1. The approved and current policy outranking a conflicting FAQ and a superseded version.
+2. A source overdue for review.
+3. A case that requires a responsible human decision.
+4. Two current, equally authoritative sources in conflict.
+5. No source matching a topic, therefore no invented answer.
 
-An optional keyword form illustrates the **limits of retrieval**, not conversational understanding. The interface must never imply that a language model is running.
+A compact optional disclosure preserves the **full source answer**, trace and seven-record register for technical inspection. Nothing is precomputed to fake the algorithmic outcomes: the five case questions are evaluated by the same existing `routeQuery` engine used in the tests.
 
-## Source-of-truth and files
+## Files and authority
 
-- `index.html`: bilingual, accessible, responsive web presentation.
-- `lab-v3.css`: visual system shared by both languages, with reduced-motion and mobile layouts.
-- `lab-v3.mjs`: case navigation, trace presentation, localized source register, copy-to-clipboard.
-- `engine.mjs`: unchanged deterministic selection and escalation rules.
-- `sources.json`: unchanged seven-record fictional fixture, fixed at **2026-10-03**.
-- `tests.mjs`: Node fixtures validating source ranking, freshness, supersession, conflicts and other boundaries.
-- `downloads/Decision-Lab-V3-Offline.html`: portable single-file HTML containing the fixture, CSS, routing engine and interactive presentation. External fonts and outgoing links may still require internet.
+- `index.html` is the bilingual HTML5 player with accessible scenario buttons and an expandable inspection view.
+- `motion-v4.css` provides the staged document, moving filter and outcome animations (desktop horizontal, mobile vertical), focus styles and a reduced-motion fallback.
+- `motion-v4.mjs` coordinates visual playback and renders the real deterministic engine output.
+- `engine.mjs` is the canonical unchanged routing implementation.
+- `sources.json` is the original unchanged seven-record **fictional snapshot of 2026-10-03**.
+- `tests.mjs` is the canonical routing-fixture suite.
+- `downloads/Moon-Source-Animated-Demo-V4.html` is a **single-file offline HTML** with embedded styles, scripts, routing engine and source fixture, for testing without a local server. Google Fonts are optional and outgoing links need network access.
 
-## Run and verify
+The V3 laboratory files remain as a historical iteration, but V4 is the active page and distribution surface.
 
-Serve the directory statically so the online page can load `sources.json`. The portable offline HTML can be opened directly with `file://`.
+## Running and verification
 
-```bash
-node --check ia/demos/governed-knowledge/lab-v3.mjs
+Serve the folder with a local static server for the web source files, or open the V4 single-file HTML directly from disk.
+
+```sh
+node --check ia/demos/governed-knowledge/motion-v4.mjs
 node --test ia/demos/governed-knowledge/tests.mjs
 ```
 
-Inspect the five cases in PT and EN, test keyboard navigation and focus indicators, verify mobile scrolling, examine the source register, and confirm that copying the decision trace uses the current scenario and language.
+Review all five cases in PT and EN, autoplay/replay, interruption when rapidly switching cases, mobile portrait layout, keyboard focus, expanded provenance and `prefers-reduced-motion`. Keep the interface as short as practical; technical detail should not return to the main animation.
 
-## Evidence and privacy boundary
+## Limitations and authorship
 
-This is a **synthetic method demonstration**, not a deployed knowledge-management service, general natural-language query tool, client case study, or proof of enterprise readiness. Sources, organizations and owners are fictional. Nothing is sent to an AI model. Decisions are rule-based and bounded by the fixed fixture. The selected test scenarios do not establish accuracy on unseen datasets, legal suitability, measurable operational impact, or external adoption.
+**Cenário ficcional e didático. Nenhum modelo de IA gera respostas.** Matching uses registered keywords, source metadata and deterministic rules. It does not assess real policies, claim client deployment, prove enterprise readiness, or generalize to natural-language understanding. The examples and source owners are synthetic.
 
-**Architecture, specification, integration and QA:** Lua Helena Moon Martins Cardoso.  
-**Implementation:** developed with AI assistance.
+Architecture, specification, integration and QA: Lua Helena Moon Martins Cardoso. Implementation developed with AI assistance.
