@@ -75,6 +75,11 @@ import { routeQuery } from './engine.mjs';
    if(!registry)return;
    outcome=routeQuery(query(),registry.sources,registry.asOf,lang);
    const selected=L().scenes[caseId];let display=selected;
+   if(caseId==="travel"&&outcome.status==="answered"){
+     const governed=outcome.selected[0]?.["answer_"+lang]||"";
+     const amount=governed.match(/US\$\s?(\d+)/);
+     if(amount)display={...selected,value:"US$ "+amount[1]};
+   }
    if(outcome.status!==selected.status){display={status:outcome.status,value:L().statuses[outcome.status],summary:outcome.answer,kind:"!"};}
    const docs=matched();
    $("#documents").innerHTML=docs.length?docs.map(docCard).join(""):`<div class="no-doc"><b>∅</b><span>${esc(L().empty)}</span></div>`;
