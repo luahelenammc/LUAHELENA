@@ -1,7 +1,7 @@
 # Soberania Cognitiva Brasileira — implementação e direção de design
 
 **Página:** `papers/soberaniacognitiva.html`  
-**Versão:** 1.0 — 18/07/2026  
+**Registro de concepção:** v1.0 — 18/07/2026. **Versão atual do paper:** v1.2.1, com correção de acessibilidade e contraste de 29/10/2026.  
 **Tese visual escolhida:** carta cívica operacional + atlas de capacidades públicas.
 
 ## Três direções consideradas
@@ -114,3 +114,7 @@ O HTML v1.2.1 recebeu uma pergunta inicial, um caso inteiramente fictício para 
 A página v1.2.1 ganhou entradas diretas para apresentação, instrumento e fontes, além de um resumo executivo autônomo em HTML com CSS de impressão. O exemplo fictício distingue ausência efetiva de ausência de evidência. A direção visual permanece carta e atlas; nenhuma reclassificação para v1.3 foi feita. Testes amplos de responsividade, impressão, teclado, zoom e acessibilidade continuam necessários antes da promoção.
 
 **Imagem social:** `soberaniacognitiva-og.jpg`, composição editorial abstrata gerada por IA em 29/10/2026 a pedido da autora, sem logotipos ou fotografia de terceiros. Metadados OG e Twitter vinculados ao arquivo. Visualização pelas plataformas de compartilhamento permanece por verificar.
+
+## Resultado do QA real — 29/10/2026 (adendo após o Work)
+
+O Chromium/Playwright executou cinco larguras (320, 375, 768, 1024, 1440 px), teclado com foco no link de pular, `details` via Enter, conteúdo sem JavaScript, reflow aproximado a 200/400%, impressão A4 de 18 páginas, árvore de acessibilidade e axe-core nas larguras 375/1440. O contraste de `.capability-question` estava abaixo de 4,5:1 e a âncora pulava sem focar o `main`: ambos foram corrigidos e revalidados no domínio público. O axe não encontrou violações automáticas WCAG A/AA, mas marcou múltiplos elementos com contraste `incomplete`; não houve leitor de tela humano nem revisão visual completa do impresso. **Não promover para v1.3 ainda.** Evidência e critérios: [relatório de QA](./soberaniacognitiva-qa-2026-10-29.md). A pesquisa jurídica agora tem [dossiê de PDFs oficiais efetivamente lidos](./soberaniacognitiva-legislacao-2026-10-29.md), distinguindo PL original e texto vigente.
