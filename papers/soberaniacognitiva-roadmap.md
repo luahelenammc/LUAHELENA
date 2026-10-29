@@ -79,3 +79,5 @@ Trilhas **A (PEC) e B (comparação/ENGD)** podem avançar em paralelo. A revis�
 ## Controle de alterações
 
 - **2026-10-29:** roteiro criado depois de auditoria de conteúdo, design e mecanismos de oportunidade legislativa/executiva. Corrige risco de novidade absoluta à luz do Gradiente Serpro e registra a ENGD 5.5/6.6/9.4; não altera o estado de circulação do projeto.
+
+- **2026-10-29 · implementação parcial:** o HTML v1.2.1 ganhou pergunta de entrada, caso fictício preenchido, nota de anterioridade e correção do rótulo do Decreto 12.069/2024. A inspeção estática confirmou oito capacidades, IDs únicos e âncoras internas resolvidas. QA renderizado e os demais gates da v1.3 continuam pendentes; não há nova circulação nem certificação institucional.
