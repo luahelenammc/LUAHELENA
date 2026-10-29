@@ -112,3 +112,5 @@ O HTML v1.2.1 recebeu uma pergunta inicial, um caso inteiramente fictício para 
 ## Continuidade editorial — 29/10/2026
 
 A página v1.2.1 ganhou entradas diretas para apresentação, instrumento e fontes, além de um resumo executivo autônomo em HTML com CSS de impressão. O exemplo fictício distingue ausência efetiva de ausência de evidência. A direção visual permanece carta e atlas; nenhuma reclassificação para v1.3 foi feita. Testes amplos de responsividade, impressão, teclado, zoom e acessibilidade continuam necessários antes da promoção.
+
+**Imagem social:** `soberaniacognitiva-og.jpg`, composição editorial abstrata gerada por IA em 29/10/2026 a pedido da autora, sem logotipos ou fotografia de terceiros. Metadados OG e Twitter vinculados ao arquivo. Visualização pelas plataformas de compartilhamento permanece por verificar.
