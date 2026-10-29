@@ -85,3 +85,19 @@ As skills foram metabolizadas como método. Nenhum código, design de marca ou i
 - conteúdo essencial disponível sem JavaScript;
 - comparação visual com `direitosemcaminho.html` e `iapelavida.html`.
 
+
+## Patch de auditoria e direção v1.3 planejada — 29/10/2026
+
+**Status de implementação:** a página pública permanece v1.2.1, com atualização de referências e metadados em 29/10. Este documento registra melhorias futuras; **não** afirma que o redesenho, testes visuais ou comparação empírica já ocorreram. O roteiro operacional completo está em [soberaniacognitiva-roadmap.md](./soberaniacognitiva-roadmap.md).
+
+**Decisão de continuidade:** preservar a carta cívica operacional + atlas. Não migrar para cards de SaaS, dashboard ornamental ou comunicação partidária. Os tokens históricos acima documentam a v1.0; a página atual usa tokens refinados (papel `#eee9df`, tinta `#202327`, vinho `#8a4548`, azul `#506482`) e breakpoints 1080/920/700/380 px; essa diferença era um débito de sincronização, não uma falha visual comprovada.
+
+**Nova arquitetura editorial de três camadas:** 1) abertura e decisão em dois minutos; 2) instrumento, evidências, ficha demonstrativa fictícia; 3) dossiê com anterioridade, legislação e fontes. Manter navegação de capítulos e opções de impressão. Criar entrada por finalidade sem quadruplicar o conteúdo.
+
+**Auditoria de conteúdo:** incorporar Gradiente Serpro e ENGD 5.5/6.6/9.4, destacar o diferencial humano e de aprendizado público, testar a regra de bloqueio de falha crítica. Comparar com trabalho existente antes de afirmar originalidade. Separar papel público de campanha, correspondência e dossiê de contatos.
+
+**Design e acessibilidade pendentes:** exemplar preenchido com valores fictícios e aviso de não certificação; diferencial entre nota ordinal e decisão; preview social com imagem editorial original e licença adequada; variações mobile; acessibilidade de `details` e navegação; impressão A4; contraste real; zoom 200/400%; teclado; leitura sem JS; checagem de links. Sem teste renderizado não registrar pass.
+
+**QA estático verificado na v1.2 em 29/10:** HTML ~70 KB, nove capítulos navegáveis, oito `details`, IDs internos únicos, hrefs internos resolvidos, estilo de foco, redução de movimento e CSS para impressão. Isso não constitui auditoria WCAG nem revisão jurídica.
+
+**Gate para v1.3:** revisão factual do corpus; comparativo Serpro × Moon; revisão de alegações; prova visual e funcional; atualização da data e do changelog; verificação de que nenhuma relação institucional é inflada. O documento HTML não deve ostentar v1.3 antes de esses gates terem sido efetivamente cumpridos.
