@@ -101,3 +101,9 @@ As skills foram metabolizadas como método. Nenhum código, design de marca ou i
 **QA estático verificado na v1.2 em 29/10:** HTML ~70 KB, nove capítulos navegáveis, oito `details`, IDs internos únicos, hrefs internos resolvidos, estilo de foco, redução de movimento e CSS para impressão. Isso não constitui auditoria WCAG nem revisão jurídica.
 
 **Gate para v1.3:** revisão factual do corpus; comparativo Serpro × Moon; revisão de alegações; prova visual e funcional; atualização da data e do changelog; verificação de que nenhuma relação institucional é inflada. O documento HTML não deve ostentar v1.3 antes de esses gates terem sido efetivamente cumpridos.
+
+## Patch editorial parcial — 29/10/2026
+
+O HTML v1.2.1 recebeu uma pergunta inicial, um caso inteiramente fictício para ilustrar a regra de falhas críticas, uma nota de complementaridade e uma correção na identificação do Decreto 12.069/2024. A nota não atribui exclusividade de gates à matriz e não afirma validação empírica. O caso usa a escala como ilustração, não como certificação.
+
+**Verificação realizada:** inspeção estática constatou oito capacidades, IDs únicos e âncoras internas resolvidas. O Playwright estava disponível, mas seu navegador não estava instalado; tentativa de abrir o servidor local no navegador remoto retornou conexão recusada. Por isso, não se alegam teste visual, teclado, contraste, zoom, impressão ou QA de acessibilidade, e a página continua em v1.2.1. O conjunto completo de gates da v1.3 permanece pendente.
