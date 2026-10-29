@@ -107,3 +107,8 @@ As skills foram metabolizadas como método. Nenhum código, design de marca ou i
 O HTML v1.2.1 recebeu uma pergunta inicial, um caso inteiramente fictício para ilustrar a regra de falhas críticas, uma nota de complementaridade e uma correção na identificação do Decreto 12.069/2024. A nota não atribui exclusividade de gates à matriz e não afirma validação empírica. O caso usa a escala como ilustração, não como certificação.
 
 **Verificação realizada:** inspeção estática constatou oito capacidades, IDs únicos e âncoras internas resolvidas. O Playwright estava disponível, mas seu navegador não estava instalado; tentativa de abrir o servidor local no navegador remoto retornou conexão recusada. Por isso, não se alegam teste visual, teclado, contraste, zoom, impressão ou QA de acessibilidade, e a página continua em v1.2.1. O conjunto completo de gates da v1.3 permanece pendente.
+
+
+## Continuidade editorial — 29/10/2026
+
+A página v1.2.1 ganhou entradas diretas para apresentação, instrumento e fontes, além de um resumo executivo autônomo em HTML com CSS de impressão. O exemplo fictício distingue ausência efetiva de ausência de evidência. A direção visual permanece carta e atlas; nenhuma reclassificação para v1.3 foi feita. Testes amplos de responsividade, impressão, teclado, zoom e acessibilidade continuam necessários antes da promoção.
