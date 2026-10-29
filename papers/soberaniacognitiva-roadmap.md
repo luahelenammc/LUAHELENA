@@ -83,3 +83,11 @@ Trilhas **A (PEC) e B (comparação/ENGD)** podem avançar em paralelo. A revis�
 - **2026-10-29 · implementação parcial:** o HTML v1.2.1 ganhou pergunta de entrada, caso fictício preenchido, nota de anterioridade e correção do rótulo do Decreto 12.069/2024. A inspeção estática confirmou oito capacidades, IDs únicos e âncoras internas resolvidas. QA renderizado e os demais gates da v1.3 continuam pendentes; não há nova circulação nem certificação institucional.
 
 - **2026-10-29 · continuidade:** adicionados caminhos de leitura por profundidade e resumo executivo em HTML com formatação para impressão; explicitado que “não avaliado” não equivale a zero. A página continua v1.2.1; confirmação de uma página A4 e testes de acessibilidade permanecem pendentes.
+
+## Atualização executada pelo chat — 29/10/2026
+
+**Pesquisas primárias destravadas:** leitura integral dos textos originais PL 4218/2025 (10p), PL 4364/2026 (8p) e PL 6352/2025 (3p); resposta ao RIC 1688/2026 (15p, com Nota Técnica 39 do Ministério da Saúde). Autógrafo do PL 2338/2023 baixado em 35 páginas digitalizadas, sem extração de texto adequada, portanto ainda sem análise de íntegra. PEC Sâmia (número/íntegra) e seminário específico REQ 41 (realização) permanecem sem prova. [Dossiê artigo por artigo](./soberaniacognitiva-legislacao-2026-10-29.md).
+
+**QA de navegador realmente executado:** cinco larguras sem overflow, teclado/detalhes, sem JS, zoom aproximado, A4 de 18 páginas com texto extraível, axe-core com zero violações automáticas nas larguras testadas. Foram corrigidos contraste de `--muted` e foco do skip link, com reteste positivo no domínio público. **Gates restantes:** contraste incompleto no axe, leitor de tela humano, revisão visual do impresso e preview social. [QA detalhado](./soberaniacognitiva-qa-2026-10-29.md). A página continua v1.2.1 até encerramento destes gates.
+
+**Circulação:** não iniciada. Seis drafts HOLD existentes; nenhum envio foi autorizado. A ampliação da pesquisa não libera pacotes automaticamente.
