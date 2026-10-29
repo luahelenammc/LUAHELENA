@@ -992,7 +992,11 @@
       }
     }
 
+    .reading-routes { display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:baseline; margin:2rem 0; padding:1rem 0; border-block:1px solid var(--line-strong); }
+    .reading-routes span { width:100%; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--wine-dark); }
+    .reading-routes a { color:var(--blue-dark); font-size:.9rem; font-weight:600; text-underline-offset:.2em; }
     @media print {
+      .reading-routes { display:none; }
       @page { margin: 1.5cm; size: A4; }
       :root {
         --paper: white;
@@ -1087,6 +1091,13 @@
         <section class="chapter" id="leitura" aria-labelledby="leitura-title">
           <div class="chapter-heading"><span class="chapter-label">01 · 60–90 segundos</span><h2 id="leitura-title">O debate precisa caber numa decisão.</h2></div>
           <div class="prose"><p class="lead">Se o fornecedor sair amanhã, o serviço continua? E se uma pessoa receber orientação errada, consegue falar com alguém e pedir correção?</p><p>Imagine um atendimento informacional de uma prefeitura. Ele responde perguntas simples, mas não permite exportar a base de orientações nem oferece caminho humano de contestação. Ainda que a infraestrutura seja robusta, a instituição precisa resolver essas falhas antes de confiar decisões de alto impacto ao sistema. O exemplo é fictício e não avalia nenhum serviço real.</p></div>
+          <nav class="reading-routes" aria-label="Caminhos de leitura">
+            <span>Escolha seu ponto de partida</span>
+            <a href="#leitura">Apresentação</a>
+            <a href="#matriz">Instrumento</a>
+            <a href="#fontes">Dossiê e fontes</a>
+            <a href="./soberaniacognitiva-resumo.html">Resumo executivo para imprimir</a>
+          </nav>
           <dl class="quick-ledger">
             <div class="quick-line"><dt>Objeto</dt><dd><strong>IA pública não é apenas modelo.</strong> É dados, infraestrutura, contratos, interfaces, equipes, regras e memória institucional.</dd></div>
             <div class="quick-line"><dt>Infraestrutura</dt><dd><strong>O modelo é só a parte visível.</strong> Semicondutores, fabricação de chips, memória, serviços de nuvem, centros de dados, energia, redes, capital, software, dados e regras de jurisdição também definem autonomia.</dd></div>
@@ -1140,7 +1151,7 @@
         <section class="chapter" id="matriz" aria-labelledby="matriz-title">
           <div class="chapter-heading"><span class="chapter-label">04 · Instrumento central</span><h2 id="matriz-title">Oito capacidades. Evidência antes do adjetivo.</h2></div>
           <div class="matrix-intro">
-            <div class="prose"><p class="lead">Use antes da compra, no desenho do serviço, em revisões e na saída do contrato.</p><p>Mapeie também as dependências de base — serviços de nuvem, capacidade computacional, energia, subcontratados e ferramentas essenciais. Abra cada linha para ver a evidência mínima e o sinal de alerta. A pontuação disciplina a conversa; não substitui julgamento.</p></div>
+            <div class="prose"><p class="lead">Use antes da compra, no desenho do serviço, em revisões e na saída do contrato.</p><p>Mapeie também as dependências de base — serviços de nuvem, capacidade computacional, energia, subcontratados e ferramentas essenciais. Abra cada linha para ver a evidência mínima e o sinal de alerta. A pontuação disciplina a conversa; não substitui julgamento. Sem evidência suficiente, registre “não avaliado”: desconhecimento não é nota zero.</p></div>
             <div class="scale" role="group" aria-label="Escala de avaliação de zero a três">
               <div class="scale-row"><b>0</b><span>inexistente</span></div>
               <div class="scale-row"><b>1</b><span>prometida</span></div>
