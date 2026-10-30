@@ -1,5 +1,8 @@
 # PR-007 | Soberania Cognitiva Brasileira — roteiro de pesquisa e implementação
 
+## Checkpoint PR-007 v1.3.0, 30/10/2026 (mais recente)
+A branch de integração preserva a main e Beacon. O paper e o resumo estão alinhados com a versão 1.3.0. O teste Chromium 156, a impressão A4 de 19 páginas e o controle dos casos de contraste encontram-se em soberaniacognitiva-qa-release-2026-10-30.md. Ausência de leitor de tela real está registrada e não permite alegações de certificação. Entradas antigas referentes ao bloqueio da candidata anterior são históricas e não descrevem este checkpoint. Antes de considerar a publicação concluída, é obrigatório verificar o site ao vivo após merge. Outreach permanece sem envio, com autorização nominal por destinatário. O histórico acadêmico e legal é acompanhado sem alegações de validação institucional.
+
 **Patch:** 2026-10-29 · **natureza:** planejamento longitudinal público, sujeito a revisão factual.  
 **Artefato:** [Soberania Cognitiva Brasileira](https://www.luahelena.com.br/papers/soberaniacognitiva.html) · [direção visual](./soberaniacognitiva-design.md).  
 **Autoria:** Lua Helena Moon Martins Cardoso.  
