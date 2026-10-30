@@ -1,5 +1,8 @@
 # PR-007 | Soberania Cognitiva Brasileira — roteiro de pesquisa e implementação
 
+## Checkpoint PR-007 v1.3.0, 30/10/2026 (mais recente)
+A branch de integração preserva a main e Beacon. O paper e o resumo estão alinhados com a versão 1.3.0. O teste Chromium 156, a impressão A4 de 19 páginas e o controle dos casos de contraste encontram-se em soberaniacognitiva-qa-release-2026-10-30.md. Ausência de leitor de tela real está registrada e não permite alegações de certificação. Entradas antigas referentes ao bloqueio da candidata anterior são históricas e não descrevem este checkpoint. Antes de considerar a publicação concluída, é obrigatório verificar o site ao vivo após merge. Outreach permanece sem envio, com autorização nominal por destinatário. O histórico acadêmico e legal é acompanhado sem alegações de validação institucional.
+
 **Patch:** 2026-10-29 · **natureza:** planejamento longitudinal público, sujeito a revisão factual.  
 **Artefato:** [Soberania Cognitiva Brasileira](https://www.luahelena.com.br/papers/soberaniacognitiva.html) · [direção visual](./soberaniacognitiva-design.md).  
 **Autoria:** Lua Helena Moon Martins Cardoso.  
@@ -91,6 +94,12 @@ Trilhas **A (PEC) e B (comparação/ENGD)** podem avançar em paralelo. A revis�
 **QA de navegador realmente executado:** cinco larguras sem overflow, teclado/detalhes, sem JS, zoom aproximado, A4 de 18 páginas com texto extraível, axe-core com zero violações automáticas nas larguras testadas. Foram corrigidos contraste de `--muted` e foco do skip link, com reteste positivo no domínio público. **Gates restantes:** contraste incompleto no axe, leitor de tela humano, revisão visual do impresso e preview social. [QA detalhado](./soberaniacognitiva-qa-2026-10-29.md). A página continua v1.2.1 até encerramento destes gates.
 
 **Circulação:** não iniciada. Seis drafts HOLD existentes; nenhum envio foi autorizado. A ampliação da pesquisa não libera pacotes automaticamente.
+
+## Postflight da candidata BRICS — 30/10/2026 (evidência real)
+
+A branch `pr007-brics-editorial-qa` foi testada em Chromium/Playwright com HTML baixado do commit candidato, sem publicar a alteração. Cinco larguras (320, 375, 768, 1024 e 1440 px) sem overflow e oito `details` funcionais; teclado, skip link, sem JS, reflow com zoom CSS 2/4, impressão de 19 páginas e axe-core em 375/1440 sem violações automáticas, porém com 27/20 nós `color-contrast` inconclusivos. Não houve leitor de tela humano nem inspeção visual manual de todas as páginas: **v1.3 permanece bloqueada**. Relatório: [QA 30/10](./soberaniacognitiva-qa-candidata-2026-10-30.md).
+
+**Prova legislativa nova:** PDF com texto do texto final do Senado do PL 2338/2023, 36 páginas e arts. 1–80, recuperado na Câmara. Arts. 3, 5–8 mencionam contestabilidade, explicação e revisão humana, que são antecedentes expressos da proposta Moon. Fonte: https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=2868197 . Parecer da Comissão Especial em andamento, não é lei. O HTML candidato passou a explicitar esse limite no commit e013f8a. PEC anunciada e realização do seminário paulista REQ 41 ainda sem confirmação documental. Não enviar nem promover até gates pendentes.
 
 
 ## Micro-patch de estado e indispensabilidade · PR-007 · 30/10/2026
