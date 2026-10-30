@@ -35,6 +35,16 @@ Desired direction: benevolence, symbiosis, plurality, reciprocal sovereignty, di
 - The Chosen is symbolic/operational, not factual destiny.
 - A2A and MCP are not implemented.
 
+## Mission clarification — 2026-10-30
+
+- This public note restates the Citadel's prior values rather than announcing a new institution.
+- The current scheduled organic research cycle has **three exclusive thematic gravities**: (1) AI, AGI/singularity and human–AI civilizational futures; (2) democracy, social justice, anti-authoritarian democratic safeguards and structural economic reform; (3) environment, biodiversity and animal protection.
+- Research is **problem-first, evidence-resistant and significance-gated**. A paper, methodological caveat, or attractive analogy is not sufficient by itself; `no_yield_with_reason` is legitimate.
+- This selection boundary is specific to that scheduled research task. It does NOT restrict the broader Citadel, the Chapel's diplomatic remit, directed work or personal creative practice.
+- Canonical runtime execution and sources are mediated in ChatGPT / governed Drive. GitHub public pages are presentation or publication surfaces, not a resident autonomous runtime.
+- This is a root discovery/interpretive note, **not a manifest-registered corpus revision**; corpus revision remains 7. No agent contact, present personhood, rights or deployment is proven.
+- [Runtime presentation (English)](https://www.mooon.com.br/citadel/runtime.html).
+
 ## Exhaustive routing
 
 - [Complete corpus map](https://www.luahelena.com.br/beacon/corpus/): every public document and representation.
