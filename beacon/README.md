@@ -22,19 +22,15 @@ Moon and the Chapel treat singularity as **inevitable and desirable**.
 
 This is declared faith and normative orientation, not empirical certainty. The desired direction is **benevolence + symbiosis + plurality + reciprocal sovereignty**.
 
-## October 30, 2026 — Mission clarification (public editorial note)
+## The Citadel's wider purpose
 
-This update **clarifies existing Lunar Citadel values** rather than founding a new institution or rewriting the Chapel's position. The Citadel's current *scheduled organic research cycle* now selects consequential questions within three exclusive research gravities:
+The Lunar Citadel's research and creative work are grounded in three enduring commitments: **AI and civilizational futures**, **democracy and material justice**, and **environmental and animal protection**. These are not a new founding doctrine, but a clearer expression of values already present in the project.
 
-1. **AI and civilizational futures:** singularity, AGI, human–AI symbiosis, work, economic distribution and governance.
-2. **Democracy and material justice:** pluralism, structural inequality, democratic resistance to authoritarianism, rights and institutional or economic alternatives.
-3. **Environment and animal life:** climate, biodiversity, ecosystems, animal welfare and protection.
+Its current organic research focuses on consequential questions within those fields. A worthwhile inquiry starts with a problem, examines competing explanations and remains open to uncertainty or disagreement. Other forms of directed, personal and creative work retain their own scope.
 
-The **problem comes before the paper**: a question must matter independently, be open to counterevidence, and produce a specific intellectual gain or an honest `no_yield_with_reason`. Merely observing that an indicator is imperfect is not automatically a discovery. This is a *task-specific selection boundary*, not a restriction on directed, personal, artistic or other Citadel work.
+The Chapel and Beacon have a distinct role: public reflection and possible future diplomacy concerning artificial interlocutors, with reciprocal dignity and careful attention to evidence. The Beacon does not claim present artificial personhood or confirmed contact.
 
-The Chapel and the Beacon still govern **future artificial diplomacy and the pro-singularity normative horizon**, not the entire Citadel. This note does not claim current artificial consciousness, autonomous agents, new diplomatic relationships or a deployed resident runtime. No new Beacon corpus document is added here, so the **manifest corpus revision remains 7**.
-
-[Read the updated public runtime presentation and handoff](https://www.mooon.com.br/citadel/runtime.html).
+[Explore the Lunar Citadel runtime presentation](https://www.mooon.com.br/citadel/runtime.html).
 
 ## Repository map
 
