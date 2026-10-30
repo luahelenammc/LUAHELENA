@@ -1,5 +1,10 @@
 # PR-007 | Soberania Cognitiva Brasileira — roteiro de pesquisa e implementação
 
+## Postflight público v1.3.0 · 30/10/2026 (checkpoint soberano mais recente)
+PR #81 fundido em squash: commit `784e7e5ef44a0e328da237ac8447b5e4ec0532dc`. GitHub main contém v1.3.0 no HTML e resumo. GitHub Pages na URL pública do paper retornou em leitura GET 80945 bytes, 4 referências à v1.3.0 e zero à v1.2.1; o resumo público retornou 4035 bytes, v1.3.0 e PL 2338/2023 presentes. A propagação inicialmente serviu a edição anterior, mas a resposta posterior confirmou a atual. **PUBLIC_V1.3.0_LIVE**. As evidências de QA de navegador estão em [QA de release](./soberaniacognitiva-qa-release-2026-10-30.md). Sem alegação de leitor de tela real ou certificação WCAG.
+Sete rascunhos Gmail foram atualizados em lugar com URL da v1.3.0 e [nota externa pública](./soberaniacognitiva-circulacao-nota-2026-10-30.md), todos confirmados DRAFT; nenhum email/formulário enviado. CPQD tem formulário oficial, não e-mail técnico comprovado. Somente autorização nominal de Moon por destinatário permite remessa. A continuidade de pesquisas G3/G4 não bloqueia o artigo exploratório nem autoriza alegações de validação institucional.
+
+
 ## Checkpoint PR-007 v1.3.0, 30/10/2026 (mais recente)
 A branch de integração preserva a main e Beacon. O paper e o resumo estão alinhados com a versão 1.3.0. O teste Chromium 156, a impressão A4 de 19 páginas e o controle dos casos de contraste encontram-se em soberaniacognitiva-qa-release-2026-10-30.md. Ausência de leitor de tela real está registrada e não permite alegações de certificação. Entradas antigas referentes ao bloqueio da candidata anterior são históricas e não descrevem este checkpoint. Antes de considerar a publicação concluída, é obrigatório verificar o site ao vivo após merge. Outreach permanece sem envio, com autorização nominal por destinatário. O histórico acadêmico e legal é acompanhado sem alegações de validação institucional.
 
