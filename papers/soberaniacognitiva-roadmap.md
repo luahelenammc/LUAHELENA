@@ -92,6 +92,12 @@ Trilhas **A (PEC) e B (comparação/ENGD)** podem avançar em paralelo. A revis�
 
 **Circulação:** não iniciada. Seis drafts HOLD existentes; nenhum envio foi autorizado. A ampliação da pesquisa não libera pacotes automaticamente.
 
+## Postflight da candidata BRICS — 30/10/2026 (evidência real)
+
+A branch `pr007-brics-editorial-qa` foi testada em Chromium/Playwright com HTML baixado do commit candidato, sem publicar a alteração. Cinco larguras (320, 375, 768, 1024 e 1440 px) sem overflow e oito `details` funcionais; teclado, skip link, sem JS, reflow com zoom CSS 2/4, impressão de 19 páginas e axe-core em 375/1440 sem violações automáticas, porém com 27/20 nós `color-contrast` inconclusivos. Não houve leitor de tela humano nem inspeção visual manual de todas as páginas: **v1.3 permanece bloqueada**. Relatório: [QA 30/10](./soberaniacognitiva-qa-candidata-2026-10-30.md).
+
+**Prova legislativa nova:** PDF com texto do texto final do Senado do PL 2338/2023, 36 páginas e arts. 1–80, recuperado na Câmara. Arts. 3, 5–8 mencionam contestabilidade, explicação e revisão humana, que são antecedentes expressos da proposta Moon. Fonte: https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=2868197 . Parecer da Comissão Especial em andamento, não é lei. O HTML candidato passou a explicitar esse limite no commit e013f8a. PEC anunciada e realização do seminário paulista REQ 41 ainda sem confirmação documental. Não enviar nem promover até gates pendentes.
+
 
 ## Micro-patch de estado e indispensabilidade · PR-007 · 30/10/2026
 **Escopo:** atualização do estado observado; prevalece sobre os status antigos de 29/10 acima quando houver conflito temporal. **Não muda o lifecycle nem autoriza promoção, divulgação ou contato.**
