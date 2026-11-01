@@ -1156,3 +1156,29 @@ html {scroll-padding-top:5rem}
   #camadas .layer-band::before {content:none!important}
   .author-links .action .mini-icon {display:none}
 }
+
+
+/* PR-007 · v6 QA refinements: icon contrasts and print-friendly scale. */
+@media screen {
+  #piloto .pilot-grid h3 {display:flex;align-items:center;gap:.5rem}
+  #piloto .pilot-grid section:nth-child(3n+1) h3 .mini-icon {color:#00875e}
+  #piloto .pilot-grid section:nth-child(3n+2) h3 .mini-icon {color:#946600}
+  #piloto .pilot-grid section:nth-child(3n) h3 .mini-icon {color:#175fae}
+  .workshop-step .mini-icon {color:inherit}
+  .author-copy a:not(.action) {color:#095fa8;text-decoration-thickness:.06em;
+    text-underline-offset:.17em}
+  .author-copy a:not(.action):hover {color:#07815e}
+  .verification-outcome > .mini-icon {color:#078456;width:1.25rem;height:1.25rem;margin-top:.2rem}
+  .capability-body h3 .mini-icon {display:inline-block}
+}
+@media print {
+  /* Screen icon SVGs would otherwise inherit the 300x150 default dimensions. */
+  svg.mini-icon {display:none!important}
+  #camadas .layer-band {padding:1rem!important;break-inside:avoid}
+  #camadas .layer-tag {display:block;font-size:9pt!important}
+  #camadas .layer-content {padding:0!important}
+  .workshop-step .step-index {font-weight:bold;font-size:9pt}
+  #matriz .capability-body {grid-template-columns:minmax(0,1fr)!important}
+  #matriz .capability-body section,
+  #matriz .capability-body section:first-of-type {grid-column:1!important}
+}
