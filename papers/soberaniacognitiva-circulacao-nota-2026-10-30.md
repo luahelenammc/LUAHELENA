@@ -1,7 +1,8 @@
 # Soberania cognitiva brasileira | Nota de leitura externa
 
 **Autoria:** Lua Helena Moon Martins Cardoso  
-**Estado:** contribuição independente em desenvolvimento; leitura crítica solicitada  
+**Versão:** 1.3.0 · 30 de outubro de 2026  
+**Natureza:** proposta exploratória independente, ainda não validada em campo  
 **Referência pública atualmente disponível:** https://www.luahelena.com.br/papers/soberaniacognitiva.html
 
 ## A questão pública
@@ -28,4 +29,3 @@ A intenção é aprender com a crítica, não reivindicar uma parceria já exist
 
 **Texto integral público:** https://www.luahelena.com.br/papers/soberaniacognitiva.html
 
-*Esta nota foi preparada para revisão editorial e encaminhamento individual. Não autoriza envio nem representa manifestação de qualquer órgão citado.*
