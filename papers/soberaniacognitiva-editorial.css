@@ -284,3 +284,14 @@ html {scroll-padding-top:5rem}
 .rail-inner {flex-direction:row}
 .chapter-nav {width:0;min-width:0;flex:1 1 0;max-width:100%;overflow-x:auto;overflow-y:hidden}
 }
+
+/* Editorial balance after rendered desktop/mobile inspection. */
+@media screen {
+.signal-grid {margin:1rem 0 0}
+.signal-board {min-height:0}
+.signal-board-link {margin-top:auto}
+.reading-progress {z-index:1700;height:3px;background:var(--neon)}
+}
+@media screen and (max-width:700px) {
+.wordmark::before {display:inline-flex;align-items:center}
+}
