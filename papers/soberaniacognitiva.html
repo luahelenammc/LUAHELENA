@@ -1365,7 +1365,7 @@
       }
 
       document.getElementById('copyCitation').addEventListener('click', copyCitation);
-      document.getElementById('copyCitationRail').addEventListener('click', copyCitation);
+      document.getElementById('copyCitationRail')?.addEventListener('click', copyCitation);
       document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
 
       const indexMenu = document.querySelector('.nav-overflow');
