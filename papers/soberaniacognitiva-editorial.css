@@ -1213,7 +1213,7 @@ html {scroll-padding-top:5rem}
   .outreach-group + .outreach-group .outreach-group-title .mini-icon {color:#d69b11}
   .outreach-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
     align-items:stretch;gap:clamp(.65rem,1.3vw,1rem)}
-  .outreach-group + .outreach-group .outreach-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+  .outreach-group + .outreach-group .outreach-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
   .outreach-card {min-width:0;display:flex;align-items:flex-start;gap:.85rem;
     padding:clamp(1rem,1.65vw,1.3rem);
     border:1px solid rgba(22,105,161,.13);border-top:3px solid var(--br-green);
