@@ -954,8 +954,6 @@ html {scroll-padding-top:5rem}
   .layer-band:nth-child(1) {background:#eafcf3;border-left-color:var(--br-green)}
   .layer-band:nth-child(2) {background:#fffae4;border-left-color:var(--br-yellow)}
   .layer-band:nth-child(3) {background:#eef6ff;border-left-color:var(--br-blue)}
-  .layer-band + .layer-band,.layer-band + .layer-band + .layer-band {
-    background:inherit}
   .layer-band:nth-child(1)::before {color:#087e58}
   .layer-band:nth-child(2)::before {color:#8d6300}
   .layer-band:nth-child(3)::before {color:#1769bf}
