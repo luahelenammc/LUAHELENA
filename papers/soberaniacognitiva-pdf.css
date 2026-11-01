@@ -1,0 +1,175 @@
+/* PR-007 | PDF editorial companion
+   A print-specific composition built from the current HTML SCREEN visual language.
+   Used by scripts/build-soberaniacognitiva-pdf.py after emulate_media("screen").
+   Never loaded by the live page; does not modify the reading interface. */
+
+@page { size: A4; margin: 12mm 12.5mm 15mm; }
+:root {
+  --br-green:#00c878; --br-yellow:#ffe052; --br-blue:#1764eb;
+  --br-navy:#082c66; --br-ink:#17365d; --br-paper:#f7fbfc;
+  color-scheme:light;
+}
+*,*::before,*::after {
+  animation:none!important;transition:none!important;
+  scroll-behavior:auto!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+html,body {margin:0!important;max-width:none!important;overflow:visible!important}
+body {background:#f7fbfc!important;font-size:10.25pt!important;line-height:1.53!important;print-color-adjust:exact!important;-webkit-print-color-adjust:exact!important}
+body::before,body::after {display:none!important}
+.page,.content,main {display:block!important;width:100%!important;max-width:none!important;min-width:0!important;overflow:visible!important;box-shadow:none!important;border:0!important}
+.page {margin:0!important;background:#f7fbfc!important}
+.rail,.reading-progress,.skip-link,.toast,.rail-actions,
+.chapter-nav,.nav-overflow,.hero-actions,.reading-routes,
+.copy-button,.text-button,.top-link,.chapter-actions {display:none!important}
+.icon-sprite {position:absolute!important;width:0!important;height:0!important;overflow:hidden!important}
+.masthead {
+  display:block!important;position:relative!important;
+  min-height:0!important;max-height:none!important;
+  margin:0!important;padding:11mm 10mm 10mm!important;
+  border:0!important;border-radius:0 0 6mm 6mm!important;
+  color:#fff!important;box-shadow:none!important;
+  background:linear-gradient(132deg,#075037 0%,#08763f 27%,#092e7a 70%,#0e2770 100%)!important;
+  break-after:page!important;page-break-after:always!important;
+}
+.masthead::before {
+  display:block!important;position:absolute!important;inset:0!important;
+  border:0!important;opacity:.21!important;pointer-events:none!important;
+  background:repeating-linear-gradient(0deg,transparent 0 39px,#ffe05222 40px),
+             repeating-linear-gradient(90deg,transparent 0 39px,#ffe05216 40px)!important;
+}
+.masthead::after {display:none!important}
+.masthead > * {grid-column:auto!important;max-width:100%!important}
+.masthead .folio {display:flex!important;gap:5mm!important;justify-content:space-between!important;
+  border-bottom:1px solid #ffffff73!important;padding:0 0 3mm!important;margin:0 0 5mm!important;
+  color:#e4fcf3!important;font-size:7pt!important;letter-spacing:.07em!important}
+.br-national-signature {display:flex!important;align-items:center!important;margin:0 0 5mm!important;gap:3mm!important;max-width:100%!important}
+.br-flag-hero {display:inline-flex!important;width:16mm!important;height:11mm!important;flex:0 0 16mm!important;overflow:hidden!important;border:1px solid #ffffff77!important;border-radius:1.5mm!important}
+.br-flag,.br-flag-hero img {display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+.br-national-signature-copy {display:flex!important;flex-direction:column!important;gap:1mm!important;color:#fff!important;font-size:7.4pt!important}
+.br-national-signature-copy * {color:inherit!important}
+.masthead h1 {display:block!important;max-width:100%!important;margin:4mm 0 6mm!important;
+  color:#fff!important;font-family:"Space Grotesk",Arial,sans-serif!important;
+  font-size:35pt!important;line-height:1.04!important;font-weight:760!important;letter-spacing:-.055em!important}
+.masthead h1 .h1-accent {color:#ffe052!important;font-style:normal!important}
+.masthead .hero-deck {display:block!important;max-width:100%!important;color:#edf9ff!important;
+  font:550 12pt/1.45 "Manrope",Arial,sans-serif!important;margin:0 0 5mm!important}
+.masthead .governing-thesis {display:block!important;max-width:100%!important;
+  margin:0 0 5mm!important;padding:4mm!important;
+  color:#fff!important;background:#ffffff17!important;border-left:3px solid #ffe052!important;
+  font:560 9.6pt/1.53 "Manrope",Arial,sans-serif!important}
+.masthead .hero-meta {display:flex!important;gap:3mm 7mm!important;flex-wrap:wrap!important;
+  border-color:#ffffff66!important;color:#fff!important;font-size:8pt!important;margin:0 0 5mm!important}
+.masthead .hero-meta * {color:#fff!important}
+.signal-board {
+  display:block!important;position:relative!important;inset:auto!important;
+  transform:none!important;max-width:100%!important;min-width:0!important;width:100%!important;
+  margin:5mm 0 0!important;padding:5mm!important;
+  border:1px solid #ffffff65!important;border-radius:4mm!important;
+  box-shadow:none!important;background:#062d5980!important;color:#fff!important;break-inside:avoid!important
+}
+.signal-board * {color:#fff!important}
+.signal-board-head {display:flex!important;align-items:center!important;justify-content:space-between!important;
+  border-bottom:1px solid #ffffff36!important;padding-bottom:2mm!important;font-size:7pt!important}
+.signal-board-core {display:flex!important;align-items:center!important;gap:5mm!important;
+  margin:3mm 0 2mm!important}
+.signal-board-number {font:800 26pt/1 "Space Grotesk",Arial,sans-serif!important;color:#ffe052!important}
+.signal-board-core p {margin:0!important;line-height:1.18!important;font-size:11pt!important}
+.signal-board-desc {margin:0 0 3mm!important;font-size:8.3pt!important}
+.signal-grid {display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:1.5mm!important;list-style:none!important;margin:0!important;padding:0!important}
+.signal-grid li {display:flex!important;align-items:center!important;gap:1.6mm!important;
+  border:1px solid #ffffff33!important;border-radius:2mm!important;
+  padding:2mm!important;margin:0!important;font-size:7.5pt!important;background:#ffffff12!important}
+.signal-icon {width:4mm!important;height:4mm!important;flex:none!important}
+main,.content {background:#f7fbfc!important}
+.chapter,.edition-band {
+  display:block!important;max-width:none!important;
+  padding:7.5mm 2.5mm 6mm!important;margin:0!important;
+  background:transparent!important;box-shadow:none!important;
+  border-top:1px solid #d5e6f1!important;break-before:auto!important;
+}
+.chapter-heading {display:block!important;margin:0 0 4mm!important;padding:0!important}
+.chapter-label {display:inline-flex!important;align-items:center!important;gap:1.8mm!important;
+  margin:0 0 1.5mm!important;padding:0!important;
+  color:#0e7653!important;font:800 7pt/1.3 "Manrope",Arial,sans-serif!important;
+  text-transform:uppercase!important;letter-spacing:.08em!important}
+.chapter-icon {width:3.6mm!important;height:3.6mm!important}
+.chapter-heading h2,.chapter h2 {
+  margin:0 0 3mm!important;color:#082c66!important;
+  font-family:"Space Grotesk",Arial,sans-serif!important;
+  font-size:18pt!important;line-height:1.17!important;letter-spacing:-.025em!important;
+  break-after:avoid!important;page-break-after:avoid!important
+}
+.chapter h3 {color:#0c457b!important;font-size:11pt!important;line-height:1.3!important;break-after:avoid!important}
+.chapter h4 {break-after:avoid!important}
+.chapter-heading,.question-strip,.analysis-unit,.scale,.pilot-head,
+.reference-group h3,.outreach-group-title {break-after:avoid!important;page-break-after:avoid!important}
+p,li,dd,dt {color:#264965!important;orphans:3!important;widows:3!important}
+.prose p,.chapter p {max-width:none!important;font-size:9.2pt!important;line-height:1.57!important}
+.lead {font-size:10pt!important}
+a {color:#075aad!important;text-decoration-color:#649ac4!important;overflow-wrap:anywhere!important}
+a[href^="http"]::after {content:none!important}
+svg {stroke:currentColor}
+.analysis-unit {display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:2mm!important}
+.analysis-unit .divider {display:none!important}
+.analysis-unit article {min-width:0!important;break-inside:avoid!important;padding:3mm!important;border-radius:2.5mm!important}
+.question-strip,.governing-thesis,.stress-tests,.author-block {break-inside:avoid!important}
+.question-strip {border-left:3px solid #00c878!important;border-radius:1.8mm!important;
+  background:#e4f7ee!important;padding:3.3mm!important}
+.quick-ledger,.applications,.geopolitics-grid,.pilot-grid {gap:2.6mm!important}
+.geopolitics-grid,.pilot-grid {display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.geopolitics-grid > *, .pilot-grid > *,.application-card,.geopolitics-card,
+.capability,.reference-group,.outreach-card,.author-block,
+.analysis-unit article,.matrix-intro,.citizen-card {
+  min-width:0!important;max-width:100%!important;break-inside:avoid!important;page-break-inside:avoid!important
+}
+.geopolitics-card,.pilot-grid > *, .capability,.reference-group,.outreach-card {
+  border-radius:2.3mm!important;box-shadow:none!important
+}
+.matrix-intro {display:block!important}
+.scale {display:flex!important;flex-wrap:wrap!important;gap:2mm!important;margin-top:3mm!important}
+.scale-row {flex:1 1 23%!important;padding:2mm!important;min-width:0!important}
+.capability-register {display:block!important}
+.capability {border:1px solid #c3daea!important;margin:0 0 3mm!important;padding:2.5mm!important;
+  background:#f0f8fd!important;break-inside:auto!important}
+.capability summary {display:block!important;color:#093e6e!important;font-weight:750!important;list-style:none!important}
+.capability summary::marker,.capability summary::after {display:none!important;content:none!important}
+.capability-body {display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:3mm!important;padding-top:2.4mm!important}
+.capability-body > * {min-width:0!important}
+.capability summary,.capability-body {visibility:visible!important;opacity:1!important}
+.capability-name {font-weight:800!important}
+.capability-question {display:block!important;font-size:8.5pt!important;line-height:1.4!important}
+.pilot-sheet {padding:4mm!important;background:#ebf7fe!important;border:1px solid #b8d9ec!important;box-shadow:none!important}
+.pilot-head {display:block!important}
+.pilot-state {display:inline-block!important;margin:2mm 0!important;padding:2mm!important;
+  background:#fff3c6!important;color:#765515!important}
+.reference-group,.references,.reference-list {break-inside:auto!important}
+.reference-group {padding:3mm 0!important;border-radius:0!important;border-top:1px solid #d5e6f1!important}
+.reference-list li {break-inside:avoid!important}
+.reference-group h3 {margin-bottom:2mm!important;font-size:10pt!important}
+.citation-box {display:block!important;padding:4mm!important;background:#edf6ff!important;
+  border:1px solid #c4d9f3!important;border-radius:3mm!important;break-inside:avoid!important}
+.citation-box cite {color:#123b64!important;font-size:8.5pt!important}
+#circulacao .outreach-grid,#circulacao .outreach-commission .outreach-grid {
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:2.4mm!important
+}
+#circulacao .outreach-group {margin:3mm 0 5mm!important}
+#circulacao .outreach-card,#circulacao .outreach-commission .outreach-card {
+  padding:3mm!important;gap:2.2mm!important;break-inside:avoid!important;
+  background:var(--card-bg,#f0f8fc)!important;border:1px solid #d9e7f1!important;
+  border-top:2px solid var(--card-accent,#1376a2)!important;
+  display:flex!important;align-items:flex-start!important
+}
+#circulacao .outreach-card h4 {font-size:9pt!important;margin:0 0 1.5mm!important}
+#circulacao .outreach-card p {margin:1mm 0!important;font-size:7.3pt!important;line-height:1.34!important}
+#circulacao .outreach-symbol {flex:0 0 7mm!important;width:7mm!important;height:7mm!important}
+#circulacao .outreach-spectrum {margin:2mm 0 0!important;padding:1mm 2mm!important;font-size:7pt!important}
+#circulacao .outreach-methodology {font-size:7pt!important}
+footer {margin-top:6mm!important;padding:3mm 0!important;color:#224b70!important;
+  background:#e7f3fb!important;border-top:2px solid #00c878!important;
+  font-size:8pt!important}
+@media (prefers-reduced-motion:reduce) {
+  * {animation:none!important;transition:none!important}
+}
