@@ -1468,3 +1468,24 @@ html {scroll-padding-top:5rem}
   #geopolitica .policy-ledger {border-color:#235480}
   #geopolitica .policy-ledger .quick-line {border-color:#51789c}
 }
+
+
+/* PR-007 · commission circulation v11 · compact, readable 18-destination ledger */
+@media screen {
+  #circulacao .outreach-commission .outreach-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    align-items:stretch;
+    gap:clamp(.58rem,1vw,.86rem);
+  }
+  #circulacao .outreach-commission .outreach-card {padding:clamp(.87rem,1.25vw,1.1rem)}
+  #circulacao .outreach-commission .outreach-group-title .mini-icon {color:#1164c5}
+  #circulacao .outreach-group + .outreach-group {margin-top:clamp(.95rem,1.8vw,1.4rem)}
+  #circulacao .outreach-group-title {margin-bottom:.65rem;padding-bottom:.55rem}
+}
+@media screen and (max-width:1150px) {
+  #circulacao .outreach-commission .outreach-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media screen and (max-width:650px) {
+  #circulacao .outreach-commission .outreach-grid {grid-template-columns:minmax(0,1fr)}
+  #circulacao .outreach-commission .outreach-card {padding:.94rem 1.08rem}
+}
