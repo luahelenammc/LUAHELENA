@@ -1589,3 +1589,5 @@ html {scroll-padding-top:5rem}
  #circulacao .outreach-group[aria-labelledby="outreach-instituicoes"] .outreach-card:nth-child(4) {--card-accent:#a26100;--card-bg:#ffedbb;--card-icon-bg:#f7d47c}
  #circulacao .outreach-card[data-kind="centro"], #circulacao .outreach-card[data-kind="centro-esquerda"], #circulacao .outreach-card[data-kind="centro-direita"] {--card-accent:#075ac2;--card-bg:#c6ddff;--card-icon-bg:#8cbafb}
 }
+
+@media screen { #circulacao .spectrum-source { display:inline-flex; align-items:center; justify-content:center; min-width:1.5rem; min-height:1.5rem; margin:-.45rem -.45rem -.45rem -.22rem; color:#245a83; font-weight:800; text-decoration:none; } #circulacao .spectrum-source:hover { text-decoration:underline; } }
