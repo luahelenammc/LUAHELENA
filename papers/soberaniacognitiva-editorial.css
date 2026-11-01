@@ -271,3 +271,16 @@ html {scroll-padding-top:5rem}
 .rail,.signal-board,.edition-band {display:none!important}
 .masthead {display:block!important}
 }
+/* Postflight viewport corrections: the legacy sidebar used flex-direction:column. */
+@media screen {
+.rail-inner {flex-direction:row;justify-content:space-between}
+.chapter-nav {flex:1 1 0;width:0;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden}
+}
+@media screen and (max-width:1030px) {
+.rail-inner {flex-direction:row}
+.chapter-nav {width:0;flex:1 1 0}
+}
+@media screen and (max-width:700px) {
+.rail-inner {flex-direction:row}
+.chapter-nav {width:0;min-width:0;flex:1 1 0;max-width:100%;overflow-x:auto;overflow-y:hidden}
+}
