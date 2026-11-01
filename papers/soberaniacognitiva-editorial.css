@@ -1259,3 +1259,193 @@ html {scroll-padding-top:5rem}
   #circulacao .outreach-card p {font-size:8pt;margin:.1cm 0 0}
   #circulacao .outreach-group + .outreach-group {margin-top:.5cm}
 }
+
+/* PR-007 · editorial density v8 · 2026-11-01
+   Browser-state feedback: fix the real six-row infrastructure ledger and
+   remove oversized vertical whitespace without flattening academic hierarchy.
+   Print stays with its own layout. All new sizing is screen scoped. */
+@media screen {
+  :root {
+    --s4:1.2rem;
+    --s5:1.65rem;
+    --s6:2.35rem;
+    --s7:3.7rem;
+    --s8:5.4rem;
+    --br-editorial-inset:clamp(1.05rem,2.1vw,1.55rem);
+  }
+  /* Compress section rhythm at the source, not by fixed card heights. */
+  .masthead {
+    row-gap:.65rem;
+    padding-block:clamp(2.7rem,3.8vw,4.1rem) clamp(2.35rem,3.2vw,3.6rem);
+  }
+  .masthead .governing-thesis {margin-block:.85rem .35rem;line-height:1.57}
+  .masthead .hero-actions {margin-top:.6rem}
+  .signal-board {padding:clamp(1.1rem,1.8vw,1.65rem)}
+  .signal-grid {gap:.42rem;margin-block:.4rem}
+  .signal-grid li {min-height:2.75rem}
+  .edition-band {padding-block:.72rem;gap:.65rem}
+  .chapter,#circulacao {
+    padding-block:clamp(2.55rem,4vw,4.45rem);
+  }
+  .chapter-heading,#circulacao .chapter-heading {
+    gap:clamp(.95rem,2.35vw,2.25rem);
+    margin-bottom:clamp(1.2rem,2.3vw,1.85rem);
+  }
+  .chapter-heading h2,#circulacao .chapter-heading h2 {
+    font-size:clamp(2.15rem,3.7vw,3.6rem);
+    line-height:1.12;
+    max-width:24ch;
+  }
+  .chapter-heading .chapter-label {padding-block:.4rem .48rem}
+  .chapter .prose {
+    margin-left:0;
+    max-width:80ch;
+    line-height:1.68;
+  }
+  .chapter .prose .lead {
+    font-size:clamp(1.13rem,1.42vw,1.38rem);
+    line-height:1.5;
+  }
+  .chapter .prose p {margin-bottom:.75rem}
+  .chapter .prose p + p {margin-top:.72rem}
+  .spaced {margin-top:clamp(1.25rem,2.3vw,2rem)}
+  #leitura .reading-routes {
+    margin-block:1.15rem;
+    padding-block:.85rem;
+    gap:.4rem .9rem;
+  }
+  .context-expander {margin-top:.9rem}
+  .context-expander>summary {padding-block:.9rem}
+  .context-expander .quick-line {padding-block:.82rem}
+  .question-strip {
+    margin-block:clamp(1.7rem,3vw,2.65rem);
+    padding-block:clamp(1.35rem,2.45vw,2rem);
+    padding-inline:clamp(1.3rem,2.8vw,2.2rem);
+  }
+  .question-strip::before {font-size:clamp(3.4rem,6vw,5rem)}
+  .question-strip p {
+    margin-inline:clamp(.8rem,1.8vw,1.3rem) 0;
+    max-width:44ch;
+    font-size:clamp(1.48rem,2.5vw,2.22rem);
+    line-height:1.2;
+  }
+  .analysis-unit {margin-top:1.35rem;gap:clamp(.7rem,1.5vw,1.2rem)}
+  .analysis-unit article {padding-block:1.05rem 1.15rem}
+  .analysis-unit h3 {margin-top:.65rem}
+  .analysis-unit article p {margin-block:.55rem 0;line-height:1.62}
+  .matrix-intro {gap:1.3rem;align-items:start;margin-bottom:1.3rem}
+  #matriz .chapter-heading {padding-bottom:1rem}
+  #matriz .capability-register {margin-block:1.3rem;gap:.78rem}
+  #matriz .capability summary {min-height:0;padding-block:1.03rem}
+  #matriz .capability-body {gap:.65rem}
+  #matriz .capability-body section {padding-block:.98rem}
+  #matriz .transversal {padding-block:1.15rem;margin-top:1rem}
+  .status-note {margin-top:1.35rem;padding-block:1rem}
+  .workshop-timeline {margin-top:1.25rem}
+  .workshop-step {padding-block:1.1rem;gap:.85rem}
+  .stress-tests {margin:1.4rem 0 0;padding-block:1.15rem}
+  .stress-tests li {padding-block:.32rem}
+  .verification-outcome {margin-top:1.3rem;padding-block:1rem}
+  #camadas .layers {margin-top:1.2rem;gap:.7rem}
+  #camadas .layer-band,
+  #camadas .layer-band + .layer-band,
+  #camadas .layer-band + .layer-band + .layer-band {
+    padding-block:1.18rem;
+  }
+  .pilot-head {padding-block:1.4rem}
+  .pilot-grid section,.pilot-grid section:nth-child(even) {padding-block:1.15rem}
+  .decision-line {padding-block:1.12rem}
+  .author-block {gap:clamp(1.15rem,2.1vw,1.8rem)}
+  #fontes .references {gap:clamp(1rem,2.1vw,2.1rem)}
+  #fontes .reference-group {padding-top:1rem}
+  #fontes .reference-list li {margin-block:.62rem}
+  .outreach-intro {margin-bottom:1.5rem}
+  .outreach-group + .outreach-group {margin-top:1.45rem}
+  .outreach-card {padding:1rem}
+  /* Six geopolitical dimensions: real inset on the full row, compact columns.
+     The old label was visually glued to the ledger's left edge. */
+  #geopolitica .policy-ledger {
+    max-width:100%;min-width:0;margin-block:clamp(1.3rem,2.4vw,2rem);
+    padding:0;border:1px solid rgba(24,89,144,.16);
+    border-radius:15px;overflow:hidden;
+    background:linear-gradient(135deg,#fff,#f8fbff);
+  }
+  #geopolitica .policy-ledger .quick-line {
+    display:grid;grid-template-columns:minmax(11.25rem,.27fr) minmax(0,1fr);
+    align-items:start;gap:clamp(.7rem,1.7vw,1.4rem);
+    width:100%;min-width:0;
+    padding:.95rem var(--br-editorial-inset);
+    border-bottom:1px solid rgba(16,90,144,.13);
+    background:transparent;
+  }
+  #geopolitica .policy-ledger .quick-line:nth-child(even) {background:#f5faff}
+  #geopolitica .policy-ledger .quick-line:last-child {border-bottom:0}
+  .quick-line dt {
+    display:flex;align-items:center;gap:.58rem;min-width:0;
+    color:#135b96;font:820 .72rem/1.5 var(--br-sans);
+    letter-spacing:.065em;
+    overflow-wrap:anywhere;
+  }
+  .quick-line dt span {min-width:0}
+  .quick-line dt .ledger-icon {
+    display:inline-block;flex:none;width:1.17rem;height:1.17rem;
+    color:#008a62;
+  }
+  .quick-line:nth-child(3n+2) dt .ledger-icon {color:#a57904}
+  .quick-line:nth-child(3n) dt .ledger-icon {color:#1667c4}
+  .quick-line dd {
+    min-width:0;margin:0;color:#36556f;
+    font-size:clamp(.91rem,1vw,.99rem);line-height:1.63;
+    overflow-wrap:break-word;
+  }
+  .quick-line dd strong {color:#173e66}
+  #leitura .context-expander .quick-line {
+    gap:clamp(.65rem,1.5vw,1.25rem);
+    padding-inline:var(--br-editorial-inset);
+  }
+}
+@media screen and (max-width:850px) {
+  #geopolitica .policy-ledger .quick-line,
+  #leitura .context-expander .quick-line {
+    grid-template-columns:minmax(0,1fr);
+    gap:.3rem;
+  }
+  #geopolitica .policy-ledger .quick-line dt,
+  #leitura .context-expander .quick-line dt {font-size:.71rem}
+}
+@media screen and (max-width:700px) {
+  .masthead {padding-block:2.25rem 2.55rem;row-gap:.6rem}
+  .masthead .hero-deck {line-height:1.43}
+  .signal-board {margin-top:1.25rem;padding:1.03rem}
+  .signal-grid li {min-height:2.55rem;padding:.55rem}
+  .chapter,#circulacao {padding-block:2.35rem;padding-inline:1.08rem}
+  .chapter-heading,#circulacao .chapter-heading {
+    gap:.65rem;margin-bottom:1.1rem;
+  }
+  .chapter-heading h2,#circulacao .chapter-heading h2 {
+    font-size:clamp(2.03rem,7.9vw,2.75rem);
+    line-height:1.12;
+  }
+  .chapter .prose {font-size:1rem;line-height:1.66}
+  .chapter .prose .lead {font-size:1.16rem;line-height:1.52}
+  #leitura .reading-routes {margin-block:1rem}
+  .question-strip {margin-block:1.45rem;padding:1.25rem 1.2rem 1.25rem 1.35rem}
+  .question-strip p {font-size:clamp(1.4rem,5.7vw,1.8rem);margin-left:.65rem}
+  .analysis-unit {margin-top:1.05rem;gap:.75rem}
+  .analysis-unit article {padding-block:1rem}
+  #geopolitica .policy-ledger {margin-block:1.25rem}
+  #geopolitica .policy-ledger .quick-line {padding:.88rem 1.08rem}
+  #leitura .context-expander .quick-line {padding:.85rem 1rem}
+  #matriz .capability summary {padding-block:1rem}
+  #matriz .capability-register {gap:.7rem}
+  .workshop-step {padding-block:1rem}
+  #camadas .layers {gap:.65rem}
+  #camadas .layer-band,#camadas .layer-band + .layer-band,
+  #camadas .layer-band + .layer-band + .layer-band {padding-block:1.05rem}
+  .pilot-head,.pilot-grid section,.pilot-grid section:nth-child(even) {padding-block:1.07rem}
+  #fontes .references {gap:1.25rem}
+}
+@media (prefers-contrast:more) {
+  #geopolitica .policy-ledger {border-color:#235480}
+  #geopolitica .policy-ledger .quick-line {border-color:#51789c}
+}
