@@ -1,0 +1,69 @@
+{
+  "pages": 15,
+  "bytes": 2306094,
+  "extractable_characters": 32607,
+  "people_verified": 14,
+  "required_sections": 10,
+  "page_word_counts": [
+    {
+      "page": 1,
+      "words": 141
+    },
+    {
+      "page": 2,
+      "words": 239
+    },
+    {
+      "page": 3,
+      "words": 345
+    },
+    {
+      "page": 4,
+      "words": 304
+    },
+    {
+      "page": 5,
+      "words": 266
+    },
+    {
+      "page": 6,
+      "words": 120
+    },
+    {
+      "page": 7,
+      "words": 138
+    },
+    {
+      "page": 8,
+      "words": 324
+    },
+    {
+      "page": 9,
+      "words": 215
+    },
+    {
+      "page": 10,
+      "words": 187
+    },
+    {
+      "page": 11,
+      "words": 239
+    },
+    {
+      "page": 12,
+      "words": 356
+    },
+    {
+      "page": 13,
+      "words": 435
+    },
+    {
+      "page": 14,
+      "words": 239
+    },
+    {
+      "page": 15,
+      "words": 241
+    }
+  ]
+}
