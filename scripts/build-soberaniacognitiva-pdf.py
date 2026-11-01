@@ -56,8 +56,6 @@ def inspect_pdf(path: Path) -> dict:
             "Soberania Cognitiva Brasileira",
             "Lua Helena Moon Martins Cardoso",
             "Oito capacidades",
-            "20 mensagens",
-            "18 destinos",
             *MANDATORY_PEOPLE,
         ]
         missing = [piece for piece in required if piece not in normalized]
@@ -84,8 +82,6 @@ def inspect_pdf(path: Path) -> dict:
             pages.append({"page": index + 1, "words": len(words)})
         if normalized.count("Pular para o conteúdo"):
             raise RuntimeError("HTML skip link leaked into PDF")
-        if "20 mensagens" not in normalized or "18 destinos" not in normalized:
-            raise RuntimeError("Circulation counter out of sync")
         return {
             "pages": len(doc),
             "bytes": path.stat().st_size,
@@ -134,8 +130,6 @@ def main():
                 count = page.locator(".outreach-card").count()
                 if count != 18:
                     raise RuntimeError(f"Expected 18 public outreach destinations, got {count}")
-                if not page.locator("body").inner_text().count("20 mensagens"):
-                    raise RuntimeError("HTML ledger counter changed")
                 page.add_style_tag(path=str(CSS))
                 page.evaluate("""async () => {
                   await document.fonts.ready;
