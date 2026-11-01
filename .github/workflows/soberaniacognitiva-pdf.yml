@@ -63,14 +63,30 @@ jobs:
           print("PASS: PDF and content completeness")
           PY
 
-      - name: Commit verified binary to the existing download path
+      - name: Commit verified PDF against the freshest main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add papers/soberaniacognitiva.pdf papers/soberaniacognitiva-pdf-qa.json
-          if git diff --cached --quiet; then
-            echo "PDF unchanged; nothing to commit"
-            exit 0
-          fi
-          git commit -m "docs(PR-007): synchronize downloadable PDF with editorial HTML"
-          git push origin HEAD:main
+          # Other paper edits may land while Chromium renders. Always regenerate
+          # against the newest main, rather than commit a stale PDF.
+          for attempt in 1 2 3 4 5; do
+            echo "PDF main-reconciliation attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/build-soberaniacognitiva-pdf.py \
+              --output papers/soberaniacognitiva.pdf \
+              --qa-json papers/soberaniacognitiva-pdf-qa.json
+            git add papers/soberaniacognitiva.pdf papers/soberaniacognitiva-pdf-qa.json
+            if git diff --cached --quiet; then
+              echo "Latest main already serves this PDF"
+              exit 0
+            fi
+            git commit -m "docs(PR-007): synchronize downloadable PDF with editorial HTML"
+            if git push origin HEAD:main; then
+              echo "PDF synchronized and pushed"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "ERROR: concurrent writes prevented a verified PDF update"
+          exit 1
