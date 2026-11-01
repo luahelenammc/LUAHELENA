@@ -1210,9 +1210,10 @@ html {scroll-padding-top:5rem}
     border-bottom:1px solid rgba(14,88,143,.14);color:#1c5b87;
     font:760 .82rem/1.4 var(--br-sans);letter-spacing:.02em}
   .outreach-group-title .mini-icon {color:#0a956b;width:1.03rem;height:1.03rem}
-  .outreach-group:nth-of-type(2) .outreach-group-title .mini-icon {color:#d69b11}
+  .outreach-group + .outreach-group .outreach-group-title .mini-icon {color:#d69b11}
   .outreach-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
     align-items:stretch;gap:clamp(.65rem,1.3vw,1rem)}
+  .outreach-group + .outreach-group .outreach-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
   .outreach-card {min-width:0;display:flex;align-items:flex-start;gap:.85rem;
     padding:clamp(1rem,1.65vw,1.3rem);
     border:1px solid rgba(22,105,161,.13);border-top:3px solid var(--br-green);
@@ -1236,14 +1237,14 @@ html {scroll-padding-top:5rem}
   .outreach-footnote .mini-icon {width:.9rem;height:.9rem;color:#318e71}
 }
 @media screen and (max-width:1150px) {
-  .outreach-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .outreach-grid,.outreach-group + .outreach-group .outreach-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media screen and (max-width:650px) {
   #circulacao {padding-block:3.2rem}
   #circulacao .chapter-heading h2 {font-size:clamp(2rem,8vw,3rem)}
   .outreach-intro {align-items:flex-start}
   .outreach-count {font-size:.71rem}
-  .outreach-grid {grid-template-columns:minmax(0,1fr);gap:.65rem}
+  .outreach-grid,.outreach-group + .outreach-group .outreach-grid {grid-template-columns:minmax(0,1fr);gap:.65rem}
   .outreach-card {padding:1rem 1.08rem;gap:.9rem}
   .outreach-symbol {width:2.3rem;height:2.3rem}
   .outreach-card h4 {font-size:1rem}
