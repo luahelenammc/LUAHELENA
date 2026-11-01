@@ -1182,3 +1182,79 @@ html {scroll-padding-top:5rem}
   #matriz .capability-body section,
   #matriz .capability-body section:first-of-type {grid-column:1!important}
 }
+
+/* PR-007 · outreach v7 · 2026-11-01
+   Public circulation ledger: only Gmail-confirmed SENT PR-007 correspondence.
+   No logos, response claims or implied institutional endorsement. */
+@media screen {
+  #circulacao {
+    background:linear-gradient(180deg,#f4f9ff 0%,#fbfdfb 100%);
+    padding-block:clamp(3.7rem,5.4vw,5.8rem);
+  }
+  #circulacao .chapter-heading {margin-bottom:1.4rem}
+  #circulacao .chapter-heading h2 {
+    max-width:23ch;font-size:clamp(2.2rem,4vw,3.9rem)
+  }
+  .outreach-intro {display:flex;justify-content:space-between;align-items:center;
+    gap:1rem 2rem;flex-wrap:wrap;margin:0 0 clamp(2rem,3.5vw,2.8rem)}
+  .outreach-intro p {max-width:64ch;margin:0;color:#41627c;
+    font:480 clamp(.96rem,1.1vw,1.08rem)/1.75 var(--br-sans)}
+  .outreach-count {display:inline-flex;align-items:center;gap:.55rem;flex:none;
+    padding:.58rem .85rem;border-radius:100px;background:#e2f7eb;
+    border:1px solid rgba(0,168,105,.16);color:#087650;
+    font:780 .74rem/1.3 var(--br-sans)}
+  .outreach-count .mini-icon {width:.98rem;height:.98rem}
+  .outreach-group + .outreach-group {margin-top:clamp(1.8rem,3vw,2.5rem)}
+  .outreach-group-title {display:flex;align-items:center;gap:.6rem;
+    margin:0 0 .9rem;padding-bottom:.75rem;
+    border-bottom:1px solid rgba(14,88,143,.14);color:#1c5b87;
+    font:760 .82rem/1.4 var(--br-sans);letter-spacing:.02em}
+  .outreach-group-title .mini-icon {color:#0a956b;width:1.03rem;height:1.03rem}
+  .outreach-group:nth-of-type(2) .outreach-group-title .mini-icon {color:#d69b11}
+  .outreach-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    align-items:stretch;gap:clamp(.65rem,1.3vw,1rem)}
+  .outreach-card {min-width:0;display:flex;align-items:flex-start;gap:.85rem;
+    padding:clamp(1rem,1.65vw,1.3rem);
+    border:1px solid rgba(22,105,161,.13);border-top:3px solid var(--br-green);
+    border-radius:13px;background:rgba(255,255,255,.9);
+    box-shadow:0 8px 24px rgba(16,73,115,.035)}
+  .outreach-card:nth-child(3n+2) {border-top-color:var(--br-yellow)}
+  .outreach-card:nth-child(3n) {border-top-color:var(--br-blue)}
+  .outreach-symbol {display:flex;align-items:center;justify-content:center;
+    flex:none;width:2.4rem;height:2.4rem;border-radius:11px;
+    background:#e7f9f0;color:#00895b}
+  .outreach-card:nth-child(3n+2) .outreach-symbol {background:#fff6d7;color:#9c6900}
+  .outreach-card:nth-child(3n) .outreach-symbol {background:#eaf2ff;color:#145fc0}
+  .outreach-symbol .mini-icon {width:1.2rem;height:1.2rem}
+  .outreach-card-copy {min-width:0}
+  .outreach-card h4 {margin:.04rem 0 .36rem;font:770 clamp(.91rem,1.12vw,1rem)/1.33 var(--br-display);
+    color:#163f65;letter-spacing:-.02em;overflow-wrap:break-word}
+  .outreach-card p {margin:0;color:#557187;font:490 .77rem/1.55 var(--br-sans);
+    overflow-wrap:break-word}
+  .outreach-footnote {display:flex;align-items:center;gap:.5rem;
+    margin:1.6rem 0 0;color:#6b8293;font:500 .73rem/1.55 var(--br-sans)}
+  .outreach-footnote .mini-icon {width:.9rem;height:.9rem;color:#318e71}
+}
+@media screen and (max-width:1150px) {
+  .outreach-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media screen and (max-width:650px) {
+  #circulacao {padding-block:3.2rem}
+  #circulacao .chapter-heading h2 {font-size:clamp(2rem,8vw,3rem)}
+  .outreach-intro {align-items:flex-start}
+  .outreach-count {font-size:.71rem}
+  .outreach-grid {grid-template-columns:minmax(0,1fr);gap:.65rem}
+  .outreach-card {padding:1rem 1.08rem;gap:.9rem}
+  .outreach-symbol {width:2.3rem;height:2.3rem}
+  .outreach-card h4 {font-size:1rem}
+  .outreach-card p {font-size:.82rem}
+}
+@media print {
+  #circulacao .outreach-grid {display:grid;grid-template-columns:1fr 1fr;gap:.25cm}
+  #circulacao .outreach-card {padding:.27cm;border:1px solid #bbb;
+    border-radius:0;background:white;box-shadow:none;break-inside:avoid}
+  #circulacao .outreach-symbol {display:none!important}
+  #circulacao .outreach-card h4 {font-size:9pt;margin:0}
+  #circulacao .outreach-card p {font-size:8pt;margin:.1cm 0 0}
+  #circulacao .outreach-group + .outreach-group {margin-top:.5cm}
+}
