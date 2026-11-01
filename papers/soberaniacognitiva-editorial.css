@@ -1,0 +1,41 @@
+/* PR-007 editorial reframe, 2026-11-01: publication-only, screen-only */
+:root {--paper:#e3e9e5;--paper-soft:#f1f4ee;--surface:#fbfcf7;--surface-alt:#eef3ef;--surface-wine:#f5eaf0;--surface-sage:#e9f1df;--ink:#1b292e;--ink-soft:#38484b;--muted:#58696a;--charcoal:#132529;--charcoal-2:#21383b;--wine:#9d456f;--wine-dark:#702d51;--blue:#276470;--blue-dark:#184e58;--sage:#517d50;--brass:#9d8144;--focus:#93bf54;--line:rgba(22,50,49,.13);--line-strong:rgba(22,50,49,.27);--wide:1480px;--rail:17rem;--measure:72ch}
+body {background:radial-gradient(ellipse at 5% 0%,rgba(102,163,136,.2),transparent 42rem),radial-gradient(ellipse at 100% 55%,rgba(157,69,111,.07),transparent 56rem),var(--paper);line-height:1.76}
+.page {box-shadow:0 2.5rem 7rem rgba(21,50,45,.13);border-color:rgba(22,50,49,.1)}
+.rail {background:#15272c;border-right:1px solid rgba(238,245,236,.14)}
+.rail-inner {padding:2.25rem 1.55rem 1.7rem;gap:2.2rem}
+.wordmark {color:#f4f8f1;font-size:1.84rem}.wordmark::before {color:#c6ef86;letter-spacing:.22em}.wordmark small {color:#c6d4cc}
+.chapter-nav {border-top-color:rgba(255,255,255,.2)}
+.chapter-nav a {color:#c8d7d5;border-bottom-color:rgba(245,250,247,.13);font-size:.82rem;font-weight:610}
+.chapter-nav a::before {color:#c6ef86}
+.chapter-nav a:hover,.chapter-nav a[aria-current="location"] {color:#fff}
+.chapter-nav a[aria-current="location"]::after {background:#c6ef86}
+.rail-actions {border-top-color:rgba(255,255,255,.18)}
+.rail .text-button,.rail .pdf-rail-link {color:#dfebe5}
+.masthead {min-height:min(86vh,780px);background:radial-gradient(ellipse at 93% 12%,rgba(193,241,130,.14),transparent 23rem),radial-gradient(ellipse at 40% 105%,rgba(181,74,118,.14),transparent 29rem),repeating-linear-gradient(135deg,transparent 0,transparent 39px,rgba(255,255,255,.021) 40px),linear-gradient(127deg,#10262d 0%,#20343b 66%,#192b32 100%);border-bottom:4px solid #c6ef86;padding-block:clamp(5rem,8vw,7.5rem) clamp(4rem,7vw,6rem)}
+.masthead::before {background:rgba(204,236,212,.28);box-shadow:1.4rem 0 0 rgba(198,239,134,.74),2.8rem 0 0 rgba(157,69,111,.44)}
+.masthead .folio {border-bottom-color:rgba(255,255,255,.22)}
+.masthead h1 {max-width:14ch;font-size:clamp(3.7rem,8vw,7.3rem);line-height:.96;font-weight:660;letter-spacing:-.065em;text-wrap:balance}
+.masthead .hero-deck {max-width:49ch;font-size:clamp(1.2rem,2.15vw,1.62rem);line-height:1.5;color:#e5eee8}
+.masthead .governing-thesis {border-left:3px solid #c6ef86;padding:1.05rem 1.3rem;background:rgba(0,0,0,.12);color:#ecf1eb;max-width:62ch}
+.masthead .hero-stack span {color:#e7efdf;border-color:rgba(227,239,217,.36)}
+.masthead .hero-meta {border-color:rgba(244,252,237,.28)}
+.masthead .hero-meta span,.masthead .hero-meta span strong {color:#eef5ed}
+.masthead .action {color:#eaf2e9;border-bottom-color:rgba(237,249,229,.5)}
+.masthead .action:hover {color:#fff}
+.hero-actions .action:first-child {background:#c6ef86;color:#10262d;border-radius:3px;padding-inline:1.15rem}
+.hero-actions .action:first-child:hover {background:#dfffad;color:#10262d}
+.hero-actions .action.pdf-action {border:1px solid rgba(198,239,134,.72);padding:.7rem 1rem;border-radius:3px;color:#e9f7d7;text-decoration:none}
+.hero-actions .action.pdf-action::after {content:"↓";color:#c6ef86}
+.chapter {padding-block:clamp(4.3rem,7vw,7rem)}
+.chapter:nth-of-type(even) {background:#f1f4ef}
+.chapter::before {width:5.4rem;height:3px;background:linear-gradient(90deg,#9d456f 0 42%,#7fa65c 42%)}
+.chapter-label {color:#702d51;letter-spacing:.15em}
+.chapter-heading h2 {font-size:clamp(2.65rem,4.35vw,4.45rem);line-height:1.065}
+.capability {border-color:rgba(22,50,49,.19)}
+.capability:hover,.capability[open] {background:#eaf1e8}
+.capability summary::before {color:#702d51;font-weight:800}
+.capability summary::after {color:#276470}
+.reading-routes {border-color:rgba(22,50,49,.22)}
+@media(max-width:860px){.masthead{min-height:0;padding-top:clamp(3.5rem,7vw,5rem)}.masthead h1{font-size:clamp(3.15rem,10vw,5.5rem)}.rail{background:#15272c}.rail-inner{min-height:0}.chapter-heading h2{font-size:clamp(2.2rem,7.5vw,3.4rem)}}
+@media(max-width:430px){.masthead h1{font-size:clamp(2.95rem,12vw,3.65rem)}.masthead .governing-thesis{padding:.8rem .9rem}.hero-actions .pdf-action{width:100%;justify-content:center}}
