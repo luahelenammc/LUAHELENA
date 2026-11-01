@@ -59,7 +59,7 @@ jobs:
           assert r["people_verified"]==14
           with fitz.open(p) as d:
               txt=" ".join(page.get_text() for page in d)
-              assert "20 mensagens" in txt and "18 destinos" in txt
+              assert all(name in txt for name in ["Erika Hilton", "Luisa Canziani", "Sâmia Bomfim", "Jones Manoel"])
           print("PASS: PDF and content completeness")
           PY
 
