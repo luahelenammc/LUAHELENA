@@ -1537,7 +1537,7 @@ html {scroll-padding-top:5rem}
     border:2px solid #fff;box-shadow:0 0 0 1px rgba(30,75,109,.32);
   }
   #circulacao .outreach-methodology {
-    display:flex;align-items:flex-start;gap:.56rem;
+    display:block;
     margin:1.05rem 0 .25rem;max-width:92ch;
     color:#61788a;font:480 .715rem/1.62 var(--br-sans);
   }
