@@ -1,0 +1,76 @@
+name: PR-007 | PDF editorial sincronizado
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'papers/soberaniacognitiva.html'
+      - 'papers/soberaniacognitiva-editorial.css'
+      - 'papers/soberaniacognitiva-pdf.css'
+      - 'scripts/build-soberaniacognitiva-pdf.py'
+      - '.github/workflows/soberaniacognitiva-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pr007-pdf-main
+  cancel-in-progress: false
+
+jobs:
+  export-pdf:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout article source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install renderer and PDF QA
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.58.0 pymupdf==1.26.5
+          python -m playwright install --with-deps chromium
+
+      - name: Build PDF from the current HTML + Brazilian editorial design
+        run: |
+          python scripts/build-soberaniacognitiva-pdf.py \
+            --output papers/soberaniacognitiva.pdf \
+            --qa-json papers/soberaniacognitiva-pdf-qa.json
+
+      - name: Validate generated PDF binary
+        run: |
+          file papers/soberaniacognitiva.pdf
+          test -s papers/soberaniacognitiva.pdf
+          python - <<'PY'
+          import fitz, json
+          from pathlib import Path
+          p=Path("papers/soberaniacognitiva.pdf")
+          r=json.loads(Path("papers/soberaniacognitiva-pdf-qa.json").read_text())
+          assert p.read_bytes()[:5]==b"%PDF-"
+          assert r["pages"] >= 8
+          assert r["people_verified"]==14
+          with fitz.open(p) as d:
+              txt=" ".join(page.get_text() for page in d)
+              assert "20 mensagens" in txt and "18 destinos" in txt
+          print("PASS: PDF and content completeness")
+          PY
+
+      - name: Commit verified binary to the existing download path
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers/soberaniacognitiva.pdf papers/soberaniacognitiva-pdf-qa.json
+          if git diff --cached --quiet; then
+            echo "PDF unchanged; nothing to commit"
+            exit 0
+          fi
+          git commit -m "docs(PR-007): synchronize downloadable PDF with editorial HTML"
+          git push origin HEAD:main
