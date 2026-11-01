@@ -852,3 +852,166 @@ html {scroll-padding-top:5rem}
 @media print {
  .author-affiliation {color:#555!important;font-size:8pt!important;}
 }
+
+/* PR-007 · visual v5 · 01 Nov 2026
+   Brazilian-flag visual system + consistent inset padding across content surfaces.
+   Screen-scoped: academic content, print layout, and publication metadata unchanged. */
+@media screen {
+  :root {
+    --br-green:#00c878;
+    --br-yellow:#ffda36;
+    --br-blue:#135fe4;
+    --br-flag-band:linear-gradient(90deg,var(--br-green) 0 42%,var(--br-yellow) 42% 68%,var(--br-blue) 68% 100%);
+    --br-card-inset:clamp(1.15rem,2.5vw,2rem);
+  }
+  /* Identity: the actual national flag, rather than merely flag-adjacent colors. */
+  .wordmark {gap:.8rem;min-width:0}
+  .wordmark::before {display:none}
+  .br-flag {display:block;flex:none;width:100%;height:auto;aspect-ratio:10/7;object-fit:cover}
+  .br-flag-nav {width:2.5rem;border-radius:3px;border:1px solid rgba(255,255,255,.36);
+    box-shadow:0 2px 10px rgba(0,0,0,.2)}
+  .br-national-signature {display:flex;align-items:center;gap:1rem;min-width:0;
+    margin:.35rem 0 .35rem;padding:0}
+  .br-flag-hero {width:clamp(5rem,7.5vw,7.8rem);min-width:0;flex:none;line-height:0;
+    padding:4px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+    border-radius:8px;box-shadow:0 10px 25px rgba(1,16,48,.23)}
+  .br-flag-hero .br-flag {border-radius:3px}
+  .br-national-signature-copy {display:grid;gap:.4rem;min-width:0}
+  .br-national-signature-copy strong {color:#ffeb84;font:800 .67rem/1.4 var(--br-sans);
+    letter-spacing:.16em;text-transform:uppercase}
+  .br-national-signature-copy span {color:#c6f5e0;font:650 .78rem/1.45 var(--br-sans);
+    letter-spacing:.01em}
+  /* Saturated flag colors, anchored by a dark surface for readable scholarship. */
+  .masthead {
+    border-top:5px solid var(--br-yellow);
+    background:radial-gradient(circle at 87% 12%,rgba(0,231,129,.25),transparent 31%),
+      radial-gradient(circle at 8% 91%,rgba(13,101,241,.42),transparent 48%),
+      linear-gradient(124deg,#03275c 0%,#06418d 57%,#075764 100%);
+  }
+  .masthead::after {border-color:rgba(255,220,54,.32);
+    box-shadow:0 0 0 75px rgba(255,221,58,.028),0 0 0 150px rgba(0,221,130,.04)}
+  .masthead h1 .h1-accent {color:#ffdf46;text-shadow:0 8px 30px rgba(255,216,49,.09)}
+  .masthead .governing-thesis {border-left-color:#03dd88}
+  .masthead .hero-actions .action:first-child {background:linear-gradient(115deg,#00db85,#5cffbd);
+    border-color:#76ffd0;color:#073b40}
+  .masthead .action.pdf-action {border-color:rgba(255,221,73,.73)}
+  .masthead .action.pdf-action .ui-icon {color:#ffe16a}
+  .signal-board {border:2px solid transparent;
+    background:linear-gradient(153deg,#fbfffc,#edf7ff) padding-box,
+      linear-gradient(145deg,#0acf81 0%,#ffdd52 47%,#1472e9 100%) border-box;
+    box-shadow:inset 0 1px rgba(255,255,255,.95),0 26px 62px rgba(2,28,67,.2)}
+  .signal-board-head {color:#136d65}
+  .signal-board-number {color:#145fc6}
+  .signal-grid li:nth-child(3n+1){background:#eafff3;border-color:rgba(0,178,103,.22)}
+  .signal-grid li:nth-child(3n+2){background:#fffbea;border-color:rgba(207,153,18,.22)}
+  .signal-grid li:nth-child(3n){background:#edf5ff;border-color:rgba(31,99,218,.2)}
+  .signal-grid li:nth-child(3n+1) .signal-icon{color:#009864}
+  .signal-grid li:nth-child(3n+2) .signal-icon{color:#ad7600}
+  .signal-grid li:nth-child(3n) .signal-icon{color:#1261bf}
+  .reading-progress {background:var(--br-flag-band)}
+  .rail {border-bottom:2px solid rgba(255,216,54,.38)}
+  .rail-actions .pdf-rail-link {border-color:var(--br-yellow);color:#fff6cb}
+  /* Repeated small tri-color cues: not full-width banners across every paragraph. */
+  .chapter {isolation:isolate}
+  .chapter::before {content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+    background:var(--br-flag-band)}
+  .chapter:nth-of-type(3n+1) .chapter-label {border-top-color:var(--br-green)}
+  .chapter:nth-of-type(3n+2) .chapter-label {border-top-color:var(--br-yellow)}
+  .chapter:nth-of-type(3n) .chapter-label {border-top-color:var(--br-blue)}
+  .chapter .prose a:focus-visible,.chapter .references a:focus-visible {outline-color:#1170ce}
+  .question-strip {background:linear-gradient(112deg,#fffbe2,#ebf6ff);
+    border-left:5px solid var(--br-blue);border-radius:12px;padding-inline:var(--br-card-inset)}
+  .question-strip::before {color:#047b5d;opacity:.45}
+  .analysis-unit {gap:clamp(.8rem,2vw,1.4rem)}
+  .analysis-unit article {background:#f1faf6;border:1px solid rgba(24,103,114,.11);
+    border-top:4px solid var(--br-green);border-radius:14px;
+    padding:1.3rem var(--br-card-inset) 1.45rem;min-width:0}
+  .analysis-unit article:nth-of-type(2) {background:#fffbeb;border-top-color:var(--br-yellow)}
+  .analysis-unit article:nth-of-type(3) {background:#eff6ff;border-top-color:var(--br-blue)}
+  .analysis-unit article:nth-of-type(1) {border-top-color:var(--br-green)}
+  #leitura .reading-routes {padding:1.2rem var(--br-card-inset);
+    border-top:3px solid var(--br-yellow)}
+  .context-expander>summary {padding-inline:var(--br-card-inset)}
+  .context-expander .quick-ledger {margin-inline:.85rem}
+  .context-expander .quick-line {padding:1.1rem var(--br-card-inset);
+    gap:clamp(.8rem,2vw,2rem)}
+  .context-expander .quick-line:nth-child(even) {background:#f6fafc}
+  #matriz .capability summary {padding-inline:clamp(1.1rem,2vw,1.55rem)}
+  #matriz .capability-body {padding-right:clamp(1.1rem,2vw,1.55rem)}
+  #matriz .capability:nth-child(3n) {border-left-color:var(--br-blue)}
+  #matriz .capability:nth-child(3n+2) {border-left-color:var(--br-yellow)}
+  #matriz .capability:nth-child(3n+1) {border-left-color:var(--br-green)}
+  #matriz .transversal {padding:1.5rem var(--br-card-inset);
+    background:#e8f8ee;border-top:3px solid var(--br-green)}
+  .workshop-timeline {border-left:3px solid var(--br-green)}
+  .workshop-step {padding:1.4rem var(--br-card-inset);background:#f6fbff}
+  .workshop-step:nth-child(even){background:#f0f9f4}
+  .stress-tests {padding-inline:var(--br-card-inset);background:#fff9dd;
+    border-top:3px solid var(--br-yellow);border-radius:12px}
+  .layer-band {background:#f6fbff;border-top:1px solid rgba(22,92,151,.16);
+    border-left:4px solid var(--br-blue);border-radius:10px;
+    padding-right:var(--br-card-inset)}
+  .layer-band:nth-child(1) {background:#eafcf3;border-left-color:var(--br-green)}
+  .layer-band:nth-child(2) {background:#fffae4;border-left-color:var(--br-yellow)}
+  .layer-band:nth-child(3) {background:#eef6ff;border-left-color:var(--br-blue)}
+  .layer-band + .layer-band,.layer-band + .layer-band + .layer-band {
+    background:inherit}
+  .layer-band:nth-child(1)::before {color:#087e58}
+  .layer-band:nth-child(2)::before {color:#8d6300}
+  .layer-band:nth-child(3)::before {color:#1769bf}
+  /* Main padding fix: every text-bearing element of the pilot card has an inset. */
+  .pilot-sheet {background:#f2f9ff;border:1px solid rgba(15,90,156,.19);
+    border-radius:16px;overflow:hidden}
+  .pilot-head {padding:1.9rem var(--br-card-inset);
+    background:linear-gradient(120deg,#eafcf3,#eaf5ff)}
+  .pilot-head h3 {color:#0a7b5e}
+  .pilot-state {border-top-color:var(--br-green);color:#096951}
+  .pilot-grid section {padding:1.5rem var(--br-card-inset)}
+  .pilot-grid section:nth-child(even) {padding-left:var(--br-card-inset)}
+  .pilot-grid h3 {color:#1665ba}
+  .decision-line {padding:1.4rem var(--br-card-inset);
+    background:#fff9df;border-bottom:3px solid var(--br-yellow)}
+  .decision-line strong {color:#08684d}
+  .author-block {padding:var(--br-card-inset);border-top:3px solid var(--br-blue)}
+  .status-note {padding:1.35rem var(--br-card-inset);
+    background:#eefaf5;border-left:4px solid var(--br-green)}
+  #fontes .citation-box {padding:1.5rem var(--br-card-inset);
+    background:#f0f8ff;border:1px solid rgba(27,94,157,.17);
+    border-left:4px solid var(--br-blue);border-radius:12px;min-width:0}
+  #fontes .citation-box cite {overflow-wrap:anywhere}
+  .reference-group {padding:1.25rem .3rem 0;border-top:3px solid var(--br-green)}
+  .reference-group:nth-child(3n+2){border-top-color:var(--br-yellow)}
+  .reference-group:nth-child(3n){border-top-color:var(--br-blue)}
+  .applications li::before {color:#00a775}
+  footer {border-top:5px solid var(--br-yellow)}
+}
+@media screen and (max-width:700px) {
+  :root {--br-card-inset:1.1rem}
+  .br-flag-nav {width:1.95rem}
+  .wordmark {gap:.42rem}
+  .br-national-signature {gap:.75rem;margin:.2rem 0 .6rem}
+  .br-flag-hero {width:5rem}
+  .br-national-signature-copy strong {font-size:.57rem;letter-spacing:.08em}
+  .br-national-signature-copy span {font-size:.68rem}
+  .question-strip {padding-block:2.1rem}
+  .analysis-unit article {padding:1.2rem var(--br-card-inset)}
+  #matriz .capability summary {padding-inline:1.05rem}
+  #matriz .capability-body {padding-left:3.15rem;padding-right:1rem}
+  .context-expander .quick-ledger {margin-inline:.4rem}
+  .context-expander .quick-line {padding:1rem var(--br-card-inset)}
+  .workshop-step {padding:1.15rem var(--br-card-inset)}
+  .layer-band {padding:1.2rem var(--br-card-inset)}
+  .layer-band + .layer-band,.layer-band + .layer-band + .layer-band {background:inherit}
+  .pilot-head,.pilot-grid section,.pilot-grid section:nth-child(even),.decision-line {
+    padding:1.3rem var(--br-card-inset)}
+  .pilot-grid section:nth-child(even) {border-left:0}
+  #fontes .citation-box {grid-template-columns:minmax(0,1fr);
+    padding:1.3rem var(--br-card-inset)}
+}
+@media (prefers-contrast:more) {
+  .signal-board {background:#fff;border:2px solid #073d78}
+  .analysis-unit article,.pilot-sheet,.layer-band {border-color:#376180}
+}
+@media print {
+  .br-national-signature,.br-flag-nav {display:none!important}
+}
