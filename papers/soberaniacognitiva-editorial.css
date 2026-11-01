@@ -1559,3 +1559,12 @@ html {scroll-padding-top:5rem}
   #circulacao .outreach-spectrum-icon {display:none}
   #circulacao .outreach-methodology {font-size:7pt;margin-top:.35cm}
 }
+
+
+/* PR-007 v13: compact source list and meaningful outreach colors. */
+@media screen {
+ #fontes .references {gap:.55rem 1.2rem} #fontes .reference-group {padding-top:.55rem} #fontes .reference-group h3 {font-size:.98rem;line-height:1.25;margin:0 0 .35rem} #fontes .reference-group p {font-size:.82rem;line-height:1.48;margin:.35rem 0} #fontes .reference-list {list-style:none;padding:0;margin:0} #fontes .reference-list li {position:relative;display:block;font-size:.8rem;line-height:1.45;margin:.3rem 0;padding:0 0 0 1.2rem} #fontes .reference-icon {position:absolute;left:0;top:.22em;width:.8rem;height:.8rem;color:#08775d;stroke:currentColor;fill:none} 
+ .applications li {display:flex;gap:.55rem;align-items:center;padding:.52rem .25rem} .applications li::before {content:none} .applications li .mini-icon {width:1rem;height:1rem;flex:none;color:#08775d}
+ #circulacao .outreach-card[data-kind] {border-top-color:var(--card-accent);background:var(--card-bg)} #circulacao .outreach-card[data-kind] .outreach-symbol {background:var(--card-icon-bg);color:var(--card-accent)}
+ #circulacao .outreach-card[data-kind="institution"] {--card-accent:#076590;--card-bg:#f3f9fc;--card-icon-bg:#dceef6} #circulacao .outreach-card[data-kind="esquerda"] {--card-accent:#a52f51;--card-bg:#fff7f8;--card-icon-bg:#fbe4e9} #circulacao .outreach-card[data-kind="centro-direita"],#circulacao .outreach-card[data-kind="direita"] {--card-accent:#995c12;--card-bg:#fffaf1;--card-icon-bg:#faebcf} #circulacao .outreach-card[data-kind="indeterminado"] {--card-accent:#586d78;--card-bg:#f7f9f9;--card-icon-bg:#e4ebed} #circulacao .outreach-spectrum[data-spectrum="indeterminado"] .outreach-spectrum-icon {display:none}
+}
