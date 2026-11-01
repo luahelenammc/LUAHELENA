@@ -1580,3 +1580,12 @@ html {scroll-padding-top:5rem}
  #circulacao .outreach-card .outreach-person-context {margin-top:.13rem;line-height:1.35}
  #circulacao .outreach-spectrum {margin-top:.38rem;padding:.2rem .48rem}
 }
+
+/* Cores próprias para instituições; azul mais presente para posições de centro. */
+@media screen {
+ #circulacao .outreach-group[aria-labelledby="outreach-instituicoes"] .outreach-card:nth-child(1) {--card-accent:#007b70;--card-bg:#c8eee6;--card-icon-bg:#82d9c8}
+ #circulacao .outreach-group[aria-labelledby="outreach-instituicoes"] .outreach-card:nth-child(2) {--card-accent:#7655a6;--card-bg:#e7dbf8;--card-icon-bg:#cbb5eb}
+ #circulacao .outreach-group[aria-labelledby="outreach-instituicoes"] .outreach-card:nth-child(3) {--card-accent:#0065a3;--card-bg:#ccebf8;--card-icon-bg:#8cd2ee}
+ #circulacao .outreach-group[aria-labelledby="outreach-instituicoes"] .outreach-card:nth-child(4) {--card-accent:#a26100;--card-bg:#ffedbb;--card-icon-bg:#f7d47c}
+ #circulacao .outreach-card[data-kind="centro"], #circulacao .outreach-card[data-kind="centro-esquerda"], #circulacao .outreach-card[data-kind="centro-direita"] {--card-accent:#075ac2;--card-bg:#c6ddff;--card-icon-bg:#8cbafb}
+}
