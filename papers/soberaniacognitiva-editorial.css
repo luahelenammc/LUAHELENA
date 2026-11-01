@@ -1568,3 +1568,15 @@ html {scroll-padding-top:5rem}
  #circulacao .outreach-card[data-kind] {border-top-color:var(--card-accent);background:var(--card-bg)} #circulacao .outreach-card[data-kind] .outreach-symbol {background:var(--card-icon-bg);color:var(--card-accent)}
  #circulacao .outreach-card[data-kind="institution"] {--card-accent:#076590;--card-bg:#f3f9fc;--card-icon-bg:#dceef6} #circulacao .outreach-card[data-kind="esquerda"] {--card-accent:#a52f51;--card-bg:#fff7f8;--card-icon-bg:#fbe4e9} #circulacao .outreach-card[data-kind="centro-direita"],#circulacao .outreach-card[data-kind="direita"] {--card-accent:#995c12;--card-bg:#fffaf1;--card-icon-bg:#faebcf} #circulacao .outreach-card[data-kind="indeterminado"] {--card-accent:#586d78;--card-bg:#f7f9f9;--card-icon-bg:#e4ebed} #circulacao .outreach-spectrum[data-spectrum="indeterminado"] .outreach-spectrum-icon {display:none}
 }
+
+/* Circulação: cores por posição individual e cartões mais compactos. */
+@media screen {
+ #circulacao .outreach-card[data-kind="esquerda"] {--card-accent:#387700;--card-bg:#f4fce9;--card-icon-bg:#d7f69c}
+ #circulacao .outreach-card[data-kind="centro"], #circulacao .outreach-card[data-kind="centro-esquerda"], #circulacao .outreach-card[data-kind="centro-direita"] {--card-accent:#155ca8;--card-bg:#f1f7ff;--card-icon-bg:#dbeaff}
+ #circulacao .outreach-card[data-kind="direita"] {--card-accent:#8a6500;--card-bg:#fffbea;--card-icon-bg:#ffed9d}
+ #circulacao .outreach-grid {gap:.55rem}
+ #circulacao .outreach-card, #circulacao .outreach-commission .outreach-card {padding:.72rem .8rem;gap:.55rem}
+ #circulacao .outreach-card .outreach-person-tenure {margin-top:.28rem;line-height:1.35}
+ #circulacao .outreach-card .outreach-person-context {margin-top:.13rem;line-height:1.35}
+ #circulacao .outreach-spectrum {margin-top:.38rem;padding:.2rem .48rem}
+}
