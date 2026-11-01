@@ -1489,3 +1489,73 @@ html {scroll-padding-top:5rem}
   #circulacao .outreach-commission .outreach-grid {grid-template-columns:minmax(0,1fr)}
   #circulacao .outreach-commission .outreach-card {padding:.94rem 1.08rem}
 }
+
+
+/* PR-007 · electoral context v12 · political outreach cards
+   DIAP-sourced classification is an ideological location of the party/federation,
+   never a favorability ranking or an individual politician score. */
+@media screen {
+  #circulacao .outreach-card-copy {width:100%;min-width:0}
+  #circulacao .outreach-card .outreach-person-meta {
+    margin:.12rem 0 0;max-width:100%;
+    color:#315470;font:600 .77rem/1.5 var(--br-sans);
+    overflow-wrap:break-word;
+  }
+  #circulacao .outreach-person-meta strong {font-weight:800;color:#1c507c}
+  #circulacao .outreach-card .outreach-person-tenure {
+    display:flex;align-items:baseline;flex-wrap:wrap;gap:.15rem .53rem;
+    margin:.48rem 0 0;
+    color:#4e667a;font:560 .745rem/1.5 var(--br-sans);
+  }
+  #circulacao .outreach-election {font-weight:720;color:#126b53}
+  #circulacao .outreach-election > span {font-weight:900;margin-right:.16rem}
+  #circulacao .outreach-card .outreach-person-context {
+    margin:.22rem 0 0;
+    color:#647e91;font:510 .725rem/1.5 var(--br-sans);
+  }
+  #circulacao .outreach-spectrum {
+    --axis-pos:50%;
+    display:inline-flex;align-items:center;gap:.48rem;
+    width:max-content;max-width:100%;margin-top:.6rem;
+    padding:.28rem .57rem;border:1px solid rgba(26,79,119,.15);
+    border-radius:100px;background:#f3f7f9;
+    color:#334f66;font:680 .68rem/1.3 var(--br-sans);
+  }
+  #circulacao .outreach-spectrum[data-spectrum="esquerda"] {--axis-pos:2%}
+  #circulacao .outreach-spectrum[data-spectrum="centro-esquerda"] {--axis-pos:26%}
+  #circulacao .outreach-spectrum[data-spectrum="centro"] {--axis-pos:50%}
+  #circulacao .outreach-spectrum[data-spectrum="centro-direita"] {--axis-pos:74%}
+  #circulacao .outreach-spectrum[data-spectrum="direita"] {--axis-pos:98%}
+  #circulacao .outreach-spectrum-icon {
+    display:inline-block;position:relative;flex:none;width:2.2rem;height:.7rem;
+    background:linear-gradient(to right,#7c93a5,#c4d3dc,#7c93a5) center/100% 2px no-repeat;
+  }
+  #circulacao .outreach-spectrum-icon::after {
+    content:"";position:absolute;left:var(--axis-pos);top:50%;
+    width:.56rem;height:.56rem;border-radius:50%;
+    transform:translate(-50%,-50%);background:#245a83;
+    border:2px solid #fff;box-shadow:0 0 0 1px rgba(30,75,109,.32);
+  }
+  #circulacao .outreach-methodology {
+    display:flex;align-items:flex-start;gap:.56rem;
+    margin:1.05rem 0 .25rem;max-width:92ch;
+    color:#61788a;font:480 .715rem/1.62 var(--br-sans);
+  }
+  #circulacao .outreach-methodology .mini-icon {
+    flex:none;width:.95rem;height:.95rem;margin-top:.1rem;color:#457a96;
+  }
+  #circulacao .outreach-methodology a {color:#195c9a;text-decoration:underline;text-underline-offset:2px}
+  #circulacao .outreach-methodology strong {font-weight:700;color:#415d75}
+  #circulacao .outreach-footnote {margin-top:.52rem}
+}
+@media screen and (max-width:650px) {
+  #circulacao .outreach-card .outreach-person-meta {font-size:.81rem}
+  #circulacao .outreach-card .outreach-person-tenure {font-size:.78rem}
+  #circulacao .outreach-card .outreach-person-context {font-size:.77rem}
+  #circulacao .outreach-spectrum {font-size:.7rem}
+}
+@media print {
+  #circulacao .outreach-spectrum {display:inline-flex;gap:.15cm;margin-top:.13cm}
+  #circulacao .outreach-spectrum-icon {display:none}
+  #circulacao .outreach-methodology {font-size:7pt;margin-top:.35cm}
+}
