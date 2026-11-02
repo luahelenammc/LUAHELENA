@@ -105,8 +105,8 @@
     }
     .planet{min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:8px 4px}
     .orb{
-      width:clamp(64px,7vw,92px);aspect-ratio:1;border-radius:50%;margin:0 auto 12px;
-      display:grid;place-items:center;font-weight:900;font-size:.76rem;position:relative;color:#fff
+      width:var(--orb-size);height:var(--orb-size);flex:0 0 auto;border-radius:50%;margin:0 auto 12px;
+      position:relative;transition:width .35s ease,height .35s ease
     }
     .orb:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
     .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
@@ -157,7 +157,8 @@
     .bar-value strong{display:block;font-size:1rem}.bar-value span{color:var(--muted);font-size:.75rem}
     .axis-note{color:var(--muted);font-size:.78rem;margin:15px 0 0 164px}
 
-    .raw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}\n    .legacy{margin-top:18px}.legacy summary{cursor:pointer;list-style:none;padding:17px 20px;color:#cdd3e8;font-weight:780}.legacy summary::-webkit-details-marker{display:none}.legacy summary:after{content:"＋";float:right}.legacy[open] summary:after{content:"−"}.legacy .raw-grid{padding:0 18px 18px;grid-template-columns:repeat(3,1fr)}
+    .raw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .legacy{margin-top:18px}.legacy summary{cursor:pointer;list-style:none;padding:17px 20px;color:#cdd3e8;font-weight:780}.legacy summary::-webkit-details-marker{display:none}.legacy summary:after{content:"＋";float:right}.legacy[open] summary:after{content:"−"}.legacy .raw-grid{padding:0 18px 18px;grid-template-columns:repeat(3,1fr)}
     .price-card{padding:20px;position:relative;overflow:hidden;min-height:180px}
     .price-card:before{
       content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-42px;top:-48px;
@@ -289,22 +290,24 @@
         <span class="chip">Input + output compared separately</span>
       </div>
 
-      <div class="hero-orbit" aria-label="Relative prices per million tokens: GPT-6 Luna, GPT-6.1 Terra, GPT-6.1 Sol, GPT-6 Astra">
-        <div class="planet"><div class="orb luna">LUNA</div><strong>GPT-6 Luna</strong><span>$0.10 input<br>$0.50 output</span></div>
+      <div class="hero-orbit" aria-label="Sphere area is proportional to price: GPT-6 Luna 1, GPT-6.1 Terra 10, GPT-6.1 Sol 20, GPT-6 Astra 100">
+        <div class="planet"><div class="orb luna" style="--orb-size:9px" aria-hidden="true"></div><strong>GPT-6 Luna</strong><span>$0.10 input<br>$0.50 output</span></div>
         <div class="gap">10×<small>to Terra</small></div>
-        <div class="planet"><div class="orb terra">TERRA</div><strong>GPT-6.1 Terra</strong><span>$1 input<br>$5 output</span></div>
+        <div class="planet"><div class="orb terra" style="--orb-size:28px" aria-hidden="true"></div><strong>GPT-6.1 Terra</strong><span>$1 input<br>$5 output</span></div>
         <div class="gap">2×<small>to Sol</small></div>
-        <div class="planet"><div class="orb sol61">SOL</div><strong>GPT-6.1 Sol</strong><span>$2 input<br>$10 output</span></div>
+        <div class="planet"><div class="orb sol61" style="--orb-size:40px" aria-hidden="true"></div><strong>GPT-6.1 Sol</strong><span>$2 input<br>$10 output</span></div>
         <div class="gap">5×<small>to Astra</small></div>
-        <div class="planet"><div class="orb astra">ASTRA</div><strong>GPT-6 Astra</strong><span>$10 input<br>$50 output</span></div>
-      </div>    </header>
+        <div class="planet"><div class="orb astra" style="--orb-size:90px" aria-hidden="true"></div><strong>GPT-6 Astra</strong><span>$10 input<br>$50 output</span></div>
+      </div>
+    </header>
 
     <section id="raw-prices">
       <div class="section-head">
         <div><h2>Start with the raw prices.</h2></div>
         <p>The entire story below is generated from these official standard API rates. No blended “average” price is invented.</p>
       </div>
-      <div class="raw-grid" id="rawGrid"></div>\n      <details class="card legacy"><summary>Legacy models · GPT-5.6 and GPT-6 Sol</summary><div class="raw-grid" id="legacyGrid"></div></details>
+      <div class="raw-grid" id="rawGrid"></div>
+      <details class="card legacy"><summary>Legacy models · GPT-5.6 and GPT-6 Sol</summary><div class="raw-grid" id="legacyGrid"></div></details>
     </section>
 
     <section id="compare">
