@@ -505,7 +505,6 @@
       return (Math.round(r * 1000) / 1000).toString().replace(/0+$/,"").replace(/\.$/,"") + "×";
     };
 
-    const currentModels = models.filter(m => m.tier === "current");
     function renderEquivalence(){
       const host=document.getElementById("equivalenceGrid");
       const maxPrice=Math.max(...currentModels.map(m=>m.input));
