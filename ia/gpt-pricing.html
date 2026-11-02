@@ -99,26 +99,24 @@
     }
 
     .hero-orbit{
-      margin-top:46px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
-      align-items:center;gap:16px;padding:26px;border:1px solid var(--line);border-radius:var(--radius);
+      margin-top:46px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
+      align-items:stretch;gap:10px;padding:22px;border:1px solid var(--line);border-radius:var(--radius);
       background:linear-gradient(135deg,rgba(13,17,42,.86),rgba(12,13,31,.72));box-shadow:var(--shadow)
     }
-    .planet{text-align:center}
+    .planet{min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:8px 4px}
     .orb{
-      width:clamp(72px,9vw,110px);aspect-ratio:1;border-radius:50%;margin:0 auto 14px;
-      display:grid;place-items:center;font-weight:900;font-size:.86rem;position:relative
+      width:clamp(64px,7vw,92px);aspect-ratio:1;border-radius:50%;margin:0 auto 12px;
+      display:grid;place-items:center;font-weight:900;font-size:.76rem;position:relative;color:#fff
     }
-    .orb:after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
-    .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 50px rgba(89,225,255,.3)}
-    .orb.sol{background:radial-gradient(circle at 34% 30%,#fff5bc,#ffc860 28%,var(--sol6) 65%,#8b273b);box-shadow:0 0 54px rgba(255,125,69,.36)}
-    .orb.terra{background:radial-gradient(circle at 30% 28%,#edffff,#73e0ff 34%,#2788d9 70%,#1b2558);box-shadow:0 0 50px rgba(89,225,255,.3)}\n    .orb.sol61{background:radial-gradient(circle at 34% 30%,#fff2df,#ffc27c 28%,#ff9a50 65%,#8b273b);box-shadow:0 0 54px rgba(255,154,80,.36)}\n    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 58px rgba(232,92,255,.38)}
-    .planet strong{display:block;font-size:1.1rem}.planet span{color:var(--muted);font-size:.85rem}
-    .gap{
-      min-width:86px;text-align:center;color:#fff;font-size:1.55rem;font-weight:900;
-      border-top:1px dashed rgba(255,255,255,.2);padding-top:7px
-    }
-    .gap small{display:block;color:var(--muted);font-size:.65rem;font-weight:650;margin-top:4px;letter-spacing:.04em;text-transform:uppercase}
-
+    .orb:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
+    .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
+    .orb.terra{background:radial-gradient(circle at 30% 28%,#edffff,#73e0ff 34%,#2788d9 70%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
+    .orb.sol61{background:radial-gradient(circle at 34% 30%,#fff2df,#ffc27c 28%,#ff9a50 65%,#8b273b);box-shadow:0 0 42px rgba(255,154,80,.36)}
+    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 44px rgba(232,92,255,.38)}
+    .planet strong{display:block;font-size:clamp(.8rem,1.1vw,1rem);line-height:1.25}.planet span{display:block;color:var(--muted);font-size:.76rem;line-height:1.35;margin-top:5px}
+    .gap{min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;font-size:1.28rem;font-weight:900}
+    .gap:before{content:"";width:100%;border-top:1px dashed rgba(255,255,255,.2);margin-bottom:8px}
+    .gap small{display:block;color:var(--muted);font-size:.57rem;font-weight:650;margin-top:4px;letter-spacing:.04em;text-transform:uppercase}
     section{padding:54px 0}
     .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
     .section-head h2{font-size:clamp(2rem,4vw,3.6rem);line-height:.98;letter-spacing:-.055em;margin:0}
@@ -290,16 +288,15 @@
         <span class="chip">Input + output compared separately</span>
       </div>
 
-      <div class="hero-orbit" aria-label="GPT-6 Luna, GPT-6.1 Terra and Sol, and GPT-6 Astra price ladder">
-        <div class="planet"><div class="orb luna">LUNA</div><strong>GPT-6 Luna</strong><span>the 1× baseline</span></div>
-        <div class="gap">10×<small>price jump</small></div>
-        <div class="planet"><div class="orb terra">TERRA</div><strong>GPT-6.1 Terra</strong><span>10× Luna</span></div>
-        <div class="gap">2×<small>price jump</small></div>
-        <div class="planet"><div class="orb sol61">SOL</div><strong>GPT-6.1 Sol</strong><span>2× Terra</span></div>
-        <div class="gap">5×<small>price jump</small></div>
-        <div class="planet"><div class="orb astra">ASTRA</div><strong>GPT-6 Astra</strong><span>50× Luna</span></div>
-      </div>
-    </header>
+      <div class="hero-orbit" aria-label="Relative prices per million tokens: GPT-6 Luna, GPT-6.1 Terra, GPT-6.1 Sol, GPT-6 Astra">
+        <div class="planet"><div class="orb luna">LUNA</div><strong>GPT-6 Luna</strong><span>$0.10 input<br>$0.50 output</span></div>
+        <div class="gap">10×<small>to Terra</small></div>
+        <div class="planet"><div class="orb terra">TERRA</div><strong>GPT-6.1 Terra</strong><span>$1 input<br>$5 output</span></div>
+        <div class="gap">2×<small>to Sol</small></div>
+        <div class="planet"><div class="orb sol61">SOL</div><strong>GPT-6.1 Sol</strong><span>$2 input<br>$10 output</span></div>
+        <div class="gap">5×<small>to Astra</small></div>
+        <div class="planet"><div class="orb astra">ASTRA</div><strong>GPT-6 Astra</strong><span>$10 input<br>$50 output</span></div>
+      </div>    </header>
 
     <section id="raw-prices">
       <div class="section-head">
