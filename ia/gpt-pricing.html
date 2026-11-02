@@ -543,7 +543,7 @@
           const dots=Array.from({length:count},()=>`<i class="equivalence-dot" style="--c:${unit.color}" aria-hidden="true"></i>`).join("");
           return `<div class="equivalence-row"><div class="equivalence-row-head"><span>${t("sphereRow")} ${unit.name}</span><strong>${count}×</strong></div><div class="equivalence-dots" aria-label="${count} ${t("sphereRow").toLowerCase()} ${unit.name}">${dots}</div></div>`;
         }).join("");
-        return `<article class="card equivalence-card"><div class="equivalence-target"><div class="orb ${target.id==="terra61"?"terra":target.id==="sol61"?"sol61":"astra"}" style="--orb-size:${diameter}px" aria-hidden="true"></div><div><strong>${t("oneSphere")} ${target.name}</strong><span>${target.input} ${t("input").toLowerCase()} · ${target.output} ${t("output").toLowerCase()}</span></div></div>${rows}<p class="equivalence-note">${t("eqNote")}</p></article>`;
+        return `<article class="card equivalence-card"><div class="equivalence-target"><div class="orb ${target.id==="terra61"?"terra":target.id==="sol61"?"sol61":"astra"}" style="--orb-size:${diameter}px" aria-hidden="true"></div><div><strong>${t("oneSphere")} ${target.name}</strong><span>${money(target.input)} ${t("input").toLowerCase()} · ${money(target.output)} ${t("output").toLowerCase()}</span></div></div>${rows}<p class="equivalence-note">${t("eqNote")}</p></article>`;
       }).join("");
     }
     renderEquivalence();
@@ -591,7 +591,7 @@
         const diameter = 34 + Math.sqrt(m.cap/maxCap)*92;
         return `<div class="budget-item">
           <div class="budget-bubble" style="--s:${diameter}px;--c:${m.color}"></div>
-          <strong>${m.cap.toLocaleString(undefined,{maximumFractionDigits:1})} ${t("tokens")}</strong>
+          <strong>${lang==="pt"?(m.cap===1?"1 milhão de tokens":m.cap.toLocaleString("pt-BR",{maximumFractionDigits:1})+" milhões de tokens"):m.cap.toLocaleString("en-US",{maximumFractionDigits:1})+" M tokens"}</strong>
           <span>${m.name}</span>
         </div>`;
       }).join("");
@@ -628,6 +628,7 @@
       const en=lang==="en", tx=copy[lang], put=(q,v)=>{const e=document.querySelector(q);if(e)e.textContent=v};
       document.documentElement.lang=en?"en":"pt-BR";
       document.title=en?"GPT Price Geometry — Terra, Sol & Astra":"Geometria dos preços GPT — Terra, Sol e Astra";
+      document.querySelector('meta[name="description"]').content=en?"An interactive visual comparison of current GPT API prices.":"Comparação visual interativa dos preços atuais da API GPT.";
       document.querySelector(".topbar").setAttribute("aria-label",tx.nav);
       document.querySelector(".eyebrow").innerHTML='<span class="pulse"></span>'+tx.pricing;
       document.querySelector("h1").innerHTML=en?'The <span class="gradient-word">price geometry</span> of GPT.':'A <span class="gradient-word">geometria dos preços</span> de GPT.';
@@ -661,6 +662,7 @@
       const method=document.querySelector(".method"); const sourceLinks=document.querySelector(".source-links").outerHTML; method.innerHTML="<strong>"+tx.methodology+"</strong> "+tx.methodA+sourceLinks;
       document.querySelectorAll(".source-links a").forEach((e,i)=>{if(!i)e.textContent=tx.sourcePricing});
       put("footer span",tx.footer);
+      document.querySelector(".languages").setAttribute("aria-label",en?"Language":"Idioma");
       document.querySelectorAll("[data-lang]").forEach(e=>e.setAttribute("aria-pressed",String(e.dataset.lang===lang)));
       renderEquivalence(); document.getElementById("rawGrid").innerHTML=currentModels.map(renderPriceCard).join(""); document.getElementById("legacyGrid").innerHTML=legacyModels.map(renderPriceCard).join("");
       renderBars(); renderBudget(document.querySelector(".budget-btn.active").dataset.budgetMetric); renderMatrix(document.querySelector(".matrix-btn.active").dataset.matrixMetric);
