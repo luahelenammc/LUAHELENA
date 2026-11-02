@@ -211,7 +211,9 @@
     .scale-pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:0 0 0 7px color-mix(in srgb,var(--c) 13%,transparent),0 0 28px color-mix(in srgb,var(--c) 40%,transparent)}
     .scale-pin:before{content:attr(data-value);position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-weight:920;font-size:1.2rem;white-space:nowrap}
     .scale-pin:after{content:attr(data-name);position:absolute;top:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:700}
-.scale-pin:first-child:before,.scale-pin:first-child:after{left:-2px;transform:none}\n.scale-pin:last-child:before,.scale-pin:last-child:after{left:auto;right:-2px;transform:none}\n
+.scale-pin:first-child:before,.scale-pin:first-child:after{left:-2px;transform:none}
+.scale-pin:last-child:before,.scale-pin:last-child:after{left:auto;right:-2px;transform:none}
+
     .budget-card{padding:30px}
     .budget-top{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-bottom:26px}
     .budget-top p{color:var(--muted);margin:0}
@@ -257,7 +259,8 @@
       .gap{min-height:45px;font-size:1rem}
       .gap:before{width:42%;margin:0 0 5px}
       .gap small{display:inline;margin-left:7px}
-      .equivalence-grid{grid-template-columns:1fr}\n      .raw-grid{grid-template-columns:repeat(2,1fr)}
+      .equivalence-grid{grid-template-columns:1fr}
+      .raw-grid{grid-template-columns:repeat(2,1fr)}
       .big-fact{grid-template-columns:1fr}
       .gen-grid{grid-template-columns:1fr}
       .budget-grid{grid-template-columns:repeat(3,1fr);row-gap:24px}
@@ -265,6 +268,11 @@
     }
     @media (max-width:620px){
       header{padding-top:54px}
+      section{padding:30px 0}
+      #sphere-equivalence{padding-top:24px;padding-bottom:28px}
+      #sphere-equivalence .section-head{margin-bottom:16px}
+      .equivalence-card{padding:16px}
+      .equivalence-dots{grid-template-columns:repeat(auto-fill,minmax(7px,7px));gap:4px}
       .topbar .brand span:last-child{display:none}
       .section-head{align-items:start;flex-direction:column}
       .bar-row{grid-template-columns:112px 1fr}
@@ -497,7 +505,8 @@
       { id:"sol56", name:"GPT-5.6 Sol", family:"5.6", input:4, output:20, color:"#ffc85c", tier:"legacy" },
       { id:"sol6", name:"GPT-6 Sol", family:"6", input:2, output:10, color:"#ff7d45", tier:"legacy" }
     ];
-    const money = n => n < 1 ? "$" + n.toFixed(2) : "$" + (Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2));
+
+    const currentModels = models.filter(m => m.tier === "current");    const money = n => n < 1 ? "$" + n.toFixed(2) : "$" + (Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2));
     const ratioLabel = r => {
       if (Math.abs(r - 1) < .00001) return "1×";
       if (r >= 10) return (Math.round(r * 10) / 10).toString().replace(".0","") + "×";
@@ -520,7 +529,6 @@
     }
     renderEquivalence();
     const renderPriceCard = m => `<article class="card price-card" style="--c:${m.color}"><div class="model-kicker">${m.family}</div><div class="model-name">${m.name}</div><div class="price-pair"><div><span>Input</span><strong>${money(m.input)}</strong></div><div><span>Output</span><strong>${money(m.output)}</strong></div></div></article>`;
-    const currentModels = models.filter(m => m.tier === "current");
     const legacyModels = models.filter(m => m.tier === "legacy");
     document.getElementById("rawGrid").innerHTML = currentModels.map(renderPriceCard).join("");
     document.getElementById("legacyGrid").innerHTML = legacyModels.map(renderPriceCard).join("");
