@@ -176,7 +176,7 @@
       padding:38px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;overflow:hidden;position:relative
     }
     .big-fact:after{
-      content:"100×";position:absolute;right:-2vw;bottom:-7vw;font-weight:950;font-size:clamp(7rem,20vw,17rem);
+      content:"10×";position:absolute;right:-2vw;bottom:-7vw;font-weight:950;font-size:clamp(7rem,20vw,17rem);
       color:rgba(255,255,255,.025);letter-spacing:-.09em;pointer-events:none
     }
     .big-number{font-size:clamp(5rem,13vw,10rem);line-height:.8;letter-spacing:-.085em;font-weight:950}
@@ -282,7 +282,7 @@
     <header>
       <div class="eyebrow"><span class="pulse"></span> API pricing · November 2, 2026</div>
       <h1>The <span class="gradient-word">price geometry</span> of GPT.</h1>
-      <p class="lede">Today’s main comparison: GPT-6.1 Terra and Sol against GPT-6 Astra. Older models remain in the expandable legacy section.</p>
+      <p class="lede">Today’s main comparison: GPT-6 Luna, GPT-6.1 Terra and Sol, and GPT-6 Astra. Older models remain in the expandable legacy section.</p>
       <div class="hero-chips">
         <span class="chip">Standard processing</span>
         <span class="chip">Prompts up to 272K input tokens</span>
@@ -290,21 +290,14 @@
         <span class="chip">Input + output compared separately</span>
       </div>
 
-      <div class="hero-orbit" aria-label="GPT-6 price ladder">
-        <div class="planet">
-          <div class="orb luna">LUNA</div>
-          <strong>GPT-6 Luna</strong><span>the low-cost baseline</span>
-        </div>
+      <div class="hero-orbit" aria-label="GPT-6 Luna, GPT-6.1 Terra and Sol, and GPT-6 Astra price ladder">
+        <div class="planet"><div class="orb luna">LUNA</div><strong>GPT-6 Luna</strong><span>the 1× baseline</span></div>
+        <div class="gap">10×<small>price jump</small></div>
+        <div class="planet"><div class="orb terra">TERRA</div><strong>GPT-6.1 Terra</strong><span>10× Luna</span></div>
         <div class="gap">2×<small>price jump</small></div>
-        <div class="planet">
-          <div class="orb sol">SOL</div>
-          <strong>GPT-6.1 Terra</strong><span>10× Luna</span>
-        </div>
+        <div class="planet"><div class="orb sol61">SOL</div><strong>GPT-6.1 Sol</strong><span>2× Terra</span></div>
         <div class="gap">5×<small>price jump</small></div>
-        <div class="planet">
-          <div class="orb astra">ASTRA</div>
-          <strong>GPT-6.1 Sol</strong><span>2× Terra</span>
-        </div>
+        <div class="planet"><div class="orb astra">ASTRA</div><strong>GPT-6 Astra</strong><span>50× Luna</span></div>
       </div>
     </header>
 
@@ -335,14 +328,14 @@
       </div>
       <div class="card price-chart">
         <div class="bar-chart" id="barChart"></div>
-        <p class="axis-note" id="axisNote">Bar length uses a logarithmic scale so Luna remains visible.</p>
+        <p class="axis-note" id="axisNote">Logarithmic bars keep low-cost Luna visible beside premium models.</p>
       </div>
     </section>
 
     <section>
       <div class="card big-fact">
         <div>
-          <div class="big-number">100<span>×</span></div>
+          <div class="big-number">10<span>×</span></div>
         </div>
         <div class="big-copy">
           <h3>Astra costs ten Terras.</h3>
