@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#070916">
-  <meta name="description" content="An interactive visual comparison of GPT-5.6 and GPT-6 API prices: Luna, Sol, and Astra.">
-  <title>GPT Price Geometry — Luna, Sol & Astra</title>
+  <meta name="description" content="An interactive visual comparison of current GPT-6.1 Terra and Sol API prices against GPT-6 Astra.">
+  <title>GPT Price Geometry — Terra, Sol & Astra</title>
   <style>
     :root{
       --bg:#050713;
@@ -280,12 +280,12 @@
     </nav>
 
     <header>
-      <div class="eyebrow"><span class="pulse"></span> API pricing · September 23, 2026</div>
+      <div class="eyebrow"><span class="pulse"></span> API pricing · November 2, 2026</div>
       <h1>The <span class="gradient-word">price geometry</span> of GPT.</h1>
-      <p class="lede">Five models, two generations, one surprisingly dramatic cost landscape. This page turns the raw API prices into distances you can actually feel.</p>
+      <p class="lede">Today’s main comparison: GPT-6.1 Terra and Sol against GPT-6 Astra. Older models remain in the expandable legacy section.</p>
       <div class="hero-chips">
         <span class="chip">Standard processing</span>
-        <span class="chip">Short context</span>
+        <span class="chip">Prompts up to 272K input tokens</span>
         <span class="chip">USD per 1M text tokens</span>
         <span class="chip">Input + output compared separately</span>
       </div>
@@ -293,9 +293,9 @@
       <div class="hero-orbit" aria-label="GPT-6 price ladder">
         <div class="planet">
           <div class="orb luna">LUNA</div>
-          <strong>GPT-6 Luna</strong><span>the 1× baseline</span>
+          <strong>GPT-6.1 Sol</strong><span>the 1× baseline</span>
         </div>
-        <div class="gap">20×<small>price jump</small></div>
+        <div class="gap">2×<small>price jump</small></div>
         <div class="planet">
           <div class="orb sol">SOL</div>
           <strong>GPT-6 Sol</strong><span>20× Luna</span>
@@ -345,39 +345,39 @@
           <div class="big-number">100<span>×</span></div>
         </div>
         <div class="big-copy">
-          <h3>Astra costs one hundred Lunas.</h3>
-          <p>For both input and output, GPT-6 Astra is exactly 100× the standard short-context token price of GPT-6 Luna. Luna is therefore 99% cheaper than Astra.</p>
+          <h3>Astra costs ten Terras.</h3>
+          <p>GPT-6 Astra costs 10× GPT-6.1 Terra and 5× GPT-6.1 Sol for both input and output. Terra is 90% cheaper than Astra; Sol is 80% cheaper.</p>
         </div>
       </div>
     </section>
 
     <section id="generation">
       <div class="section-head">
-        <div><h2>Generation 6 cut prices hard.</h2></div>
-        <p>The most useful comparison is like-for-like: Luna to Luna, Sol to Sol.</p>
+        <div><h2>Today’s price ladder.</h2></div>
+        <p>Terra and Sol are the current reference points; Astra shows the premium tier.</p>
       </div>
       <div class="gen-grid">
         <article class="card gen-card">
-          <div class="gen-head"><h3>Luna · 5.6 → 6</h3><span class="cut">cheaper</span></div>
+          <div class="gen-head"><h3>Terra → Sol</h3><span class="cut">cheaper</span></div>
           <div class="flow">
-            <div class="flow-box"><small>GPT-5.6 Luna</small><strong>$0.20 / $1.20</strong></div>
+            <div class="flow-box"><small>GPT-6.1 Terra</small><strong>$1 / $5</strong></div>
             <div class="arrow">→</div>
-            <div class="flow-box"><small>GPT-6 Luna</small><strong>$0.10 / $0.50</strong></div>
+            <div class="flow-box"><small>GPT-6 Luna</small><strong>$10 / $50</strong></div>
           </div>
           <div class="split-cuts">
-            <div><small>Input</small><strong>−50%</strong></div>
-            <div><small>Output</small><strong>−58.3%</strong></div>
+            <div><small>Input</small><strong>+100%</strong></div>
+            <div><small>Output</small><strong>+100%</strong></div>
           </div>
         </article>
         <article class="card gen-card">
-          <div class="gen-head"><h3>Sol · 5.6 → 6</h3><span class="cut">half price</span></div>
+          <div class="gen-head"><h3>Sol → Astra</h3><span class="cut">half price</span></div>
           <div class="flow">
-            <div class="flow-box"><small>GPT-5.6 Sol</small><strong>$4 / $20</strong></div>
+            <div class="flow-box"><small>GPT-6.1 Sol</small><strong>$2 / $10</strong></div>
             <div class="arrow">→</div>
             <div class="flow-box"><small>GPT-6 Sol</small><strong>$2 / $10</strong></div>
           </div>
           <div class="split-cuts">
-            <div><small>Input</small><strong>−50%</strong></div>
+            <div><small>Input</small><strong>+400%</strong></div>
             <div><small>Output</small><strong>−50%</strong></div>
           </div>
         </article>
@@ -386,13 +386,13 @@
 
     <section id="astra-normalized">
       <div class="section-head">
-        <div><h2>Normalize Astra to 100%.</h2></div>
-        <p>The GPT-6 family is not an evenly spaced staircase. Luna lives at 1%, Sol at 20%, Astra at 100% of Astra's token price.</p>
+        <div><h2>Compare each price with Astra.</h2></div>
+        <p>Terra is 10% of Astra’s price, Sol is 20%, and Astra is 100% of its own price.</p>
       </div>
       <div class="card astra-scale">
         <div class="scale-line" aria-label="GPT-6 prices as a percentage of Astra">
-          <span class="scale-pin" style="left:1%;--c:var(--luna6)" data-value="1%" data-name="GPT-6 Luna"></span>
-          <span class="scale-pin" style="left:20%;--c:var(--sol6)" data-value="20%" data-name="GPT-6 Sol"></span>
+          <span class="scale-pin" style="left:10%;--c:var(--luna6)" data-value="10%" data-name="GPT-6.1 Terra"></span>
+          <span class="scale-pin" style="left:20%;--c:var(--sol6)" data-value="20%" data-name="GPT-6.1 Sol"></span>
           <span class="scale-pin" style="left:100%;--c:var(--astra)" data-value="100%" data-name="GPT-6 Astra"></span>
         </div>
       </div>
@@ -437,32 +437,32 @@
       </div>
       <div class="takeaways">
         <article class="card takeaway">
-          <b style="color:var(--luna6)">−58.3%</b>
-          <h3>Luna output got dramatically cheaper</h3>
-          <p>GPT-6 Luna output is only 41.7% of GPT-5.6 Luna's output price.</p>
+          <b style="color:var(--luna6)">10×</b>
+          <h3>Terra to Astra</h3>
+          <p>For both input and output, GPT-6 Astra costs ten times GPT-6.1 Terra.</p>
         </article>
         <article class="card takeaway">
           <b style="color:var(--sol6)">20×</b>
-          <h3>Luna → Sol is the giant economic jump</h3>
-          <p>Within GPT-6, Sol costs twenty times Luna on both input and output.</p>
+          <h3>Terra → Sol</h3>
+          <p>Moving from GPT-6.1 Terra to Sol doubles both input and output prices.</p>
         </article>
         <article class="card takeaway">
           <b style="color:var(--astra)">5×</b>
-          <h3>Sol → Astra is smaller in relative terms</h3>
-          <p>Astra is five times Sol, making Sol much closer to Astra than to Luna on the price ladder.</p>
+          <h3>Sol to Astra</h3>
+          <p>GPT-6 Astra costs five times GPT-6.1 Sol for both input and output.</p>
         </article>
       </div>
     </section>
 
     <section id="methodology">
       <div class="card method">
-        <strong>Methodology.</strong> Prices shown are official OpenAI API <strong>Standard processing, short-context text-token rates</strong>, per 1 million tokens, checked September 23, 2026. Cached input, cache writes, Batch, Flex, Fast mode, regional processing and long-context uplifts are intentionally excluded so the comparison remains apples-to-apples. GPT-5.6 Sol's current promotional pricing is stated by OpenAI as available at least through November 21, 2026. These are API prices, not a conversion formula for ChatGPT plan allowances.
+        <strong>Methodology.</strong> Prices shown are official OpenAI API <strong>Standard processing, Standard text-token rates for prompts up to 272K input tokens</strong>, per 1 million tokens, checked November 2, 2026. Cached input, cache writes, Batch, Flex, Fast mode, Ultrafast mode and regional processing uplifts are excluded. Longer prompts have different rates. These are API prices, not a conversion formula for ChatGPT plan allowances.
         <div class="source-links">
           <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing ↗</a>
           <a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna" target="_blank" rel="noopener">GPT-5.6 Luna ↗</a>
           <a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol" target="_blank" rel="noopener">GPT-5.6 Sol ↗</a>
-          <a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">GPT-6 Luna ↗</a>
-          <a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6.1-terra" target="_blank" rel="noopener">GPT-6.1 Terra ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank" rel="noopener">GPT-6.1 Sol ↗</a>
           <a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">GPT-6 Astra ↗</a>
         </div>
       </div>
@@ -477,7 +477,7 @@
   <script>
     const models = [
       { id:"luna56", name:"GPT-5.6 Luna", family:"5.6", input:.20, output:1.20, color:"#9aa9ff" },
-      { id:"luna6",  name:"GPT-6 Luna",   family:"6",   input:.10, output:.50, color:"#59e1ff" },
+      { id:"terra61", name:"GPT-6.1 Terra", family:"6.1", input:1.00, output:5.00, color:"#59e1ff" },\n      { id:"sol61", name:"GPT-6.1 Sol", family:"6.1", input:2.00, output:10.00, color:"#ff9a50" },
       { id:"sol56",  name:"GPT-5.6 Sol",  family:"5.6", input:4.00, output:20.00, color:"#ffc85c" },
       { id:"sol6",   name:"GPT-6 Sol",    family:"6",   input:2.00, output:10.00, color:"#ff7d45" },
       { id:"astra6", name:"GPT-6 Astra",  family:"6",   input:10.00,output:50.00, color:"#e85cff" }
@@ -508,7 +508,7 @@
     function renderBars(){
       const values = models.map(m=>m[currentMetric]);
       const max = Math.max(...values), min = Math.min(...values);
-      const baseline = models.find(m=>m.id==="luna6")[currentMetric];
+      const baseline = models.find(m=>m.id==="terra61")[currentMetric];
       const width = v => currentScale === "linear"
         ? (v/max)*100
         : ((Math.log10(v)-Math.log10(min)+.18)/(Math.log10(max)-Math.log10(min)+.18))*100;
@@ -516,7 +516,7 @@
         <div class="bar-row">
           <div class="bar-label"><span class="swatch" style="--c:${m.color}"></span>${m.name}</div>
           <div class="track"><div class="fill" style="--w:${Math.max(width(m[currentMetric]),1.2)}%;--c:${m.color}"></div></div>
-          <div class="bar-value"><strong>${money(m[currentMetric])}</strong><span>${ratioLabel(m[currentMetric]/baseline)} Luna 6</span></div>
+          <div class="bar-value"><strong>${money(m[currentMetric])}</strong><span>${ratioLabel(m[currentMetric]/baseline )} Terra</span></div>
         </div>`).join("");
       document.getElementById("axisNote").textContent = currentScale === "log"
         ? "Bar length uses a logarithmic scale so Luna remains visible."
