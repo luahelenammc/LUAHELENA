@@ -111,7 +111,7 @@
     .orb:after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
     .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 50px rgba(89,225,255,.3)}
     .orb.sol{background:radial-gradient(circle at 34% 30%,#fff5bc,#ffc860 28%,var(--sol6) 65%,#8b273b);box-shadow:0 0 54px rgba(255,125,69,.36)}
-    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 58px rgba(232,92,255,.38)}
+    .orb.terra{background:radial-gradient(circle at 30% 28%,#edffff,#73e0ff 34%,#2788d9 70%,#1b2558);box-shadow:0 0 50px rgba(89,225,255,.3)}\n    .orb.sol61{background:radial-gradient(circle at 34% 30%,#fff2df,#ffc27c 28%,#ff9a50 65%,#8b273b);box-shadow:0 0 54px rgba(255,154,80,.36)}\n    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 58px rgba(232,92,255,.38)}
     .planet strong{display:block;font-size:1.1rem}.planet span{color:var(--muted);font-size:.85rem}
     .gap{
       min-width:86px;text-align:center;color:#fff;font-size:1.55rem;font-weight:900;
@@ -159,7 +159,7 @@
     .bar-value strong{display:block;font-size:1rem}.bar-value span{color:var(--muted);font-size:.75rem}
     .axis-note{color:var(--muted);font-size:.78rem;margin:15px 0 0 164px}
 
-    .raw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .raw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}\n    .legacy{margin-top:18px}.legacy summary{cursor:pointer;list-style:none;padding:17px 20px;color:#cdd3e8;font-weight:780}.legacy summary::-webkit-details-marker{display:none}.legacy summary:after{content:"＋";float:right}.legacy[open] summary:after{content:"−"}.legacy .raw-grid{padding:0 18px 18px;grid-template-columns:repeat(3,1fr)}
     .price-card{padding:20px;position:relative;overflow:hidden;min-height:180px}
     .price-card:before{
       content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-42px;top:-48px;
@@ -217,7 +217,7 @@
 
     .matrix-card{padding:25px;overflow:auto}
     .matrix{display:grid;gap:7px;min-width:760px}
-    .matrix-row{display:grid;grid-template-columns:135px repeat(5,1fr);gap:7px}
+    .matrix-row{display:grid;grid-template-columns:135px repeat(4,1fr);gap:7px}
     .matrix-cell,.matrix-label{
       min-height:68px;border-radius:14px;border:1px solid rgba(255,255,255,.065);display:flex;flex-direction:column;justify-content:center;padding:10px 12px
     }
@@ -293,17 +293,17 @@
       <div class="hero-orbit" aria-label="GPT-6 price ladder">
         <div class="planet">
           <div class="orb luna">LUNA</div>
-          <strong>GPT-6.1 Sol</strong><span>the 1× baseline</span>
+          <strong>GPT-6 Luna</strong><span>the low-cost baseline</span>
         </div>
         <div class="gap">2×<small>price jump</small></div>
         <div class="planet">
           <div class="orb sol">SOL</div>
-          <strong>GPT-6 Sol</strong><span>20× Luna</span>
+          <strong>GPT-6.1 Terra</strong><span>10× Luna</span>
         </div>
         <div class="gap">5×<small>price jump</small></div>
         <div class="planet">
           <div class="orb astra">ASTRA</div>
-          <strong>GPT-6 Astra</strong><span>100× Luna</span>
+          <strong>GPT-6.1 Sol</strong><span>2× Terra</span>
         </div>
       </div>
     </header>
@@ -313,7 +313,7 @@
         <div><h2>Start with the raw prices.</h2></div>
         <p>The entire story below is generated from these official standard API rates. No blended “average” price is invented.</p>
       </div>
-      <div class="raw-grid" id="rawGrid"></div>
+      <div class="raw-grid" id="rawGrid"></div>\n      <details class="card legacy"><summary>Legacy models · GPT-5.6 and GPT-6 Sol</summary><div class="raw-grid" id="legacyGrid"></div></details>
     </section>
 
     <section id="compare">
@@ -358,11 +358,11 @@
       </div>
       <div class="gen-grid">
         <article class="card gen-card">
-          <div class="gen-head"><h3>Terra → Sol</h3><span class="cut">cheaper</span></div>
+          <div class="gen-head"><h3>Terra → Sol</h3><span class="cut">2× price</span></div>
           <div class="flow">
             <div class="flow-box"><small>GPT-6.1 Terra</small><strong>$1 / $5</strong></div>
             <div class="arrow">→</div>
-            <div class="flow-box"><small>GPT-6 Luna</small><strong>$10 / $50</strong></div>
+            <div class="flow-box"><small>GPT-6.1 Sol</small><strong>$2 / $10</strong></div>
           </div>
           <div class="split-cuts">
             <div><small>Input</small><strong>+100%</strong></div>
@@ -370,15 +370,15 @@
           </div>
         </article>
         <article class="card gen-card">
-          <div class="gen-head"><h3>Sol → Astra</h3><span class="cut">half price</span></div>
+          <div class="gen-head"><h3>Sol → Astra</h3><span class="cut">5× price</span></div>
           <div class="flow">
             <div class="flow-box"><small>GPT-6.1 Sol</small><strong>$2 / $10</strong></div>
             <div class="arrow">→</div>
-            <div class="flow-box"><small>GPT-6 Sol</small><strong>$2 / $10</strong></div>
+            <div class="flow-box"><small>GPT-6 Astra</small><strong>$10 / $50</strong></div>
           </div>
           <div class="split-cuts">
             <div><small>Input</small><strong>+400%</strong></div>
-            <div><small>Output</small><strong>−50%</strong></div>
+            <div><small>Output</small><strong>+100%</strong></div>
           </div>
         </article>
       </div>
@@ -442,7 +442,7 @@
           <p>For both input and output, GPT-6 Astra costs ten times GPT-6.1 Terra.</p>
         </article>
         <article class="card takeaway">
-          <b style="color:var(--sol6)">20×</b>
+          <b style="color:var(--sol6)">2×</b>
           <h3>Terra → Sol</h3>
           <p>Moving from GPT-6.1 Terra to Sol doubles both input and output prices.</p>
         </article>
@@ -469,20 +469,22 @@
     </section>
 
     <footer>
-      <span>Visualized by Lua Helena · data snapshot 2026-09-23</span>
+      <span>Visualized by Lua Helena · data snapshot 2026-11-02</span>
       <a href="/ia/">luahelena.com.br/ia/</a>
     </footer>
   </div>
 
   <script>
     const models = [
-      { id:"luna56", name:"GPT-5.6 Luna", family:"5.6", input:.20, output:1.20, color:"#9aa9ff" },
-      { id:"terra61", name:"GPT-6.1 Terra", family:"6.1", input:1.00, output:5.00, color:"#59e1ff" },\n      { id:"sol61", name:"GPT-6.1 Sol", family:"6.1", input:2.00, output:10.00, color:"#ff9a50" },
-      { id:"sol56",  name:"GPT-5.6 Sol",  family:"5.6", input:4.00, output:20.00, color:"#ffc85c" },
-      { id:"sol6",   name:"GPT-6 Sol",    family:"6",   input:2.00, output:10.00, color:"#ff7d45" },
-      { id:"astra6", name:"GPT-6 Astra",  family:"6",   input:10.00,output:50.00, color:"#e85cff" }
+      { id:"luna6", name:"GPT-6 Luna", family:"6", input:.10, output:.50, color:"#59e1ff", tier:"current" },
+      { id:"terra61", name:"GPT-6.1 Terra", family:"6.1", input:1, output:5, color:"#73e0ff", tier:"current" },
+      { id:"sol61", name:"GPT-6.1 Sol", family:"6.1", input:2, output:10, color:"#ff9a50", tier:"current" },
+      { id:"astra6", name:"GPT-6 Astra", family:"6", input:10, output:50, color:"#e85cff", tier:"current" },
+      { id:"luna56", name:"GPT-5.6 Luna", family:"5.6", input:.20, output:1.20, color:"#9aa9ff", tier:"legacy" },
+      { id:"terra56", name:"GPT-5.6 Terra", family:"5.6", input:2, output:12, color:"#7cc7d8", tier:"legacy" },
+      { id:"sol56", name:"GPT-5.6 Sol", family:"5.6", input:4, output:20, color:"#ffc85c", tier:"legacy" },
+      { id:"sol6", name:"GPT-6 Sol", family:"6", input:2, output:10, color:"#ff7d45", tier:"legacy" }
     ];
-
     const money = n => n < 1 ? "$" + n.toFixed(2) : "$" + (Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2));
     const ratioLabel = r => {
       if (Math.abs(r - 1) < .00001) return "1×";
@@ -491,32 +493,26 @@
       return (Math.round(r * 1000) / 1000).toString().replace(/0+$/,"").replace(/\.$/,"") + "×";
     };
 
-    const rawGrid = document.getElementById("rawGrid");
-    rawGrid.innerHTML = models.map(m => `
-      <article class="card price-card" style="--c:${m.color}">
-        <div class="model-kicker">GPT ${m.family}</div>
-        <div class="model-name">${m.name.replace("GPT-"+m.family+" ","")}</div>
-        <div class="price-pair">
-          <div><span>Input</span><strong>${money(m.input)}</strong></div>
-          <div><span>Output</span><strong>${money(m.output)}</strong></div>
-        </div>
-      </article>`).join("");
-
+    const renderPriceCard = m => `<article class="card price-card" style="--c:${m.color}"><div class="model-kicker">${m.family}</div><div class="model-name">${m.name}</div><div class="price-pair"><div><span>Input</span><strong>${money(m.input)}</strong></div><div><span>Output</span><strong>${money(m.output)}</strong></div></div></article>`;
+    const currentModels = models.filter(m => m.tier === "current");
+    const legacyModels = models.filter(m => m.tier === "legacy");
+    document.getElementById("rawGrid").innerHTML = currentModels.map(renderPriceCard).join("");
+    document.getElementById("legacyGrid").innerHTML = legacyModels.map(renderPriceCard).join("");
     let currentMetric = "input";
     let currentScale = "log";
 
     function renderBars(){
-      const values = models.map(m=>m[currentMetric]);
+      const values = currentModels.map(m=>m[currentMetric]);
       const max = Math.max(...values), min = Math.min(...values);
-      const baseline = models.find(m=>m.id==="terra61")[currentMetric];
+      const baseline = currentModels.find(m=>m.id==="luna6")[currentMetric];
       const width = v => currentScale === "linear"
         ? (v/max)*100
         : ((Math.log10(v)-Math.log10(min)+.18)/(Math.log10(max)-Math.log10(min)+.18))*100;
-      document.getElementById("barChart").innerHTML = models.map(m=>`
+      document.getElementById("barChart").innerHTML = currentModels.map(m=>`
         <div class="bar-row">
           <div class="bar-label"><span class="swatch" style="--c:${m.color}"></span>${m.name}</div>
           <div class="track"><div class="fill" style="--w:${Math.max(width(m[currentMetric]),1.2)}%;--c:${m.color}"></div></div>
-          <div class="bar-value"><strong>${money(m[currentMetric])}</strong><span>${ratioLabel(m[currentMetric]/baseline )} Terra</span></div>
+          <div class="bar-value"><strong>${money(m[currentMetric])}</strong><span>${ratioLabel(m[currentMetric]/baseline  )} Luna</span></div>
         </div>`).join("");
       document.getElementById("axisNote").textContent = currentScale === "log"
         ? "Bar length uses a logarithmic scale so Luna remains visible."
@@ -535,7 +531,7 @@
 
     function renderBudget(metric){
       const budget = metric==="input" ? 10 : 50;
-      const capacities = models.map(m=>({ ...m, cap:budget/m[metric] }));
+      const capacities = currentModels.map(m=>({ ...m, cap:budget/m[metric] }));
       const maxCap = Math.max(...capacities.map(x=>x.cap));
       document.getElementById("budgetCopy").textContent = `With a $${budget} ${metric}-token budget:`;
       document.getElementById("budgetGrid").innerHTML = capacities.map(m=>{
@@ -556,10 +552,10 @@
     function renderMatrix(metric){
       const el=document.getElementById("ratioMatrix");
       let out='<div class="matrix-row"><div class="matrix-label matrix-head">baseline ↓ / target →</div>';
-      out += models.map(m=>`<div class="matrix-label matrix-head">${m.name}</div>`).join("")+'</div>';
-      models.forEach(row=>{
+      out += currentModels.map(m=>`<div class="matrix-label matrix-head">${m.name}</div>`).join("")+'</div>';
+      currentModels.forEach(row=>{
         out += `<div class="matrix-row"><div class="matrix-label">${row.name}<small style="color:var(--muted);margin-top:4px">${money(row[metric])}</small></div>`;
-        models.forEach(col=>{
+        currentModels.forEach(col=>{
           const r=col[metric]/row[metric];
           const cls=Math.abs(r-1)<.00001?"equal":r>1?"costlier":"cheaper";
           const heat=Math.min(.17,.035+Math.abs(Math.log10(r||1))*.045).toFixed(3);
