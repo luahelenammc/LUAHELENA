@@ -407,7 +407,337 @@ footer{border-top:1px solid #b9c4cd;color:#64758a}
   .cta h2,.cta p{color:#111}
   .reach-labor .reach-recipient-card{box-shadow:none!important}
 }
-</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Jornada 12×36 e direito ao tempo","author":{"@type":"Person","name":"Lua Helena Moon Martins Cardoso"},"dateModified":"2026-11-03","inLanguage":"pt-BR","url":"https://www.luahelena.com.br/papers/12x36.html","citation":["https://legis.senado.leg.br/norma/44184944/publicacao/44189027","https://pubmed.ncbi.nlm.nih.gov/26359284/"]}</script></head><body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><div class="wrap"><header class="site-header"><a class="brand" href="https://www.luahelena.com.br/"><span class="brand-mark">L</span><span>Lua Helena<small>pesquisa independente · Limeira</small></span></a><nav aria-label="Navegação da página"><a href="#lei">nova lei</a><a href="#por-que">contexto</a><a href="#proposta">proposta</a><a href="#circulacao">circulação</a><a href="#fontes">fontes</a><button id="copy-link" type="button">copiar link</button></nav></header><main id="conteudo"><section class="hero" id="tese" aria-labelledby="titulo-paper">
+
+/* CTPS DOSSIÊ II · editorial architecture
+ * Documento editorial independente. Proibida confusão com CTPS oficial.
+ * Overlay visual: mantém fontes, argumento, destinatários e operações do paper.
+ */
+:root{--max:1500px;--rail-width:205px;--folio-gold:#c8a25b;--folio-blue:#092c64;--folio-sand:#eee9de;--folio-rule:rgba(15,60,111,.16)}
+.wrap{width:min(var(--max),calc(100% - clamp(22px,3vw,60px)))}
+.ctps-reading-progress{position:fixed;z-index:1000;left:0;top:0;width:100%;height:3px;transform:scaleX(0);transform-origin:0 50%;
+ background:linear-gradient(90deg,#154d91 0%,#d3ac62 75%,#f5ddac 100%);box-shadow:0 0 10px rgba(194,152,72,.24);pointer-events:none}
+.site-header{padding-block:16px;margin-bottom:0;background:transparent}
+.site-header:before{content:"01 / TRABALHO & TEMPO";display:block;position:absolute;right:0;bottom:-21px;color:#8c7c60;
+ font:760 .53rem/1 var(--sans);letter-spacing:.17em}
+.site-header nav a{border-radius:0}
+.dossier-shell{display:grid;grid-template-columns:minmax(180px,var(--rail-width)) minmax(0,1fr);gap:clamp(20px,2.8vw,46px);align-items:start}
+.dossier-shell>main{min-width:0}
+.dossier-rail{align-self:stretch;border-right:1px solid var(--folio-rule);background:
+ repeating-linear-gradient(0deg,transparent 0 39px,rgba(10,43,94,.025) 40px,transparent 41px),linear-gradient(180deg,#ebe7dd,rgba(236,234,227,.16))}
+.dossier-rail-inner{position:sticky;top:0;max-height:100vh;overflow-y:auto;display:flex;flex-direction:column;gap:16px;
+ scrollbar-width:thin;scrollbar-color:#b9aa91 transparent;padding:28px 20px 26px 2px}
+.dossier-rail-signature{display:flex;gap:10px;align-items:center;color:#163d71;text-decoration:none;font:650 .85rem/1.15 var(--serif)}
+.dossier-rail-signature strong{font-weight:800}
+.rail-monogram{width:40px;height:46px;display:grid;place-items:center;flex:none;color:#dec28c;
+ background:#0a326a;border:1px solid #b9985e;box-shadow:inset 0 0 0 3px #153e77,inset 0 0 0 4px rgba(218,185,122,.56);
+ font:700 1rem/1 var(--serif);letter-spacing:-.09em}
+.dossier-rail-heading{display:flex;align-items:center;justify-content:space-between;gap:4px;padding:16px 0 8px;border-top:1px solid var(--folio-rule);
+ color:#91743e;font:750 .54rem/1.3 var(--sans);letter-spacing:.08em}
+.dossier-rail-heading b{color:#355777}
+.dossier-chapters{display:grid;gap:0!important;border-top:1px solid rgba(24,67,119,.16);margin:0!important}
+.dossier-chapters a{display:grid;grid-template-columns:25px 1fr;justify-content:start;align-items:center;gap:.6rem;
+ min-height:37px;padding:8px 4px;border:0!important;border-bottom:1px solid rgba(24,67,119,.09)!important;
+ background:transparent;color:#455e77!important;text-align:left;font:680 .68rem/1.25 var(--sans);letter-spacing:.01em;
+ text-decoration:none;transition:color .18s ease,background .18s ease,padding .18s ease}
+.dossier-chapters a .dossier-nav-no{color:#a68b58;font-size:.56rem;font-weight:850;letter-spacing:.06em}
+.dossier-chapters a:hover,.dossier-chapters a.is-active{background:rgba(15,68,134,.06)!important;color:#0b3e83!important;padding-left:8px}
+.dossier-chapters a.is-active{box-shadow:inset 3px 0 0 #c19b52}
+.dossier-rail-bottom{margin-top:16px;border-top:1px solid var(--folio-rule);padding-top:18px}
+.dossier-signet{display:block;font:2.1rem/1 var(--serif);color:#b99a63}
+.dossier-rail-bottom p{color:#325075;font:560 1rem/1.25 var(--serif);margin:8px 0 18px}
+.dossier-rail-bottom a{color:#967536;font:770 .66rem/1.25 var(--sans);text-decoration:none;border-bottom:1px solid #bba370;padding-bottom:6px}
+.dossier-mobile-index{display:none}
+.hero{margin:clamp(27px,3vw,50px) 0 0;min-height:700px;padding:clamp(35px,5vw,72px) clamp(30px,5.5vw,76px);box-shadow:
+  0 38px 72px rgba(9,31,65,.19),inset 0 0 0 6px rgba(5,24,53,.5)}
+.hero:before{inset:18px;border-color:rgba(219,182,109,.35)}
+.hero:after{opacity:.11}
+.hero-registry{margin-bottom:clamp(45px,6vw,86px)}
+.hero .eyebrow{color:#e8ce96}
+.hero h1{font-size:clamp(3.7rem,6vw,7.4rem);line-height:.91}
+.hero h1 span{background:linear-gradient(150deg,#fff0c6,#cca45c 57%,#f8e5b4 82%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{font-size:.55em}
+.hero-thesis{border-color:#c39d59}
+.ctps-document{filter:drop-shadow(0 5px 8px rgba(3,17,40,.13))}
+.ctps-document-inner:before{content:"";position:absolute;pointer-events:none;inset:19px;border:1px solid rgba(236,206,137,.30)}
+.ctps-document-inner:after{content:"";position:absolute;pointer-events:none;inset:28px;border:1px solid rgba(236,206,137,.14)}
+.ctps-stage:after{content:"CADERNO AUTORAL   •   NÃO É DOCUMENTO GOVERNAMENTAL";color:#ebd7a8;letter-spacing:.12em;
+ font:760 .51rem/1.5 var(--sans);text-align:center;margin-top:10px;opacity:.78}
+.dossier-register{margin:0 0 45px;position:relative;background:linear-gradient(112deg,#fffdf9,#f7f4ed);
+ border:1px solid #cdbd9c;border-top:0;box-shadow:0 18px 40px rgba(22,49,80,.06)}
+.dossier-register:before{content:"";height:4px;position:absolute;inset:0 0 auto;background:linear-gradient(90deg,#b98c48 0 25%,#e2cf9d 25% 75%,#b98c48 75%)}
+.dossier-register-heading{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:22px clamp(19px,3vw,35px) 10px;
+ color:#90743f;font:770 .6rem/1.4 var(--sans);letter-spacing:.15em}
+.dossier-register-heading span+span{color:#6d8097;white-space:nowrap}
+.dossier-register-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:13px clamp(19px,3vw,35px) 25px}
+.register-data{position:relative;padding:12px 18px 8px 0;border-right:1px solid rgba(22,67,128,.16);min-width:0}
+.register-data+ .register-data{padding-left:22px}
+.register-data:last-child{border:0}
+.register-data:after{content:"";position:absolute;bottom:5px;right:12px;width:16px;height:16px;border-bottom:1px solid rgba(167,130,56,.32);border-right:1px solid rgba(167,130,56,.32)}
+.register-data-label{display:block;color:#496685;font:780 .64rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.09em;min-height:2.8em}
+.register-data strong{display:block;margin:9px 0;color:#103f83;font:650 clamp(3rem,5vw,5.2rem)/.9 var(--serif);letter-spacing:-.07em}
+.register-data:last-child strong{color:#a67c31}
+.register-data strong small{font-size:.3em;font-family:var(--sans);font-weight:710;letter-spacing:0;margin-left:.12em}
+.register-data p{max-width:21ch;color:#596b78;font:.76rem/1.5 var(--sans);margin:12px 0 0}
+.dossier-register-footer{border-top:1px solid rgba(20,60,111,.12);padding:12px clamp(19px,3vw,35px);display:flex;gap:.6rem;align-items:center;
+ color:#6e7e86;font:650 .69rem/1.45 var(--sans)}
+.dossier-register-footer span{color:#b19050;font-size:1.1rem}
+.summary{background:#fffdf8;border-top:0;border-left:0;box-shadow:none;padding:clamp(25px,4vw,55px);
+ border-bottom:1px solid #d7d3c8}
+.summary:before{content:"NOTA INTRODUTÓRIA / DIREITO AO TEMPO";letter-spacing:.15em}
+.summary h2{font-size:clamp(2.15rem,3.3vw,3.4rem);max-width:21ch}
+.summary p{font-size:1.04rem}
+.law-spotlight{position:relative;overflow:hidden;padding:clamp(28px,4vw,58px);isolation:isolate}
+.law-spotlight:before{content:"141";position:absolute;pointer-events:none;right:-.04em;top:-.35em;color:rgba(25,75,139,.055);
+ font:800 clamp(13rem,27vw,25rem)/1 var(--serif);letter-spacing:-.1em;z-index:-1}
+.law-top{position:relative;z-index:1}
+.law-top h2{font-size:clamp(2.4rem,4.1vw,4.7rem)}
+.law-steps{position:relative;gap:0;border:1px solid #c9d2dd;background:#f8f9f7}
+.law-steps article{position:relative;padding:30px clamp(16px,2.2vw,30px) 28px;box-shadow:none;border-top:5px solid #bba16a}
+.law-steps article+article{border-left:1px solid #cbd4dc}
+.law-steps article:before{content:"";position:absolute;left:21px;top:-11px;border:2px solid #bca06c;width:12px;height:12px;border-radius:50%;background:#f9f6ef}
+.law-steps article:nth-child(2):before{border-color:#235ca3;background:#a1c2e7}
+.law-steps .law-dest:before{border-color:#e6c77e;background:#f4d38a}
+.law-steps strong{font-size:clamp(3.2rem,4.7vw,5.5rem)}
+.law-steps .law-dest{background:linear-gradient(150deg,#103c7b,#08295b)}
+.law-highlight{padding:clamp(20px,3vw,30px);border-left:4px solid #bb9350}
+.section{position:relative;padding-block:clamp(66px,8vw,104px);scroll-margin-top:20px}
+.section:before{content:"";position:absolute;top:0;left:0;width:clamp(70px,12vw,155px);height:2px;
+ background:linear-gradient(90deg,#c29e58,rgba(194,158,88,.05))}
+.section-head{grid-template-columns:minmax(120px,.28fr) minmax(0,1.72fr);gap:clamp(18px,3.5vw,55px)}
+.section h2{font-size:clamp(2.7rem,4.4vw,5rem);max-width:16.5ch;letter-spacing:-.047em}
+.section-no{display:flex;gap:.65rem;align-items:center;padding-top:.35rem;white-space:nowrap}
+.section-no:after{width:25px;min-width:25px;flex:none}
+.prose,.quote,.proposal,.math,.lived,.lawbox,.steps,.references{margin-left:clamp(140px,17.5vw,190px)}
+.prose .lead{font-size:clamp(1.3rem,2vw,1.85rem)}
+.prose p{line-height:1.86}
+.quote{position:relative;padding:clamp(30px,4vw,48px);background:#0a3674;border-left:5px solid #d2ac65;
+ color:#f4e2ba;font-size:clamp(1.4rem,2.4vw,2.2rem);line-height:1.38}
+.quote:after{content:"“";position:absolute;right:17px;bottom:-.27em;font:250 clamp(8rem,15vw,16rem)/1 var(--serif);color:rgba(255,245,221,.09);pointer-events:none}
+.proposal>div{padding:clamp(24px,3vw,34px)}
+.proposal h3{font-size:clamp(1.45rem,2.2vw,2rem)}
+.proposal li{margin-bottom:.45rem}
+.math{max-width:920px}
+.formula{font-size:clamp(1.8rem,3.2vw,3.15rem);box-shadow:0 9px 22px rgba(13,49,103,.1)}
+.hours-exhibit{margin:0 0 23px;position:relative;color:#eef1f5;background:#082c62;border:1px solid #b99b64;
+ padding:clamp(21px,3vw,35px);box-shadow:0 17px 32px rgba(10,38,76,.11)}
+.hours-exhibit:before{content:"";position:absolute;inset:10px;border:1px solid rgba(215,174,102,.16);pointer-events:none}
+.hours-exhibit-top{position:relative;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;padding:0 0 18px;
+ color:#d9bd82;border-bottom:1px solid rgba(244,226,183,.2);font:760 .57rem/1.4 var(--sans);letter-spacing:.12em}
+.hours-exhibit-main{position:relative;display:grid;grid-template-columns:minmax(0,1.8fr) minmax(150px,.6fr);gap:clamp(24px,3vw,43px);padding:28px 0}
+.hours-exhibit h3{margin:0 0 28px;max-width:none;color:#f6f0e2;font:580 clamp(1.65rem,2.8vw,2.65rem)/1.07 var(--serif)}
+.hours-exhibit h3 em{color:#e7c17b;font-weight:550;font-style:normal}
+.hours-exhibit-row+.hours-exhibit-row{margin-top:22px}
+.hours-exhibit-label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;color:#dde9f7;font:.76rem/1.3 var(--sans);font-weight:650;margin-bottom:8px}
+.hours-exhibit-label b{font-size:.95rem;color:#fff9ec}
+.hours-exhibit-track{height:17px;background:rgba(237,246,255,.11);border:1px solid rgba(239,234,211,.15);padding:2px}
+.hours-exhibit-fill{display:block;height:100%;transform-origin:left;box-shadow:0 0 12px rgba(190,165,92,.1)}
+.hours-exhibit-fill.is-current{width:100%;background:linear-gradient(90deg,#477db6,#a5c1de)}
+.hours-exhibit-fill.is-target{width:95.238095%;background:linear-gradient(90deg,#b38a47,#efd292)}
+.hours-exhibit-delta{border-left:1px solid rgba(217,191,138,.26);padding-left:clamp(18px,2.3vw,35px)}
+.hours-exhibit-delta>span{color:#e3c584;font:740 .61rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.11em}
+.hours-exhibit-delta strong{display:block;margin:10px 0 5px;font:570 clamp(4rem,6vw,6.5rem)/.88 var(--serif);letter-spacing:-.08em;color:#f5d793}
+.hours-exhibit-delta strong small{font:.28em/1 var(--sans);letter-spacing:0}
+.hours-exhibit-delta p{color:#d7e4f4;font:.75rem/1.5 var(--sans)}
+.hours-exhibit figcaption{position:relative;margin:0;padding-top:17px;border-top:1px solid rgba(239,219,174,.2);
+ color:#c5d2e6;font:.7rem/1.5 var(--sans)}
+#tempo-vivido .lived{max-width:950px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid #c5d1dc}
+.lived-inscription{grid-column:1/-1;display:flex;align-items:center;gap:clamp(22px,4vw,60px);
+ background:radial-gradient(circle at 7% 35%,#1e549a,transparent 39%),linear-gradient(108deg,#0a285e,#123f7e);
+ color:#f5e8c9;padding:clamp(24px,4vw,50px);border-bottom:4px solid #c29d58}
+.lived-inscription>span{display:block;font:500 clamp(6rem,11vw,12rem)/.78 var(--serif);letter-spacing:-.10em;color:#eed4a0}
+.lived-inscription>span small{font-size:.2em;margin-left:.07em}
+.lived-inscription p{max-width:28ch;font:520 clamp(1.2rem,2.1vw,1.85rem)/1.3 var(--serif);margin:0;color:#c8d7ec}
+.lived-inscription p strong{color:#fff1cf;font-weight:630}
+#tempo-vivido .lived>div:not(.lived-inscription){min-width:0;padding:clamp(17px,2vw,27px);
+ background:#fffdfa;border:0;border-right:1px solid #d0d8dd}
+#tempo-vivido .lived>div:nth-last-child(1){border-right:0}
+.lived-symbol{width:32px;height:32px;display:grid;place-items:center;margin-bottom:28px;color:#ac853e}
+.lived-symbol svg{width:27px;height:27px}
+#tempo-vivido .lived strong{color:#173e77;margin-bottom:10px;font:750 .86rem/1.4 var(--sans);letter-spacing:.025em}
+#tempo-vivido .lived span:not(.lived-symbol){font-size:.82rem;line-height:1.7}
+.lawbox{border-left:4px solid #b89658;box-shadow:inset 0 0 0 1px rgba(18,59,114,.08)}
+.step{position:relative;padding:25px;background:#fffefa;border-top:3px solid #b99758}
+.step b{font-size:2rem}
+.study-cards a,.law-pair article{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.study-cards a:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(10,54,111,.08)}
+.cta{position:relative;overflow:hidden;margin:48px 0 6px;padding:clamp(35px,5vw,60px);
+ background:radial-gradient(circle at 95% 5%,rgba(223,174,84,.22),transparent 38%),linear-gradient(122deg,#061f4a,#0b3679)}
+.cta:after{content:"✦";position:absolute;pointer-events:none;right:10%;top:-.2em;color:rgba(231,192,116,.09);
+ font:normal clamp(12rem,27vw,24rem)/1 var(--serif)}
+.cta>*{position:relative;z-index:1}
+.cta h2{font-size:clamp(2.2rem,4vw,4rem);max-width:14ch}
+.reach-labor{margin-top:50px;padding-top:85px}
+.reach-labor:before{height:5px;width:100%;background:linear-gradient(90deg,#a27d3f,#d8bc7b 38%,#1b4d90 38%,#1b4d90 100%)}
+.reach-labor .reach-lead{max-width:59ch}
+.reach-labor .reach-ledger{margin-left:clamp(140px,17.5vw,190px)}
+.reach-labor .reach-round-header{position:relative;padding:21px 26px;border:1px solid #b9c8d6;background:
+ linear-gradient(110deg,#eef2f6,#f9f8f3);align-items:center;gap:15px}
+.reach-labor .reach-first-round .reach-round-header{border-top:4px solid #ba9c60}
+.reach-labor .reach-new-round .reach-round-header{border-top:4px solid #184e91}
+.reach-labor .reach-round-header h3{font-size:clamp(1.85rem,3vw,2.9rem)}
+.reach-labor .reach-round-header p{max-width:65ch}
+.reach-labor .reach-round-stat{background:#0b3471!important;border:1px solid #ad9057!important;min-width:156px!important;padding:14px!important}
+.reach-labor .reach-round-stat strong{color:#efd5a0;font-size:2.7rem}
+.reach-labor .reach-round-stat span,.reach-labor .reach-round-stat small{color:#e2eaf4}
+.reach-labor .reach-recipient-group{position:relative}
+.reach-labor .reach-group-heading{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;padding-block:12px}
+.reach-labor .reach-recipient-card{border-top-width:4px;box-shadow:0 5px 16px rgba(15,55,103,.045)}
+.reach-labor .reach-recipient-card:before{content:"";position:absolute;right:12px;top:13px;width:7px;height:7px;transform:rotate(45deg);border:1px solid #baa26f;opacity:.46}
+.reach-labor .reach-origin-step{border:1px solid #c7d3dc}
+.reach-labor .reach-origin-icon{width:46px;height:46px}
+.reach-labor .reach-recipient-grid{gap:11px}
+#fontes{background:linear-gradient(180deg,rgba(222,233,240,.49),transparent 35%);padding-inline:clamp(18px,3vw,38px);border:1px solid #c8d5db;margin:55px 0 65px}
+#fontes:before{left:clamp(18px,3vw,38px);width:180px}
+#fontes .references{padding:26px 28px 26px 46px;border-left:4px solid #bb9856;background:#fffefa;
+ max-width:930px;column-gap:35px;box-shadow:0 12px 26px rgba(12,50,94,.035)}
+#fontes .references li{margin-bottom:13px;line-height:1.58;overflow-wrap:anywhere}
+footer{padding-block:22px 36px}
+@media(max-width:1280px){
+ .dossier-shell{grid-template-columns:170px minmax(0,1fr);gap:22px}
+ .dossier-rail-inner{padding-inline:0 13px}
+ .hero{grid-template-columns:minmax(0,1.2fr) minmax(205px,.8fr);padding:35px 38px;min-height:650px}
+ .hero h1{font-size:clamp(3rem,6.1vw,5.6rem)}
+ .prose,.quote,.proposal,.math,.lived,.lawbox,.steps,.references,
+ .reach-labor .reach-ledger{margin-left:120px}
+ .section-head{grid-template-columns:100px minmax(0,1fr)}
+ .section h2{font-size:clamp(2.5rem,4.2vw,4rem)}
+ .register-data+ .register-data{padding-left:12px}
+ .register-data{padding-right:10px}
+ .register-data strong{font-size:clamp(3rem,5.1vw,4.5rem)}
+}
+@media(max-width:1050px){
+ .wrap{width:calc(100% - clamp(22px,4vw,48px))}
+ .dossier-shell{display:block}
+ .dossier-rail{display:none}
+ .dossier-mobile-index{display:block;margin:22px 0 0;background:#f9f7f0;border:1px solid #c9c7b9}
+ .dossier-mobile-index summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 17px;
+  color:#184780;font:770 .77rem/1.3 var(--sans);text-transform:uppercase;letter-spacing:.08em}
+ .dossier-mobile-index summary::marker{content:""}
+ .dossier-mobile-index summary::-webkit-details-marker{display:none}
+ .dossier-mobile-index-symbol{font:500 1.45rem/1 var(--sans);color:#aa843c;transition:transform .2s}
+ .dossier-mobile-index[open] .dossier-mobile-index-symbol{transform:rotate(45deg)}
+ .dossier-mobile-index nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:0 12px 12px;border-top:1px solid #d8d5c9}
+ .dossier-mobile-index nav a{display:flex;gap:9px;align-items:center;min-width:0;border:0;border-bottom:1px solid #e1ded6;
+  padding:12px 8px;color:#264e7e;text-decoration:none;font:680 .76rem/1.3 var(--sans)}
+ .dossier-mobile-index .dossier-nav-no{color:#9b7737;font-size:.62rem}
+ .hero{margin-top:20px;grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr);padding:45px;min-height:650px}
+ .hero h1{font-size:clamp(3.4rem,7vw,6rem)}
+ .prose,.quote,.proposal,.math,.lived,.lawbox,.steps,.references,.reach-labor .reach-ledger{margin-left:122px}
+ .register-data-label{font-size:.62rem}
+}
+@media(max-width:800px){
+ .dossier-mobile-index{margin-top:20px}
+ .hero{grid-template-columns:1fr;min-height:0;padding:clamp(28px,5vw,44px)}
+ .hero-registry{margin-bottom:30px}
+ .hero h1{font-size:clamp(3.5rem,9vw,6rem)}
+ .dossier-register-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}
+ .register-data{border-right:0;border-bottom:1px solid #d5d8d8;padding:12px 13px}
+ .register-data+.register-data{padding-left:13px}
+ .register-data:nth-child(odd){border-right:1px solid #d5d8d8}
+ .register-data:nth-child(n+3){border-bottom:0}
+ .register-data-label{min-height:0}
+ .register-data strong{font-size:clamp(3.5rem,8vw,5.2rem)}
+ .law-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .law-steps article{padding:21px 13px}
+ .law-steps strong{font-size:clamp(2.8rem,6vw,4rem)}
+ .section-head{grid-template-columns:1fr;gap:13px}
+ .section h2{font-size:clamp(2.45rem,6.5vw,4.1rem)}
+ .section-no{max-width:140px}
+ .prose,.quote,.proposal,.math,.lived,.lawbox,.steps,.references,.reach-labor .reach-ledger{margin-left:0}
+ .hours-exhibit-main{gap:24px}
+ #tempo-vivido .lived{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #tempo-vivido .lived>div:not(.lived-inscription){border-bottom:1px solid #d4dce1}
+ #tempo-vivido .lived>div:nth-last-child(2),#tempo-vivido .lived>div:nth-last-child(1){border-bottom:0}
+}
+@media(max-width:570px){
+ .dossier-mobile-index nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .dossier-register-heading{font-size:.5rem;letter-spacing:.08em}
+ .dossier-register-grid{padding-inline:11px}
+ .register-data{padding:11px}
+ .register-data strong{font-size:clamp(3rem,11vw,4.4rem)}
+ .register-data p{font-size:.7rem}
+ .hero{padding:28px 20px 33px}
+ .hero:before{inset:10px}
+ .hero h1{font-size:clamp(3.1rem,11.7vw,4.7rem)}
+ .hero-registry{font-size:.53rem}
+ .hero .eyebrow{font-size:.58rem}
+ .law-steps{grid-template-columns:1fr}
+ .law-steps article{border-left:0!important;border-bottom:1px solid #d0d5dc;padding:19px}
+ .law-steps strong{font-size:3.8rem}
+ .law-steps article:before{left:18px}
+ .section{padding-block:60px}
+ .section h2{font-size:clamp(2.45rem,10vw,3.7rem)}
+ .quote{padding:26px;font-size:1.42rem}
+ .hours-exhibit{padding:20px 17px}
+ .hours-exhibit-main{grid-template-columns:1fr;gap:10px}
+ .hours-exhibit-delta{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 16px;border-left:0;
+  border-top:1px solid rgba(217,191,138,.26);padding:18px 0 0}
+ .hours-exhibit-delta strong{grid-row:1/3;grid-column:2;margin:0;font-size:4.3rem}
+ .hours-exhibit-delta p{margin:0}
+ .hours-exhibit h3{font-size:1.7rem}
+ .lived-inscription{display:block;padding:25px}
+ .lived-inscription>span{font-size:6rem}
+ .lived-inscription p{margin-top:16px;font-size:1.22rem}
+ #tempo-vivido .lived{grid-template-columns:1fr}
+ #tempo-vivido .lived>div:not(.lived-inscription){border-right:0;border-bottom:1px solid #d4dce1}
+ #tempo-vivido .lived>div:nth-last-child(2){border-bottom:1px solid #d4dce1}
+ #tempo-vivido .lived>div:nth-last-child(1){border-bottom:0}
+ .lived-symbol{margin-bottom:14px}
+ .reach-labor .reach-round-header{padding:18px}
+ .reach-labor .reach-round-stat{min-width:0!important}
+ #fontes{margin-inline:0;padding:26px 16px}
+ #fontes .references{padding:18px 15px 18px 30px}
+}
+@media(prefers-reduced-motion:reduce){.dossier-chapters a,.ctps-document,.dossier-mobile-index-symbol{transition:none!important}}
+@media print{
+ .ctps-reading-progress,.dossier-rail,.dossier-mobile-index,.dossier-register,.hours-exhibit,
+ .lived-inscription,.ctps-stage{display:none!important}
+ .dossier-shell{display:block!important}
+ .site-header:before{display:none!important}
+ .wrap{width:100%!important}
+ .hero{margin:0;padding:0 0 5mm;min-height:0;background:#fff!important;border:0;border-bottom:1px solid #333;box-shadow:none}
+ .hero h1 span{-webkit-text-fill-color:#111;color:#111;background:none}
+ .section:before,.reach-labor:before,#fontes:before{display:none}
+ .section{padding-block:9mm;break-inside:auto}
+ .prose,.quote,.proposal,.math,.lived,.lawbox,.steps,.references,.reach-labor .reach-ledger{margin-left:0}
+ .quote,.lived-inscription,.hours-exhibit,.reach-labor .reach-round-stat{background:#fff!important;color:#111!important}
+ .quote{border-left:3px solid #555}
+ #fontes{background:#fff!important;border:0;margin:0;padding:9mm 0}
+ #fontes .references{box-shadow:none;border-color:#888}
+ .law-spotlight:before,.cta:after{display:none}
+ .lived-symbol{display:none}
+ #tempo-vivido .lived{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .reach-labor .reach-round-stat strong,.reach-labor .reach-round-stat span,.reach-labor .reach-round-stat small{color:#111}
+}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Jornada 12×36 e direito ao tempo","author":{"@type":"Person","name":"Lua Helena Moon Martins Cardoso"},"dateModified":"2026-11-03","inLanguage":"pt-BR","url":"https://www.luahelena.com.br/papers/12x36.html","citation":["https://legis.senado.leg.br/norma/44184944/publicacao/44189027","https://pubmed.ncbi.nlm.nih.gov/26359284/"]}</script></head><body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><div class="ctps-reading-progress" id="ctps-reading-progress" aria-hidden="true"></div><div class="wrap"><header class="site-header"><a class="brand" href="https://www.luahelena.com.br/"><span class="brand-mark">L</span><span>Lua Helena<small>pesquisa independente · Limeira</small></span></a><nav aria-label="Navegação da página"><a href="#lei">nova lei</a><a href="#por-que">contexto</a><a href="#proposta">proposta</a><a href="#circulacao">circulação</a><a href="#fontes">fontes</a><button id="copy-link" type="button">copiar link</button></nav></header><div class="dossier-shell"><aside class="dossier-rail" aria-label="Sumário do paper"><div class="dossier-rail-inner">
+  <a href="#tese" class="dossier-rail-signature"><span class="rail-monogram" aria-hidden="true">LH</span><span>Cadernos de<br><strong>direitos sociais</strong></span></a>
+  <div class="dossier-rail-heading"><span>ARQUIVO / 2026</span><b>01 / 12×36</b></div>
+  <nav class="dossier-chapters" aria-label="Capítulos"><a href="#tese" data-chapter-link><span class="dossier-nav-no">00</span><span>Abertura</span></a>
+<a href="#lei" data-chapter-link><span class="dossier-nav-no">01</span><span>A nova norma</span></a>
+<a href="#por-que" data-chapter-link><span class="dossier-nav-no">02</span><span>O problema</span></a>
+<a href="#proposta" data-chapter-link><span class="dossier-nav-no">03</span><span>A proposta</span></a>
+<a href="#conta" data-chapter-link><span class="dossier-nav-no">04</span><span>A conta</span></a>
+<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">05</span><span>Tempo vivido</span></a>
+<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">06</span><span>Aplicação</span></a>
+<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">07</span><span>Contraprova</span></a>
+<a href="#desenho" data-chapter-link><span class="dossier-nav-no">08</span><span>Implementação</span></a>
+<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">09</span><span>Ciência</span></a>
+<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">10</span><span>Circulação</span></a>
+<a href="#fontes" data-chapter-link><span class="dossier-nav-no">11</span><span>Fontes</span></a></nav>
+  <div class="dossier-rail-bottom"><span class="dossier-signet" aria-hidden="true">✦</span><p>Do tempo anotado<br>ao tempo vivido.</p><a href="#circulacao">Registro de circulação <span aria-hidden="true">↗</span></a></div>
+</div></aside><main id="conteudo"><details class="dossier-mobile-index"><summary><span>Índice deste caderno</span><span class="dossier-mobile-index-symbol" aria-hidden="true">＋</span></summary>
+<nav aria-label="Capítulos do paper"><a href="#tese" data-chapter-link><span class="dossier-nav-no">00</span><span>Abertura</span></a>
+<a href="#lei" data-chapter-link><span class="dossier-nav-no">01</span><span>A nova norma</span></a>
+<a href="#por-que" data-chapter-link><span class="dossier-nav-no">02</span><span>O problema</span></a>
+<a href="#proposta" data-chapter-link><span class="dossier-nav-no">03</span><span>A proposta</span></a>
+<a href="#conta" data-chapter-link><span class="dossier-nav-no">04</span><span>A conta</span></a>
+<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">05</span><span>Tempo vivido</span></a>
+<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">06</span><span>Aplicação</span></a>
+<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">07</span><span>Contraprova</span></a>
+<a href="#desenho" data-chapter-link><span class="dossier-nav-no">08</span><span>Implementação</span></a>
+<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">09</span><span>Ciência</span></a>
+<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">10</span><span>Circulação</span></a>
+<a href="#fontes" data-chapter-link><span class="dossier-nav-no">11</span><span>Fontes</span></a></nav></details><section class="hero" id="tese" aria-labelledby="titulo-paper">
   <div class="hero-main">
     <div class="hero-registry"><span>Lua Helena / Caderno de direitos</span><span>Pesquisa independente · 2026</span></div>
     <div class="eyebrow">Direito ao tempo <span class="hero-dot">✦</span> Jornada 12×36 <span class="hero-dot">✦</span> EC 141/2026</div>
@@ -430,7 +760,26 @@ footer{border-top:1px solid #b9c4cd;color:#64758a}
     </div>
     <div class="ctps-caption"><span class="ctps-caption-line"></span>Do registro das horas ao direito à vida.</div>
   </div>
-</section><p class="print-meta">Publicação canônica: https://www.luahelena.com.br/papers/12x36.html · Lua Helena Moon Martins Cardoso · atualizada em 03/11/2026</p><section class="summary"><h2>A Constituição mudou. A aplicação continua em disputa.</h2><p><strong>O que aconteceu:</strong> promulgada em 16 de outubro de 2026, a Emenda Constitucional nº 141 estabelece dois dias de repouso semanal remunerado e redução gradual da jornada de 44 para 40 horas, sem redução salarial. A primeira etapa, de 42 horas, começa em 16/12/2026; a de 40 horas, em 16/12/2027, segundo os prazos previstos na emenda.</p><p><strong>O que continua em aberto:</strong> a emenda admite regimes diferenciados e compensações mediante acordo ou convenção coletiva, mas não cria uma tabela universal de folgas extras para o 12×36. O desafio é fazer com que a excepcionalidade não esvazie a conquista.</p><p><strong>Minha tese:</strong> como proposta de desenho regulatório, preservar o 12×36 quando útil, respeitar normas mais favoráveis e assegurar que a redução alcance também o tempo efetivamente disponível, com salário protegido e negociação responsável.</p></section><section class="law-spotlight" id="lei" aria-labelledby="lei-h"><div class="law-top"><div><p class="eyebrow">Emenda Constitucional nº 141 · 16/10/2026</p><h2 id="lei-h">A norma foi promulgada. A implementação continua.</h2><p>Originada da PEC 221/2019, a Emenda Constitucional nº 141 foi publicada em 16 de outubro de 2026. Parte de seus dispositivos já está em vigor, mas a redução semanal e o novo repouso seguem prazos próprios. Adaptar jornadas especiais exige mais que repetir a média de horas.</p></div><a href="https://legis.senado.leg.br/norma/44184944/publicacao/44189027" target="_blank" rel="noopener" class="button">Ler texto oficial ↗</a></div><div class="law-steps"><article><small>Até 15/12/2026</small><strong>44<span>h/sem</span></strong><p>Regime geral anterior.</p></article><article><small>A partir de 16/12/2026</small><strong>42<span>h/sem</span></strong><p>Primeira redução e aplicação do novo repouso.</p></article><article class="law-dest"><small>A partir de 16/12/2027</small><strong>40<span>h/sem</span></strong><p>Novo teto geral, sem redução salarial.</p></article></div><div class="law-highlight"><strong>O ponto central para o 12×36</strong><p>O art. 7º, § 2º, permite excepcionalmente acordo ou convenção coletiva que assegure, na média do mês-calendário, dois dias de repouso semanal remunerado por semana, com ao menos um dia de repouso no período máximo de uma semana de trabalho. O § 3º admite regimes diferenciados definidos em lei, respeitados os limites constitucionais. Nenhum deles fixa, por si só, a quantidade de folgas extras do 12×36. A apuração dos repousos no mês-calendário, prevista no § 2º, não se confunde com a média de horas trabalhadas em um ciclo de plantões.</p></div></section><section class="section" id="por-que"><div class="section-head"><div class="section-no">01 · o problema</div><h2>Uma conquista geral pode virar uma conquista desigual.</h2></div><div class="prose"><p class="lead">O debate sobre o fim da escala 6x1 abriu uma discussão maior: quanto da nossa vida o trabalho pode ocupar?</p><p>Essa pergunta não termina quando mudamos de uma escala para outra. Hospitais, portarias, segurança, transporte e muitos outros serviços funcionam com jornadas especiais. Em alguns desses lugares, o 12x36 é preferido pelos próprios trabalhadores porque concentra os plantões e reduz deslocamentos. Eu não acho que isso deva ser ignorado.</p><p>O problema aparece quando “é uma escala diferente” vira sinônimo de “fica fora da redução”. Se o teto semanal do país cai, quem trabalha em 12x36 também precisa perceber esse ganho na própria vida. Caso contrário, criamos dois direitos ao tempo: um para a jornada comum e outro, menor, para quem trabalha em plantões.</p></div><div class="quote">O objetivo não é tirar o 12x36 de quem prefere essa organização. É garantir que escolher — ou precisar trabalhar — nessa escala não signifique abrir mão da redução conquistada pelo restante dos trabalhadores.</div></section><section class="section" id="proposta"><div class="section-head"><div class="section-no">02 · a proposta</div><h2>Preservar a escala, reduzir o tempo.</h2></div><div class="prose"><p class="lead">O caminho que proponho é usar o novo teto semanal como referência comum e deixar a forma concreta de adaptação para a lei, a negociação coletiva e as necessidades de cada setor.</p><p>Na prática, isso significa olhar para a média do 12x36. Na solução que defendo, se essa média ultrapassar o teto constitucional aplicável, o ajuste deveria ocorrer prioritariamente em tempo, por arranjo juridicamente válido para a categoria. Isso pode significar folgas adicionais, menos plantões no período de referência ou outra redução equivalente. O ponto é que a conquista seja sentida como tempo livre, e não apenas transformada em uma conta de remuneração.</p></div><div class="proposal"><div><h3>O que eu defendo</h3><ul><li>o 12x36 acompanha o teto geral por média;</li><li>a diferença volta principalmente em tempo;</li><li>não há redução salarial;</li><li>acordos e convenções mais favoráveis continuam valendo;</li><li>serviços contínuos têm transição própria, com negociação e planejamento.</li></ul></div><div><h3>O que eu não estou propondo</h3><ul><li>abolir automaticamente o 12x36;</li><li>dizer que todo 12x36 é pior que toda 6x1;</li><li>tratar todos os setores como se fossem iguais;</li><li>substituir descanso integralmente por dinheiro;</li><li>impor a mesma quantidade de folgas a categorias com condições diferentes.</li></ul></div></div></section><section class="section" id="conta"><div class="section-head"><div class="section-no">03 · a conta</div><h2>Quando o teto cai para 40h, a diferença fica visível.</h2></div><div class="prose"><p>Um 12×36 regular tem sete plantões em 14 dias. São 84 horas, equivalentes a <strong>42 horas por semana em média</strong>. Conforme o ponto de partida do ciclo, uma semana pode conter três plantões (36 horas) e a seguinte quatro (48 horas). A média quinzenal, portanto, não demonstra sozinha a conformidade de cada semana com os limites e mecanismos de compensação. Contratos e convenções podem prever jornadas menores e outras proteções.</p><p>O teto de transição de 42 horas coincide com essa média. No teto definitivo de 40 horas, aparecem duas horas semanais, ou quatro horas a cada 14 dias, que demandam tratamento jurídico e operacional. A mera coincidência aritmética em 2026 não resolve a alternância entre semanas de 36 e 48 horas nem dispensa os requisitos de repouso e compensação.</p></div><div class="math"><div class="formula">7 × 12 = 84 horas<small>84 horas em 14 dias ÷ 2 = 42 horas semanais em média.</small></div><div class="table-scroll" role="region" tabindex="0" aria-label="Comparação da jornada 12×36 por período de quatorze dias"><table><caption class="sr-only">Comparação da média do regime 12×36 com os limites constitucionais em três fases</caption><thead><tr><th>Fase</th><th>Teto em 14 dias</th><th>12×36 regular</th><th>Diferença</th></tr></thead><tbody><tr><td>44h · anterior</td><td>88h</td><td>84h</td><td>4h abaixo</td></tr><tr><td>42h · dez/2026</td><td>84h</td><td>84h</td><td>0h na média</td></tr><tr class="focus"><td>40h · dez/2027</td><td>80h</td><td>84h</td><td>4h acima</td></tr></tbody></table></div><p class="math-note">Como equivalência aritmética, retirar um plantão de 12 horas de um ciclo regular de seis semanas reduziria a média de 42 para 40 horas semanais nesse intervalo. <strong>Isso não cria uma folga nessa frequência já garantida pela emenda</strong>, nem prova, por si, o cumprimento dos repousos remunerados. Um calendário concreto exige análise do mês-calendário, dos instrumentos coletivos e das condições reais da escala.</p></div></section><section class="section"><div class="section-head"><div class="section-no">04 · tempo vivido</div><h2>As 36 horas existem. Mas elas não são 36 horas de vida livre.</h2></div><div class="prose"><p class="lead">Eu não cheguei a essa discussão primeiro por uma tabela.</p><p>Durante um ano e quatro meses, trabalhei à noite como controladora de acesso em escala 12x36. Foi vivendo essa rotina que comecei a perceber a diferença entre “36 horas de descanso” no papel e o tempo que efetivamente sobra depois de voltar para casa, dormir durante o dia, recuperar o corpo, resolver a vida e se preparar para o plantão seguinte.</p><p>Essa experiência virou meu TCC sobre trabalho noturno e regime 12x36. Mais tarde, trabalhando como psicóloga hospitalar, passei a olhar a mesma questão também por outra perspectiva: saúde do trabalhador, fadiga, cuidado e funcionamento de serviços que não podem simplesmente fechar.</p><p>Isso não transforma minha experiência em regra universal. Há pessoas que vivem a escala de outra forma e gostam dela. É justamente por isso que a proposta precisa ser flexível no desenho e firme no princípio.</p></div><div class="lived"><div><strong>Sono</strong><span>O plantão termina; o corpo não reinicia naquele minuto.</span></div><div><strong>Deslocamento</strong><span>A ida e a volta continuam consumindo tempo por causa do trabalho.</span></div><div><strong>Cuidado</strong><span>Casa, filhos, parentes e tarefas não desaparecem nos dias sem plantão.</span></div><div><strong>Recuperação</strong><span>Parte da folga é usada para voltar a estar disponível, não para escolher o que fazer.</span></div></div></section><section class="section" id="aplicacao"><div class="section-head"><div class="section-no">05 · a aplicação</div><h2>O 12×36 não foi abolido. Tampouco ganhou imunidade constitucional.</h2></div><div class="prose"><p class="lead">É uma reforma aprovada, mas ainda em implantação. Essa distinção reorganiza a nossa intervenção.</p><p>A EC 141/2026 alterou o art. 7º, XIII e XV, da Constituição. O inciso XIII manteve a referência de <strong>oito horas diárias</strong>, além da redução progressiva da duração semanal. O plantão de 12 horas, portanto, também exige atenção à base jurídica da compensação diária. A simples média de 42 horas não resolve essa dimensão.</p><p>O art. 59-A da CLT prevê o 12×36 por acordo individual escrito, convenção ou acordo coletivo. Já o novo § 2º do art. 7º estabelece expressamente <strong>negociação coletiva</strong> para o regime excepcional de compensação dos repousos. O art. 7º da própria emenda também trata de ampliação diária negociada durante a transição. A convivência dessas normas, particularmente quanto aos acordos individuais anteriores, requer interpretação jurídica específica: não é correto afirmar nem a extinção automática do 12×36, nem a validade irrestrita de qualquer pacto prévio.</p><p>O art. 2º protege salários e pisos; o art. 3º retira a eficácia das cláusulas coletivas incompatíveis após dois meses. Pelo art. 4º, jornadas já fixadas em 40 horas ou menos não sofrem redução proporcional automática, sem prejuízo do novo repouso semanal.</p><p>As exceções são delimitadas: o art. 8º trata de empregados com diploma superior e remuneração de pelo menos 2,5 vezes o teto de benefícios do RGPS, preservando as ressalvas relativas ao repouso e excluindo empregados públicos dessa exceção. O art. 9º regula o aditamento de contratos administrativos preexistentes que envolvam emprego de mão de obra, em até um ano, com proteção salarial. Nada disso autoriza estender indiscriminadamente as exceções a outros vínculos.</p></div><div class="law-pair"><article><span>Já estabelecido</span><h3>Direitos e parâmetros gerais</h3><p>Redução progressiva, dois repousos remunerados, irredutibilidade salarial e compensação excepcional negociada, observados os limites constitucionais.</p></article><article><span>Ainda demanda detalhamento</span><h3>O desenho do 12×36</h3><p>Média de apuração, folgas, horas extras, descanso semanal, adicional noturno, equipes de serviços contínuos, convenções mais favoráveis e fiscalização.</p></article></div><div class="lawbox"><p><strong>Não confundir:</strong> as 36 horas entre plantões representam o intervalo do ciclo, não prova automática de concessão jurídica dos dois repousos remunerados. Na hipótese excepcional do art. 7º, § 2º, o cálculo dos repousos observa a média do mês-calendário, com ao menos um dia no período máximo de uma semana. A diminuição da carga horária e o aumento dos repousos são dimensões diferentes do novo direito; ambas exigem análise da distribuição efetiva das folgas e dos mecanismos de compensação.</p><p><strong>Proposta autoral, não regra já aprovada:</strong> a média das jornadas especiais deve convergir ao novo teto e o ganho deve voltar prioritariamente em tempo, sem redução salarial. A medida exige negociação e eventual desenvolvimento normativo.</p><p>Essa é uma leitura constitucional e uma proposta pública independente, não orientação jurídica para um contrato individual. Para aplicar as regras a um caso concreto, é indispensável examinar vínculo, instrumento coletivo e setor.</p></div></section><section class="section"><div class="section-head"><div class="section-no">06 · contraprova</div><h2>As melhores objeções não derrubam a proposta. Elas ajudam a desenhá-la.</h2></div><div class="prose"><p><strong>“Muita gente prefere o 12x36.”</strong> Sim — e essa preferência deve ser respeitada. O que não precisa ser preservado é uma média acima do novo teto.</p><p><strong>“Serviços contínuos não podem parar.”</strong> Também é verdade. É por isso que a transição precisa envolver dimensionamento, cobertura real dos plantões, contratação quando necessária, negociação e regras próprias, sem converter a redução formal de horas em dobras habituais ou intensificação da carga sobre as equipes.</p><p><strong>“42 horas já são menos que 44.”</strong> Sim. Na primeira etapa da EC 141/2026, a média do 12×36 regular coincide aritmeticamente com 42 horas, sem dispensar avaliação de repousos e compensações. A discussão fica ainda mais concreta quando a jornada nacional chegar a 40.</p><p><strong>“A negociação coletiva já pode resolver.”</strong> Ela é parte da solução. Mas a referência constitucional comum importa justamente para que o acesso ao novo direito não dependa apenas da força de cada categoria na mesa de negociação.</p></div></section><section class="section"><div class="section-head"><div class="section-no">07 · desenho</div><h2>Uma regra simples na política; detalhes difíceis na implementação.</h2></div><div class="prose"><p class="lead">O princípio que eu levaria para a assessoria legislativa é este: <strong>mesmo teto por média + compensação em tempo + salário preservado + norma coletiva mais favorável.</strong></p><p>A implementação exige compatibilizar Constituição, CLT, jurisprudência, saúde e segurança, custos de pessoal e condições reais de cada setor. O princípio é claro, mas sua tradução em regras precisa ser construída com essas diferenças à vista.</p></div><div class="steps"><div class="step"><b>01</b><strong>Triagem jurídica</strong><p>Examinar a EC 141/2026 em conjunto com a CLT, as normas coletivas e a regulamentação futura.</p></div><div class="step"><b>02</b><strong>Escuta de quem vive a escala</strong><p>Trabalhadores, sindicatos, serviços contínuos e empregadores precisam entrar na construção.</p></div><div class="step"><b>03</b><strong>Boas práticas</strong><p>Mapear convenções que já oferecem folgas adicionais e outras proteções.</p></div><div class="step"><b>04</b><strong>Transição mensurável</strong><p>Definir média, folgas, fiscalização, dimensionamento das equipes, prevenção da sobrecarga, prazo de adaptação e revisão dos resultados.</p></div></div></section><section class="section" id="evidencias"><div class="section-head"><div class="section-no">08 · ciência</div><h2>O tempo fora do plantão também tem impacto na saúde.</h2></div><div class="prose"><p>O trabalho acadêmico que originou esta proposta combinou revisão bibliográfica e relato da experiência profissional da autora para examinar trabalho noturno, terceirização e saúde de vigias e vigilantes em Limeira. Não foi um levantamento amostral com outros trabalhadores. Estudos em enfermagem ajudam a formular perguntas, mas não devem ser transferidos automaticamente para todas as profissões.</p><p>Uma pesquisa transversal com 31.627 enfermeiros em 12 países europeus encontrou associação entre turnos de 12 horas ou mais, esgotamento e insatisfação no trabalho. Um estudo transversal brasileiro com 139 trabalhadores de enfermagem noturna identificou problemas na qualidade do sono e associações com indicadores de saúde. Os turnos de 12 horas estudados não reproduzem necessariamente o ciclo brasileiro de 12×36. Além disso, estudos observacionais identificam associações, mas não demonstram, por si sós, que essa escala cause os desfechos encontrados.</p><p>Os dados da OMS e OIT sobre riscos cardiovasculares referem-se a jornadas de <strong>55 horas ou mais por semana</strong>, não à média regular de 42 horas do 12×36. Usá-los como prova direta contra essa escala seria extrapolação indevida.</p></div><div class="study-cards"><a href="https://pubmed.ncbi.nlm.nih.gov/26359284/" target="_blank" rel="noopener"><small>BMJ Open · 2015</small><strong>Turnos prolongados e esgotamento</strong><span>Dall’Ora e colaboradores ↗</span></a><a href="https://www.scielo.br/j/ape/a/fqpscJ9stp7zkpPZBnbsCqS/" target="_blank" rel="noopener"><small>Acta Paulista de Enfermagem · 2021</small><strong>Trabalho noturno, sono e adoecimento</strong><span>Estudo brasileiro ↗</span></a></div></section><section class="cta"><div><h2>O próximo passo é colocar essa pergunta na mesa certa.</h2><p>Se você trabalha com jornada, direitos trabalhistas ou assessoria legislativa, a contribuição é esta: como fazer o 12x36 acompanhar a redução nacional sem destruir uma escala que pode ser útil quando bem protegida?</p></div><a class="button" href="https://wa.me/5541992228411?text=Ol%C3%A1%2C%20Lua.%20Li%20a%20proposta%20sobre%20jornada%2012x36%20e%20direito%20ao%20tempo." target="_blank" rel="noopener">falar comigo</a></section><section class="section reach reach-labor" id="circulacao" aria-labelledby="circulacao-titulo">
+</section><aside class="dossier-register" aria-label="Quatro números essenciais para compreender a proposta">
+  <div class="dossier-register-heading"><span>REGISTRO / MARCADORES DE JORNADA</span><span>Folha 01 de 12</span></div>
+  <div class="dossier-register-grid">
+    <div class="register-data"><span class="register-data-label">Duração do plantão</span><strong>12<small>h</small></strong><p>Em uma escala regular 12×36</p></div>
+    <div class="register-data"><span class="register-data-label">Intervalo entre plantões</span><strong>36<small>h</small></strong><p>Não equivale automaticamente a dois repousos jurídicos</p></div>
+    <div class="register-data"><span class="register-data-label">Média da escala</span><strong>42<small>h</small></strong><p>Por semana, em ciclo regular de 14 dias</p></div>
+    <div class="register-data"><span class="register-data-label">Teto geral definitivo</span><strong>40<small>h</small></strong><p>A partir de dezembro de 2027</p></div>
+  </div>
+  <div class="dossier-register-footer"><span aria-hidden="true">✧</span> Aritmética, repousos e enquadramento jurídico exigem verificações distintas.</div>
+</aside><p class="print-meta">Publicação canônica: https://www.luahelena.com.br/papers/12x36.html · Lua Helena Moon Martins Cardoso · atualizada em 03/11/2026</p><section class="summary"><h2>A Constituição mudou. A aplicação continua em disputa.</h2><p><strong>O que aconteceu:</strong> promulgada em 16 de outubro de 2026, a Emenda Constitucional nº 141 estabelece dois dias de repouso semanal remunerado e redução gradual da jornada de 44 para 40 horas, sem redução salarial. A primeira etapa, de 42 horas, começa em 16/12/2026; a de 40 horas, em 16/12/2027, segundo os prazos previstos na emenda.</p><p><strong>O que continua em aberto:</strong> a emenda admite regimes diferenciados e compensações mediante acordo ou convenção coletiva, mas não cria uma tabela universal de folgas extras para o 12×36. O desafio é fazer com que a excepcionalidade não esvazie a conquista.</p><p><strong>Minha tese:</strong> como proposta de desenho regulatório, preservar o 12×36 quando útil, respeitar normas mais favoráveis e assegurar que a redução alcance também o tempo efetivamente disponível, com salário protegido e negociação responsável.</p></section><section class="law-spotlight" id="lei" aria-labelledby="lei-h"><div class="law-top"><div><p class="eyebrow">Emenda Constitucional nº 141 · 16/10/2026</p><h2 id="lei-h">A norma foi promulgada. A implementação continua.</h2><p>Originada da PEC 221/2019, a Emenda Constitucional nº 141 foi publicada em 16 de outubro de 2026. Parte de seus dispositivos já está em vigor, mas a redução semanal e o novo repouso seguem prazos próprios. Adaptar jornadas especiais exige mais que repetir a média de horas.</p></div><a href="https://legis.senado.leg.br/norma/44184944/publicacao/44189027" target="_blank" rel="noopener" class="button">Ler texto oficial ↗</a></div><div class="law-steps"><article><small>Até 15/12/2026</small><strong>44<span>h/sem</span></strong><p>Regime geral anterior.</p></article><article><small>A partir de 16/12/2026</small><strong>42<span>h/sem</span></strong><p>Primeira redução e aplicação do novo repouso.</p></article><article class="law-dest"><small>A partir de 16/12/2027</small><strong>40<span>h/sem</span></strong><p>Novo teto geral, sem redução salarial.</p></article></div><div class="law-highlight"><strong>O ponto central para o 12×36</strong><p>O art. 7º, § 2º, permite excepcionalmente acordo ou convenção coletiva que assegure, na média do mês-calendário, dois dias de repouso semanal remunerado por semana, com ao menos um dia de repouso no período máximo de uma semana de trabalho. O § 3º admite regimes diferenciados definidos em lei, respeitados os limites constitucionais. Nenhum deles fixa, por si só, a quantidade de folgas extras do 12×36. A apuração dos repousos no mês-calendário, prevista no § 2º, não se confunde com a média de horas trabalhadas em um ciclo de plantões.</p></div></section><section class="section" id="por-que"><div class="section-head"><div class="section-no">01 · o problema</div><h2>Uma conquista geral pode virar uma conquista desigual.</h2></div><div class="prose"><p class="lead">O debate sobre o fim da escala 6x1 abriu uma discussão maior: quanto da nossa vida o trabalho pode ocupar?</p><p>Essa pergunta não termina quando mudamos de uma escala para outra. Hospitais, portarias, segurança, transporte e muitos outros serviços funcionam com jornadas especiais. Em alguns desses lugares, o 12x36 é preferido pelos próprios trabalhadores porque concentra os plantões e reduz deslocamentos. Eu não acho que isso deva ser ignorado.</p><p>O problema aparece quando “é uma escala diferente” vira sinônimo de “fica fora da redução”. Se o teto semanal do país cai, quem trabalha em 12x36 também precisa perceber esse ganho na própria vida. Caso contrário, criamos dois direitos ao tempo: um para a jornada comum e outro, menor, para quem trabalha em plantões.</p></div><div class="quote">O objetivo não é tirar o 12x36 de quem prefere essa organização. É garantir que escolher — ou precisar trabalhar — nessa escala não signifique abrir mão da redução conquistada pelo restante dos trabalhadores.</div></section><section class="section" id="proposta"><div class="section-head"><div class="section-no">02 · a proposta</div><h2>Preservar a escala, reduzir o tempo.</h2></div><div class="prose"><p class="lead">O caminho que proponho é usar o novo teto semanal como referência comum e deixar a forma concreta de adaptação para a lei, a negociação coletiva e as necessidades de cada setor.</p><p>Na prática, isso significa olhar para a média do 12x36. Na solução que defendo, se essa média ultrapassar o teto constitucional aplicável, o ajuste deveria ocorrer prioritariamente em tempo, por arranjo juridicamente válido para a categoria. Isso pode significar folgas adicionais, menos plantões no período de referência ou outra redução equivalente. O ponto é que a conquista seja sentida como tempo livre, e não apenas transformada em uma conta de remuneração.</p></div><div class="proposal"><div><h3>O que eu defendo</h3><ul><li>o 12x36 acompanha o teto geral por média;</li><li>a diferença volta principalmente em tempo;</li><li>não há redução salarial;</li><li>acordos e convenções mais favoráveis continuam valendo;</li><li>serviços contínuos têm transição própria, com negociação e planejamento.</li></ul></div><div><h3>O que eu não estou propondo</h3><ul><li>abolir automaticamente o 12x36;</li><li>dizer que todo 12x36 é pior que toda 6x1;</li><li>tratar todos os setores como se fossem iguais;</li><li>substituir descanso integralmente por dinheiro;</li><li>impor a mesma quantidade de folgas a categorias com condições diferentes.</li></ul></div></div></section><section class="section" id="conta"><div class="section-head"><div class="section-no">03 · a conta</div><h2>Quando o teto cai para 40h, a diferença fica visível.</h2></div><div class="prose"><p>Um 12×36 regular tem sete plantões em 14 dias. São 84 horas, equivalentes a <strong>42 horas por semana em média</strong>. Conforme o ponto de partida do ciclo, uma semana pode conter três plantões (36 horas) e a seguinte quatro (48 horas). A média quinzenal, portanto, não demonstra sozinha a conformidade de cada semana com os limites e mecanismos de compensação. Contratos e convenções podem prever jornadas menores e outras proteções.</p><p>O teto de transição de 42 horas coincide com essa média. No teto definitivo de 40 horas, aparecem duas horas semanais, ou quatro horas a cada 14 dias, que demandam tratamento jurídico e operacional. A mera coincidência aritmética em 2026 não resolve a alternância entre semanas de 36 e 48 horas nem dispensa os requisitos de repouso e compensação.</p></div><div class="math"><div class="formula">7 × 12 = 84 horas<small>84 horas em 14 dias ÷ 2 = 42 horas semanais em média.</small></div><figure class="hours-exhibit" aria-labelledby="hours-title">
+  <div class="hours-exhibit-top"><span>PAINEL DE LEITURA / 14 DIAS</span><span>03 · O QUE A MÉDIA REVELA</span></div>
+  <div class="hours-exhibit-main">
+    <div class="hours-exhibit-chart"><h3 id="hours-title">A diferença <em>fica no tempo.</em></h3>
+      <div class="hours-exhibit-row"><div class="hours-exhibit-label"><span>12×36 regular</span><b>84h</b></div><div class="hours-exhibit-track"><span class="hours-exhibit-fill is-current"></span></div></div>
+      <div class="hours-exhibit-row"><div class="hours-exhibit-label"><span>Referência de 40h/semana</span><b>80h</b></div><div class="hours-exhibit-track"><span class="hours-exhibit-fill is-target"></span></div></div>
+    </div>
+    <div class="hours-exhibit-delta"><span>Diferença em 14 dias</span><strong>04<small>h</small></strong><p>Duas horas por semana, em média.</p></div>
+  </div>
+  <figcaption>Comparação exclusivamente aritmética do ciclo quinzenal. Não determina, isoladamente, o calendário de folgas ou a conformidade jurídica dos repousos.</figcaption>
+</figure><div class="table-scroll" role="region" tabindex="0" aria-label="Comparação da jornada 12×36 por período de quatorze dias"><table><caption class="sr-only">Comparação da média do regime 12×36 com os limites constitucionais em três fases</caption><thead><tr><th>Fase</th><th>Teto em 14 dias</th><th>12×36 regular</th><th>Diferença</th></tr></thead><tbody><tr><td>44h · anterior</td><td>88h</td><td>84h</td><td>4h abaixo</td></tr><tr><td>42h · dez/2026</td><td>84h</td><td>84h</td><td>0h na média</td></tr><tr class="focus"><td>40h · dez/2027</td><td>80h</td><td>84h</td><td>4h acima</td></tr></tbody></table></div><p class="math-note">Como equivalência aritmética, retirar um plantão de 12 horas de um ciclo regular de seis semanas reduziria a média de 42 para 40 horas semanais nesse intervalo. <strong>Isso não cria uma folga nessa frequência já garantida pela emenda</strong>, nem prova, por si, o cumprimento dos repousos remunerados. Um calendário concreto exige análise do mês-calendário, dos instrumentos coletivos e das condições reais da escala.</p></div></section><section class="section" id="tempo-vivido"><div class="section-head"><div class="section-no">04 · tempo vivido</div><h2>As 36 horas existem. Mas elas não são 36 horas de vida livre.</h2></div><div class="prose"><p class="lead">Eu não cheguei a essa discussão primeiro por uma tabela.</p><p>Durante um ano e quatro meses, trabalhei à noite como controladora de acesso em escala 12x36. Foi vivendo essa rotina que comecei a perceber a diferença entre “36 horas de descanso” no papel e o tempo que efetivamente sobra depois de voltar para casa, dormir durante o dia, recuperar o corpo, resolver a vida e se preparar para o plantão seguinte.</p><p>Essa experiência virou meu TCC sobre trabalho noturno e regime 12x36. Mais tarde, trabalhando como psicóloga hospitalar, passei a olhar a mesma questão também por outra perspectiva: saúde do trabalhador, fadiga, cuidado e funcionamento de serviços que não podem simplesmente fechar.</p><p>Isso não transforma minha experiência em regra universal. Há pessoas que vivem a escala de outra forma e gostam dela. É justamente por isso que a proposta precisa ser flexível no desenho e firme no princípio.</p></div><div class="lived"><div class="lived-inscription" aria-label="36 horas no calendário não significam 36 horas de livre escolha"><span aria-hidden="true">36<small>h</small></span><p>Entre um plantão e outro,<br><strong>o relógio não mede toda a recuperação.</strong></p></div><div><span class="lived-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M20.6 14.4A8.7 8.7 0 0 1 9.6 3.4 8.8 8.8 0 1 0 20.6 14.4Z"/></svg></span><strong>Sono</strong><span>O plantão termina; o corpo não reinicia naquele minuto.</span></div><div><span class="lived-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M4 19h16M5 16 9 7l5 6 5-9"/></svg></span><strong>Deslocamento</strong><span>A ida e a volta continuam consumindo tempo por causa do trabalho.</span></div><div><span class="lived-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="m3 11 9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><strong>Cuidado</strong><span>Casa, filhos, parentes e tarefas não desaparecem nos dias sem plantão.</span></div><div><span class="lived-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M2 12h5l3-7 4 14 3-7h5"/></svg></span><strong>Recuperação</strong><span>Parte da folga é usada para voltar a estar disponível, não para escolher o que fazer.</span></div></div></section><section class="section" id="aplicacao"><div class="section-head"><div class="section-no">05 · a aplicação</div><h2>O 12×36 não foi abolido. Tampouco ganhou imunidade constitucional.</h2></div><div class="prose"><p class="lead">É uma reforma aprovada, mas ainda em implantação. Essa distinção reorganiza a nossa intervenção.</p><p>A EC 141/2026 alterou o art. 7º, XIII e XV, da Constituição. O inciso XIII manteve a referência de <strong>oito horas diárias</strong>, além da redução progressiva da duração semanal. O plantão de 12 horas, portanto, também exige atenção à base jurídica da compensação diária. A simples média de 42 horas não resolve essa dimensão.</p><p>O art. 59-A da CLT prevê o 12×36 por acordo individual escrito, convenção ou acordo coletivo. Já o novo § 2º do art. 7º estabelece expressamente <strong>negociação coletiva</strong> para o regime excepcional de compensação dos repousos. O art. 7º da própria emenda também trata de ampliação diária negociada durante a transição. A convivência dessas normas, particularmente quanto aos acordos individuais anteriores, requer interpretação jurídica específica: não é correto afirmar nem a extinção automática do 12×36, nem a validade irrestrita de qualquer pacto prévio.</p><p>O art. 2º protege salários e pisos; o art. 3º retira a eficácia das cláusulas coletivas incompatíveis após dois meses. Pelo art. 4º, jornadas já fixadas em 40 horas ou menos não sofrem redução proporcional automática, sem prejuízo do novo repouso semanal.</p><p>As exceções são delimitadas: o art. 8º trata de empregados com diploma superior e remuneração de pelo menos 2,5 vezes o teto de benefícios do RGPS, preservando as ressalvas relativas ao repouso e excluindo empregados públicos dessa exceção. O art. 9º regula o aditamento de contratos administrativos preexistentes que envolvam emprego de mão de obra, em até um ano, com proteção salarial. Nada disso autoriza estender indiscriminadamente as exceções a outros vínculos.</p></div><div class="law-pair"><article><span>Já estabelecido</span><h3>Direitos e parâmetros gerais</h3><p>Redução progressiva, dois repousos remunerados, irredutibilidade salarial e compensação excepcional negociada, observados os limites constitucionais.</p></article><article><span>Ainda demanda detalhamento</span><h3>O desenho do 12×36</h3><p>Média de apuração, folgas, horas extras, descanso semanal, adicional noturno, equipes de serviços contínuos, convenções mais favoráveis e fiscalização.</p></article></div><div class="lawbox"><p><strong>Não confundir:</strong> as 36 horas entre plantões representam o intervalo do ciclo, não prova automática de concessão jurídica dos dois repousos remunerados. Na hipótese excepcional do art. 7º, § 2º, o cálculo dos repousos observa a média do mês-calendário, com ao menos um dia no período máximo de uma semana. A diminuição da carga horária e o aumento dos repousos são dimensões diferentes do novo direito; ambas exigem análise da distribuição efetiva das folgas e dos mecanismos de compensação.</p><p><strong>Proposta autoral, não regra já aprovada:</strong> a média das jornadas especiais deve convergir ao novo teto e o ganho deve voltar prioritariamente em tempo, sem redução salarial. A medida exige negociação e eventual desenvolvimento normativo.</p><p>Essa é uma leitura constitucional e uma proposta pública independente, não orientação jurídica para um contrato individual. Para aplicar as regras a um caso concreto, é indispensável examinar vínculo, instrumento coletivo e setor.</p></div></section><section class="section" id="contraprova"><div class="section-head"><div class="section-no">06 · contraprova</div><h2>As melhores objeções não derrubam a proposta. Elas ajudam a desenhá-la.</h2></div><div class="prose"><p><strong>“Muita gente prefere o 12x36.”</strong> Sim — e essa preferência deve ser respeitada. O que não precisa ser preservado é uma média acima do novo teto.</p><p><strong>“Serviços contínuos não podem parar.”</strong> Também é verdade. É por isso que a transição precisa envolver dimensionamento, cobertura real dos plantões, contratação quando necessária, negociação e regras próprias, sem converter a redução formal de horas em dobras habituais ou intensificação da carga sobre as equipes.</p><p><strong>“42 horas já são menos que 44.”</strong> Sim. Na primeira etapa da EC 141/2026, a média do 12×36 regular coincide aritmeticamente com 42 horas, sem dispensar avaliação de repousos e compensações. A discussão fica ainda mais concreta quando a jornada nacional chegar a 40.</p><p><strong>“A negociação coletiva já pode resolver.”</strong> Ela é parte da solução. Mas a referência constitucional comum importa justamente para que o acesso ao novo direito não dependa apenas da força de cada categoria na mesa de negociação.</p></div></section><section class="section" id="desenho"><div class="section-head"><div class="section-no">07 · desenho</div><h2>Uma regra simples na política; detalhes difíceis na implementação.</h2></div><div class="prose"><p class="lead">O princípio que eu levaria para a assessoria legislativa é este: <strong>mesmo teto por média + compensação em tempo + salário preservado + norma coletiva mais favorável.</strong></p><p>A implementação exige compatibilizar Constituição, CLT, jurisprudência, saúde e segurança, custos de pessoal e condições reais de cada setor. O princípio é claro, mas sua tradução em regras precisa ser construída com essas diferenças à vista.</p></div><div class="steps"><div class="step"><b>01</b><strong>Triagem jurídica</strong><p>Examinar a EC 141/2026 em conjunto com a CLT, as normas coletivas e a regulamentação futura.</p></div><div class="step"><b>02</b><strong>Escuta de quem vive a escala</strong><p>Trabalhadores, sindicatos, serviços contínuos e empregadores precisam entrar na construção.</p></div><div class="step"><b>03</b><strong>Boas práticas</strong><p>Mapear convenções que já oferecem folgas adicionais e outras proteções.</p></div><div class="step"><b>04</b><strong>Transição mensurável</strong><p>Definir média, folgas, fiscalização, dimensionamento das equipes, prevenção da sobrecarga, prazo de adaptação e revisão dos resultados.</p></div></div></section><section class="section" id="evidencias"><div class="section-head"><div class="section-no">08 · ciência</div><h2>O tempo fora do plantão também tem impacto na saúde.</h2></div><div class="prose"><p>O trabalho acadêmico que originou esta proposta combinou revisão bibliográfica e relato da experiência profissional da autora para examinar trabalho noturno, terceirização e saúde de vigias e vigilantes em Limeira. Não foi um levantamento amostral com outros trabalhadores. Estudos em enfermagem ajudam a formular perguntas, mas não devem ser transferidos automaticamente para todas as profissões.</p><p>Uma pesquisa transversal com 31.627 enfermeiros em 12 países europeus encontrou associação entre turnos de 12 horas ou mais, esgotamento e insatisfação no trabalho. Um estudo transversal brasileiro com 139 trabalhadores de enfermagem noturna identificou problemas na qualidade do sono e associações com indicadores de saúde. Os turnos de 12 horas estudados não reproduzem necessariamente o ciclo brasileiro de 12×36. Além disso, estudos observacionais identificam associações, mas não demonstram, por si sós, que essa escala cause os desfechos encontrados.</p><p>Os dados da OMS e OIT sobre riscos cardiovasculares referem-se a jornadas de <strong>55 horas ou mais por semana</strong>, não à média regular de 42 horas do 12×36. Usá-los como prova direta contra essa escala seria extrapolação indevida.</p></div><div class="study-cards"><a href="https://pubmed.ncbi.nlm.nih.gov/26359284/" target="_blank" rel="noopener"><small>BMJ Open · 2015</small><strong>Turnos prolongados e esgotamento</strong><span>Dall’Ora e colaboradores ↗</span></a><a href="https://www.scielo.br/j/ape/a/fqpscJ9stp7zkpPZBnbsCqS/" target="_blank" rel="noopener"><small>Acta Paulista de Enfermagem · 2021</small><strong>Trabalho noturno, sono e adoecimento</strong><span>Estudo brasileiro ↗</span></a></div></section><section class="cta"><div><h2>O próximo passo é colocar essa pergunta na mesa certa.</h2><p>Se você trabalha com jornada, direitos trabalhistas ou assessoria legislativa, a contribuição é esta: como fazer o 12x36 acompanhar a redução nacional sem destruir uma escala que pode ser útil quando bem protegida?</p></div><a class="button" href="https://wa.me/5541992228411?text=Ol%C3%A1%2C%20Lua.%20Li%20a%20proposta%20sobre%20jornada%2012x36%20e%20direito%20ao%20tempo." target="_blank" rel="noopener">falar comigo</a></section><section class="section reach reach-labor" id="circulacao" aria-labelledby="circulacao-titulo">
  <div class="section-head">
   <div class="section-no">09 · circulação</div>
   <div>
@@ -478,4 +827,30 @@ footer{border-top:1px solid #b9c4cd;color:#64758a}
 </section>
 <section class="section" id="fontes"><div class="section-head"><div class="section-no">10 · fontes e limites</div><h2>O que sustenta esta proposta — e o que ainda não sabemos.</h2></div><div class="prose"><p>Esta página combina legislação, literatura sobre jornadas prolongadas e trabalho noturno, pesquisa bibliográfica da autora e experiência vivida. É uma contribuição pública independente, não um parecer jurídico individual ou pesquisa empírica representativa da categoria. Não estima quantos brasileiros trabalham em 12×36, nem demonstra que essa escala seja universalmente pior do que outras.</p><p>A proposta foi formulada em julho de 2026 e atualizada em 3 de novembro, após a promulgação da EC 141/2026. </p></div><ol class="references"><li>BRASIL. <a href="https://legis.senado.leg.br/norma/44184944/publicacao/44189027" target="_blank" rel="noopener">Emenda Constitucional nº 141/2026</a>, texto integral, arts. 1º a 10.</li><li>SENADO FEDERAL. <a href="https://www25.senado.leg.br/pt_BR/web/atividade/materias/-/materia/174386" target="_blank" rel="noopener">Tramitação da PEC 221/2019</a>, convertida em norma em 16 out. 2026.</li><li>MINISTÉRIO DO TRABALHO E EMPREGO. <a href="https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2026/outubro/congresso-nacional-promulga-pec-que-reduz-jornada-de-trabalho-e-estabelece-dois-dias-de-descanso-remunerado/" target="_blank" rel="noopener">Congresso promulga reforma da jornada</a>, 16 out. 2026.</li><li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm" target="_blank" rel="noopener">CLT, arts. 59-A e 60</a>.</li><li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13467.htm" target="_blank" rel="noopener">Lei nº 13.467/2017</a>.</li><li>TRIBUNAL SUPERIOR DO TRABALHO. Súmula 444, observadas as alterações legais posteriores.</li><li>CARDOSO, Lua Helena Moon Martins. <em>Trabalho noturno e regime 12/36: precarização da saúde e direitos dos vigias e vigilantes em Limeira (SP)</em>. Estudo acadêmico de conclusão de curso, versão consultada, 2024.</li><li>ROGERS, A. E. et al. <em>The working hours of hospital staff nurses and patient safety</em>. Health Affairs, 2004.</li><li>DALL’ORA, C. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/26359284/" target="_blank" rel="noopener"><em>Association of 12 h shifts and nurses’ job satisfaction, burnout and intention to leave</em></a>. BMJ Open, 2015.</li><li>CATTANI, A. N. et al. <a href="https://www.scielo.br/j/ape/a/fqpscJ9stp7zkpPZBnbsCqS/" target="_blank" rel="noopener"><em>Trabalho noturno, qualidade do sono e adoecimento de trabalhadores de enfermagem</em></a>. Acta Paulista de Enfermagem, 2021.</li><li>OMS/OIT. <a href="https://www.who.int/news-room/questions-and-answers/item/global-regional-and-national-burdens-of-ischemic-heart-disease-and-stroke-attributable-to-exposure-to-long-working-hours-for-194-countries-2000-2016" target="_blank" rel="noopener">Estimativas globais sobre jornadas ≥55 horas/semana</a>, 2021.</li><li>IARC. <em>Night Shift Work</em>. Monographs, vol. 124, 2020.</li></ol></section>
   
-</main><footer><span>Jornada 12×36 e direito ao tempo · Lua Helena Moon Martins Cardoso, 2026</span><span>Atualização normativa 03/11/2026 · circulação 01/11/2026</span></footer></div><script> (function(){ var printButton=document.getElementById('hero-print'); if(printButton) printButton.addEventListener('click',function(){window.print();}); var copy=document.getElementById('copy-link'); if(copy) copy.addEventListener('click',function(){ var old=copy.textContent; function done(){copy.textContent='link copiado';setTimeout(function(){copy.textContent=old;},1600);} if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(window.location.href).then(done).catch(function(){window.prompt('Copie o link:',window.location.href);}); }else window.prompt('Copie o link:',window.location.href); }); }()); </script></body></html>
+</main></div><footer><span>Jornada 12×36 e direito ao tempo · Lua Helena Moon Martins Cardoso, 2026</span><span>Atualização normativa 03/11/2026 · circulação 01/11/2026</span></footer></div><script> (function(){ var printButton=document.getElementById('hero-print'); if(printButton) printButton.addEventListener('click',function(){window.print();}); var copy=document.getElementById('copy-link'); if(copy) copy.addEventListener('click',function(){ var old=copy.textContent; function done(){copy.textContent='link copiado';setTimeout(function(){copy.textContent=old;},1600);} if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(window.location.href).then(done).catch(function(){window.prompt('Copie o link:',window.location.href);}); }else window.prompt('Copie o link:',window.location.href); }); }()); </script>
+<script id="ctps-editorial-runtime">
+(function(){
+  "use strict";
+  var progress=document.getElementById("ctps-reading-progress");
+  var links=Array.prototype.slice.call(document.querySelectorAll(".dossier-chapters a[data-chapter-link]"));
+  var sections=links.map(function(a){return {link:a,section:document.getElementById(a.getAttribute("href").slice(1))};})
+    .filter(function(v){return !!v.section;});
+  var scheduled=false;
+  function update(){
+    scheduled=false;
+    if(progress){var d=document.documentElement;var denom=Math.max(1,d.scrollHeight-window.innerHeight);
+      progress.style.transform="scaleX("+Math.max(0,Math.min(1,window.scrollY/denom))+")";}
+    if(!sections.length)return;
+    var selected=sections[0];
+    for(var i=0;i<sections.length;i++){if(sections[i].section.getBoundingClientRect().top<=window.innerHeight*.34){selected=sections[i];}else{break;}}
+    sections.forEach(function(v){var active=v===selected;v.link.classList.toggle("is-active",active);if(active)v.link.setAttribute("aria-current","location");else v.link.removeAttribute("aria-current");});
+  }
+  function request(){if(!scheduled){scheduled=true;window.requestAnimationFrame(update);}}
+  window.addEventListener("scroll",request,{passive:true});
+  window.addEventListener("resize",request,{passive:true});
+  document.querySelectorAll(".dossier-mobile-index a[href^='#']").forEach(function(a){
+    a.addEventListener("click",function(){var details=a.closest("details");if(details)details.open=false;});
+  });
+  update();
+}());
+</script></body></html>
