@@ -11,6 +11,7 @@
 - corpus-sintetico.json: 13 registros fictícios e quatro hipóteses; dados derivados exclusivamente do demonstrador sintético PR-016 V1.1.
 - protocolo.md: desenho prospectivo de avaliação, métricas, limitações e critérios de refutação.
 - verificar_corpus.py: 15 verificações determinísticas sobre corpus e genealogia (execução local: python3 verificar_corpus.py).
+- QA.md: readback GitHub, 15/15 verificações da genealogia, workflows de deploy e gates ainda não testados.
 - README.md: instrução editorial, distinção de evidências e estado da publicação.
 
 ## Fronteira de visibilidade
