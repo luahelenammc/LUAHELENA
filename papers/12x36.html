@@ -689,6 +689,17 @@ footer{padding-block:22px 36px}
  #fontes .references{padding:18px 15px 18px 30px}
 }
 @media(prefers-reduced-motion:reduce){.dossier-chapters a,.ctps-document,.dossier-mobile-index-symbol{transition:none!important}}
+
+/* Consolidacao de especificidade: o quadro de tempo vivido prevalece
+   sobre os cartoes legados .lived div, inclusive em tela estreita. */
+#tempo-vivido .lived>.lived-inscription{
+  display:flex;grid-column:1/-1;align-items:center;gap:clamp(22px,4vw,60px);
+  padding:clamp(24px,4vw,50px);border:0;border-bottom:4px solid #c29d58;
+  color:#f5e8c9;background:radial-gradient(circle at 7% 35%,#1e549a,transparent 39%),linear-gradient(108deg,#0a285e,#123f7e)
+}
+@media(max-width:570px){
+ #tempo-vivido .lived>.lived-inscription{display:block;padding:25px}
+}
 @media print{
  .ctps-reading-progress,.dossier-rail,.dossier-mobile-index,.dossier-register,.hours-exhibit,
  .lived-inscription,.ctps-stage{display:none!important}
