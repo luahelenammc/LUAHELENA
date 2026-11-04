@@ -5,6 +5,10 @@
 **Estado:** manuscrito metodológico em elaboração, v0.1; não revisado por pares.
 **URL prevista:** https://www.luahelena.com.br/papers/gaveta/
 
+## Caminho editorial
+
+O manuscrito principal deve ser acessado pelo arquivo `continuidade-contextual.html`, não pelo `index.html` da pasta.
+
 ## Conteúdo
 
 - index.html: artigo completo, abstract bilíngue, genealogia, visualização de três momentos, citações e impressão.
