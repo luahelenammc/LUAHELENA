@@ -31,7 +31,7 @@ check("F06 e F09 explicitam contradições", DOCS["F06"]["state"] == "contradiç
 check("Uma única raiz declarada para CLM-001", DATA["lineage_check"]["independent_roots_count"] == 1)
 check("Abstenção explícita sobre destino", DATA["lineage_check"]["final_answer"].startswith("Desconhecido"))
 check("H4 exige abstenção", HYP["H4"]["status"] == "abstenção sustentada")
-check("Corpus declarado inteiramente sintético", "sintético" in DATA["safety_note"])
+check("Corpus declarado inteiramente sintético", "sintético" in DATA["license_note"])
 check("Sem alegação de validação empírica", DATA["published_status"] == "proposed_methodology_not_empirically_validated")
 
 for label, success in checks:
