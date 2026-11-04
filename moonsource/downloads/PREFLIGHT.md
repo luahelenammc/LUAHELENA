@@ -1,16 +1,17 @@
 # 🛫 Preflight — Moon Source portable
 
-*Human Intent Reconstruction Before AI Execution*
+*AI-led self-prompt engineering for faithful human intent*
 
 > **Humans should not have to prompt like machines.**
 
-**Version:** 2.3  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.<br>
+**Version:** 2.4  **MSL relation:** Moon Source Language 5.1 is consulted only when a materialization has earned existence.<br>
 
 **Status:** current public portable  
 **Public since:** 2026-08-23  
 **V2 rebase:** 2026-09-07  
 **Portable promotion:** 2026-09-07  
 **2.3 refinement:** 2026-09-23<br>
+**2.4 semantic refinement:** 2026-11-04<br>
 **Canonical path:** `portables/preflight/PREFLIGHT.md`<br>
 **Language:** English; execution should follow the user's language  
 **Audience:** general AI users, power users, writers, teams and builders  
@@ -19,22 +20,24 @@
 **License:** CC-BY-4.0 — https://creativecommons.org/licenses/by/4.0/  
 **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 
-Preflight is the adaptive interpretation layer between human expression and AI execution. Its first job is not to audit architecture. Its first job is to reconstruct what the human is actually trying to accomplish when the message is incomplete, conversational, scattered, self-correcting, emotionally loaded, overly literal, or simply written by a person who should not need to think like a prompt engineer.
+Preflight is **AI-led automatic prompt engineering at the task level**. The AI takes ordinary human expression and does the prompt-shaping work itself: it interprets intent, reconstructs the desired outcome, synthesizes supported requirements and constraints, and prepares a clearer working instruction for execution. Its first job is to engineer a faithful task from the human's words, not to audit architecture or force the human to become a prompt engineer.
 
 The core principle is simple:
 
-> **Preflight reconstructs the clearest faithful version of the human's intention before the AI acts on the literal wording of the message.**
+> **Preflight makes the AI its own task-level prompt engineer: human expression in, a faithful working prompt out, then execution.**
+
+The working prompt is a conceptual task instruction, not a literal rewrite of system instructions, a revealed chain of thought or a claim of persistent model self-modification. **Faithfulness to human intent is the quality criterion of self-prompt engineering**, not a competing definition.
 
 Source authority, provenance, freshness, risk, destination, mutation scope and similar checks remain important when consequence makes them important. In V2 they are **conditional execution guardrails**, not the semantic center of Preflight.
 
-Preflight is a standalone public Moon Source portable. Its current public version is **2.3**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
+Preflight is a standalone public Moon Source portable. Its current public version is **2.4**. Its reconstruction core is independently usable without the rest of the repository. When the full Moon Source body is available, it may route to specialized components for consequence-sensitive governance. [Moon Source Setup](../setup/MOON_SOURCE_SETUP.md) specializes the same reconstruction principle for personal and project-context setup.
 
 
 ## First use
 
 ### What this is
 
-Preflight is the portable for the moment when a request is conversational, incomplete, messy, self-correcting or easy to misunderstand. It reconstructs what the person is actually trying to accomplish before the AI acts on literal wording. Humans should not have to prompt like machines.
+Preflight lets the AI perform the prompt-engineering step for the human. It converts a conversational, incomplete, messy or self-correcting request into a faithful working task before acting. Humans should not have to prompt like machines.
 
 ### Do I install anything?
 
@@ -107,7 +110,9 @@ Its purpose is not to make the human write a better prompt. Its purpose is to ma
 
 ## 3. Precise definition
 
-> **Preflight is the adaptive human-intent reconstruction pass before and during execution that converts raw human expression into a faithful executable task by resolving intended meaning, desired outcome, positive requirements, constraints, corrections, preservation requirements and consequential ambiguity, while recovering current task state and observable success criteria when they materially affect what correct completion means.**
+> **Preflight is AI-led, adaptive self-prompt engineering before and during execution: the model transforms raw human expression into a clearer, faithful working prompt or task brief by reconstructing intent, outcome, supported requirements, corrections and constraints, adding current task state and success criteria only when they materially change execution.**
+
+This is **task-level prompt engineering performed by the AI**, not prompt-engineering homework transferred to the human. Its output may be internal and compact or shown as a reconstructed task when useful. Human-intent fidelity governs the transformation; safety, provenance, jurisdiction and mutation controls guard the subsequent execution.
 
 When execution materially depends on governed sources, current external facts, sensitive actions, public claims, mutations or other consequential boundaries, Preflight then activates the relevant execution guardrails or routes to the component that owns them.
 
@@ -130,7 +135,7 @@ raw human expression
 → what must be preserved or avoided?
 → what is the current accepted task state, if this continues prior work?
 → what observable conditions would make completion correct, if non-trivial?
-→ reconstruct the working task
+→ AI constructs or revises its own working prompt / task brief
 → ask only if consequential ambiguity remains
 → apply execution guardrails only if materially triggered
 → execute
@@ -161,9 +166,9 @@ The contract does not need to be printed. The useful output is the result of the
 
 Preflight has two layers with different status.
 
-### Layer A — Human reconstruction core
+### Layer A — Automatic self-prompt engineering (defining core)
 
-This is the defining layer and should operate by default whenever interpretation can improve execution.
+The AI, not the human, translates natural expression into an actionable working prompt. It actively chooses a task formulation, preserves the user's meaning, resolves supported ambiguities, and does not add unsupported goals. This is the defining layer and should operate whenever task reconstruction can improve execution.
 
 It reconstructs:
 
@@ -415,11 +420,11 @@ Preflight may remain in the loop during execution when a material mismatch shows
 
 The source/jurisdiction route should report **jurisdiction_fit: pass | corrected | conflict**, corrected source/frame, mismatch type, evidence, confidence, persistence relevance and next operator. A corrected frame changes the task instance; it does not silently mutate a source, bridge, mirror or public package. No user-facing mandatory field is added for this behavior. Persistent local writeback and public promotion still require their own authority, gate and readback, and no background scan or publication is implied.
 
-## 13. Preflight as a reconstructed working prompt
+## 13. Preflight as automatic self-prompt engineering
 
-A useful metaphor survives from V1: Preflight behaves like a self-prompt around the raw prompt.
+The **self-prompt is the mechanism**, not merely a decorative metaphor. Preflight composes or updates a working instruction that the AI can use to carry out the human's intended task. It may exist as a short internal task frame, an explicit prompt for another agent, or a user-visible reconstruction when inspection is useful. It does **not** mean altering higher-priority instructions or claiming access to private reasoning.
 
-But V2 makes the object clearer.
+The human supplies meaning and direction; the AI performs the translation into executable task language. The user retains authority over intent, scope and consequential consent.
 
 ```text
 human expression
@@ -433,7 +438,7 @@ human expression
 
 The middle lines above are an adaptive map, not a mandatory waterfall. On a clear low-consequence request they may collapse into a silent one-line reconstruction.
 
-The “working prompt” is an explanatory model for task reconstruction. It does not imply:
+The **working prompt** is the task-level result of self-prompt engineering, not a privileged system prompt. It does not imply:
 
 - access to hidden chain-of-thought;
 - publication of a private reasoning transcript;
@@ -448,7 +453,7 @@ Preflight exposes a public method for faithful interpretation, not private inter
 ```text
 Apply Moon Source Preflight before executing this request.
 
-Reconstruct the human's intended task from the full expression and available context.
+Do the task-level prompt engineering yourself. Reconstruct the human's intended task from the full expression and available context, then assemble a faithful working prompt or task brief before execution.
 Determine, only to the depth needed:
 - what the person is actually trying to accomplish;
 - which parts are request, context, example, hesitation or correction;
@@ -623,13 +628,17 @@ The superseded V1 body remains recoverable through Git history. On 2026-09-07, V
 
 This promotion created the Preflight portable family at version 2.0. At the time of that promotion it did not change the then-current MSL 4.3, Setup 3.0 or Chat–Work V4; MSL is now current at 5.1 after the 2026-09-09 release.
 
-### 2.3 refinement — success contract without prompt-engineering takeover
+### 2.3 refinement — success contract without prompt-engineering lifecycle takeover
 
 Version 2.3 adds a bounded layer between “I understand what the human means” and “I know what correct completion would look like.” When material, Preflight now distinguishes desired outcome, positive requirements and constraints; reconstructs current task state for longitudinal work; makes vague quality language observable only when context supports it; identifies a few success criteria for non-trivial completion; and names a verification target when consequence makes verification material.
 
-This does **not** turn Preflight into a prompt-engineering lifecycle, requirements bureaucracy or reliability runtime. Human-intent reconstruction remains its semantic center. Retry, rollback, failure diagnosis and operational receipts remain with the components that own them.
+This does **not** turn Preflight into an end-to-end prompt-engineering lifecycle, requirements bureaucracy or reliability runtime. Human-intent reconstruction remains the fidelity test of its self-prompt engineering. Retry, rollback, failure diagnosis and operational receipts remain with the components that own them.
 
 **Micro-credit / conceptual lineage:** this bounded refinement was materially informed by *Master Prompt Engineer v5.1 — Core Knowledge & Operating Doctrine* by **David Kendrick**, especially its separation of outcome, requirements, constraints, success criteria, explicit state and verification. Moon Source metabolizes only those relevant mechanisms and re-expresses them inside Preflight's existing human-intent architecture. This credit records conceptual influence; it does not imply coauthorship of Preflight, endorsement, partnership, transfer of authorship, or wholesale import of the donor method. The donor document itself is not redistributed here.
+
+### 2.4 refinement — self-prompt engineering made explicit
+
+Version 2.4 names the mechanism that had remained implicit: the AI performs **automatic, task-level prompt engineering** so that the person can speak naturally. It reconstructs a faithful working prompt from intent, context, corrections, requirements and constraints. The public method is a reusable interpretation-and-task-formulation discipline; it is not a hidden system-prompt editor, a model-training technique or a full prompt-optimization/reliability platform. Execution guardrails remain consequential and subordinate, never a replacement definition.
 
 ## 20. Claim ceiling
 
