@@ -10,6 +10,7 @@
 - index.html: artigo completo, abstract bilíngue, genealogia, visualização de três momentos, citações e impressão.
 - corpus-sintetico.json: 13 registros fictícios e quatro hipóteses; dados derivados exclusivamente do demonstrador sintético PR-016 V1.1.
 - protocolo.md: desenho prospectivo de avaliação, métricas, limitações e critérios de refutação.
+- verificar_corpus.py: 15 verificações determinísticas sobre corpus e genealogia (execução local: python3 verificar_corpus.py).
 - README.md: instrução editorial, distinção de evidências e estado da publicação.
 
 ## Fronteira de visibilidade
