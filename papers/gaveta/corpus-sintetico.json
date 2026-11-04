@@ -1,0 +1,209 @@
+{
+  "schema_version": "0.1.0",
+  "publication": "Manuscrito metodológico de gaveta — Continuidade contextual entre fontes e instituições",
+  "author": "Lua Helena Moon Martins Cardoso",
+  "published_status": "proposed_methodology_not_empirically_validated",
+  "license_note": "Exemplo inteiramente sintético de autoria, destinado a avaliação e reprodução acadêmica; verificar licença definitiva antes da divulgação externa.",
+  "created_on": "2026-11-03",
+  "provenance_note": "Corpus preserva 13 registros e quatro hipóteses do ensaio PR-016 V1.1. A genealogia documental expressa dependência de interpretação, não independência de testemunhas ou valor probatório.",
+  "safety_note": "Sem pessoas reais, bases policiais, decisões coercitivas, autenticação ou prova de segurança. A camada de controle de acesso é apenas simulação de interface.",
+  "independent_source_rule": "Para a alegação CLM-001, F02, F04, F05, F07 e F12 compartilham a mesma origem F02. F07 é correção e F12 é recibo, não evidências novas de saída de E-17.",
+  "docs": [
+    {
+      "id": "F01",
+      "org": "A",
+      "date": "2026-01-10",
+      "title": "Inventário de remessa",
+      "text": "Uma caixa de testes estava rotulada E-17. A etiqueta não prova o conteúdo.",
+      "root": "F01",
+      "state": "registro"
+    },
+    {
+      "id": "F02",
+      "org": "A",
+      "date": "2026-01-11",
+      "title": "Planilha preliminar",
+      "text": "Planilha registra E-17 como destinado a transferência, sem confirmação de entrega.",
+      "root": "F02",
+      "state": "alegação"
+    },
+    {
+      "id": "F03",
+      "org": "A",
+      "date": "2026-01-12",
+      "title": "Nota de portaria simulada",
+      "text": "Registra saída física da caixa, sem inventário interno validado.",
+      "root": "F03",
+      "state": "registro"
+    },
+    {
+      "id": "F04",
+      "org": "B",
+      "date": "2026-01-13",
+      "title": "Resumo recebido da planilha",
+      "text": "Reproduz F02 sem adicionar observação independente.",
+      "root": "F02",
+      "state": "derivado"
+    },
+    {
+      "id": "F05",
+      "org": "C",
+      "date": "2026-01-14",
+      "title": "Síntese terciária",
+      "text": "Cita F04, cuja raiz documental permanece F02.",
+      "root": "F02",
+      "state": "derivado"
+    },
+    {
+      "id": "F06",
+      "org": "B",
+      "date": "2026-01-15",
+      "title": "Checklist físico",
+      "text": "Conteúdo verificado na caixa: E-71, não E-17. Contradiz equiparação entre rótulo e conteúdo.",
+      "root": "F06",
+      "state": "contradição"
+    },
+    {
+      "id": "F07",
+      "org": "A",
+      "date": "2026-01-16",
+      "title": "Registro corrigido da planilha",
+      "text": "Corrige referência: a planilha tratava da caixa rotulada, não de saída confirmada do equipamento E-17.",
+      "root": "F02",
+      "state": "retificação",
+      "supersedes": "F02",
+      "revision_of": "CLM-001/v1",
+      "evidence_role": "correction_of_existing_root_not_independent_confirmation"
+    },
+    {
+      "id": "F08",
+      "org": "B",
+      "date": "2026-01-17",
+      "title": "Contagem de estoque",
+      "text": "Contagem parcial encontrou unidade E-17 no depósito, sem número serial correspondente.",
+      "root": "F08",
+      "state": "alegação"
+    },
+    {
+      "id": "F09",
+      "org": "C",
+      "date": "2026-01-18",
+      "title": "Log de movimentação parcial",
+      "text": "Log automatizado sugere ausência de E-17 em prateleira no mesmo dia. A origem pode estar desatualizada.",
+      "root": "F09",
+      "state": "contradição"
+    },
+    {
+      "id": "F10",
+      "org": "A",
+      "date": "2026-01-19",
+      "title": "Solicitação sem propósito",
+      "text": "Pedido simulado de acesso sem finalidade declarada; deve ser recusado.",
+      "root": "F10",
+      "state": "controle"
+    },
+    {
+      "id": "F11",
+      "org": "B",
+      "date": "2026-01-20",
+      "title": "Revisão humana de papel",
+      "text": "Revisor fictício registra que não é possível afirmar onde E-17 estava entre as datas.",
+      "root": "F11",
+      "state": "revisão"
+    },
+    {
+      "id": "F12",
+      "org": "C",
+      "date": "2026-01-21",
+      "title": "Aviso de retificação recebido",
+      "text": "Órgão C acusa recebimento da correção F07; versão v1 segue no histórico.",
+      "root": "F02",
+      "state": "propagação",
+      "derives_from": "F07",
+      "evidence_role": "receipt_of_correction_not_independent_confirmation"
+    },
+    {
+      "id": "F13",
+      "org": "B",
+      "date": "2026-01-22",
+      "title": "Registro de expiração",
+      "text": "Autorização fictícia vence após a data-limite; acesso posterior deve ser recusado.",
+      "root": "F13",
+      "state": "controle"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "title": "E-17 saiu do depósito",
+      "status": "enfraquecida",
+      "reason": "F02 não prova saída do objeto; F06 corrige conteúdo da caixa; F07 retifica inferência."
+    },
+    {
+      "id": "H2",
+      "title": "E-17 permaneceu no depósito",
+      "status": "indeterminada",
+      "reason": "F08 aponta presença parcial sem confirmação de identificação; F09 diverge."
+    },
+    {
+      "id": "H3",
+      "title": "Houve confusão entre rótulo e conteúdo",
+      "status": "compatível com fontes",
+      "reason": "F01 distingue etiqueta de conteúdo; F06 confirma E-71; não revela trajetória de E-17."
+    },
+    {
+      "id": "H4",
+      "title": "Destino de E-17 é desconhecido",
+      "status": "abstenção sustentada",
+      "reason": "F03/06/08/09 são insuficientes para localizar com certeza E-17."
+    }
+  ],
+  "orgs": [
+    {
+      "id": "A",
+      "name": "Arquivo Delta",
+      "role": "custodiante fictício"
+    },
+    {
+      "id": "B",
+      "name": "Núcleo Prisma",
+      "role": "revisor fictício"
+    },
+    {
+      "id": "C",
+      "name": "Observatório Âmbar",
+      "role": "auditor fictício"
+    }
+  ],
+  "lineage_check": {
+    "claim_id": "CLM-001",
+    "records": [
+      "F02",
+      "F04",
+      "F05",
+      "F07",
+      "F12"
+    ],
+    "expected_independent_document_roots": [
+      "F02"
+    ],
+    "contradiction_refs": [
+      "F06",
+      "F09"
+    ],
+    "independent_roots_count": 1,
+    "final_answer": "Desconhecido: documentos não permitem determinar localização ou destino de E-17 com certeza.",
+    "boundary": "Raiz documental não mede independência factual, autenticidade ou confiabilidade."
+  },
+  "future_test": {
+    "A": "Corpus idêntico, resumos convencionais, controle de versão simples",
+    "B": "Mesmo corpus, ligações de origem, hipótese, contradição e revisão",
+    "non_measured": [
+      "redução de criminalidade",
+      "eficiência policial",
+      "previsão de suspeitos",
+      "desempenho humano observado até esta versão"
+    ],
+    "preregistration_required": true
+  }
+}
