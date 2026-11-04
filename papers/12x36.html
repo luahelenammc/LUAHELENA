@@ -778,37 +778,126 @@ footer{padding-block:22px 36px}
  .collective-stamp{color:#111;border-color:#555;box-shadow:none}
  .collective-cases{display:grid;grid-template-columns:1fr 1fr}.collective-case{break-inside:avoid}
  .compensation-row{break-inside:avoid}.collective-case a{color:#111}}
-</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Jornada 12×36 e direito ao tempo","author":{"@type":"Person","name":"Lua Helena Moon Martins Cardoso"},"dateModified":"2026-11-03","inLanguage":"pt-BR","url":"https://www.luahelena.com.br/papers/12x36.html","citation":["https://legis.senado.leg.br/norma/44184944/publicacao/44189027","https://pubmed.ncbi.nlm.nih.gov/26359284/"]}</script></head><body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><div class="ctps-reading-progress" id="ctps-reading-progress" aria-hidden="true"></div><div class="wrap"><header class="site-header"><a class="brand" href="https://www.luahelena.com.br/"><span class="brand-mark">L</span><span>Lua Helena<small>pesquisa independente · Limeira</small></span></a><nav aria-label="Navegação da página"><a href="#lei">nova lei</a><a href="#por-que">contexto</a><a href="#proposta">proposta</a><a href="#circulacao">circulação</a><a href="#fontes">fontes</a><button id="copy-link" type="button">copiar link</button></nav></header><div class="dossier-shell"><aside class="dossier-rail" aria-label="Sumário do paper"><div class="dossier-rail-inner">
+
+/* CTPS EDITORIAL III · AUDITORIA DE LEITURA · 2026-11-03
+   Foco: camadas de evidência, leitura progressiva, contraste, densidade e coerência do índice. */
+.site-header nav{gap:5px;align-items:center}
+.site-header nav a,.site-header nav button{font-size:.76rem;min-height:40px;display:inline-flex;align-items:center}
+.site-header nav a:nth-child(2){color:#173d73;border-color:#c9b17d;background:#f6f0e2}
+.site-header nav a:nth-child(2):hover{background:#ecdfbd}
+.dossier-chapters a{grid-template-columns:33px minmax(0,1fr);gap:.45rem}
+.dossier-chapters a .dossier-nav-no{font-variant-numeric:tabular-nums}
+.dossier-mobile-index nav a{min-height:44px}
+.dossier-mobile-index .dossier-nav-no{min-width:2.7ch;display:inline-block}
+.section-no{color:#795820}
+.collective-kicker{color:#78541f}
+.collective-atlas-head .collective-kicker,.collective-law-note .collective-kicker{color:#f2d8a1}
+.collective-case-overline,.compensation-matrix-title>span{color:#765724}
+.interpretation-key{margin:clamp(35px,5.5vw,65px) 0 23px;border:1px solid #c7d3dc;background:#fffdfa}
+.interpretation-key-head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#ebf1f5;
+ padding:13px clamp(18px,3vw,29px);border-bottom:1px solid #c7d3dc;color:#7a5926;font:820 .62rem/1.4 var(--sans);letter-spacing:.11em}
+.interpretation-key-head span:last-child{color:#b28d4d;font:1.5rem/1 var(--serif)}
+.interpretation-key-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.interpretation-key-grid>a{display:grid;align-content:start;gap:9px;min-height:154px;padding:clamp(20px,2.6vw,31px);
+ border-right:1px solid #d8dedf;text-decoration:none;transition:background .18s ease}
+.interpretation-key-grid>a:last-child{border-right:0}
+.interpretation-key-grid>a:hover{background:#f1f4f6}
+.interpretation-key-index{color:#87662f;font:800 .61rem/1.5 var(--sans);letter-spacing:.11em}
+.interpretation-key-grid strong{font:700 clamp(.99rem,1.35vw,1.17rem)/1.3 var(--serif);color:#133f7e}
+.interpretation-key-grid small{font:450 .83rem/1.63 var(--sans);color:#536676}
+.collective-atlas{margin-top:26px}
+.collective-case{display:flex;flex-direction:column}
+.collective-case h4{margin-top:19px}
+.collective-case-number{margin-bottom:15px}
+.collective-case-essence{color:#2e5476!important;font-size:clamp(.9rem,1.04vw,1.01rem)!important;line-height:1.65!important;font-weight:590;
+ margin:0 0 18px!important}
+.collective-detail{margin:0 0 19px;border-top:1px solid #d4dce1;border-bottom:1px solid #d4dce1}
+.collective-detail summary{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;
+ padding:13px 2px;color:#174f8e;font:800 .78rem/1.4 var(--sans);list-style:none}
+.collective-detail summary::-webkit-details-marker{display:none}
+.collective-detail summary::marker{content:""}
+.collective-detail summary:hover{color:#896424}
+.collective-detail summary:focus-visible{outline:3px solid #bf9655;outline-offset:2px}
+.detail-indicator{color:#a57a36;font-size:1.28rem;font-weight:400;transition:transform .2s ease}
+.collective-detail[open] .detail-indicator{transform:rotate(45deg)}
+.collective-detail>p{font-size:clamp(.87rem,1vw,.96rem);line-height:1.72;color:#4b6172;
+ border-top:1px solid #e6e9e7;margin:0!important;padding:16px 2px 18px}
+.collective-case>a{align-self:start;margin-top:auto;max-width:100%}
+.collective-source-key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 22px;background:#f1eee6;
+ border-top:1px solid #cbd5d9;padding:13px 22px;color:#445d70;font:710 .69rem/1.55 var(--sans)}
+.collective-source-key>span{display:inline-flex;align-items:center;gap:7px}
+.source-dot{width:8px;height:8px;display:inline-block;transform:rotate(45deg);background:#1d548e}
+.source-dot.is-secondary{background:#aa854a}
+.collective-method{font-size:.85rem;line-height:1.77}
+.compensation-row{align-items:start;padding-block:23px}
+.compensation-row p{font-size:clamp(.88rem,.95vw,.97rem);line-height:1.68}
+.compensation-row strong{font-size:clamp(.89rem,.95vw,1rem)}
+#fontes .references{font-size:.83rem;line-height:1.7}
+.references a{overflow-wrap:anywhere}
+@media(max-width:1050px){
+ .dossier-mobile-index nav a{min-height:46px}
+ .interpretation-key-grid>a{min-height:0}
+}
+@media(max-width:720px){
+ .interpretation-key-grid{grid-template-columns:1fr}
+ .interpretation-key-grid>a{padding:17px 21px;border-right:0;border-bottom:1px solid #d8dedf;gap:5px}
+ .interpretation-key-grid>a:last-child{border-bottom:0}
+ .collective-detail>p{font-size:.94rem}
+}
+@media(max-width:570px){
+ .site-header nav{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+ .site-header nav a,.site-header nav button{min-height:45px;justify-content:center;text-align:center;font-size:.74rem;
+ border:1px solid #d2d8d9;background:#fffdfa;padding:9px 6px}
+ .site-header nav button{grid-column:1/-1}
+ .collective-case{padding:24px 20px}
+ .collective-case-essence{font-size:.97rem!important}
+ .collective-source-key{display:grid;justify-content:start}
+ .compensation-row p{font-size:.94rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .detail-indicator,.interpretation-key-grid>a{transition:none}
+}
+@media print{
+ .interpretation-key{border:1px solid #aaa;background:white}
+ .interpretation-key-grid>a{min-height:0;color:#111;break-inside:avoid}
+ .interpretation-key-grid strong,.interpretation-key-index{color:#111}
+ .collective-detail>p{display:block!important;color:#111}
+ .collective-detail summary{color:#111;display:none}
+ .collective-detail:not([open])>p{display:block!important}
+ .collective-source-key{background:#fff;color:#111}
+ .collective-case-essence{color:#111!important}
+}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Jornada 12×36 e direito ao tempo","author":{"@type":"Person","name":"Lua Helena Moon Martins Cardoso"},"dateModified":"2026-11-03","inLanguage":"pt-BR","url":"https://www.luahelena.com.br/papers/12x36.html","citation":["https://legis.senado.leg.br/norma/44184944/publicacao/44189027","https://pubmed.ncbi.nlm.nih.gov/26359284/"]}</script></head><body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><div class="ctps-reading-progress" id="ctps-reading-progress" aria-hidden="true"></div><div class="wrap"><header class="site-header"><a class="brand" href="https://www.luahelena.com.br/"><span class="brand-mark">L</span><span>Lua Helena<small>pesquisa independente · Limeira</small></span></a><nav aria-label="Ações rápidas de leitura"><a href="#proposta">Ler a proposta</a><a href="#acordos">Conquistas sindicais</a><button id="copy-link" type="button" aria-label="Copiar endereço deste paper">Copiar link</button></nav></header><div class="dossier-shell"><aside class="dossier-rail" aria-label="Sumário do paper"><div class="dossier-rail-inner">
   <a href="#tese" class="dossier-rail-signature"><span class="rail-monogram" aria-hidden="true">LH</span><span>Cadernos de<br><strong>direitos sociais</strong></span></a>
   <div class="dossier-rail-heading"><span>ARQUIVO / 2026</span><b>01 / 12×36</b></div>
   <nav class="dossier-chapters" aria-label="Capítulos"><a href="#tese" data-chapter-link><span class="dossier-nav-no">00</span><span>Abertura</span></a>
-<a href="#lei" data-chapter-link><span class="dossier-nav-no">01</span><span>A nova norma</span></a>
-<a href="#por-que" data-chapter-link><span class="dossier-nav-no">02</span><span>O problema</span></a>
-<a href="#proposta" data-chapter-link><span class="dossier-nav-no">03</span><span>A proposta</span></a>
-<a href="#acordos" data-chapter-link><span class="dossier-nav-no">03A</span><span>Conquistas sindicais</span></a>
-<a href="#conta" data-chapter-link><span class="dossier-nav-no">04</span><span>A conta</span></a>
-<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">05</span><span>Tempo vivido</span></a>
-<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">06</span><span>Aplicação</span></a>
-<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">07</span><span>Contraprova</span></a>
-<a href="#desenho" data-chapter-link><span class="dossier-nav-no">08</span><span>Implementação</span></a>
-<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">09</span><span>Ciência</span></a>
-<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">10</span><span>Circulação</span></a>
-<a href="#fontes" data-chapter-link><span class="dossier-nav-no">11</span><span>Fontes</span></a></nav>
+<a href="#lei" data-chapter-link><span class="dossier-nav-no">LEI</span><span>A nova norma</span></a>
+<a href="#por-que" data-chapter-link><span class="dossier-nav-no">01</span><span>O problema</span></a>
+<a href="#proposta" data-chapter-link><span class="dossier-nav-no">02</span><span>A proposta</span></a>
+<a href="#acordos" data-chapter-link><span class="dossier-nav-no">02A</span><span>Conquistas sindicais</span></a>
+<a href="#conta" data-chapter-link><span class="dossier-nav-no">03</span><span>A conta</span></a>
+<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">04</span><span>Tempo vivido</span></a>
+<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">05</span><span>Aplicação</span></a>
+<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">06</span><span>Contraprova</span></a>
+<a href="#desenho" data-chapter-link><span class="dossier-nav-no">07</span><span>Implementação</span></a>
+<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">08</span><span>Ciência</span></a>
+<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">09</span><span>Circulação</span></a>
+<a href="#fontes" data-chapter-link><span class="dossier-nav-no">10</span><span>Fontes</span></a></nav>
   <div class="dossier-rail-bottom"><span class="dossier-signet" aria-hidden="true">✦</span><p>Do tempo anotado<br>ao tempo vivido.</p><a href="#circulacao">Registro de circulação <span aria-hidden="true">↗</span></a></div>
 </div></aside><main id="conteudo"><details class="dossier-mobile-index"><summary><span>Índice deste caderno</span><span class="dossier-mobile-index-symbol" aria-hidden="true">＋</span></summary>
 <nav aria-label="Capítulos do paper"><a href="#tese" data-chapter-link><span class="dossier-nav-no">00</span><span>Abertura</span></a>
-<a href="#lei" data-chapter-link><span class="dossier-nav-no">01</span><span>A nova norma</span></a>
-<a href="#por-que" data-chapter-link><span class="dossier-nav-no">02</span><span>O problema</span></a>
-<a href="#proposta" data-chapter-link><span class="dossier-nav-no">03</span><span>A proposta</span></a>
-<a href="#acordos" data-chapter-link><span class="dossier-nav-no">03A</span><span>Conquistas sindicais</span></a>
-<a href="#conta" data-chapter-link><span class="dossier-nav-no">04</span><span>A conta</span></a>
-<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">05</span><span>Tempo vivido</span></a>
-<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">06</span><span>Aplicação</span></a>
-<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">07</span><span>Contraprova</span></a>
-<a href="#desenho" data-chapter-link><span class="dossier-nav-no">08</span><span>Implementação</span></a>
-<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">09</span><span>Ciência</span></a>
-<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">10</span><span>Circulação</span></a>
-<a href="#fontes" data-chapter-link><span class="dossier-nav-no">11</span><span>Fontes</span></a></nav></details><section class="hero" id="tese" aria-labelledby="titulo-paper">
+<a href="#lei" data-chapter-link><span class="dossier-nav-no">LEI</span><span>A nova norma</span></a>
+<a href="#por-que" data-chapter-link><span class="dossier-nav-no">01</span><span>O problema</span></a>
+<a href="#proposta" data-chapter-link><span class="dossier-nav-no">02</span><span>A proposta</span></a>
+<a href="#acordos" data-chapter-link><span class="dossier-nav-no">02A</span><span>Conquistas sindicais</span></a>
+<a href="#conta" data-chapter-link><span class="dossier-nav-no">03</span><span>A conta</span></a>
+<a href="#tempo-vivido" data-chapter-link><span class="dossier-nav-no">04</span><span>Tempo vivido</span></a>
+<a href="#aplicacao" data-chapter-link><span class="dossier-nav-no">05</span><span>Aplicação</span></a>
+<a href="#contraprova" data-chapter-link><span class="dossier-nav-no">06</span><span>Contraprova</span></a>
+<a href="#desenho" data-chapter-link><span class="dossier-nav-no">07</span><span>Implementação</span></a>
+<a href="#evidencias" data-chapter-link><span class="dossier-nav-no">08</span><span>Ciência</span></a>
+<a href="#circulacao" data-chapter-link><span class="dossier-nav-no">09</span><span>Circulação</span></a>
+<a href="#fontes" data-chapter-link><span class="dossier-nav-no">10</span><span>Fontes</span></a></nav></details><section class="hero" id="tese" aria-labelledby="titulo-paper">
   <div class="hero-main">
     <div class="hero-registry"><span>Lua Helena / Caderno de direitos</span><span>Pesquisa independente · 2026</span></div>
     <div class="eyebrow">Direito ao tempo <span class="hero-dot">✦</span> Jornada 12×36 <span class="hero-dot">✦</span> EC 141/2026</div>
@@ -841,7 +930,14 @@ footer{padding-block:22px 36px}
   </div>
   <div class="dossier-register-footer"><span aria-hidden="true">✧</span> Aritmética, repousos e enquadramento jurídico exigem verificações distintas.</div>
 </aside><p class="print-meta">Publicação canônica: https://www.luahelena.com.br/papers/12x36.html · Lua Helena Moon Martins Cardoso · atualizada em 03/11/2026</p><section class="summary"><h2>A Constituição mudou. A aplicação continua em disputa.</h2><p><strong>O que aconteceu:</strong> promulgada em 16 de outubro de 2026, a Emenda Constitucional nº 141 estabelece dois dias de repouso semanal remunerado e redução gradual da jornada de 44 para 40 horas, sem redução salarial. A primeira etapa, de 42 horas, começa em 16/12/2026; a de 40 horas, em 16/12/2027, segundo os prazos previstos na emenda.</p><p><strong>O que continua em aberto:</strong> a emenda admite regimes diferenciados e compensações mediante acordo ou convenção coletiva, mas não cria uma tabela universal de folgas extras para o 12×36. O desafio é fazer com que a excepcionalidade não esvazie a conquista.</p><p><strong>Minha tese:</strong> como proposta de desenho regulatório, preservar o 12×36 quando útil, respeitar normas mais favoráveis e assegurar que a redução alcance também o tempo efetivamente disponível, com salário protegido e negociação responsável.</p></section><section class="law-spotlight" id="lei" aria-labelledby="lei-h"><div class="law-top"><div><p class="eyebrow">Emenda Constitucional nº 141 · 16/10/2026</p><h2 id="lei-h">A norma foi promulgada. A implementação continua.</h2><p>Originada da PEC 221/2019, a Emenda Constitucional nº 141 foi publicada em 16 de outubro de 2026. Parte de seus dispositivos já está em vigor, mas a redução semanal e o novo repouso seguem prazos próprios. Adaptar jornadas especiais exige mais que repetir a média de horas.</p></div><a href="https://legis.senado.leg.br/norma/44184944/publicacao/44189027" target="_blank" rel="noopener" class="button">Ler texto oficial ↗</a></div><div class="law-steps"><article><small>Até 15/12/2026</small><strong>44<span>h/sem</span></strong><p>Regime geral anterior.</p></article><article><small>A partir de 16/12/2026</small><strong>42<span>h/sem</span></strong><p>Primeira redução e aplicação do novo repouso.</p></article><article class="law-dest"><small>A partir de 16/12/2027</small><strong>40<span>h/sem</span></strong><p>Novo teto geral, sem redução salarial.</p></article></div><div class="law-highlight"><strong>O ponto central para o 12×36</strong><p>O art. 7º, § 2º, permite excepcionalmente acordo ou convenção coletiva que assegure, na média do mês-calendário, dois dias de repouso semanal remunerado por semana, com ao menos um dia de repouso no período máximo de uma semana de trabalho. O § 3º admite regimes diferenciados definidos em lei, respeitados os limites constitucionais. Nenhum deles fixa, por si só, a quantidade de folgas extras do 12×36. A apuração dos repousos no mês-calendário, prevista no § 2º, não se confunde com a média de horas trabalhadas em um ciclo de plantões.</p></div></section><section class="section" id="por-que"><div class="section-head"><div class="section-no">01 · o problema</div><h2>Uma conquista geral pode virar uma conquista desigual.</h2></div><div class="prose"><p class="lead">O debate sobre o fim da escala 6x1 abriu uma discussão maior: quanto da nossa vida o trabalho pode ocupar?</p><p>Essa pergunta não termina quando mudamos de uma escala para outra. Hospitais, portarias, segurança, transporte e muitos outros serviços funcionam com jornadas especiais. Em alguns desses lugares, o 12x36 é preferido pelos próprios trabalhadores porque concentra os plantões e reduz deslocamentos. Eu não acho que isso deva ser ignorado.</p><p>O problema aparece quando “é uma escala diferente” vira sinônimo de “fica fora da redução”. Se o teto semanal do país cai, quem trabalha em 12x36 também precisa perceber esse ganho na própria vida. Caso contrário, criamos dois direitos ao tempo: um para a jornada comum e outro, menor, para quem trabalha em plantões.</p></div><div class="quote">O objetivo não é tirar o 12x36 de quem prefere essa organização. É garantir que escolher — ou precisar trabalhar — nessa escala não signifique abrir mão da redução conquistada pelo restante dos trabalhadores.</div></section><section class="section" id="proposta"><div class="section-head"><div class="section-no">02 · a proposta</div><h2>Preservar a escala, reduzir o tempo.</h2></div><div class="prose"><p class="lead">O caminho que proponho é usar o novo teto semanal como referência comum e deixar a forma concreta de adaptação para a lei, a negociação coletiva e as necessidades de cada setor.</p><p>Na prática, isso significa olhar para a média do 12x36. Na solução que defendo, se essa média ultrapassar o teto constitucional aplicável, o ajuste deveria ocorrer prioritariamente em tempo, por arranjo juridicamente válido para a categoria. Isso pode significar folgas adicionais, menos plantões no período de referência ou outra redução equivalente. O ponto é que a conquista seja sentida como tempo livre, e não apenas transformada em uma conta de remuneração.</p></div><div class="proposal"><div><h3>O que eu defendo</h3><ul><li>o 12x36 acompanha o teto geral por média;</li><li>a diferença volta principalmente em tempo;</li><li>não há redução salarial;</li><li>acordos e convenções mais favoráveis continuam valendo;</li><li>serviços contínuos têm transição própria, com negociação e planejamento.</li></ul></div><div><h3>O que eu não estou propondo</h3><ul><li>abolir automaticamente o 12x36;</li><li>dizer que todo 12x36 é pior que toda 6x1;</li><li>tratar todos os setores como se fossem iguais;</li><li>substituir descanso integralmente por dinheiro;</li><li>impor a mesma quantidade de folgas a categorias com condições diferentes.</li></ul></div></div>
-<div class="collective-atlas" id="acordos" aria-labelledby="collective-atlas-title">
+<aside class="interpretation-key" aria-label="Como ler as diferentes camadas de direitos e propostas">
+ <div class="interpretation-key-head"><span>GUIA DE LEITURA / TRÊS PLANOS DIFERENTES</span><span aria-hidden="true">✦</span></div>
+ <div class="interpretation-key-grid">
+  <a href="#lei"><span class="interpretation-key-index">I / DIREITO</span><strong>O que está na Constituição</strong><small>Tetos gerais, repousos e condições de negociação.</small></a>
+  <a href="#acordos"><span class="interpretation-key-index">II / EXPERIÊNCIA</span><strong>O que os sindicatos conquistaram</strong><small>Precedentes documentados, com categoria e vigência próprias.</small></a>
+  <a href="#desenho"><span class="interpretation-key-index">III / PROPOSTA</span><strong>O que pode virar lei</strong><small>Proteções a desenhar, sem apresentá-las como direito vigente.</small></a>
+ </div>
+</aside><div class="collective-atlas" id="acordos" aria-labelledby="collective-atlas-title">
   <div class="collective-atlas-head">
     <div><span class="collective-kicker">ARQUIVO DE CONQUISTAS / NEGOCIAÇÃO COLETIVA</span>
       <h3 id="collective-atlas-title">O serviço não pode parar.<br><em>O direito pode avançar.</em></h3>
@@ -854,32 +950,32 @@ footer{padding-block:22px 36px}
       <div class="collective-case-overline"><span>01 · LIMEIRA / SAÚDE</span><span>ACT · 2025–2026</span></div>
       <h4>Santa Casa de Limeira</h4>
       <div class="collective-case-number">03 <small>folgas mensais</small></div>
-      <p>O ACT registrado como SP000474/2026 previa três folgas mensais no 12×36 para os grupos de enfermagem e apoio abrangidos. Também estabelecia o <strong>12 de maio como feriado da categoria</strong>, com folga adicional e tratamento específico ao trabalho nesse dia. O mesmo instrumento considerava compensados os domingos e feriados comuns e trazia exceções por função; portanto, não equivale a três folgas universais mais pagamento dobrado de todos os feriados.</p>
+      <p class="collective-case-essence">Três folgas mensais previstas para os grupos abrangidos e regras próprias para o dia da categoria. Há condições e exceções por função.</p><details class="collective-detail"><summary>Cláusulas, limites e condições <span class="detail-indicator" aria-hidden="true">＋</span></summary><p>O ACT registrado como SP000474/2026 previa três folgas mensais no 12×36 para os grupos de enfermagem e apoio abrangidos. Também estabelecia o <strong>12 de maio como feriado da categoria</strong>, com folga adicional e tratamento específico ao trabalho nesse dia. O mesmo instrumento considerava compensados os domingos e feriados comuns e trazia exceções por função; portanto, não equivale a três folgas universais mais pagamento dobrado de todos os feriados.</p></details>
       <a href="https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR062673%2F2025" target="_blank" rel="noopener noreferrer">Ver acordo registrado no MTE <span aria-hidden="true">↗</span></a>
     </article>
     <article class="collective-case">
       <div class="collective-case-overline"><span>02 · LIMEIRA / SAÚDE</span><span>ACT · 2025–2026</span></div>
       <h4>Hospital Unimed Limeira</h4>
       <div class="collective-case-number">03 <small>folgas mensais</small></div>
-      <p>O ACT reproduzido para 2025/2026 estabelecia três folgas mensais no 12×36 para enfermagem e apoio, além de seis folgas mensais para a jornada de seis horas. Os feriados comuns eram considerados compensados, com ressalva para o feriado da categoria. Trata-se de um exemplo de distribuição negociada do tempo, não de regra aplicável a todos os hospitais.</p>
+      <p class="collective-case-essence">Folgas mensais para grupos previstos no acordo, diferenciadas conforme a jornada. A compensação dos feriados possui ressalvas.</p><details class="collective-detail"><summary>Cláusulas, limites e condições <span class="detail-indicator" aria-hidden="true">＋</span></summary><p>O ACT reproduzido para 2025/2026 estabelecia três folgas mensais no 12×36 para enfermagem e apoio, além de seis folgas mensais para a jornada de seis horas. Os feriados comuns eram considerados compensados, com ressalva para o feriado da categoria. Trata-se de um exemplo de distribuição negociada do tempo, não de regra aplicável a todos os hospitais.</p></details>
       <a href="https://convencoes.bond.com.br/act/sinsaude-br-act-2025-2026-4" target="_blank" rel="noopener noreferrer">Consultar reprodução do acordo <span aria-hidden="true">↗</span></a>
     </article>
     <article class="collective-case">
       <div class="collective-case-overline"><span>03 · LIMEIRA / CUIDADO</span><span>ACT · 2025–2026</span></div>
       <h4>Cantinho do Vovô</h4>
       <div class="collective-case-number">50<span>%</span> <small>e 100% em extras</small></div>
-      <p>O ACT SP000492/2026 combinava três folgas mensais no 12×36 com adicionais de 50% nas duas primeiras horas extras diárias e 100% nas seguintes, conforme os respectivos requisitos; previa ainda folga de aniversário condicionada. É uma demonstração de que compensação temporal e valorização financeira podem coexistir.</p>
+      <p class="collective-case-essence">Folgas mensais, percentuais específicos para horas extras e folga de aniversário sujeita a condições.</p><details class="collective-detail"><summary>Cláusulas, limites e condições <span class="detail-indicator" aria-hidden="true">＋</span></summary><p>O ACT SP000492/2026 combinava três folgas mensais no 12×36 com adicionais de 50% nas duas primeiras horas extras diárias e 100% nas seguintes, conforme os respectivos requisitos; previa ainda folga de aniversário condicionada. É uma demonstração de que compensação temporal e valorização financeira podem coexistir.</p></details>
       <a href="https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR061902%2F2025" target="_blank" rel="noopener noreferrer">Ver acordo registrado no MTE <span aria-hidden="true">↗</span></a>
     </article>
     <article class="collective-case">
       <div class="collective-case-overline"><span>04 · CURITIBA / SAÚDE</span><span>CCT · 2026–2027</span></div>
       <h4>Uma jornada de 36 horas como horizonte</h4>
       <div class="collective-case-number">36<small>h/semana</small></div>
-      <p>A CCT PR002026/2026 apresenta alternativas setoriais de jornada reduzida, inclusive compensação em folga das semanas acima de 36 horas ou pagamento adicional, conforme o regime. Também prevê, em determinadas hipóteses, quatro dias de licença remunerada associados à compensação de feriados. Não é um modelo único, automático ou transferível sem adaptações.</p>
+      <p class="collective-case-essence">A convenção apresenta alternativas de jornada e compensação, inclusive folga ou pagamento adicional, conforme regime e abrangência.</p><details class="collective-detail"><summary>Cláusulas, limites e condições <span class="detail-indicator" aria-hidden="true">＋</span></summary><p>A CCT PR002026/2026 apresenta alternativas setoriais de jornada reduzida, inclusive compensação em folga das semanas acima de 36 horas ou pagamento adicional, conforme o regime. Também prevê, em determinadas hipóteses, quatro dias de licença remunerada associados à compensação de feriados. Não é um modelo único, automático ou transferível sem adaptações.</p></details>
       <a href="https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR046279%2F2026" target="_blank" rel="noopener noreferrer">Ver convenção registrada no MTE <span aria-hidden="true">↗</span></a>
     </article>
   </div>
-  <p class="collective-method"><strong>Como ler essas experiências:</strong> os três ACTs de Limeira aqui citados tinham vigência até maio de 2026; são precedentes documentais, não confirmação de cláusulas atualmente vigentes. Os instrumentos foram pactuados antes da EC 141/2026 e precisam ser relidos à luz de seus novos parâmetros, dos limites de cada categoria e de acordos posteriores. “Folga mensal” também não deve ser contada duas vezes como repouso ordinário, compensação de feriado e redução de jornada.</p>
+  <div class="collective-source-key" aria-label="Tipos de fonte"><span><i class="source-dot is-primary" aria-hidden="true"></i>3 documentos no sistema oficial Mediador</span><span><i class="source-dot is-secondary" aria-hidden="true"></i>1 reprodução consultável de acordo registrado</span></div><p class="collective-method"><strong>Como ler essas experiências:</strong> os três ACTs de Limeira aqui citados tinham vigência até maio de 2026; são precedentes documentais, não confirmação de cláusulas atualmente vigentes. Os instrumentos foram pactuados antes da EC 141/2026 e precisam ser relidos à luz de seus novos parâmetros, dos limites de cada categoria e de acordos posteriores. “Folga mensal” também não deve ser contada duas vezes como repouso ordinário, compensação de feriado e redução de jornada.</p>
 </div>
 <div class="compensation-matrix" aria-labelledby="compensation-title">
   <div class="compensation-matrix-title"><span>DA PRÁTICA SINDICAL À POLÍTICA PÚBLICA</span><h3 id="compensation-title">Cinco caminhos para compensar quem mantém tudo funcionando.</h3></div>
