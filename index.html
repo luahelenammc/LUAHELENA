@@ -118,20 +118,6 @@
     .moonword { display: inline-block; color: var(--moon-bright); text-shadow: 0 0 28px rgba(243,220,165,.16); }
     .lead { position: relative; z-index: 1; max-width: 670px; color: rgba(248,239,228,.78); font-size: clamp(1.05rem, 2vw, 1.31rem); line-height: 1.55; margin-bottom: 0; }
 
-    /* Biblioteca de papers: destaque editorial na entrada do portal */
-    .papers-cta { position:relative; z-index:1; isolation:isolate; display:inline-flex; align-items:center; gap:14px; width:fit-content; max-width:100%; margin-top:30px; padding:13px 16px; border:1px solid rgba(255,245,216,.78); border-radius:19px; color:#2a160e; background:linear-gradient(118deg,#fff2cb 0%,#f4c98e 48%,#edaa86 100%); box-shadow:0 10px 30px rgba(239,160,111,.24),0 0 35px rgba(244,169,107,.13),inset 0 1px 0 rgba(255,255,255,.68); overflow:hidden; transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,filter .25s ease; }
-    .papers-cta::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(108deg,transparent 25%,rgba(255,255,255,.55) 44%,transparent 64%); transform:translateX(-125%); transition:transform .68s ease; }
-    .papers-cta:hover,.papers-cta:focus-visible { transform:translateY(-4px); filter:saturate(1.12); box-shadow:0 16px 42px rgba(239,160,111,.34),0 0 0 3px rgba(244,169,107,.24); outline:none; }
-    .papers-cta:hover::before,.papers-cta:focus-visible::before { transform:translateX(125%); }
-    .papers-cta-icon { display:grid; place-items:center; flex:none; width:48px; height:48px; border-radius:13px; border:1px solid rgba(93,49,26,.16); background:rgba(255,255,255,.37); box-shadow:inset 0 1px 0 rgba(255,255,255,.6); font-size:1.55rem; }
-    .papers-cta-copy { display:flex; flex-direction:column; align-items:flex-start; gap:3px; min-width:0; }
-    .papers-cta-copy strong { font-size:1.05rem; line-height:1.2; letter-spacing:-.02em; }
-    .papers-cta-copy small { color:rgba(68,38,26,.76); font-size:.78rem; font-weight:650; line-height:1.35; }
-    .papers-cta-arrow { flex:none; display:grid; place-items:center; width:28px; height:28px; margin-left:9px; border-radius:50%; background:rgba(73,40,24,.11); font-size:1.05rem; font-weight:700; transition:transform .25s ease; }
-    .papers-cta:hover .papers-cta-arrow,.papers-cta:focus-visible .papers-cta-arrow { transform:translate(2px,-2px); }
-    @media(max-width:480px) { .papers-cta { width:100%; gap:11px; padding:12px; } .papers-cta-icon { width:44px; height:44px; } .papers-cta-arrow { margin-left:auto; } }
-    @media(prefers-reduced-motion:reduce) { .papers-cta,.papers-cta::before,.papers-cta-arrow { transition:none; } }
-
     .primary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 18px; }
     .path-card { --accent: var(--moon); --glow-rgb: var(--accent-rgb, var(--moon-rgb)); position: relative; isolation: isolate; min-height: 390px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; padding: clamp(24px, 4vw, 36px); border-radius: var(--radius-xl); background: radial-gradient(circle at 14% 18%, rgba(var(--glow-rgb), .12), transparent 34%), linear-gradient(135deg, rgba(var(--glow-rgb), .045), rgba(255,255,255,.018) 44%, rgba(0,0,0,.05)), rgba(10,9,15,.78); overflow: hidden; border-color: rgba(var(--glow-rgb), .44); animation: featuredBreathClean var(--pulse-clean, 1.52s) cubic-bezier(.42,0,.22,1) infinite; transition: transform .28s cubic-bezier(.2,.8,.2,1), border-color .28s ease, box-shadow .28s ease, filter .28s ease, background .28s ease; }
     .path-card::after, .section-card.featured::after, .mini.featured::after { content: ""; position: absolute; inset: 0; display: block; border-radius: inherit; pointer-events: none; opacity: 0; border: 0; z-index: 2; background: linear-gradient(112deg, transparent 0%, transparent 33%, rgba(255,255,255,0) 39%, rgba(255,255,255,.18) 48%, rgba(var(--glow-rgb), .24) 53%, rgba(255,255,255,.10) 58%, transparent 70%, transparent 100%); background-size: 260% 260%; background-position: 170% 0%; }
@@ -144,7 +130,7 @@
     .path-card h3 { margin: 42px 0 16px; max-width: 520px; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4.1rem); line-height: .91; letter-spacing: -.057em; font-weight: 500; }
     .path-card p { max-width: 570px; color: rgba(248,239,228,.72); line-height: 1.63; font-size: 1.02rem; margin-bottom: 0; }
 
-    .secondary-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 18px; }
+    .secondary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
     .section-card { min-height: 190px; padding: 22px; border-radius: var(--radius-lg); background: rgba(255,255,255,.048); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
     .section-card.featured, .mini.featured { --glow-rgb: var(--accent-rgb, var(--group-rgb, var(--moon-rgb))); position: relative; isolation: isolate; overflow: hidden; animation: featuredBreathClean var(--pulse-clean, 1.52s) cubic-bezier(.42,0,.22,1) infinite; border-color: rgba(var(--glow-rgb), .44); }
     .section-card:hover, .section-card:focus-visible { transform: translateY(-3px); border-color: rgba(243,220,165,.26); background: rgba(255,255,255,.072); outline: none; }
@@ -223,11 +209,7 @@
       <h1 data-i18n="hero.title">Lua Helena <span class="moonword">Moon</span></h1>
       <p class="lead" data-i18n="hero.lead">Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Blogueira de jogos antigos, escritora e fotógrafa por hobby. Pesquisadora independente em Arquitetura de Contexto Humano-IA.</p>
 
-      <a class="papers-cta" href="https://www.luahelena.com.br/papers/" rel="noopener" target="_blank" aria-label="Abrir biblioteca de papers de Lua Helena" data-i18n-attr="aria-label:hero.papers.aria">
-        <span class="papers-cta-icon" aria-hidden="true">📚</span>
-        <span class="papers-cta-copy"><strong data-i18n="hero.papers.title">Explorar meus papers</strong><small data-i18n="hero.papers.subtitle">Biblioteca interativa · estante iBooks 6</small></span>
-        <span class="papers-cta-arrow" aria-hidden="true">↗</span>
-      </a>
+
     </div>
   </section>
 
@@ -244,6 +226,7 @@
 
   <section aria-label="Entradas secundárias" class="secondary-grid">
     <a aria-label="Abrir Blog Nostalgia" class="section-card featured" data-i18n-attr="aria-label:secondary.nostalgia.aria" href="https://nostalgia.mooon.com.br" rel="noopener" style="--accent: var(--theme-gamer); --accent-rgb: var(--theme-gamer-rgb);" target="_blank"><div class="section-top"><span aria-hidden="true" class="mini-icon">🎮</span></div><h3 data-i18n="secondary.nostalgia.title">Blog Nostalgia</h3><p data-i18n="secondary.nostalgia.body">Jogos antigos, memória e cultura digital.</p></a>
+    <a aria-label="Abrir biblioteca de papers" class="section-card featured" data-i18n-attr="aria-label:secondary.papers.aria" href="https://www.luahelena.com.br/papers/" rel="noopener" style="--accent: var(--theme-papers); --accent-rgb: var(--theme-papers-rgb);" target="_blank"><div class="section-top"><span aria-hidden="true" class="mini-icon">📚</span></div><h3 data-i18n="secondary.papers.title">Biblioteca de papers</h3><p data-i18n="secondary.papers.body">Pesquisas, estudos e propostas em uma estante interativa.</p></a>
   </section>
 
   <section aria-label="Mais caminhos" class="others">
@@ -304,6 +287,7 @@
       </div></section>
 
       <section aria-label="Papers e estudos" class="mini-group" style="--group: var(--theme-papers); --group-rgb: var(--theme-papers-rgb);"><h3 class="mini-group-headline" data-i18n="group.papers">Papers &amp; estudos</h3><div class="mini-grid">
+        <a class="mini featured" data-tags="biblioteca acervo papers estudos pesquisas publicacoes artigos notas tecnicas livros estante ibooks" href="https://www.luahelena.com.br/papers/" rel="noopener" style="--accent: var(--theme-papers); --accent-rgb: var(--theme-papers-rgb);" target="_blank"><span aria-hidden="true" class="glyph">📚</span><span><strong data-i18n="mini.papersLibrary.title">Ver biblioteca completa</strong><em data-i18n="mini.papersLibrary.body">todos os papers reunidos</em></span></a>
         <a class="mini" data-tags="soberania cognitiva brasileira paper inteligencia artificial ia publica governanca auditoria contestacao capacidade estatal" href="https://www.luahelena.com.br/papers/soberaniacognitiva.html" rel="noopener" style="--accent: #4f81a6; --accent-rgb: 79, 129, 166;" target="_blank"><span aria-hidden="true" class="glyph">⚖️</span><span><strong data-i18n="mini.soberaniaCognitiva.title">Soberania Cognitiva Brasileira</strong><em data-i18n="mini.soberaniaCognitiva.body">matriz para capacidade pública em IA</em></span></a>
         <a class="mini" data-tags="ia pela vida paper tecnologia politica ambiental inteligencia artificial clima marina silva" href="https://www.luahelena.com.br/papers/iapelavida.html" rel="noopener" style="--accent: #ffc187;" target="_blank"><span aria-hidden="true" class="glyph">🤖</span><span><strong data-i18n="mini.iaPelaVida.title">IA pela Vida</strong><em data-i18n="mini.iaPelaVida.body">paper</em></span></a>
         <a class="mini" data-tags="direito sem caminho paper saude trans sus regulacao cross lgbtqia inteligencia artificial symmy larrat" href="https://www.luahelena.com.br/papers/direitosemcaminho.html" rel="noopener" style="--accent: #ff9bb7; --accent-rgb: 255, 155, 183;" target="_blank"><span aria-hidden="true" class="glyph">🌈</span><span><strong data-i18n="mini.direitoSemCaminho.title">Direito sem caminho</strong><em data-i18n="mini.direitoSemCaminho.body">saúde trans, SUS e IA pública</em></span></a>
@@ -327,9 +311,7 @@
       "hero.title": "Lua Helena <span class=\"moonword\">Moon</span>",
       "hero.lead": "Psicóloga hospitalar, socióloga de formação, pós-graduada em Psicologia Organizacional e em Psicopedagogia Institucional. Blogueira de jogos antigos, escritora e fotógrafa por hobby. Pesquisadora independente em Arquitetura de Contexto Humano-IA.",
 
-      "hero.papers.aria": "Abrir biblioteca de papers de Lua Helena",
-      "hero.papers.title": "Explorar meus papers",
-      "hero.papers.subtitle": "Biblioteca interativa · estante iBooks 6",
+
       "primary.ai.aria": "Abrir trabalho com IA",
       "primary.ai.title": "Trabalho com IA",
       "primary.ai.body": "Arquitetura de contexto humano-IA, documentação viva, adoção responsável, Moon Source, design de uso e apresentação profissional.",
@@ -339,6 +321,11 @@
       "secondary.nostalgia.aria": "Abrir Blog Nostalgia",
       "secondary.nostalgia.title": "Blog Nostalgia",
       "secondary.nostalgia.body": "Jogos antigos, memória e cultura digital.",
+      "secondary.papers.aria": "Abrir biblioteca de papers",
+      "secondary.papers.title": "Biblioteca de papers",
+      "secondary.papers.body": "Pesquisas, estudos e propostas em uma estante interativa.",
+      "mini.papersLibrary.title": "Ver biblioteca completa",
+      "mini.papersLibrary.body": "todos os papers reunidos",
       "more.title": "Mais caminhos",
       "more.body": "Rotas menores, organizadas por tema.",
       "search.placeholder": "Filtrar caminhos…",
@@ -432,9 +419,7 @@
       "hero.title": "Lua Helena <span class=\"moonword\">Moon</span>",
       "hero.lead": "Hospital psychologist, trained sociologist, with postgraduate degrees in Organizational Psychology and Institutional Psychopedagogy. Old-games blogger, writer, and hobby photographer. Independent researcher in Human-AI Context Architecture.",
 
-      "hero.papers.aria": "Open Lua Helena's research papers library",
-      "hero.papers.title": "Explore my papers",
-      "hero.papers.subtitle": "Interactive library · iBooks 6 bookshelf",
+
       "primary.ai.aria": "Open AI work",
       "primary.ai.title": "Work with AI",
       "primary.ai.body": "Human-AI context architecture, living documentation, responsible adoption, Moon Source, usage design, and professional presentation.",
@@ -444,6 +429,11 @@
       "secondary.nostalgia.aria": "Open Blog Nostalgia",
       "secondary.nostalgia.title": "Blog Nostalgia",
       "secondary.nostalgia.body": "Old games, memory, and digital culture.",
+      "secondary.papers.aria": "Open the research papers library",
+      "secondary.papers.title": "Research library",
+      "secondary.papers.body": "Research, studies, and proposals on an interactive bookshelf.",
+      "mini.papersLibrary.title": "View full library",
+      "mini.papersLibrary.body": "all research papers in one place",
       "more.title": "More paths",
       "more.body": "Smaller routes, organized by theme.",
       "search.placeholder": "Filter paths…",
