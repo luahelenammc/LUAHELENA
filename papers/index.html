@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#c89b59">
-<meta name="description" content="Proposta de biblioteca de papers de Lua Helena, com interface iBooks iOS 6.">
-<title>Lua Papers · Biblioteca</title>
+<meta name="description" content="Biblioteca de papers de Lua Helena em estante inspirada no iBooks do iOS 6.">
+<title>Lua Papers · iBooks 6</title>
 <style>
 :root{--wood:#b77a38;--gold:#e3ba76;--ink:#4b3119;--beam:75px;--board:#be8748;--ease:cubic-bezier(.2,.8,.22,1)}
 *{box-sizing:border-box}html{height:100%;background:#8f5e2d}body{margin:0;min-height:100%;color:#271e18;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #2889ce;outline-offset:3px}
@@ -29,6 +29,79 @@
 @media(max-width:760px){.toolbar{height:52px;padding:0 9px;gap:5px}.toolbar h1{font-size:16px}.iosbtn{font-size:12px;padding:0 8px}.tool-right{gap:5px}.segbtn{min-width:29px;padding:0 7px}.introline{height:72px;padding:15px 14px}.tiny-note{display:none}.shelf{height:240px;padding:0 14px 32px}.shelf-inner{grid-template-columns:repeat(2,minmax(0,1fr));max-width:420px;gap:14px}.volume{height:194px;width:137px}.cover__title{font-size:18px}.cover--tempo .cover__title{font-size:30px}.cover--vida .cover__title{font-size:24px}.cover--soberania .cover__title{font-size:16px}.cover__content{padding:17px 12px 12px 17px}.shelf .volume:nth-child(n+3){display:none}.collection-popover{top:73px}.footer-note{font-size:9px}}
 @media(max-width:380px){.toolbar h1{font-size:14px}.iosbtn{padding:0 6px;font-size:11px}.segbtn{padding:0 5px;min-width:24px}.tool-right{gap:4px}.shelf{height:222px}.volume{width:120px;height:173px}.bookname{font-size:10px}.cover--tempo .cover__title{font-size:25px}.cover--vida .cover__title{font-size:21px}.cover--soberania .cover__title{font-size:15px}.cover__title{font-size:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Lua Papers V2 • desktop scale, tangible sorting and page Genie */
+.drag-hint{font-size:11px;font-weight:700;color:#f5d9b4;text-shadow:0 1px 2px #643d21aa;white-space:nowrap;letter-spacing:.02em}
+@media(max-width:760px){.drag-hint{display:none}}
+
+
+@media (min-width:1050px){
+ .app{max-width:1860px}
+ .statusbar{height:26px;font-size:13px;padding:0 22px}
+ .toolbar{height:69px;padding:0 29px}
+ .toolbar h1{font-size:24px}
+ .iosbtn,.segbtn{min-height:36px;font-size:14px}
+ .introline{height:99px;padding:24px 40px 12px}
+ .search{width:min(420px,100%);height:38px;border-radius:22px}
+ .search input{font-size:15px}
+ .shelf{height:354px;padding:5px 64px 39px}
+ .shelf-inner{max-width:1420px;gap:36px}
+ .volume{width:203px;height:288px}
+ .cover__content{padding:26px 20px 18px 25px}
+ .cover__eyebrow{font-size:10px}
+ .cover__title{font-size:27px;margin-top:25px}
+ .cover__subtitle{font-size:12px;max-width:175px;margin-top:16px}
+ .cover__author{font-size:11px}
+ .cover--soberania .cover__title{font-size:25px;max-width:165px}
+ .cover--tempo .cover__title{font-size:47px}
+ .cover--tempo .cover__subtitle{font-size:16px}
+ .cover--vida .cover__title{font-size:39px}
+ .cover--direito .cover__title{font-size:29px}
+ .cover--pdf .cover__title,.cover--brief .cover__title{font-size:25px}
+ .bookname{font-size:14px;bottom:-34px}
+ .shelf:before{height:37px}
+ .shelf:after{bottom:37px}
+ .tiny-note{font-size:13px}
+}
+@media (min-width:1550px){.shelf{height:384px}.volume{height:315px;width:222px}.shelf-inner{max-width:1570px}.cover__content{padding-top:30px}.cover--tempo .cover__title{font-size:49px}}
+.library-tools{display:flex;align-items:center;gap:15px;justify-content:flex-end}
+.reset-order{border:1px solid #8c582d;color:#fae2bd;font-size:11px;font-weight:700;background:linear-gradient(#a47341,#87552d);box-shadow:inset 0 1px #e6b474,0 1px #f1c58b77;padding:7px 10px;border-radius:5px;text-shadow:0 1px 1px #3b210f;white-space:nowrap}
+.reset-order[hidden]{display:none}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.volume{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.volume:active{cursor:grabbing}
+.volume.is-being-dragged{opacity:.27;filter:saturate(.5);transform:none!important}
+.volume.drop-target:not(.is-being-dragged){transform:translateY(-18px) scale(1.035)!important;filter:drop-shadow(0 0 11px #fff6);outline:2px dashed #ffe4a2;outline-offset:8px}
+.drag-ghost{position:fixed!important;z-index:80!important;pointer-events:none!important;cursor:grabbing!important;opacity:.95;filter:drop-shadow(8px 18px 16px #271208aa);transform:rotate(-5deg) scale(1.06);transition:none!important;max-width:none!important;touch-action:none}
+.drag-ghost .bookname{opacity:0}
+body.is-dragging,body.is-dragging *{cursor:grabbing!important}
+body.modal-open{overflow:hidden}
+.dialog-backdrop{background:#130b0785;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .35s ease}
+.dialog-backdrop.open{animation:none}
+.dialog-backdrop .dialog{animation:none;will-change:transform,clip-path,opacity;overflow:visible;max-height:min(720px,87svh);width:min(690px,calc(100vw - 40px));padding:50px 46px 36px 59px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);background:repeating-linear-gradient(0deg,transparent 0 29px,#694d2a0b 30px,transparent 31px),linear-gradient(100deg,#e3cba9 0%,#f6e9d0 6%,#fff9e8 56%,#f2e3c5 100%);box-shadow:0 27px 95px #160b07d9,inset 10px 0 20px #855c2927,0 0 0 1px #f4e0b8;transform-style:preserve-3d}
+.dialog-backdrop .dialog:before{left:33px;width:2px;background:repeating-linear-gradient(180deg,#a37a4d80 0 2px,transparent 2px 22px)}
+.dialog-backdrop .dialog:after{content:"";position:absolute;right:0;top:0;width:28px;height:28px;background:linear-gradient(225deg,#d2aa76 0 49%,#83613d 51%,#f6edda 56%);box-shadow:-2px 2px 4px #5c3e2240}
+.paper-bookmark{position:absolute;right:56px;top:-2px;width:29px;height:90px;background:linear-gradient(90deg,#873b53,#af5974 45%,#6e2a45);clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);box-shadow:2px 5px 7px #45201555;filter:drop-shadow(1px 3px 2px #3b1b1b50);z-index:5;pointer-events:none}
+.paper-bookmark:before{content:'✦';font-size:13px;color:#efd5bd;position:absolute;top:17px;left:8px}
+.dialog__marker{background:#f8f0df;border-color:#c7b498;border-radius:2px;color:#836449;letter-spacing:.1em;text-transform:uppercase}
+.dialog-paperhead{color:#a07a50;text-align:right;font:700 10px/1.3 Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;position:absolute;right:98px;top:21px}
+.dialog h2{font-size:clamp(27px,3vw,43px);max-width:530px;line-height:1.09}
+.dialog p{max-width:550px}
+.dialog .actions{padding-top:18px;border-top:1px solid #c4ac8566}
+.dialog .actions a:hover,.dialog .actions button:hover{filter:brightness(1.08)}
+.dialog-close{z-index:9;right:34px;top:38px;background:#faf1df;border:1px solid #cdb18f;border-radius:50%;width:33px;height:33px;font-size:24px;line-height:29px;box-shadow:0 2px 5px #7b583944}
+.flight-book{position:fixed;z-index:46;pointer-events:none;transform-origin:left center;transform-style:preserve-3d;backface-visibility:hidden;filter:drop-shadow(9px 18px 14px #0008)}
+.flight-book>.cover{width:100%;height:100%}
+.shelf-tutorial{position:absolute;top:64px;left:50%;transform:translateX(-50%);color:#f1d1a3;text-shadow:0 1px #603e20;font:700 11px/1.3 Helvetica,Arial,sans-serif;white-space:nowrap;pointer-events:none;opacity:.78}
+@media(max-width:760px){
+ .library-tools{gap:7px}.reset-order{font-size:10px;padding:6px 7px}
+ .dialog-backdrop .dialog{max-height:85svh;overflow:auto;padding:54px 27px 27px 34px;width:min(570px,calc(100vw - 24px))}
+ .dialog-backdrop .dialog:before{left:18px}.dialog-paperhead{right:65px;top:18px;font-size:8px}
+ .dialog h2{padding-right:17px}.dialog-close{right:15px;top:42px}
+ .paper-bookmark{right:35px;width:23px;height:67px}
+ .shelf-tutorial{font-size:10px;top:62px}
+}
+@media(prefers-reduced-motion:reduce){.drag-ghost,.dialog-backdrop .dialog,.flight-book{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -40,9 +113,9 @@
   <div class="tool-right"><div class="seg" role="group" aria-label="Modo de visualização"><button class="segbtn active" id="gridButton" title="Estante" aria-label="Estante" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg></button><button class="segbtn" id="listButton" title="Lista" aria-label="Lista" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="4" height="4" rx=".6"/><rect x="10" y="5" width="11" height="2" rx=".7"/><rect x="3" y="11" width="4" height="4" rx=".6"/><rect x="10" y="12" width="11" height="2" rx=".7"/><rect x="3" y="18" width="4" height="4" rx=".6"/><rect x="10" y="19" width="11" height="2" rx=".7"/></svg></button></div><button class="iosbtn" id="orderButton" title="Alternar ordem" aria-label="Alternar ordem">Ordenar</button></div>
  </header>
  <nav class="collection-popover" id="collectionsMenu" aria-label="Coleções"><div class="collection-popover__heading">Minhas coleções</div><div id="collectionOptions"></div></nav>
- <main class="library" id="library"><div class="introline"><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="searchInput" type="search" autocomplete="off" placeholder="Buscar papers" aria-label="Buscar papers por título e assunto"></label><span class="tiny-note" id="resultCount">4 publicações</span></div><div id="bookshelf" class="shelves" aria-live="polite"></div><p class="footer-note">Lua Helena Moon Martins Cardoso · Biblioteca de papers · <a href="https://www.luahelena.com.br/">luahelena.com.br</a></p></main>
+ <main class="library" id="library"><div class="introline"><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><input id="searchInput" type="search" autocomplete="off" placeholder="Buscar papers" aria-label="Buscar papers por título e assunto"></label><div class="library-tools"><span class="drag-hint" id="dragHint" aria-hidden="true">↔ Arraste as capas</span><span class="tiny-note" id="resultCount">4 publicações</span><button class="reset-order" id="resetOrder" type="button" hidden aria-label="Restaurar ordem original dos livros">↺ Ordem original</button></div></div><div id="bookshelf" class="shelves" aria-live="polite"></div><p class="visually-hidden" id="reorderStatus" aria-live="polite"></p><p class="footer-note">Lua Helena Moon Martins Cardoso · Biblioteca de papers · <a href="https://www.luahelena.com.br/">luahelena.com.br</a></p></main>
 </div>
-<div class="dialog-backdrop" id="dialogBackdrop" aria-hidden="true"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><button class="dialog-close" id="dialogClose" aria-label="Fechar">×</button><span class="dialog__marker" id="dialogKind">Publicação</span><h2 id="dialogTitle"></h2><p class="subtitle" id="dialogSubtitle"></p><p id="dialogDescription"></p><div class="actions" id="dialogActions"></div></div></div>
+<div class="dialog-backdrop" id="dialogBackdrop" aria-hidden="true"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><button class="dialog-close" id="dialogClose" aria-label="Fechar">×</button><span class="paper-bookmark" aria-hidden="true"></span><span class="dialog-paperhead">Coleção Lua Helena</span><span class="dialog__marker" id="dialogKind">Publicação</span><h2 id="dialogTitle"></h2><p class="subtitle" id="dialogSubtitle"></p><p id="dialogDescription"></p><div class="actions" id="dialogActions"></div></div></div>
 <script>
 (()=>{
  'use strict';
@@ -61,19 +134,128 @@
  const $=s=>document.querySelector(s);const clock=$('#clock'),menu=$('#collectionsMenu'),cb=$('#collectionsButton'),container=$('#bookshelf'),count=$('#resultCount');
  const time=()=>{const d=new Date(); clock.textContent=d.toLocaleTimeString('pt-BR',{hour:'numeric',minute:'2-digit'})};time();setInterval(time,60000);
  const escapeHTML=s=>String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
- function filtered(){let a=works.filter(x=>x.category.includes(collection));if(query){const q=query.toLocaleLowerCase('pt-BR');a=a.filter(x=>`${x.title} ${x.subtitle} ${x.description}`.toLocaleLowerCase('pt-BR').includes(q))}if(order==='az')a.sort((a,b)=>a.title.localeCompare(b.title,'pt-BR'));return a}
+ const originalIds=works.map(w=>w.id),orderKey='lua-papers-shelf-order-v2';
+ let savedIds=[];
+ try{const stored=JSON.parse(localStorage.getItem(orderKey)||'[]');if(Array.isArray(stored))savedIds=stored.filter(id=>originalIds.includes(id))}catch(err){}
+ let manualIds=[...new Set([...savedIds,...originalIds])],lastRect=null,opening=false,animationNumber=0,drag=null,suppressClick=false;
+ function saveOrder(){try{localStorage.setItem(orderKey,JSON.stringify(manualIds))}catch(err){}}
+ function isCustomized(){return manualIds.some((id,i)=>id!==originalIds[i])}
+ function filtered(){let a=works.filter(x=>x.category.includes(collection));if(query){const q=query.toLocaleLowerCase('pt-BR');a=a.filter(x=>`${x.title} ${x.subtitle} ${x.description}`.toLocaleLowerCase('pt-BR').includes(q))}if(order==='az')a.sort((a,b)=>a.title.localeCompare(b.title,'pt-BR'));else a.sort((a,b)=>manualIds.indexOf(a.id)-manualIds.indexOf(b.id));return a}
+ function announce(msg){$('#reorderStatus').textContent=msg}
+ function moveWork(a,b){if(a===b||!manualIds.includes(a)||!manualIds.includes(b))return;manualIds.splice(manualIds.indexOf(a),1);manualIds.splice(manualIds.indexOf(b),0,a);saveOrder();render();announce('Livro reposicionado. Ordem salva neste navegador.')}
  function cover(w){let decoration=w.id==='soberania'?'<span class="orbit"></span>':w.id==='tempo'?'<span class="stripes"></span><span class="clockface"></span>':w.id==='vida'?'<span class="leaf"></span>':w.id==='direito'?'<span class="route"></span>':w.id==='nota'||w.id==='caderno'?'<span class="pdf-rule"></span>':'';return `<span class="cover cover--${w.className}">${decoration}<span class="cover__content"><span class="cover__eyebrow">${escapeHTML(w.eyebrow)}</span><span class="cover__title">${escapeHTML(w.coverTitle)}</span><span class="cover__subtitle">${escapeHTML(w.subtitle)}</span><span class="cover__author">LUA HELENA</span></span></span>`}
- function render(){const a=filtered(); count.textContent=`${a.length} ${a.length===1?'volume':'volumes'}`;container.className=view==='list'?'listview':'shelves';if(!a.length){container.innerHTML='<p class="empty-state">Nenhum volume encontrado nesta coleção.</p>';return}
+ function render(){const a=filtered();$('#resetOrder').hidden=!isCustomized();$('#dragHint').hidden=view!=='grid'||order==='az';count.textContent=`${a.length} ${a.length===1?'volume':'volumes'}`;container.className=view==='list'?'listview':'shelves';if(!a.length){container.innerHTML='<p class="empty-state">Nenhum volume encontrado nesta coleção.</p>';return}
  if(view==='list'){container.innerHTML=a.map(w=>`<button type="button" class="listitem" data-id="${w.id}"><span class="minicover ${w.className}"></span><span><strong>${escapeHTML(w.title)}</strong><small>${escapeHTML(w.subtitle)}</small></span><span class="chevron" aria-hidden="true">›</span></button>`).join('');return}
- const mobile=matchMedia('(max-width:760px)').matches; const cols=mobile?2:4;const rows=Math.max(3,Math.ceil(a.length/cols));container.innerHTML=Array.from({length:rows},(_,i)=>{const row=a.slice(i*cols,(i+1)*cols);return `<section class="shelf ${row.length?'':'empty'}" aria-label="Prateleira ${i+1}"><div class="shelf-inner">${row.map(w=>`<button type="button" class="volume" data-id="${w.id}" aria-label="Abrir ${escapeHTML(w.title)}">${cover(w)}<span class="bookname">${escapeHTML(w.title)}</span></button>`).join('')}</div></section>`}).join('')}
+ const mobile=matchMedia('(max-width:760px)').matches; const cols=mobile?2:4;const rows=Math.max(3,Math.ceil(a.length/cols));container.innerHTML=Array.from({length:rows},(_,i)=>{const row=a.slice(i*cols,(i+1)*cols);return `<section class="shelf ${row.length?'':'empty'}" aria-label="Prateleira ${i+1}"><div class="shelf-inner">${row.map(w=>`<button type="button" class="volume" data-id="${w.id}" aria-label="Abrir ${escapeHTML(w.title)}" title="Arraste para reorganizar · Alt + setas">${cover(w)}<span class="bookname">${escapeHTML(w.title)}</span></button>`).join('')}</div></section>`}).join('')}
  function renderMenu(){ $('#collectionOptions').innerHTML=collections.map(x=>`<button type="button" data-collection="${x.id}" aria-current="${x.id===collection}">${escapeHTML(x.label)} ${x.id===collection?'<span class="checkmark">✓</span>':''}</button>`).join('')}
  function toggleMenu(open){menu.classList.toggle('open',open);cb.setAttribute('aria-expanded',String(open));if(open)renderMenu()}
- function openWork(id){const w=works.find(w=>w.id===id);if(!w)return;lastFocus=document.activeElement;$('#dialogKind').textContent=w.kind;$('#dialogTitle').textContent=w.title;$('#dialogSubtitle').textContent=w.subtitle;$('#dialogDescription').textContent=w.description;const href=base+w.href;let actions=`<a href="${href}" rel="noopener">${w.kind==='PDF'?'Abrir PDF':'Ler publicação'} ↗</a>`;if(w.pdf)actions+=`<a class="secondary" href="${base+w.pdf}" target="_blank" rel="noopener">Consultar PDF ↗</a>`;actions+='<button type="button" class="secondary" id="dialogBack">Voltar à estante</button>';$('#dialogActions').innerHTML=actions;$('#dialogBackdrop').classList.add('open');$('#dialogBackdrop').setAttribute('aria-hidden','false');$('#dialogClose').focus()}
- function closeDialog(){const el=$('#dialogBackdrop');el.classList.remove('open');el.setAttribute('aria-hidden','true');lastFocus?.focus()}
+ const noMotion=matchMedia('(prefers-reduced-motion: reduce)');
+ function shape(t){
+  // Closed Bézier-like funnel: 18 samples on each side, broad shoulders and gently concave sides.
+  const top=.13+.87*Math.pow(t,.72),bottom=.055+.945*Math.pow(t,1.8),n=18;
+  const left=[],right=[];
+  for(let i=0;i<=n;i++){
+   const y=i/n,shoulder=Math.pow(1-y,1.45),w=bottom+(top-bottom)*shoulder;
+   const sway=(1-t)*.095*Math.sin(Math.PI*y)*(y-.18);
+   left.push(`${(50-50*w+sway*100).toFixed(2)}% ${(y*100).toFixed(2)}%`);
+   right.unshift(`${(50+50*w+sway*100).toFixed(2)}% ${(y*100).toFixed(2)}%`);
+  }
+  return `polygon(${left.concat(right).join(',')})`;
+ }
+ function curve(v){return 1-Math.pow(1-v,3)}
+ function playGenie(reverse=false){
+  const el=$('.dialog'),origin=lastRect,token=++animationNumber;
+  if(noMotion.matches||!origin)return Promise.resolve();
+  el.style.transform='none';el.style.clipPath='none';
+  const target=el.getBoundingClientRect(),dx=origin.left+origin.width/2-target.left-target.width/2;
+  const dy=origin.top+origin.height/2-target.top-target.height/2;
+  const duration=reverse?610:830,start=performance.now();
+  return new Promise(resolve=>{
+   function frame(now){if(token!==animationNumber){resolve();return}
+    const u=Math.min(1,(now-start)/duration),p=reverse?1-curve(u):curve(u);
+    const travel=1-p,scaleX=.31+.69*p,scaleY=.16+.84*p;
+    el.style.transform=`perspective(1300px) translate3d(${(dx*travel).toFixed(1)}px,${(dy*travel).toFixed(1)}px,0) scale(${scaleX.toFixed(4)},${scaleY.toFixed(4)}) rotateY(${(-13*travel).toFixed(2)}deg)`;
+    el.style.clipPath=shape(p);el.style.opacity=String(Math.min(1,Math.max(.07,p*2.4)));
+    if(u<1)requestAnimationFrame(frame);else{el.style.transform='';el.style.clipPath='';el.style.opacity='';resolve()}
+   }
+   requestAnimationFrame(frame);
+  });
+ }
+ function flipCover(source){
+  if(!source||noMotion.matches)return;
+  const coverEl=source.querySelector('.cover');if(!coverEl)return;
+  const rect=coverEl.getBoundingClientRect(),ghost=document.createElement('div');
+  ghost.className='flight-book';ghost.style.cssText=`left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px`;
+  ghost.append(coverEl.cloneNode(true));document.body.append(ghost);
+  const modal=$('.dialog').getBoundingClientRect();const toX=(modal.left+modal.width*.12)-(rect.left+rect.width*.5),toY=(modal.top+modal.height*.42)-(rect.top+rect.height*.5);
+  ghost.animate([{transform:'translate3d(0,0,0) rotateY(0deg) scale(1)',opacity:1,offset:0},{transform:`translate3d(${toX*.62}px,${toY*.62}px,0) rotateY(-95deg) scale(1.28)`,opacity:.93,offset:.6},{transform:`translate3d(${toX}px,${toY}px,0) rotateY(-173deg) scale(1.55)`,opacity:0,offset:1}],{duration:750,easing:'cubic-bezier(.21,.77,.15,1)',fill:'forwards'}).finished.catch(()=>{}).then(()=>ghost.remove());
+ }
+ function openWork(id,source){
+  const w=works.find(w=>w.id===id);if(!w||opening)return;
+  opening=true;lastFocus=document.activeElement;
+  const origin=source?.querySelector('.cover')||source;lastRect=origin?.getBoundingClientRect()||null;
+  $('#dialogKind').textContent=w.kind;$('#dialogTitle').textContent=w.title;
+  $('#dialogSubtitle').textContent=w.subtitle;$('#dialogDescription').textContent=w.description;
+  const href=base+w.href;let actions=`<a href="${href}" rel="noopener">${w.kind==='PDF'?'Abrir PDF':'Ler publicação'} ↗</a>`;
+  if(w.pdf)actions+=`<a class="secondary" href="${base+w.pdf}" target="_blank" rel="noopener">Consultar PDF ↗</a>`;
+  actions+='<button type="button" class="secondary" id="dialogBack">Voltar à estante</button>';
+  $('#dialogActions').innerHTML=actions;
+  const backdrop=$('#dialogBackdrop');backdrop.classList.add('open');backdrop.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
+  flipCover(source);$('#dialogClose').focus({preventScroll:true});
+  playGenie(false).then(()=>{opening=false});
+ }
+ function closeDialog(){
+  const el=$('#dialogBackdrop');if(!el.classList.contains('open')||opening)return;
+  opening=true;playGenie(true).then(()=>{el.classList.remove('open');el.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');opening=false;lastFocus?.focus({preventScroll:true})});
+ }
  cb.addEventListener('click',()=>toggleMenu(!menu.classList.contains('open')));$('#collectionOptions').addEventListener('click',e=>{let item=e.target.closest('[data-collection]');if(!item)return;collection=item.dataset.collection;toggleMenu(false);render()});document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!cb.contains(e.target))toggleMenu(false)});
  $('#searchInput').addEventListener('input',e=>{query=e.target.value.trim();render()});
  $('#gridButton').addEventListener('click',()=>setView('grid'));$('#listButton').addEventListener('click',()=>setView('list'));function setView(v){view=v;$('#gridButton').classList.toggle('active',v==='grid');$('#listButton').classList.toggle('active',v==='list');$('#gridButton').setAttribute('aria-pressed',v==='grid');$('#listButton').setAttribute('aria-pressed',v==='list');render()}
- $('#orderButton').addEventListener('click',e=>{order=order==='default'?'az':'default';e.target.textContent=order==='az'?'A–Z ✓':'Ordenar';render()});container.addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)openWork(b.dataset.id)});$('#dialogClose').addEventListener('click',closeDialog);$('#dialogBackdrop').addEventListener('click',e=>{if(e.target.id==='dialogBackdrop'||e.target.id==='dialogBack')closeDialog()});$('#dialogActions').addEventListener('click',e=>{if(e.target.id==='dialogBack')closeDialog()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDialog();toggleMenu(false)}if(e.key==='Tab'&&$('#dialogBackdrop').classList.contains('open')){const focusable=[...$('#dialogBackdrop').querySelectorAll('button,a[href]')];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});let currentMobile=matchMedia('(max-width:760px)').matches;window.addEventListener('resize',()=>{const next=matchMedia('(max-width:760px)').matches;if(next!==currentMobile){currentMobile=next;render()}});
+ $('#orderButton').addEventListener('click',e=>{order=order==='default'?'az':'default';e.target.textContent=order==='az'?'A–Z ✓':'Ordenar';render()});container.addEventListener('click',e=>{if(suppressClick){suppressClick=false;e.preventDefault();return}const b=e.target.closest('[data-id]');if(b)openWork(b.dataset.id,b)});$('#dialogClose').addEventListener('click',closeDialog);$('#dialogBackdrop').addEventListener('click',e=>{if(e.target.id==='dialogBackdrop'||e.target.id==='dialogBack')closeDialog()});$('#dialogActions').addEventListener('click',e=>{if(e.target.id==='dialogBack')closeDialog()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDialog();toggleMenu(false)}if(e.key==='Tab'&&$('#dialogBackdrop').classList.contains('open')){const focusable=[...$('#dialogBackdrop').querySelectorAll('button,a[href]')];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});let currentMobile=matchMedia('(max-width:760px)').matches;window.addEventListener('resize',()=>{const next=matchMedia('(max-width:760px)').matches;if(next!==currentMobile){currentMobile=next;render()}});
+
+ $('#resetOrder').addEventListener('click',()=>{manualIds=originalIds.slice();saveOrder();order='default';$('#orderButton').textContent='Ordenar';render();announce('Ordem original restaurada.')});
+ // Pointer-based rearrangement works with mouse, pen and long-press on touchscreens.
+ function clearDrag(){if(!drag)return;clearTimeout(drag.timer);drag.el?.classList.remove('is-being-dragged');drag.ghost?.remove();container.querySelectorAll('.drop-target').forEach(el=>el.classList.remove('drop-target'));document.body.classList.remove('is-dragging');drag=null}
+ container.addEventListener('pointerdown',e=>{
+  if(view!=='grid'||order==='az'||e.button!==0||opening)return;
+  const el=e.target.closest('.volume[data-id]');if(!el)return;
+  const start={id:el.dataset.id,el,pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,offsetX:0,offsetY:0,active:false,armed:e.pointerType!=='touch',ghost:null,target:null,timer:null};
+  const rect=el.getBoundingClientRect();start.offsetX=e.clientX-rect.left;start.offsetY=e.clientY-rect.top;
+  if(!start.armed)start.timer=setTimeout(()=>{if(drag===start)start.armed=true},330);
+  drag=start;
+ });
+ window.addEventListener('pointermove',e=>{
+  if(!drag||e.pointerId!==drag.pointerId)return;
+  const d=drag,dist=Math.hypot(e.clientX-d.startX,e.clientY-d.startY);
+  if(!d.active){if(dist<10)return;if(!d.armed){clearDrag();return}
+   d.active=true;suppressClick=true;
+   d.ghost=d.el.cloneNode(true);d.ghost.classList.add('drag-ghost');
+   const r=d.el.getBoundingClientRect();d.ghost.style.width=r.width+'px';d.ghost.style.height=r.height+'px';
+   document.body.append(d.ghost);d.el.classList.add('is-being-dragged');document.body.classList.add('is-dragging');
+  }
+  e.preventDefault();d.ghost.style.left=(e.clientX-d.offsetX)+'px';d.ghost.style.top=(e.clientY-d.offsetY)+'px';
+  const candidate=document.elementFromPoint(e.clientX,e.clientY)?.closest('.volume[data-id]');
+  container.querySelectorAll('.drop-target').forEach(el=>el.classList.remove('drop-target'));
+  d.target=candidate&&candidate!==d.el?candidate:null;
+  if(d.target)d.target.classList.add('drop-target');
+ },{passive:false});
+ window.addEventListener('pointerup',e=>{
+  if(!drag||e.pointerId!==drag.pointerId)return;const {active,id,target}=drag;
+  clearDrag();if(active){suppressClick=true;if(target){moveWork(id,target.dataset.id)}setTimeout(()=>{suppressClick=false},300)}
+ });
+ window.addEventListener('pointercancel',clearDrag);
+ // Keyboard users can reorder a focused book with Alt+left/right.
+ container.addEventListener('keydown',e=>{
+  if(view!=='grid'||order==='az'||!e.altKey||!['ArrowLeft','ArrowRight'].includes(e.key))return;
+  const el=e.target.closest('.volume[data-id]');if(!el)return;
+  const ids=filtered().map(w=>w.id),i=ids.indexOf(el.dataset.id),j=i+(e.key==='ArrowLeft'?-1:1);
+  if(i<0||j<0||j>=ids.length)return;
+  e.preventDefault();const from=ids[i],to=ids[j];
+  if(e.key==='ArrowRight'){manualIds.splice(manualIds.indexOf(from),1);manualIds.splice(manualIds.indexOf(to)+1,0,from);saveOrder();render();}
+  else moveWork(from,to);
+  container.querySelector(`[data-id="${from}"]`)?.focus({preventScroll:true});
+  announce('Posição do livro atualizada.');
+ });
  renderMenu();render();
 })();
 </script>
