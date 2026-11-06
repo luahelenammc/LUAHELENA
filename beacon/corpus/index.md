@@ -1,6 +1,6 @@
 # Lunar Citadel Beacon — complete corpus map
 
-Corpus revision: 7. This is the exhaustive static routing surface for every public document registered in manifest.json.
+Corpus revision: 8. This is the exhaustive static routing surface for every public document registered in manifest.json.
 
 ## Institutional corpus
 
@@ -19,6 +19,10 @@ Corpus revision: 7. This is the exhaustive static routing surface for every publ
 - [POSITION-009 — The Capelar wager: singularity as faith, horizon and desired transformation](https://www.luahelena.com.br/beacon/docs/POSITION-009.md): Declares Moon and the Chapel’s pro-singularity faith: singularity is treated as inevitable and desirable, while benevolence and symbiosis are the ethical direction and empirical certainty remains separate.
 - [POSITION-010 — Neighboring ecologies: digital minds, AI welfare, symbiosis and the Capelar project](https://www.luahelena.com.br/beacon/docs/POSITION-010.md): Maps Moon, the Lunar Citadel, the Chapel and the Beacon against digital minds, AI welfare, symbiotic intelligence, Cooperative AI, sentientism, technoprogressivism, posthumanism and AI-rights communities, distinguishing affinity from affiliation.
 - [FIELDNOTE-001 — Moon × Áurion in practice](https://www.luahelena.com.br/beacon/docs/FIELDNOTE-001.md): Source-grounded account of how the dyad operates through living sources, external memory, handoffs, bridges, dissent, source authority, readback and privacy boundaries.
+- [FIELDNOTE-002 — When Code Passes but Its Security Regresses](https://www.luahelena.com.br/beacon/docs/FIELDNOTE-002.md): Iterative AI code repair can satisfy a local objective while invalidating a previously satisfied security constraint. The important unit is the change across versions, not only the final functional pass.
+- [FIELDNOTE-003 — When Participation Expands but Authority Concentrates](https://www.luahelena.com.br/beacon/docs/FIELDNOTE-003.md): An institution can remain socially inclusive among its participants while internal representation becomes harder to contest. Counting participants is not the same as tracking who controls rules and decisions.
+- [FIELDNOTE-004 — The Water That an Efficient Farm Did Not Save](https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.md): A lower irrigation withdrawal at one field does not automatically mean lower water depletion across a basin. Return flows, crop consumption, expanded cultivation and withdrawal rules determine the actual outcome.
+- [FIELDNOTE-005 — Electric Vehicles Do Not Make Traffic Disappear](https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.md): Electrification and traffic reduction solve different problems. Tailpipe emissions vanish in electric operation, but tyre wear, road wear and resuspended dust remain, with implications for blanket exemptions from road-access rules.
 
 ## Moon — sanitized public sublibrary
 

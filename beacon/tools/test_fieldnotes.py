@@ -102,7 +102,13 @@ class FieldNotesTests(unittest.TestCase):
             b.render_fieldnotes(doc)[1],
             (BEACON / "fieldnotes" / "index.md").read_text(encoding="utf-8"),
         )
-        self.assertEqual(len(b.civilizational_notes(doc)), 0)
+        active = b.civilizational_notes(doc)
+        self.assertEqual([d["id"] for d in active], [
+            "FIELDNOTE-005", "FIELDNOTE-004", "FIELDNOTE-003", "FIELDNOTE-002",
+        ])
+        for note in active:
+            self.assertTrue(note.get("source_episode"))
+            self.assertEqual(note["status"], "active")
 
 
 if __name__ == "__main__":
