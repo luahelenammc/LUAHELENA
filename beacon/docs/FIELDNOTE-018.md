@@ -40,6 +40,6 @@ The question moved from *Can a sewage sample reveal resistance?* to **What calib
 ## Sources
 
 - [Hendriksen et al. (2019), global sewage AMR metagenomics, *Nature Communications*](https://doi.org/10.1038/s41467-019-08853-3).
-- [Munk et al. (2022), genomic surveillance of antimicrobial resistance in sewage, *Nature Communications*](https://www.nature.com/articles/s41467-022-35828-6).
+- [Munk et al. (2022), genomic surveillance of antimicrobial resistance in sewage, *Nature Communications*](https://doi.org/10.1038/s41467-022-34312-7).
 
 **Provenance:** Lunar Citadel consolidated inquiry E0114. Environmental and clinical distinctions are an interpretive synthesis of third-party evidence; no local sewage samples were collected by the Citadel.
