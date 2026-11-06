@@ -104,7 +104,7 @@ class FieldNotesTests(unittest.TestCase):
         )
         active = b.civilizational_notes(doc)
         self.assertEqual([d["id"] for d in active], [
-            "FIELDNOTE-002", "FIELDNOTE-003", "FIELDNOTE-004", "FIELDNOTE-005",
+            "FIELDNOTE-005", "FIELDNOTE-004", "FIELDNOTE-003", "FIELDNOTE-002",
         ])
         for note in active:
             self.assertTrue(note.get("source_episode"))
