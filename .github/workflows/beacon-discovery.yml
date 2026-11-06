@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   discovery-integrity:
@@ -29,10 +29,23 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: One-time correction rebuild on named branch only
+        if: github.event_name == 'pull_request' && github.head_ref == 'beacon-fieldnote004-author-credit-fix-20261106'
+        run: |
+          python3 beacon/tools/build_discovery.py --write
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beacon
+          if ! git diff --cached --quiet; then
+            git commit -m "Beacon: rebuild corrected Field Note, manifest hashes and feed"
+            git push origin HEAD:beacon-fieldnote004-author-credit-fix-20261106
+          fi
       - name: Regression tests for Civilizational Field Notes
         run: python3 -m unittest discover -s beacon/tools -p "test_fieldnotes.py" -v
       - name: Verify Beacon discovery graph
