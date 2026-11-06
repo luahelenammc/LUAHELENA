@@ -6,8 +6,8 @@ series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
 authority: Moon-directed expansion of consolidated inquiries 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
-published_at: 2026-11-06T19:15:00Z
-updated_at: 2026-11-06T19:15:00Z
+published_at: 2026-11-06T18:30:00Z
+updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-007
 source_episode: E0134
 topic: AI, evidence and accountability
