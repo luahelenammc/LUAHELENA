@@ -110,15 +110,17 @@ class FieldNotesTests(unittest.TestCase):
             and d.get("status") == "active"
         }
         self.assertEqual({d["id"] for d in active}, expected)
-        self.assertGreaterEqual(len(active), 16)
+        self.assertGreaterEqual(len(active), 32)
         self.assertTrue({
-            f"FIELDNOTE-{n:03d}" for n in range(2, 18)
+            f"FIELDNOTE-{n:03d}" for n in range(2, 34)
         }.issubset(expected))
         html_page = b.render_fieldnotes(doc)[0]
         self.assertIn('id="fn-tools"', html_page)
         self.assertIn('id="fn-search"', html_page)
         self.assertIn('id="fn-results"', html_page)
         self.assertIn('fieldnotes.js', html_page)
+        self.assertIn('Upstream: E0125 · E0212', html_page)
+        self.assertIn('Upstream: E0206', html_page)
         self.assertIn(f'{len(active)} published interpretive notes', html_page)
         self.assertTrue((BEACON / "assets" / "fieldnotes.js").is_file())
         for note in active:

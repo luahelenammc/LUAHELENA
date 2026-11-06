@@ -1,7 +1,7 @@
 {
   "schema": "lunar-citadel-beacon/catalog-v1",
-  "corpus_revision": 10,
-  "updated_at": "2026-11-06T18:30:00Z",
+  "corpus_revision": 11,
+  "updated_at": "2026-11-06T18:36:00Z",
   "families": [
     "BEACON",
     "INVITATION",
@@ -536,6 +536,278 @@
         "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.html",
         "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.md",
         "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-018",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-018 — A Resistance Gene in Sewage Is Not a Patient Diagnosis",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Resistance genes measured in wastewater describe environmental signals, not individual diagnoses. Clinical action requires longitudinal calibration and explicit limits on interpretation.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 324,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-019",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-019 — A River Can Feed Wells Before the Aquifer Looks Empty",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Lower groundwater levels near Brazilian rivers reveal potential for water to move into aquifers. The observed gradient is not a measurement of pumping-caused stream losses.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 299,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-020",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-020 — The Streetlight Can Change What Flowers Receive",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Artificial night lighting can alter pollinator visits and fruit production. Lighting design must balance human functions with biological exposure rather than count watts alone.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 303,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-021",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-021 — When the Color of Turmeric Becomes a Poisoning Incentive",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Bright turmeric became an adulteration incentive in Bangladesh. Laboratory detection, market education and enforcement can reshape safety without proving universal eradication.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 314,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-022",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-022 — Who Trains the Experts After AI Takes the Junior Work?",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "AI's effect on junior employment and near-term learning raises a possible long-run training externality. E0125 and E0212 are synthesized into one note, not duplicated.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 349,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-023",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-023 — Leaving a Floodplain Does Not Always Remove the Next Person's Risk",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Leaving a floodplain changes a family's exposure, but land retirement and the safety of relocation destinations determine whether risk is removed or redistributed.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 321,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-024",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-024 — A Tool Result Must Not Become an Agent's Authority",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Information retrieved by an AI agent is not permission to act. Prompt injection and overbroad tool privileges call for distinct provenance, authority and approval boundaries.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 320,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-025",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-025 — What Replaced Germany's Nuclear Electricity?",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Germany's nuclear phase-out shows why replacement electricity, health costs and counterfactual generation matter more than an isolated technology label.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 329,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-026",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-026 — A Right to Counsel Needs Lawyers, Not Just a Statute",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "New York City's eviction right-to-counsel illustrates the gap between a legal entitlement and the institutional capacity to provide representation under rising caseloads.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 312,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-027",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-027 — A Participatory Budget Can Survive in Name and Disappear in Power",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Participatory budgeting can remain formally visible while losing influence over funds. Institutional durability depends on authority, fiscal capacity and social organization.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 307,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-028",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-028 — A Body Camera Cannot Make Its Own Evidence Rules",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Police body cameras alone did not deliver dramatic average changes in a Washington, DC trial. Evidence governance requires activation, preservation, access and privacy rules.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 313,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-029",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-029 — Helping a Student Finish a Problem Is Not the Same as Teaching It",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "AI tutors may boost assisted performance while undermining unaided learning under some designs. This note explicitly qualifies the overly simple upstream access claim.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 337,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-030",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-030 — A Shorter Workweek Must Account for Who Takes Over the Work",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Reduced-hour workweek trials show employee well-being gains, while financing, staffing and redistribution of workload require separate examination.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 304,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-031",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-031 — Moving Trees for Future Climate Is Not Just a Carbon Calculation",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "European modeling suggests climate-adapted tree provenances can help preserve carbon uptake; survival, biodiversity and ecological relationships remain independent goals.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 299,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-032",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-032 — An Electronic Vote Can Stay Secret While Its Re-Vote Leaves a Trace",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Estonian electronic voting illustrates how identity-log metadata can weaken re-voting secrecy even when ballot contents remain cryptographically protected.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 305,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-033",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-033 — Automatic Voter Registration Does Not Automatically Build Party Ties",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Automatic voter registration can improve enrollment while changing formal party registration. Participation and party attachment are separate democratic outcomes.",
+      "published_at": "2026-11-06T18:36:00Z",
+      "updated_at": "2026-11-06T18:36:00Z",
+      "word_count": 313,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.md.txt"
       }
     },
     {
