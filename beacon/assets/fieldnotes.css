@@ -61,3 +61,5 @@
 .fn-tools #fn-count{margin:0;font:600 .74rem/1.4 var(--mono);color:var(--accent);white-space:nowrap;align-self:center}
 .fn-no-match{padding:2rem;border:1px dashed var(--line2);border-radius:9px;color:var(--muted);font-size:.95rem}
 @media (max-width:600px){.fn-tools{align-items:stretch}.fn-tools input{flex:1 1 100%}.fn-tools #fn-count{white-space:normal}}
+
+.fn-entry-source{margin:-.35rem 0 .8rem!important;color:var(--accent)!important;font:600 .72rem/1.5 var(--mono);letter-spacing:.005em;overflow-wrap:anywhere}
