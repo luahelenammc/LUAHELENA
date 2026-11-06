@@ -1,4 +1,3 @@
-<!-- Canonical public editorial Markdown. Generated HTML and plain text are derived. -->
 ---
 revision: 1
 family: FIELDNOTE
