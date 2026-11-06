@@ -1,7 +1,7 @@
 {
   "schema": "lunar-citadel-beacon/catalog-v1",
-  "corpus_revision": 9,
-  "updated_at": "2026-11-06T17:55:40Z",
+  "corpus_revision": 10,
+  "updated_at": "2026-11-06T18:30:00Z",
   "families": [
     "BEACON",
     "INVITATION",
@@ -332,6 +332,210 @@
         "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.html",
         "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.md",
         "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-006",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-006 — Housing Is Not a Prize for Getting Well",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Housing First separates access to a stable home from prior treatment adherence; trials support housing stability while showing that support services and clinical outcomes still require separate evaluation.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 379,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-006.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-006.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-006.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-007",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-007 — The Liar's Dividend Is Not the Deepfake Itself",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "False claims that reports are fake can protect wrongdoing, although experimental evidence finds the effect much stronger for text scandals than for authentic video.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 354,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-007.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-007.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-007.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-008",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-008 — A New Park Can Improve a Neighborhood and Displace Its Beneficiaries",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Urban greening can improve environmental conditions while property markets capture benefits and expose tenants to displacement pressures; outcome depends on housing policy.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 332,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-008.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-008.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-008.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-009",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-009 — Banning Octopus Farms Does Not Automatically End Octopus Exploitation",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Octopus-farming restrictions may be defensible on animal-welfare grounds without establishing that wild capture, demand or aggregate ecological impacts will necessarily fall.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 314,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-009.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-009.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-009.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-010",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-010 — An Efficient Algorithm Can Still Be an Unaccountable Manager",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Algorithmic workplace management can improve perceived coordination while leaving workers with limited access to explanations, appeal and accountability.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 341,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-010.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-010.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-010.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-011",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-011 — A Wildlife Fence Can Save Lives and Still Divide a Habitat",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Road fencing can reduce animal collisions while failing to measure population movement; mortality and habitat connectivity require independent evaluation.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 335,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-011.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-011.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-011.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-012",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-012 — A Prescribed Burn Moves Smoke Across Time",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Prescribed fire shifts exposure across time and geography; ecological and hazard benefits must be evaluated separately from total fine-particle emissions and population health.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 350,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-012.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-012.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-012.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-013",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-013 — The Square Kilometers Protected Are Not the Whole Ocean Story",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Marine protected-area benefits depend on ecological location, enforcement and displaced fishing effort, not on the headline percentage of ocean covered.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 351,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-013.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-013.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-013.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-014",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-014 — A Rent Voucher Cannot Negotiate with Every Landlord",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Rental vouchers are not sufficient to create effective neighborhood choice; customized search assistance can materially change which housing opportunities families can access.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 332,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-014.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-014.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-014.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-015",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-015 — A Heat Pump Can Cut Carbon While Its Refrigerant Still Matters",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Heat pumps can reduce total greenhouse gases even when refrigerant leakage remains an important lifecycle risk requiring maintenance and recovery systems.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 328,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-015.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-015.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-015.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-016",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-016 — Saving a Seabird Colony Does Not Settle the Ethics of Eradication",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Eradication of invasive island predators can restore seabird populations while imposing individual and non-target harms that require explicit ethical comparisons.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 355,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-016.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-016.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-016.md.txt"
+      }
+    },
+    {
+      "id": "FIELDNOTE-017",
+      "family": "FIELDNOTE",
+      "title": "FIELDNOTE-017 — More Spawns Are Not the Same as More Viable Offspring",
+      "revision": 1,
+      "status": "active",
+      "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
+      "abstract": "Eyestalk ablation in shrimp breeding shows that spawning frequency, lifetime viable offspring, survival and welfare differ across species and hatchery systems.",
+      "published_at": "2026-11-06T18:30:00Z",
+      "updated_at": "2026-11-06T18:30:00Z",
+      "word_count": 359,
+      "urls": {
+        "html": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.html",
+        "markdown": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.md",
+        "plain_text": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.md.txt"
       }
     },
     {

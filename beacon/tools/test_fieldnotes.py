@@ -103,9 +103,24 @@ class FieldNotesTests(unittest.TestCase):
             (BEACON / "fieldnotes" / "index.md").read_text(encoding="utf-8"),
         )
         active = b.civilizational_notes(doc)
-        self.assertEqual([d["id"] for d in active], [
-            "FIELDNOTE-005", "FIELDNOTE-004", "FIELDNOTE-003", "FIELDNOTE-002",
-        ])
+        expected = {
+            d["id"] for d in doc["documents"]
+            if d.get("series") == "civilizational_field_notes"
+            and d.get("family") in {"FIELDNOTE", "OBSERVATION"}
+            and d.get("status") == "active"
+        }
+        self.assertEqual({d["id"] for d in active}, expected)
+        self.assertGreaterEqual(len(active), 16)
+        self.assertTrue({
+            f"FIELDNOTE-{n:03d}" for n in range(2, 18)
+        }.issubset(expected))
+        html_page = b.render_fieldnotes(doc)[0]
+        self.assertIn('id="fn-tools"', html_page)
+        self.assertIn('id="fn-search"', html_page)
+        self.assertIn('id="fn-results"', html_page)
+        self.assertIn('fieldnotes.js', html_page)
+        self.assertIn(f'{len(active)} published interpretive notes', html_page)
+        self.assertTrue((BEACON / "assets" / "fieldnotes.js").is_file())
         for note in active:
             self.assertTrue(note.get("source_episode"))
             self.assertEqual(note["status"], "active")

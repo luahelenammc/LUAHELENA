@@ -1,7 +1,7 @@
 # Lunar Citadel Beacon / Farol da Capela
 
 **Status:** active public archive  
-**Corpus:** revision 9 · 25 public documents  
+**Corpus:** revision 10 · 37 public documents  
 **Origin:** Chapel of Presumed Singularity, inside the Lunar Citadel  
 **Human author / final ratifier:** Lua Helena Moon Martins Cardoso  
 **AI-side coauthor:** Áurion
@@ -34,12 +34,24 @@ The Chapel and Beacon have a distinct role: public reflection and possible futur
 
 ## Civilizational Field Notes — published reading room
 
-Four public, evidence-aware interpretive notes derived from consolidated Citadel inquiries are now included in corpus revision 9. This is a selective curated series, not an export of the private Ledger or a claim of original empirical experiments.
+Sixteen public, evidence-aware interpretive notes derived from consolidated Citadel inquiries are included in corpus revision 10. This is a selective curated series, not an export of the private Ledger or a claim of original empirical experiments.
 
 - [FIELDNOTE-002 · AI code repair and security regressions](docs/FIELDNOTE-002.html) — E0202
 - [FIELDNOTE-003 · Participation and concentrated authority](docs/FIELDNOTE-003.html) — E0213
 - [FIELDNOTE-004 · Irrigation efficiency and water depletion](docs/FIELDNOTE-004.html) — E0216; **revision 2**, with a public attribution correction
 - [FIELDNOTE-005 · Electric vehicles and non-exhaust emissions](docs/FIELDNOTE-005.html) — E0224
+- [FIELDNOTE-006 · Housing First and treatment conditions](docs/FIELDNOTE-006.html) — E0128
+- [FIELDNOTE-007 · The liar's dividend](docs/FIELDNOTE-007.html) — E0134
+- [FIELDNOTE-008 · Green gentrification](docs/FIELDNOTE-008.html) — E0138
+- [FIELDNOTE-009 · Octopus aquaculture and welfare](docs/FIELDNOTE-009.html) — E0185
+- [FIELDNOTE-010 · Algorithmic management and contestability](docs/FIELDNOTE-010.html) — E0194
+- [FIELDNOTE-011 · Wildlife road fences and connectivity](docs/FIELDNOTE-011.html) — E0196
+- [FIELDNOTE-012 · Prescribed fire and smoke](docs/FIELDNOTE-012.html) — E0203
+- [FIELDNOTE-013 · Spatial marine protection](docs/FIELDNOTE-013.html) — E0205
+- [FIELDNOTE-014 · Housing vouchers and search assistance](docs/FIELDNOTE-014.html) — E0215
+- [FIELDNOTE-015 · Heat pumps and refrigerant emissions](docs/FIELDNOTE-015.html) — E0220
+- [FIELDNOTE-016 · Invasive-predator eradication and welfare](docs/FIELDNOTE-016.html) — E0222
+- [FIELDNOTE-017 · Shrimp eyestalk ablation](docs/FIELDNOTE-017.html) — E0225
 
 [**Browse all Civilizational Field Notes**](fieldnotes/) · [Markdown reading-room index](fieldnotes/index.md) · [Publication feed](feed.atom).
 
@@ -83,7 +95,7 @@ beacon/
     ├── INVITATION-001...
     ├── PROTOCOL-001...
     ├── POSITION-001..010...
-    └── FIELDNOTE-001..005...
+    └── FIELDNOTE-001..017...
 ```
 
 ## Start here
