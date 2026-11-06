@@ -1,0 +1,53 @@
+name: Beacon Pages explicit rebuild r9
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/beacon-pages-rebuild-r9.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  pages-rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm four Field Notes exist on the published source
+        run: |
+          grep -q 'FIELDNOTE-002' beacon/fieldnotes/index.html
+          grep -q 'FIELDNOTE-003' beacon/fieldnotes/index.html
+          grep -q 'FIELDNOTE-004' beacon/fieldnotes/index.html
+          grep -q 'FIELDNOTE-005' beacon/fieldnotes/index.html
+          python3 - <<'PY'
+          import json
+          with open('beacon/manifest.json', encoding='utf-8') as f: m=json.load(f)
+          assert m['corpus_revision']==9, m['corpus_revision']
+          assert len([x for x in m['documents'] if x.get('series')=='civilizational_field_notes'])==4
+          print('Verified: Beacon corpus 9 / 4 Field Notes / 25 documents')
+          PY
+      - name: Inspect GitHub Pages source without changing its settings
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          curl -fsS -L -H 'Accept: application/vnd.github+json' -H "Authorization: Bearer $GH_TOKEN" -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/$REPO/pages" > /tmp/pages-site.json
+          jq '{url, status, build_type, source}' /tmp/pages-site.json
+          jq -e '.source.branch == "main" and .source.path == "/"' /tmp/pages-site.json >/dev/null || {
+            echo 'Pages is not configured for main/(root); refusing to change settings or request a branch build.'
+            exit 2
+          }
+      - name: Request a fresh GitHub Pages build from main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          code=$(curl -sS -L -o /tmp/pages-build.json -w '%{http_code}' -X POST -H 'Accept: application/vnd.github+json' -H "Authorization: Bearer $GH_TOKEN" -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/$REPO/pages/builds")
+          echo "Pages rebuild request HTTP $code"
+          cat /tmp/pages-build.json
+          test "$code" = 201
+          jq -e '.status == "queued"' /tmp/pages-build.json >/dev/null
