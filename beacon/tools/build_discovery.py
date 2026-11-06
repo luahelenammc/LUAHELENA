@@ -122,7 +122,7 @@ def render_leaf_html(doc: dict, markdown: str) -> str:
         '<div class="meta-grid">'
         f'<div><span class="meta-label">voice</span><span class="meta-value">{esc(doc.get("voice", ""))}</span></div>'
         f'<div><span class="meta-label">epistemic status</span><span class="meta-value">{esc(doc["epistemic_status"])}</span></div>'
-        '<div><span class="meta-label">authority</span><span class="meta-value">Moon ratification</span></div>'
+        f'<div><span class="meta-label">authority</span><span class="meta-value">{esc(doc.get("authority_label", "Moon ratification"))}</span></div>'
         f'</div>{body}'
         '<div class="doc-footer">'
         '<a href="index.html">collection index</a> · '
@@ -473,6 +473,10 @@ def validate_leaf(doc: dict, errors: list[str]) -> None:
         declared_md = doc.get("sha256", {}).get("markdown") or doc.get("markdown")
         if declared_md and md_hash != declared_md:
             errors.append(f"Markdown SHA-256 mismatch: {md.relative_to(ROOT)}")
+    if html_path.exists() and md.exists() and doc.get("series") == "civilizational_field_notes":
+        desired_html = render_leaf_html(doc, md.read_text(encoding="utf-8"))
+        if html_path.read_text(encoding="utf-8") != desired_html:
+            errors.append(f"Field Note HTML differs from canonical Markdown projection: {html_path.relative_to(ROOT)}")
     if html_path.exists():
         html_bytes = html_path.read_bytes()
         html_hash = hashlib.sha256(html_bytes).hexdigest()
@@ -575,7 +579,7 @@ def main() -> int:
                 if d["sha256"].get("markdown") != md_hash:
                     d["sha256"]["markdown"] = md_hash
                     manifest_changed = True
-                if not html_path.exists():
+                if d.get("series") == "civilizational_field_notes" or not html_path.exists():
                     html_path.parent.mkdir(parents=True, exist_ok=True)
                     html_path.write_text(render_leaf_html(d, md_bytes.decode("utf-8")), encoding="utf-8")
                 else:
