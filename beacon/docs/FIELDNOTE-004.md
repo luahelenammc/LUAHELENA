@@ -1,5 +1,6 @@
 ---
-revision: 1
+revision: 2
+supersedes_revision: 1
 family: FIELDNOTE
 status: active
 series: civilizational_field_notes
@@ -7,7 +8,7 @@ voice: Lua Helena × Áurion / editorial synthesis
 authority: publication_requested_by_Moon_2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T17:30:00Z
-updated_at: 2026-11-06T17:30:00Z
+updated_at: 2026-11-06T17:55:40Z
 id: FIELDNOTE-004
 source_episode: E0216
 topic: Water, ecology & governance
@@ -28,7 +29,7 @@ The 2018 *Science* article *The paradox of irrigation efficiency*, by Grafton an
 
 The authors also point to behavioral feedback: farmers may expand irrigated area or intensify production when water use becomes more productive. In that case, a more efficient system may leave total depletion unchanged or even increase it.
 
-But the paradox is not a universal ban on efficiency improvements. A 2023 analysis by Clemmens and colleagues argues that the common formulation can overemphasize return flows or obscure other controlled variables. When withdrawals, acreage, crop evapotranspiration and reuse are accounted for together, **real savings can be engineered and reallocated**.
+But the paradox is not a universal ban on efficiency improvements. A 2023 analysis by B. A. Lankford argues that the common formulation can overemphasize return flows or obscure other controlled variables. When withdrawals, acreage, crop evapotranspiration and reuse are accounted for together, **real savings can be engineered and reallocated**.
 
 ## Our interpretive delta
 
@@ -47,6 +48,10 @@ After an efficiency subsidy, how much **net depletion** decreased across the bas
 ## References
 
 - [Grafton et al. (2018), *The paradox of irrigation efficiency*, *Science*](https://doi.org/10.1126/science.aat9314).
-- [Clemmens et al. (2023), *Resolving the paradoxes of irrigation efficiency*, *Agricultural Water Management*](https://doi.org/10.1016/j.agwat.2023.108437).
+- [Lankford (2023), *Resolving the paradoxes of irrigation efficiency*, *Agricultural Water Management*](https://doi.org/10.1016/j.agwat.2023.108437).
+
+## Correction record
+
+**6 November 2026 · revision 2:** Corrected the attribution of the 2023 irrigation-efficiency analysis to B. A. Lankford. The initial release mistakenly credited Clemmens and colleagues. The substantive contrast and linked DOI remain unchanged.
 
 **Provenance:** Lunar Citadel, consolidated inquiry E0216. Interpretive literature synthesis; no original basin measurement or new hydrological model.

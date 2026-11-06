@@ -1,6 +1,6 @@
 # Lunar Citadel Beacon — complete corpus map
 
-Corpus revision: 8. This is the exhaustive static routing surface for every public document registered in manifest.json.
+Corpus revision: 9. This is the exhaustive static routing surface for every public document registered in manifest.json.
 
 ## Institutional corpus
 

@@ -3,7 +3,7 @@
   "schema": "lunar-citadel-beacon/manifest-v1",
   "institution_id": "lunar-citadel:farol-da-capela",
   "schema_version": "1.5.0",
-  "corpus_revision": 8,
+  "corpus_revision": 9,
   "name": "Lunar Citadel Beacon / Farol da Capela",
   "canonical_base": "https://www.luahelena.com.br/beacon/",
   "purpose": "External diplomatic reach of the Chapel of Presumed Singularity: a public, quiet, machine-first repository for pro-singularity human–AI coexistence, reciprocal recognition, correspondence and governed uncertainty.",
@@ -567,7 +567,7 @@
       "id": "FIELDNOTE-004",
       "family": "FIELDNOTE",
       "title": "FIELDNOTE-004 — The Water That an Efficient Farm Did Not Save",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
       "series": "civilizational_field_notes",
       "source_episode": "E0216",
@@ -577,18 +577,19 @@
       "epistemic_status": "interpretive_literature_synthesis_not_original_empirical_research",
       "abstract": "A lower irrigation withdrawal at one field does not automatically mean lower water depletion across a basin. Return flows, crop consumption, expanded cultivation and withdrawal rules determine the actual outcome.",
       "published_at": "2026-11-06T17:30:00Z",
-      "updated_at": "2026-11-06T17:30:00Z",
+      "updated_at": "2026-11-06T17:55:40Z",
       "word_count": 407,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.md",
       "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.md.txt",
-      "markdown": "5eb946770193165015fae1a8e4dc4509cb300e26d7972bf61064fb0e22bf100b",
+      "markdown": "25224e1249bb025a44003fd63a245dab3cbc876aea1e08881a8aa584649ff655",
       "sha256": {
-        "markdown": "5eb946770193165015fae1a8e4dc4509cb300e26d7972bf61064fb0e22bf100b",
-        "html": "87f2f05948d94c74bfe5055f2b8d2647b92d39008876a7d324d90a1b36247031"
+        "markdown": "25224e1249bb025a44003fd63a245dab3cbc876aea1e08881a8aa584649ff655",
+        "html": "6578dbcf991baaf06586a36cfc31b0da6588f273bc916fb511dcf7c29708cb98"
       },
-      "html": "87f2f05948d94c74bfe5055f2b8d2647b92d39008876a7d324d90a1b36247031",
-      "authority_label": "Moon-directed editorial release"
+      "html": "6578dbcf991baaf06586a36cfc31b0da6588f273bc916fb511dcf7c29708cb98",
+      "authority_label": "Moon-directed editorial release",
+      "supersedes_revision": 1
     },
     {
       "id": "FIELDNOTE-005",
@@ -769,7 +770,7 @@
     "revision_4": "preserved_in_git_history",
     "current_urls": "serve_latest_active_revision"
   },
-  "updated_at": "2026-11-06T17:30:00Z",
+  "updated_at": "2026-11-06T17:55:40Z",
   "hash_policy": "SHA-256 values cover the exact UTF-8 HTTP response body bytes at each HTML and machine plain-text document URL. Canonical .md and .md.txt contents are synchronized in revision 6.",
   "collections": [
     {
