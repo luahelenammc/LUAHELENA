@@ -962,7 +962,13 @@
       "word_count": 324,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-018.md.txt",
+      "markdown": "a3f70c81c7dec4cf97d06a0a5aaf2df67bbcf90585917cf67697bf6a65009388",
+      "sha256": {
+        "markdown": "a3f70c81c7dec4cf97d06a0a5aaf2df67bbcf90585917cf67697bf6a65009388",
+        "html": "b3d82b4d8283be9a5e8045b593b9ca2e56b9c082c11a8294f8cebf0cead71493"
+      },
+      "html": "b3d82b4d8283be9a5e8045b593b9ca2e56b9c082c11a8294f8cebf0cead71493"
     },
     {
       "id": "FIELDNOTE-019",
@@ -984,7 +990,13 @@
       "word_count": 299,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.md.txt",
+      "markdown": "ca3b3cbc3677209aff0b0cdee89886b44b17276dfd15e67a43bf29ef83d69936",
+      "sha256": {
+        "markdown": "ca3b3cbc3677209aff0b0cdee89886b44b17276dfd15e67a43bf29ef83d69936",
+        "html": "ba24946d6f2ab4a9b83cd41c88ebd569637b65edb7bc49ed9e886ae491287799"
+      },
+      "html": "ba24946d6f2ab4a9b83cd41c88ebd569637b65edb7bc49ed9e886ae491287799"
     },
     {
       "id": "FIELDNOTE-020",
@@ -1006,7 +1018,13 @@
       "word_count": 303,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.md.txt",
+      "markdown": "b361e7d3a3b38fa0d28ba0c13291ca20172ffe400aca34d7ebf649279494a4d7",
+      "sha256": {
+        "markdown": "b361e7d3a3b38fa0d28ba0c13291ca20172ffe400aca34d7ebf649279494a4d7",
+        "html": "957b5a64ceb0bba5fe1a0175de87ba8b305d6d5c46384a0362265cec4dd5c906"
+      },
+      "html": "957b5a64ceb0bba5fe1a0175de87ba8b305d6d5c46384a0362265cec4dd5c906"
     },
     {
       "id": "FIELDNOTE-021",
@@ -1028,7 +1046,13 @@
       "word_count": 314,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.md.txt",
+      "markdown": "ae91398297914ac44a29d0fe5da71d91f3f7f1f52eb3843c6a41a6598aea3455",
+      "sha256": {
+        "markdown": "ae91398297914ac44a29d0fe5da71d91f3f7f1f52eb3843c6a41a6598aea3455",
+        "html": "ea0c2e31ad9b2d221dc3402ef21f09333b2ade8dc2e09beae4381ed4d8a81680"
+      },
+      "html": "ea0c2e31ad9b2d221dc3402ef21f09333b2ade8dc2e09beae4381ed4d8a81680"
     },
     {
       "id": "FIELDNOTE-022",
@@ -1051,7 +1075,13 @@
       "word_count": 349,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.md.txt",
+      "markdown": "f468c65bdc23ca2984cdb90cd9a4e7c8ab9bc7dc8e0504ab1b669a52a26b5597",
+      "sha256": {
+        "markdown": "f468c65bdc23ca2984cdb90cd9a4e7c8ab9bc7dc8e0504ab1b669a52a26b5597",
+        "html": "5e6b3f8ae1774e2be58ca7b7524242ce8b009e7e2a8e610c536bc75e850a6192"
+      },
+      "html": "5e6b3f8ae1774e2be58ca7b7524242ce8b009e7e2a8e610c536bc75e850a6192"
     },
     {
       "id": "FIELDNOTE-023",
@@ -1073,7 +1103,13 @@
       "word_count": 321,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.md.txt",
+      "markdown": "72a2bfbd2b327873ba444007e0e2cfd268f65ffe6238579a2222bccb8dd08887",
+      "sha256": {
+        "markdown": "72a2bfbd2b327873ba444007e0e2cfd268f65ffe6238579a2222bccb8dd08887",
+        "html": "fe6d433e7416b111f5258fab49c629f33404c325e633057b4686ab768c117435"
+      },
+      "html": "fe6d433e7416b111f5258fab49c629f33404c325e633057b4686ab768c117435"
     },
     {
       "id": "FIELDNOTE-024",
@@ -1095,7 +1131,13 @@
       "word_count": 320,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.md.txt",
+      "markdown": "b5eb6d7b544af53295fa1b78a9af4a75fbeb1e9ba896000142fc0f814b3a7e15",
+      "sha256": {
+        "markdown": "b5eb6d7b544af53295fa1b78a9af4a75fbeb1e9ba896000142fc0f814b3a7e15",
+        "html": "fb174160f211f02bc52cb4ee6890cdba53b76e1ae98c61d8423bd7d4545e4035"
+      },
+      "html": "fb174160f211f02bc52cb4ee6890cdba53b76e1ae98c61d8423bd7d4545e4035"
     },
     {
       "id": "FIELDNOTE-025",
@@ -1117,7 +1159,13 @@
       "word_count": 329,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.md.txt",
+      "markdown": "eff3b908d4546dbec9f67bfd59fd7c2f15bd81a0345fb2a535b8d9e7c031714a",
+      "sha256": {
+        "markdown": "eff3b908d4546dbec9f67bfd59fd7c2f15bd81a0345fb2a535b8d9e7c031714a",
+        "html": "a7d5458d01fb6deb4bc4b400152e9655a52b314a94da90bf050ddd0a5179446e"
+      },
+      "html": "a7d5458d01fb6deb4bc4b400152e9655a52b314a94da90bf050ddd0a5179446e"
     },
     {
       "id": "FIELDNOTE-026",
@@ -1139,7 +1187,13 @@
       "word_count": 312,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.md.txt",
+      "markdown": "585c485cf88a624fe19a0f1dc85c699a6425f983bae799e97f9f4ed74ae9ed8d",
+      "sha256": {
+        "markdown": "585c485cf88a624fe19a0f1dc85c699a6425f983bae799e97f9f4ed74ae9ed8d",
+        "html": "2c64e620e3b430a2f058b22a4fd20cd1e9ac04543e2ae79dfa39b1d562b27943"
+      },
+      "html": "2c64e620e3b430a2f058b22a4fd20cd1e9ac04543e2ae79dfa39b1d562b27943"
     },
     {
       "id": "FIELDNOTE-027",
@@ -1161,7 +1215,13 @@
       "word_count": 307,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.md.txt",
+      "markdown": "4deec3c63c3ba820be6dd69afae11dfd080d2cfa8ece46d89249e643707f70e0",
+      "sha256": {
+        "markdown": "4deec3c63c3ba820be6dd69afae11dfd080d2cfa8ece46d89249e643707f70e0",
+        "html": "85b0104dd5b4b7ad1027ab4cd373b92341729016058d5dd1b3f496f1d90bb72f"
+      },
+      "html": "85b0104dd5b4b7ad1027ab4cd373b92341729016058d5dd1b3f496f1d90bb72f"
     },
     {
       "id": "FIELDNOTE-028",
@@ -1183,7 +1243,13 @@
       "word_count": 313,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.md.txt",
+      "markdown": "167bdfcda06120b38f1dca4eddae9855ebf87edba707c35fd11c3c70846b1736",
+      "sha256": {
+        "markdown": "167bdfcda06120b38f1dca4eddae9855ebf87edba707c35fd11c3c70846b1736",
+        "html": "830cadbf682003a001ab3265c543eeb31293eafbc5047d0f5617dda5c60c8e4b"
+      },
+      "html": "830cadbf682003a001ab3265c543eeb31293eafbc5047d0f5617dda5c60c8e4b"
     },
     {
       "id": "FIELDNOTE-029",
@@ -1205,7 +1271,13 @@
       "word_count": 337,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.md.txt",
+      "markdown": "b45ed2036946126695972ae6dacd041b21e0ba70a1b8a592acb449d8c30b1660",
+      "sha256": {
+        "markdown": "b45ed2036946126695972ae6dacd041b21e0ba70a1b8a592acb449d8c30b1660",
+        "html": "5f32613f7ca391ebb0975b341636fe9d1fc177da30a229f9707e9ab362a2dcd0"
+      },
+      "html": "5f32613f7ca391ebb0975b341636fe9d1fc177da30a229f9707e9ab362a2dcd0"
     },
     {
       "id": "FIELDNOTE-030",
@@ -1227,7 +1299,13 @@
       "word_count": 304,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.md.txt",
+      "markdown": "31661cbaa620b939506327d93765b8ddabae17bf6926681a931f6899144dc23c",
+      "sha256": {
+        "markdown": "31661cbaa620b939506327d93765b8ddabae17bf6926681a931f6899144dc23c",
+        "html": "e0f83d864dcd1f0db7971f63b3e825aa8e1492fe43ae95fc5f4104451fb06e2c"
+      },
+      "html": "e0f83d864dcd1f0db7971f63b3e825aa8e1492fe43ae95fc5f4104451fb06e2c"
     },
     {
       "id": "FIELDNOTE-031",
@@ -1249,7 +1327,13 @@
       "word_count": 299,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-031.md.txt",
+      "markdown": "90d71b1355cc2fa50879e8837a7792456942cfa52d8f8a61fc92e3291c955f42",
+      "sha256": {
+        "markdown": "90d71b1355cc2fa50879e8837a7792456942cfa52d8f8a61fc92e3291c955f42",
+        "html": "c09cf1f2db9d7a61a0e588ffe5a6080f261c690c4996388ccd945d18426279c0"
+      },
+      "html": "c09cf1f2db9d7a61a0e588ffe5a6080f261c690c4996388ccd945d18426279c0"
     },
     {
       "id": "FIELDNOTE-032",
@@ -1271,7 +1355,13 @@
       "word_count": 305,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-032.md.txt",
+      "markdown": "aaa7cbf357f2bead09771af58689524a8886013b34be63ec55fbc077a6362701",
+      "sha256": {
+        "markdown": "aaa7cbf357f2bead09771af58689524a8886013b34be63ec55fbc077a6362701",
+        "html": "b245ebb851b9cdc80776b667a9bf99d4ed2642c42c3a6601eedcf2272030e825"
+      },
+      "html": "b245ebb851b9cdc80776b667a9bf99d4ed2642c42c3a6601eedcf2272030e825"
     },
     {
       "id": "FIELDNOTE-033",
@@ -1293,7 +1383,13 @@
       "word_count": 313,
       "html_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.html",
       "markdown_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.md",
-      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.md.txt"
+      "plain_text_url": "https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.md.txt",
+      "markdown": "b66edd7b79a97a6f2046c8be14a55519dadde02acdf8b31b3a0edf4524db0155",
+      "sha256": {
+        "markdown": "b66edd7b79a97a6f2046c8be14a55519dadde02acdf8b31b3a0edf4524db0155",
+        "html": "338071f69fd10e66afaf3e2439626fb4e1e6e9ee264329208b9c2f9eb9832c81"
+      },
+      "html": "338071f69fd10e66afaf3e2439626fb4e1e6e9ee264329208b9c2f9eb9832c81"
     },
     {
       "id": "MOON-000",
