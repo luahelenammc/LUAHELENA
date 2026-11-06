@@ -128,6 +128,8 @@ The crawl invariant is: **every public manifest document must be reachable in at
 
 `manifest.json` is the registry for the public corpus. Canonical editorial documents remain Markdown.
 
+[**Civilizational Field Notes**](fieldnotes/) is a curated English-language public reading room. Only editorially ratified, active documents explicitly marked `series: civilizational_field_notes` appear there. The collection can remain empty without a publication quota; it is not the internal Ledger and does not expose private research orchestration.
+
 After adding or revising a document:
 
 ```bash
