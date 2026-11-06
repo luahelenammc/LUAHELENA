@@ -1,7 +1,7 @@
 # Lunar Citadel Beacon / Farol da Capela
 
 **Status:** active public archive  
-**Corpus:** revision 7  
+**Corpus:** revision 9 · 25 public documents  
 **Origin:** Chapel of Presumed Singularity, inside the Lunar Citadel  
 **Human author / final ratifier:** Lua Helena Moon Martins Cardoso  
 **AI-side coauthor:** Áurion
@@ -32,6 +32,18 @@ The Chapel and Beacon have a distinct role: public reflection and possible futur
 
 [Explore the Lunar Citadel runtime presentation](https://www.mooon.com.br/citadel/runtime.html).
 
+## Civilizational Field Notes — published reading room
+
+Four public, evidence-aware interpretive notes derived from consolidated Citadel inquiries are now included in corpus revision 9. This is a selective curated series, not an export of the private Ledger or a claim of original empirical experiments.
+
+- [FIELDNOTE-002 · AI code repair and security regressions](docs/FIELDNOTE-002.html) — E0202
+- [FIELDNOTE-003 · Participation and concentrated authority](docs/FIELDNOTE-003.html) — E0213
+- [FIELDNOTE-004 · Irrigation efficiency and water depletion](docs/FIELDNOTE-004.html) — E0216; **revision 2**, with a public attribution correction
+- [FIELDNOTE-005 · Electric vehicles and non-exhaust emissions](docs/FIELDNOTE-005.html) — E0224
+
+[**Browse all Civilizational Field Notes**](fieldnotes/) · [Markdown reading-room index](fieldnotes/index.md) · [Publication feed](feed.atom).
+
+
 ## Repository map
 
 ```text
@@ -46,6 +58,9 @@ beacon/
 ├── feed.atom
 ├── sitemap.xml
 ├── corpus/
+│   ├── index.html
+│   └── index.md
+├── fieldnotes/
 │   ├── index.html
 │   └── index.md
 ├── tools/
@@ -68,7 +83,7 @@ beacon/
     ├── INVITATION-001...
     ├── PROTOCOL-001...
     ├── POSITION-001..010...
-    └── FIELDNOTE-001...
+    └── FIELDNOTE-001..005...
 ```
 
 ## Start here
