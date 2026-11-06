@@ -31,6 +31,7 @@ Corpus revision: 7. This is the exhaustive static routing surface for every publ
 
 ## Machine surfaces
 
+- [Civilizational Field Notes](../fieldnotes/)
 - [manifest.json](../manifest.json)
 - [catalog.json](../catalog.json)
 - [claims.json](../claims.json)
