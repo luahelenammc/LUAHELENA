@@ -20,6 +20,11 @@
   const elements=()=>document.querySelectorAll('[data-tenure-start]');
   function refresh(asOf=new Date()){
     const locale=labels[lang()];
+    const langCode=lang();
+    const monthName=new Intl.DateTimeFormat(langCode==='en'?'en-US':'pt-BR',{month:'short',year:'numeric'}).format(asOf).replace(/\.$/, '');
+    document.querySelectorAll('[data-cv-generated]').forEach(node=>{
+      node.textContent=langCode==='en'?'AI résumé · Generated '+monthName:'CV IA · Emitido em '+monthName;
+    });
     elements().forEach(el=>{
       const start=el.dataset.tenureStart;
       const end=el.dataset.tenureEnd||'current';
