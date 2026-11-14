@@ -93,7 +93,7 @@
 <p class="proof"><span class="label">PROVA</span><a href="https://luahelenammc.github.io/3D-Cluster-Engine/?dataset=demo">Demo pública ↗</a> · <a href="https://github.com/luahelenammc/3D-Cluster-Engine">Código e arquitetura ↗</a> <small>luahelenammc.github.io/3D-Cluster-Engine</small></p></article>
 </section>
 </div>
-<footer class="footer"><span>Lua Helena Moon Martins Cardoso · CV IA · nov. 2026</span><span>01 / 02</span></footer>
+<footer class="footer"><span>Lua Helena Moon Martins Cardoso · <span class="cv-datestamp" data-cv-generated>CV IA · Emitido em nov. 2026</span></span><span>01 / 02</span></footer>
 </div>
 <div class="page page-two">
 <div class="running"><span>Lua Helena Moon Martins Cardoso</span><span>TRAJETÓRIA & BASE PROFISSIONAL</span></div>
@@ -124,7 +124,7 @@
 <p class="languages"><strong>IDIOMAS</strong> Português nativo · Inglês avançado</p>
 </section>
 </div>
-<footer class="footer"><span>Lua Helena Moon Martins Cardoso · CV IA · nov. 2026</span><span>02 / 02</span></footer>
+<footer class="footer"><span>Lua Helena Moon Martins Cardoso · <span class="cv-datestamp" data-cv-generated>CV IA · Emitido em nov. 2026</span></span><span>02 / 02</span></footer>
 </div>
 </main>
 
@@ -166,6 +166,12 @@
     document.querySelector('.back-link').href = language === 'en' ? '/ia/?lang=en' : '/ia/';
     const portfolio = document.querySelector('.contact a[href^="https://www.luahelena.com.br/ia/"]');
     if (portfolio) portfolio.href = language === 'en' ? 'https://www.luahelena.com.br/ia/?lang=en' : 'https://www.luahelena.com.br/ia/';
+    const printControl = document.getElementById('cv-print');
+    if (printControl) {
+      const printHint = language === 'en' ? 'In the print dialog, choose Save as PDF' : 'Na janela de impressão, escolha Salvar como PDF';
+      printControl.title = printHint;
+      printControl.setAttribute('aria-label', printHint);
+    }
     document.title = (language === 'en' ? 'Résumé' : 'Currículo') + ' — Lua Helena Moon Martins Cardoso';
     document.querySelector('meta[name="description"]').content = language === 'en' ? 'Human–AI Context Architecture · AI Adoption · Workflow Design · Knowledge Governance' : 'Arquitetura de Contexto Humano-IA · Adoção de IA · Desenho de Fluxos · Governança do Conhecimento';
     if (window.moonCVTenure) window.moonCVTenure.refresh();
