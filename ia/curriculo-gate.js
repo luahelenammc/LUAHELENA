@@ -5,6 +5,7 @@
   if(!root)return;
   const COPY={
     pt:{
+      nav:'Vaga × evidências ↓',
       kicker:'PROVA → CURRÍCULO → OPORTUNIDADE',title:'A evidência vem antes da palavra-chave.',
       intro:'Quatro versões de currículo, uma fonte factual e um método transparente de leitura por vaga. Esta camada pertence à web; as duas páginas A4 permanecem intactas.',
       lens1:'Legibilidade técnica',lens1s:'QA dos PDFs · 14/11/2026',lens1d:'Quatro PDFs pesquisáveis de uma página e seis links ativos por arquivo. Não é aprovação em ATS comercial.',
@@ -32,6 +33,7 @@
       rname:'ROI e implantação empresarial',rdesc:'Não há prova de implantação para clientes, adoção enterprise nem retorno financeiro mensurado.'
     },
     en:{
+      nav:'Role × evidence ↓',
       kicker:'EVIDENCE → RÉSUMÉ → OPPORTUNITY',title:'Evidence before keywords.',
       intro:'Four résumé versions, one factual source, and a transparent job-requirements reading method. This layer is web-only; the two A4 pages remain unchanged.',
       lens1:'Technical readability',lens1s:'PDF QA · Nov 14, 2026',lens1d:'Four searchable one-page PDFs with six working links each. Not a commercial ATS certification.',
@@ -97,14 +99,14 @@
       element('p','',t(item.desc),row);
       if(item.source){
         const link=element('a','',t('source')+' ↗',row);
-        link.href=SOURCE[item.source];link.target='_blank';link.rel='noopener noreferrer';
+        link.href=(item.source==='cv'&&lang==='en')?'https://drive.google.com/file/d/1F_J-Lw-p45WrXoNRr7vF3ijGYorQqT_v/view':SOURCE[item.source];link.target='_blank';link.rel='noopener noreferrer';
       }
     });
     element('p','cv-gate-note',t('foot'),results);
   }
   function setLanguage(next){
     lang=next==='en'?'en':'pt';
-    root.querySelectorAll('[data-cvg-t]').forEach(node=>{node.textContent=t(node.dataset.cvgT);});
+    document.querySelectorAll('[data-cvg-t]').forEach(node=>{node.textContent=t(node.dataset.cvgT);});
     input.placeholder=t('placeholder');
     if(!output.hidden)render();
   }
