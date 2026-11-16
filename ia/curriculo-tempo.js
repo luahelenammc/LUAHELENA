@@ -31,7 +31,7 @@
       let text;
       if(/^\d{4}$/.test(start)){text=locale.fromYear(start);}
       else if(end==='current'){const m=months(start,todayMonth(asOf));text=m===null?'':locale.current(Math.floor(m/12));}
-      else {const m=months(start,end);text=m===null?'':locale.fixed(m);}
+      else {const m=months(start,end);text=m===null?'':locale.fixed(m+1);}
       const override=el.dataset[lang()==='en'?'tenureLabelEn':'tenureLabelPt'];
       el.textContent=override||text;
       if(end==='current'&&/^\d{4}-/.test(start))el.title=locale.note;
