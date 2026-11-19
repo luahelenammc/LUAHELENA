@@ -4,6 +4,8 @@
 **Registro de concepção:** v1.0 — 18/07/2026. **Versão atual do paper:** v1.2.1, com correção de acessibilidade e contraste de 29/10/2026.  
 **Tese visual escolhida:** carta cívica operacional + atlas de capacidades públicas.
 
+A edição web v1.3.0 revisada em 19/11/2026 conserva o desenho editorial e as oito capacidades. A Mesa atualizou a regra de decisão, o piloto e as referências. As seções de teste datadas abaixo registram as respectivas versões e ambientes.
+
 ## Três direções consideradas
 
 1. **Carta cívica operacional + atlas.** Papel claro, tinta, azul de serviço público e vermelho de contestação; margem editorial persistente; matriz como registro dobrável. Escolhida porque une leitura autoral e uso institucional sem parecer governo, startup ou campanha.
@@ -72,7 +74,7 @@ As skills foram metabolizadas como método. Nenhum código, design de marca ou i
 - três camadas representadas como folhas institucionais encaixadas;
 - piloto apresentado como ficha de decisão, não como produto.
 
-## QA previsto
+## QA previsto no desenho original
 
 - HTML e links locais;
 - IDs e landmarks;

@@ -1,17 +1,25 @@
 # PR-007 | Soberania Cognitiva Brasileira — roteiro de pesquisa e implementação
 
-## Postflight público v1.3.0 · 30/10/2026 (checkpoint soberano mais recente)
+## Estado vigente · 19/11/2026
+
+A [edição pública 1.3.0](https://www.luahelena.com.br/papers/soberaniacognitiva.html) incorpora a revisão da Mesa Dialética. Condições críticas demonstradas, falha comprovada e evidência insuficiente têm registros distintos. Os dois últimos estados suspendem usos de alto impacto. O [resumo executivo](./soberaniacognitiva-resumo.html) e a [nota externa](./soberaniacognitiva-circulacao-nota-2026-10-30.md) incluem comparação com melhoria do serviço sem IA, direitos de contestação e critérios de parada do piloto. O HTML também atualiza documentação legislativa e limites das evidências sobre infraestrutura. A matriz segue exploratória, sem piloto implementado ou validação empírica ou institucional.
+
+Os registros de circulação consolidam **20 mensagens enviadas a 18 destinos** em três ondas (7 + 3 + 10). Envio no provedor não comprova entrega, leitura, validação, apoio ou adoção. Em 04/11, o LNCC respondeu que não dispunha de estrutura diretamente adequada à colaboração naquele momento. A resposta encerra aquela rota. O formulário do CPQD permanece sem submissão. A interlocução especializada é uma fase futura, sem envios. Os registros de outubro abaixo descrevem preparação e rascunhos conforme a data de cada checkpoint.
+
+A comparação empírica com Serpro e CTS-FGV permanece pesquisa futura. Essa lacuna é compatível com a leitura crítica especializada quando o escopo exploratório está explícito.
+
+## Postflight público v1.3.0 · 30/10/2026 (registro histórico)
 PR #81 fundido em squash: commit `784e7e5ef44a0e328da237ac8447b5e4ec0532dc`. GitHub main contém v1.3.0 no HTML e resumo. GitHub Pages na URL pública do paper retornou em leitura GET 80945 bytes, 4 referências à v1.3.0 e zero à v1.2.1; o resumo público retornou 4035 bytes, v1.3.0 e PL 2338/2023 presentes. A propagação inicialmente serviu a edição anterior, mas a resposta posterior confirmou a atual. **PUBLIC_V1.3.0_LIVE**. As evidências de QA de navegador estão em [QA de release](./soberaniacognitiva-qa-release-2026-10-30.md). Sem alegação de leitor de tela real ou certificação WCAG.
 Sete rascunhos Gmail foram atualizados em lugar com URL da v1.3.0 e [nota externa pública](./soberaniacognitiva-circulacao-nota-2026-10-30.md), todos confirmados DRAFT; nenhum email/formulário enviado. CPQD tem formulário oficial, não e-mail técnico comprovado. Somente autorização nominal de Moon por destinatário permite remessa. A continuidade de pesquisas G3/G4 não bloqueia o artigo exploratório nem autoriza alegações de validação institucional.
 
 
-## Checkpoint PR-007 v1.3.0, 30/10/2026 (mais recente)
+## Checkpoint PR-007 v1.3.0, 30/10/2026 (registro histórico)
 A branch de integração preserva a main e Beacon. O paper e o resumo estão alinhados com a versão 1.3.0. O teste Chromium 156, a impressão A4 de 19 páginas e o controle dos casos de contraste encontram-se em soberaniacognitiva-qa-release-2026-10-30.md. Ausência de leitor de tela real está registrada e não permite alegações de certificação. Entradas antigas referentes ao bloqueio da candidata anterior são históricas e não descrevem este checkpoint. Antes de considerar a publicação concluída, é obrigatório verificar o site ao vivo após merge. Outreach permanece sem envio, com autorização nominal por destinatário. O histórico acadêmico e legal é acompanhado sem alegações de validação institucional.
 
 **Patch:** 2026-10-29 · **natureza:** planejamento longitudinal público, sujeito a revisão factual.  
 **Artefato:** [Soberania Cognitiva Brasileira](https://www.luahelena.com.br/papers/soberaniacognitiva.html) · [direção visual](./soberaniacognitiva-design.md).  
 **Autoria:** Lua Helena Moon Martins Cardoso.  
-**Estado:** paper independente publicado; pesquisa e contatos institucionais em preparação. Sem parceria, adoção, endosso, oficina implementada ou envio federal do PR-007 confirmado. Este roteiro não é uma proposta oficial de gabinete nem documento governamental.
+**Estado em 30/10/2026:** paper independente publicado, pesquisa e contatos em preparação. Para o estado de circulação posterior, consulte o checkpoint vigente acima.
 
 ## Decisão estratégica
 
