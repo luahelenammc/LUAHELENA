@@ -33,6 +33,11 @@ MANDATORY_PEOPLE = [
 ]
 
 
+MANDATORY_SPECIALIZED = [
+    "Veronyka Gimenes", "Coding Rights", "LAPIN", "CTS-FGV",
+]
+
+
 def serve_repo():
     class Handler(SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
@@ -57,6 +62,7 @@ def inspect_pdf(path: Path) -> dict:
             "Lua Helena Moon Martins Cardoso",
             "Oito capacidades",
             *MANDATORY_PEOPLE,
+            *MANDATORY_SPECIALIZED,
         ]
         missing = [piece for piece in required if piece not in normalized]
         if missing:
@@ -87,6 +93,7 @@ def inspect_pdf(path: Path) -> dict:
             "bytes": path.stat().st_size,
             "extractable_characters": len(whole),
             "people_verified": len(MANDATORY_PEOPLE),
+            "specialized_destinations_verified": len(MANDATORY_SPECIALIZED),
             "required_sections": len(MANDATORY_SECTIONS),
             "page_word_counts": pages,
         }
@@ -128,8 +135,8 @@ def main():
                 if any(section not in ids for section in MANDATORY_SECTIONS):
                     raise RuntimeError("Paper chapters absent from source")
                 count = page.locator(".outreach-card").count()
-                if count != 18:
-                    raise RuntimeError(f"Expected 18 public outreach destinations, got {count}")
+                if count != 22:
+                    raise RuntimeError(f"Expected 22 public outreach destinations, got {count}")
                 page.add_style_tag(path=str(CSS))
                 page.evaluate("""async () => {
                   await document.fonts.ready;
