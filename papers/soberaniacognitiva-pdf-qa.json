@@ -1,7 +1,7 @@
 {
   "pages": 16,
-  "bytes": 2316843,
-  "extractable_characters": 35917,
+  "bytes": 2316746,
+  "extractable_characters": 35879,
   "people_verified": 14,
   "required_sections": 10,
   "page_word_counts": [
@@ -51,7 +51,7 @@
     },
     {
       "page": 12,
-      "words": 329
+      "words": 322
     },
     {
       "page": 13,
