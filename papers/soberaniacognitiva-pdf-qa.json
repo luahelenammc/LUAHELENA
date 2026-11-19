@@ -1,8 +1,9 @@
 {
-  "pages": 16,
-  "bytes": 2316746,
-  "extractable_characters": 35879,
+  "pages": 17,
+  "bytes": 2337818,
+  "extractable_characters": 36552,
   "people_verified": 14,
+  "specialized_destinations_verified": 4,
   "required_sections": 10,
   "page_word_counts": [
     {
@@ -63,11 +64,15 @@
     },
     {
       "page": 15,
-      "words": 254
+      "words": 259
     },
     {
       "page": 16,
-      "words": 192
+      "words": 210
+    },
+    {
+      "page": 17,
+      "words": 71
     }
   ]
 }
