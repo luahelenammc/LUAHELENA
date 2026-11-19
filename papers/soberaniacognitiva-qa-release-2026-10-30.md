@@ -5,6 +5,18 @@
 **Origem:** leitura HTTP 200 do conteúdo bruto da branch e execução real Chromium 156 / Playwright 1.64.1, axe-core 4.10.3.  
 **SHA-256 da página HTML v1.3.0 retestada:** `7356b32cae4a6f52c0032b5a887f9f05c1e7c921e696f36ce6c345bff4d2d936`.
 
+
+## Checkpoint da revisão web · 19/11/2026
+
+**Escopo:** edição pública v1.3.0 pós-Mesa e [sincronização editorial](https://github.com/luahelenammc/LUAHELENA/commit/c450767e75af328f1ba20c71e3764d054edf5481). O [deploy do resumo](https://github.com/luahelenammc/LUAHELENA/actions/runs/44582076335) e a [geração do PDF do HTML vigente](https://github.com/luahelenammc/LUAHELENA/actions/runs/44577191119) concluíram com sucesso.
+
+- **Web:** domínio público conferido para paper e resumo. O Chrome confirmou a data da revisão, autoria, regra atual e funcionamento por Enter do primeiro disclosure da matriz, com foco mantido. A análise do HTML servido encontrou oito capacidades, 18 cartões de circulação, IDs únicos e destinos existentes para todas as âncoras internas. Metadados canônicos e Open Graph do paper conferidos. A imagem OG foi recuperada como JPEG 1734 × 907. O preview em redes sociais e o acesso exaustivo às referências externas não foram testados.
+- **Resumo:** contraste calculado sobre o fundo uniforme para texto, links, rótulo e contorno de foco entre 6,55:1 e 14,88:1. A folha incorpora regra de impressão A4. Falta conferir a paginação impressa do resumo.
+- **PDF integral servido:** 16 páginas A4, nenhuma vazia, texto extraível e nenhuma caixa de palavra a menos de 7 pt da borda. A extração contém a regra de evidência insuficiente, o comparador do piloto e a Lei 15.504/2026. SHA-256 `b62883948c97cebe5ac8bfdf2b87fa035b2169d42edf27e0a8ee9a390cf63ec0`. O PDF não está etiquetado. A verificação geométrica não substitui inspeção visual de cada página.
+- **Limites do QA atual:** Chromium local não iniciou porque o ambiente bloqueou o socket do processo. As larguras de 320, 375, 390, tablet e desktop controlado, a inspeção visual completa de contraste e overflow, a impressão do resumo, a navegação sem JavaScript e a emulação de movimento reduzido permanecem sem reteste nesta edição. A regra de movimento reduzido está presente no código. Os testes históricos abaixo conservam seu próprio escopo. Nenhuma certificação WCAG é reivindicada.
+
+A proposta está disponível para leitura crítica com esses limites registrados. A comparação empírica com Serpro e CTS-FGV é pesquisa futura e a interlocução especializada segue sem envios.
+
 ## Reteste após sincronizar v1.3.0
 - **PASS:** 320 / 375 / 768 / 1024 / 1440 px; `scrollWidth=innerWidth`; 8 disclosures, 39 sections, sem IDs duplicados, âncoras internas íntegros.
 - **PASS amostral:** primeiro Tab = `Pular para o conteúdo`; Enter move foco a `MAIN#conteudo`; Enter abre/fecha disclosure.
