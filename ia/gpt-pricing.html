@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#070916">
-  <meta name="description" content="Comparação visual interativa dos preços de API dos modelos GPT-6 Luna, GPT-6.1 Terra e Sol, e GPT-6 Astra.">
+  <meta name="description" content="Comparação interativa dos preços de API: GPT-6 Luna, GPT-6.1 Terra e Sol, GPT-6 Astra e GPT-6.2 Sol/Astra.">
   <link rel="alternate" hreflang="pt-BR" href="https://www.luahelena.com.br/ia/gpt-pricing">
   <link rel="alternate" hreflang="en" href="https://www.luahelena.com.br/ia/gpt-pricing?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://www.luahelena.com.br/ia/gpt-pricing">
@@ -102,7 +102,7 @@
     }
 
     .hero-orbit{
-      margin-top:46px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
+      margin-top:46px;display:grid;grid-template-columns:repeat(11,minmax(0,1fr));
       align-items:stretch;gap:10px;padding:22px;border:1px solid var(--line);border-radius:var(--radius);
       background:linear-gradient(135deg,rgba(13,17,42,.86),rgba(12,13,31,.72));box-shadow:var(--shadow)
     }
@@ -112,10 +112,12 @@
       position:relative;transition:width .35s ease,height .35s ease
     }
     .orb:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(255,255,255,.09)}
-    .orb.luna{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
-    .orb.terra{background:radial-gradient(circle at 30% 28%,#edffff,#73e0ff 34%,#2788d9 70%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
+    .orb.luna,.orb.luna6{background:radial-gradient(circle at 30% 28%,#eaffff,var(--luna6) 31%,#2788d9 68%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
+    .orb.terra,.orb.terra61{background:radial-gradient(circle at 30% 28%,#edffff,#73e0ff 34%,#2788d9 70%,#1b2558);box-shadow:0 0 40px rgba(89,225,255,.3)}
     .orb.sol61{background:radial-gradient(circle at 34% 30%,#fff2df,#ffc27c 28%,#ff9a50 65%,#8b273b);box-shadow:0 0 42px rgba(255,154,80,.36)}
-    .orb.astra{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 44px rgba(232,92,255,.38)}
+    .orb.sol62{background:radial-gradient(circle at 34% 30%,#fffcde,#ffd478 29%,#ffad48 66%,#9c4327);box-shadow:0 0 42px rgba(255,184,74,.34)}
+    .orb.astra62{background:radial-gradient(circle at 34% 30%,#fffaff,#dba5ff 27%,#b78aff 62%,#4c2f95);box-shadow:0 0 42px rgba(178,136,255,.4)}
+    .orb.astra,.orb.astra6{background:radial-gradient(circle at 34% 30%,#fff2ff,#ef9cff 26%,var(--astra) 58%,#6834bd);box-shadow:0 0 44px rgba(232,92,255,.38)}
     .planet strong{display:block;font-size:clamp(.8rem,1.1vw,1rem);line-height:1.25}.planet span{display:block;color:var(--muted);font-size:.76rem;line-height:1.35;margin-top:5px}
     .gap{min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;font-size:1.28rem;font-weight:900}
     .gap:before{content:"";width:100%;border-top:1px dashed rgba(255,255,255,.2);margin-bottom:8px}
@@ -170,7 +172,7 @@
     .bar-value strong{display:block;font-size:1rem}.bar-value span{color:var(--muted);font-size:.75rem}
     .axis-note{color:var(--muted);font-size:.78rem;margin:15px 0 0 164px}
 
-    .raw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .raw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
     .legacy{margin-top:18px}.legacy summary{cursor:pointer;list-style:none;padding:17px 20px;color:#cdd3e8;font-weight:780}.legacy summary::-webkit-details-marker{display:none}.legacy summary:after{content:"＋";float:right}.legacy[open] summary:after{content:"−"}.legacy .raw-grid{padding:0 18px 18px;grid-template-columns:repeat(3,1fr)}
     .price-card{padding:20px;position:relative;overflow:hidden;min-height:180px}
     .price-card:before{
@@ -188,14 +190,14 @@
       padding:38px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;overflow:hidden;position:relative
     }
     .big-fact:after{
-      content:"10×";position:absolute;right:-2vw;bottom:-7vw;font-weight:950;font-size:clamp(7rem,20vw,17rem);
+      content:"−20%";position:absolute;right:-2vw;bottom:-7vw;font-weight:950;font-size:clamp(7rem,20vw,17rem);
       color:rgba(255,255,255,.025);letter-spacing:-.09em;pointer-events:none
     }
     .big-number{font-size:clamp(5rem,13vw,10rem);line-height:.8;letter-spacing:-.085em;font-weight:950}
     .big-number span{font-size:.35em;color:var(--astra)}
     .big-copy h3{margin:0 0 10px;font-size:1.55rem}.big-copy p{color:var(--muted);line-height:1.6;margin:0}
 
-    .gen-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .gen-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .gen-card{padding:28px}
     .gen-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
     .gen-card h3{margin:0;font-size:1.45rem;letter-spacing:-.025em}
@@ -217,10 +219,16 @@
 .scale-pin:first-child:before,.scale-pin:first-child:after{left:-2px;transform:none}
 .scale-pin:last-child:before,.scale-pin:last-child:after{left:auto;right:-2px;transform:none}
 
+    .normalized-list{display:grid;gap:12px}
+    .normalized-row{display:grid;grid-template-columns:160px minmax(0,1fr) 64px;gap:14px;align-items:center;font-size:.84rem}
+    .normalized-row .normalized-name{font-weight:780;line-height:1.3}
+    .normalized-row .normalized-track{height:22px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+    .normalized-row .normalized-fill{height:100%;width:var(--w);border-radius:9px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 65%,#11162d),var(--c))}
+    .normalized-row .normalized-value{font-weight:850;text-align:right;white-space:nowrap}
     .budget-card{padding:30px}
     .budget-top{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-bottom:26px}
     .budget-top p{color:var(--muted);margin:0}
-    .budget-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end}
+    .budget-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:end}
     .budget-item{text-align:center}
     .budget-bubble{
       margin:0 auto 13px;width:var(--s);height:var(--s);max-width:130px;max-height:130px;min-width:28px;min-height:28px;
@@ -230,8 +238,8 @@
     .budget-item strong{display:block}.budget-item span{display:block;color:var(--muted);font-size:.75rem;margin-top:3px}
 
     .matrix-card{padding:25px;overflow:auto}
-    .matrix{display:grid;gap:7px;min-width:760px}
-    .matrix-row{display:grid;grid-template-columns:135px repeat(4,1fr);gap:7px}
+    .matrix{display:grid;gap:7px;min-width:1030px}
+    .matrix-row{display:grid;grid-template-columns:135px repeat(6,minmax(110px,1fr));gap:7px}
     .matrix-cell,.matrix-label{
       min-height:68px;border-radius:14px;border:1px solid rgba(255,255,255,.065);display:flex;flex-direction:column;justify-content:center;padding:10px 12px
     }
@@ -258,7 +266,8 @@
     footer a{text-decoration:none;color:#c7cee7}
 
     @media (max-width:900px){
-      .hero-orbit{grid-template-columns:1fr;gap:8px}
+      .hero-orbit{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .hero-orbit .gap{display:none}
       .gap{min-height:45px;font-size:1rem}
       .gap:before{width:42%;margin:0 0 5px}
       .gap small{display:inline;margin-left:7px}
@@ -286,6 +295,7 @@
       .flow{grid-template-columns:1fr}
       .arrow{transform:rotate(90deg)}
       .scale-line{margin-left:10px;margin-right:10px}
+      .normalized-row{grid-template-columns:102px minmax(0,1fr) 48px;gap:8px;font-size:.73rem}
       .big-fact,.price-chart,.gen-card,.astra-scale,.budget-card,.matrix-card,.method{padding:21px}
     }
     @media (prefers-reduced-motion:reduce){
@@ -317,15 +327,7 @@
         <span class="chip">Input + output compared separately</span>
       </div>
 
-      <div class="hero-orbit" aria-label="Sphere area is proportional to price: GPT-6 Luna 1, GPT-6.1 Terra 10, GPT-6.1 Sol 20, GPT-6 Astra 100">
-        <div class="planet"><div class="orb luna" style="--orb-size:9px" aria-hidden="true"></div><strong>GPT-6 Luna</strong><span>$0.10 input<br>$0.50 output</span></div>
-        <div class="gap">10×<small>to Terra</small></div>
-        <div class="planet"><div class="orb terra" style="--orb-size:28px" aria-hidden="true"></div><strong>GPT-6.1 Terra</strong><span>$1 input<br>$5 output</span></div>
-        <div class="gap">2×<small>to Sol</small></div>
-        <div class="planet"><div class="orb sol61" style="--orb-size:40px" aria-hidden="true"></div><strong>GPT-6.1 Sol</strong><span>$2 input<br>$10 output</span></div>
-        <div class="gap">5×<small>to Astra</small></div>
-        <div class="planet"><div class="orb astra" style="--orb-size:90px" aria-hidden="true"></div><strong>GPT-6 Astra</strong><span>$10 input<br>$50 output</span></div>
-      </div>
+      <div class="hero-orbit" id="heroOrbit" aria-label="Comparação de preços com áreas proporcionais"></div>
     </header>
     <section id="sphere-equivalence">
       <div class="section-head">
@@ -371,7 +373,7 @@
     <section>
       <div class="card big-fact">
         <div>
-          <div class="big-number">10<span>×</span></div>
+          <div class="big-number">20<span>%</span></div>
         </div>
         <div class="big-copy">
           <h3>Astra costs ten Terras.</h3>
@@ -383,47 +385,46 @@
     <section id="generation">
       <div class="section-head">
         <div><h2>Today’s price ladder.</h2></div>
-        <p>Terra and Sol are the current reference points; Astra shows the premium tier.</p>
+        <p>From Terra to 6.2 Sol and Astra, with the Astra generation-to-generation price cut.</p>
       </div>
       <div class="gen-grid">
         <article class="card gen-card">
-          <div class="gen-head"><h3>Terra → Sol</h3><span class="cut">2× price</span></div>
+          <div class="gen-head"><h3>Terra 6.1 → Sol 6.2</h3><span class="cut">2×</span></div>
           <div class="flow">
             <div class="flow-box"><small>GPT-6.1 Terra</small><strong>$1 / $5</strong></div>
             <div class="arrow">→</div>
-            <div class="flow-box"><small>GPT-6.1 Sol</small><strong>$2 / $10</strong></div>
+            <div class="flow-box"><small>GPT-6.2 Sol</small><strong>$2 / $10</strong></div>
           </div>
-          <div class="split-cuts">
-            <div><small>Input</small><strong>+100%</strong></div>
-            <div><small>Output</small><strong>+100%</strong></div>
-          </div>
+          <div class="split-cuts"><div><small>Input</small><strong>+100%</strong></div><div><small>Output</small><strong>+100%</strong></div></div>
         </article>
         <article class="card gen-card">
-          <div class="gen-head"><h3>Sol → Astra</h3><span class="cut">5× price</span></div>
+          <div class="gen-head"><h3>Sol 6.2 → Astra 6.2</h3><span class="cut">4×</span></div>
           <div class="flow">
-            <div class="flow-box"><small>GPT-6.1 Sol</small><strong>$2 / $10</strong></div>
+            <div class="flow-box"><small>GPT-6.2 Sol</small><strong>$2 / $10</strong></div>
             <div class="arrow">→</div>
+            <div class="flow-box"><small>GPT-6.2 Astra</small><strong>$8 / $40</strong></div>
+          </div>
+          <div class="split-cuts"><div><small>Input</small><strong>+300%</strong></div><div><small>Output</small><strong>+300%</strong></div></div>
+        </article>
+        <article class="card gen-card">
+          <div class="gen-head"><h3>Astra 6 → Astra 6.2</h3><span class="cut">−20%</span></div>
+          <div class="flow">
             <div class="flow-box"><small>GPT-6 Astra</small><strong>$10 / $50</strong></div>
+            <div class="arrow">→</div>
+            <div class="flow-box"><small>GPT-6.2 Astra</small><strong>$8 / $40</strong></div>
           </div>
-          <div class="split-cuts">
-            <div><small>Input</small><strong>+400%</strong></div>
-            <div><small>Output</small><strong>+100%</strong></div>
-          </div>
+          <div class="split-cuts"><div><small>Input</small><strong>−20%</strong></div><div><small>Output</small><strong>−20%</strong></div></div>
         </article>
       </div>
     </section>
 
     <section id="astra-normalized">
       <div class="section-head">
-        <div><h2>Compare each price with Astra.</h2></div>
-        <p>Terra is 10% of Astra’s price, Sol is 20%, and Astra is 100% of its own price.</p>
+        <div><h2>As a percentage of GPT-6 Astra.</h2></div>
+        <p>The original Astra is the 100% reference. These proportions hold for both input and output.</p>
       </div>
       <div class="card astra-scale">
-        <div class="scale-line" aria-label="GPT-6 prices as a percentage of Astra">
-          <span class="scale-pin" style="left:10%;--c:var(--luna6)" data-value="10%" data-name="GPT-6.1 Terra"></span>
-          <span class="scale-pin" style="left:20%;--c:var(--sol6)" data-value="20%" data-name="GPT-6.1 Sol"></span>
-          <span class="scale-pin" style="left:100%;--c:var(--astra)" data-value="100%" data-name="GPT-6 Astra"></span>
-        </div>
+        <div class="normalized-list" id="normalizedList" aria-live="polite"></div>
       </div>
     </section>
 
@@ -461,24 +462,22 @@
     </section>
 
     <section id="takeaways">
-      <div class="section-head">
-        <div><h2>The shape, in three numbers.</h2></div>
-      </div>
+      <div class="section-head"><div><h2>Three changes worth noticing.</h2></div></div>
       <div class="takeaways">
         <article class="card takeaway">
-          <b style="color:var(--luna6)">10×</b>
-          <h3>Terra to Astra</h3>
-          <p>For both input and output, GPT-6 Astra costs ten times GPT-6.1 Terra.</p>
+          <b style="color:var(--astra)">−20%</b>
+          <h3>Astra 6 → Astra 6.2</h3>
+          <p>GPT-6.2 Astra is 20% cheaper per input and output token than GPT-6 Astra.</p>
         </article>
         <article class="card takeaway">
-          <b style="color:var(--sol6)">2×</b>
-          <h3>Terra → Sol</h3>
-          <p>Moving from GPT-6.1 Terra to Sol doubles both input and output prices.</p>
+          <b style="color:#ffb34f">1×</b>
+          <h3>Sol 6.1 = Sol 6.2</h3>
+          <p>GPT-6.2 Sol keeps GPT-6.1 Sol’s Standard input and output rates.</p>
         </article>
         <article class="card takeaway">
-          <b style="color:var(--astra)">5×</b>
-          <h3>Sol to Astra</h3>
-          <p>GPT-6 Astra costs five times GPT-6.1 Sol for both input and output.</p>
+          <b style="color:#b78aff">4×</b>
+          <h3>Sol 6.2 → Astra 6.2</h3>
+          <p>At Standard rates, GPT-6.2 Astra costs four times GPT-6.2 Sol.</p>
         </article>
       </div>
     </section>
@@ -493,6 +492,8 @@
           <a href="https://developers.openai.com/api/docs/models/gpt-6.1-terra" target="_blank" rel="noopener">GPT-6.1 Terra ↗</a>
           <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank" rel="noopener">GPT-6.1 Sol ↗</a>
           <a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">GPT-6 Astra ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6.2-sol" target="_blank" rel="noopener">GPT-6.2 Sol ↗</a>
+          <a href="https://developers.openai.com/api/docs/models/gpt-6.2-astra" target="_blank" rel="noopener">GPT-6.2 Astra ↗</a>
         </div>
       </div>
     </section>
@@ -512,12 +513,47 @@
         nav:"Page navigation",back:"← Back to /ia",pricing:"API pricing · November 2, 2026",title:"The price geometry of GPT.",lede:"Today’s main comparison: GPT-6 Luna, GPT-6.1 Terra and Sol, and GPT-6 Astra. Older models remain in the expandable legacy section.",chipStandard:"Standard processing",chipContext:"Prompts up to 272K input tokens",chipUsd:"USD per 1M text tokens",chipSeparate:"Input + output compared separately",orbit:"Sphere area is proportional to price: GPT-6 Luna 1, GPT-6.1 Terra 10, GPT-6.1 Sol 20, GPT-6 Astra 100",input:"Input",output:"Output",to:"to",eqTitle:"One large sphere equals how many small ones?",eqLead:"Each small sphere is one model’s standard token price. Circle area uses the same price scale as the diagram above; input and output keep matching ratios.",rawTitle:"Start with the published prices.",rawLead:"The comparison below uses official standard API rates. No blended average price is invented.",legacy:"Legacy models · GPT-5.6 and GPT-6 Sol",compareTitle:"See the canyon.",compareLead:"Switch metric and scale. Linear is financially honest; logarithmic is kinder to the eyes.",metric:"Price metric",scale:"Chart scale",log:"Log scale",linear:"Linear",axisLog:"Logarithmic bars keep low-cost Luna visible beside premium models.",axisLinear:"Linear scale: financially literal, visually ruthless.",factTitle:"Astra costs the equivalent of ten Terras.",factText:"GPT-6 Astra costs 10× GPT-6.1 Terra and 5× GPT-6.1 Sol for both input and output. Terra is 90% cheaper than Astra; Sol is 80% cheaper.",ladderTitle:"Today’s price ladder.",ladderLead:"Terra and Sol are the current reference points; Astra shows the premium tier.",price:"price",budgetTitle:"Flip the question: same money, how many tokens?",budgetLead:"For intuition, spend the same budget on every model and watch capacity expand or collapse.",budgetInput:"Input · $10",budgetOutput:"Output · $50",budgetCopy:"With a $10 input-token budget:",tokens:"M tokens",matrixTitle:"Every pairwise ratio.",matrixLead:"Read across: “the column model costs x times the row model.” This shows every pairwise proportion, not only the headline ones.",matrixInput:"Input ratios",matrixOutput:"Output ratios",baseline:"baseline ↓ / target →",same:"same price",more:"target costs more",less:"target costs less",takeawayTitle:"The shape, in three numbers.",terraAstra:"Terra to Astra",terraSol:"Terra → Sol",solAstra:"Sol to Astra",take1:"For both input and output, GPT-6 Astra costs ten times GPT-6.1 Terra.",take2:"Moving from GPT-6.1 Terra to Sol doubles both input and output prices.",take3:"GPT-6 Astra costs five times GPT-6.1 Sol for both input and output.",methodology:"Methodology.",methodA:"Prices shown are official OpenAI API Standard processing, Standard text-token rates for prompts up to 272K input tokens, per 1 million tokens, checked November 2, 2026. Cached input, cache writes, Batch, Flex, Fast mode, Ultrafast mode and regional processing uplifts are excluded. Longer prompts have different rates. These are API prices, not a conversion formula for ChatGPT plan allowances.",sourcePricing:"OpenAI API pricing ↗",footer:"Visualized by Lua Helena · data snapshot 2026-11-02",sphereRow:"Spheres of",oneSphere:"1 sphere of",eqNote:"The dots show the equivalent quantity by area/price, keeping each model’s color.",ratioLuna:"Luna",budgetPhraseInput:"input",budgetPhraseOutput:"output"
       }
     };
+    // November 18, 2026 verified Standard-rate refresh; PT/EN share the same canonical model data.
+    Object.assign(copy.pt,{
+      pricing:"Preços de API · 18 de novembro de 2026",
+      lede:"Comparação atualizada: GPT-6 Luna, GPT-6.1 Terra e Sol, GPT-6.2 Sol e Astra, além do GPT-6 Astra original. Os modelos anteriores permanecem na seção expansível.",
+      factTitle:"Astra 6.2: 20% menos por token.",
+      factText:"GPT-6.2 Astra custa US$ 8/US$ 40 por milhão de tokens de entrada/saída, ante US$ 10/US$ 50 do Astra original. O novo Astra custa 8× Terra 6.1 e 4× Sol 6.2; Sol 6.2 mantém o preço de Sol 6.1.",
+      ladderLead:"De Terra a Sol e Astra 6.2, com o desconto entre gerações do Astra.",
+      cutLabels:["2×","4×","−20%"],
+      ladderNames:["Terra 6.1 → Sol 6.2","Sol 6.2 → Astra 6.2","Astra 6 → Astra 6.2"],
+      normalizeTitle:"Cada modelo como porcentagem do Astra original.",
+      normalizeLead:"GPT-6 Astra original é a referência de 100%. As proporções são iguais para entrada e saída.",
+      takeawaysTitle:"Três diferenças que importam.",
+      takeawayNames:["Astra 6 → Astra 6.2","Sol 6.1 = Sol 6.2","Sol 6.2 → Astra 6.2"],
+      takeawayTexts:["O GPT-6.2 Astra custa 20% menos por token de entrada e saída que GPT-6 Astra.","O GPT-6.2 Sol mantém as tarifas Standard de entrada e saída do GPT-6.1 Sol.","O GPT-6.2 Astra custa quatro vezes o GPT-6.2 Sol, tanto na entrada quanto na saída."],
+      methodA:"As tarifas são preços oficiais Standard da API OpenAI para tokens de texto por 1 milhão de tokens, com prompts de até 272 mil tokens de entrada, verificados em 18 de novembro de 2026. O cálculo não inclui entrada em cache, gravação de cache, Batch, Flex, Fast, Ultrafast nem adicionais regionais. Prompts mais longos podem ter tarifas diferentes. Preços da API não equivalem aos limites de uso de assinaturas ChatGPT.",
+      footer:"Visualização por Lua Helena · dados verificados em 18/11/2026"
+    });
+    Object.assign(copy.en,{
+      pricing:"API pricing · November 18, 2026",
+      lede:"Updated comparison: GPT-6 Luna, GPT-6.1 Terra and Sol, GPT-6.2 Sol and Astra, plus the original GPT-6 Astra. Older models remain in the expandable section.",
+      factTitle:"Astra 6.2: 20% less per token.",
+      factText:"GPT-6.2 Astra is $8/$40 per million input/output tokens, versus $10/$50 for the original Astra. The new Astra costs 8× Terra 6.1 and 4× Sol 6.2; Sol 6.2 keeps Sol 6.1 pricing.",
+      ladderLead:"From Terra to 6.2 Sol and Astra, plus the Astra generation-to-generation price cut.",
+      cutLabels:["2×","4×","−20%"],
+      ladderNames:["Terra 6.1 → Sol 6.2","Sol 6.2 → Astra 6.2","Astra 6 → Astra 6.2"],
+      normalizeTitle:"Each model as a percentage of original Astra.",
+      normalizeLead:"Original GPT-6 Astra is the 100% reference. These ratios are identical for input and output.",
+      takeawaysTitle:"Three differences worth noticing.",
+      takeawayNames:["Astra 6 → Astra 6.2","Sol 6.1 = Sol 6.2","Sol 6.2 → Astra 6.2"],
+      takeawayTexts:["GPT-6.2 Astra is 20% cheaper per input and output token than GPT-6 Astra.","GPT-6.2 Sol retains the GPT-6.1 Sol Standard rates for input and output.","GPT-6.2 Astra costs four times GPT-6.2 Sol for both input and output."],
+      methodA:"Prices are official OpenAI API Standard text-token rates per 1 million tokens for prompts up to 272K input tokens, verified November 18, 2026. Cached input, cache writes, Batch, Flex, Fast, Ultrafast and regional uplifts are excluded. Longer prompts may have different rates. API prices are not a conversion formula for ChatGPT subscription usage limits.",
+      footer:"Visualized by Lua Helena · verified November 18, 2026"
+    });
     let lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "pt";
     const t = key => copy[lang][key];
     const models = [
       { id:"luna6", name:"GPT-6 Luna", family:"6", input:.10, output:.50, color:"#59e1ff", tier:"current" },
       { id:"terra61", name:"GPT-6.1 Terra", family:"6.1", input:1, output:5, color:"#73e0ff", tier:"current" },
       { id:"sol61", name:"GPT-6.1 Sol", family:"6.1", input:2, output:10, color:"#ff9a50", tier:"current" },
+      { id:"sol62", name:"GPT-6.2 Sol", family:"6.2", input:2, output:10, color:"#ffb34f", tier:"current" },
+      { id:"astra62", name:"GPT-6.2 Astra", family:"6.2", input:8, output:40, color:"#b78aff", tier:"current" },
       { id:"astra6", name:"GPT-6 Astra", family:"6", input:10, output:50, color:"#e85cff", tier:"current" },
       { id:"luna56", name:"GPT-5.6 Luna", family:"5.6", input:.20, output:1.20, color:"#9aa9ff", tier:"legacy" },
       { id:"terra56", name:"GPT-5.6 Terra", family:"5.6", input:2, output:12, color:"#7cc7d8", tier:"legacy" },
@@ -533,17 +569,36 @@
       return (Math.round(r * 1000) / 1000).toString().replace(/0+$/,"").replace(/\.$/,"") + "×";
     };
 
+    function renderHero(){
+      const host=document.getElementById("heroOrbit"), max=Math.max(...currentModels.map(m=>m.input));
+      const base=currentModels[0];
+      host.setAttribute("aria-label",(lang==="pt"?"Preço de entrada proporcional por área das esferas: ":"Input price proportional to sphere area: ")+currentModels.map(m=>m.name+" "+ratioLabel(m.input/base.input)).join("; "));
+      host.innerHTML=currentModels.map((m,i)=>{
+        const gap=i?'<div class="gap">'+ratioLabel(m.input/currentModels[i-1].input)+'<small>'+(lang==="pt"?"para ":"to ")+m.name+'</small></div>':"";
+        const diameter=Math.sqrt(m.input/max)*90;
+        return gap+'<div class="planet"><div class="orb '+m.id+'" style="--orb-size:'+diameter+'px" aria-hidden="true"></div><strong>'+m.name+'</strong><span>'+money(m.input)+' '+t("input").toLowerCase()+'<br>'+money(m.output)+' '+t("output").toLowerCase()+'</span></div>';
+      }).join("");
+    }
+    function renderNormalized(){
+      const host=document.getElementById("normalizedList");
+      const reference=currentModels.find(m=>m.id==="astra6").input;
+      host.innerHTML=currentModels.map(m=>{
+        const pct=Math.round(m.input/reference*100);
+        return '<div class="normalized-row"><span class="normalized-name">'+m.name+'</span><div class="normalized-track" role="img" aria-label="'+m.name+': '+pct+'%"><div class="normalized-fill" style="--w:'+Math.max(1,pct)+'%;--c:'+m.color+'"></div></div><span class="normalized-value">'+pct+'%</span></div>';
+      }).join("");
+    }
     function renderEquivalence(){
       const host=document.getElementById("equivalenceGrid");
       const maxPrice=Math.max(...currentModels.map(m=>m.input));
       host.innerHTML=currentModels.slice(1).map((target,index)=>{
         const diameter=Math.sqrt(target.input/maxPrice)*90;
         const rows=currentModels.slice(0,index+1).map(unit=>{
-          const count=Math.round(target.input/unit.input);
-          const dots=Array.from({length:count},()=>`<i class="equivalence-dot" style="--c:${unit.color}" aria-hidden="true"></i>`).join("");
-          return `<div class="equivalence-row"><div class="equivalence-row-head"><span>${t("sphereRow")} ${unit.name}</span><strong>${count}×</strong></div><div class="equivalence-dots" aria-label="${count} ${t("sphereRow").toLowerCase()} ${unit.name}">${dots}</div></div>`;
+          const ratio=target.input/unit.input, full=Math.floor(ratio), fraction=ratio-full;
+          const dots=Array.from({length:full},()=>'<i class="equivalence-dot" style="--c:'+unit.color+'" aria-hidden="true"></i>').join("")+
+            (fraction>0.00001?'<i class="equivalence-dot" style="--c:'+unit.color+';background:linear-gradient(90deg,'+unit.color+' '+(fraction*100)+'%,rgba(255,255,255,.12) '+(fraction*100)+'%)" aria-hidden="true"></i>':"");
+          return '<div class="equivalence-row"><div class="equivalence-row-head"><span>'+t("sphereRow")+' '+unit.name+'</span><strong>'+ratioLabel(ratio)+'</strong></div><div class="equivalence-dots" aria-label="'+ratioLabel(ratio)+' '+unit.name+'">'+dots+'</div></div>';
         }).join("");
-        return `<article class="card equivalence-card"><div class="equivalence-target"><div class="orb ${target.id==="terra61"?"terra":target.id==="sol61"?"sol61":"astra"}" style="--orb-size:${diameter}px" aria-hidden="true"></div><div><strong>${t("oneSphere")} ${target.name}</strong><span>${money(target.input)} ${t("input").toLowerCase()} · ${money(target.output)} ${t("output").toLowerCase()}</span></div></div>${rows}<p class="equivalence-note">${t("eqNote")}</p></article>`;
+        return '<article class="card equivalence-card"><div class="equivalence-target"><div class="orb '+target.id+'" style="--orb-size:'+diameter+'px" aria-hidden="true"></div><div><strong>'+t("oneSphere")+' '+target.name+'</strong><span>'+money(target.input)+' '+t("input").toLowerCase()+' · '+money(target.output)+' '+t("output").toLowerCase()+'</span></div></div>'+rows+'<p class="equivalence-note">'+t("eqNote")+'</p></article>';
       }).join("");
     }
     renderEquivalence();
@@ -634,9 +689,7 @@
       document.querySelector("h1").innerHTML=en?'The <span class="gradient-word">price geometry</span> of GPT.':'A <span class="gradient-word">geometria dos preços</span> de GPT.';
       put(".back",tx.back); put(".lede",tx.lede);
       document.querySelectorAll(".hero-chips .chip").forEach((e,i)=>e.textContent=[tx.chipStandard,tx.chipContext,tx.chipUsd,tx.chipSeparate][i]);
-      document.querySelector(".hero-orbit").setAttribute("aria-label",tx.orbit);
-      document.querySelectorAll(".planet span").forEach((e,i)=>{const m=currentModels[i];e.innerHTML="$"+m.input+" "+tx.input.toLowerCase()+"<br>$"+m.output+" "+tx.output.toLowerCase()});
-      document.querySelectorAll(".gap small").forEach((e,i)=>e.textContent=(en?"to ":"para ")+["Terra","Sol","Astra"][i]);
+      renderHero();
       put("#sphere-equivalence h2",tx.eqTitle); put("#sphere-equivalence .section-head p",tx.eqLead);
       put("#raw-prices .section-head h2",tx.rawTitle); put("#raw-prices .section-head p",tx.rawLead); put(".legacy summary",tx.legacy);
       put("#compare .section-head h2",tx.compareTitle); put("#compare .section-head p",tx.compareLead);
@@ -646,18 +699,19 @@
       document.querySelectorAll(".scale-btn").forEach(e=>e.closest(".seg").setAttribute("aria-label",tx.scale));
       put(".big-copy h3",tx.factTitle); put(".big-copy p",tx.factText);
       put("#generation .section-head h2",tx.ladderTitle); put("#generation .section-head p",tx.ladderLead);
-      document.querySelectorAll(".cut").forEach((e,i)=>e.textContent=(i?"5×":"2×")+" "+tx.price);
+      document.querySelectorAll(".cut").forEach((e,i)=>e.textContent=tx.cutLabels[i]);
+      document.querySelectorAll(".gen-head h3").forEach((e,i)=>e.textContent=tx.ladderNames[i]);
       document.querySelectorAll(".split-cuts small").forEach((e,i)=>e.textContent=i%2?tx.output:tx.input);
-      put("#astra-normalized .section-head h2",en?"Compare each price with Astra.":"Compare cada preço com o de Astra.");
-      put("#astra-normalized .section-head p",en?"Terra is 10% of Astra’s price, Sol is 20%, and Astra is 100% of its own price.":"Terra custa 10% do preço de Astra, Sol custa 20%, e Astra representa 100% do próprio preço.");
-      document.querySelector(".scale-line").setAttribute("aria-label",en?"GPT-6 prices as a percentage of Astra":"Preços dos modelos GPT-6 como porcentagem de Astra");
+      put("#astra-normalized .section-head h2",tx.normalizeTitle);
+      put("#astra-normalized .section-head p",tx.normalizeLead);
+      renderNormalized();
       put("#budget .section-head h2",tx.budgetTitle); put("#budget .section-head p",tx.budgetLead);
       document.querySelectorAll(".budget-btn").forEach((e,i)=>e.textContent=i?tx.budgetOutput:tx.budgetInput);
       put("#matrix .section-head h2",tx.matrixTitle); put("#matrix .section-head p",tx.matrixLead);
       document.querySelectorAll(".matrix-btn").forEach((e,i)=>e.textContent=i?tx.matrixOutput:tx.matrixInput);
-      put("#takeaways .section-head h2",tx.takeawayTitle);
-      document.querySelectorAll(".takeaway h3").forEach((e,i)=>e.textContent=[tx.terraAstra,tx.terraSol,tx.solAstra][i]);
-      document.querySelectorAll(".takeaway p").forEach((e,i)=>e.textContent=[tx.take1,tx.take2,tx.take3][i]);
+      put("#takeaways .section-head h2",tx.takeawaysTitle);
+      document.querySelectorAll(".takeaway h3").forEach((e,i)=>e.textContent=tx.takeawayNames[i]);
+      document.querySelectorAll(".takeaway p").forEach((e,i)=>e.textContent=tx.takeawayTexts[i]);
       document.querySelector(".method>strong").textContent=tx.methodology;
       const method=document.querySelector(".method"); const sourceLinks=document.querySelector(".source-links").outerHTML; method.innerHTML="<strong>"+tx.methodology+"</strong> "+tx.methodA+sourceLinks;
       document.querySelectorAll(".source-links a").forEach((e,i)=>{if(!i)e.textContent=tx.sourcePricing});
