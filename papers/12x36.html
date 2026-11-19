@@ -1293,7 +1293,7 @@ details>summary:focus-visible{outline:3px solid #bd9656;outline-offset:3px}
   window.addEventListener("scroll",request,{passive:true});
   window.addEventListener("resize",request,{passive:true});
   /* Na impressao, manter as condicoes dos acordos visiveis mesmo com detalhes recolhidos na tela. */
-  var paperDetails=Array.prototype.slice.call(document.querySelectorAll(".reading-fold, .collective-detail"));
+  var paperDetails=Array.prototype.slice.call(document.querySelectorAll("details"));
   window.addEventListener("beforeprint",function(){paperDetails.forEach(function(d){d.dataset.printWasOpen=d.open?"1":"0";d.open=true;});});
   window.addEventListener("afterprint",function(){paperDetails.forEach(function(d){if(d.dataset.printWasOpen==="0")d.open=false;delete d.dataset.printWasOpen;});});
   document.querySelectorAll(".dossier-mobile-index a[href^='#']").forEach(function(a){
@@ -1301,4 +1301,4 @@ details>summary:focus-visible{outline:3px solid #bd9656;outline-offset:3px}
   });
   update();
 }());
-</script></body></html>
+</script><script>if(new URLSearchParams(location.search).get('print')==='1')window.addEventListener('load',()=>{history.replaceState(null,'',location.pathname+location.hash);setTimeout(()=>window.print(),500)});</script></body></html>
