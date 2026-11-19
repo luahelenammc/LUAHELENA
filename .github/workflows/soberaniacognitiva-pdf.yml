@@ -1,14 +1,6 @@
 name: PR-007 | PDF editorial sincronizado
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'papers/soberaniacognitiva.html'
-      - 'papers/soberaniacognitiva-editorial.css'
-      - 'papers/soberaniacognitiva-pdf.css'
-      - 'scripts/build-soberaniacognitiva-pdf.py'
-      - '.github/workflows/soberaniacognitiva-pdf.yml'
   workflow_dispatch:
 
 permissions:
