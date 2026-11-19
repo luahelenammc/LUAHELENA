@@ -1042,8 +1042,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/papers/soberaniacognitiva-editorial.css?v=20261101-brazil-v17" media="all">
-<link rel="alternate" type="application/pdf" title="PDF integral, versão 1.3.0" href="https://www.luahelena.com.br/papers/soberaniacognitiva.pdf">
-</head>
+
+<style>button.pdf-action,button.pdf-rail-link{font:inherit;cursor:pointer}</style></head>
 <body>
   <svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="0" height="0" focusable="false">
     <symbol id="ico-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
@@ -1101,7 +1101,7 @@
             <a href="#piloto">07 · Piloto</a><a href="#autoria">08 · Autoria</a><a href="#fontes">09 · Fontes</a><a href="#circulacao">10 · Circulação</a>
           </nav>
         </details>
-        <div class="rail-actions"><a class="text-button pdf-rail-link" href="/papers/soberaniacognitiva.pdf" download="Soberania_Cognitiva_Brasileira_v1.3.0.pdf"><svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#ico-download"></use></svg><span>PDF</span></a></div>
+        <div class="rail-actions"><button type="button" class="text-button pdf-rail-link" data-print><svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#ico-download"></use></svg><span>Imprimir / PDF</span></button></div>
       </div>
     </aside>
 
@@ -1119,7 +1119,7 @@
         <div class="hero-meta" role="group" aria-label="Autoria e edição"><span><strong>Lua Helena Moon Martins Cardoso</strong></span><span>Paper independente · v1.3.0</span></div>
         <div class="hero-actions">
           <a class="action" href="#matriz"><svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#ico-grid"></use></svg><span>Explorar a matriz</span><svg class="ui-icon icon-tail" aria-hidden="true" focusable="false"><use href="#ico-arrow"></use></svg></a>
-          <a class="action pdf-action" href="/papers/soberaniacognitiva.pdf" type="application/pdf" download="Soberania_Cognitiva_Brasileira_v1.3.0.pdf"><svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#ico-download"></use></svg><span>Baixar PDF integral</span></a>
+          <button type="button" class="action pdf-action" data-print><svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#ico-download"></use></svg><span>Imprimir / salvar em PDF</span></button>
         </div>
               <aside class="signal-board" aria-label="Visão geral das oito capacidades da matriz">
           <div class="signal-board-head"><span>ATLAS / CAPACIDADE PÚBLICA</span><span class="board-orbit" aria-hidden="true">✧</span></div>
@@ -1507,7 +1507,7 @@
       }
     })();
   </script>
-</body>
+<script>(function(){const closed=[];window.addEventListener('beforeprint',()=>{closed.length=0;document.querySelectorAll('details:not([open])').forEach(d=>{closed.push(d);d.open=true})});window.addEventListener('afterprint',()=>{closed.forEach(d=>d.open=false);closed.length=0});if(new URLSearchParams(location.search).get('print')==='1')window.addEventListener('load',()=>{history.replaceState(null,'',location.pathname+location.hash);setTimeout(()=>window.print(),500)})})();</script></body>
 </html>
 
 
