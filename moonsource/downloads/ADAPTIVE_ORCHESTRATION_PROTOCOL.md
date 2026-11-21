@@ -1,4 +1,7 @@
-# 🧬 Adaptive Orchestration Protocol — Moon Source portable
+<!-- SPDX-FileCopyrightText: 2026 Lua Helena Moon Martins Cardoso (Moon) -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
+# 🧬 Adaptive Orchestration Protocol — standalone public protocol
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
@@ -6,8 +9,8 @@
 
 ## Meta
 
-- **canonical repository:** https://github.com/luahelenammc/Moon-Source
-- **canonical path:** portables/adaptive-orchestration/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
+- **canonical repository:** https://github.com/luahelenammc/Adaptive-Orchestration-Protocol
+- **canonical path:** ADAPTIVE_ORCHESTRATION_PROTOCOL.md
 - **Moon Source public surface:** https://www.luahelena.com.br/moonsource/?lang=en
 - **professional context:** https://www.luahelena.com.br/ia/?lang=en
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
@@ -22,8 +25,8 @@
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, commitment geometry, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
 - **supersedes:** Adaptive Orchestration Protocol 6.3; version 6.4 updates the dated Chat model-availability boundary without changing surface-neutral control roots, Delegation-First, Behavioral Fit or Commitment Geometry.
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.3.
-- **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md)
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.4.
+- **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Adaptive-Orchestration-Protocol/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
 - **AI-assisted coauthorial development:** Áurion
@@ -909,12 +912,12 @@ method freedom inside an authorized task; it never expands the objective or
 authority envelope.
 
 The current optional Astra strategy adapter is documented at
-[portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_ASTRA_ADAPTER.md](../../portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_ASTRA_ADAPTER.md). Its
+[adapters/ADAPTIVE_ORCHESTRATION_ASTRA_ADAPTER.md](adapters/ADAPTIVE_ORCHESTRATION_ASTRA_ADAPTER.md). Its
 volatile notes are dated and replaceable; they cannot turn a temporary product
 observation into a permanent core rule.
 
 The current GPT-6 Sol/Luna execution calibration is documented at
-[portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md](../../portables/adaptive-orchestration/adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md). It calibrates Sol/Luna across Chat and Work/Codex according to observed plan, model-variant and harness availability; Chat GPT-6 Sol/Luna (October conversation-tuned models) must not be conflated with the September Work/Codex executor versions or assumed to expose their delegation/tool controls. API pricing/context facts remain separate from ChatGPT allowance economics.
+[adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md](adapters/ADAPTIVE_ORCHESTRATION_GPT6_SOL_LUNA_ADAPTER.md). It calibrates Sol/Luna across Chat and Work/Codex according to observed plan, model-variant and harness availability; Chat GPT-6 Sol/Luna (October conversation-tuned models) must not be conflated with the September Work/Codex executor versions or assumed to expose their delegation/tool controls. API pricing/context facts remain separate from ChatGPT allowance economics.
 
 A subordinate model adapter may require its own setup gate. Adaptive Orchestration's existing Execution Profile, Run State and Profile Persistence laws remain governing: the router may recommend or prefill model-specific preferences, but it must not silently instantiate a user's role, autonomy, reasoning, context, parallelism or return preferences. An explicit adaptive/AUTO choice is a setup choice, not permission to assume a reference preset.
 
@@ -1667,17 +1670,17 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 ## 22. Lifecycle and succession
 
-- Adaptive Orchestration Protocol 6.3 is the current public release;
+- Adaptive Orchestration Protocol 6.4 is the current public release;
 - 6.3 supersedes 6.2 by adding Commitment Geometry while preserving the Behavioral Fit constraint from 6.2, the surface continuity/control-root neutrality from 6.1 and the Delegation-First orchestration from 6.0;
 - 6.2 remains recoverable through Git history and records Behavioral Fit as a separate routing constraint;
-- 6.3 remains recoverable through Git history and records Commitment Geometry; 6.4 changes only dated Chat-model availability calibration;
+- 6.3 records Commitment Geometry and 6.4 changes dated Chat-model availability calibration; both original release bodies remain recoverable through Moon Source history, linked from the migration record;
 - 6.1 remains recoverable through Git history and records the surface-neutral control-root rebase;
 - the historical Chat → Work/Codex → Chat loop remains a first-class named Chat–Work Loop Profile rather than the mandatory default topology;
 - 6.0 remains recoverable through Git history and records the delegation-topology rebase;
 - the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
 - earlier 4.x releases remain historical lineage recoverable through Git history;
-- the live repository exposes one canonical Adaptive Orchestration file; website delivery is a separate mirror surface and must be synchronized after the canonical body passes validation;
-- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.3;
+- this repository exposes one canonical Adaptive Orchestration file; website delivery is a separate compatibility mirror and must be synchronized after the canonical body passes validation;
+- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.4;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
@@ -1767,8 +1770,6 @@ The protocol may be shared and adapted with appropriate credit, a license link a
 
 > **Route by the state that must change. Preserve the current competent control root unless a transition creates a material execution or verification advantage. Separate control surface, root model and execution surface. Keep the strongest necessary cognition at the bottleneck and delegate reducible bulk to the cheapest sufficient workers. Route execution, judgment and commitment independently; identify high-leverage solution choices before scaling work that depends on them. Probe or explore only when that lowers total work to acceptance, and reopen a wrong commitment at the smallest affected boundary. Use the smallest available topology that can complete and verify the objective. Ask the human to switch model or surface only when the runtime cannot resolve the required topology internally. Sprint Mode is explicit, bounded and ephemeral. Spend is not the objective; verified useful delta is. Bound completeness before expensive execution. Escalate only the irreducible delta and return only the decision-bearing delta; when a ruling is material, return the smallest auditable Decision Trace that makes the decision boundary inspectable without demanding private deliberation. Preserve enough state that interruption does not erase the work. Transport the minimum capsule, execute with receipts, converge at the designated root, refresh reality, verify, integrate and close. The Chat → Work/Codex → Chat loop remains available as a first-class named profile, not as the universal default.**
 
-<!-- MOON-SOURCE-PUBLIC-STAMP -->
-
 ---
 
-> 🌙 **Moon Source** · created by **Lua Helena Moon Martins Cardoso (Moon)** with AI-assisted coauthorial development by **Áurion** · [Licensing](https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md) · [Use & attribution](https://github.com/luahelenammc/Moon-Source/blob/main/MOON_SOURCE_USE_AND_ATTRIBUTION.md) · [Full source (.zip)](https://github.com/luahelenammc/Moon-Source/archive/refs/heads/main.zip) · Questions, suggestions, or proposals? Feel free to contact me at [LuaHelenaMMC@gmail.com](mailto:LuaHelenaMMC@gmail.com).
+> **Adaptive Orchestration Protocol** · created by **Lua Helena Moon Martins Cardoso (Moon)**, with AI-assisted coauthorial development by **Áurion**. Originated in [Moon Source](https://github.com/luahelenammc/Moon-Source) and promoted to its independent canonical repository in 2026. Licensed under [CC BY 4.0](LICENSES/CC-BY-4.0.txt). See [professional context](https://www.luahelena.com.br/ia/?lang=en) and [Moon Source context](https://www.luahelena.com.br/moonsource/?lang=en).

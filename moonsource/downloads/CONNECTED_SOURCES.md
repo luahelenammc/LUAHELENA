@@ -413,7 +413,7 @@ It does not establish:
 - autonomous mutation or repair;
 - enterprise readiness, adoption, measured impact or universal superiority;
 - permission, ownership, authorship or endorsement merely from public access;
-- a private Moon Source runtime, resolver, corpus or credential path.
+- automatic access to unrelated accounts, credentials or source systems.
 
 For current public identity, licensing and release state, use the [public capability registry](https://github.com/luahelenammc/Moon-Source/blob/main/registry/PUBLIC_CAPABILITIES.md). For volatile ChatGPT product facts, use the subordinate [adapter notes](https://github.com/luahelenammc/Moon-Source/blob/main/docs/CONNECTED_SOURCES_CHATGPT_ADAPTER.md) and recheck them before relying on them.
 
