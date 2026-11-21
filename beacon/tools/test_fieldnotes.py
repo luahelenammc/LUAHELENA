@@ -86,11 +86,56 @@ class FieldNotesTests(unittest.TestCase):
         page, _ = b.render_fieldnotes(docs)
         self.assertLess(page.index("FIELDNOTE-003"), page.index("FIELDNOTE-002"))
 
-    def test_fieldnotes_sitemap_date_is_not_prelaunch(self) -> None:
-        xml = b.render_beacon_sitemap(manifest())
-        self.assertIn("<loc>https://www.luahelena.com.br/beacon/fieldnotes/</loc><lastmod>2026-11-06</lastmod>", xml)
-        later = b.render_beacon_sitemap(manifest(fixture(date="2026-11-09")))
-        self.assertIn("<loc>https://www.luahelena.com.br/beacon/fieldnotes/</loc><lastmod>2026-11-09</lastmod>", later)
+    def test_sitemap_uses_document_and_collection_freshness(self) -> None:
+        from xml.etree import ElementTree as ET
+
+        notes = fixture(date="2026-11-30")
+        overview = fixture("BEACON-001", family="BEACON", series=None, date="2026-11-20")
+        sitemap = ET.fromstring(b.render_beacon_sitemap(manifest(notes, overview)))
+        ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        entries = {
+            element.findtext("s:loc", namespaces=ns): element.findtext("s:lastmod", namespaces=ns)
+            for element in sitemap.findall("s:url", namespaces=ns)
+        }
+        self.assertEqual(entries[overview["html_url"]], "2026-11-20")
+        self.assertEqual(entries[b.BEACON_URL + "fieldnotes/"], "2026-11-30")
+        self.assertIn(b.BEACON_URL + "guide/", entries)
+        self.assertIn(b.BEACON_URL + "embassy/passport.html", entries)
+
+    def test_archive_and_llms_follow_manifest(self) -> None:
+        sample = manifest(fixture())
+        archive, llms = b.render_archive(sample), b.render_root_llms(sample)
+        self.assertIn("Corpus revision 7 contains 1 public documents, including 1", archive)
+        self.assertIn("Corpus revision 7 includes 1 public documents and 1", llms)
+        self.assertIn('rel="canonical" href="' + b.BEACON_URL + 'corpus/"', archive)
+        self.assertIn(b.BEACON_URL + "guide/", llms)
+
+    def test_passport_projects_canonical_narrative_and_links(self) -> None:
+        source = (BEACON / "embassy/passport.md").read_text(encoding="utf-8")
+        page = b.render_passport(source)
+        self.assertIn("A passport from an unfinished civilization", page)
+        self.assertIn(b.BEACON_URL + "docs/BEACON-001.html", page)
+        self.assertIn(b.BEACON_URL + "embassy/passport.schema.json", page)
+        self.assertIn('rel="alternate" type="text/markdown" href="passport.md"', page)
+        self.assertIn('rel="alternate" type="application/json" href="passport.json"', page)
+
+    def test_contact_exposes_an_accessible_mail_link(self) -> None:
+        from html.parser import HTMLParser
+
+        class Links(HTMLParser):
+            mail_links = []
+
+            def handle_starttag(self, tag, attrs):
+                href = dict(attrs).get("href", "")
+                if tag == "a" and href.startswith("mailto:"):
+                    self.mail_links.append(href)
+
+        source = (BEACON / "contact.html").read_text(encoding="utf-8")
+        page = Links()
+        page.feed(source)
+        self.assertEqual(len(page.mail_links), 1)
+        self.assertIn("subject=%5BBEACON%5D", page.mail_links[0])
+        self.assertNotIn("](mailto:", source)
 
     def test_generated_public_page_matches_committed_output(self) -> None:
         doc = b.load_manifest()

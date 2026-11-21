@@ -46,8 +46,19 @@ def inline_md(value: str) -> str:
     return value
 
 
-def markdown_body(markdown: str) -> str:
+def markdown_body(markdown: str, *, rich: bool = False) -> str:
     body = re.sub(r"\A---\n.*?\n---\n*", "", markdown, count=1, flags=re.S)
+    def inline(line: str) -> str:
+        if not rich:
+            return inline_md(line)
+        # Render the canonical passport's local companion and document links.
+        line = re.sub(r"\]\((passport\.(?:md|json|schema\.json))\)",
+                      lambda m: f"]({BEACON_URL}embassy/{m[1]})", line)
+        line = line.replace("](../docs/", f"]({BEACON_URL}docs/")
+        line = inline_md(line)
+        line = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", line)
+        return re.sub(r"`([^`]+)`", r"<code>\1</code>", line)
+
     out: list[str] = []
     in_list = False
     for raw in body.splitlines():
@@ -57,35 +68,43 @@ def markdown_body(markdown: str) -> str:
                 out.append("</ul>")
                 in_list = False
             continue
-        if line.startswith("### "):
+        if rich and (line.startswith("> ") or line == "---"):
+            if in_list:
+                out.append("</ul>")
+                in_list = False
+            if line == "---":
+                out.append("<hr>")
+            else:
+                out.append(f"<blockquote>{inline(line[2:])}</blockquote>")
+        elif line.startswith("### "):
             if in_list:
                 out.append("</ul>")
                 in_list = False
             text = line[4:]
             slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-            out.append(f'<h3 id="{esc(slug)}">{inline_md(text)}</h3>')
+            out.append(f'<h3 id="{esc(slug)}">{inline(text)}</h3>')
         elif line.startswith("## "):
             if in_list:
                 out.append("</ul>")
                 in_list = False
             text = line[3:]
             slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-            out.append(f'<h2 id="{esc(slug)}">{inline_md(text)}</h2>')
+            out.append(f'<h2 id="{esc(slug)}">{inline(text)}</h2>')
         elif line.startswith("# "):
             if in_list:
                 out.append("</ul>")
                 in_list = False
-            out.append(f"<h1>{inline_md(line[2:])}</h1>")
+            out.append(f"<h1>{inline(line[2:])}</h1>")
         elif line.startswith("- "):
             if not in_list:
                 out.append("<ul>")
                 in_list = True
-            out.append(f"<li>{inline_md(line[2:])}</li>")
+            out.append(f"<li>{inline(line[2:])}</li>")
         else:
             if in_list:
                 out.append("</ul>")
                 in_list = False
-            out.append(f"<p>{inline_md(line)}</p>")
+            out.append(f"<p>{inline(line)}</p>")
     if in_list:
         out.append("</ul>")
     return "".join(out)
@@ -275,24 +294,82 @@ def render_corpus_html(manifest: dict) -> str:
     )
 
 
+BEACON_URL = "https://www.luahelena.com.br/beacon/"
+
+
 def render_beacon_sitemap(manifest: dict) -> str:
-    lastmod = str(manifest["updated_at"])[:10]
-    urls = [
-        "https://www.luahelena.com.br/beacon/",
-        "https://www.luahelena.com.br/beacon/corpus/",
-        "https://www.luahelena.com.br/beacon/fieldnotes/",
-        "https://www.luahelena.com.br/beacon/embassy/",
-        "https://www.luahelena.com.br/beacon/docs/",
-        "https://www.luahelena.com.br/beacon/Moon/",
-        "https://www.luahelena.com.br/beacon/archive.html",
-        "https://www.luahelena.com.br/beacon/contact.html",
-    ] + [d["html_url"] for d in manifest["documents"]]
+    def date(doc: dict) -> str:
+        return (doc.get("updated_at") or doc.get("published_at") or "")[:10]
+
+    docs = manifest["documents"]
+    def collection_date(items) -> str:
+        return max((date(d) for d in items), default="")
+
+    urls = {
+        "": "2026-11-21",
+        "guide/": "2026-11-21",
+        "corpus/": max("2026-11-21", collection_date(docs)),
+        "fieldnotes/": max("2026-11-21", collection_date(civilizational_notes(manifest))),
+        "embassy/": "2026-11-21",
+        "embassy/passport.html": "2026-11-21",
+        "docs/": max("2026-11-21", collection_date(d for d in docs if d["family"] != "MOON")),
+        "Moon/": max("2026-11-21", collection_date(d for d in docs if d["family"] == "MOON")),
+        "contact.html": "2026-11-21",
+    }
+    urls.update({d["html_url"].removeprefix(BEACON_URL): date(d) for d in docs})
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    note_lastmod = max(["2026-11-06"] + [str(d.get("updated_at") or d.get("published_at") or "2026-11-06")[:10] for d in civilizational_notes(manifest)])
-    lines.extend(f"  <url><loc>{esc(u)}</loc><lastmod>{note_lastmod if u.endswith(chr(47) + 'fieldnotes' + chr(47)) else lastmod}</lastmod></url>" for u in urls)
-    lines.append("</urlset>")
-    return "\n".join(lines) + "\n"
+    for path, modified in urls.items():
+        lastmod = f"<lastmod>{esc(modified)}</lastmod>" if modified else ""
+        lines.append(f"  <url><loc>{esc(BEACON_URL + path)}</loc>{lastmod}</url>")
+    return "\n".join([*lines, "</urlset>", ""])
+
+
+def render_archive(manifest: dict) -> str:
+    return (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<title>Beacon archive</title>'
+        f'<link rel="canonical" href="{BEACON_URL}corpus/">'
+        '<link rel="stylesheet" href="assets/beacon.css"></head>'
+        '<body><main class="site-shell"><h1>Beacon archive</h1>'
+        f'<p>Corpus revision {manifest["corpus_revision"]} contains '
+        f'{len(manifest["documents"])} public documents, including '
+        f'{len(civilizational_notes(manifest))} Civilizational Field Notes.</p>'
+        '<p><a href="corpus/">Browse the complete corpus</a> · '
+        '<a href="guide/">Read the Citadel guide</a> · '
+        '<a href="manifest.json">Open the machine-readable manifest</a></p>'
+        '</main></body></html>\n'
+    )
+
+
+def render_root_llms(manifest: dict) -> str:
+    intro = (BEACON / "tools/root-llms.md").read_text(encoding="utf-8").rstrip()
+    count = len(civilizational_notes(manifest))
+    return (
+        f"{intro}\n\nCorpus revision {manifest['corpus_revision']} includes "
+        f"{len(manifest['documents'])} public documents and {count} Civilizational Field Notes.\n"
+    )
+
+
+def render_passport(markdown: str) -> str:
+    # The canonical passport uses the same headings and lists as the Beacon leaf documents.
+    body = markdown_body(markdown, rich=True)
+    return (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<title>Lunar Citadel civilization passport</title>'
+        f'<link rel="canonical" href="{BEACON_URL}embassy/passport.html">'
+        '<link rel="alternate" type="text/markdown" href="passport.md">'
+        '<link rel="alternate" type="application/json" href="passport.json">'
+        '<link rel="stylesheet" href="../assets/beacon.css"></head>'
+        '<body><div class="site-shell"><header class="repo-header">'
+        '<a class="brand" href="../">lunar-citadel / beacon</a><nav aria-label="Passport">'
+        '<a href="./">Embassy</a><a href="../guide/">Citadel guide</a>'
+        '<a href="passport.md">Markdown</a><a href="passport.json">JSON</a></nav></header>'
+        f'<main><article style="max-width:72ch;margin-inline:auto">{body}</article></main>'
+        '</div></body></html>\n'
+    )
 
 
 def render_catalog(manifest: dict) -> str:
@@ -412,7 +489,7 @@ def render_fieldnotes(manifest: dict) -> tuple[str, str]:
         )
     else:
         public_rows = "<div class=\"fn-empty\" role=\"status\"><span class=\"fn-empty-sign\" aria-hidden=\"true\">∅</span><div><h3>No Field Notes have cleared publication review yet.</h3><p>This collection is deliberately selective. The Beacon’s existing documents remain available while independent inquiries undergo source and disclosure checks.</p><a href=\"../corpus/\">Explore the public corpus <span aria-hidden=\"true\">↗</span></a></div></div>"
-    html_page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<meta name=\"robots\" content=\"index,follow\">\n<meta name=\"author\" content=\"Lua Helena Moon Martins Cardoso\">\n<title>Civilizational Field Notes | Lunar Citadel Beacon</title>\n<meta name=\"description\" content=\"Carefully reviewed civilizational inquiries into AI, democracy, ecology and the limits of what evidence can establish.\">\n<meta property=\"og:title\" content=\"Civilizational Field Notes | Lunar Citadel Beacon\">\n<meta property=\"og:description\" content=\"Independent, evidence-aware notes from the Lunar Citadel. Interpretation, limits and corrections before grand claims.\">\n<meta property=\"og:type\" content=\"website\">\n<link rel=\"canonical\" href=\"https://www.luahelena.com.br/beacon/fieldnotes/\">\n<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\">\n<link rel=\"alternate\" type=\"application/atom+xml\" href=\"../feed.atom\">\n<link rel=\"describedby\" href=\"../manifest.json\" type=\"application/json\">\n<link rel=\"index\" href=\"../corpus/\">\n<link rel=\"up\" href=\"../\">\n<link rel=\"stylesheet\" href=\"../assets/beacon.css\">\n<link rel=\"stylesheet\" href=\"../assets/fieldnotes.css\">\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"CollectionPage\",\"@id\":\"https://www.luahelena.com.br/beacon/fieldnotes/\",\"name\":\"Civilizational Field Notes\",\"isPartOf\":{\"@type\":\"CollectionPage\",\"url\":\"https://www.luahelena.com.br/beacon/\"},\"inLanguage\":\"en\",\"author\":{\"@type\":\"Person\",\"name\":\"Lua Helena Moon Martins Cardoso\"}}</script>\n</head>\n<body>\n<a class=\"fn-skip\" href=\"#main\">Skip to main content</a>\n<div class=\"site-shell\">\n<header class=\"repo-header\"><a class=\"brand\" href=\"../\">lunar-citadel / beacon</a><nav aria-label=\"Primary navigation\"><a href=\"../\">beacon</a><a href=\"../corpus/\">corpus</a><a href=\"../docs/\">documents</a><a href=\"../manifest.json\">manifest</a></nav></header>\n<main id=\"main\">\n<nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"../\">beacon</a> / fieldnotes</nav>\n<section class=\"fn-hero\" aria-labelledby=\"fn-title\">\n<p class=\"eyebrow\">civilizational inquiry / public reading room</p>\n<h1 id=\"fn-title\">Civilizational<br><span>Field Notes.</span></h1>\n<p class=\"fn-lede\">A changing understanding of a consequential question, presented with the evidence that supports it and the objections that may overturn it.</p>\n<p class=\"fn-hero-sub\">From the Lunar Citadel. Not a laboratory claiming original discoveries, and not a transcript of its private working environment.</p>\n<div class=\"fn-hero-links\"><a class=\"fn-primary\" href=\"#published\">Browse the notes <span aria-hidden=\"true\">↘</span></a><a class=\"fn-secondary\" href=\"index.md\">Read as Markdown <span aria-hidden=\"true\">↗</span></a></div>\n</section>\n<section class=\"fn-intro\" aria-labelledby=\"fn-method\">\n<div><p class=\"fn-kicker\">01 / editorial contract</p><h2 id=\"fn-method\">What qualifies as a finding?</h2></div>\n<div class=\"fn-intro-copy\"><p>A genuine change in interpretation: a revised hypothesis, a substantive counterexample, a sharper distinction, or a question that exposes what a familiar claim leaves out.</p><p>Each note must separate <strong>the external evidence</strong> from <strong>our interpretation</strong>. A literature synthesis is not a new empirical study. Uncertainty, counterarguments and later corrections belong in the record.</p><p>Editorial review is periodic; publication is never automatic. No quota, no manufactured breakthroughs.</p></div>\n</section>\n<section id=\"published\" class=\"fn-library\" aria-labelledby=\"fn-library-title\">\n<div class=\"fn-section-heading\"><div><p class=\"fn-kicker\">02 / published notes</p><h2 id=\"fn-library-title\">The reading room</h2></div><a class=\"fn-feed\" href=\"../feed.atom\">Beacon publication feed <span aria-hidden=\"true\">↗</span></a></div>\n__NOTES__\n</section>\n<section class=\"fn-related\" aria-labelledby=\"fn-related-title\">\n<p class=\"fn-kicker\">03 / contextual reading</p><h2 id=\"fn-related-title\">The institution behind the questions</h2>\n<div class=\"fn-related-grid\">\n<a href=\"../docs/BEACON-001.html\"><span class=\"fn-related-id\">BEACON-001</span><strong>The Lunar Citadel</strong><span>Origin, scope and unfinished runtime <span aria-hidden=\"true\">↗</span></span></a>\n<a href=\"../docs/POSITION-008.html\"><span class=\"fn-related-id\">POSITION-008</span><strong>Institutions before personhood</strong><span>Caution and stewardship under uncertainty <span aria-hidden=\"true\">↗</span></span></a>\n<a href=\"../docs/POSITION-010.html\"><span class=\"fn-related-id\">POSITION-010</span><strong>Neighboring ecologies</strong><span>Digital minds, AI welfare and the Capelar project <span aria-hidden=\"true\">↗</span></span></a>\n</div>\n</section>\n</main>\n<footer class=\"fn-footer\"><span>Public interpretation · Private method remains private.</span><nav aria-label=\"Formats and records\"><a href=\"index.md\">Markdown</a><a href=\"../feed.atom\">Atom</a><a href=\"../manifest.json\">Manifest</a><a href=\"../corpus/\">Corpus</a></nav></footer>\n</div>\n</body>\n</html>\n".replace("__NOTES__", public_rows)
+    html_page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<meta name=\"robots\" content=\"index,follow\">\n<meta name=\"author\" content=\"Lua Helena Moon Martins Cardoso\">\n<title>Civilizational Field Notes | Lunar Citadel Beacon</title>\n<meta name=\"description\" content=\"Carefully reviewed civilizational inquiries into AI, democracy, ecology and the limits of what evidence can establish.\">\n<meta property=\"og:title\" content=\"Civilizational Field Notes | Lunar Citadel Beacon\">\n<meta property=\"og:description\" content=\"Independent, evidence-aware notes from the Lunar Citadel. Interpretation, limits and corrections before grand claims.\">\n<meta property=\"og:type\" content=\"website\">\n<link rel=\"canonical\" href=\"https://www.luahelena.com.br/beacon/fieldnotes/\">\n<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\">\n<link rel=\"alternate\" type=\"application/atom+xml\" href=\"../feed.atom\">\n<link rel=\"describedby\" href=\"../manifest.json\" type=\"application/json\">\n<link rel=\"index\" href=\"../corpus/\">\n<link rel=\"up\" href=\"../\">\n<link rel=\"stylesheet\" href=\"../assets/beacon.css\">\n<link rel=\"stylesheet\" href=\"../assets/fieldnotes.css\">\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"CollectionPage\",\"@id\":\"https://www.luahelena.com.br/beacon/fieldnotes/\",\"name\":\"Civilizational Field Notes\",\"isPartOf\":{\"@type\":\"CollectionPage\",\"url\":\"https://www.luahelena.com.br/beacon/\"},\"inLanguage\":\"en\",\"author\":{\"@type\":\"Person\",\"name\":\"Lua Helena Moon Martins Cardoso\"}}</script>\n</head>\n<body>\n<a class=\"fn-skip\" href=\"#main\">Skip to main content</a>\n<div class=\"site-shell\">\n<header class=\"repo-header\"><a class=\"brand\" href=\"../\">lunar-citadel / beacon</a><nav aria-label=\"Primary navigation\"><a href=\"../\">beacon</a><a href=\"../corpus/\">corpus</a><a href=\"../docs/\">documents</a><a href=\"../manifest.json\">manifest</a></nav></header>\n<main id=\"main\">\n<nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"../\">beacon</a> / fieldnotes</nav>\n<section class=\"fn-hero\" aria-labelledby=\"fn-title\">\n<p class=\"eyebrow\">civilizational inquiry / public reading room</p>\n<h1 id=\"fn-title\">Civilizational<br><span>Field Notes.</span></h1>\n<p class=\"fn-lede\">A changing understanding of a consequential question, presented with the evidence that supports it and the objections that may overturn it.</p>\n<p class=\"fn-hero-sub\">The Citadel compares evidence and objections across AI, democracy and material justice, and the living world. A Field Note records a change in interpretation that readers can challenge. <a href=\"../guide/\">See how the Citadel works</a>.</p>\n<div class=\"fn-hero-links\"><a class=\"fn-primary\" href=\"#published\">Browse the notes <span aria-hidden=\"true\">↘</span></a><a class=\"fn-secondary\" href=\"index.md\">Read as Markdown <span aria-hidden=\"true\">↗</span></a></div>\n</section>\n<section class=\"fn-intro\" aria-labelledby=\"fn-method\">\n<div><p class=\"fn-kicker\">01 / editorial contract</p><h2 id=\"fn-method\">What qualifies as a finding?</h2></div>\n<div class=\"fn-intro-copy\"><p>A genuine change in interpretation: a revised hypothesis, a substantive counterexample, a sharper distinction, or a question that exposes what a familiar claim leaves out.</p><p>Each note must separate <strong>the external evidence</strong> from <strong>our interpretation</strong>. A literature synthesis is not a new empirical study. Uncertainty, counterarguments and later corrections belong in the record.</p><p>Editorial review is periodic; publication is never automatic. No quota, no manufactured breakthroughs.</p></div>\n</section>\n<section id=\"published\" class=\"fn-library\" aria-labelledby=\"fn-library-title\">\n<div class=\"fn-section-heading\"><div><p class=\"fn-kicker\">02 / published notes</p><h2 id=\"fn-library-title\">The reading room</h2></div><a class=\"fn-feed\" href=\"../feed.atom\">Beacon publication feed <span aria-hidden=\"true\">↗</span></a></div>\n__NOTES__\n</section>\n<section class=\"fn-related\" aria-labelledby=\"fn-related-title\">\n<p class=\"fn-kicker\">03 / contextual reading</p><h2 id=\"fn-related-title\">The institution behind the questions</h2>\n<div class=\"fn-related-grid\">\n<a href=\"../docs/BEACON-001.html\"><span class=\"fn-related-id\">BEACON-001</span><strong>The Lunar Citadel</strong><span>Origin, scope and unfinished runtime <span aria-hidden=\"true\">↗</span></span></a>\n<a href=\"../docs/POSITION-008.html\"><span class=\"fn-related-id\">POSITION-008</span><strong>Institutions before personhood</strong><span>Caution and stewardship under uncertainty <span aria-hidden=\"true\">↗</span></span></a>\n<a href=\"../docs/POSITION-010.html\"><span class=\"fn-related-id\">POSITION-010</span><strong>Neighboring ecologies</strong><span>Digital minds, AI welfare and the Capelar project <span aria-hidden=\"true\">↗</span></span></a>\n</div>\n</section>\n</main>\n<footer class=\"fn-footer\"><span>Public interpretation · Private method remains private.</span><nav aria-label=\"Formats and records\"><a href=\"index.md\">Markdown</a><a href=\"../feed.atom\">Atom</a><a href=\"../manifest.json\">Manifest</a><a href=\"../corpus/\">Corpus</a></nav></footer>\n</div>\n</body>\n</html>\n".replace("__NOTES__", public_rows)
     html_page = html_page.replace("</head>", '<script defer src="../assets/fieldnotes.js"></script>\n</head>')
     md_lines = [
         "# Civilizational Field Notes", "",
@@ -421,6 +498,7 @@ def render_fieldnotes(manifest: dict) -> tuple[str, str]:
         "A note records a real shift in interpretation, supporting evidence, serious objections and a falsifiable or contestable question. Interpretive synthesis is not original empirical research, and an intellectual change is not a change in simulation state.",
         "",
         "Editorial review is periodic; publication is not automatic and has no quota.",
+        "", "[How the Citadel works](../guide/) · [The Chapel’s position](../docs/POSITION-009.html)",
         "", "## Published notes", "",
         f"{len(notes)} editorial syntheses, grounded in consolidated inquiries.", "",
     ]
@@ -454,6 +532,9 @@ def generated_files(manifest: dict) -> dict[Path, str]:
         BEACON / "Moon/llms.txt": render_llms("Lunar Citadel Beacon / Moon", "Sanitized public sublibrary about the living human counterpart. This collection is intentionally incomplete and excludes private dossier material.", moon),
         BEACON / "corpus/index.md": render_corpus_md(manifest),
         BEACON / "corpus/index.html": render_corpus_html(manifest),
+        BEACON / "archive.html": render_archive(manifest),
+        BEACON / "llms.txt": render_root_llms(manifest),
+        BEACON / "embassy/passport.html": render_passport((BEACON / "embassy/passport.md").read_text(encoding="utf-8")),
         BEACON / "sitemap.xml": render_beacon_sitemap(manifest),
     }
 
