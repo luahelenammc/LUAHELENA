@@ -6,6 +6,8 @@ A note records a real shift in interpretation, supporting evidence, serious obje
 
 Editorial review is periodic; publication is not automatic and has no quota.
 
+[How the Citadel works](../guide/) · [The Chapel’s position](../docs/POSITION-009.html)
+
 ## Published notes
 
 32 editorial syntheses, grounded in consolidated inquiries.
