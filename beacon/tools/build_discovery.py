@@ -325,7 +325,7 @@ def render_beacon_sitemap(manifest: dict) -> str:
     for path, modified in urls.items():
         lastmod = f"<lastmod>{esc(modified)}</lastmod>" if modified else ""
         lines.append(f"  <url><loc>{esc(BEACON_URL + path)}</loc>{lastmod}</url>")
-    return "\n".join([*lines, "</urlset", ">\n"]).replace("</urlset\n>", "</urlset>\n")
+    return "\n".join([*lines, "</urlset>", ""])
 
 
 def render_archive(manifest: dict) -> str:
