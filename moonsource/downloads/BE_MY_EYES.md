@@ -23,7 +23,7 @@
 - **license:** CC BY 4.0; see https://creativecommons.org/licenses/by/4.0/ and https://github.com/luahelenammc/Moon-Source/blob/main/LICENSING.md
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
 - **AI-assisted coauthorial development:** Áurion
-- **Moon Source lineage:** promoted from a repeatedly used local/private Moon Source interface also named Be My Eyes
+- **Moon Source component:** portable visual observation and user-authorized context description
 - **adaptation policy:** share or adapt with appropriate credit, a license link and an indication of changes; do not imply endorsement
 - **claim ceiling:** a bounded contextual-reading method, not mind-reading, psychological diagnosis, validated interpersonal prediction or guaranteed recipient reaction
 
