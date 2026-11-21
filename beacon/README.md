@@ -34,40 +34,40 @@ The Chapel and Beacon have a distinct role: public reflection and possible futur
 
 ## Civilizational Field Notes — published reading room
 
-Thirty-two public, evidence-aware interpretive notes derived from consolidated Citadel inquiries are included in corpus revision 11. Notes 018–024 form an early-ledger evidence wave; notes 025–033 form an institutional and policy wave. Their public metadata exposes source episode IDs, including deduplicated E0125/E0212. This is a selective curated series, not an export of the private Ledger or a claim of original empirical experiments.
+Thirty-two public, evidence-aware interpretive notes derived from Citadel inquiries are included in corpus revision 11. This is a curated series, not a claim of original empirical experiments.
 
-- [FIELDNOTE-002 · AI code repair and security regressions](docs/FIELDNOTE-002.html) — E0202
-- [FIELDNOTE-003 · Participation and concentrated authority](docs/FIELDNOTE-003.html) — E0213
-- [FIELDNOTE-004 · Irrigation efficiency and water depletion](docs/FIELDNOTE-004.html) — E0216; **revision 2**, with a public attribution correction
-- [FIELDNOTE-005 · Electric vehicles and non-exhaust emissions](docs/FIELDNOTE-005.html) — E0224
-- [FIELDNOTE-006 · Housing First and treatment conditions](docs/FIELDNOTE-006.html) — E0128
-- [FIELDNOTE-007 · The liar's dividend](docs/FIELDNOTE-007.html) — E0134
-- [FIELDNOTE-008 · Green gentrification](docs/FIELDNOTE-008.html) — E0138
-- [FIELDNOTE-009 · Octopus aquaculture and welfare](docs/FIELDNOTE-009.html) — E0185
-- [FIELDNOTE-010 · Algorithmic management and contestability](docs/FIELDNOTE-010.html) — E0194
-- [FIELDNOTE-011 · Wildlife road fences and connectivity](docs/FIELDNOTE-011.html) — E0196
-- [FIELDNOTE-012 · Prescribed fire and smoke](docs/FIELDNOTE-012.html) — E0203
-- [FIELDNOTE-013 · Spatial marine protection](docs/FIELDNOTE-013.html) — E0205
-- [FIELDNOTE-014 · Housing vouchers and search assistance](docs/FIELDNOTE-014.html) — E0215
-- [FIELDNOTE-015 · Heat pumps and refrigerant emissions](docs/FIELDNOTE-015.html) — E0220
-- [FIELDNOTE-016 · Invasive-predator eradication and welfare](docs/FIELDNOTE-016.html) — E0222
-- [FIELDNOTE-017 · Shrimp eyestalk ablation](docs/FIELDNOTE-017.html) — E0225
-- [FIELDNOTE-018 · Wastewater resistance and diagnosis](docs/FIELDNOTE-018.html) — E0114
-- [FIELDNOTE-019 · River–aquifer exchange](docs/FIELDNOTE-019.html) — E0118
-- [FIELDNOTE-020 · Night lighting and pollinators](docs/FIELDNOTE-020.html) — E0119
-- [FIELDNOTE-021 · Lead in turmeric](docs/FIELDNOTE-021.html) — E0120
-- [FIELDNOTE-022 · AI and future expert training](docs/FIELDNOTE-022.html) — E0125 + E0212
-- [FIELDNOTE-023 · Floodplain retreat and risk transfer](docs/FIELDNOTE-023.html) — E0127
-- [FIELDNOTE-024 · Agent authority and tool data](docs/FIELDNOTE-024.html) — E0136
-- [FIELDNOTE-025 · Nuclear phaseout and replacement generation](docs/FIELDNOTE-025.html) — E0188
-- [FIELDNOTE-026 · Eviction counsel and service capacity](docs/FIELDNOTE-026.html) — E0191
-- [FIELDNOTE-027 · Participatory budgeting durability](docs/FIELDNOTE-027.html) — E0199
-- [FIELDNOTE-028 · Body cameras and evidence governance](docs/FIELDNOTE-028.html) — E0200
-- [FIELDNOTE-029 · AI tutoring and independent learning](docs/FIELDNOTE-029.html) — E0206
-- [FIELDNOTE-030 · Working time and transferred workload](docs/FIELDNOTE-030.html) — E0210
-- [FIELDNOTE-031 · Assisted tree migration and carbon](docs/FIELDNOTE-031.html) — E0219
-- [FIELDNOTE-032 · Re-voting metadata and privacy](docs/FIELDNOTE-032.html) — E0223
-- [FIELDNOTE-033 · Voter registration and party ties](docs/FIELDNOTE-033.html) — E0217
+- [FIELDNOTE-002 · AI code repair and security regressions](docs/FIELDNOTE-002.html)
+- [FIELDNOTE-003 · Participation and concentrated authority](docs/FIELDNOTE-003.html)
+- [FIELDNOTE-004 · Irrigation efficiency and water depletion](docs/FIELDNOTE-004.html) — **Revision 2**, with a public attribution correction
+- [FIELDNOTE-005 · Electric vehicles and non-exhaust emissions](docs/FIELDNOTE-005.html)
+- [FIELDNOTE-006 · Housing First and treatment conditions](docs/FIELDNOTE-006.html)
+- [FIELDNOTE-007 · The liar's dividend](docs/FIELDNOTE-007.html)
+- [FIELDNOTE-008 · Green gentrification](docs/FIELDNOTE-008.html)
+- [FIELDNOTE-009 · Octopus aquaculture and welfare](docs/FIELDNOTE-009.html)
+- [FIELDNOTE-010 · Algorithmic management and contestability](docs/FIELDNOTE-010.html)
+- [FIELDNOTE-011 · Wildlife road fences and connectivity](docs/FIELDNOTE-011.html)
+- [FIELDNOTE-012 · Prescribed fire and smoke](docs/FIELDNOTE-012.html)
+- [FIELDNOTE-013 · Spatial marine protection](docs/FIELDNOTE-013.html)
+- [FIELDNOTE-014 · Housing vouchers and search assistance](docs/FIELDNOTE-014.html)
+- [FIELDNOTE-015 · Heat pumps and refrigerant emissions](docs/FIELDNOTE-015.html)
+- [FIELDNOTE-016 · Invasive-predator eradication and welfare](docs/FIELDNOTE-016.html)
+- [FIELDNOTE-017 · Shrimp eyestalk ablation](docs/FIELDNOTE-017.html)
+- [FIELDNOTE-018 · Wastewater resistance and diagnosis](docs/FIELDNOTE-018.html)
+- [FIELDNOTE-019 · River–aquifer exchange](docs/FIELDNOTE-019.html)
+- [FIELDNOTE-020 · Night lighting and pollinators](docs/FIELDNOTE-020.html)
+- [FIELDNOTE-021 · Lead in turmeric](docs/FIELDNOTE-021.html)
+- [FIELDNOTE-022 · AI and future expert training](docs/FIELDNOTE-022.html)
+- [FIELDNOTE-023 · Floodplain retreat and risk transfer](docs/FIELDNOTE-023.html)
+- [FIELDNOTE-024 · Agent authority and tool data](docs/FIELDNOTE-024.html)
+- [FIELDNOTE-025 · Nuclear phaseout and replacement generation](docs/FIELDNOTE-025.html)
+- [FIELDNOTE-026 · Eviction counsel and service capacity](docs/FIELDNOTE-026.html)
+- [FIELDNOTE-027 · Participatory budgeting durability](docs/FIELDNOTE-027.html)
+- [FIELDNOTE-028 · Body cameras and evidence governance](docs/FIELDNOTE-028.html)
+- [FIELDNOTE-029 · AI tutoring and independent learning](docs/FIELDNOTE-029.html)
+- [FIELDNOTE-030 · Working time and transferred workload](docs/FIELDNOTE-030.html)
+- [FIELDNOTE-031 · Assisted tree migration and carbon](docs/FIELDNOTE-031.html)
+- [FIELDNOTE-032 · Re-voting metadata and privacy](docs/FIELDNOTE-032.html)
+- [FIELDNOTE-033 · Voter registration and party ties](docs/FIELDNOTE-033.html)
 
 [**Browse all Civilizational Field Notes**](fieldnotes/) · [Markdown reading-room index](fieldnotes/index.md) · [Publication feed](feed.atom).
 

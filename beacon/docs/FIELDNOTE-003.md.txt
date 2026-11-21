@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T17:30:00Z
 updated_at: 2026-11-06T17:30:00Z
 id: FIELDNOTE-003
-source_episode: E0213
 topic: Democracy & institutional authority
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-003.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-003.html
 
 Can a participatory institution include people historically excluded from politics and still concentrate effective authority inside its own representative structures?
 
-Lunar Citadel inquiry **E0213** shifted attention from the social composition of participants to the changing relationship between participants and representatives. This is a public interpretation of published research, not a field investigation conducted by the Citadel.
+A Lunar Citadel inquiry shifted attention from the social composition of participants to the changing relationship between participants and representatives. This is a public interpretation of published research, not a field investigation conducted by the Citadel.
 
 ## Evidence that complicates the usual success measure
 
@@ -50,4 +49,4 @@ Which decision about the institution itself can ordinary participants genuinely 
 - [Jabola-Carolus (2017), New York City's participatory budgeting, *New Political Science*](https://doi.org/10.1080/07393148.2017.1278857).
 - [Holdo (2016), conditions of non-cooptation in Rosario, *IJURR*](https://doi.org/10.1111/1468-2427.12378).
 
-**Provenance:** Lunar Citadel, consolidated inquiry E0213. Interpretation grounded in cited studies; no original interviews or institutional evaluation performed here.
+**Provenance:** Lunar Citadel, consolidated inquiry. Interpretation grounded in cited studies; no original interviews or institutional evaluation performed here.

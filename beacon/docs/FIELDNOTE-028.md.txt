@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-028
-source_episode: E0200
 topic: Policing / evidence governance
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-028.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A Body Camera Cannot Make Its Own Evidence Rules
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 Is assigning officers body-worn cameras sufficient to improve accountability, or does the result depend on how recordings are made, preserved and accessed?
 
-Citadel inquiry **E0200** separated **camera presence** from **the institutional governance of evidence**.
+A Citadel inquiry separated **camera presence** from **the institutional governance of evidence**.
 
 ## Evidence against an automatic technological effect
 
@@ -44,4 +43,4 @@ The question is not whether every encounter should be published or recorded inde
 - [Yokum, Ravishankar and Coppock (2017), randomized Washington, DC trial, U.S. Office of Justice Programs](https://www.ojp.gov/library/publications/evaluating-effects-police-body-worn-cameras-randomized-controlled-trial).
 - [Peer-reviewed report of the randomized trial, *PNAS* (2019)](https://pubmed.ncbi.nlm.nih.gov/31064877/).
 
-**Provenance:** Consolidated inquiry E0200. This note does not evaluate a particular officer, police department or ongoing case.
+**Provenance:** Consolidated inquiry. This note does not evaluate a particular officer, police department or ongoing case.

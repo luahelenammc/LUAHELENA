@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-019
-source_episode: E0118
 topic: Groundwater / river systems
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-019.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A River Can Feed Wells Before the Aquifer Looks Empty
@@ -21,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 How can an aquifer under stress reduce the water flowing in a river, even while groundwater still appears available to pump?
 
-Citadel inquiry **E0118** separated the visible persistence of wells from the less visible connection between groundwater levels and river flow.
+A Citadel inquiry separated the visible persistence of wells from the less visible connection between groundwater levels and river flow.
 
 ## What the measurements show
 
@@ -44,4 +43,4 @@ An adequate policy test compares dry-season streamflow, groundwater levels and m
 - [*Widespread potential for streamflow leakage across Brazil* (2024), *Nature Communications*](https://doi.org/10.1038/s41467-024-54370-3).
 - [Full study and methodological limitations](https://pmc.ncbi.nlm.nih.gov/articles/PMC11589738/).
 
-**Provenance:** Consolidated inquiry E0118. No original groundwater survey or basin-specific pumping counterfactual is claimed.
+**Provenance:** Consolidated inquiry. No original groundwater survey or basin-specific pumping counterfactual is claimed.

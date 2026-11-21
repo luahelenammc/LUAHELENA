@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-012
-source_episode: E0203
 topic: Fire, ecosystems and public health
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-012.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-012.html
 
 Can a deliberately set, lower-intensity fire prevent a worse future smoke disaster, or does it merely add today's exposure to an uncertain future benefit?
 
-Citadel inquiry **E0203** treated prescribed burning as a decision about **the timing and geography of risk**, not a cost-free substitute for wildfire.
+A Citadel inquiry treated prescribed burning as a decision about **the timing and geography of risk**, not a cost-free substitute for wildfire.
 
 ## Two findings in productive tension
 
@@ -43,4 +42,4 @@ An honest policy cannot count hypothetical avoided smoke as certain while treati
 - [Kreider, Urbanski and Fargione (2026), *PNAS*](https://doi.org/10.1073/pnas.2613722123).
 - [Higuera-Mendieta and Burke (2026), *The air pollution benefits of low-severity fire*, *Science*](https://doi.org/10.1126/science.aea2490).
 
-**Provenance:** Consolidated inquiry E0203. No original fire model, smoke dispersion simulation or local exposure measurement is claimed.
+**Provenance:** Consolidated inquiry. No original fire model, smoke dispersion simulation or local exposure measurement is claimed.

@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-009
-source_episode: E0185
 topic: Octopus welfare and fisheries
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-009.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-009.html
 
 If a country restricts commercial octopus farming, has it meaningfully reduced animal suffering and ecological pressure, or merely changed where its octopus comes from?
 
-Citadel inquiry **E0185** distinguished the ethical judgment about **creating a new intensive farming industry** from the uncertain market consequences of that decision.
+A Citadel inquiry distinguished the ethical judgment about **creating a new intensive farming industry** from the uncertain market consequences of that decision.
 
 ## What is known
 
@@ -43,4 +42,4 @@ These answers can diverge. An animal-welfare precaution can be justified without
 - [Jacquet et al. (2019), *The Case Against Octopus Farming*, *Issues in Science and Technology*](https://issues.org/the-case-against-octopus-farming/).
 - [*Animal welfare risks from commercial practices involving cephalopod molluscs and decapod crustaceans* (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12056426/).
 
-**Provenance:** Consolidated inquiry E0185. No original substitution model, farm assessment or wild-fishery survey is claimed.
+**Provenance:** Consolidated inquiry. No original substitution model, farm assessment or wild-fishery survey is claimed.

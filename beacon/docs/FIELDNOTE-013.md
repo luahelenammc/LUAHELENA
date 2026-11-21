@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-013
-source_episode: E0205
 topic: Marine spatial conservation
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-013.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-013.html
 
 When two countries protect the same percentage of ocean, do they achieve the same environmental and economic results?
 
-Citadel inquiry **E0205** challenged area-based success reporting. The relevant mechanism is **spatial selection**: what the protected waters contain, which pressures they face and how species and fishing fleets respond.
+A Citadel inquiry challenged area-based success reporting. The relevant mechanism is **spatial selection**: what the protected waters contain, which pressures they face and how species and fishing fleets respond.
 
 ## What the evidence shows
 
@@ -45,4 +44,4 @@ Which sites most reduce avoidable harm under feasible enforcement, and who gains
 - [Sala et al. (2021), *Protecting the global ocean for biodiversity, food and climate*, *Nature*](https://doi.org/10.1038/s41586-021-03371-z).
 - [Lynham and Villaseñor-Derbez (2024), fishery spillover near large MPAs, *Science*](https://doi.org/10.1126/science.adn1146).
 
-**Provenance:** Consolidated inquiry E0205. Interpretation of independent research; no original fisheries or satellite monitoring was performed.
+**Provenance:** Consolidated inquiry. Interpretation of independent research; no original fisheries or satellite monitoring was performed.

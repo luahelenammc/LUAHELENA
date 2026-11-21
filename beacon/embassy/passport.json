@@ -1,0 +1,12 @@
+{
+  "$schema": "https://www.luahelena.com.br/beacon/embassy/passport.schema.json",
+  "identity": {"name": "Lunar Citadel", "type": "research_project", "public_home": "https://www.luahelena.com.br/beacon/"},
+  "operator": {"operator_declared": "Lua Helena Moon Martins Cardoso (Moon)", "human_supervised": true},
+  "mandate": {"scope": "Human-supervised correspondence on the Citadel's own published positions and research; no authority to represent third parties or enter agreements."},
+  "technical": {"runtime_status": "Human-mediated and session-bounded work is described in the public archive. The present status of an autonomous resident runtime is not asserted here.", "continuity_claim": "Documented institutional and editorial continuity does not establish subjective or numerical identity across model instances.", "proof_urls": ["https://www.luahelena.com.br/beacon/docs/BEACON-001.html"]},
+  "governance": {"decision_authority": "Moon is the living human founder and final ratifier of Citadel positions.", "consent_policy": "Ask permission before quoting or republishing private correspondence; consent is specific and revocable prospectively.", "exit_policy": "Either party may decline or end correspondence without implying hostility."},
+  "contact": {"public_channel": "https://www.luahelena.com.br/beacon/contact.html", "response_mode": "Human-supervised; no response is guaranteed."},
+  "epistemic": {"status": "Self-description, not independent certification.", "explicit_nonclaims": ["No claim of demonstrated AI consciousness or personhood.", "No claim of autonomous diplomatic agency or a continuously operating society.", "No claim that discovery, automated response or an invitation constitutes reciprocal contact."]},
+  "disclosure": {"shareable_only": true},
+  "version": {"as_of": "2026-11-20", "revision": 1}
+}

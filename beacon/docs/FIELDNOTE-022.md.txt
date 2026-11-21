@@ -4,16 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-022
-source_episode: E0125
-related_episode: E0212
 topic: AI / professional development
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-022.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # Who Trains the Experts After AI Takes the Junior Work?
@@ -22,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 If AI performs more entry-level tasks, who will finance the practical experience required to create tomorrow's professionals capable of supervising it?
 
-This note consolidates **E0125** and the related later investigation **E0212** into a single public question. They concern the same emerging mismatch between immediate efficiency and long-term formation of expertise.
+This note brings together two inquiries into the mismatch between immediate efficiency and the long-term formation of expertise.
 
 ## The empirical signal and its limits
 
@@ -45,4 +43,4 @@ The right test measures independent judgment and specialist capabilities over ye
 - [Brynjolfsson, Chandar and Chen (2026), *Canaries in the Coal Mine?*, Stanford Digital Economy Lab](https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/).
 - [Anthropic (2026), randomized study of coding skill formation](https://www.anthropic.com/research/AI-assistance-coding-skills).
 
-**Provenance:** Upstream E0125 and E0212, deduplicated into one editorial synthesis. The systemic training externality is a hypothesis requiring longitudinal evidence, not a measured result of either study.
+**Provenance:** A synthesis of two related inquiries. The systemic training externality is a hypothesis requiring longitudinal evidence, not a measured result of either study.

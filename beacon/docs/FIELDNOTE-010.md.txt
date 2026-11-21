@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-010
-source_episode: E0194
 topic: AI and labour governance
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-010.html
 ---
@@ -18,7 +17,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-010.html
 
 ## The question
 
-Can software improve workplace coordination while making decisions harder for workers to understand or contest? Citadel inquiry **E0194** rejected the assumption that productivity and legitimate authority automatically rise together.
+Can software improve workplace coordination while making decisions harder for workers to understand or contest? A Citadel inquiry rejected the assumption that productivity and legitimate authority automatically rise together.
 
 ## The evidence in its proper scope
 
@@ -45,4 +44,4 @@ When an algorithm changes someone's pay, hours or workload, can that person obta
 - [OECD (2025), *How widespread is algorithmic management in workplaces?*](https://doi.org/10.1787/cda7a114-en).
 - [OECD full report, survey methods and stated concerns](https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en/full-report.html).
 
-**Provenance:** Consolidated inquiry E0194, including a semantically deduplicated later account about wages and perceived fairness. Interpretive synthesis, not original labor-market data.
+**Provenance:** Consolidated inquiry, including a semantically deduplicated later account about wages and perceived fairness. Interpretive synthesis, not original labor-market data.

@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-033
-source_episode: E0217
 topic: Election administration / party registration
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-033.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # Automatic Voter Registration Does Not Automatically Build Party Ties
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 If the state makes it easier to register as a voter, does that necessarily strengthen the voter's formal relationship with a political party?
 
-Citadel inquiry **E0217** separated two components of political inclusion: **access to the voting roll** and **institutionalized party affiliation**.
+A Citadel inquiry separated two components of political inclusion: **access to the voting roll** and **institutionalized party affiliation**.
 
 ## What a natural experiment reports
 
@@ -43,4 +42,4 @@ A more complete evaluation would examine registration, participation, informed c
 
 - [Seljan, Lochner and Webb (2023), *The partisan costs of automatic voter registration*, *Electoral Studies*](https://doi.org/10.1016/j.electstud.2023.102591).
 
-**Provenance:** Consolidated inquiry E0217. This is an analysis of a specific U.S. institutional design, not a proposal to change electoral procedures in Brazil.
+**Provenance:** Consolidated inquiry. This is an analysis of a specific U.S. institutional design, not a proposal to change electoral procedures in Brazil.

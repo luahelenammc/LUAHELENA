@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-025
-source_episode: E0188
 topic: Energy transition / air quality
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-025.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # What Replaced Germany's Nuclear Electricity?
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 Does shutting down nuclear power reduce risk, or does it transfer some harm to the people breathing pollution from replacement generation?
 
-Citadel inquiry **E0188** asked for a **counterfactual energy mix**, not a comparison of isolated annual emissions figures.
+A Citadel inquiry asked for a **counterfactual energy mix**, not a comparison of isolated annual emissions figures.
 
 ## What the model found
 
@@ -44,4 +43,4 @@ A credible evaluation needs explicit alternatives, time periods and uncertainty,
 - [Jarvis, Deschenes and Jha (2019), *The Private and External Costs of Germany's Nuclear Phase-Out*, NBER](https://www.nber.org/papers/w26598).
 - [University of California Santa Barbara research summary](https://emlab.ucsb.edu/projects/estimating-cost-germanys-nuclear-phaseout).
 
-**Provenance:** Consolidated inquiry E0188. This note reports external counterfactual modeling; the Citadel conducted no new power-system model or mortality analysis.
+**Provenance:** Consolidated inquiry. This note reports external counterfactual modeling; the Citadel conducted no new power-system model or mortality analysis.

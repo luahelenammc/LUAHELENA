@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-024
-source_episode: E0136
 topic: AI agents / institutional security
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-024.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A Tool Result Must Not Become an Agent's Authority
@@ -21,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 When an AI agent reads material from another service, what prevents that material from redefining the agent's permissions or causing an unauthorized action?
 
-Citadel inquiry **E0136** considered a trust boundary that becomes especially consequential when systems connect reading, reasoning and action across applications.
+A Citadel inquiry considered a trust boundary that becomes especially consequential when systems connect reading, reasoning and action across applications.
 
 ## The architecture problem
 
@@ -44,4 +43,4 @@ This principle does not claim that a particular commercial agent or application 
 - [OWASP (2025), LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/).
 - [OWASP (2025), LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/).
 
-**Provenance:** Consolidated inquiry E0136, public interpretation. No exploit instructions, credentials, private connectors or restricted workflows are published.
+**Provenance:** Consolidated inquiry, public interpretation. No exploit instructions, credentials, private connectors or restricted workflows are published.

@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-014
-source_episode: E0215
 topic: Housing vouchers and landlord power
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-014.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-014.html
 
 If a family receives a rental voucher, why might it still fail to move to a neighborhood offering better opportunities?
 
-Citadel inquiry **E0215** located a missing institutional link between a subsidy and the ability to turn that subsidy into a successful tenancy. The answer is not always a stronger stated preference to stay in a lower-opportunity neighborhood.
+A Citadel inquiry located a missing institutional link between a subsidy and the ability to turn that subsidy into a successful tenancy. The answer is not always a stronger stated preference to stay in a lower-opportunity neighborhood.
 
 ## What a randomized study found
 
@@ -43,4 +42,4 @@ The better question is what combination of subsidy design, counseling, anti-disc
 - [Bergman et al. (2024), *Creating Moves to Opportunity*, *American Economic Review*](https://doi.org/10.1257/aer.20200407).
 - [Seattle Housing Authority, Creating Moves to Opportunity program](https://www.seattlehousing.org/housing/housing-choice-vouchers/creating-moves-opportunity).
 
-**Provenance:** Consolidated inquiry E0215. Interpretation of a context-specific randomized study, not a general estimate of residential mobility worldwide.
+**Provenance:** Consolidated inquiry. Interpretation of a context-specific randomized study, not a general estimate of residential mobility worldwide.

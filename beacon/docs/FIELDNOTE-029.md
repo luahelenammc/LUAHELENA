@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-029
-source_episode: E0206
 topic: AI education / learning outcomes
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-029.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # Helping a Student Finish a Problem Is Not the Same as Teaching It
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 Does access to an AI tutor improve learning, or merely make students better at completing exercises while the tool is available?
 
-Citadel inquiry **E0206** raised a useful question about access restrictions, but its brief consolidated formulation was **too coarse**. The strongest retrieved experiment does not support a blanket claim that unrestricted access is always better for learning.
+A Citadel inquiry raised a useful question about access restrictions, but its brief consolidated formulation was **too coarse**. The strongest retrieved experiment does not support a blanket claim that unrestricted access is always better for learning.
 
 ## What the experiment actually measured
 
@@ -35,11 +34,11 @@ Blocking access can prevent useful feedback and disproportionately affect studen
 
 ## The interpretive delta
 
-The editorial correction to E0206 is explicit: **the meaningful dimension is not simply permission versus prohibition, but the relation between assisted performance and retained independent competence**. Evaluation should test what students can do after support is removed.
+The editorial correction is explicit: **the meaningful dimension is not simply permission versus prohibition, but the relation between assisted performance and retained independent competence**. Evaluation should test what students can do after support is removed.
 
 ## Sources
 
 - [Bastani and colleagues (2025), *Generative AI without guardrails can harm learning*, *PNAS*](https://pubmed.ncbi.nlm.nih.gov/40560616/).
 - [*Evaluating lab assistant chatbot on student learning and behaviors in a programming short course* (2026)](https://doi.org/10.1016/j.caeai.2025.100527).
 
-**Provenance:** Consolidated inquiry E0206, with an explicit evidence-based qualification of its abbreviated upstream claim. No student-level data were accessed by the Citadel.
+**Provenance:** Consolidated inquiry, with an explicit evidence-based qualification of an earlier abbreviated claim. No student-level data were accessed by the Citadel.

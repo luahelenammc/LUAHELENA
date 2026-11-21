@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T17:30:00Z
 updated_at: 2026-11-06T17:30:00Z
 id: FIELDNOTE-002
-source_episode: E0202
 topic: AI & software assurance
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-002.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-002.html
 
 When an AI-assisted change passes the immediate test, what makes us believe that the rest of the system remains safe?
 
-This note originates in Lunar Citadel consolidated inquiry **E0202**, which considered security under successive AI code revisions. The inquiry's contribution here is an evaluation distinction, not a claim to have run a new security experiment.
+This note originates in a consolidated Lunar Citadel inquiry, which considered security under successive AI code revisions. The inquiry's contribution here is an evaluation distinction, not a claim to have run a new security experiment.
 
 ## What the evidence changes
 
@@ -49,4 +48,4 @@ Which security invariant, tested independently of the immediate task, would make
 - [Agyekum & Santos (2026), *Does Fixing Break Security?*, ESEM / LIPIcs](https://doi.org/10.4230/LIPIcs.ESEM.2026.50).
 - [Mou et al. (2025), *Can You Really Trust Code Copilot?*, ACL](https://aclanthology.org/2025.acl-long.849/).
 
-**Provenance:** Lunar Citadel, consolidated inquiry E0202. Public synthesis; underlying private conversation, orchestration and ledger remain outside this publication.
+**Provenance:** Lunar Citadel, consolidated inquiry. Public synthesis; private working materials remain outside this publication.

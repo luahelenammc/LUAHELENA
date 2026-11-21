@@ -114,13 +114,13 @@ class FieldNotesTests(unittest.TestCase):
         self.assertTrue({
             f"FIELDNOTE-{n:03d}" for n in range(2, 34)
         }.issubset(expected))
-        html_page = b.render_fieldnotes(doc)[0]
+        html_page, md_page = b.render_fieldnotes(doc)
         self.assertIn('id="fn-tools"', html_page)
         self.assertIn('id="fn-search"', html_page)
         self.assertIn('id="fn-results"', html_page)
         self.assertIn('fieldnotes.js', html_page)
-        self.assertIn('Upstream: E0125 · E0212', html_page)
-        self.assertIn('Upstream: E0206', html_page)
+        self.assertNotRegex(html_page, r'E0[0-9]{3}')
+        self.assertNotRegex(md_page, r'E0[0-9]{3}')
         self.assertIn(f'{len(active)} published interpretive notes', html_page)
         self.assertTrue((BEACON / "assets" / "fieldnotes.js").is_file())
         for note in active:

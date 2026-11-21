@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-021
-source_episode: E0120
 topic: Food safety / market incentives
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-021.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # When the Color of Turmeric Becomes a Poisoning Incentive
@@ -21,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 What happens when consumers and traders treat a vivid yellow color as proof of quality, even though a toxic pigment can produce that signal?
 
-Citadel inquiry **E0120** interpreted turmeric adulteration as a problem of **information and market incentives**, not merely a laboratory failure to detect lead.
+A Citadel inquiry interpreted turmeric adulteration as a problem of **information and market incentives**, not merely a laboratory failure to detect lead.
 
 ## A documented intervention
 
@@ -42,4 +41,4 @@ A successful response must change the incentives around the *signal of quality*:
 - [Forsyth et al. (2019), turmeric adulteration in Bangladesh, *Environmental Research*](https://doi.org/10.1016/j.envres.2019.108722).
 - [Food-safety enforcement and associated actions (2023), *Environmental Research*](https://doi.org/10.1016/j.envres.2023.116328).
 
-**Provenance:** Consolidated inquiry E0120. No claim is made about contamination in a named product, seller or Brazilian locality.
+**Provenance:** Consolidated inquiry. No claim is made about contamination in a named product, seller or Brazilian locality.
