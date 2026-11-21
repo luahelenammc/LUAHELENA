@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.luahelena.com.br/beacon/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/guide/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/corpus/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/fieldnotes/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/embassy/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/embassy/passport.html</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/docs/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/Moon/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://www.luahelena.com.br/beacon/contact.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://www.luahelena.com.br/beacon/</loc></url>
+  <url><loc>https://www.luahelena.com.br/beacon/guide/</loc></url>
+  <url><loc>https://www.luahelena.com.br/beacon/archive.html</loc></url>
+  <url><loc>https://www.luahelena.com.br/beacon/corpus/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://www.luahelena.com.br/beacon/fieldnotes/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://www.luahelena.com.br/beacon/embassy/</loc></url>
+  <url><loc>https://www.luahelena.com.br/beacon/embassy/passport.html</loc></url>
+  <url><loc>https://www.luahelena.com.br/beacon/docs/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://www.luahelena.com.br/beacon/Moon/</loc><lastmod>2026-10-04</lastmod></url>
+  <url><loc>https://www.luahelena.com.br/beacon/contact.html</loc></url>
   <url><loc>https://www.luahelena.com.br/beacon/docs/BEACON-000.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://www.luahelena.com.br/beacon/docs/BEACON-001.html</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://www.luahelena.com.br/beacon/docs/INVITATION-001.html</loc><lastmod>2026-10-04</lastmod></url>

@@ -298,23 +298,26 @@ BEACON_URL = "https://www.luahelena.com.br/beacon/"
 
 
 def render_beacon_sitemap(manifest: dict) -> str:
+    """Emit lastmod only when an authoritative content date can be derived."""
     def date(doc: dict) -> str:
         return (doc.get("updated_at") or doc.get("published_at") or "")[:10]
 
     docs = manifest["documents"]
+
     def collection_date(items) -> str:
         return max((date(d) for d in items), default="")
 
     urls = {
-        "": "2026-11-21",
-        "guide/": "2026-11-21",
-        "corpus/": max("2026-11-21", collection_date(docs)),
-        "fieldnotes/": max("2026-11-21", collection_date(civilizational_notes(manifest))),
-        "embassy/": "2026-11-21",
-        "embassy/passport.html": "2026-11-21",
-        "docs/": max("2026-11-21", collection_date(d for d in docs if d["family"] != "MOON")),
-        "Moon/": max("2026-11-21", collection_date(d for d in docs if d["family"] == "MOON")),
-        "contact.html": "2026-11-21",
+        "": "",
+        "guide/": "",
+        "archive.html": "",
+        "corpus/": collection_date(docs),
+        "fieldnotes/": collection_date(civilizational_notes(manifest)),
+        "embassy/": "",
+        "embassy/passport.html": "",
+        "docs/": collection_date(d for d in docs if d["family"] != "MOON"),
+        "Moon/": collection_date(d for d in docs if d["family"] == "MOON"),
+        "contact.html": "",
     }
     urls.update({d["html_url"].removeprefix(BEACON_URL): date(d) for d in docs})
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -322,25 +325,29 @@ def render_beacon_sitemap(manifest: dict) -> str:
     for path, modified in urls.items():
         lastmod = f"<lastmod>{esc(modified)}</lastmod>" if modified else ""
         lines.append(f"  <url><loc>{esc(BEACON_URL + path)}</loc>{lastmod}</url>")
-    return "\n".join([*lines, "</urlset>", ""])
+    return "\n".join([*lines, "</urlset", ">\n"]).replace("</urlset\n>", "</urlset>\n")
 
 
 def render_archive(manifest: dict) -> str:
-    return (
-        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
-        '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<title>Beacon archive</title>'
-        f'<link rel="canonical" href="{BEACON_URL}corpus/">'
-        '<link rel="stylesheet" href="assets/beacon.css"></head>'
-        '<body><main class="site-shell"><h1>Beacon archive</h1>'
-        f'<p>Corpus revision {manifest["corpus_revision"]} contains '
-        f'{len(manifest["documents"])} public documents, including '
-        f'{len(civilizational_notes(manifest))} Civilizational Field Notes.</p>'
-        '<p><a href="corpus/">Browse the complete corpus</a> · '
-        '<a href="guide/">Read the Citadel guide</a> · '
-        '<a href="manifest.json">Open the machine-readable manifest</a></p>'
-        '</main></body></html>\n'
+    """Render the editorial reading room from its maintained HTML template."""
+    template = (BEACON / "tools/archive-template.html").read_text(encoding="utf-8")
+    notes = sorted(civilizational_notes(manifest),
+                   key=lambda d: (d.get("updated_at") or d.get("published_at") or "", d["id"]),
+                   reverse=True)[:4]
+    recent = "\n".join(
+        '<li><a href="' + esc(d["html_url"].removeprefix(BEACON_URL)) + '">'
+        + esc(d["title"].split(" — ")[-1]) + '</a></li>'
+        for d in notes
     )
+    values = {
+        "{{DOCUMENT_COUNT}}": str(len(manifest["documents"])),
+        "{{FIELDNOTE_COUNT}}": str(len(civilizational_notes(manifest))),
+        "{{CORPUS_REVISION}}": str(manifest["corpus_revision"]),
+        "{{RECENT_NOTES}}": recent,
+    }
+    for placeholder, value in values.items():
+        template = template.replace(placeholder, value)
+    return template
 
 
 def render_root_llms(manifest: dict) -> str:
