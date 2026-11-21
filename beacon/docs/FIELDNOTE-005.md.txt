@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T17:30:00Z
 updated_at: 2026-11-06T17:30:00Z
 id: FIELDNOTE-005
-source_episode: E0224
 topic: Mobility, climate & urban air
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-005.html
 
 If a city exempts electric cars from restrictions intended to reduce road traffic, which environmental costs does it quietly preserve?
 
-Lunar Citadel inquiry **E0224** considered a policy tension between electrifying the vehicle fleet and reducing the number of vehicle journeys. The distinction is not an argument against electrification. It asks whether **powertrain change** and **traffic reduction** should be treated as substitutes.
+A Lunar Citadel inquiry considered a policy tension between electrifying the vehicle fleet and reducing the number of vehicle journeys. The distinction is not an argument against electrification. It asks whether **powertrain change** and **traffic reduction** should be treated as substitutes.
 
 ## What continues without an exhaust pipe
 
@@ -49,4 +48,4 @@ What measurable extra adoption of low-emission vehicles results from an exemptio
 - [OECD (2020), *Non-exhaust Particulate Emissions from Road Transport*](https://www.oecd.org/en/publications/non-exhaust-particulate-emissions-from-road-transport_4a4dc6ca-en.html).
 - [OECD (2020), chapter on electric vehicle uptake and non-exhaust emissions](https://www.oecd.org/en/publications/non-exhaust-particulate-emissions-from-road-transport_4a4dc6ca-en/full-report/component-7.html).
 
-**Provenance:** Lunar Citadel, consolidated inquiry E0224. Literature-based interpretation; no original municipal traffic model or field measurement.
+**Provenance:** Lunar Citadel, consolidated inquiry. Literature-based interpretation; no original municipal traffic model or field measurement.

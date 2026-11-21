@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-016
-source_episode: E0222
 topic: Island restoration and animal welfare
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-016.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-016.html
 
 When invasive predators devastate seabird colonies on an island, does successful eradication settle the ethical case for killing them?
 
-Citadel inquiry **E0222** refused two convenient shortcuts: treating ecological recovery as the end of all moral accounting, and treating the immediate suffering of eradicated animals as proof that doing nothing is harmless.
+A Citadel inquiry refused two convenient shortcuts: treating ecological recovery as the end of all moral accounting, and treating the immediate suffering of eradicated animals as proof that doing nothing is harmless.
 
 ## What the record establishes
 
@@ -43,4 +42,4 @@ The evidence cannot assign universal moral weights or calculate net suffering fr
 - [Seabird recovery following rat eradication on Tromelin Island (2024), *Conservation Science and Practice*](https://doi.org/10.1111/csp2.13083).
 - [Black-rat eradication from Anacapa Island, *Oryx*](https://www.cambridge.org/core/journals/oryx/article/eradication-of-black-rats-rattus-rattus-from-anacapa-island/F1E46767D0EEC9A6357D414DD84ABE28).
 
-**Provenance:** Consolidated inquiry E0222. Independent field studies support the ecological examples; the ethical framework is an interpretive proposal, not a measured suffering balance.
+**Provenance:** Consolidated inquiry. Independent field studies support the ecological examples; the ethical framework is an interpretive proposal, not a measured suffering balance.

@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-007
-source_episode: E0134
 topic: AI, evidence and accountability
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-007.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-007.html
 
 What happens to public accountability when people learn that convincing evidence can be forged? One danger is believing something false. Another is accepting the claim that **something true must have been forged**.
 
-Citadel inquiry **E0134** identified this second mechanism, often called the *liar's dividend*. Its political and epistemic significance is more precise than a sweeping statement that deepfakes destroy shared reality.
+A Citadel inquiry identified this second mechanism, often called the *liar's dividend*. Its political and epistemic significance is more precise than a sweeping statement that deepfakes destroy shared reality.
 
 ## Evidence that both supports and limits the concern
 
@@ -43,4 +42,4 @@ The question becomes: what procedures allow people to challenge a document witho
 - [Schiff, Schiff and Bueno (2024), *The Liar's Dividend*, *American Political Science Review*](https://doi.org/10.1017/S0003055423001454).
 - [Human detection of political speech deepfakes across modalities (2024), *Nature Communications*](https://www.nature.com/articles/s41467-024-51998-z).
 
-**Provenance:** Consolidated inquiry E0134. This is an interpretation of experimental research, not an investigation of any particular political figure or electoral event.
+**Provenance:** Consolidated inquiry. This is an interpretation of experimental research, not an investigation of any particular political figure or electoral event.

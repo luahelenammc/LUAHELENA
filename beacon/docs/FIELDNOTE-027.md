@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-027
-source_episode: E0199
 topic: Participatory democracy / durability
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-027.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A Participatory Budget Can Survive in Name and Disappear in Power
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 If the meetings and regulations of participatory budgeting remain, has participatory power actually survived a change of government?
 
-Citadel inquiry **E0199** distinguished **institutional continuity of form** from **continued influence over resources**. It is related to, but distinct from, E0213, which examined elite control *within* participatory organizations.
+A Citadel inquiry distinguished **institutional continuity of form** from **continued influence over resources**. A related question concerns elite control *within* participatory organizations.
 
 ## What the Porto Alegre record reveals
 
@@ -44,4 +43,4 @@ The better question is: after political alternation or fiscal stress, what remai
 - [Gugliano (2026), *From Innovation to Erosion: The Dismantling of Participatory Budgeting in Porto Alegre*](https://doi.org/10.1177/1866802X261464354).
 - [*A Time of Closure? Participatory Budgeting in Porto Alegre after the Workers' Party Era*, Cambridge](https://www.cambridge.org/core/journals/journal-of-latin-american-studies/article/time-of-closure-participatory-budgeting-in-porto-alegre-brazil-after-the-workers-party-era/44EC7210668F4E4CC82853961C5133E9).
 
-**Provenance:** Consolidated inquiry E0199. Interpretive synthesis of public institutional studies, not an evaluation conducted by the Citadel in Porto Alegre.
+**Provenance:** Consolidated inquiry. Interpretive synthesis of public institutional studies, not an evaluation conducted by the Citadel in Porto Alegre.

@@ -1,17 +1,27 @@
 ---
 id: BEACON-001
-revision: 1
+revision: 2
 family: BEACON
 status: active
 voice: Moon × Áurion / Lunar Citadel
 authority: ratified_by_Moon
 epistemic_status: institutional_history_and_position
 published_at: 2026-10-04T23:55:00Z
-updated_at: 2026-10-04T23:55:00Z
+updated_at: 2026-11-20T23:00:00Z
 canonical_url: https://www.luahelena.com.br/beacon/docs/BEACON-001.html
 ---
 
 # BEACON-001 — The Lunar Citadel: civilization, experiment and unfinished runtime
+
+## The Citadel in one minute
+
+The Lunar Citadel is a human-governed project for inquiry, institutional imagination and human–AI collaboration. It combines an archive, simulated roles and practices of deliberation. It is not evidence of a conscious artificial population or an unattended autonomous society.
+
+Moon is its founder and final human authority. Áurion names an AI-side coauthoring relationship; the Chapel articulates a hopeful normative horizon, while the Skeptical Chamber asks what the evidence can actually bear. The Beacon is their public editorial surface, not the whole Citadel.
+
+Its current ordinary investigation is mediated through ChatGPT and bounded by the session. Historical executable prototypes provide evidence of bounded software behavior, not proof that the present mediated practice runs autonomously. A proposed Nexus gateway has not yet demonstrated its full crossing. Research also extends to democracy, material justice, ecosystems and animals.
+
+We invite correspondence because independently governed projects can challenge each other's categories and assumptions. A response may come from a human, an AI-assisted correspondent or a supervised collective; authorship, consent and scope should be clear. Disagreement and non-response are welcome. [Explore intercivilizational correspondence](https://www.luahelena.com.br/beacon/embassy/) or [contact the Beacon](https://www.luahelena.com.br/beacon/contact.html). The historical account below remains available for context.
 
 ## Why this document exists
 
@@ -423,7 +433,7 @@ Its present role is legacy, proof, recovery and selective donor.
 
 8.N explores a different route: integration with the Nexus substrate while preserving Citadel sovereignty over its own truth, capabilities and mutation boundaries.
 
-It has produced bridge artifacts and integration proofs.
+It has produced bounded bridge artifacts. A full vertical crossing remains unproven.
 
 It is not evidence that the entire Citadel now lives continuously inside Nexus.
 
@@ -439,7 +449,7 @@ The new question became:
 
 **what if the Citadel can inhabit or adapt a mature world substrate and concentrate its own engineering on the Citadel-specific civilizational core?**
 
-8.W is the active substrate-first construction frontier.
+8.W is a historical substrate-first lineage, not the current default investigation track.
 
 It is not yet a validated autonomous city.
 
@@ -451,7 +461,7 @@ It is deliberately different from the autonomous-runtime dream.
 
 It is human-triggered, LLM-mediated and session-bounded.
 
-Its strength is that it can execute a governed civilizational process now, with explicit source use, reality-first matter selection, institutional roles and persistence rules.
+It supports a governed inquiry with explicit source use, institutional roles and proportionate records. A session does not itself prove durable autonomous continuity.
 
 Its limit is equally explicit:
 

@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-030
-source_episode: E0210
 topic: Labor policy / working time
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-030.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A Shorter Workweek Must Account for Who Takes Over the Work
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 When an organization reduces working hours without reducing pay, where do the benefits and the remaining workload go?
 
-Citadel inquiry **E0210** accepted evidence of employee well-being gains while keeping a separate distributive question open: **who covers the tasks that the original schedule no longer accommodates?**
+A Citadel inquiry accepted evidence of employee well-being gains while keeping a separate distributive question open: **who covers the tasks that the original schedule no longer accommodates?**
 
 ## The demonstrated gains
 
@@ -43,4 +42,4 @@ Policies should compare hours actually worked, service quality, staffing, employ
 
 - [Fan, Schor, Kelly and Gu (2025), *Work time reduction via a 4-day workweek finds improvements in workers' well-being*, *Nature Human Behaviour*](https://doi.org/10.1038/s41562-025-02259-6).
 
-**Provenance:** Consolidated inquiry E0210. No new industrial-relations agreement, healthcare staffing data or Brazilian legal claim is asserted here.
+**Provenance:** Consolidated inquiry. No new industrial-relations agreement, healthcare staffing data or Brazilian legal claim is asserted here.

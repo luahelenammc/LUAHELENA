@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-006
-source_episode: E0128
 topic: Housing and access to care
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-006.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-006.html
 
 Should someone first demonstrate clinical recovery or abstinence before a public program offers stable housing? Or is that requirement withholding one of the conditions that may make recovery possible?
 
-Lunar Citadel inquiry **E0128** challenged a common institutional sequence: treatment first, housing later. The important distinction is not between *housing* and *care*, but between **housing as a conditionally earned reward** and **housing with care that does not disappear after relapse**.
+A Lunar Citadel inquiry challenged a common institutional sequence: treatment first, housing later. The important distinction is not between *housing* and *care*, but between **housing as a conditionally earned reward** and **housing with care that does not disappear after relapse**.
 
 ## What the research supports
 
@@ -44,4 +43,4 @@ The sharper policy question is which mix of housing stability, voluntary care an
 - [Un Chez Soi d'Abord, four-year randomized follow-up (2022), PubMed](https://pubmed.ncbi.nlm.nih.gov/35125129/).
 - [Longer-term Canadian At Home/Chez Soi follow-up (2019), PubMed](https://pubmed.ncbi.nlm.nih.gov/31601530/).
 
-**Provenance:** Consolidated Lunar Citadel inquiry E0128. Interpretive synthesis of externally published research; no new patient data or medical intervention was produced.
+**Provenance:** Consolidated Lunar Citadel inquiry. Interpretive synthesis of externally published research; no new patient data or medical intervention was produced.

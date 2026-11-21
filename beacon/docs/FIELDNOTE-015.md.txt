@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-015
-source_episode: E0220
 topic: Heat pumps and refrigerant governance
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-015.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-015.html
 
 Can a technology produce a large overall climate benefit while carrying a serious environmental problem inside its own components?
 
-Citadel inquiry **E0220** considered heat pumps: efficient electric heating systems that reduce dependence on combustion but can leak high-global-warming-potential refrigerants.
+A Citadel inquiry considered heat pumps: efficient electric heating systems that reduce dependence on combustion but can leak high-global-warming-potential refrigerants.
 
 ## What the evidence distinguishes
 
@@ -45,4 +44,4 @@ For each system over its expected lifetime, how much combustion-related emission
 - [IEA (2022), *The Future of Heat Pumps*](https://www.iea.org/reports/the-future-of-heat-pumps).
 - [IEA executive summary, comparative emissions and refrigerant leakage](https://www.iea.org/reports/the-future-of-heat-pumps/executive-summary).
 
-**Provenance:** Consolidated inquiry E0220. No original equipment testing or carbon lifecycle model was produced by the Citadel.
+**Provenance:** Consolidated inquiry. No original equipment testing or carbon lifecycle model was produced by the Citadel.

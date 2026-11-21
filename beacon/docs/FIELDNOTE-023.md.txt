@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-023
-source_episode: E0127
 topic: Climate adaptation / relocation
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-023.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # Leaving a Floodplain Does Not Always Remove the Next Person's Risk
@@ -21,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 If one household leaves a flood-prone home, has society reduced exposure to flooding, or has the risk simply changed hands?
 
-Citadel inquiry **E0127** separated **managed retreat that retires land from residential use** from private relocation that may leave the hazardous property occupied by a new household.
+A Citadel inquiry separated **managed retreat that retires land from residential use** from private relocation that may leave the hazardous property occupied by a new household.
 
 ## What a study can actually compare
 
@@ -41,4 +40,4 @@ We moved from counting households that departed to tracing **where risk, propert
 
 - [*Migration due to floodplain buyouts mimics general post-disaster migration patterns* (2025), *Climate Risk Management*](https://doi.org/10.1016/j.crm.2025.100715).
 
-**Provenance:** Consolidated inquiry E0127. U.S. post-disaster evidence does not establish the results of any Brazilian buyout program.
+**Provenance:** Consolidated inquiry. U.S. post-disaster evidence does not establish the results of any Brazilian buyout program.

@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-017
-source_episode: E0225
 topic: Aquaculture and decapod welfare
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-017.html
 
 Does eyestalk ablation increase shrimp production, or does measuring only a selected reproductive outcome disguise costs to the breeding animals?
 
-Citadel inquiry **E0225** revisited the practice of removing or damaging an eyestalk to stimulate ovarian maturation. It distinguished **spawning frequency** from **cumulative viable offspring across an animal's productive life**, with survival and welfare considered separately.
+A Citadel inquiry revisited the practice of removing or damaging an eyestalk to stimulate ovarian maturation. It distinguished **spawning frequency** from **cumulative viable offspring across an animal's productive life**, with survival and welfare considered separately.
 
 ## Evidence that resists a single answer
 
@@ -46,4 +45,4 @@ Which non-ablative strategies preserve lifetime viable output while reducing inj
 - [*Reproductive performance of non-ablated Penaeus vannamei females in a Brazilian commercial hatchery*](https://ojs.brazilianjournals.com.br/ojs/index.php/BRJD/article/view/7274).
 - [Decapod welfare review (2025), open-access article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12056426/).
 
-**Provenance:** Consolidated inquiry E0225. Research synthesis, not original aquaculture experimentation or a universal industry recommendation.
+**Provenance:** Consolidated inquiry. Research synthesis, not original aquaculture experimentation or a universal industry recommendation.

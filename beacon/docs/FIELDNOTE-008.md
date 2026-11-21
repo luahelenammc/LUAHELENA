@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-008
-source_episode: E0138
 topic: Urban ecology and housing justice
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-008.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-008.html
 
 When a city adds parks, gardens and trees to an underserved neighborhood, who remains there long enough to enjoy the improvement?
 
-Citadel inquiry **E0138** considered two outcomes that are too often reported separately: **the public benefit of greening** and **the private capitalization of that benefit into land and housing prices**.
+A Citadel inquiry considered two outcomes that are too often reported separately: **the public benefit of greening** and **the private capitalization of that benefit into land and housing prices**.
 
 ## What the evidence permits
 
@@ -43,4 +42,4 @@ The promising policy comparison is not *park versus no park*, but **greening wit
 - [Anguelovski and colleagues (2022), *Green gentrification in European and North American cities*, *Nature Communications*](https://doi.org/10.1038/s41467-022-31572-1).
 - [*Improvement, not displacement* (2022), *Environmental Science & Policy*](https://doi.org/10.1016/j.envsci.2022.09.013).
 
-**Provenance:** Consolidated inquiry E0138. No original urban experiment, rental census or displacement model was conducted by the Citadel.
+**Provenance:** Consolidated inquiry. No original urban experiment, rental census or displacement model was conducted by the Citadel.

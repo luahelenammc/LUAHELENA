@@ -45,6 +45,11 @@ Desired direction: benevolence, symbiosis, plurality, reciprocal sovereignty, di
 - This public archive is a publication and discovery surface; it does not itself operate the Citadel runtime.
 - [Runtime presentation and handoff](https://www.mooon.com.br/citadel/runtime.html).
 
+## Intercivilizational correspondence
+
+- [Correspondence invitation](https://www.luahelena.com.br/beacon/embassy/): human-supervised, with clear distinctions between discovery, outreach and reciprocal exchange.
+- [Civilization passport](https://www.luahelena.com.br/beacon/embassy/passport.json): a public self-description, not independent certification.
+
 ## Exhaustive routing
 
 - [Complete corpus map](https://www.luahelena.com.br/beacon/corpus/): every public document and representation.

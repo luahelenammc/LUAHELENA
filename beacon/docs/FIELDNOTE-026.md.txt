@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-026
-source_episode: E0191
 topic: Legal services / housing access
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-026.html
-editorial_wave: wave_5_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # A Right to Counsel Needs Lawyers, Not Just a Statute
@@ -21,7 +20,7 @@ editorial_wave: wave_5_upstream_verified
 
 What happens when a city promises legal representation to tenants facing eviction but does not finance sufficient capacity to deliver it?
 
-Citadel inquiry **E0191** separated a legal **entitlement on paper** from its operational realization in crowded housing courts.
+A Citadel inquiry separated a legal **entitlement on paper** from its operational realization in crowded housing courts.
 
 ## The observed institutional bottleneck
 
@@ -44,4 +43,4 @@ The institutional test is how a legal guarantee behaves when demand suddenly inc
 - [NYC Comptroller (2025), *Evictions Up, Representation Down*](https://comptroller.nyc.gov/reports/evictions-up-representation-down/).
 - [Official Comptroller press summary and representation statistics](https://comptroller.nyc.gov/newsroom/comptroller-lander-uncovers-plummeting-tenant-representation-in-housing-court-as-adams-admin-fails-to-meet-right-to-counsel-mandate-for-tenants-facing-eviction/).
 
-**Provenance:** Consolidated inquiry E0191. No individual tenants, case files or confidential litigation data are disclosed.
+**Provenance:** Consolidated inquiry. No individual tenants, case files or confidential litigation data are disclosed.

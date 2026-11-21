@@ -281,6 +281,7 @@ def render_beacon_sitemap(manifest: dict) -> str:
         "https://www.luahelena.com.br/beacon/",
         "https://www.luahelena.com.br/beacon/corpus/",
         "https://www.luahelena.com.br/beacon/fieldnotes/",
+        "https://www.luahelena.com.br/beacon/embassy/",
         "https://www.luahelena.com.br/beacon/docs/",
         "https://www.luahelena.com.br/beacon/Moon/",
         "https://www.luahelena.com.br/beacon/archive.html",
@@ -388,13 +389,12 @@ def render_fieldnotes(manifest: dict) -> tuple[str, str]:
         entries: list[str] = []
         for d in notes:
             day = str(d.get("published_at") or d.get("updated_at") or "")[:10]
-            origins = " · ".join([str(d.get("source_episode") or ""), str(d.get("related_episode") or "")]).strip(" ·")
             entries.append(
                 '<article class="fn-entry">'
                 f'<p class="fn-entry-meta"><span>{esc(d["id"])}</span>'
                 f' · <time datetime="{esc(day)}">{esc(day)}</time>'
                 ' · evidence-aware synthesis</p>'
-                f'<p class="fn-entry-source">Upstream: {esc(origins)} · {esc(d.get("topic", ""))}</p>'
+                f'<p class="fn-entry-source">{esc(d.get("topic", ""))}</p>'
                 f'<h3><a href="{esc(d["html_url"])}">{esc(d["title"])}</a></h3>'
                 f'<p>{esc(d.get("abstract", ""))}</p>'
                 f'<a class="fn-entry-read" href="{esc(d["html_url"])}">Read note <span aria-hidden="true">↗</span></a>'
@@ -404,11 +404,11 @@ def render_fieldnotes(manifest: dict) -> tuple[str, str]:
             f'<p class="fn-publication-count">{len(notes)} published interpretive notes · each anchored to a consolidated inquiry</p>'
             '<div class="fn-tools" id="fn-tools" hidden>'
             '<label for="fn-search">Find a Field Note</label>'
-            '<input id="fn-search" type="search" placeholder="Search titles, topics and episode IDs" '
+            '<input id="fn-search" type="search" placeholder="Search titles and topics" '
             'autocomplete="off" aria-controls="fn-results">'
             '<p id="fn-count" role="status" aria-live="polite"></p></div>'
             '<div class="fn-entries" id="fn-results">' + "".join(entries) + '</div>'
-            '<p class="fn-no-match" id="fn-no-match" hidden>No notes match this search. Try another topic or episode ID.</p>'
+            '<p class="fn-no-match" id="fn-no-match" hidden>No notes match this search. Try another topic.</p>'
         )
     else:
         public_rows = "<div class=\"fn-empty\" role=\"status\"><span class=\"fn-empty-sign\" aria-hidden=\"true\">∅</span><div><h3>No Field Notes have cleared publication review yet.</h3><p>This collection is deliberately selective. The Beacon’s existing documents remain available while independent inquiries undergo source and disclosure checks.</p><a href=\"../corpus/\">Explore the public corpus <span aria-hidden=\"true\">↗</span></a></div></div>"
@@ -427,8 +427,7 @@ def render_fieldnotes(manifest: dict) -> tuple[str, str]:
     for d in notes:
         title = str(d["title"]).replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]").replace("\n", " ")
         abstract = str(d.get("abstract", "")).replace("\n", " ")
-        origins = " + ".join(x for x in (d.get("source_episode"), d.get("related_episode")) if x)
-        md_lines.append(f'- [{title}]({d["markdown_url"]}) (upstream: {origins}) — {abstract}')
+        md_lines.append(f'- [{title}]({d["markdown_url"]}) — {abstract}')
     if not notes:
         md_lines.append("No Field Notes have cleared publication review yet.")
     md_lines.extend(["", "## Related reading", "",
@@ -641,6 +640,7 @@ def main() -> int:
         for url in (
             "https://www.luahelena.com.br/beacon/corpus/",
             "https://www.luahelena.com.br/beacon/fieldnotes/",
+        "https://www.luahelena.com.br/beacon/embassy/",
             "https://www.luahelena.com.br/beacon/docs/llms.txt",
             "https://www.luahelena.com.br/beacon/Moon/llms.txt",
         ):

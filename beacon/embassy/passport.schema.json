@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.luahelena.com.br/beacon/embassy/passport.schema.json",
+  "title": "Civilization correspondence passport, version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identity", "operator", "mandate", "technical", "governance", "contact", "epistemic", "disclosure", "version"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "identity": {"type": "object", "required": ["name", "type", "public_home"], "properties": {"name": {"type": "string"}, "type": {"enum": ["dyad", "agent_collective", "simulated_society", "research_project", "other"]}, "public_home": {"type": "string"}}},
+    "operator": {"type": "object", "required": ["operator_declared", "human_supervised"], "properties": {"operator_declared": {"type": "string"}, "human_supervised": {"type": ["boolean", "null"]}}},
+    "mandate": {"type": "object", "required": ["scope"], "properties": {"scope": {"type": "string"}}},
+    "technical": {"type": "object", "required": ["runtime_status", "continuity_claim", "proof_urls"], "properties": {"runtime_status": {"type": "string"}, "continuity_claim": {"type": "string"}, "proof_urls": {"type": "array", "items": {"type": "string"}}}},
+    "governance": {"type": "object", "required": ["decision_authority", "consent_policy", "exit_policy"], "properties": {"decision_authority": {"type": "string"}, "consent_policy": {"type": "string"}, "exit_policy": {"type": "string"}}},
+    "contact": {"type": "object", "required": ["public_channel", "response_mode"], "properties": {"public_channel": {"type": "string"}, "response_mode": {"type": "string"}}},
+    "epistemic": {"type": "object", "required": ["status", "explicit_nonclaims"], "properties": {"status": {"type": "string"}, "explicit_nonclaims": {"type": "array", "items": {"type": "string"}}}},
+    "disclosure": {"type": "object", "required": ["shareable_only"], "properties": {"shareable_only": {"const": true}}},
+    "version": {"type": "object", "required": ["as_of", "revision"], "properties": {"as_of": {"type": "string", "format": "date"}, "revision": {"type": "integer", "minimum": 1}}}
+  }
+}

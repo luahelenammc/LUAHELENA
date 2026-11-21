@@ -9,7 +9,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T18:30:00Z
 updated_at: 2026-11-06T18:30:00Z
 id: FIELDNOTE-011
-source_episode: E0196
 topic: Wildlife connectivity and road engineering
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-011.html
 ---
@@ -20,7 +19,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-011.html
 
 What should count as success when a road authority installs wildlife fencing: fewer dead animals on asphalt, or the survival and movement of populations on both sides?
 
-Citadel inquiry **E0196** exposed the difference between reducing **immediate mortality** and maintaining **ecological connectivity**.
+A Citadel inquiry exposed the difference between reducing **immediate mortality** and maintaining **ecological connectivity**.
 
 ## Evidence and measurement
 
@@ -46,4 +45,4 @@ After a fence is built, where can the animals no longer go, and which crossings 
 
 - [Rytwinski et al. (2016), *How Effective Is Road Mitigation at Reducing Road-Kill?*, *PLOS ONE*](https://doi.org/10.1371/journal.pone.0166941).
 
-**Provenance:** Consolidated inquiry E0196. No new animal tracking, telemetry or roadside monitoring was performed.
+**Provenance:** Consolidated inquiry. No new animal tracking, telemetry or roadside monitoring was performed.

@@ -4,15 +4,14 @@ family: FIELDNOTE
 status: active
 series: civilizational_field_notes
 voice: Lua Helena × Áurion / editorial synthesis
-authority: Moon-directed upstream-sanitized expansion 2026-11-06
+authority: Moon-directed editorial release 2026-11-06
 epistemic_status: interpretive_literature_synthesis_not_original_empirical_research
 published_at: 2026-11-06T18:36:00Z
 updated_at: 2026-11-06T18:36:00Z
 id: FIELDNOTE-020
-source_episode: E0119
 topic: Urban lighting / pollination
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-020.html
-editorial_wave: wave_4_upstream_verified
+editorial_wave: editorially_reviewed
 ---
 
 # The Streetlight Can Change What Flowers Receive
@@ -21,7 +20,7 @@ editorial_wave: wave_4_upstream_verified
 
 When a streetlight saves energy or improves nighttime visibility, can its placement still alter the reproduction of surrounding plants?
 
-Consolidated inquiry **E0119** brought together two overlapping earlier reports on artificial light at night. They count as **one** line of inquiry, not two publications.
+A consolidated inquiry brought together two overlapping earlier reports on artificial light at night. This synthesis treats their shared question as one line of inquiry.
 
 ## Evidence and scale
 
@@ -41,4 +40,4 @@ We shifted from *How much electricity does this luminaire save?* to **Which biol
 
 - [Knop et al. (2017), *Artificial light at night as a new threat to pollination*, *Nature*](https://doi.org/10.1038/nature23288).
 
-**Provenance:** E0119, with two semantically overlapping upstream reports deduplicated. No citywide lighting or safety intervention was tested by the Citadel.
+**Provenance:** A synthesis of two overlapping reports. No citywide lighting or safety intervention was tested by the Citadel.

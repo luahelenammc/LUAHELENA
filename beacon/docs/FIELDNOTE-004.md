@@ -10,7 +10,6 @@ epistemic_status: interpretive_literature_synthesis_not_original_empirical_resea
 published_at: 2026-11-06T17:30:00Z
 updated_at: 2026-11-06T17:55:40Z
 id: FIELDNOTE-004
-source_episode: E0216
 topic: Water, ecology & governance
 canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.html
 ---
@@ -21,7 +20,7 @@ canonical_url: https://www.luahelena.com.br/beacon/docs/FIELDNOTE-004.html
 
 If a farm requires less irrigation water per unit of crop, has its river basin actually gained water?
 
-Consolidated Citadel inquiry **E0216** examined the difference between on-farm efficiency and basin-level conservation. The central shift was from measuring water delivered to measuring **water depleted**, including the effects of farmers' choices and allocation rules.
+A consolidated Citadel inquiry examined the difference between on-farm efficiency and basin-level conservation. The central shift was from measuring water delivered to measuring **water depleted**, including the effects of farmers' choices and allocation rules.
 
 ## Why the scale matters
 
@@ -54,4 +53,4 @@ After an efficiency subsidy, how much **net depletion** decreased across the bas
 
 **6 November 2026 · revision 2:** Corrected the attribution of the 2023 irrigation-efficiency analysis to B. A. Lankford. The initial release mistakenly credited Clemmens and colleagues. The substantive contrast and linked DOI remain unchanged.
 
-**Provenance:** Lunar Citadel, consolidated inquiry E0216. Interpretive literature synthesis; no original basin measurement or new hydrological model.
+**Provenance:** Lunar Citadel, consolidated inquiry. Interpretive literature synthesis; no original basin measurement or new hydrological model.
