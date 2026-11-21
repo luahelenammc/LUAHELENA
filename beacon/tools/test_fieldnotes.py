@@ -101,13 +101,24 @@ class FieldNotesTests(unittest.TestCase):
         self.assertEqual(entries[b.BEACON_URL + "fieldnotes/"], "2026-11-30")
         self.assertIn(b.BEACON_URL + "guide/", entries)
         self.assertIn(b.BEACON_URL + "embassy/passport.html", entries)
+        self.assertIn(b.BEACON_URL + "archive.html", entries)
+        self.assertIsNone(entries[b.BEACON_URL + "guide/"])
+        self.assertIsNone(entries[b.BEACON_URL + "embassy/passport.html"])
+        self.assertEqual(entries[b.BEACON_URL + "corpus/"], "2026-11-30")
+        self.assertNotIn("2026-11-21", b.render_beacon_sitemap(manifest(notes, overview)))
 
     def test_archive_and_llms_follow_manifest(self) -> None:
         sample = manifest(fixture())
         archive, llms = b.render_archive(sample), b.render_root_llms(sample)
-        self.assertIn("Corpus revision 7 contains 1 public documents, including 1", archive)
+        self.assertIn("Corpus revision 7", archive)
+        self.assertIn("<strong>1</strong> public documents", archive)
+        self.assertIn("<strong>1</strong> published Field Notes", archive)
         self.assertIn("Corpus revision 7 includes 1 public documents and 1", llms)
-        self.assertIn('rel="canonical" href="' + b.BEACON_URL + 'corpus/"', archive)
+        self.assertIn('rel="canonical" href="' + b.BEACON_URL + 'archive.html"', archive)
+        self.assertIn("Explore by theme.", archive)
+        self.assertIn("Civilizational Field Notes.", archive)
+        self.assertIn('href="docs/FIELDNOTE-002.html"', archive)
+        self.assertNotIn("{{DOCUMENT_COUNT}}", archive)
         self.assertIn(b.BEACON_URL + "guide/", llms)
 
     def test_passport_projects_canonical_narrative_and_links(self) -> None:
@@ -139,6 +150,14 @@ class FieldNotesTests(unittest.TestCase):
 
     def test_generated_public_page_matches_committed_output(self) -> None:
         doc = b.load_manifest()
+        self.assertEqual(
+            b.render_archive(doc),
+            (BEACON / "archive.html").read_text(encoding="utf-8"),
+        )
+        self.assertEqual(
+            b.render_beacon_sitemap(doc),
+            (BEACON / "sitemap.xml").read_text(encoding="utf-8"),
+        )
         self.assertEqual(
             b.render_fieldnotes(doc)[0],
             (BEACON / "fieldnotes" / "index.html").read_text(encoding="utf-8"),
