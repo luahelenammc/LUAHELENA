@@ -1,0 +1,119 @@
+{
+  "nuclei": {
+    "lithia": {
+      "title": "As Crônicas de Líthia",
+      "short_intro": "Moon’s long-running fantasy universe, with a canon of its own and a growing collection of stories."
+    },
+    "ficcoes": {
+      "title": "Speculative Fiction",
+      "short_intro": "Four distinct universes explore possible futures, contact, consciousness and alternative ways of organizing life together."
+    },
+    "politica": {
+      "title": "Politics and Ideology",
+      "short_intro": "Ecos do Abismo examines Brazilian politics and the persistence of institutional mechanisms throughout recent history."
+    },
+    "pensamento-lunar": {
+      "title": "Lunar Thought",
+      "short_intro": "Philosophy, sociology, psychology, history and religion make up Moon’s approach to the humanities, each with its own questions and sources."
+    },
+    "ufologia": {
+      "title": "Ufology and Anomalous Phenomena",
+      "short_intro": "The Varginha case sits at the intersection of testimony, records, conflicting accounts and gaps in the evidence. The lines of inquiry remain hypotheses."
+    },
+    "artigos": {
+      "title": "Academic Articles",
+      "short_intro": "Research in academic formats on political history, psychology, affective modulation and human–AI cognition."
+    },
+    "autobibliografia": {
+      "title": "Autobibliography",
+      "short_intro": "Projects in life writing that move through memory, identity, travel and relationships."
+    },
+    "humano-ia": {
+      "title": "Human–AI Architecture",
+      "short_intro": "Modernidades follows Moon from a childhood spent inventing things to building systems, with language at the heart of her experiments in human–AI collaboration."
+    },
+    "laboratorios": {
+      "title": "Literary Laboratories",
+      "short_intro": "Poetry, prose and fragments share this space with a partially preserved historical collection."
+    },
+    "legado": {
+      "title": "Literary Legacy Before AI",
+      "short_intro": "Three early works in their original self-published editions. Any new editions follow a separate editorial path."
+    },
+    "psicodelicos": {
+      "title": "Psychedelics",
+      "short_intro": "Psicanábis and Luz da Lótus are companion works whose writing conditions form part of the author’s method."
+    },
+    "tabus": {
+      "title": "Taboos",
+      "short_intro": "Anatomia do Proibido explores how social, moral, historical and cultural boundaries are formed and contested."
+    }
+  },
+  "terms": {
+    "Fragmento humano com edição por IA": "Human-written fragment edited with AI",
+    "Humana histórica": "Historical human writing",
+    "Mista provável": "Likely mixed",
+    "Proveniência integral indeterminada": "Provenance of the complete work undetermined",
+    "Redação integral assistida provável": "Likely assistance throughout drafting",
+    "Redação integral por IA documentada": "Documented AI drafting throughout",
+    "Redação predominantemente por IA": "Predominantly AI-drafted",
+    "Sem manuscrito canônico": "No canonical manuscript",
+    "Acervo histórico parcialmente preservado": "Partially preserved historical collection",
+    "Acervo narrativo vivo": "Evolving collection of stories",
+    "Doc PT/EN + exportações": "Portuguese and English document with exports",
+    "Documento extenso": "Substantial document",
+    "Documento extenso / status a validar": "Substantial document / status pending verification",
+    "Edição histórica autopublicada": "Historical self-published edition",
+    "Em desenvolvimento": "In development",
+    "Fonte ativa; sem manuscrito": "Active source material; no manuscript",
+    "Fonte/cânone; sem manuscrito": "Source or canon material; no manuscript",
+    "Fonte/plano sem corpo editorial final": "Source or outline without a final editorial text",
+    "Incubação v0.4; sem manuscrito": "Incubation v0.4; no manuscript",
+    "Livro/coletânea existente": "Existing book or collection",
+    "Manuscrito IA; revisão parcial": "AI manuscript; partially revised",
+    "Manuscrito amplo IA; revisão parcial": "Substantial AI manuscript; partially revised",
+    "Manuscrito ativo; revisão parcial": "Active manuscript; partially revised",
+    "Manuscrito e fonte crítica": "Manuscript and critical source",
+    "Manuscrito e revisão v0.3": "Manuscript and v0.3 revision",
+    "Manuscrito em continuidade": "Manuscript in progress",
+    "Manuscrito existente": "Existing manuscript",
+    "Manuscrito extenso": "Substantial manuscript",
+    "Manuscrito longo; edição pendente": "Long manuscript; editing pending",
+    "Manuscrito vivo; ajustes pontuais": "Evolving manuscript; targeted edits",
+    "Rascunho integral assistido": "Complete assisted draft",
+    "Rascunho início-fim assistido": "Assisted draft from start to finish",
+    "Série planejada; sem manuscrito": "Planned series; no manuscript",
+    "Texto breve; estatuto a auditar": "Short text; status pending review",
+    "Acervo privado": "Private collection",
+    "Legacy publicado": "Published legacy edition",
+    "Sem publicação confirmada": "No confirmed publication",
+    "baixa": "low",
+    "média": "moderate",
+    "Alta": "High",
+    "Alta (baseline auditado)": "High (baseline reviewed)",
+    "Alta na intervenção, pendente no todo": "High for the intervention; the full text is pending review",
+    "Alta na seção, pendente no todo": "High for the section; the full text is pending review",
+    "Alta nas seções IA; média na obra inteira": "High for the AI sections; moderate for the complete work",
+    "Alta no fragmento, insuficiente no acervo": "High for the fragment; insufficient evidence for the collection",
+    "Alta nos trechos, pendente no texto inteiro": "High for the excerpts; the full text is pending review",
+    "Baixa": "Low",
+    "Declaração da autora": "Author’s own account",
+    "Média quanto à ausência de prosa IA na Wave01": "Moderate confidence that Wave01 contained no AI-drafted prose",
+    "Média-alta: manuscrito e PDF pré-LLM": "Moderate to high, based on a manuscript and PDF predating LLMs",
+    "Média-alta: versões antigas impressas": "Moderate to high, based on early printed versions",
+    "Média: 5 substituições verificadas; origem restante aberta": "Moderate: five substitutions verified; the origin of the rest remains open",
+    "Média: IA certa; origem do restante pendente": "Moderate: AI involvement is confirmed; the origin of the rest is pending review",
+    "Média: datação do corpus, sem censo de teclas": "Moderate, based on the dating of the corpus without a keystroke record",
+    "Média: dois trechos comprovados; base indeterminada": "Moderate: two passages verified; the underlying text’s provenance is undetermined",
+    "Média: falta auditoria segmental": "Moderate: individual sections have yet to be audited",
+    "Média: trecho IA confirmado; restante indeterminado": "Moderate: an AI-drafted passage is confirmed; the rest is undetermined",
+    "A atribuição humana foi confirmada em um fragmento. A redação do acervo completo segue indeterminada.": "Human authorship of the prose has been confirmed for one fragment. The provenance of the full collection’s prose remains undetermined.",
+    "Acervo histórico com 16 de 51 textos preservados. O indicador mede preservação documental.": "Sixteen of the historical collection’s 51 texts survive. The indicator measures archival preservation.",
+    "Cinco textos históricos de 2019 foram incorporados em novembro de 2026. A proveniência integral do manuscrito segue indeterminada.": "Five historical texts from 2019 were incorporated in November 2026. The provenance of the manuscript as a whole remains undetermined.",
+    "Indicador da edição histórica. A maturidade de eventual reedição é avaliada à parte.": "This indicator applies to the historical edition. Any new edition would be assessed separately.",
+    "O Observatório estima cerca de 98% de prosa redigida por IA. A origem da semente anterior permanece indeterminada.": "The Editorial Observatory estimates that roughly 98% of the prose was drafted by AI. The origin of the earlier seed remains undetermined.",
+    "Pelágia é um marcador provisório com identidade editorial em reconciliação.": "Pelágia is a provisional label while its editorial identity is being reconciled.",
+    "Ecologia Autoral, Observatório Editorial Vivo e Proveniência de Redação e IA": "Authorial Ecology, Living Editorial Observatory, and Drafting Provenance and AI",
+    "indeterminado": "undetermined"
+  }
+}

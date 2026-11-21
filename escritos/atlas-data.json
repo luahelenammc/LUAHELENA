@@ -1,0 +1,772 @@
+{
+  "schema_version": "1.0",
+  "snapshot_at": "2026-11-20",
+  "source_uris": {},
+  "source_label": "Ecologia Autoral, Observatório Editorial Vivo e Proveniência de Redação e IA",
+  "review_status": "private_review",
+  "nuclei": [
+    {
+      "id": "01",
+      "slug": "lithia",
+      "title": "As Crônicas de Líthia",
+      "color_token": "#bf94fc",
+      "short_intro": "O universo fantástico de longa duração de Moon, com cânone próprio e um acervo narrativo em expansão.",
+      "map_hotspot": {
+        "x_pct": 12.5,
+        "y_pct": 20
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/01.webp"
+      },
+      "works": [
+        {
+          "id": "ACL",
+          "title": "As Crônicas de Líthia",
+          "progress_editorial_pct": 28,
+          "progress_confidence": "média",
+          "provenance_class": "H_FRAGMENT_WITH_AI_EDIT_WHOLE_UNKNOWN",
+          "provenance_label": "Fragmento humano com edição por IA",
+          "provenance_short": "H/?",
+          "provenance_confidence": "Alta no fragmento, insuficiente no acervo",
+          "manuscript_status": "Acervo narrativo vivo",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "A atribuição humana foi confirmada em um fragmento. A redação do acervo completo segue indeterminada.",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "ficcoes",
+      "title": "Ficções Especulativas",
+      "color_token": "#6ce5fb",
+      "short_intro": "Quatro universos autônomos exploram futuros possíveis, contato, consciência e outras formas de organizar a vida coletiva.",
+      "map_hotspot": {
+        "x_pct": 37.5,
+        "y_pct": 20
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/02.webp"
+      },
+      "works": [
+        {
+          "id": "P47",
+          "title": "P-47 — Os Netos do Fim",
+          "progress_editorial_pct": 13,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Fonte/cânone; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PD",
+          "title": "Pequenos Deuses",
+          "progress_editorial_pct": 12,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Fonte ativa; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "NPT",
+          "title": "Neptúnia",
+          "progress_editorial_pct": 9,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Fonte/cânone; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "Pelágia é um marcador provisório com identidade editorial em reconciliação.",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "FZ",
+          "title": "Fila Zero",
+          "progress_editorial_pct": 8,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Incubação v0.4; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "politica",
+      "title": "Política e Ideologia",
+      "color_token": "#f79c98",
+      "short_intro": "Ecos do Abismo examina a política brasileira e a permanência de mecanismos institucionais ao longo da história recente.",
+      "map_hotspot": {
+        "x_pct": 62.5,
+        "y_pct": 20
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/03.webp"
+      },
+      "works": [
+        {
+          "id": "ECOS",
+          "title": "Ecos do Abismo",
+          "progress_editorial_pct": 42,
+          "progress_confidence": "média",
+          "provenance_class": "MIXED_PROBABLE",
+          "provenance_label": "Mista provável",
+          "provenance_short": "M",
+          "provenance_confidence": "Média: IA certa; origem do restante pendente",
+          "manuscript_status": "Manuscrito em continuidade",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "pensamento-lunar",
+      "title": "Pensamento Lunar",
+      "color_token": "#f5d388",
+      "short_intro": "Filosofia, sociologia, psicologia, história e religiosidade compõem as humanidades autorais de Moon, cada qual com suas próprias perguntas e fontes.",
+      "map_hotspot": {
+        "x_pct": 87.5,
+        "y_pct": 20
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/04.webp"
+      },
+      "works": [
+        {
+          "id": "FIL",
+          "title": "Filosofia Lunar",
+          "progress_editorial_pct": 46,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Alta na intervenção, pendente no todo",
+          "manuscript_status": "Manuscrito longo; edição pendente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "SOC",
+          "title": "Sociologia Lunar",
+          "progress_editorial_pct": 56,
+          "progress_confidence": "média",
+          "provenance_class": "AI_DRAFTED_DOCUMENTED",
+          "provenance_label": "Redação integral por IA documentada",
+          "provenance_short": "IA",
+          "provenance_confidence": "Alta (baseline auditado)",
+          "manuscript_status": "Manuscrito amplo IA; revisão parcial",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PSI",
+          "title": "Psicologia Lunar",
+          "progress_editorial_pct": 40,
+          "progress_confidence": "média",
+          "provenance_class": "AI_DRAFTED_DOCUMENTED",
+          "provenance_label": "Redação integral por IA documentada",
+          "provenance_short": "IA",
+          "provenance_confidence": "Alta (baseline auditado)",
+          "manuscript_status": "Manuscrito IA; revisão parcial",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "REL",
+          "title": "Relacionamentos — MTAR-3D",
+          "progress_editorial_pct": 42,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Alta na seção, pendente no todo",
+          "manuscript_status": "Manuscrito e revisão v0.3",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "HIS1",
+          "title": "História Lunar — Volume I: História Geral",
+          "progress_editorial_pct": 8,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Série planejada; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "HIS2",
+          "title": "História Lunar — Volume II: História do Brasil",
+          "progress_editorial_pct": 57,
+          "progress_confidence": "média",
+          "provenance_class": "AI_DRAFTED_DOCUMENTED",
+          "provenance_label": "Redação integral por IA documentada",
+          "provenance_short": "IA",
+          "provenance_confidence": "Alta (baseline auditado)",
+          "manuscript_status": "Manuscrito IA; revisão parcial",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "HIS3",
+          "title": "História Lunar — Volume III: História Contemporânea — Geopolítica",
+          "progress_editorial_pct": 8,
+          "progress_confidence": "média",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Série planejada; sem manuscrito",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "RL",
+          "title": "Religião Lunar",
+          "progress_editorial_pct": 53,
+          "progress_confidence": "média",
+          "provenance_class": "AI_ASSISTED_FULL_PROBABLE",
+          "provenance_label": "Redação integral assistida provável",
+          "provenance_short": "IA*",
+          "provenance_confidence": "Média: falta auditoria segmental",
+          "manuscript_status": "Rascunho integral assistido",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "EE",
+          "title": "Escrituras das Encruzilhadas",
+          "progress_editorial_pct": 54,
+          "progress_confidence": "média",
+          "provenance_class": "AI_ASSISTED_FULL_PROBABLE",
+          "provenance_label": "Redação integral assistida provável",
+          "provenance_short": "IA*",
+          "provenance_confidence": "Média: falta auditoria segmental",
+          "manuscript_status": "Rascunho início-fim assistido",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "OC",
+          "title": "O Caminho",
+          "progress_editorial_pct": 20,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Texto breve; estatuto a auditar",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "ufologia",
+      "title": "Ufologia e Fenômenos Anômalos",
+      "color_token": "#83d5a6",
+      "short_intro": "O caso de Varginha é tratado no cruzamento entre testemunho, arquivo, versões e lacunas. As hipóteses de investigação preservam seu estatuto de hipótese.",
+      "map_hotspot": {
+        "x_pct": 12.5,
+        "y_pct": 49
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/05.webp"
+      },
+      "works": [
+        {
+          "id": "VAR",
+          "title": "Varginha 1996",
+          "progress_editorial_pct": 42,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Média quanto à ausência de prosa IA na Wave01",
+          "manuscript_status": "Manuscrito e fonte crítica",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "artigos",
+      "title": "Artigos Acadêmicos",
+      "color_token": "#91c4f6",
+      "short_intro": "Pesquisas em formatos acadêmicos sobre história política, psicologia, modulação afetiva e cognição humano–IA.",
+      "map_hotspot": {
+        "x_pct": 37.5,
+        "y_pct": 49
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/06.webp"
+      },
+      "works": [
+        {
+          "id": "PAPER1",
+          "title": "Mitos e Verdades do Socialismo Real",
+          "progress_editorial_pct": 44,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Em desenvolvimento",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PAPER2",
+          "title": "Paper Cluster B — Overlap",
+          "progress_editorial_pct": 43,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Alta nos trechos, pendente no texto inteiro",
+          "manuscript_status": "Em desenvolvimento",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PAPER3",
+          "title": "Modulação Canábica — Saliência Afetiva",
+          "progress_editorial_pct": 43,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Alta nos trechos, pendente no texto inteiro",
+          "manuscript_status": "Em desenvolvimento",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PAPER4",
+          "title": "Simbiose Cognitiva Humano-IA",
+          "progress_editorial_pct": 54,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Doc PT/EN + exportações",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "autobibliografia",
+      "title": "Autobibliografia",
+      "color_token": "#ffadd1",
+      "short_intro": "Projetos de escrita de si que atravessam memória, identidade, viagens e vínculo.",
+      "map_hotspot": {
+        "x_pct": 62.5,
+        "y_pct": 49
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/07.webp"
+      },
+      "works": [
+        {
+          "id": "25J",
+          "title": "25 de Junho",
+          "progress_editorial_pct": 58,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Manuscrito extenso",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "CT",
+          "title": "Me tornando eu mesma — As Cores Trans",
+          "progress_editorial_pct": 58,
+          "progress_confidence": "média",
+          "provenance_class": "MIXED_PROBABLE",
+          "provenance_label": "Mista provável",
+          "provenance_short": "M",
+          "provenance_confidence": "Média: dois trechos comprovados; base indeterminada",
+          "manuscript_status": "Manuscrito vivo; ajustes pontuais",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "KAI",
+          "title": "Kairós",
+          "progress_editorial_pct": 45,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Documento extenso / status a validar",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "FM",
+          "title": "A Flor e o Mastro",
+          "progress_editorial_pct": 31,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Manuscrito existente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "Cinco textos históricos de 2019 foram incorporados em novembro de 2026. A proveniência integral do manuscrito segue indeterminada.",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "MV",
+          "title": "Moonverse",
+          "progress_editorial_pct": 7,
+          "progress_confidence": "baixa",
+          "provenance_class": "NO_CANONICAL_MANUSCRIPT",
+          "provenance_label": "Sem manuscrito canônico",
+          "provenance_short": "○",
+          "provenance_confidence": "Alta",
+          "manuscript_status": "Fonte/plano sem corpo editorial final",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "humano-ia",
+      "title": "Arquitetura Humano–IA",
+      "color_token": "#bfdc89",
+      "short_intro": "Modernidades acompanha o percurso da infância inventora à criação de sistemas, com a linguagem no centro das experiências de colaboração humano–IA.",
+      "map_hotspot": {
+        "x_pct": 87.5,
+        "y_pct": 49
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/08.webp"
+      },
+      "works": [
+        {
+          "id": "MOD",
+          "title": "Modernidades",
+          "progress_editorial_pct": 48,
+          "progress_confidence": "média",
+          "provenance_class": "MIXED_PROBABLE",
+          "provenance_label": "Mista provável",
+          "provenance_short": "M",
+          "provenance_confidence": "Média: trecho IA confirmado; restante indeterminado",
+          "manuscript_status": "Manuscrito ativo; revisão parcial",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "laboratorios",
+      "title": "Laboratórios Literários",
+      "color_token": "#f198da",
+      "short_intro": "Poesia, prosa e fragmento convivem com um acervo histórico parcialmente preservado.",
+      "map_hotspot": {
+        "x_pct": 12.5,
+        "y_pct": 80
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/09.webp"
+      },
+      "works": [
+        {
+          "id": "PRO",
+          "title": "Propoé",
+          "progress_editorial_pct": 45,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Livro/coletânea existente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "PAS",
+          "title": "Passagens",
+          "progress_editorial_pct": 46,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Livro/coletânea existente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "ENT",
+          "title": "Entretextos do Submundo",
+          "progress_editorial_pct": 40,
+          "progress_confidence": "média",
+          "provenance_class": "UNKNOWN",
+          "provenance_label": "Proveniência integral indeterminada",
+          "provenance_short": "?",
+          "provenance_confidence": "Baixa",
+          "manuscript_status": "Manuscrito existente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "ELABORO-ME",
+          "title": "Elaboro-me",
+          "progress_editorial_pct": null,
+          "progress_confidence": null,
+          "provenance_class": "HUMAN_HISTORICAL",
+          "provenance_label": "Humana histórica",
+          "provenance_short": "H",
+          "provenance_confidence": "Declaração da autora",
+          "manuscript_status": "Acervo histórico parcialmente preservado",
+          "publication_status": "Acervo privado",
+          "footnote": "Acervo histórico com 16 de 51 textos preservados. O indicador mede preservação documental.",
+          "preservation": {
+            "preserved": 16,
+            "total": 51
+          },
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "legado",
+      "title": "Legado Literário Pré-IA",
+      "color_token": "#eebb7e",
+      "short_intro": "Três primeiras obras em suas edições históricas autopublicadas. Novas edições têm um percurso editorial próprio.",
+      "map_hotspot": {
+        "x_pct": 37.5,
+        "y_pct": 80
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/10.webp"
+      },
+      "works": [
+        {
+          "id": "RAV",
+          "title": "Ilha de Raviera",
+          "progress_editorial_pct": 93,
+          "progress_confidence": "baixa",
+          "provenance_class": "HUMAN_HISTORICAL",
+          "provenance_label": "Humana histórica",
+          "provenance_short": "H",
+          "provenance_confidence": "Média-alta: manuscrito e PDF pré-LLM",
+          "manuscript_status": "Edição histórica autopublicada",
+          "publication_status": "Legacy publicado",
+          "footnote": "Indicador da edição histórica. A maturidade de eventual reedição é avaliada à parte.",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "COG",
+          "title": "Cogumelo de Adão",
+          "progress_editorial_pct": 93,
+          "progress_confidence": "baixa",
+          "provenance_class": "HUMAN_HISTORICAL",
+          "provenance_label": "Humana histórica",
+          "provenance_short": "H",
+          "provenance_confidence": "Média-alta: versões antigas impressas",
+          "manuscript_status": "Edição histórica autopublicada",
+          "publication_status": "Legacy publicado",
+          "footnote": "Indicador da edição histórica. A maturidade de eventual reedição é avaliada à parte.",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "TOR",
+          "title": "Calma Tormenta",
+          "progress_editorial_pct": 93,
+          "progress_confidence": "baixa",
+          "provenance_class": "HUMAN_HISTORICAL",
+          "provenance_label": "Humana histórica",
+          "provenance_short": "H",
+          "provenance_confidence": "Média-alta: versões antigas impressas",
+          "manuscript_status": "Edição histórica autopublicada",
+          "publication_status": "Legacy publicado",
+          "footnote": "Indicador da edição histórica. A maturidade de eventual reedição é avaliada à parte.",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "slug": "psicodelicos",
+      "title": "Psicodélicos",
+      "color_token": "#9ae2af",
+      "short_intro": "Psicanábis e Luz da Lótus são obras irmãs cuja condição de escrita integra o método autoral.",
+      "map_hotspot": {
+        "x_pct": 62.5,
+        "y_pct": 80
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/11.webp"
+      },
+      "works": [
+        {
+          "id": "PSICAN",
+          "title": "Psicanábis",
+          "progress_editorial_pct": 39,
+          "progress_confidence": "média",
+          "provenance_class": "MIXED_PROBABLE",
+          "provenance_label": "Mista provável",
+          "provenance_short": "M",
+          "provenance_confidence": "Média: 5 substituições verificadas; origem restante aberta",
+          "manuscript_status": "Documento extenso",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        },
+        {
+          "id": "LOT",
+          "title": "Luz da Lótus",
+          "progress_editorial_pct": 29,
+          "progress_confidence": "média",
+          "provenance_class": "HUMAN_HISTORICAL",
+          "provenance_label": "Humana histórica",
+          "provenance_short": "H",
+          "provenance_confidence": "Média: datação do corpus, sem censo de teclas",
+          "manuscript_status": "Manuscrito existente",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "slug": "tabus",
+      "title": "Tabus",
+      "color_token": "#f3949c",
+      "short_intro": "Anatomia do Proibido investiga como limites sociais, morais, históricos e culturais se formam e são disputados.",
+      "map_hotspot": {
+        "x_pct": 87.5,
+        "y_pct": 80
+      },
+      "art": {
+        "map": "assets/map.webp",
+        "hero": "assets/12.webp"
+      },
+      "works": [
+        {
+          "id": "TAB",
+          "title": "TABUS — Anatomia do Proibido",
+          "progress_editorial_pct": 49,
+          "progress_confidence": "média",
+          "provenance_class": "AI_PREDOMINANT",
+          "provenance_label": "Redação predominantemente por IA",
+          "provenance_short": "IA+",
+          "provenance_confidence": "Alta nas seções IA; média na obra inteira",
+          "manuscript_status": "Manuscrito IA; revisão parcial",
+          "publication_status": "Sem publicação confirmada",
+          "footnote": "O Observatório estima cerca de 98% de prosa redigida por IA. A origem da semente anterior permanece indeterminada.",
+          "sources": [],
+          "public_release": false
+        }
+      ]
+    }
+  ]
+}
