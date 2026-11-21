@@ -110,7 +110,9 @@ class FieldNotesTests(unittest.TestCase):
     def test_archive_and_llms_follow_manifest(self) -> None:
         sample = manifest(fixture())
         archive, llms = b.render_archive(sample), b.render_root_llms(sample)
-        self.assertIn("Corpus revision 7 contains 1 public documents, including 1", archive)
+        self.assertIn("Corpus revision 7", archive)
+        self.assertIn("1 public documents", archive)
+        self.assertIn("1 published Field Notes", archive)
         self.assertIn("Corpus revision 7 includes 1 public documents and 1", llms)
         self.assertIn('rel="canonical" href="' + b.BEACON_URL + 'archive.html"', archive)
         self.assertIn("Explore by theme.", archive)
