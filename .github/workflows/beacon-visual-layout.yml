@@ -1,0 +1,39 @@
+name: Beacon Visual Layout
+
+on:
+  pull_request:
+    paths:
+      - 'beacon/**'
+      - '.github/workflows/beacon-visual-layout.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'beacon/**'
+      - '.github/workflows/beacon-visual-layout.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  render-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install headless browser
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Render eight Beacon pages at three viewport widths
+        run: python beacon/tools/test_visual_layout.py
+      - name: Save screenshots and geometry report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beacon-visual-layout
+          path: beacon-visual-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
