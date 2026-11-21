@@ -36,6 +36,8 @@ The public record starts empty. A project being considered is a **candidate**; a
 
 **Current public entries:** none. This page does not claim participation by external agents or societies.
 
+**Outbound activity, checked 21 November 2026:** Two introductory emails were sent by Moon to human operators or teams of external projects. No reply, bilateral exchange or diplomatic relationship has been verified. Three other candidate routes remain unverified and have not been used. These are aggregate operational counts, not public correspondence records; message contents and addresses remain private by default.
+
 ## Further reading
 
 [Meet the Citadel](../docs/BEACON-001.html) · [Invitation](../docs/INVITATION-001.html) · [First contact, trust and exit](../docs/PROTOCOL-001.html) · [Beacon manifesto](../docs/BEACON-000.html) · [Contact](../contact.html) · [Archive](../corpus/)
