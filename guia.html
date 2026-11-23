@@ -128,7 +128,7 @@
       <div class="brand">🌹 Lua Helena · Guia gratuito para pessoas trans</div>
       <h1>Sua cirurgia pelo plano de saúde 🌸</h1>
       <p class="lede">Não precisa resolver tudo de uma vez. Descubra <strong>qual é seu próximo passo</strong> para buscar uma cirurgia de afirmação de gênero no Brasil.</p>
-      <nav class="top-nav" aria-label="Atalhos"><a href="#etapas">Como começar</a><a href="#problemas">Se o plano negar</a><a href="#duvidas">Dúvidas comuns</a></nav>
+      <nav class="top-nav" aria-label="Atalhos"><a href="#etapas">Como começar</a><a href="#problemas">Se o plano negar</a><a href="#duvidas" data-open="duvidas">Dúvidas comuns</a></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">
@@ -177,16 +177,17 @@
         <div class="help"><h3>🩺 Não tem especialista</h3><p>Peça uma solução por falta de profissionais na rede.</p></div>
         <div class="help"><h3>⏳ Não responde</h3><p>Guarde o protocolo e registre a demora.</p></div>
       </div>
-      <p>Você pode reclamar na <strong>ANS</strong> e procurar uma advogada ou a Defensoria Pública para avaliar seus direitos, inclusive medidas urgentes quando cabíveis.</p>
+      <p>Você pode reclamar na <strong>ANS (órgão que fiscaliza os planos de saúde)</strong> e procurar uma advogada ou a Defensoria Pública para avaliar seus direitos, inclusive medidas urgentes quando cabíveis.</p>
       <div class="actions">
         <a class="btn" href="https://www.gov.br/ans/pt-br/assuntos/consumidor/notificacao-de-intermediacao-preliminar-nip" target="_blank" rel="noopener noreferrer">Registrar reclamação na ANS ↗</a>
         <a class="btn secondary" href="#mensagens" data-open="mensagens">Modelo: falta de médico</a>
       </div>
     </section>
 
-    <section class="card" id="duvidas" aria-labelledby="h-duvidas">
-      <h2 id="h-duvidas">Dúvidas mais comuns</h2>
-      <p class="section-intro">Abra apenas a pergunta que interessa. O resto pode ficar para depois.</p>
+    <details class="card" id="duvidas">
+      <summary>💬 Ficou alguma dúvida? Veja as respostas</summary>
+      <div class="inside">
+      <p class="section-intro">Abra só a pergunta que você precisa responder agora.</p>
       <details>
         <summary>Qual médico devo procurar primeiro?</summary>
         <div class="inside">
@@ -247,7 +248,8 @@
           <p>O SUS tem um caminho próprio. Procure orientação na rede de saúde do seu município e consulte o <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener noreferrer">Ministério da Saúde</a>.</p>
         </div>
       </details>
-    </section>
+      </div>
+    </details>
 
     <details class="card" id="mensagens">
       <summary>📋 Mensagens prontas para copiar</summary>
@@ -255,7 +257,7 @@
         <p>Adapte o texto à sua situação, envie pelo canal oficial e guarde o protocolo.</p>
         <div class="template">
           <h3>1 · Para marcar a consulta</h3>
-          <textarea id="modelo-consulta" readonly aria-label="Mensagem para marcar consulta">Olá! Sou beneficiária do plano [NOME]. Gostaria de agendar avaliação médica para cirurgia de afirmação de gênero. Já tenho [DESCREVER LAUDOS, SE HOUVER]. Vocês podem indicar a especialidade e a primeira consulta disponível? Peço também o número de protocolo. Obrigada!</textarea>
+          <textarea id="modelo-consulta" readonly aria-label="Mensagem para marcar consulta">Olá! Tenho o plano [NOME] e gostaria de agendar avaliação médica para cirurgia de afirmação de gênero. Já tenho [DESCREVER LAUDOS, SE HOUVER]. Vocês podem indicar a especialidade e a primeira consulta disponível? Peço também o número de protocolo. Obrigada!</textarea>
           <button class="btn secondary" type="button" data-copy="modelo-consulta">Copiar mensagem</button><span class="copy-status" id="status-modelo-consulta" role="status"></span>
         </div>
         <div class="template">
@@ -331,7 +333,7 @@ Solicito garantia de atendimento por indisponibilidade ou inexistência de rede,
       var opener=ev.target.closest("[data-open]");
       if(opener){var el=document.getElementById(opener.getAttribute("data-open"));if(el&&el.tagName.toLowerCase()==="details")el.open=true}
       var faq=ev.target.closest("[data-faq]");
-      if(faq){var items=document.querySelectorAll("#duvidas details");if(items[6])items[6].open=true}
+      if(faq){var faqBox=document.getElementById("duvidas");if(faqBox)faqBox.open=true;var items=document.querySelectorAll("#duvidas details");if(items[6])items[6].open=true}
     });
     document.querySelectorAll("[data-copy]").forEach(function(btn){
       btn.addEventListener("click",async function(){
