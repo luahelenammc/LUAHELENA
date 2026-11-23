@@ -88,6 +88,24 @@
     .source-links{padding-left:19px;margin:0}
     .source-links li{margin:8px 0}
     .muted-link{font-size:.87rem}
+    .answer-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+    .answer-symbol{flex:0 0 39px;width:39px;height:39px;display:grid;place-items:center;background:#f2e7ff;border-radius:13px;font-size:1.3rem}
+    .answer-lead{font-size:1.03rem;font-weight:800;line-height:1.43;color:#533b72}
+    .first-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+    .first-steps article{background:#faf7ff;border:1px solid #ebe1f0;border-radius:13px;padding:14px}
+    .first-steps article h3{font-size:.91rem;color:#583b78}
+    .first-steps article p{font-size:.88rem;color:#61566b}
+    .paper-choices{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0}
+    .paper-choice{font-size:.82rem;font-weight:800;line-height:1.3;padding:11px 12px;border:1px solid #cbbbdb;border-radius:12px;background:white;color:#59426d;text-align:left}
+    .paper-choice:hover{border-color:#7956a4}
+    .paper-choice[aria-pressed="true"]{border:2px solid #8359ab;background:#f5edfc;padding:10px 11px}
+    .paper-result{border:1px solid #d8e8f4;background:#f2f9ff;border-radius:12px;padding:14px;margin-top:8px}
+    .paper-result h3{color:#28608b}
+    .paper-result p{font-size:.9rem;color:#4b5664}
+    .medical-box{background:#fff8ed;border-left:4px solid #d1a35c;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:.89rem;color:#5e5041}
+    .medical-box strong{color:#544027}
+    .mini-list{padding-left:18px;margin:9px 0}
+    .mini-list li{margin:5px 0}
     .footer{background:#f4eafb;border-top:1px solid #e8d9f0}
     .footer .wrap{padding:25px 0 33px;font-size:.86rem;color:#62556c}
     .footer strong{color:#513d65}
@@ -102,7 +120,7 @@
       .choice{min-height:82px;padding:11px}
       .choice span{font-size:.85rem}
       .choice small{font-size:.74rem}
-      .help-grid{grid-template-columns:1fr}
+      .help-grid{grid-template-columns:1fr}.first-steps{grid-template-columns:1fr}.paper-choice{flex:1 1 100%}
       .help{padding:12px 14px}
       .btn{width:100%}
       .steps li{gap:10px}
@@ -128,14 +146,14 @@
       <div class="brand">🌹 Lua Helena · Guia gratuito para pessoas trans</div>
       <h1>Sua cirurgia pelo plano de saúde 🌸</h1>
       <p class="lede">Não precisa resolver tudo de uma vez. Descubra <strong>qual é seu próximo passo</strong> para buscar uma cirurgia de afirmação de gênero no Brasil.</p>
-      <nav class="top-nav" aria-label="Atalhos"><a href="#etapas">Como começar</a><a href="#problemas">Se o plano negar</a><a href="#duvidas" data-open="duvidas">Dúvidas comuns</a></nav>
+      <nav class="top-nav" aria-label="Atalhos"><a href="#etapas">3 passos</a><a href="#medico">Qual médico?</a><a href="#problemas">Se o plano negar</a><a href="#duvidas" data-open="duvidas">Dúvidas</a></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">
     <section class="card" id="inicio" aria-labelledby="h-inicio">
       <p class="kicker">Comece por aqui</p>
       <h2 id="h-inicio">Em que ponto você está?</h2>
-      <p class="small">Escolha uma opção. Vou te mostrar apenas o próximo passo.</p>
+      <p class="small">Toque na opção que parece com sua situação. Você verá o que fazer agora.</p>
       <div class="choices" role="group" aria-label="Selecione sua etapa">
         <button class="choice" type="button" data-etapa="comecar" aria-pressed="true"><span>🌱 Ainda vou começar</span><small>Não tenho pedido médico</small></button>
         <button class="choice" type="button" data-etapa="pedido" aria-pressed="false"><span>📄 Já tenho pedido</span><small>Quero enviar ao plano</small></button>
@@ -145,8 +163,8 @@
       <div class="next" id="proximo" aria-live="polite" aria-atomic="true">
         <p class="next-kicker">Seu próximo passo</p>
         <h3 id="prox-titulo">Peça uma consulta ao seu plano</h3>
-        <p id="prox-texto">Procure um médico que possa avaliar a cirurgia desejada. Leve seus laudos, se já tiver. Você não precisa encontrar o cirurgião definitivo agora.</p>
-        <a class="btn" id="prox-acao" href="#etapas">Ver como começar ↓</a>
+        <p id="prox-texto">Não precisa ser urologista nem cirurgião. Você pode começar com um médico que já te acompanha e pedir avaliação ou encaminhamento especializado.</p>
+        <a class="btn" id="prox-acao" href="#medico">Descobrir qual médico procurar ↓</a>
       </div>
     </section>
 
@@ -155,18 +173,72 @@
       <ol class="steps">
         <li>
           <span class="n" aria-hidden="true">1</span>
-          <div><h3>Marque uma consulta</h3><p>Peça ao plano um médico que avalie a cirurgia de afirmação de gênero que você procura. Já tem laudos? Leve todos.</p><a href="#mensagens" class="inline-link" data-open="mensagens">Copiar mensagem para agendar ↗</a></div>
+          <div><h3>Procure um médico para te avaliar</h3><p>Pode ser um médico que já te acompanha, como clínico ou endocrinologista, se ele se sentir apto a avaliar. Se preferir, peça ao plano um especialista.</p><a href="#medico" class="inline-link">Precisa ser urologista? Entenda ↓</a></div>
         </li>
         <li>
           <span class="n" aria-hidden="true">2</span>
-          <div><h3>Peça a indicação por escrito</h3><p>Após a avaliação, o médico pode emitir um pedido inicial ou encaminhamento. <strong>Ele não precisa ser quem vai operar.</strong></p></div>
+          <div><h3>Saia com a orientação escrita</h3><p>O médico pode <strong>encaminhar para avaliação especializada</strong> ou, se houver fundamento clínico, <strong>indicar a cirurgia</strong>. Não são a mesma coisa.</p><a href="#papel" class="inline-link">Qual documento eu tenho? ↓</a></div>
         </li>
         <li>
           <span class="n" aria-hidden="true">3</span>
-          <div><h3>Envie o pedido ao plano</h3><p>Protocole pelo app, site ou atendimento oficial. Peça o <strong>número de protocolo</strong> e a indicação da equipe que poderá realizar a cirurgia.</p><a href="#mensagens" class="inline-link" data-open="mensagens">Copiar modelo para enviar ao plano ↗</a></div>
+          <div><h3>Envie o documento ao plano</h3><p>Com <strong>encaminhamento</strong>, peça consulta especializada. Com <strong>indicação cirúrgica</strong>, solicite análise da cobertura e equipe capacitada. Guarde o protocolo.</p><a href="#mensagens" class="inline-link" data-open="mensagens">Mensagens prontas para copiar ↗</a></div>
         </li>
       </ol>
       <p class="note"><strong>Importante:</strong> não existe exigência universal de dois anos de psicoterapia ou de um CID específico para toda cirurgia. A equipe avalia os documentos necessários em cada caso.</p>
+    </section>
+
+    <section class="card" id="medico" aria-labelledby="h-medico">
+      <p class="kicker">A dúvida que vem antes de tudo</p>
+      <div class="answer-head">
+        <span class="answer-symbol" aria-hidden="true">🩺</span>
+        <div><h2 id="h-medico">O primeiro médico precisa ser urologista?</h2>
+        <p class="answer-lead">Não. E ele também não precisa ser quem vai fazer a cirurgia.</p></div>
+      </div>
+      <p>Você pode começar com um médico que já te atende, como <strong>clínico geral, médico de família, endocrinologista</strong> ou outro profissional que possa avaliar seu caso. Para uma cirurgia genital, a Urologia também é uma boa porta de entrada, mas <strong>não é obrigatória para todo pedido inicial</strong>.</p>
+      <div class="first-steps">
+        <article><h3>✅ Se o médico puder avaliar e fundamentar</h3><p>Ele pode registrar uma indicação clínica e solicitar avaliação ou cobertura do procedimento adequado.</p></article>
+        <article><h3>➡️ Se não souber indicar a cirurgia</h3><p>Peça encaminhamento para a equipe especializada. Não é preciso convencê-lo a assinar algo que não consegue avaliar.</p></article>
+      </div>
+      <p class="small"><strong>Como pedir na consulta:</strong> “Doutor(a), quero avaliar uma cirurgia de afirmação de gênero. Você consegue me orientar e, se houver indicação, fazer um pedido por escrito? Se não, pode me encaminhar para quem avalia?”</p>
+      <div class="medical-box"><strong>Importante:</strong> o médico não é obrigado a indicar a cirurgia só porque a paciente pediu. A indicação depende de avaliação e dos critérios clínicos aplicáveis. O profissional que operará fará a avaliação técnica definitiva.</div>
+      <details>
+        <summary>O que exatamente deve estar escrito no pedido?</summary>
+        <div class="inside">
+          <p><strong>Não existe frase mágica.</strong> O essencial é o médico explicar sua conclusão clínica e o que está solicitando.</p>
+          <ul class="mini-list">
+            <li>Seu nome e identificação;</li>
+            <li>o motivo clínico da solicitação, conforme a avaliação;</li>
+            <li><strong>o que está sendo pedido:</strong> encaminhamento especializado ou cirurgia/procedimento indicado;</li>
+            <li>data, identificação profissional, assinatura e CRM;</li>
+            <li>procedimento/código e documentos adicionais, quando conhecidos e pertinentes.</li>
+          </ul>
+          <p>Se a técnica ainda não foi definida, <strong>não invente nome de cirurgia ou código</strong>. Peça avaliação especializada. Os detalhes técnicos serão definidos pela equipe responsável.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Posso mostrar um exemplo ao médico?</summary>
+        <div class="inside">
+          <p>Sim, como exemplo do <strong>tipo de solicitação</strong> que você precisa, não como laudo pronto ou texto a ser assinado sem avaliação.</p>
+          <div class="medical-box">Exemplo de encaminhamento, se o profissional considerar adequado: “Encaminho paciente para avaliação em serviço especializado em cirurgia de afirmação de gênero, com definição de indicação, técnica e plano terapêutico pela equipe assistente.”</div>
+          <p>Se o médico concluir que já há indicação cirúrgica, poderá produzir uma solicitação mais específica, com justificativa clínica e o procedimento indicado. Não confunda esse documento com a guia técnica final do cirurgião.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" id="papel" aria-labelledby="h-papel">
+      <h2 id="h-papel">📄 Saí da consulta com um papel. E agora?</h2>
+      <p class="small">Veja o que o médico escreveu. Escolha a situação mais parecida:</p>
+      <div class="paper-choices" role="group" aria-label="Tipo de documento recebido">
+        <button type="button" class="paper-choice" data-papel="encaminhamento" aria-pressed="true">“Encaminho para especialista”</button>
+        <button type="button" class="paper-choice" data-papel="cirurgia" aria-pressed="false">“Indico ou solicito cirurgia”</button>
+        <button type="button" class="paper-choice" data-papel="duvida" aria-pressed="false">Não sei qual é o meu</button>
+      </div>
+      <div class="paper-result" id="resposta-papel" role="status" aria-live="polite" aria-atomic="true">
+        <h3 id="papel-titulo">Peça uma consulta especializada ao plano</h3>
+        <p id="papel-texto">Isso é um encaminhamento para avaliação, não uma autorização de cirurgia. Envie ao plano e solicite agendamento com equipe habilitada.</p>
+        <a class="btn secondary" id="papel-acao" href="#mensagens" data-open="mensagens">Copiar mensagem de agendamento ↓</a>
+      </div>
+      <p class="tiny">Um documento incompleto não significa que você perdeu o direito ao atendimento. A operadora deve informar o que precisa para analisar a solicitação.</p>
     </section>
 
     <section class="card" id="problemas" aria-labelledby="h-problemas">
@@ -189,30 +261,21 @@
       <div class="inside">
       <p class="section-intro">Abra só a pergunta que você precisa responder agora.</p>
       <details>
-        <summary>Qual médico devo procurar primeiro?</summary>
+        <summary>Tenho laudo de psicóloga, psiquiatra ou endócrino. Já basta?</summary>
         <div class="inside">
-          <p>Depende da cirurgia. Estas são portas de entrada possíveis, não regras rígidas:</p>
-          <ul>
-            <li><strong>Genital:</strong> Urologia ou equipe especializada.</li>
-            <li><strong>Tórax e mamas:</strong> Cirurgia Plástica ou Mastologia.</li>
-            <li><strong>Voz:</strong> Otorrinolaringologia.</li>
-            <li><strong>Face:</strong> Cirurgia Plástica ou especialista craniofacial.</li>
-          </ul>
-          <p>Não sabe qual procurar? Peça ao plano uma avaliação e encaminhamento para a especialidade adequada.</p>
+          <p>Esses laudos ajudam a contar seu histórico, mas <strong>nem sempre substituem a solicitação médica do procedimento</strong>. Mesmo sem a expressão “autorizo cirurgia”, um relatório pode ser útil. O médico que avaliar a indicação dirá se falta algum documento.</p><p>Laudo psicológico não é a mesma coisa que pedido médico de procedimento. E não existe regra única de documentos para todas as cirurgias.</p>
         </div>
       </details>
       <details>
-        <summary>Quais documentos preciso levar?</summary>
+        <summary>Preciso já saber a técnica e o nome do cirurgião?</summary>
         <div class="inside">
-          <p>Para começar: <strong>carteirinha do plano, documento pessoal e os laudos que você já possui.</strong> Para pedir a cobertura, obtenha um relatório com indicação médica da cirurgia. A equipe pode solicitar documentação complementar conforme o procedimento.</p>
-          <p>Não é necessário refazer automaticamente um laudo só porque ele não contém a frase “autorizo a cirurgia”. A avaliação médica define a utilidade de cada documento.</p>
+          <p><strong>Não.</strong> Você pode começar com a avaliação e o encaminhamento. A equipe que vai operar define detalhes técnicos depois. Para a primeira consulta, leve documento, carteirinha e laudos que já possui.</p><p>Se o plano pedir uma solicitação técnica mais completa para autorizar a internação, a equipe assistente poderá complementá-la.</p>
         </div>
       </details>
       <details>
-        <summary>Meu plano é regional. Ele também pode cobrir?</summary>
+        <summary>Preciso pagar consulta particular? E se o plano for regional?</summary>
         <div class="inside">
-          <p><strong>Sim, dependendo do contrato e do procedimento.</strong> Planos com cobertura hospitalar estão sujeitos às cirurgias de cobertura obrigatória; um plano exclusivamente ambulatorial não costuma cobrir internação eletiva. Planos antigos não adaptados exigem análise específica.</p>
-          <p>Se faltar prestador apto na rede, a operadora deve buscar solução nos termos da <a href="https://www.gov.br/ans/pt-br/assuntos/consumidor/prazos-maximos-de-atendimento" target="_blank" rel="noopener noreferrer">garantia de atendimento da ANS</a>. Isso não significa escolher livremente qualquer cirurgião particular.</p>
+          <p><strong>Não é obrigatório começar pagando consulta particular.</strong> Primeiro, peça à operadora atendimento coberto por sua rede, conforme seu produto. Mesmo planos regionais devem garantir os procedimentos obrigatórios, quando aplicáveis, e providenciar solução se não houver prestador apto.</p><p>Plano exclusivamente ambulatorial não costuma cobrir internação eletiva. Contratos antigos não adaptados exigem análise específica. Consulte a <a href="https://www.gov.br/ans/pt-br/assuntos/consumidor/prazos-maximos-de-atendimento" target="_blank" rel="noopener noreferrer">garantia de atendimento da ANS</a>.</p>
         </div>
       </details>
       <details>
@@ -223,9 +286,9 @@
         </div>
       </details>
       <details>
-        <summary>Posso levar pedido de médico particular?</summary>
+        <summary>E se o médico não souber fazer ou não quiser assinar?</summary>
         <div class="inside">
-          <p>Sim. O plano deve analisar também solicitações de profissionais não credenciados. Mas isso <strong>não obriga automaticamente</strong> a pagar o cirurgião particular escolhido. A adequação da rede precisa ser avaliada.</p>
+          <p>Peça que explique se faltam informações clínicas ou se você precisa de especialista. Um encaminhamento pode ser o próximo passo. Você também pode solicitar ao plano outro profissional apto a avaliar.</p><p>Pedidos de médicos particulares podem ser apresentados ao plano, mas isso não obriga automaticamente a custear o cirurgião particular de sua preferência.</p>
         </div>
       </details>
       <details>
@@ -236,10 +299,9 @@
         </div>
       </details>
       <details>
-        <summary>E depois que aprovarem a cirurgia?</summary>
+        <summary>O plano disse que “falta um documento”. O que faço?</summary>
         <div class="inside">
-          <p>Confirme por escrito <strong>hospital, equipe, autorização e data</strong>. Peça à equipe instruções individuais sobre exames, medicamentos, transporte, acompanhante e recuperação.</p>
-          <p>Não suspenda hormônios ou outros medicamentos por conta própria. Cuidados como dilatação só se aplicam quando prescritos para o seu procedimento.</p>
+          <p>Peça que a operadora identifique por escrito <strong>qual documento falta e para qual finalidade</strong>. Se pedirem detalhes da técnica cirúrgica, solicite avaliação com a equipe que poderá realizá-la.</p><p>Depois da aprovação, confirme hospital, equipe, data e cobertura efetiva. Siga o preparo prescrito individualmente; não suspenda hormônios ou outros remédios por conta própria.</p>
         </div>
       </details>
       <details>
@@ -256,12 +318,12 @@
       <div class="inside">
         <p>Adapte o texto à sua situação, envie pelo canal oficial e guarde o protocolo.</p>
         <div class="template">
-          <h3>1 · Para marcar a consulta</h3>
-          <textarea id="modelo-consulta" readonly aria-label="Mensagem para marcar consulta">Olá! Tenho o plano [NOME] e gostaria de agendar avaliação médica para cirurgia de afirmação de gênero. Já tenho [DESCREVER LAUDOS, SE HOUVER]. Vocês podem indicar a especialidade e a primeira consulta disponível? Peço também o número de protocolo. Obrigada!</textarea>
+          <h3>1 · Para marcar a consulta (sem ter pedido)</h3>
+          <textarea id="modelo-consulta" readonly aria-label="Mensagem para marcar consulta">Olá! Tenho o plano [NOME]. Quero passar por avaliação médica sobre cirurgia de afirmação de gênero, mas ainda não tenho pedido cirúrgico. Vocês podem agendar um médico que possa me orientar ou encaminhar a uma equipe especializada? Já tenho [LAUDOS, SE HOUVER]. Peço a primeira data disponível e o número de protocolo. Obrigada!</textarea>
           <button class="btn secondary" type="button" data-copy="modelo-consulta">Copiar mensagem</button><span class="copy-status" id="status-modelo-consulta" role="status"></span>
         </div>
         <div class="template">
-          <h3>2 · Para solicitar a cirurgia</h3>
+          <h3>2 · Para pedir cobertura (quando já houver indicação médica)</h3>
           <textarea id="modelo-pedido" readonly aria-label="Mensagem de solicitação de cirurgia">À operadora [NOME],
 
 Solicito autorização do procedimento cirúrgico indicado no pedido e relatório médico anexos. Peço número de protocolo, resposta conclusiva por escrito e indicação de equipe e hospital aptos para o atendimento.
@@ -272,7 +334,7 @@ Se não houver prestador habilitado na rede, solicito garantia de atendimento co
           <button class="btn secondary" type="button" data-copy="modelo-pedido">Copiar solicitação</button><span class="copy-status" id="status-modelo-pedido" role="status"></span>
         </div>
         <div class="template">
-          <h3>3 · Quando falta profissional</h3>
+          <h3>3 · Quando não há especialista na rede</h3>
           <textarea id="modelo-rede" readonly aria-label="Mensagem sobre falta de rede">À operadora [NOME],
 
 Solicitei atendimento para [PROCEDIMENTO/AVALIAÇÃO] em [DATA], protocolo [NÚMERO], mas ainda não foi disponibilizada equipe apta.
@@ -290,7 +352,7 @@ Solicito garantia de atendimento por indisponibilidade ou inexistência de rede,
       <div class="inside">
         <p>Este guia resume orientações gerais. O procedimento, o contrato, o Rol da ANS e as normas médicas devem ser analisados no caso concreto. A regulamentação pode mudar.</p>
         <ul class="source-links">
-          <li><a href="https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial" target="_blank" rel="noopener noreferrer">ANS · Rol e cobertura assistencial</a></li>
+          <li><a href="https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial" target="_blank" rel="noopener noreferrer">ANS · Rol e cobertura assistencial</a></li><li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2021/res0465_02_03_2021.html" target="_blank" rel="noopener noreferrer">ANS · RN 465/2021, pedidos do médico assistente (art. 6º)</a></li>
           <li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2024/res0623_19_12_2024.html" target="_blank" rel="noopener noreferrer">ANS · RN 623/2024, respostas e negativas</a></li>
           <li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2023/res0566_02_01_2023.html" target="_blank" rel="noopener noreferrer">ANS · RN 566/2022, garantia do atendimento</a></li>
           <li><a href="https://www.gov.br/ans/pt-br/arquivos/acesso-a-informacao/transparencia-institucional/pareceres-tecnicos-da-ans/2024/parecer-tecnico-no-26_2024_processo-transexualizador-ou-de-afirmacao-de-genero.pdf/view" target="_blank" rel="noopener noreferrer">ANS · Parecer Técnico 26/2024 sobre afirmação de gênero</a></li>
@@ -312,11 +374,23 @@ Solicito garantia de atendimento por indisponibilidade ou inexistência de rede,
   (function(){
     "use strict";
     var etapas={
-      comecar:{title:"Peça uma consulta ao seu plano",text:"Procure um médico que possa avaliar a cirurgia desejada. Leve seus laudos, se já tiver. Você não precisa encontrar o cirurgião definitivo agora.",cta:"Ver como começar ↓",href:"#etapas"},
-      pedido:{title:"Envie seu pedido médico ao plano",text:"Protocole o documento pelo app, site ou canal oficial. Guarde o número do protocolo e peça uma equipe capacitada.",cta:"Abrir modelo de solicitação ↓",href:"#mensagens",open:"mensagens"},
+      comecar:{title:"Comece com um médico que possa te avaliar",text:"Não precisa ser urologista nem cirurgião. Um médico que já te acompanha pode avaliar a indicação ou encaminhar você para especialista.",cta:"Quem pode fazer o pedido? ↓",href:"#medico"},
+      pedido:{title:"Confira que documento você recebeu",text:"Encaminhamento para especialista e pedido de cirurgia são coisas diferentes. Veja o que está escrito antes de protocolar.",cta:"Meu papel é qual? ↓",href:"#papel"},
       problema:{title:"Documente o problema e procure a ANS",text:"Guarde a negativa, o protocolo ou a informação de que não existe especialista. Peça solução por escrito e registre reclamação na ANS.",cta:"Ver o que fazer ↓",href:"#problemas"},
       aprovado:{title:"Confirme os detalhes antes da cirurgia",text:"Verifique a autorização efetiva, o hospital, a equipe e a data. Siga o preparo indicado individualmente pelos profissionais.",cta:"Ver cuidados importantes ↓",href:"#duvidas",faq:true}
     };
+    var papeis={
+      encaminhamento:{title:"Peça uma consulta especializada ao plano",text:"Isso é um encaminhamento para avaliação, não uma autorização de cirurgia. Envie ao plano e solicite agendamento com equipe habilitada.",cta:"Copiar mensagem de agendamento ↓"},
+      cirurgia:{title:"Protocole o pedido de cobertura",text:"Envie a indicação médica ao plano e peça autorização e equipe capacitada. A operadora poderá solicitar informações técnicas complementares à equipe assistente.",cta:"Copiar pedido de cobertura ↓"},
+      duvida:{title:"Peça esclarecimento antes de enviar",text:"Pergunte ao médico se o documento indica um procedimento ou se apenas encaminha para avaliação. Você também pode enviar ao plano pedindo orientação formal sobre os próximos passos.",cta:"Ver mensagens prontas ↓"}
+    };
+    var paperButtons=document.querySelectorAll("[data-papel]");
+    var paperTitle=document.getElementById("papel-titulo"),paperText=document.getElementById("papel-texto"),paperLink=document.getElementById("papel-acao");
+    paperButtons.forEach(function(btn){btn.addEventListener("click",function(){
+      var type=btn.getAttribute("data-papel"),choice=papeis[type]||papeis.duvida;
+      paperButtons.forEach(function(item){item.setAttribute("aria-pressed",String(item===btn))});
+      paperTitle.textContent=choice.title;paperText.textContent=choice.text;paperLink.textContent=choice.cta;
+    })});
     var buttons=document.querySelectorAll("[data-etapa]");
     var title=document.getElementById("prox-titulo");
     var body=document.getElementById("prox-texto");
