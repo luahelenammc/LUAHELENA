@@ -3,389 +3,351 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7edfa">
-  <meta name="description" content="Guia brasileiro para pessoas trans: da primeira consulta ao pedido de cirurgia de afirmação de gênero pelo plano de saúde, com prazos da ANS, garantia de rede e caminhos diante de negativas.">
+  <meta name="theme-color" content="#f8effa">
   <meta name="author" content="Lua Helena Moon Martins Cardoso">
-  <title>Guia de cirurgias de afirmação de gênero pelo plano de saúde | Lua Helena</title>
+  <meta name="description" content="Um guia simples para pessoas trans no Brasil: como conseguir a primeira consulta, pedir uma cirurgia pelo plano de saúde e agir se houver negativa.">
+  <title>Sua cirurgia pelo plano de saúde | Guia da Lua Helena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      color-scheme:light;
-      --bg:#f8f1fb;--surface:#ffffff;--ink:#292438;--muted:#625a70;--line:#e7dbea;
-      --pink:#d94185;--pink-soft:#ffdfed;--blue:#2b7cb9;--blue-soft:#e0f2fc;
-      --lav:#eee4ff;--purple:#6952a2;--focus:#283fc4;--good:#276e57;--shadow:0 13px 40px rgba(69,40,87,.065);
-      --radius:20px
-    }
+    :root{color-scheme:light;--ink:#30263c;--soft:#5e536c;--line:#e8deeb;--pink:#ae3b78;--lav:#7254aa;--blue:#236b9e;--bg:#faf5fc;--paper:#fff;--focus:#214cb5;--good:#276e57}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:85px}
-    body{margin:0;background:var(--bg);font-family:"DM Sans",system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.62}
-    a{color:#234f99;text-decoration-thickness:1px;text-underline-offset:3px}
+    html{scroll-behavior:smooth;scroll-padding-top:20px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.58 "DM Sans",system-ui,sans-serif}
+    h1,h2,h3{font-family:Poppins,system-ui,sans-serif;letter-spacing:-.035em;line-height:1.22}
+    h1{font-size:clamp(1.85rem,5vw,2.85rem);font-weight:800;margin:13px 0 13px}
+    h2{font-size:clamp(1.22rem,3vw,1.55rem);margin:0 0 14px}
+    h3{font-size:1.02rem;margin:0 0 5px}
+    p{margin:0 0 12px} p:last-child{margin:0}
+    a{color:#265f97;text-underline-offset:3px}
     a:hover{text-decoration-thickness:2px}
-    button,select,textarea{font:inherit}
+    button,textarea{font:inherit}
     button{cursor:pointer}
     :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-    .skip{position:absolute;top:-100px;left:12px;background:white;padding:9px 14px;z-index:999}
-    .skip:focus{top:9px}
-    .flag{height:8px;background:linear-gradient(to right,#66cced 0 20%,#f59ac2 20% 40%,#fff 40% 60%,#f59ac2 60% 80%,#66cced 80% 100%)}
-    .hero{background:radial-gradient(ellipse at 92% 5%,#f9d6ef 0,transparent 37%),radial-gradient(ellipse at 5% 70%,#d9efff 0,transparent 42%),#f4ebfb;border-bottom:1px solid var(--line)}
-    .hero-inner{max-width:1120px;margin:auto;padding:57px 24px 52px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid #d3c3e9;border-radius:100px;background:#ffffffa6;font-size:.77rem;color:#563e83;font-weight:700;letter-spacing:.045em;text-transform:uppercase}
-    h1,h2,h3{font-family:Poppins,"DM Sans",sans-serif;letter-spacing:-.035em;line-height:1.25}
-    h1{font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);max-width:950px;margin:17px 0 17px}
-    h2{font-size:clamp(1.32rem,2.5vw,1.72rem);margin:0 0 13px}
-    h3{font-size:1rem;margin:0 0 8px;letter-spacing:-.015em}
-    p{margin:0 0 13px} p:last-child{margin-bottom:0}
-    .lede{font-size:clamp(1rem,2.1vw,1.16rem);max-width:780px;color:#4d425b}
-    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
-    .pill{display:inline-flex;align-items:center;gap:7px;border-radius:100px;padding:5px 11px;background:white;border:1px solid #ded2e8;color:#534b63;font-size:.79rem;font-weight:600}
-    .layout{max-width:1120px;margin:0 auto;padding:28px 24px 72px;display:grid;grid-template-columns:225px minmax(0,1fr);gap:28px;align-items:start}
-    .sidebar{position:sticky;top:24px;background:#ffffffd9;border:1px solid var(--line);border-radius:var(--radius);padding:19px 14px;box-shadow:var(--shadow)}
-    .sidebar strong{font-family:Poppins,sans-serif;display:block;font-size:.87rem;margin:0 9px 12px}
-    .sidebar a{display:block;padding:8px 10px;border-radius:11px;text-decoration:none;color:#4e4760;font-size:.88rem;line-height:1.3}
-    .sidebar a:hover,.sidebar a:focus-visible{background:var(--lav);color:#433168}
-    main{min-width:0}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(19px,3.5vw,31px);margin-bottom:22px;box-shadow:var(--shadow)}
-    .card-head{display:flex;align-items:center;gap:10px;margin-bottom:13px}
-    .step-num{flex:0 0 32px;height:32px;border-radius:11px;background:var(--blue-soft);color:#155d8f;display:grid;place-items:center;font:700 .9rem Poppins,sans-serif}
-    .card-head h2{margin:0}
-    .muted{color:var(--muted)}
-    .small{font-size:.9rem}
-    .xs{font-size:.8rem}
-    .stack{display:grid;gap:13px}
-    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .tile{background:#faf7fc;border:1px solid #ebe2ef;border-radius:14px;padding:15px}
-    .tile h3{color:#3d3050}
-    .tile p{font-size:.9rem;color:#514a5d}
-    .callout{background:#f2edff;border:1px solid #dfd4f4;border-left:4px solid #8b70c2;border-radius:12px;padding:14px 16px;margin:17px 0}
-    .callout.blue{background:#eef8ff;border-color:#d4e9f6;border-left-color:#4c9ccc}
-    .callout.pink{background:#fff1f6;border-color:#f6d8e6;border-left-color:#cf6397}
-    .callout.good{background:#eaf7f1;border-color:#ccebdc;border-left-color:#4d9674}
-    .callout p{font-size:.93rem}
-    .kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--purple);margin-bottom:9px}
-    ol,ul{margin:10px 0 11px;padding-left:1.3em} li{padding-left:.15em;margin:6px 0}
-    .roadmap{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:17px 0 0;counter-reset:road}
-    .roadmap li{margin:0;padding:12px 9px;text-align:center;border-radius:13px;border:1px solid #d9d2e9;background:#f8f4ff;font-size:.85rem;font-weight:700;line-height:1.35}
-    .roadmap li::before{counter-increment:road;content:counter(road);display:block;margin:0 auto 7px;width:25px;height:25px;line-height:25px;border-radius:50%;background:#e3d7f4;color:#513d78;font-family:Poppins,sans-serif}
-    details{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;margin:10px 0}
-    summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;position:relative;padding-right:40px}
+    .skip{position:absolute;top:-100px;left:10px;padding:8px 12px;background:white;z-index:10}
+    .skip:focus{top:8px}
+    .flag{height:7px;background:linear-gradient(90deg,#72cfe9 0 20%,#f4a3c7 20% 40%,#fff 40% 60%,#f4a3c7 60% 80%,#72cfe9 80%)}
+    .hero{background:radial-gradient(circle at 90% 5%,#f9d8eb,transparent 42%),radial-gradient(circle at 5% 95%,#dcf1ff,transparent 42%),#f5ebfb;border-bottom:1px solid #eaddf0}
+    .wrap{width:min(100% - 36px,850px);margin-inline:auto}
+    .hero-inner{padding:36px 0 31px}
+    .brand{font-size:.79rem;font-weight:800;letter-spacing:.055em;color:#654b86;text-transform:uppercase}
+    .lede{font-size:clamp(1rem,2vw,1.15rem);max-width:640px;color:#51445e}
+    .top-nav{display:flex;flex-wrap:wrap;gap:18px;margin-top:21px;font-size:.84rem;font-weight:700}
+    .top-nav a{color:#66507b;text-decoration:none;border-bottom:1px solid #bca8cb;padding-bottom:3px}
+    main{padding:20px 0 48px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 7px 27px rgba(75,43,95,.055);padding:clamp(19px,4vw,28px);margin-bottom:17px}
+    .small{color:var(--soft);font-size:.91rem}
+    .tiny{color:var(--soft);font-size:.8rem}
+    .kicker{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:#7650a4;margin-bottom:8px}
+    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:19px 0 17px}
+    .choice{background:#fff;border:1.5px solid #d9ccdf;border-radius:15px;text-align:left;min-height:80px;padding:13px 15px;color:var(--ink);line-height:1.3;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+    .choice span{font-weight:800;font-size:.93rem}
+    .choice small{font-size:.78rem;color:#655b71}
+    .choice[aria-pressed="true"]{border-color:#8a5dc1;background:#f4ecff;box-shadow:0 0 0 1px #8a5dc1}
+    .choice:hover{border-color:#9a76bd}
+    .next{border-radius:16px;background:#f1f7fd;border:1px solid #d4e6f3;padding:19px}
+    .next-kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#356890;font-weight:800;margin-bottom:7px}
+    .next h3{font-size:1.18rem;color:#214d76;margin-bottom:6px}
+    .next p{font-size:.93rem;color:#40536a;max-width:650px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:45px;padding:10px 15px;border:1px solid #7046a7;border-radius:12px;background:#7150a2;color:white;text-decoration:none;font-size:.9rem;line-height:1.3;font-weight:800}
+    .btn:hover{background:#593b87;color:white}
+    .btn.secondary{background:white;color:#5b3f83;border-color:#cbb8df}
+    .btn.secondary:hover{background:#f5eeff;color:#432b70}
+    .next .btn{margin-top:11px}
+    .steps{list-style:none;padding:0;margin:6px 0 0}
+    .steps li{display:grid;grid-template-columns:37px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid #eee8f1}
+    .steps li:last-child{border-bottom:0;padding-bottom:2px}
+    .n{height:35px;width:35px;display:grid;place-items:center;border-radius:12px;background:#ecdefb;color:#674799;font-weight:800;font-family:Poppins,sans-serif}
+    .steps h3{margin:1px 0 5px}
+    .steps p{font-size:.94rem;color:#554c61}
+    .steps .inline-link{display:inline-block;font-size:.86rem;font-weight:700;margin-top:3px}
+    .note{background:#fff2f7;border-left:4px solid #cd6894;border-radius:9px;padding:12px 14px;font-size:.89rem;color:#5e3c50;margin:15px 0 0}
+    .help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+    .help{border:1px solid #eadfed;border-radius:13px;background:#fbf8fc;padding:14px}
+    .help h3{font-size:.92rem;color:#543568}
+    .help p{font-size:.86rem;color:#5c5264}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+    .section-intro{color:#5a5164;font-size:.94rem}
+    details{border:1px solid #e8dfea;background:#fff;border-radius:12px;margin:9px 0;overflow:hidden}
+    summary{display:block;list-style:none;font-weight:700;font-size:.95rem;cursor:pointer;padding:15px 44px 15px 15px;position:relative}
     summary::-webkit-details-marker{display:none}
-    summary::after{content:"+";position:absolute;right:15px;top:9px;font-size:1.45rem;color:var(--purple);font-weight:500}
+    summary::after{content:"+";position:absolute;right:15px;top:8px;color:#7650a4;font-size:1.5rem;font-weight:500}
     details[open] summary::after{content:"−"}
-    details[open] summary{border-bottom:1px solid var(--line);background:#fcf9fe}
-    .detail-body{padding:15px 16px}
-    .detail-body p,.detail-body li{font-size:.92rem}
-    label{font-weight:700;display:block;margin-bottom:7px;font-size:.91rem}
-    select{width:100%;border:1px solid #cdbfd7;border-radius:11px;padding:13px 11px;background:white;color:var(--ink)}
-    .route{margin-top:13px;border:1px solid #d2e4f1;background:#f3faff;padding:15px;border-radius:13px}
-    .route strong{display:block;color:#23517a;margin-bottom:5px}
-    .route p{font-size:.91rem}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:17px}
-    .checklist{list-style:none;padding:0}
-    .checklist li{padding:0 0 0 27px;position:relative;margin:9px 0}
-    .checklist li::before{content:"✓";position:absolute;left:0;top:2px;color:var(--good);font-weight:800}
-    .table-wrap{overflow-x:auto;margin:14px 0}
-    table{width:100%;border-collapse:collapse;font-size:.9rem}
-    th,td{border-bottom:1px solid var(--line);text-align:left;padding:11px 9px;vertical-align:top}
-    th{font-size:.79rem;text-transform:uppercase;letter-spacing:.045em;color:#655579;background:#faf7fb}
-    td:first-child{font-weight:700;min-width:128px;color:#3e3251}
-    .cta-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;gap:7px;border-radius:11px;padding:9px 14px;text-decoration:none;border:1px solid #684c9a;background:#634c95;color:white;font-size:.86rem;font-weight:700;line-height:1.25}
-    .button:hover{background:#4d377b;color:white}
-    .button.alt{background:#fff;color:#55407e;border-color:#cfc1de}
-    .button.alt:hover{background:#f3eaff;color:#3e2e62}
-    .template{margin:13px 0 23px}
-    .template textarea{width:100%;border:1px solid #dcd0e5;background:#fbf9ff;color:#322b3d;border-radius:12px;padding:14px;min-height:225px;line-height:1.55;font-size:.87rem;resize:vertical}
-    .template-action{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:10px 0 0}
-    .copy-status{font-size:.81rem;color:var(--good);min-height:1.2em}
-    .source-list{list-style:none;padding:0;margin:0}
-    .source-list li{padding:10px 0;border-bottom:1px solid var(--line);margin:0}
-    .source-list li:last-child{border-bottom:0}
-    .source-list strong{display:block;font-size:.91rem}
-    .source-list span{color:var(--muted);font-size:.81rem}
-    .footer{border-top:1px solid #e7dbea;background:#f4eafb}
-    .footer-inner{max-width:1120px;margin:auto;padding:31px 24px;color:#564a62;font-size:.87rem}
-    .footer-inner strong{color:#433453}
-    .notice{font-size:.79rem;color:#6a6073}
-    @media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{position:static;display:flex;flex-wrap:wrap;gap:3px;padding:11px}.sidebar strong{width:100%;margin:4px 8px}.sidebar a{font-size:.79rem;padding:8px 10px}}
-    @media(max-width:680px){.hero-inner{padding:39px 19px 35px}.layout{padding:17px 13px 48px;gap:15px}.sidebar{border-radius:13px}.card{border-radius:16px;padding:20px 17px;margin-bottom:15px}.grid2,.grid3,.two-col{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-meta{gap:6px}.pill{font-size:.72rem}th,td{padding:9px 7px;font-size:.82rem}.cta-row .button{width:100%}}
+    details[open] summary{background:#fcf9fe;border-bottom:1px solid #eee7f0}
+    .inside{padding:14px 16px;font-size:.92rem;color:#554a60}
+    .inside p{margin-bottom:9px}
+    .inside p:last-child{margin-bottom:0}
+    .inside ul{padding-left:19px;margin:8px 0}
+    .inside li{margin:6px 0}
+    .template{border:1px solid #e6dfea;border-radius:13px;padding:14px;background:#fcf9ff;margin:12px 0}
+    .template h3{margin-bottom:7px;font-size:.93rem}
+    textarea{display:block;width:100%;min-height:135px;max-height:260px;resize:vertical;border:1px solid #d9ccdf;border-radius:10px;background:white;padding:12px;color:#43384b;font-size:.86rem;line-height:1.48}
+    .template .btn{margin-top:9px;font-size:.83rem;min-height:42px}
+    .copy-status{font-size:.82rem;color:var(--good);margin-left:8px}
+    .source-links{padding-left:19px;margin:0}
+    .source-links li{margin:8px 0}
+    .muted-link{font-size:.87rem}
+    .footer{background:#f4eafb;border-top:1px solid #e8d9f0}
+    .footer .wrap{padding:25px 0 33px;font-size:.86rem;color:#62556c}
+    .footer strong{color:#513d65}
+    @media(max-width:620px){
+      body{font-size:15.5px}
+      .wrap{width:min(100% - 24px,850px)}
+      .hero-inner{padding:28px 4px 23px}
+      .top-nav{gap:14px}
+      main{padding-top:12px}
+      .card{border-radius:16px;padding:19px 16px;margin-bottom:12px}
+      .choices{gap:8px}
+      .choice{min-height:82px;padding:11px}
+      .choice span{font-size:.85rem}
+      .choice small{font-size:.74rem}
+      .help-grid{grid-template-columns:1fr}
+      .help{padding:12px 14px}
+      .btn{width:100%}
+      .steps li{gap:10px}
+      .next{padding:16px}
+      .top-nav a{font-size:.81rem}
+    }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-    @media print{body{background:white}.flag,.sidebar,.cta-row,.template-action{display:none!important}.hero-inner{padding:20px}.layout{display:block;padding:12px}.card{box-shadow:none;break-inside:avoid}.detail-body{display:block}.footer{background:white}}
+    @media print{
+      body{background:white}
+      .flag,.top-nav,.actions,.copy-status,.template .btn,.next .btn{display:none!important}
+      .wrap{width:100%}
+      .hero-inner{padding:15px}
+      .card{box-shadow:none;break-inside:avoid;margin-bottom:10px}
+      details:not([open]) .inside{display:none}
+    }
   </style>
 </head>
 <body>
-  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <a href="#conteudo" class="skip">Pular para o conteúdo</a>
   <div class="flag" aria-hidden="true"></div>
   <header class="hero">
-    <div class="hero-inner">
-      <span class="eyebrow">🌸 Brasil · Saúde suplementar · Guia público</span>
-      <h1>Cirurgias de afirmação de gênero pelo plano de saúde</h1>
-      <p class="lede">Da primeira consulta ao atendimento cirúrgico: entenda por onde começar, como formalizar seu pedido e o que fazer se o plano não oferecer uma solução. Sem precisar descobrir tudo sozinhe.</p>
-      <div class="hero-meta">
-        <span class="pill">🧭 Passo a passo nacional</span>
-        <span class="pill">⚖️ Regras da ANS + decisões do STJ</span>
-        <span class="pill">📅 Revisado em 23/11/2026</span>
-      </div>
+    <div class="wrap hero-inner">
+      <div class="brand">🌹 Lua Helena · Guia gratuito para pessoas trans</div>
+      <h1>Sua cirurgia pelo plano de saúde 🌸</h1>
+      <p class="lede">Não precisa resolver tudo de uma vez. Descubra <strong>qual é seu próximo passo</strong> para buscar uma cirurgia de afirmação de gênero no Brasil.</p>
+      <nav class="top-nav" aria-label="Atalhos"><a href="#etapas">Como começar</a><a href="#problemas">Se o plano negar</a><a href="#duvidas">Dúvidas comuns</a></nav>
     </div>
   </header>
-  <div class="layout">
-    <nav class="sidebar" aria-label="Navegação desta página">
-      <strong>Ir para</strong>
-      <a href="#comece">✨ Comece aqui</a>
-      <a href="#plano">01 · Entenda seu plano</a>
-      <a href="#consulta">02 · Primeira consulta</a>
-      <a href="#documentos">03 · Documentos</a>
-      <a href="#pedido">04 · Peça a cobertura</a>
-      <a href="#rede">05 · Falta de rede</a>
-      <a href="#negativa">06 · Negativa e ANS</a>
-      <a href="#cirurgia">07 · Antes e depois</a>
-      <a href="#modelos">✍️ Mensagens prontas</a>
-      <a href="#fontes">📚 Fontes oficiais</a>
-    </nav>
-    <main id="conteudo">
-      <section class="card" id="comece" aria-labelledby="h-comece">
-        <p class="kicker">Uma orientação para pessoas trans de todo o Brasil</p>
-        <h2 id="h-comece">✨ O essencial, em quatro passos</h2>
-        <p>Você <strong>não precisa encontrar de primeira o cirurgião que vai operar</strong>. Um atendimento médico inicial pode documentar a indicação e abrir o fluxo no convênio. Depois, o plano precisa avaliar a cobertura e organizar atendimento compatível, conforme o contrato e as normas aplicáveis.</p>
-        <ol class="roadmap" aria-label="Resumo do percurso">
-          <li>Avaliação médica</li><li>Pedido por escrito</li><li>Protocolo no plano</li><li>Equipe e cirurgia</li>
-        </ol>
-        <div class="callout blue"><p><strong>O plano é regional?</strong> Isso não elimina, por si só, a obrigação de cobrir os procedimentos obrigatórios. Se não houver rede qualificada, a operadora deve oferecer uma solução conforme as regras de garantia de atendimento.</p></div>
-        <label for="tipo-cirurgia">Qual é a área do procedimento que você está pesquisando?</label>
-        <select id="tipo-cirurgia">
-          <option value="genital">Genital e reconstrução genital</option>
-          <option value="torax">Tórax e mamas</option>
-          <option value="voz">Voz e glotoplastia</option>
-          <option value="face">Face e pescoço</option>
-          <option value="outro">Outra cirurgia ou ainda não sei</option>
-        </select>
-        <div id="rota-especifica" class="route" role="status" aria-live="polite">
-          <strong>Genital e reconstrução genital</strong>
-          <p>Comece pela Urologia ou por serviço cirúrgico especializado, conforme a anatomia e a técnica. Uma consulta inicial pode gerar encaminhamento; o cirurgião definitivo detalhará a operação.</p>
-        </div>
-        <p class="notice">A escolha serve apenas para orientar a busca. A cobertura de cada técnica deve ser verificada individualmente. Nenhum dado é enviado ou armazenado nesta página.</p>
-      </section>
+  <main id="conteudo" class="wrap">
+    <section class="card" id="inicio" aria-labelledby="h-inicio">
+      <p class="kicker">Comece por aqui</p>
+      <h2 id="h-inicio">Em que ponto você está?</h2>
+      <p class="small">Escolha uma opção. Vou te mostrar apenas o próximo passo.</p>
+      <div class="choices" role="group" aria-label="Selecione sua etapa">
+        <button class="choice" type="button" data-etapa="comecar" aria-pressed="true"><span>🌱 Ainda vou começar</span><small>Não tenho pedido médico</small></button>
+        <button class="choice" type="button" data-etapa="pedido" aria-pressed="false"><span>📄 Já tenho pedido</span><small>Quero enviar ao plano</small></button>
+        <button class="choice" type="button" data-etapa="problema" aria-pressed="false"><span>🚧 Deu problema</span><small>Negaram ou não têm médico</small></button>
+        <button class="choice" type="button" data-etapa="aprovado" aria-pressed="false"><span>💗 Foi aprovado!</span><small>Quero saber o que conferir</small></button>
+      </div>
+      <div class="next" id="proximo" aria-live="polite" aria-atomic="true">
+        <p class="next-kicker">Seu próximo passo</p>
+        <h3 id="prox-titulo">Peça uma consulta ao seu plano</h3>
+        <p id="prox-texto">Procure um médico que possa avaliar a cirurgia desejada. Leve seus laudos, se já tiver. Você não precisa encontrar o cirurgião definitivo agora.</p>
+        <a class="btn" id="prox-acao" href="#etapas">Ver como começar ↓</a>
+      </div>
+    </section>
 
-      <section class="card" id="plano" aria-labelledby="h-plano">
-        <div class="card-head"><span class="step-num">01</span><h2 id="h-plano">Primeiro, entenda seu plano</h2></div>
-        <p>Antes de pedir a cirurgia, confirme <strong>qual produto você possui</strong>, sua segmentação, eventuais carências e a rede credenciada. É essa combinação que define a análise administrativa.</p>
-        <div class="grid2">
-          <div class="tile"><h3>🏥 Com cobertura hospitalar</h3><p>Planos hospitalares, com ou sem obstetrícia, e o plano referência podem ter cobertura de cirurgias e internações previstas na regulação. A indicação e os procedimentos concretos importam.</p></div>
-          <div class="tile"><h3>🩺 Exclusivamente ambulatorial</h3><p>Não inclui, em regra, internação eletiva. Se o seu contrato for só ambulatorial, consulte as condições específicas antes de presumir cobertura cirúrgica.</p></div>
-          <div class="tile"><h3>📍 Municipal ou regional</h3><p>A abrangência territorial não é licença para deixar paciente sem assistência. A falta de prestador apto aciona regras específicas de garantia do atendimento.</p></div>
-          <div class="tile"><h3>🗂️ Antigo ou autogestão</h3><p>Planos anteriores a 02/01/1999 não adaptados e entidades de autogestão exigem atenção às particularidades contratuais e jurídicas.</p></div>
-        </div>
-        <div class="callout"><p><strong>Carência não é tempo de emprego.</strong> Em plano empresarial ou de servidor público, verifique a data de adesão, as hipóteses de isenção e o que consta no cadastro. Tempo de serviço, sozinho, não comprova ausência de carência.</p></div>
-        <a href="https://www.gov.br/ans/pt-br/assuntos/contratacao-e-troca-de-plano/dicas-de-como-escolher-um-plano-de-saude-1/segmentacao-assistencial/" target="_blank" rel="noopener noreferrer">Consulte as segmentações na ANS ↗</a>
-      </section>
+    <section class="card" id="etapas" aria-labelledby="h-etapas">
+      <h2 id="h-etapas">O caminho mais simples</h2>
+      <ol class="steps">
+        <li>
+          <span class="n" aria-hidden="true">1</span>
+          <div><h3>Marque uma consulta</h3><p>Peça ao plano um médico que avalie a cirurgia de afirmação de gênero que você procura. Já tem laudos? Leve todos.</p><a href="#mensagens" class="inline-link" data-open="mensagens">Copiar mensagem para agendar ↗</a></div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <div><h3>Peça a indicação por escrito</h3><p>Após a avaliação, o médico pode emitir um pedido inicial ou encaminhamento. <strong>Ele não precisa ser quem vai operar.</strong></p></div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <div><h3>Envie o pedido ao plano</h3><p>Protocole pelo app, site ou atendimento oficial. Peça o <strong>número de protocolo</strong> e a indicação da equipe que poderá realizar a cirurgia.</p><a href="#mensagens" class="inline-link" data-open="mensagens">Copiar modelo para enviar ao plano ↗</a></div>
+        </li>
+      </ol>
+      <p class="note"><strong>Importante:</strong> não existe exigência universal de dois anos de psicoterapia ou de um CID específico para toda cirurgia. A equipe avalia os documentos necessários em cada caso.</p>
+    </section>
 
-      <section class="card" id="consulta" aria-labelledby="h-consulta">
-        <div class="card-head"><span class="step-num">02</span><h2 id="h-consulta">Consiga a primeira avaliação médica</h2></div>
-        <p>Procure um profissional com atuação pertinente ao procedimento, preferencialmente pela rede do plano. Se não houver atendimento adequado, registre a solicitação e guarde o protocolo.</p>
-        <div class="two-col">
-          <div class="tile"><h3>Pedido médico inicial</h3><p>Após a avaliação, um médico pode registrar a indicação clínica ou encaminhar para a equipe especializada. <strong>Não precisa ser necessariamente quem realizará a cirurgia.</strong></p></div>
-          <div class="tile"><h3>Planejamento definitivo</h3><p>A equipe cirúrgica escolhida ou disponibilizada avalia técnica, hospital, exames, riscos e solicitações específicas para a autorização final.</p></div>
-        </div>
-        <details><summary>E se eu consultar um médico particular?</summary><div class="detail-body"><p>Um pedido emitido por profissional não credenciado pode ser apresentado ao plano e deve receber análise. Isso <strong>não</strong> significa que o convênio seja obrigado a custear automaticamente aquele médico específico. A adequação da rede e a liberdade de escolha são questões diferentes.</p></div></details>
-        <details><summary>E se eu já tiver laudos de outros profissionais?</summary><div class="detail-body"><p>Leve os relatórios já existentes, mesmo que não tenham sido feitos para autorizar uma cirurgia. Eles podem ajudar a documentar o histórico e o impacto clínico. O médico assistente avaliará se é possível indicar o procedimento e quais outros documentos são necessários.</p></div></details>
-      </section>
+    <section class="card" id="problemas" aria-labelledby="h-problemas">
+      <h2 id="h-problemas">E se o plano dificultar?</h2>
+      <p class="section-intro">Não precisa desistir nem pagar uma cirurgia particular às pressas. Guarde as provas do que aconteceu.</p>
+      <div class="help-grid">
+        <div class="help"><h3>❌ Negou a cirurgia</h3><p>Guarde a negativa e a justificativa por escrito.</p></div>
+        <div class="help"><h3>🩺 Não tem especialista</h3><p>Peça uma solução por falta de profissionais na rede.</p></div>
+        <div class="help"><h3>⏳ Não responde</h3><p>Guarde o protocolo e registre a demora.</p></div>
+      </div>
+      <p>Você pode reclamar na <strong>ANS</strong> e procurar uma advogada ou a Defensoria Pública para avaliar seus direitos, inclusive medidas urgentes quando cabíveis.</p>
+      <div class="actions">
+        <a class="btn" href="https://www.gov.br/ans/pt-br/assuntos/consumidor/notificacao-de-intermediacao-preliminar-nip" target="_blank" rel="noopener noreferrer">Registrar reclamação na ANS ↗</a>
+        <a class="btn secondary" href="#mensagens" data-open="mensagens">Modelo: falta de médico</a>
+      </div>
+    </section>
 
-      <section class="card" id="documentos" aria-labelledby="h-documentos">
-        <div class="card-head"><span class="step-num">03</span><h2 id="h-documentos">Organize os documentos sem burocracia inventada</h2></div>
-        <ul class="checklist">
-          <li>Documento de identificação e número da carteirinha do plano.</li>
-          <li>Relatório clínico e <strong>pedido médico escrito</strong>, identificando o procedimento indicado e, quando pertinente, sua codificação.</li>
-          <li>Relatórios complementares já disponíveis de profissionais que acompanham sua saúde, conforme a necessidade clínica.</li>
-          <li>Informações sobre o produto, carências e protocolos de atendimento.</li>
-          <li>Após a avaliação cirúrgica: documentos técnicos adicionais solicitados justificadamente.</li>
-        </ul>
-        <div class="callout pink"><p><strong>Atenção aos requisitos:</strong> não existe uma regra universal da ANS exigindo que toda pessoa apresente “CID F64.0”, um laudo psicológico específico ou <em>dois anos de psicoterapia</em> para qualquer cirurgia. A documentação depende do procedimento, do projeto terapêutico e das normas médicas pertinentes. A Resolução CFM 2.427/2025 prevê, para as cirurgias que regulamenta, acompanhamento médico prévio mínimo de um ano conforme projeto terapêutico singular e restrições etárias específicas; verifique a situação normativa atual e o caso concreto.</p></div>
-        <p class="small muted">Seu nome social ou retificado deve ser respeitado. Se houver divergência cadastral, solicite regularização, sem deixar que isso paralise indevidamente a avaliação médica.</p>
-      </section>
-
-      <section class="card" id="pedido" aria-labelledby="h-pedido">
-        <div class="card-head"><span class="step-num">04</span><h2 id="h-pedido">Protocole a solicitação de cobertura</h2></div>
-        <ol>
-          <li>Peça ao médico relatório e solicitação formal, com justificativa individualizada.</li>
-          <li>Envie pelo canal oficial da operadora (app, portal ou atendimento autorizado).</li>
-          <li>Peça <strong>número de protocolo</strong> e comprovante dos anexos recebidos.</li>
-          <li>Solicite a indicação de prestador e hospital aptos, quando houver necessidade de cirurgia.</li>
-          <li>Guarde datas, respostas, documentos e eventuais solicitações de complementação.</li>
-        </ol>
-        <div class="grid2">
-          <div class="tile"><h3>⏱️ Resposta conclusiva</h3><p>Para procedimentos de alta complexidade ou <strong>internação eletiva</strong>, a RN 623/2024 prevê até <strong>10 dias úteis</strong> de resposta ao pedido de cobertura, observados prazos menores quando aplicáveis.</p></div>
-          <div class="tile"><h3>🏥 Realização efetiva</h3><p>A RN 566/2022 prevê, em regra, até <strong>21 dias úteis</strong> para a garantia de atendimento em internação eletiva. Responder ao protocolo não equivale a realizar a cirurgia.</p></div>
-        </div>
-        <p class="notice">São prazos regulatórios para situações específicas, não previsão de data de cirurgia individual, nem somatório automático. Urgência/emergência, carência e particularidades do pedido podem alterar o enquadramento.</p>
-        <div class="cta-row"><a class="button alt" href="https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial" target="_blank" rel="noopener noreferrer">🔎 Consultar o Rol ANS</a><a class="button alt" href="#modelos">✍️ Usar pedido pronto</a></div>
-      </section>
-
-      <section class="card" id="rede" aria-labelledby="h-rede">
-        <div class="card-head"><span class="step-num">05</span><h2 id="h-rede">E se não houver cirurgião capacitado na rede?</h2></div>
-        <p>A obrigação de cobertura e a existência de um profissional disponível são problemas distintos. Se a operadora não possui prestador apto para executar o procedimento indicado, deve buscar uma solução de <strong>garantia de atendimento</strong>, segundo a RN 566/2022.</p>
-        <div class="stack">
-          <div class="tile"><h3>1 · Peça uma solução concreta</h3><p>Solicite por escrito o nome da equipe, o hospital, a localidade e o prazo. Se indicarem outro especialista, peça ao médico assistente avaliação de adequação técnica.</p></div>
-          <div class="tile"><h3>2 · Registre a indisponibilidade ou inexistência de rede</h3><p>Não basta a operadora dizer que não há credenciados no seu município. As regras podem exigir atendimento por prestador não credenciado ou em outra localidade.</p></div>
-          <div class="tile"><h3>3 · Confira transporte e custos</h3><p>Em hipóteses previstas pela ANS, a operadora deve garantir transporte e retorno. Isso <strong>não implica</strong> hospedagem, acompanhante adulto ou escolha livre de qualquer cirurgião em todos os casos.</p></div>
-        </div>
-        <div class="callout blue"><p><strong>Não pague um procedimento particular pressupondo reembolso integral.</strong> O reembolso por falha da garantia de atendimento depende das circunstâncias e dos requisitos regulatórios. Guarde toda a comunicação e busque orientação antes de assumir despesas elevadas.</p></div>
-        <a href="https://www.gov.br/ans/pt-br/assuntos/consumidor/prazos-maximos-de-atendimento" target="_blank" rel="noopener noreferrer">Entenda como funciona a garantia do atendimento ↗</a>
-      </section>
-
-      <section class="card" id="negativa" aria-labelledby="h-negativa">
-        <div class="card-head"><span class="step-num">06</span><h2 id="h-negativa">Negou, demorou ou ofereceu atendimento inadequado?</h2></div>
-        <p>O objetivo não é “conseguir uma negativa”. É <strong>documentar um pedido legítimo</strong> e exigir a resposta adequada.</p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>O que aconteceu?</th><th>O próximo passo</th></tr></thead>
-            <tbody>
-              <tr><td>Negativa total ou parcial</td><td>Guarde a justificativa escrita. A RN 623/2024 exige fundamentação clara, inclusive sem pedido expresso do beneficiário.</td></tr>
-              <tr><td>Não há equipe disponível</td><td>Abra protocolo de garantia do atendimento por indisponibilidade ou inexistência de rede.</td></tr>
-              <tr><td>Prazo vencido ou resposta vaga</td><td>Documente a data e registre reclamação assistencial na ANS.</td></tr>
-              <tr><td>Não resolveram</td><td>Requeira reanálise pela Ouvidoria, quando útil, e considere assessoria jurídica ou Defensoria.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="grid2">
-          <div class="tile"><h3>📣 ANS / NIP assistencial</h3><p>Registre a reclamação com o protocolo do plano. A operadora dispõe de <strong>5 dias úteis</strong> para responder ao beneficiário e de <strong>10 dias úteis</strong> para se manifestar à ANS.</p></div>
-          <div class="tile"><h3>⚖️ Justiça</h3><p>Uma advogada ou a Defensoria pode avaliar ação de obrigação de fazer e eventual tutela de urgência. Não é necessário, em regra, esgotar todos os recursos administrativos para buscar o Judiciário.</p></div>
-        </div>
-        <p class="small muted">A Ouvidoria tem, em regra, prazo ordinário de reanálise de até sete dias úteis na RN 623/2024. NIP, Ouvidoria e tutela judicial são instrumentos diferentes; seus prazos não devem ser simplesmente somados.</p>
-        <div class="cta-row"><a class="button" href="https://www.gov.br/ans/pt-br/assuntos/consumidor/notificacao-de-intermediacao-preliminar-nip" target="_blank" rel="noopener noreferrer">Abrir reclamação na ANS ↗</a><a class="button alt" href="tel:08007019656">Disque ANS · 0800 701 9656</a></div>
-        <details><summary>O que dizem os tribunais sobre cirurgias de afirmação de gênero?</summary><div class="detail-body">
+    <section class="card" id="duvidas" aria-labelledby="h-duvidas">
+      <h2 id="h-duvidas">Dúvidas mais comuns</h2>
+      <p class="section-intro">Abra apenas a pergunta que interessa. O resto pode ficar para depois.</p>
+      <details>
+        <summary>Qual médico devo procurar primeiro?</summary>
+        <div class="inside">
+          <p>Depende da cirurgia. Estas são portas de entrada possíveis, não regras rígidas:</p>
           <ul>
-            <li><strong>Cirurgia genital:</strong> o STJ reconheceu, no REsp 2.097.812/MG (2023), a obrigatoriedade de cobertura de procedimentos de transgenitalização no contexto analisado.</li>
-            <li><strong>Glotoplastia:</strong> precedente de 2025 reconheceu a cobertura da feminização vocal, mesmo sem previsão expressa no Rol naquela situação.</li>
-            <li><strong>Feminização facial:</strong> em 2026, o STJ reafirmou a cobertura de procedimentos faciais indicados no processo de afirmação de gênero.</li>
+            <li><strong>Genital:</strong> Urologia ou equipe especializada.</li>
+            <li><strong>Tórax e mamas:</strong> Cirurgia Plástica ou Mastologia.</li>
+            <li><strong>Voz:</strong> Otorrinolaringologia.</li>
+            <li><strong>Face:</strong> Cirurgia Plástica ou especialista craniofacial.</li>
           </ul>
-          <p>Precedentes relevantes não equivalem à autorização automática de toda técnica. A prescrição, os procedimentos concretos, o contrato e a situação individual precisam ser analisados. A autogestão também pode envolver particularidades jurídicas.</p>
-          <div class="cta-row"><a class="button alt" href="https://www.stj.jus.br/websecstj/cgi/revista/REJ.cgi/ITA?CodOrgaoJgdr=&amp;SeqCgrmaSessao=&amp;dt=20231123&amp;formato=HTML&amp;nreg=202303396083&amp;salvar=false&amp;seq=2383431&amp;tipo=0" target="_blank" rel="noopener noreferrer">STJ · genital</a><a class="button alt" href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2025/03102025-Informativo-destaca-obrigatoriedade-de-cobertura-da-cirurgia-para-feminilizacao-de-voz-no-processo.aspx" target="_blank" rel="noopener noreferrer">STJ · voz</a><a class="button alt" href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/09072026-Cirurgia-de-feminizacao-facial-no-processo-transexualizador-e-de-cobertura-obrigatoria-pelos-planos-de-saude.aspx" target="_blank" rel="noopener noreferrer">STJ · face</a></div>
-        </div></details>
-      </section>
+          <p>Não sabe qual procurar? Peça ao plano uma avaliação e encaminhamento para a especialidade adequada.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Quais documentos preciso levar?</summary>
+        <div class="inside">
+          <p>Para começar: <strong>carteirinha do plano, documento pessoal e os laudos que você já possui.</strong> Para pedir a cobertura, obtenha um relatório com indicação médica da cirurgia. A equipe pode solicitar documentação complementar conforme o procedimento.</p>
+          <p>Não é necessário refazer automaticamente um laudo só porque ele não contém a frase “autorizo a cirurgia”. A avaliação médica define a utilidade de cada documento.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Meu plano é regional. Ele também pode cobrir?</summary>
+        <div class="inside">
+          <p><strong>Sim, dependendo do contrato e do procedimento.</strong> Planos com cobertura hospitalar estão sujeitos às cirurgias de cobertura obrigatória; um plano exclusivamente ambulatorial não costuma cobrir internação eletiva. Planos antigos não adaptados exigem análise específica.</p>
+          <p>Se faltar prestador apto na rede, a operadora deve buscar solução nos termos da <a href="https://www.gov.br/ans/pt-br/assuntos/consumidor/prazos-maximos-de-atendimento" target="_blank" rel="noopener noreferrer">garantia de atendimento da ANS</a>. Isso não significa escolher livremente qualquer cirurgião particular.</p>
+        </div>
+      </details>
+      <details>
+        <summary>O plano tem quanto tempo para responder?</summary>
+        <div class="inside">
+          <p>Para internação eletiva, a regra geral é de até <strong>10 dias úteis para resposta conclusiva</strong> ao pedido de cobertura (RN 623/2024). O prazo de <strong>21 dias úteis</strong> da RN 566/2022 refere-se à garantia do atendimento, não à resposta administrativa.</p>
+          <p>São situações e contagens diferentes; não devem ser simplesmente somadas. Existem exceções e prazos menores conforme o atendimento.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Posso levar pedido de médico particular?</summary>
+        <div class="inside">
+          <p>Sim. O plano deve analisar também solicitações de profissionais não credenciados. Mas isso <strong>não obriga automaticamente</strong> a pagar o cirurgião particular escolhido. A adequação da rede precisa ser avaliada.</p>
+        </div>
+      </details>
+      <details>
+        <summary>A Justiça já reconheceu essas cirurgias?</summary>
+        <div class="inside">
+          <p>Há decisões favoráveis do STJ sobre <strong>cirurgias genitais, feminização vocal (glotoplastia) e feminização facial</strong>. São fundamentos importantes para contestar negativas, mas não garantem aprovação automática de todas as técnicas.</p>
+          <p>O pedido médico, a cobertura aplicável e a justificativa da operadora importam. Veja as fontes oficiais no final da página.</p>
+        </div>
+      </details>
+      <details>
+        <summary>E depois que aprovarem a cirurgia?</summary>
+        <div class="inside">
+          <p>Confirme por escrito <strong>hospital, equipe, autorização e data</strong>. Peça à equipe instruções individuais sobre exames, medicamentos, transporte, acompanhante e recuperação.</p>
+          <p>Não suspenda hormônios ou outros medicamentos por conta própria. Cuidados como dilatação só se aplicam quando prescritos para o seu procedimento.</p>
+        </div>
+      </details>
+      <details>
+        <summary>E se eu não tiver plano de saúde?</summary>
+        <div class="inside">
+          <p>O SUS tem um caminho próprio. Procure orientação na rede de saúde do seu município e consulte o <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener noreferrer">Ministério da Saúde</a>.</p>
+        </div>
+      </details>
+    </section>
 
-      <section class="card" id="cirurgia" aria-labelledby="h-cirurgia">
-        <div class="card-head"><span class="step-num">07</span><h2 id="h-cirurgia">Antes e depois da cirurgia</h2></div>
-        <p>Cada técnica tem preparo, materiais e recuperação próprios. Uma lista universal de dilatadores, almofadas ou suspensão de hormônios pode ser inadequada para outro procedimento.</p>
-        <ul class="checklist">
-          <li>Confirme equipe, hospital, técnica, anestesia, riscos e plano de alta.</li>
-          <li>Peça instruções escritas sobre medicamentos, hormônios, alimentação e exames.</li>
-          <li>Organize transporte, acompanhante quando recomendado e local seguro para recuperação.</li>
-          <li>Saiba a quem telefonar diante de febre, sangramento importante, falta de ar, dor intensa ou outros sinais de alerta definidos pela equipe.</li>
-          <li>Siga cuidados de curativo, mobilização, fisioterapia ou dilatação <strong>somente quando indicados para a sua cirurgia</strong>.</li>
-        </ul>
-        <div class="callout good"><p><strong>Um guia não substitui o plano pós-operatório.</strong> Não interrompa hormônios ou outros tratamentos por conta própria. Ajustes perioperatórios devem ser decididos com a equipe médica, individualmente.</p></div>
-      </section>
-
-      <section class="card" id="modelos" aria-labelledby="h-modelos">
-        <p class="kicker">Textos prontos para adaptar</p>
-        <h2 id="h-modelos">✍️ Peça por escrito e guarde o protocolo</h2>
-        <p>Copie, preencha seus dados e envie pelo canal oficial. Não inclua informações clínicas íntimas além do necessário em mensagens abertas ou redes sociais.</p>
+    <details class="card" id="mensagens">
+      <summary>📋 Mensagens prontas para copiar</summary>
+      <div class="inside">
+        <p>Adapte o texto à sua situação, envie pelo canal oficial e guarde o protocolo.</p>
         <div class="template">
-          <h3>Modelo A · Solicitar cobertura e equipe capacitada</h3>
-          <textarea id="modelo-a" aria-label="Modelo de solicitação de cobertura" readonly>Assunto: Solicitação formal de cobertura cirúrgica e garantia de atendimento
-
-À operadora [NOME],
-
-Sou beneficiárie do plano [NOME DO PRODUTO], matrícula [NÚMERO], e solicito avaliação e autorização do procedimento de afirmação de gênero indicado no pedido e relatório médico anexos.
-
-Peço resposta conclusiva por escrito, número de protocolo e informação sobre equipe e estabelecimento hospitalar aptos para a realização do procedimento indicado, com previsão de atendimento.
-
-Caso não haja prestador disponível ou capacitado na rede, solicito a garantia de atendimento conforme a RN ANS 566/2022, incluindo solução assistencial adequada.
-
-Em caso de negativa total ou parcial, solicito a fundamentação específica por escrito, nos termos da RN ANS 623/2024.
-
-Atenciosamente,
-[NOME]
-[DATA]</textarea>
-          <div class="template-action"><button type="button" class="button" data-copy="modelo-a">📋 Copiar solicitação</button><span class="copy-status" id="status-modelo-a" role="status" aria-live="polite"></span></div>
+          <h3>1 · Para marcar a consulta</h3>
+          <textarea id="modelo-consulta" readonly aria-label="Mensagem para marcar consulta">Olá! Sou beneficiária do plano [NOME]. Gostaria de agendar avaliação médica para cirurgia de afirmação de gênero. Já tenho [DESCREVER LAUDOS, SE HOUVER]. Vocês podem indicar a especialidade e a primeira consulta disponível? Peço também o número de protocolo. Obrigada!</textarea>
+          <button class="btn secondary" type="button" data-copy="modelo-consulta">Copiar mensagem</button><span class="copy-status" id="status-modelo-consulta" role="status"></span>
         </div>
         <div class="template">
-          <h3>Modelo B · Registrar falta de rede especializada</h3>
-          <textarea id="modelo-b" aria-label="Modelo de solicitação por falta de rede" readonly>Assunto: Indisponibilidade de rede / garantia de atendimento
+          <h3>2 · Para solicitar a cirurgia</h3>
+          <textarea id="modelo-pedido" readonly aria-label="Mensagem de solicitação de cirurgia">À operadora [NOME],
 
-À operadora [NOME],
+Solicito autorização do procedimento cirúrgico indicado no pedido e relatório médico anexos. Peço número de protocolo, resposta conclusiva por escrito e indicação de equipe e hospital aptos para o atendimento.
 
-Solicitei atendimento para avaliação e/ou realização do procedimento [DESCREVER] em [DATA], sob protocolo [NÚMERO].
+Se não houver prestador habilitado na rede, solicito garantia de atendimento conforme a RN ANS 566/2022. Em caso de negativa, peço justificativa escrita, nos termos da RN ANS 623/2024.
 
-Até o momento, não foi indicado prestador apto a realizar o atendimento solicitado dentro dos prazos aplicáveis. [DESCREVER DE FORMA OBJETIVA A RESPOSTA RECEBIDA.]
-
-Solicito providência de garantia de atendimento conforme a RN ANS 566/2022, com indicação de profissional, estabelecimento, localidade e prazo, além de informações sobre transporte quando previsto nas normas.
-
-Peço resposta por escrito e número de protocolo.
-
-Atenciosamente,
-[NOME]
-[DATA]</textarea>
-          <div class="template-action"><button type="button" class="button" data-copy="modelo-b">📋 Copiar solicitação</button><span class="copy-status" id="status-modelo-b" role="status" aria-live="polite"></span></div>
+[NOME E DATA]</textarea>
+          <button class="btn secondary" type="button" data-copy="modelo-pedido">Copiar solicitação</button><span class="copy-status" id="status-modelo-pedido" role="status"></span>
         </div>
-        <div class="cta-row"><button class="button alt" type="button" id="imprimir">🖨️ Imprimir ou salvar como PDF</button></div>
-      </section>
+        <div class="template">
+          <h3>3 · Quando falta profissional</h3>
+          <textarea id="modelo-rede" readonly aria-label="Mensagem sobre falta de rede">À operadora [NOME],
 
-      <section class="card" id="fontes" aria-labelledby="h-fontes">
-        <h2 id="h-fontes">📚 Referências oficiais para conferir</h2>
-        <p class="small muted">As normas podem mudar. Estas referências foram verificadas na revisão de novembro de 2026. Leia também o contrato, o Rol atualizado e a orientação do seu profissional.</p>
-        <ul class="source-list">
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial">ANS · Cobertura assistencial e consulta ao Rol ↗</a></strong><span>Verifique se o procedimento está previsto e em qual segmentação.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2024/res0623_19_12_2024.html">ANS · RN 623/2024 ↗</a></strong><span>Protocolos, prazos de resposta, negativas e reanálise.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2023/res0566_02_01_2023.html">ANS · RN 566/2022 ↗</a></strong><span>Garantia de atendimento e ausência de rede disponível.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.gov.br/ans/pt-br/assuntos/consumidor/notificacao-de-intermediacao-preliminar-nip">ANS · Reclamações / NIP ↗</a></strong><span>Como denunciar falta de cobertura e acompanhar a resposta.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.gov.br/ans/pt-br/arquivos/acesso-a-informacao/transparencia-institucional/pareceres-tecnicos-da-ans/2024/parecer-tecnico-no-26_2024_processo-transexualizador-ou-de-afirmacao-de-genero.pdf/view">ANS · Parecer Técnico nº 26/2024 ↗</a></strong><span>Interpretação sobre procedimentos do processo de afirmação de gênero; consulte em conjunto com normas posteriores.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://portal.cfm.org.br/noticias/norma-que-regulamenta-a-assistencia-medica-a-pessoas-transgenero-segue-plenamente-vigente-no-pais/">CFM · Resolução 2.427/2025 e vigência ↗</a></strong><span>Regras médicas e evolução normativa, inclusive questões etárias.</span></li>
-          <li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/09072026-Cirurgia-de-feminizacao-facial-no-processo-transexualizador-e-de-cobertura-obrigatoria-pelos-planos-de-saude.aspx">STJ · Precedente sobre feminização facial (2026) ↗</a></strong><span>Uma das decisões relevantes sobre cobertura de afirmação de gênero.</span></li>
+Solicitei atendimento para [PROCEDIMENTO/AVALIAÇÃO] em [DATA], protocolo [NÚMERO], mas ainda não foi disponibilizada equipe apta.
+
+Solicito garantia de atendimento por indisponibilidade ou inexistência de rede, conforme a RN ANS 566/2022, com indicação do prestador, local e prazo. Peço resposta por escrito e novo protocolo.
+
+[NOME E DATA]</textarea>
+          <button class="btn secondary" type="button" data-copy="modelo-rede">Copiar solicitação</button><span class="copy-status" id="status-modelo-rede" role="status"></span>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" id="fontes">
+      <summary>⚖️ Fontes oficiais e informações jurídicas</summary>
+      <div class="inside">
+        <p>Este guia resume orientações gerais. O procedimento, o contrato, o Rol da ANS e as normas médicas devem ser analisados no caso concreto. A regulamentação pode mudar.</p>
+        <ul class="source-links">
+          <li><a href="https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial" target="_blank" rel="noopener noreferrer">ANS · Rol e cobertura assistencial</a></li>
+          <li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2024/res0623_19_12_2024.html" target="_blank" rel="noopener noreferrer">ANS · RN 623/2024, respostas e negativas</a></li>
+          <li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/ans/2023/res0566_02_01_2023.html" target="_blank" rel="noopener noreferrer">ANS · RN 566/2022, garantia do atendimento</a></li>
+          <li><a href="https://www.gov.br/ans/pt-br/arquivos/acesso-a-informacao/transparencia-institucional/pareceres-tecnicos-da-ans/2024/parecer-tecnico-no-26_2024_processo-transexualizador-ou-de-afirmacao-de-genero.pdf/view" target="_blank" rel="noopener noreferrer">ANS · Parecer Técnico 26/2024 sobre afirmação de gênero</a></li>
+          <li><a href="https://portal.cfm.org.br/noticias/norma-que-regulamenta-a-assistencia-medica-a-pessoas-transgenero-segue-plenamente-vigente-no-pais/" target="_blank" rel="noopener noreferrer">CFM · Resolução 2.427/2025 e vigência</a></li>
+          <li><a href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/09072026-Cirurgia-de-feminizacao-facial-no-processo-transexualizador-e-de-cobertura-obrigatoria-pelos-planos-de-saude.aspx" target="_blank" rel="noopener noreferrer">STJ · Jurisprudência de afirmação de gênero</a></li>
         </ul>
-        <details><summary>Não tenho plano de saúde. E o SUS?</summary><div class="detail-body"><p>O SUS possui um fluxo próprio de acesso ao processo transexualizador, diferente da autorização de convênio privado. O ponto de partida pode ser a rede de atenção à saúde do seu município.</p><a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener noreferrer">Ministério da Saúde · Como solicitar pelo SUS ↗</a></div></details>
-        <p class="notice" style="margin-top:16px">Este é um material público de orientação e não substitui avaliação médica, contrato individual ou aconselhamento jurídico. Cirurgias de afirmação de gênero abrangem diferentes identidades, anatomias e necessidades; nenhuma pessoa precisa seguir um percurso idêntico ao de outra.</p>
-      </section>
-    </main>
-  </div>
+        <p class="tiny">A Resolução CFM 2.427/2025 prevê requisitos clínicos e etários específicos para as cirurgias que regulamenta. Em planos antigos não adaptados e em autogestão, a avaliação jurídica pode exigir atenção adicional. Transporte e reembolso fora da rede dependem das hipóteses regulatórias; não são automáticos.</p>
+      </div>
+    </details>
+  </main>
   <footer class="footer">
-    <div class="footer-inner">
-      <strong>🌹 Lua Helena · Guia feito por uma mulher trans, para pessoas trans no Brasil.</strong>
-      <p>Informação, autonomia e acesso à saúde, sem transformar a vida de ninguém em uma gincana de protocolos.</p>
-      <p class="notice">Revisão médico-regulatória: 23 de novembro de 2026 · <a href="#fontes">Consultar fontes</a></p>
+    <div class="wrap">
+      <strong>🌹 Um guia da Lua Helena, feito por uma mulher trans para pessoas trans no Brasil.</strong>
+      <p>Informação para facilitar o caminho, não para substituir sua equipe de saúde ou orientação jurídica.</p>
+      <p class="tiny">Atualizado em 23 de novembro de 2026 · <a href="#fontes" data-open="fontes">Ver fontes e direitos</a></p>
     </div>
   </footer>
   <script>
   (function(){
     "use strict";
-    var routes={
-      genital:{title:"Genital e reconstrução genital",body:"Comece pela Urologia ou por serviço cirúrgico especializado, conforme a anatomia e a técnica. Uma consulta inicial pode gerar encaminhamento; o cirurgião definitivo detalhará a operação."},
-      torax:{title:"Tórax e mamas",body:"Considere Cirurgia Plástica, Mastologia ou outra especialidade pertinente. Mastectomia masculinizadora, reconstrução e implantes têm indicações e discussões de cobertura distintas."},
-      voz:{title:"Voz e glotoplastia",body:"Procure Otorrinolaringologia, com avaliação fonoaudiológica quando indicada. O STJ reconheceu em 2025 precedente favorável à cobertura de glotoplastia no contexto de afirmação de gênero."},
-      face:{title:"Face e pescoço",body:"Procure especialista em cirurgia plástica ou craniofacial, conforme o procedimento. O STJ reafirmou em 2026 cobertura de procedimentos faciais clinicamente indicados; isso não equivale a cobertura irrestrita."},
-      outro:{title:"Comece pela avaliação adequada",body:"Se ainda não sabe qual técnica é indicada, leve seu histórico clínico a profissional habilitado e peça encaminhamento especializado. Não é necessário decidir a cirurgia sem avaliação."}
+    var etapas={
+      comecar:{title:"Peça uma consulta ao seu plano",text:"Procure um médico que possa avaliar a cirurgia desejada. Leve seus laudos, se já tiver. Você não precisa encontrar o cirurgião definitivo agora.",cta:"Ver como começar ↓",href:"#etapas"},
+      pedido:{title:"Envie seu pedido médico ao plano",text:"Protocole o documento pelo app, site ou canal oficial. Guarde o número do protocolo e peça uma equipe capacitada.",cta:"Abrir modelo de solicitação ↓",href:"#mensagens",open:"mensagens"},
+      problema:{title:"Documente o problema e procure a ANS",text:"Guarde a negativa, o protocolo ou a informação de que não existe especialista. Peça solução por escrito e registre reclamação na ANS.",cta:"Ver o que fazer ↓",href:"#problemas"},
+      aprovado:{title:"Confirme os detalhes antes da cirurgia",text:"Verifique a autorização efetiva, o hospital, a equipe e a data. Siga o preparo indicado individualmente pelos profissionais.",cta:"Ver cuidados importantes ↓",href:"#duvidas",faq:true}
     };
-    var picker=document.getElementById("tipo-cirurgia");
-    var route=document.getElementById("rota-especifica");
-    if(picker&&route){
-      picker.addEventListener("change",function(){
-        var data=routes[picker.value]||routes.outro;
-        route.replaceChildren();
-        var title=document.createElement("strong");title.textContent=data.title;
-        var p=document.createElement("p");p.textContent=data.body;
-        route.appendChild(title);route.appendChild(p);
-      });
+    var buttons=document.querySelectorAll("[data-etapa]");
+    var title=document.getElementById("prox-titulo");
+    var body=document.getElementById("prox-texto");
+    var link=document.getElementById("prox-acao");
+    function show(stage){
+      var s=etapas[stage]||etapas.comecar;
+      buttons.forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.getAttribute("data-etapa")===stage))});
+      title.textContent=s.title;body.textContent=s.text;link.textContent=s.cta;link.setAttribute("href",s.href);
+      if(s.open)link.setAttribute("data-open",s.open);else link.removeAttribute("data-open");
+      if(s.faq)link.setAttribute("data-faq","aprovado");else link.removeAttribute("data-faq");
     }
-    document.querySelectorAll("[data-copy]").forEach(function(button){
-      button.addEventListener("click",async function(){
-        var id=button.getAttribute("data-copy");
-        var input=document.getElementById(id);
-        var status=document.getElementById("status-"+id);
-        if(!input||!status)return;
+    buttons.forEach(function(btn){btn.addEventListener("click",function(){show(btn.getAttribute("data-etapa"))})});
+    document.addEventListener("click",function(ev){
+      var opener=ev.target.closest("[data-open]");
+      if(opener){var el=document.getElementById(opener.getAttribute("data-open"));if(el&&el.tagName.toLowerCase()==="details")el.open=true}
+      var faq=ev.target.closest("[data-faq]");
+      if(faq){var items=document.querySelectorAll("#duvidas details");if(items[6])items[6].open=true}
+    });
+    document.querySelectorAll("[data-copy]").forEach(function(btn){
+      btn.addEventListener("click",async function(){
+        var id=btn.getAttribute("data-copy");
+        var field=document.getElementById(id),status=document.getElementById("status-"+id);
+        if(!field||!status)return;
         try{
-          if(!navigator.clipboard||!navigator.clipboard.writeText)throw new Error("clipboard");
-          await navigator.clipboard.writeText(input.value);
-          status.textContent="Texto copiado!";
+          if(!navigator.clipboard||!navigator.clipboard.writeText)throw new Error("clipboard unavailable");
+          await navigator.clipboard.writeText(field.value);
+          status.textContent="Copiado!";
         }catch(err){
-          input.focus();input.select();
-          status.textContent="Texto selecionado. Use Ctrl+C (ou copiar no celular).";
+          field.focus();field.select();
+          status.textContent="Texto selecionado: use Copiar ou Ctrl+C.";
         }
       });
     });
-    var printButton=document.getElementById("imprimir");
-    if(printButton)printButton.addEventListener("click",function(){window.print()});
   })();
   </script>
 </body>
