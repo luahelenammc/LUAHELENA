@@ -162,7 +162,7 @@
       </div>
       <div class="next" id="proximo" aria-live="polite" aria-atomic="true">
         <p class="next-kicker">Seu próximo passo</p>
-        <h3 id="prox-titulo">Peça uma consulta ao seu plano</h3>
+        <h3 id="prox-titulo">Comece com um médico que possa te avaliar</h3>
         <p id="prox-texto">Não precisa ser urologista nem cirurgião. Você pode começar com um médico que já te acompanha e pedir avaliação ou encaminhamento especializado.</p>
         <a class="btn" id="prox-acao" href="#medico">Descobrir qual médico procurar ↓</a>
       </div>
@@ -305,6 +305,13 @@
         </div>
       </details>
       <details>
+        <summary>O plano autorizou! O que preciso confirmar?</summary>
+        <div class="inside">
+          <p>Confira <strong>hospital, equipe cirúrgica, autorizações de internação e honorários, data e contatos da equipe</strong>. Pergunte o que já está liberado e o que depende de agendamento ou documentos adicionais.</p>
+          <p>Receba instruções individuais de exames, remédios, hormônios e recuperação. Não interrompa tratamentos por conta própria.</p>
+        </div>
+      </details>
+      <details>
         <summary>E se eu não tiver plano de saúde?</summary>
         <div class="inside">
           <p>O SUS tem um caminho próprio. Procure orientação na rede de saúde do seu município e consulte o <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-solicitar-o-processo-transexualizador" target="_blank" rel="noopener noreferrer">Ministério da Saúde</a>.</p>
@@ -407,7 +414,7 @@ Solicito garantia de atendimento por indisponibilidade ou inexistência de rede,
       var opener=ev.target.closest("[data-open]");
       if(opener){var el=document.getElementById(opener.getAttribute("data-open"));if(el&&el.tagName.toLowerCase()==="details")el.open=true}
       var faq=ev.target.closest("[data-faq]");
-      if(faq){var faqBox=document.getElementById("duvidas");if(faqBox)faqBox.open=true;var items=document.querySelectorAll("#duvidas details");if(items[6])items[6].open=true}
+      if(faq){var faqBox=document.getElementById("duvidas");if(faqBox)faqBox.open=true;var items=document.querySelectorAll("#duvidas details");if(items[7])items[7].open=true}
     });
     document.querySelectorAll("[data-copy]").forEach(function(btn){
       btn.addEventListener("click",async function(){
