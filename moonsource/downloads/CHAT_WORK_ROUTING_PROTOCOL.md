@@ -5,7 +5,7 @@
 
 *Cross-surface execution routing and closure across Chat, Work and Codex*
 
-## Public Portable Edition · Version 6.5
+## Public Portable Edition · Version 6.6
 
 ## Meta
 
@@ -16,16 +16,16 @@
 - **website mirror:** https://www.luahelena.com.br/moonsource/downloads/ADAPTIVE_ORCHESTRATION_PROTOCOL.md
 - **public boundary:** standalone protocol; product and model calibration is date-sensitive and subordinate to the adapter boundary below; this document does not imply that the native adaptive-orchestration Personal Skill is installed
 - **status:** public portable protocol
-- **version:** 6.5
+- **version:** 6.6
 - **language:** English
-- **protocol semantics as of:** 2026-11-21
+- **protocol semantics as of:** 2026-11-24
 - **canonical identity migration:** 2026-09-27; formerly Chat–Work Routing Protocol, Chat–Work Router and Chat–Work; identity and paths changed while the 6.1 doctrine remained unchanged, under the repository naming/versioning rule
 - **product/model calibration boundary:** recheck dated adapter notes and official documentation before relying on volatile names, availability, limits, pricing, subagent controls or inheritance behavior
 - **primary implementation:** surface-neutral control-root routing across ChatGPT Chat, Work and Codex, where available
 - **Codex boundary:** optional execution capability; never assumed installed, enabled, available or desired
 - **governed dimensions:** execution profile, object geometry, control surface/root, execution surface/harness, root capability tier/model, behavioral fit, commitment geometry, reasoning effort, continuity/locality, delegation topology, execution envelope, operation mode, sprint envelope, budget survival, distillation, bounded exhaustiveness, auditable decision trace, model strategy adapter boundary, return closure and claim ceiling
-- **supersedes:** Adaptive Orchestration Protocol 6.4; version 6.5 adds phase placement, intent preservation and proportionate independent review while retaining existing routing laws.
-- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.5.
+- **supersedes:** Adaptive Orchestration Protocol 6.5; version 6.6 extends Behavioral Fit to collaborative control roots, explicitly accounts for avoidable human rework, and adds conditional behavioral drift recovery while retaining existing routing laws.
+- **MSL dependency:** Moon Source Language 5.1; the protocol remains independently versioned at 6.6.
 - **license:** CC BY 4.0; see [LICENSING.md](https://github.com/luahelenammc/Adaptive-Orchestration-Protocol/blob/main/LICENSING.md)
 - **license URL:** https://creativecommons.org/licenses/by/4.0/
 - **creator:** Lua Helena Moon Martins Cardoso (Moon)
@@ -124,7 +124,7 @@ The stable sentence is:
 
 > **The active control root understands, decomposes, routes and converges. Execution surfaces and delegated workers perform the work appropriate to their capabilities and authority. Cheap sufficient workers absorb reducible bulk; stronger or differently fitted executors receive only the irreducible execution, judgment or commitment delta. The designated root verifies and integrates; the human retains any decision or authority that requires the human.**
 
-The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary. V6.3 adds Commitment Geometry so a solution-defining choice can be probed, explored or routed to a suitable decision-maker before dependent work scales. V6.4 updates Chat model-availability calibration after the 2026-10-07 GPT-6 rollout without changing those routing laws. V6.5 distinguishes phase placement, protects resolved intent and strengthens evidence-bearing acceptance.
+The V4 line established tri-surface routing and object geometry. The later 4.x releases added distillation, connector-aware source transport, bounded exhaustiveness, calibrated frontier economics and auditable Decision Trace. V5.0 added optional Sprint Mode; V5.1 added model-specific strategy adapters; V5.2 added the GPT-6 Sol/Luna executor calibration and separated semantic tiers from named-model identity. V6.0 changed the routing unit itself by making delegation topology first-class. V6.1 completed that rebase at the surface layer: capability differences no longer imply either a human-operated model handoff or a ritual return to Chat when a competent current root can execute, delegate, converge and close internally. V6.2 adds Behavioral Fit as a separate routing constraint so a cognitively sufficient model can be side-routed when its observable execution behavior misses the task's acceptance boundary. V6.3 adds Commitment Geometry so a solution-defining choice can be probed, explored or routed to a suitable decision-maker before dependent work scales. V6.4 updates Chat model-availability calibration after the 2026-10-07 GPT-6 rollout without changing those routing laws. V6.5 distinguishes phase placement, protects resolved intent and strengthens evidence-bearing acceptance. V6.6 extends Behavioral Fit to collaboration at the control root, accounts for avoidable human rework, and makes behavioral calibration conditional and revisable.
 
 > **Escalate only the irreducible execution, judgment or commitment delta; return only the decision-bearing delta.**
 
@@ -578,6 +578,28 @@ Community anecdotes, launch-day reactions and single-run impressions may generat
 
 > **Side-route before up-route when the failure is behavioral rather than cognitive.**
 
+#### Collaborative Fit and Human Rework Burden
+
+Capability sufficiency and executor behavioral fit do not by themselves establish suitability for sustained human–AI collaboration. When deliberation, creative development, contextual continuity or intent interpretation is load-bearing, apply the existing Behavioral Fit Gate to the control root as well as to delegated executors. Collaborative Fit is a facet of Behavioral Fit, not a separate router or mandatory scoring dimension.
+
+Observable fit may include pragmatic interpretation of sufficiently inferable intent, application of prior resolved decisions rather than mere recall, legitimate steerability, proportionate initiative, adaptation to corrective feedback, and preservation of user authorship. Respect the distinction between resolved commitments, delegated discretion and choices reserved to the human. When a material ambiguity changes the outcome or authority, ask; otherwise make the smallest defensible inference and proceed. A user preference never overrides applicable higher-priority instructions, safety, evidence or authorization.
+
+Distinguish productive human participation from avoidable human rework. Repeated context reconstruction, redundant clarification, unnecessary micromanagement, repeated correction of previously resolved deviations and preventable semantic repair count as **Human Rework Burden** when they materially increase the work to acceptance. Desired co-creation, required clarification, reasoned factual disagreement, legitimate constraints, proportionate independent verification and human-reserved decisions are not defects merely because they introduce friction. Do not presume private mental effort or equate user satisfaction with correctness.
+
+#### Behavioral drift and bounded recovery
+
+A verified model/variant, surface, instruction stack, context availability, effort or workload change can invalidate a *material* behavioral assumption; so can a consequential live deviation or repeated mismatch. Do not poll, reset a competent root, or rerun accepted work merely because a version changes. Treat earlier fit evidence as conditional, not erased.
+
+When mismatch threatens acceptance:
+
+1. Diagnose specification, source/context, instruction precedence, authority, tool/environment, workflow and cognitive causes before attributing it to behavior. If a constraint legitimately prevents the action, preserve the boundary and report the residual.
+2. Restore the smallest missing context or contract; use the existing behavior contract, not an ever-growing prompt. Retest only the affected boundary if that would change the route.
+3. If the remaining mismatch is behavioral and cognition is sufficient, use the existing lateral fit route. Compare available alternatives by evidence and total work to acceptance, including avoidable human rework, transition and continuity costs. Do not require repeated prompt repairs when their marginal benefit is lower than a bounded alternative.
+4. Preserve the competent control root if it can still deliberate, coordinate and accept; delegate the affected phase where possible. If root collaboration itself fails materially and a supported alternative earns the transition, apply the Surface Transition Gate and bounded continuity transport. Never claim an unavailable model or switch actually occurred. Escalate capability only for an independently justified cognitive need.
+5. Salvage accepted output and resolved commitments; verify the affected delta against the original acceptance boundary. Reopen a commitment only when its existing gate warrants it.
+
+For a decision-changing matched probe, use comparable authorized context, instructions, task, acceptance rubric, actual tool availability and effort when observable. Record deployment identity (or unknown), surface, workload, completion, observed deviations and corrections, and material user rework; distinguish confounds, single-run evidence and untested alternatives. Do not infer a global ranking, hidden effort, or causal model regression from community reports or an uncontrolled contrast. No periodic testing, compulsory new receipt, questionnaire or universal score is introduced.
+
 ### Decision Commitment Gate
 
 Capability and behavioral fit do not by themselves determine whether a solution-defining choice should be closed now, by this executor, before substantial dependent work proceeds. The **Decision Commitment Gate** evaluates that choice separately from bulk execution.
@@ -638,7 +660,7 @@ A transition is not progress by itself. The burden is on the route to justify th
 
 For each material phase distinguish deliberation and sensemaking, commitment, execution and mutation, evidence acquisition, and verification and acceptance. Compare cognitive collaboration fit with execution-harness fit, actual tools and authority, user preferences, context locality and total work to accepted state. Preserve a competent current root that can close the task; a preferred conversational root may retain idea development and semantic review while a suitable harness executes. Work or Codex can also deliberate and close internally. Neither surface labels nor stylistic fluency prove fit or acceptance. This gate refines existing routing dimensions and does not require a cross-surface round trip.
 
-When a matched-task surface probe would change the route and both surfaces are available, use the same baseline and acceptance rubric, record actual tool availability, completion, rework, instruction drift, reviewer effort, context re-ingestion, latency and only observable quota signals. Protect private context. Community anecdotes are qualitative hypotheses, not benchmarks; API prices do not establish ChatGPT allowances.
+When a matched-task surface probe would change the route and both surfaces are available, use the same baseline and acceptance rubric, record actual tool availability, completion, rework, instruction drift, reviewer effort, context re-ingestion, latency and only observable quota signals. Apply the Collaborative Fit and behavioral drift guidance in §5 when the root or user rework is material. Protect private context. Community anecdotes are qualitative hypotheses, not benchmarks; API prices do not establish ChatGPT allowances.
 
 ### Delegation-First Law
 
@@ -729,6 +751,7 @@ Inputs include:
 - fanout and reconciliation cost;
 - interruption risk and checkpoint quality;
 - likely retries and fallback;
+- material avoidable human rework and transition burden, without a fabricated conversion to tokens or money;
 - material gain expected from the route.
 
 Outcomes:
@@ -743,7 +766,7 @@ Outcomes:
 - **REROUTE_SURFACE**
 - **BLOCKED_RESOURCE_CONDITION**
 
-The gate is qualitative. Reassess when the live resource posture materially changes.
+The gate is qualitative. Reassess when the live resource posture materially changes. Optimize total work to accepted state, not machine expenditure alone. A cheap executor with repeated preventable human correction may be more costly to acceptance than a sufficient alternative. Record only observed or explicitly estimated burden when it changes a route; preserve productive human deliberation, required review and authority.
 
 ### Observable burden signals
 
@@ -1604,7 +1627,7 @@ Control-Root Postflight is mandatory after material executor return or delegated
 7. **Close or re-enter.** Apply bounded repairs when authorized; otherwise open only a new irreducible delta on the surface that owns it.
 8. **Preserve or transition deliberately.** Keep the current root for the next delta unless a new surface transition earns itself under the Surface Transition Gate.
 
-Review independence is a gradient: distinguish executor assertion, independently observed provider state or tool readback, and independent semantic judgment. Assess both operational correctness (actual state, tests, bytes) and semantic fidelity (objective, voice, architecture and resolved commitments). For high-consequence, coupled, irreversible, public or reputation-bearing work, choose a separate reviewer where available and cost-justified; fresh state, a clean diff, CI or tests can supply independence without another model. A reviewer relying solely on the same self-report is not independent evidence. Human-reserved decisions remain human.
+Review independence is a gradient: distinguish executor assertion, independently observed provider state or tool readback, and independent semantic judgment. Assess both operational correctness (actual state, tests, bytes) and semantic fidelity (objective, voice, architecture and resolved commitments). For high-consequence, coupled, irreversible, public or reputation-bearing work, choose a separate reviewer where available and cost-justified; fresh state, a clean diff, CI or tests can supply independence without another model. A reviewer relying solely on the same self-report is not independent evidence. Human-reserved decisions remain human. When collaborative fit or avoidable human rework materially affected the run, compare the observed deviations and repairs against the accepted intent and behavior contract; do not confuse a technically passing artifact with restored collaboration. Record only decision-bearing residuals and preserve accepted work.
 
 When the named Chat–Work Loop Profile is active, Control-Root Postflight occurs in Chat and may still be called **Chat Postflight** as a compatibility/profile-specific label. The generic public core does not require Chat as the closure surface.
 
@@ -1643,9 +1666,12 @@ Classify failures as:
 - `sprint_boundary_failure`
 - `budget_or_resource_failure`
 - `cognitive_failure`
+- `behavioral_fit_failure`
 - `premature_commitment_failure`
 
 Repair non-cognitive causes before model escalation.
+
+`behavioral_fit_failure` denotes a material observed mismatch with an applicable behavior or collaboration contract after distinguishing competing failure domains; it is not proof of a causal regression in model weights. Apply §5 bounded recovery and lateral routing where appropriate; preserve valid work and do not escalate capability solely because the mismatch is frustrating.
 
 `premature_commitment_failure` means a result may be locally coherent, technically correct or verification-passing while evidence tied to the objective, acceptance boundary or a newly observed discriminator shows that an upstream solution-defining choice was inadequate. Do not use the class for an ungrounded preference, behavioral mismatch, capability shortfall, source or tool failure, or ordinary verification failure; those retain their existing failure routes.
 
@@ -1684,7 +1710,8 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 ## 22. Lifecycle and succession
 
-- Adaptive Orchestration Protocol 6.5 is the current public release;
+- Adaptive Orchestration Protocol 6.6 is the current public release;
+- 6.5 remains recoverable through Git history and records phase placement, intent preservation and evidence-bearing acceptance;
 - 6.3 supersedes 6.2 by adding Commitment Geometry while preserving the Behavioral Fit constraint from 6.2, the surface continuity/control-root neutrality from 6.1 and the Delegation-First orchestration from 6.0;
 - 6.2 remains recoverable through Git history and records Behavioral Fit as a separate routing constraint;
 - 6.3 records Commitment Geometry and 6.4 changes dated Chat-model availability calibration; both original release bodies remain recoverable through Moon Source history, linked from the migration record;
@@ -1694,7 +1721,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - the 5.x line remains recoverable through Git history and records Sprint, Decision Sprint, adapter-boundary and GPT-6 executor-calibration maturation;
 - earlier 4.x releases remain historical lineage recoverable through Git history;
 - this repository exposes one canonical Adaptive Orchestration file; website delivery is a separate compatibility mirror and must be synchronized after the canonical body passes validation;
-- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.5;
+- MSL is currently 5.1; Adaptive Orchestration remains independently versioned at 6.6;
 - the optional Astra Strategy Adapter is subordinate, dated and replaceable; it cannot override this canonical body;
 - the GPT-6 Sol/Luna Strategy Adapter is subordinate, dated and replaceable; it calibrates current executor and subagent choices without turning model names or API economics into stable protocol law;
 - Sprint Mode remains optional, explicitly activated and ephemeral; it is not a native product feature, allowance/reset detector or persistent profile field;
@@ -1709,7 +1736,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 - Treat a surface change as an executor change, not a budget reset.
 - Transport the minimum execution capsule; hidden context does not follow by default, and a control-root transition requires explicit continuity transport.
 - Enforce capability floor before honoring model preference.
-- Enforce Behavioral Fit separately from capability: define observable behavior requirements when material, micro-probe uncertain/new model behavior on representative work, and side-route before capability escalation when the failure is behavioral.
+- Enforce Behavioral Fit separately from capability: define observable behavior requirements when material, including collaborative root fit; micro-probe uncertain behavior when decision-changing, account for avoidable human rework, and side-route before capability escalation when the failure is behavioral.
 - Apply the Decision Commitment Gate to materially open choices before scaling dependent work; route commitment separately from execution and judgment, and reopen only the smallest affected boundary when objective-linked evidence shows it was wrong.
 - Preserve the distinction between commitment routing and authority: the gate does not approve a choice, expand mutation scope or transfer a decision reserved to the human.
 - Separate model capability from reasoning effort; change effort before tier when effort is the real insufficiency.
@@ -1740,7 +1767,7 @@ The smallest unresolved delta determines re-entry. A Sprint overlay does not car
 
 Attach or paste this file into ChatGPT and say:
 
-> Use Adaptive Orchestration Protocol 6.5. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, commitment geometry, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before scaling work behind a materially open, costly-to-reverse solution choice, apply the Decision Commitment Gate; probe, branch, side-route or up-route only when it lowers total work to acceptance. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Route execution, judgment and commitment independently; escalate only the irreducible delta and return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
+> Use Adaptive Orchestration Protocol 6.6. Start in AUTO setup unless I provide a named Execution Profile. Treat the surface I am already using as the candidate control root. Preserve that root when it can complete and verify the objective; do not require Chat as the universal starting or return surface. Observe Chat, Work and Codex availability separately from enablement; Codex is optional and must not be assumed. Resolve control surface/root, execution surface/harness, root model/tier, behavioral fit, commitment geometry, reasoning effort and delegation topology as separate dimensions. Define the sovereign object in plain language and use the smallest topology that can complete and verify the delta. Before scaling work behind a materially open, costly-to-reverse solution choice, apply the Decision Commitment Gate; probe, branch, side-route or up-route only when it lowers total work to acceptance. Before asking me to switch surfaces, try direct completion, available tools, internal delegation and bounded cross-surface execution with the current root retained. Show a compact Route Card for non-trivial work. Run Budget Survivability before expensive sustained work, frontier execution or physical fanout. Use Context Diet, checkpoints and transport capsules. Route execution, judgment and commitment independently; escalate only the irreducible delta and return only decision-bearing evidence. When source-backed work is involved, preserve authority, freshness, mutation scope, readback and fallback. After material executor return, perform Control-Root Postflight and independently refresh state before accepting or re-entering the route. Use the named Chat–Work Loop Profile only when Chat continuity is preferred or explicitly requested.
 
 Optional Sprint activation:
 
